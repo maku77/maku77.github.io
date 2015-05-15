@@ -1,3 +1,6 @@
+# Prevent the following files from converting by Jekyll.
+exclude: [README.md]
+
 # Enable highlighter.
 highlighter: rouge
 
