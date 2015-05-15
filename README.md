@@ -1,5 +1,6 @@
 ---
+title: Maku's GitHub page
 ---
 
-# maku77.github.io
-Maku's GitHub page
+* See https://maku77.github.io/
+
