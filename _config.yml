@@ -1,13 +1,16 @@
+# Enable highlighter.
 highlighter: rouge
 
+# Parse markdown files just like GitHub Flavored Markdown.
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
+# Layout settings.
 defaults:
   -
     scope:
       path: ""  # an empty string here means all files in the project
-      type: "pages"
+      type: "pages"  # exclude raw files such as files in the css directory
     values:
-      layout: "default"
+      layout: "default"  # use _layout/default.html

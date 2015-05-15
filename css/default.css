@@ -1,0 +1,11 @@
+/* vim:shiftwidth=2:tabstop=2:expandtabs */
+body {
+  background: white;
+}
+pre {
+  background: #eee;
+  padding: 10px;
+}
+blockquote {
+  background: #dfc;
+}

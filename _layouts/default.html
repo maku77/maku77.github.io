@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/default.css">
 <link rel="stylesheet" href="/css/highlight.css">
 <title>{{ page.title }} - maku77</title>
-<style>
-  body {
-    background: white;
-  }
-  pre {
-    background: #eee;
-    padding: 10px;
-  }
-  blockquote {
-    background: #dfc;
-  }
-</style>
-
 <h1>{{ page.title }}</h1>
-<div id="content">
-{{ page.content | markdownify }}
-</div>
+<div id="content">{{ content }}</div>

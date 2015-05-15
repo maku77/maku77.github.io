@@ -10,14 +10,14 @@ int main() {
 }
 ```
 
-### Table Test
+## Table Test
 
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 
-### List Test
+## List Test
 
 * Item 1
   * Item 1-1
@@ -33,7 +33,7 @@ int main() {
   1. Item 2-1
   1. Item 2-2
 
-### Excerpt Test
+## Excerpt Test
 
 > A long long long time ago...
 > There was a an apple.
