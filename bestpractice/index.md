@@ -1,6 +1,10 @@
 ---
-title: Best Practice
+title: Best Practices
 ---
+
+## GitHub
+
+* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
 
 ## Code Test
 
