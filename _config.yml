@@ -1,5 +1,5 @@
 # Prevent the following files from converting by Jekyll.
-exclude: [README.md]
+exclude: [README.md,run.bat,run.sh]
 
 # Enable highlighter.
 highlighter: pygments

@@ -1,0 +1,3 @@
+# Using 'pygments' highlighter on Windows environment causes some errors...
+highlighter: rouge
+
