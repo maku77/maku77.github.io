@@ -2,7 +2,7 @@
 exclude: [README.md]
 
 # Enable highlighter.
-highlighter: rouge
+highlighter: pygments
 
 # Parse markdown files just like GitHub Flavored Markdown.
 markdown: redcarpet
