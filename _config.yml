@@ -1,0 +1,13 @@
+highlighter: rouge
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+defaults:
+  -
+    scope:
+      path: ""  # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
