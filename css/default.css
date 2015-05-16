@@ -19,6 +19,10 @@ a:hover { background: #cfa; }
 a:focus { color: hotpink; }
 a:active { color: white; background: #f36; }
 
+img {
+  max-width: 100%;
+}
+
 p, ul {
   margin: 1em 30px;
 }
