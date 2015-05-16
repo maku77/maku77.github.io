@@ -1,14 +1,78 @@
 /* vim: set et sts=2 ts=2 sw=2: */
+* {
+  margin: 0;
+}
+
 body {
   background: white;
-  margin: 30px;
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+  color: #111;
 }
+
+a:link {
+  color: #00f;
+  text-decoration: none;
+  border-bottom: dashed 1px;
+}
+a:visited { color: #00c; }
+a:hover { background: #cfa; }
+a:focus { color: hotpink; }
+a:active { color: white; background: #f36; }
+
+p, ul {
+  margin: 1em 30px;
+}
+
+pre {
+  margin: 10px 50px;
+}
+
+h1, h2, h3, h4, h5 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h1 { font-size: 18pt; }
+h2 { font-size: 16pt; }
+h3 { font-size: 14pt; }
+h4 { font-size: 12pt; }
+h4 { font-size: 10pt; }
+
+em {
+  color: #e36;
+  font-style: normal;
+  font-weight: normal;
+}
+
+p > code {
+  color: #333;
+  background: #eee;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 3px 3px;
+  /* border: 1px solid #ccc; */
+  border-radius: 6px;
+}
+
 pre {
   background: #eee;
   padding: 10px;
   font-size: 11pt;
+  border-radius: 6px;
 }
+
 blockquote {
   background: #dfc;
+}
+
+.page-title {
+  font-size: 20pt;
+  padding: 5px 20px;
+  background: #ddd;
+}
+
+.page-date {
+  font-size: smaller;
+  color: #aaa;
+  text-align: right;
 }
