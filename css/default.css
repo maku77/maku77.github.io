@@ -29,7 +29,7 @@ p, ul:not(:first-child) {
 }
 
 pre {
-  margin: 1em 60px;
+  margin: 1em 70px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -48,6 +48,11 @@ em {
   font-style: normal;
   font-weight: normal;
 }
+strong {
+  color: #093;
+  font-style: normal;
+  font-weight: bold;
+}
 
 p > code {
   color: #333;
@@ -55,7 +60,7 @@ p > code {
   font-weight: normal;
   padding: 3px 3px;
   /* border: 1px solid #ccc; */
-  border-radius: 6px;
+  border-radius: 3px;
 }
 
 pre {
