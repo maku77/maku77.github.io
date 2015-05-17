@@ -25,11 +25,11 @@ img {
 }
 
 p, ul:not(:first-child) {
-  margin: 1em 40px;
+  margin: 1em 50px;
 }
 
 pre {
-  margin: 1em 50px;
+  margin: 1em 60px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -39,9 +39,9 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 { font-size: 18pt; }
-h2 { font-size: 16pt; padding-left: 40px; }
-h3 { font-size: 12pt; padding-left: 40px; }
-h4 { font-size: 10pt; padding-left: 40px; }
+h2 { font-size: 16pt; padding-left: 50px; }
+h3 { font-size: 12pt; padding-left: 50px; }
+h4 { font-size: 10pt; padding-left: 50px; }
 
 em {
   color: #e36;

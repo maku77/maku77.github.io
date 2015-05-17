@@ -2,6 +2,8 @@
 title: Best Practices
 ---
 
+（Jekyll でサイト作ってみるテスト）
+
 GitHub
 ====
 
