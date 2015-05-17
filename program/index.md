@@ -8,6 +8,7 @@ HTML/XML のパース
 * [Python で XML を扱う方法いろいろ](python-xml.html)
 * [Python で XML をパースする](python-xml-parse.html)
 * [Python で XPath を使用する](python-xml-xpath.html)
+* [Python で HTML をパースする](python-html-parse.html)
 
 HTTP アクセス
 ====
