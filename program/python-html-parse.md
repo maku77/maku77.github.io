@@ -46,9 +46,20 @@ END    : html
 
 HTMLParser は、単純に HTML 要素を前から順番に処理していくだけなので、現在の要素がどのようなコンテキストで記述されているかは、パーサクラス内で判断していくように実装する必要があります。
 
-インターネットから HTML コンテンツを取得するには、requests モジュールを使用するのが簡単です。
+
+ローカルファイル、及びインターネットからの HTML コンテンツの取得
+====
+ローカルの HTML ファイルの内容は、```open()``` で簡単に取得できます。
+
+```python
+text = open('input.html').read()
+```
+
+インターネットから HTML コンテンツを取得するには、requests モジュールを使用すると簡単です。
 
 ```python
 import requests
-text = requests.get('http://example.com').text
+text = requests.get('http://example.com/').text
 ```
+
+このようにして取得した HTML テキストを ```HTMLParser#feed()``` に渡してやればよいでしょう。
