@@ -12,6 +12,7 @@ HTML/XML のパース
 HTTP アクセス
 ====
 * [Python で HTTP を扱う方法いろいろ](python-http.html)
+* [Python で HTTP アクセス](python-http-access.html)
 
 パッケージ管理
 ====
