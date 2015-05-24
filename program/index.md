@@ -9,6 +9,7 @@ created: 2015-05-17
 |----|------|
 | if-else |  |
 | switch-case | [Python](python-syntax-switch.html) |
+| クラス | [Python](python-syntax-class.html) |
 
 HTML/XML のパース
 ====
