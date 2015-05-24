@@ -3,6 +3,13 @@ title: Program
 created: 2015-05-17
 ---
 
+構文
+====
+|    |Python|
+|----|------|
+| if-else |  |
+| switch-case | [Python](python-syntax-switch.html) |
+
 HTML/XML のパース
 ====
 * [Python で XML を扱う方法いろいろ](python-xml.html)
