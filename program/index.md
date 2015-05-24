@@ -5,13 +5,14 @@ created: 2015-05-17
 
 構文
 ====
-|    | PHP | Python | Ruby |
-|----|-----|--------|------|
-| if-else | [PHP](php-syntax-if.html) |  |  |
-| switch-case |  | [Python](python-syntax-switch.html) |  |
-| ループ | [PHP](php-syntax-loop.html) |  | [Ruby](ruby-syntax-loop.html) |
-| クラス |  | [Python](python-syntax-class.html) |  |
-| 文字列リテラル |  |  [Python](python-syntax-string-literal.html) |  |
+|    | Bash | PHP | Python | Ruby |
+|----|------|-----|--------|------|
+| if-else | [Bash](bash-syntax-if.html) | [PHP](php-syntax-if.html) |  |  |
+| switch-case |  |  | [Python](python-syntax-switch.html) |  |
+| ループ |  | [PHP](php-syntax-loop.html) |  | [Ruby](ruby-syntax-loop.html) |
+| クラス |  |  | [Python](python-syntax-class.html) |  |
+| 文字列リテラル |  |  |  [Python](python-syntax-string-literal.html) |  |
+
 
 
 HTML/XML のパース
