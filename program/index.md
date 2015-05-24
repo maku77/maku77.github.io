@@ -10,7 +10,7 @@ created: 2015-05-17
 | if-else | [Bash](bash-syntax-if.html) | [PHP](php-syntax-if.html) |  |  |
 | switch-case |  |  | [Python](python-syntax-switch.html) |  |
 | ループ |  | [PHP](php-syntax-loop.html) |  | [Ruby](ruby-syntax-loop.html) |
-| クラス |  |  | [Python](python-syntax-class.html) |  |
+| クラス |  | [PHP](php-syntax-class.html) | [Python](python-syntax-class.html) |  |
 | 文字列リテラル |  |  |  [Python](python-syntax-string-literal.html) |  |
 
 
