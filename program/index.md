@@ -9,6 +9,7 @@ created: 2015-05-17
 |----|-----|--------|
 | if-else | [PHP](php-syntax-if.html) |  |
 | switch-case |  | [Python](python-syntax-switch.html) |
+| ループ | [PHP](php-syntax-loop.html) |  |
 | クラス |  | [Python](python-syntax-class.html) |
 | 文字列リテラル |  |  [Python](python-syntax-string-literal.html) |
 
