@@ -21,5 +21,6 @@ GitHub
 
 その他
 ====
+* [不具合修正では不具合を入れてしまった原因を取り除く](remove-error-prone-code.html)
 * [型変換用メソッドは受け取り側クラスに作る](api-convert-type.html)
 * [リソースは finally ブロックで閉じる](finally-close.html)
