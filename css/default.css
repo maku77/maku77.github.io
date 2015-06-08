@@ -24,7 +24,7 @@ img {
   max-width: 100%;
 }
 
-p, ul:not(:first-child) {
+p, ul:not(:first-child), ol:not(:first-child) {
   margin: 1em 50px;
 }
 
