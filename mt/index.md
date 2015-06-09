@@ -11,6 +11,8 @@ title: MetaTrader
 MQL
 ====
 
+MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。このサイトでは、この新しい構文を使ったコードを示します。
+
 カスタムインジケータ (Custom Indicator)
 ----
 * [カスタムインジケータを作成する](create-indicator.html)
@@ -32,6 +34,7 @@ MQL
 * [メッセージボックスを表示する](messagebox.html)
 * [音声を再生する](play-sound.html)
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
+* [#property strict について](property-strict.html)
 
 
 リンク
