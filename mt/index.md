@@ -35,6 +35,7 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [音声を再生する](play-sound.html)
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
 * [#property strict について](property-strict.html)
+* [デバッグ用のマクロを定義する](debug-macro.html)
 
 
 リンク
