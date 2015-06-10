@@ -17,3 +17,10 @@ void OnTick() {
 }
 ```
 
+関数名を取得するための `__FUNCTION__` なども便利です。
+
+```mql
+Print(__FUNCTION__);  // OnTick()
+Print(__FUNCSIG__);   // void OnTick()
+```
+

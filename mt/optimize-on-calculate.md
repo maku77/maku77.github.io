@@ -9,6 +9,17 @@ created: 2015-02-01
 ```mql
 // double gBuffer[];  // Buffer for indicator line
 
+/**
+ * How many candles should be re-calculated.
+ */
+int changedBars(int rates_total, int prev_calculated) {
+    if (prev_calculated == 0) {
+        return rates_total;
+    }
+    // The latest bar should be updated, so add 1.
+    return rates_total - prev_calculated + 1;
+}
+
 int OnCalculate(const int rates_total,
                 const int prev_calculated,
                 const datetime &time[],
@@ -20,13 +31,10 @@ int OnCalculate(const int rates_total,
                 const long &volume[],
                 const int &spread[]) {
     // 直近から見て何本のローソク足に対して計算が必要か？
-    int count = rates_total - prev_calculated;
-    if (count == 0) {
-        count = 1;
-    }
+    int changed = changedBars(rates_total, prev_calculated);
 
     // インジケータの計算（新しく計算した部分だけ更新すれば OK）
-    for (int i = 0; i < count; ++i) {
+    for (int i = 0; i < changed; ++i) {
         gBuffer[i] = close[i];
     }
 
@@ -56,13 +64,13 @@ gBuffer[4] = 計算済み
 
 ```mql
 // 直近から見て何本のローソク足に対して計算が必要か？
-int count = rates_total - prev_calculated;
-if (count == 0) {
-    count = 1;
-}
+int changed = (prev_calculated == 0) ?
+    rates_total : rates_total - prev_calculated + 1;
 ```
 
-例えば、新しく計算しなければならない足の本数が 10 本ならば、`count` が 10 になります。
-ただし、通常 2 回目以降の `OnCalculate` 関数の呼び出しでは、ほとんどの場合 `count` は 0 になることに注意してください。
-なぜなら、`OnCalculate` 関数はティック（価格変化）ごとに呼び出されるので、多くの場合ローソク足の本数は変化せず、最新のローソク足の終値だけが更新されるからです。この場合、全ローソク足に対するインジケータの計算はすでに行われている (`count == 0`) ですが、最新のローソク足に対しては価格が更新されているので、再計算を行うために `count = 1` に訂正しています。
+例えば、新しく計算しなければならない足の本数が 10 本ならば、`changed` が 10 になります。
+最初はひとつも計算していない状態 (`prev_calculated == 0`) なので、ローソク足の総数 (`rates_total`) の分すべて計算する必要があります。
+2 回目以降の計算では、すでに前回の計算結果が保持されている (`prev_calculated != 0`) なので、その分だけ計算すべきローソク足の数は減ります。
+ここで、1 を足しているのは、最新のローソク足の分を常に再計算するためです。
+なぜなら、`OnCalculate` 関数はティック（価格変化）ごとに呼び出されるので、多くの場合最新のローソク足の終値が更新されているからです。
 

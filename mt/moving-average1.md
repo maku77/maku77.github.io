@@ -39,11 +39,15 @@ int OnInit() {
 }
 
 /**
+ * [Utility]
  * How many candles should be re-calculated.
  */
 int changedBars(int rates_total, int prev_calculated) {
-    int changed = rates_total - prev_calculated;
-    return changed == 0 ? 1 : changed;
+    if (prev_calculated == 0) {
+        return rates_total;
+    }
+    // The latest bar should be updated, so add 1.
+    return rates_total - prev_calculated + 1;
 }
 
 /**
@@ -76,7 +80,7 @@ void calcMovingAverage(double &buf[], const double &price[], int price_count,
     }
 
     // Update each MA
-    int count = MathMin(changed, price_count - period);
+    int count = MathMin(changed, price_count - period + 1);
     for (int i = 0; i < count; ++i) {
         buf[i] = average(price, i, period);
     }

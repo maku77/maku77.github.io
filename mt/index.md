@@ -17,25 +17,35 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 ----
 * [カスタムインジケータを作成する](create-indicator.html)
 * [カスタムインジケータの OnCalculate 関数を最適化する](optimize-on-calculate.html)
-* 移動平均線
+* [カスタムインジケータで使用できるイベント](event-for-indicator.html)
+* 単純移動平均線 (SMA: Simple Moving Average)
   * [移動平均線のカスタムインジケータを作成する (1)](moving-average1.html)
   * [移動平均線のカスタムインジケータを作成する (2) 移動平均計算の最適化](moving-average2.html)
   * [移動平均線のカスタムインジケータを作成する (3) 3 本の移動平均線を表示する](moving-average3.html)
+* 加重移動平均線 (WMA: Weighted Moving Average)
+  * [加重移動平均線のカスタムインジケータを作成する](indicator-wma.html)
 
 エキスパートアドバイザ (EA: Expert Advisor)
 ----
 * [Expert Advisor を作成する](create-advisor.html)
 
-雑多
+チャート情報
 ----
-* [スクリプトを実行する前に確認画面を表示する](confirmation.html)
+* [チャートのローソク足の数を取得する](get-bar-count.html)
+
+情報表示
+----
 * [画面上にテキスト出力する (1) Alert, Comment, Print の基本](print-text1.html)
 * [画面上にテキスト出力する (2) Comment 関数を使いやすくする](print-text2.html)
 * [メッセージボックスを表示する](messagebox.html)
 * [音声を再生する](play-sound.html)
+* [デバッグ用のマクロを定義する](debug-macro.html)
+
+雑多
+----
+* [スクリプトを実行する前に確認画面を表示する](confirmation.html)
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
 * [#property strict について](property-strict.html)
-* [デバッグ用のマクロを定義する](debug-macro.html)
 
 
 リンク
