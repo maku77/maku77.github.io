@@ -7,7 +7,7 @@ created: 2015-02-01
 ここでは、3 本の移動平均線を表示します。
 1 本のときと異なるのは、3 本分の指標バッファを用意しているところだけです。
 
-#### MyMovingAverage.mt4
+#### MySma.mt4
 ```mql
 // Global settings
 #property description "My Moving Average"

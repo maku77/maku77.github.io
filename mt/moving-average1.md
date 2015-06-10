@@ -7,7 +7,7 @@ created: 2015-02-01
 
 ![](img/moving-average1.png)
 
-#### MyMovingAverage.mt4
+#### MySma.mt4
 ```mql
 #property description "My Moving Average"
 #property strict
