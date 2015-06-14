@@ -18,12 +18,15 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [カスタムインジケータを作成する](create-indicator.html)
 * [カスタムインジケータの OnCalculate 関数を最適化する](optimize-on-calculate.html)
 * [カスタムインジケータで使用できるイベント](event-for-indicator.html)
+* [カスタムインジケータに水平線を表示する](indicator-level-line.html)
+
+### カスタムインジケータのサンプル
 * 単純移動平均線 (SMA: Simple Moving Average)
   * [移動平均線のカスタムインジケータを作成する (1)](moving-average1.html)
   * [移動平均線のカスタムインジケータを作成する (2) 移動平均計算の最適化](moving-average2.html)
   * [移動平均線のカスタムインジケータを作成する (3) 3 本の移動平均線を表示する](moving-average3.html)
-* 加重移動平均線 (WMA: Weighted Moving Average)
-  * [加重移動平均線のカスタムインジケータを作成する](indicator-wma.html)
+* [加重移動平均線 (WMA: Weighted Moving Average) のカスタムインジケータを作成する](indicator-wma.html)
+* [モメンタム (Momentum) のインジケータを作成する](indicator-momentum.html)
 
 エキスパートアドバイザ (EA: Expert Advisor)
 ----
