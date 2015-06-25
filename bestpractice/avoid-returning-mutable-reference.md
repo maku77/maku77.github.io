@@ -43,3 +43,12 @@ public long getStartTime() {
 
 ちなみに、Java の ```String``` は不変オブジェクトなので return しても問題ありません。
 
+Java には、任意のコレクションを変更できないようにするためのユーティリティが用意されています。
+例えば、オブジェクト内部の List オブジェクトを getter で返さないといけない場合は、下記のようにすることで外部からの破壊を防ぐことができます。
+
+```java
+public List<Book> getRecommendedBookList() {
+    return Collections.unmodifiableList(recommendedBooks);
+}
+```
+
