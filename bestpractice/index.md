@@ -28,6 +28,7 @@ GitHub
 * [不具合修正では不具合を入れてしまった原因を取り除く](remove-error-prone-code.html)
 * [可変オブジェクトのメンバ参照を返さない](avoid-returning-mutable-reference.html)
 * [時制や単数形・複数形を考慮して命名する](tense-and-plural.html)
+* [肯定形で表現する](prefer-positive-sentence.html)
 * [型変換用メソッドは受け取り側クラスに作る](api-convert-type.html)
 * [静的チェックのレベルはプロジェクト初期に厳しくする](strict-analysis-in-the-beginning.html)
 * [リソースは finally ブロックで閉じる](finally-close.html)
