@@ -5,7 +5,7 @@ created: 2015-06-24
 
 二要素認証を設定した後に、従来通りに git clone や git push コマンドを実行しようとすると、下記のように Authentication failed になってしまいます。
 
-```dos
+```
 C:\> git clone https://github.com/xxx/yyy.git
 Cloning into 'yyy'...
 Username for 'https://github.com': maku77
