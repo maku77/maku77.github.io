@@ -6,4 +6,5 @@ title: maku's note
 * [Best Practices](/bestpractice/)
 * [Program](/program/)
 * [Git](/git/)
+* [Gradle](/gradle/)
 * [MetaTrader](/mt/)
