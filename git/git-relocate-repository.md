@@ -1,5 +1,5 @@
 ---
-title: 別のサーバに Git リポジトリを移行する（GitLab から GitHub への移行）
+title: "別のサーバに Git リポジトリを移行する（GitLab から GitHub への移行）"
 created: 2015-06-29
 ---
 
@@ -7,7 +7,7 @@ created: 2015-06-29
 GitHub 上で、空のリポジトリ dst.git を作成済みだと仮定しています。
 
 ### 例: src.git から dst.git への移行
-```git
+```sh
 $ git clone --mirror https://github.com/user/src.git
 $ cd from.git
 $ git push --mirror https://github.com/user/dst.git
