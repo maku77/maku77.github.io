@@ -10,7 +10,7 @@ created: 2015-06-30
 `from/dir` 以下のディレクトリ階層は保たれます。
 コピー先のディレクトリ `to/dir` が存在しない場合は、自動的に作成されます。
 
-```gradle
+```java
 task hello(type: Copy) {
     from 'from/dir'
     into 'to/dir'
@@ -23,7 +23,7 @@ Copy タスクにおいて、include や exclude でファイル名のパター�
 
 #### 拡張子が .txt のファイルをすべてコピー
 
-```gradle
+```java
 task hello(type: Copy) {
     from 'from/dir'
     into 'to/dir'
@@ -33,7 +33,7 @@ task hello(type: Copy) {
 
 #### 拡張子が .bk ではないファイルをすべてコピー
 
-``` gradle
+```java
 task hello(type: Copy) {
     from 'from/dir'
     into 'to/dir'
@@ -47,7 +47,7 @@ task hello(type: Copy) {
 コピー元のディレクトリを複数指定して、一つのディレクトリにコピーすることもできます。
 下記の例では、`from1` ディレクトリと `from2` ディレクトリ内のファイルを `to` ディレクトリにコピーしています。
 
-```gradle
+```java
 task hello(type: Copy) {
     from 'from1'
     from 'from2'
@@ -59,7 +59,7 @@ task hello(type: Copy) {
 下記のようにすると、コピー先にディレクトリを作って、その中にファイルをコピーすることができます。
 `from` のパラメータを括弧で囲むことに注意してください。
 
-```gradle
+```java
 task hello(type: Copy) {
     from('from1') {
         into 'f1'
