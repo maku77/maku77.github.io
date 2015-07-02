@@ -7,7 +7,7 @@ Copy 仕様によりファイルをコピーする際に、rename メソッド�
 
 #### 例: 拡張子 .txt を .html にリネームしてコピー
 
-```gradle
+```java
 task hello(type: Copy) {
     from 'from'
     into 'to'
@@ -18,7 +18,7 @@ task hello(type: Copy) {
 拡張子として `.txt` を持たないファイルに関しては、元のファイル名のままコピーされます。
 上記では `rename` メソッド呼び出しのパラメータとして置換パターンを指定していますが、クロージャの形で置換処理を記述することもできます。
 
-```gradle
+```java
 task hello(type: Copy) {
     from 'from'
     into 'to'

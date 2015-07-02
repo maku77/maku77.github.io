@@ -17,7 +17,7 @@ buildDate=${buildDate.format("yyyyMMdd'T'HHmmss")}
 そこにどんな値を格納するかは、コピータスクの `expand()` メソッドで指定します。
 
 ### build.gradle
-```gradle
+```java
 task hello(type: Copy) {
     from 'input'
     include 'build.properties'
