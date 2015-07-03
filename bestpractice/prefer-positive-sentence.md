@@ -8,8 +8,10 @@ created: 2015-06-23
 
 ```java
 boolean isInvisible();           // NG（isVisible とすればよい）
-setHideFlag(boolean shouldHide)  // NG（show と言えばよい）
-boolean isNotDisplayed;          // NG（反転させなくてよし）
+boolean isHidden();              // NG（同上）
+setHideFlag(boolean shouldHide)  // NG（単純に show とすればよい）
+boolean isNotDisplayed;          // NG（反転させなくてよい）
 setVisibility(boolean visible);  // OK（show() と hide() を用意するのも OK）
+show() / hide()                  // OK
 ```
 
