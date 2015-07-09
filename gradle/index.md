@@ -10,16 +10,29 @@ created: 2015-07-01
 * [Gradle のタスクを定義する](define-gradle-tasks.html)
 * [Gradle でデフォルトタスクを指定する (defaultTasks)](specify-default-task.html)
 
+
 Gradle の設定
 ----
 * [Gradle のプロキシを設定する](proxy-settings.html)
+
 
 Gradle のコマンド
 ----
 * [Gradle タスクの一覧を表示する (tasks)](gradle-tasks.html)
 * [Gradle のプロジェクトで使用可能なプロパティの一覧を表示する (properties)](gradle-properties.html)
 
-Java
+
+Groovy スクリプト
+----
+* [Groovy と Java の違い](groovy-and-java.html)
+* [Groovy で assert を使用する](assert-in-groovy.html)
+* [Groovy でメソッドを定義する](method-in-groovy.html)
+* [Groovy でクラスを定義する](class-in-groovy.html)
+* [Groovy で文字列リテラルを扱う](string-literal-in-groovy.html)
+* [Groovy で List を扱う](list-in-groovy.html)
+* [Groovy で Map を扱う](map-in-groovy.html)
+
+Groovy で Java プロジェクトを扱う
 ----
 * [Gradle で Java プロジェクトをビルドする](build-java-project.html)
 
