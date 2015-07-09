@@ -7,7 +7,7 @@ Groovy の SimpleTemplateEngine クラスの機能を使用することで、フ
 
 例えば、入力ファイルとして、下記のようなテンプレートファイルを用意しておきます。
 
-### input/build.properties
+#### input/build.properties
 ```
 version=${version}
 buildDate=${buildDate.format("yyyyMMdd'T'HHmmss")}
@@ -16,8 +16,8 @@ buildDate=${buildDate.format("yyyyMMdd'T'HHmmss")}
 `${string}` という部分が動的に置換される部分です。
 そこにどんな値を格納するかは、コピータスクの `expand()` メソッドで指定します。
 
-### build.gradle
-```java
+#### build.gradle
+```groovy
 task hello(type: Copy) {
     from 'input'
     include 'build.properties'
@@ -32,7 +32,7 @@ task hello(type: Copy) {
 
 上記のタスクを実行すると、下記のようなファイルが出力されます。
 
-### output/build.properties
+#### output/build.properties
 ```
 version=1.0.0
 buildDate=20150630T224515
