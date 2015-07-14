@@ -17,6 +17,7 @@ Gradle の基本
 * [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
 * [Gradle のタスクに説明を付け、グルーピングする (description, group)](group-tasks.html)
 * [既存の Gradle タスクにアクションを追加する](add-action-to-task.html)
+* [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
 
 
 Gradle のコマンド

@@ -5,8 +5,11 @@ created: 2014-06-01
 
 Gradle のプロキシ設定は、下記のいずれかのファイルで行います。
 
-* <プロジェクトルート>/gradle.properties
-* ~/.gradle/gradle.properties
+* ＜Project＞/gradle.properties  （プロジェクトごとの設定）
+* $HOME/.gradle/gradle.properties （システム全体の設定 - Linux の場合）
+* %USERPROFILE%/.gradle/gradle.properties （システム全体の設定 - Windows の場合）
+
+`gradle` コマンド実行時に Maven リポジトリにアクセスしたり、Gradle Wapper をインストールするのためのアーカイブをダウンロードしたりする際にネットワークアクセスが発生します。
 
 #### gradle.properties
 ```groovy
