@@ -15,6 +15,7 @@ Gradle の基本
 * [Gradle のタスクを定義する (task)](define-gradle-tasks.html)
 * [Gradle でデフォルトタスクを指定する (defaultTasks)](default-task.html)
 * [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
+* [Gradle のタスクに説明を付け、グルーピングする (description, group)](group-tasks.html)
 
 
 Gradle のコマンド
