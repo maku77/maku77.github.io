@@ -20,3 +20,10 @@ systemProp.https.proxyUser=<ユーザ>
 systemProp.https.proxyPassword=<パスワード>
 ```
 
+#### 設定例
+```groovy
+systemProp.http.proxyHost=proxy.example.com
+systemProp.http.proxyPort=8080
+systemProp.https.proxyHost=proxy.example.com
+systemProp.https.proxyPort=8080
+```

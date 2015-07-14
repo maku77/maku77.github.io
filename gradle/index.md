@@ -3,17 +3,18 @@ title: Gradle
 created: 2015-07-01
 ---
 
-基本
+インストールと設定
 ----
 * [Gradle をインストールする (Mac OSX)](install-gradle-to-mac.html)
 * [Gradle をインストールする (Windows)](install-gradle-to-win.html)
-* [Gradle のタスクを定義する](define-gradle-tasks.html)
-* [Gradle でデフォルトタスクを指定する (defaultTasks)](specify-default-task.html)
-
-
-Gradle の設定
-----
 * [Gradle のプロキシを設定する](proxy-settings.html)
+
+
+Gradle の基本
+----
+* [Gradle のタスクを定義する (task)](define-gradle-tasks.html)
+* [Gradle でデフォルトタスクを指定する (defaultTasks)](default-task.html)
+* [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
 
 
 Gradle のコマンド
