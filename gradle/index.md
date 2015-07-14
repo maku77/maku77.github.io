@@ -35,9 +35,10 @@ Groovy スクリプト
 * [Groovy で List を扱う](list-in-groovy.html)
 * [Groovy で Map を扱う](map-in-groovy.html)
 
-Groovy で Java プロジェクトを扱う
+Groovy で Java プロジェクトを扱う (java プラグイン)
 ----
 * [Gradle で Java プロジェクトをビルドする](build-java-project.html)
+* [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
 
 
 ファイル
