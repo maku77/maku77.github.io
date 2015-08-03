@@ -40,6 +40,7 @@ Groovy スクリプト
 Groovy で Java プロジェクトを扱う (java プラグイン)
 ----
 * [Gradle で Java プロジェクトをビルドする](build-java-project.html)
+* [Gradle で Javadoc API Document を出力する](javadoc.html)
 * [Gradle で実行可能な JAR ファイルを作成する](executable-jar.html)
 * [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
 
