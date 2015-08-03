@@ -7,4 +7,5 @@ title: maku's note
 * [Program](/program/)
 * [Git](/git/)
 * [Gradle](/gradle/)
-* [MetaTrader](/mt/)
+* [MetaTrader](/mt/) ─ FX システムトレード
+* [Windows](/windows/) ─ Windows バッチファイルなど
