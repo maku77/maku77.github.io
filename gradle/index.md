@@ -21,6 +21,24 @@ Gradle の基本
 * [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
 * [Gradle デーモンを使って gradle コマンドを高速化する](gradle-daemon.html)
 
+Gradle で Java プロジェクトを扱う (java プラグイン)
+----
+* [Gradle で Java プロジェクトをビルドする](build-java-project.html)
+* [Gradle で Javadoc API Document を出力する](javadoc.html)
+* [Gradle で実行可能な JAR ファイルを作成する](executable-jar.html)
+* [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
+
+Gradle でマルチプロジェクトを扱う
+----
+* [Gradle によるマルチプロジェクトの基本](multi-project.html)
+* [Gradle のマルチプロジェクトで依存関係を扱う](multi-project-dependency.html)
+
+Gradle でファイルを扱う
+----
+* [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
+* [Gradle でファイルをリネームする](gradle-rename-files.html)
+* [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
+
 
 Gradle のコマンド
 ----
@@ -38,16 +56,3 @@ Groovy スクリプト
 * [Groovy で List を扱う](list-in-groovy.html)
 * [Groovy で Map を扱う](map-in-groovy.html)
 
-Groovy で Java プロジェクトを扱う (java プラグイン)
-----
-* [Gradle で Java プロジェクトをビルドする](build-java-project.html)
-* [Gradle で Javadoc API Document を出力する](javadoc.html)
-* [Gradle で実行可能な JAR ファイルを作成する](executable-jar.html)
-* [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
-
-
-ファイル
-----
-* [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
-* [Gradle でファイルをリネームする](gradle-rename-files.html)
-* [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
