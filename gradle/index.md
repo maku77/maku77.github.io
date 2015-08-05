@@ -12,6 +12,7 @@ created: 2015-07-01
 
 Gradle の基本
 ----
+* [Gradle 実行時の 3 つのフェーズ](three-phases.html)
 * [Gradle のタスクを定義する (task)](define-gradle-tasks.html)
 * [Gradle でデフォルトタスクを指定する (defaultTasks)](default-task.html)
 * [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
