@@ -33,6 +33,11 @@ Gradle でマルチプロジェクトを扱う
 * [Gradle によるマルチプロジェクトの基本](multi-project.html)
 * [Gradle のマルチプロジェクトで依存関係を扱う](multi-project-dependency.html)
 
+Gradle で静的解析 (static analysis) を行う
+----
+* [Gradle で Checkstyle による静的解析を実行する](checkstyle.html)
+
+
 Gradle でファイルを扱う
 ----
 * [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
