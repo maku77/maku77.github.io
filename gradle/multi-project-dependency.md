@@ -65,12 +65,12 @@ project(':mylib') {
 $ gradle -q build
 ```
 
-ちなみに、上記のようにすべてのプロジェクト内で同じコンフィギュレーションを行う部分がある場合は、**allprojects** に共通処理のクロージャとして渡しておくことができます。
+ちなみに、上記のようにすべてのサブプロジェクト内で同じコンフィギュレーションを行う部分がある場合は、**subprojects** メソッドに、共通処理のクロージャとして渡しておくことができます（ルートプロジェクトを含む共通処理を記述したい場合は、subprojects の代わりに **allprojects** を使用します）。
 
 
-#### build.gradle（allprojects で共通処理を括りだした）
+#### build.gradle（subprojects で共通処理を括りだした）
 ```groovy
-allprojects {
+subprojects {
     apply plugin: 'java'
 }
 
