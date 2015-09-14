@@ -35,31 +35,20 @@ pmd {
     ignoreFailures = true  // PMD で警告が出てもビルドエラーにしない
     consoleOutput = true   // コンソールにも解析結果を出力
     ruleSets = [  // 適用する PMD ルール（プロジェクトごとに要調整）
-        'java-android',
-        'java-basic',
-        'java-braces',
-        'java-clone',
-        'java-codesize',
-        'java-comments',
-        'java-controversial',
-        'java-design',
-        'java-empty',
-        'java-finalizers',
-        'java-imports',
-        'java-j2ee',
-        'java-javabeans',
-        'java-junit',
-        'java-logging-jakarta-commons',
-        'java-logging-java',
-        'java-migrating',
-        'java-naming',
-        'java-optimizations',
-        'java-strictexception',
-        'java-strings',
-        'java-sunsecure',
-        'java-typeresolution',
-        'java-unnecessary',
-        'java-unusedcode'
+        'java-basic',            // good practices which should be followed
+        'java-braces',           // regarding the use and placement of braces
+        'java-clone',            // questionable usages of the clone() method
+        'java-codesize',         // problems related to code size or complexity
+        'java-design',           // flag suboptimal code implementations
+        'java-empty',            // empty statements of any kind
+        'java-finalizers',       // problems that can occur with finalizers
+        'java-imports',          // problems that can occur with import statements
+        'java-strictexception',  // strict guidelines about throwing and catching exceptions
+        'java-strings',          // manipulation of the String, StringBuffer, or StringBuilder instances
+        'java-sunsecure',        // check the security guidelines from Sun
+        'java-typeresolution',   // rules which resolve java Class files for comparison
+        'java-unnecessary',      // find useless or unnecessary code
+        'java-unusedcode'        // find unused or ineffective code
     ]
 }
 ```
@@ -101,11 +90,11 @@ pmd {
     toolVersion '5.3.3'
     ignoreFailures = true
     ruleSets = [
-        'java-basic',
-        'java-braces',
-        'java-clone',
-        'java-codesize',
-        'java-comments',
+        'java-basic',     // good practices which everyone should follow
+        'java-braces',    // braces rules
+        'java-clone',     // questionable usages of the clone() method
+        'java-codesize',  // find code size, complexity problems
+        'java-design',    // questionable designs
         ...
     ]
 }
@@ -114,6 +103,7 @@ pmd {
 そして、ルートプロジェクトのビルドスクリプト内で、下記のようにロードすれば OK です。
 
 #### build.gradle
+
 ```groovy
 subprojects {
     apply plugin: 'java'
@@ -124,3 +114,18 @@ subprojects {
 }
 ```
 
+おまけ PMD ルールセットいろいろ
+====
+
+PMD で設定できるルールセットは、他にもいろいろ定義されています。
+
+* 必要に応じて有効にしたいルール
+  * **java-android**  （Android related best practice）
+  * **java-j2ee**  （J2EE アプリ用）
+  * **java-junit**  （JUnit のコード用）
+  * **java-logging-jakarta-commons**  （Logger 用）
+  * **java-logging-java**  （Logger 用）
+* あまり使わなさそうなルール
+  * **java-controversial**  （異論のあるルールが多い）
+  * **java-naming**  （命名規則が厳しすぎ）
+  * **java-optimizations**  （final を強制しすぎ）
