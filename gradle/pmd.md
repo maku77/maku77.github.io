@@ -33,6 +33,7 @@ repositories {
 pmd {
     toolVersion '5.3.3'    // 使用する PMD のバージョン
     ignoreFailures = true  // PMD で警告が出てもビルドエラーにしない
+    consoleOutput = true   // コンソールにも解析結果を出力
     ruleSets = [  // 適用する PMD ルール（プロジェクトごとに要調整）
         'java-android',
         'java-basic',
