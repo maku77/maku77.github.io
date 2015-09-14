@@ -22,15 +22,15 @@ repositories {
 }
 
 checkstyle {
-    toolVersion = '6.7'
+    toolVersion '6.7'
 }
 ```
 
 checkstyle プラグインによって、**checkstyleMain** や **checkstyleTest** などのタスクが定義されます。
-これらのタスクは、**check** タスクに依存するタスクとして定義されるので、**check** タスクを定義する **java** プラグインも読み込んでおく必要があります（Android のプラグインなどでも OK）。
+これらのタスクは、**check** タスクに依存するタスクとして定義されるので、**check** タスクを定義する **java** プラグインも読み込んでおく必要があります。
 また、Checkstyle はバージョンアップごとに微妙に互換性がなくなるので、上記のように `checkstyle` コンフィギュレーションで、使用する Checkstyle のバージョンを指定しておくのがよいでしょう。
 
-Checkstyle プラグインは、デフォルトで Checkstyle の設定ファイルとして **${project.projectDir}/config/checkstyle/checkstyle.xml** を読み込むので、まずはここにプロジェクトで使用する Checkstyle の設定を置いておく必要があります。
+Checkstyle プラグインは、デフォルトで Checkstyle の設定ファイルとして **${projectDir}/config/checkstyle/checkstyle.xml** を読み込むので、まずはここにプロジェクトで使用する Checkstyle の設定を置いておく必要があります。
 
 デフォルトの構成に従うと、こんな感じのディレクトリ構成になります。
 
@@ -67,7 +67,7 @@ Checkstyle プラグインは、デフォルトで **config/checkstyle/checkstyl
 
 ```groovy
 checkstyle {
-    configFile = new File("${project.projectDir}/config/my-checkstyle.xml")
+    configFile file("$rootDir/config/my-checkstyle.xml")
     ...
 }
 ```
@@ -76,7 +76,7 @@ Checkstyle による警告が出た場合もビルドを継続する
 ----
 ```groovy
 checkstyle {
-    ignoreFailures = true  // continue build if there are warnings
+    ignoreFailures true  // continue build if there are warnings
     ...
 }
 ```
@@ -91,9 +91,9 @@ checkstyle {
 apply plugin: 'checkstyle'
 
 checkstyle {
-    toolVersion = '6.7'
-    configFile = new File("${project.projectDir}/config/checkstyle.xml")
-    ignoreFailures = true
+    toolVersion '6.7'
+    configFile file("$rootDir/config/checkstyle.xml")
+    ignoreFailures true
 }
 ```
 
