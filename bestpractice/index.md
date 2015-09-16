@@ -6,6 +6,7 @@ title: Best Practices（Jekyll でサイト作ってみるテスト）
 ====
 * [不具合修正では不具合を入れてしまった原因を取り除く](remove-error-prone-code.html)
 * [可変オブジェクトのメンバ参照を返さない](avoid-returning-mutable-reference.html)
+* [プロジェクト内での null の扱い方をルール化する](clarify-how-to-use-null.html)
 * [時制や単数形・複数形を考慮して命名する](tense-and-plural.html)
 * [肯定形で表現する](prefer-positive-sentence.html)
 * [単位を明確にする](clarify-unit.html)
