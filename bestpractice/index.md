@@ -21,6 +21,7 @@ title: Best Practices（Jekyll でサイト作ってみるテスト）
 
 テスト
 ====
+* [テストピラミッドを意識してテストの自動化を進める](test-pyramid.html)
 * [単体テスト、結合テスト、システムテスト、受入テストの関係を理解する](test-relation.html)
 
 アジャイルプラクティス
