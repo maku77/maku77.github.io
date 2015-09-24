@@ -3,7 +3,7 @@ title: テストピラミッドを意識してテストの自動化を進める
 created: 2015-09-24
 ---
 
-Mike Cohn が『Succeeding with Agile』で紹介した **test automation pyramid** というものがあります。
+[Mike Cohn](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) が『Succeeding with Agile』で紹介した **test automation pyramid** というものがあります。
 テストの自動化を進めるときは、このような比率になるように構築していくと、効率のよいテストを行えるようになります。
 
 ![test-pyramid](test-pyramid.png)

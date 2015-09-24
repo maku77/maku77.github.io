@@ -28,6 +28,14 @@ Gradle で Java プロジェクトを扱う (java プラグイン)
 * [Gradle で実行可能な JAR ファイルを作成する](executable-jar.html)
 * [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
 
+Gradle でユニットテスト
+----
+* [Gradle で JUnit によるユニットテストを実行する](test-junit.html)
+* [Gradle で JUnit の代わりに TestNG でユニットテストを実行する](test-testng.html)
+* [Gradle でユニットテストの結果をコンソールに詳しく表示する](test-detail-log.html)
+* [Gradle でユニットテストを並列実行する](test-parallel.html)
+
+
 Gradle でマルチプロジェクトを扱う
 ----
 * [Gradle によるマルチプロジェクトの基本](multi-project.html)
