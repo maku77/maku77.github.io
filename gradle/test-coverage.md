@@ -70,6 +70,16 @@ Total time: 8.697 secs
 * build/reports/jacoco/jacoco/jacoco.csv（CSV 形式のレポート）
 * build/reports/jacoco/jacoco/jacoco.xml（XML 形式のレポート）
 
+ちなみに、Jenkins の JaCoCo プラグインなどでカバレッジレポートを生成する場合は、上記のタスクで生成した exec ファイルのフォーマットと、Jenkins のプラグインが想定するフォーマットのバージョンが合っていないとうまくカバレッジレポートが生成されない（0% になってしまう）ので、Jenkins と連携させる場合は、下記のように明確にバージョン指定しておいた方がよいです。
+jacoco 0.7.4 と 0.7.5 ではフォーマットが変わっていてハマりました。
+
+```groovy
+jacoco {
+    toolVersion = '0.7.4.201502262128'
+}
+```
+
+
 おまけ: Android の場合
 ----
 
