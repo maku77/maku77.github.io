@@ -32,6 +32,7 @@ Gradle でユニットテスト
 ----
 * [Gradle で JUnit によるユニットテストを実行する](test-junit.html)
 * [Gradle で JUnit の代わりに TestNG でユニットテストを実行する](test-testng.html)
+* [Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)](test-coverage.html)
 * [Gradle でユニットテストの結果をコンソールに詳しく表示する](test-detail-log.html)
 * [Gradle でユニットテストを並列実行する](test-parallel.html)
 
