@@ -70,4 +70,38 @@ Total time: 8.697 secs
 * build/reports/jacoco/jacoco/jacoco.csv（CSV 形式のレポート）
 * build/reports/jacoco/jacoco/jacoco.xml（XML 形式のレポート）
 
+おまけ: Android の場合
+----
+
+通常の Java プロジェクトではなく、Android プロジェクトのユニットテスト結果に対するレポートを作成するには、例えば以下のような感じで定義します。
+java プラグインの代わりに com.android.application プラグインを読み込んでいるところ、test タスクの代わりに testDebug タスクに依存するようにするところなどが異なります。
+
+
+```build.gradle
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+
+android {
+    /* skip */
+}
+
+jacoco {
+    toolVersion = "0.7.+"
+}
+
+task jacoco(type: JacocoReport, dependsOn: 'testDebug') {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    classDirectories = fileTree(
+            dir: './build/intermediates/classes/debug',
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/BuildConfig.class',
+            ])
+    sourceDirectories = files('src/main/java')
+    executionData = files('build/jacoco/testDebug.exec')
+}
+```
 
