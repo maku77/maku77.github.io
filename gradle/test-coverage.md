@@ -77,7 +77,9 @@ Total time: 8.697 secs
 java プラグインの代わりに com.android.application プラグインを読み込んでいるところ、test タスクの代わりに testDebug タスクに依存するようにするところなどが異なります。
 
 
-```build.gradle
+#### build.gradle
+
+```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
