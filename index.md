@@ -1,5 +1,5 @@
 ---
-title: maku's note
+title: maku note
 ---
 
 ### Contents
