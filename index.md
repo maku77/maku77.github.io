@@ -2,7 +2,9 @@
 title: maku note
 ---
 
-### Contents
+Contents
+----
+
 * [Best Practices](/bestpractice/)
 * [Program](/program/)
 * [Git](/git/)
