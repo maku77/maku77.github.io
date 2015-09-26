@@ -2,16 +2,26 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  -->
+
+  <!-- Maku's style -->
   <link rel="stylesheet" href="/css/default.css">
   <link rel="stylesheet" href="/css/highlight.css">
+
   <title>{{ page.title }} - makunote</title>
 </head>
 <body>
-  <div class="header">
-    <h1 class="page-title"><a href="/">^</a> {{ page.title }}</h1>
+
+  <div class="page-title"><a href="/">&#x1F3E0;</a> {{ page.title }}</div>
   </div>
-  <div class="page-date">[{{ page.created }}]</div>
-  <div id="content">
+  <div class="page-date">{{ page.created }}</div>
+  <div class="container-fluid">
 
     {{ content }}
 
@@ -24,7 +34,7 @@
 
   <div id="footer">
     <hr>
-    <div style="text-align:right; padding:5px 15px;"><a href="/">maku note</a></div>
+    <div style="text-align:right; margin:0px 15px;"><a href="/">&#x1F3E0;home</a></div>
   </div>
 
   <!-- Analytics -->
