@@ -3,6 +3,9 @@ title: Gradle デーモンを使って gradle コマンドを高速化する
 created: 2015-07-10
 ---
 
+Gradle デーモンの立ち上げ
+----
+
 `gradle` コマンドを実行すると、デフォルトでは毎回 Java のバーチャルマシンを起動するため、下記のような簡単なタスクを実行するだけでも **2、3 秒**の実行時間がかかってしまいます。
 
 #### build.gradle
@@ -46,3 +49,20 @@ $ gradle --stop
 Stopping daemon(s).
 Gradle daemon stopped.
 ```
+
+Gradle デーモンをデフォルトで有効にする
+----
+
+`gradle` コマンドに毎回 `--daemon` オプションを付けるのが面倒な場合は、Gradle の設定ファイル (gradle.properties) でデーモンを常に有効にすることができます。
+
+設定は下記のいずれかのファイルで行います。
+
+* ＜Project＞/gradle.properties （プロジェクトごとの設定）
+* $HOME/.gradle/gradle.properties （システム全体の設定 - Linux の場合）
+* %USERPROFILE%/.gradle/gradle.properties （システム全体の設定 - Windows の場合）
+
+#### gradle.properties
+```groovy
+org.gradle.daemon=true
+```
+
