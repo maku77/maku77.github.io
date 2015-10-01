@@ -32,8 +32,3 @@ title: Best Practices（Jekyll でサイト作ってみるテスト）
 ====
 * [テキストからシーケンス図を作成するツール](tool-sdedit.html)
 
-GitHub
-====
-* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
-* [GitHub の Organization を構成したときのチームの権限について理解する](github-team-permission.html)
-
