@@ -33,8 +33,12 @@ HTTP アクセス
 * [パッケージ管理ツールいろいろ](common-package-management.html)
 * [Python のパッケージ管理ツール (pip)](python-pip.html)
 
-Java/JDBC
+Java
 ====
+* [Java でカスタムアノテーションを作成する](java-custom-annotation.html)
+
+Java/JDBC
+----
 * [JDBC ドライバの一覧を取得する](java-jdbc-list-drivers.html)
 * [Java から SQLite を扱えるようにする](java-jdbc-sqlite-driver.html)
 * [JDBC による DB 操作の流れ](java-jdbc-basic-flow.html)
