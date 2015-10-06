@@ -15,6 +15,11 @@ git log
 * [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
 * [Git でリモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
+git diff / patch
+----
+* [git diff でファイルの差分を調べる](git-diff.html)
+* [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
+* [Git でパッチファイルを作成する](git-patch.html)
 
 GitHub
 ====
