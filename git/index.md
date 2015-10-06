@@ -13,6 +13,7 @@ Git
 git log
 ----
 * [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
+* [Git でリモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
 
 GitHub
