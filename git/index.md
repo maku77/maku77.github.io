@@ -1,7 +1,15 @@
 ---
-title: Git
+title: Git と GitHub の記事
 created: 2015-05-17
 ---
+
+GitHub
+====
+* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
+* [GitHub の Organization を構成したときのチームの権限について理解する](github-team-permission.html)
+* [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github-new-organization-permissions.html)
+* [GitHub と GitLab の比較](github-vs-gitlab.html)
+
 
 Git
 ====
@@ -21,10 +29,7 @@ git diff / patch
 * [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
-GitHub
-====
-* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
-* [GitHub の Organization を構成したときのチームの権限について理解する](github-team-permission.html)
-* [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github-new-organization-permissions.html)
-* [GitHub と GitLab の比較](github-vs-gitlab.html)
+その他
+----
+* [Git 関連用語](git-words.html)
 
