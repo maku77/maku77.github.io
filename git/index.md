@@ -10,6 +10,11 @@ Git
 * [別のサーバに Git リポジトリを移行する（GitLab から GitHub への移行）](git-relocate-repository.html)
 * [Git のディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 
+git log
+----
+* [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
+
+
 GitHub
 ====
 * [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
