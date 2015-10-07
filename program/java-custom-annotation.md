@@ -248,11 +248,9 @@ public class Sample {
 
 デフォルトでは、独自アノテーションを付けたクラスの Javadoc API ドキュメントを出力しても、そこにはアノテーション情報は表示されません。
 アノテーション情報を API ドキュメントに含めるには、**@Documented** メタアノテーションを付加した状態で、独自アノテーションを定義する必要があります。
-また、javadoc プログラムから実行時にアノテーション情報を参照できるようにするために、**RetentionPolicy を RUNTIME にしておくことも必要**になります。
 
 ```java
 @Documented
-@Retention(RetentionPolicy.RUNTIME)
 public @interface ToDo {
     String[] value();
 }
