@@ -9,7 +9,7 @@ created: 2015-05-17
 |----|------|-----|--------|------|
 | if-else | [Bash](bash-syntax-if.html) | [PHP](php-syntax-if.html) |  |  |
 | switch-case |  |  | [Python](python-syntax-switch.html) |  |
-| ループ |  | [PHP](php-syntax-loop.html) |  | [Ruby](ruby-syntax-loop.html) |
+| ループ |  | [PHP](php-syntax-loop.html) |  | [Ruby](/ruby/syntax-loop.html) |
 | クラス |  | [PHP](php-syntax-class.html) | [Python](python-syntax-class.html) |  |
 | 文字列リテラル |  |  |  [Python](python-syntax-string-literal.html) |  |
 
@@ -57,7 +57,7 @@ Java/JDBC
 * [Perl でヒアドキュメント](perl-here-document.html)
 * [PHP でヒアドキュメント](php-here-document.html)
 * [Python でヒアドキュメント](python-here-document.html)
-* [Ruby でヒアドキュメント](ruby-here-document.html)
+* [Ruby でヒアドキュメント](/ruby/here-document.html)
 
 正規表現
 ====
