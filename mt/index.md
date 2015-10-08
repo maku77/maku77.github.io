@@ -49,6 +49,8 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [スクリプトを実行する前に確認画面を表示する](confirmation.html)
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
 * [#property strict について](property-strict.html)
+* [スプレッドを表示する](show-spread.html)
+
 
 
 リンク
