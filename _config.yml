@@ -1,3 +1,6 @@
+# Maku settings.
+name: まくノート
+
 # Prevent the following files from converting by Jekyll.
 exclude: [README.md,run.bat,run.sh]
 
