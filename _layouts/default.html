@@ -9,12 +9,11 @@
 </head>
 <body>
   <div class="page-title">{{ page.title }}</div>
-  <div class="bread"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="page-date">{{ page.created }}</div>
-  <div class="container-fluid">
+  {% include breadcrumb.html %}
+  <div class="container-fluid maku-content">
     {{ content }}
     {% include widget-rakuten.html %}
   </div>
-  {% include footer.html %}
+  {% include breadcrumb.html %}
 </body>
 </html>

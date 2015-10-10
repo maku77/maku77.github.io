@@ -7,8 +7,8 @@ body {
 
 .bread {
   font-size: 10pt;
+  float: left;
   margin-top: 10px;
-  margin-bottom: 0px;
   margin-left: 15px;
 }
 
@@ -20,13 +20,16 @@ body {
 }
 
 .page-date {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: smaller;
+  font-size: 10pt;
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
   font-style: italic;
   text-align: right;
-  padding: 2px 5px;
+}
+
+.maku-content {
+  clear: both;
 }
 
 h1, h2, h3, h4 { font-weight: bolder; }
@@ -70,7 +73,7 @@ strong {
  */
 body { color: #666; }
 .page-title { color: #faa; background-color: darkred; }
-.page-date { color: #aaa; background-color: rgba(0, 0, 0, 0.5); }
+.page-date { color: #666; }
 h1, h2, h3, h4 { color: #333; }
 strong { color: #ff8300; }
 thead th, thead td { color: #555; background-color: #ccc; }
