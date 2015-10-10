@@ -32,9 +32,14 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 ----
 * [Expert Advisor を作成する](create-advisor.html)
 
-チャート情報
+チャートの情報
 ----
 * [チャートのローソク足の数を取得する](get-bar-count.html)
+
+チャートの操作
+----
+* [任意の通貨ペア、時間足のチャートを開く](chart-open.html)
+
 
 情報表示
 ----
@@ -50,6 +55,7 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
 * [#property strict について](property-strict.html)
 * [スプレッドを表示する](show-spread.html)
+* [関数を実行しているのがスクリプトか、EA なのか、インジケータなのかを判別する](program-type.html)
 
 
 
