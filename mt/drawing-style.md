@@ -66,7 +66,7 @@ void setupChart(long chartId = 0) {
 | CHART_COLOR_VOLUME | ボリュームの色 |
 | CHART_COLOR_CHART_UP | ローソク足の上昇バーのひげ、および、箱の枠の色 |
 | CHART_COLOR_CHART_DOWN | ローソク足の下降バーのひげ、および、箱の枠の色 |
-| CHART_COLOR_CHART_LINE | 折れ線チャートの線の色 |
+| CHART_COLOR_CHART_LINE | 折れ線チャートの線の色、ローソク足の十字線の色 |
 | CHART_COLOR_CANDLE_BULL | 上昇バーの内側の色 |
 | CHART_COLOR_CANDLE_BEAR | 下降バーの内側の色 |
 | CHART_COLOR_BID | 売値 (Bid) の水平線の色 |
@@ -96,3 +96,64 @@ void setupColors(long chartId = 0) {
     ChartSetInteger(chartId, CHART_COLOR_ASK, clrOrangeRed);
 }
 ```
+
+オブジェクト指向の CChart クラスを使用する
+====
+
+`CChart` クラスを使用すると、`ChartSetInteger` のようなプロパティセット関数を使用する代わりに、オブジェクトのメソッドを呼び出すことよって、スマートな記述を行うことができます（なぜか `CHART_SHOW_ONE_CLICK` に相当するメソッドは見つからず・・・）。
+
+下記のスクリプトの `setupChart` 関数は、`CChart` オブジェクトを受け取って、描画スタイルの設定を行っています。
+
+#### scripts/Maku-SetupChart.mq4
+
+```mql
+#include <Charts\Chart.mqh>
+
+/**
+ * Setup the drawing style of the chart.
+ * @param chart the chart object to be set up
+ */
+void setupChart(CChart& chart) {
+    // Show-hide settings
+    chart.Mode(CHART_CANDLES);
+    chart.ShowOHLC(true);
+    chart.ShowLineBid(true);
+    chart.ShowLineAsk(true);
+    chart.ShowGrid(true);
+    chart.ShowPeriodSep(true);
+    chart.ShowVolumes(CHART_VOLUME_TICK);
+    chart.ShowDateScale(true);
+    chart.ShowPriceScale(true);
+    chart.Scale(3);
+
+    // Color settings
+    chart.ColorBackground(clrBlack);
+    chart.ColorForeground(clrLightGray);
+    chart.ColorGrid(clrGray);
+    chart.ColorVolumes(clrLimeGreen);
+    chart.ColorBarUp(clrDeepPink);
+    chart.ColorBarDown(clrDodgerBlue);
+    chart.ColorChartLine(clrYellow);
+    chart.ColorCandleBull(clrDeepPink);
+    chart.ColorCandleBear(clrDodgerBlue);
+    chart.ColorLineBid(clrDodgerBlue);
+    chart.ColorLineAsk(clrOrangeRed);
+}
+
+/**
+ * Script program start function.
+ */
+void OnStart() {
+    CChart c;
+    c.Attach(0);  // 0 means the current chart.
+    setupChart(c);
+    c.Redraw();
+    c.Detach();  // Without detaching, the chart will be closed.
+}
+```
+
+`CChart` オブジェクトを既存のチャートに関連付けるには、`Attach` メソッドを使用します。
+上記の例では、0 を渡すことによって、アクティブなチャートに関連付けています。
+`CChart` クラスは、デストラクタ内で関連付けられたチャートを閉じようとします。
+チャートが閉じられないようにするには、`Detach` メソッドを読んで、実際のチャートとの関連付けを解除しておかなければいけません。
+
