@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include head.html %}
+  <title>Best Practice / {{ page.title }} - {{ site.name }}</title>
+</head>
+<body>
+  <div class="maku-pageTitle">Best Practice / {{ page.title }}</div>
+  <div class="container-fluid">
+    {% include breadcrumb-bestpractice.html %}
+    <div class="maku-content">{{ content }}</div>
+    {% include widget-rakuten.html %}
+    {% include breadcrumb-bestpractice.html %}
+  </div>
+</body>
+{% include analytics.html %}
+</html>

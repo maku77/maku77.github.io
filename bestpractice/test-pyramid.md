@@ -1,6 +1,7 @@
 ---
 title: テストピラミッドを意識してテストの自動化を進める
 created: 2015-09-24
+layout: bestpractice
 ---
 
 [Mike Cohn](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) が『Succeeding with Agile』で紹介した **test automation pyramid** というものがあります。

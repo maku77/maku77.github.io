@@ -1,5 +1,5 @@
 ---
-title: Best Practices（Jekyll でサイト作ってみるテスト）
+title: Best Practices メモ
 ---
 
 設計ノウハウ
