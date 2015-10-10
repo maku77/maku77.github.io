@@ -1,6 +1,7 @@
 ---
 title: MetaTrader のターミナル情報を取得する
 created: 2014-12-06
+layout: mt
 ---
 
 MetaTrader（ターミナル）の情報を取得するには、`TerminalInfoString()` や `TerminalInfoInteger()` を使用します。

@@ -1,6 +1,7 @@
 ---
 title: カスタム指標（インジケータ）をダウンロードできる Web サイト
 created: 2014-11-11
+layout: mt
 ---
 
 * [MT4 で FX (MT4 インディケーター)](http://www.abysse.co.jp/mt4/)

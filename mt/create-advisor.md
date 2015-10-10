@@ -1,6 +1,7 @@
 ---
 title: Expert Advisor を作成する
 created: 2015-01-29
+layout: mt
 ---
 
 MetaTrader を使って自動売買を行うには、__EA (Expert Advisor)__ を作成する必要があります。
