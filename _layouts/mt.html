@@ -6,12 +6,12 @@
 </head>
 <body>
   <div class="maku-pageTitle">MetaTrader / {{ page.title }}</div>
-  {% include breadcrumb-mt.html %}
-  <div class="container-fluid maku-content">
-    {{ content }}
+  <div class="container-fluid">
+    {% include breadcrumb-mt.html %}
+    <div class="maku-content">{{ content }}</div>
     {% include widget-rakuten.html %}
+    {% include breadcrumb-mt.html %}
   </div>
-  {% include breadcrumb-mt.html %}
 </body>
 {% include analytics.html %}
 </html>

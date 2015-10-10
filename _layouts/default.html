@@ -6,12 +6,12 @@
 </head>
 <body>
   <div class="maku-pageTitle">{{ page.title }}</div>
-  {% include breadcrumb.html %}
-  <div class="container-fluid maku-content">
-    {{ content }}
+  <div class="container-fluid">
+    {% include breadcrumb.html %}
+    <div class="maku-content">{{ content }}</div>
     {% include widget-rakuten.html %}
+    {% include breadcrumb.html %}
   </div>
-  {% include breadcrumb.html %}
 </body>
 {% include analytics.html %}
 </html>
