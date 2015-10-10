@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/default.css">
-  <link rel="stylesheet" href="/css/highlight.css">
+  {% include head.html %}
   <title>MetaTrader / {{ page.title }} - {{ site.name }}</title>
 </head>
 <body>
@@ -16,4 +13,5 @@
   </div>
   {% include breadcrumb-mt.html %}
 </body>
+{% include analytics.html %}
 </html>
