@@ -1,5 +1,5 @@
 ---
-title: MetaTrader
+title: MetaTrader メモ
 ---
 
 インストール
@@ -41,6 +41,7 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [任意の通貨ペア、時間足のチャートを開く](chart-open.html)
 * [MetaTrader (MQL) における色の表現方法](colors.html)
 * [チャートの描画スタイルを設定する](drawing-style.html)
+* [表示中のすべてのチャートに対して処理する](for-each-chart.html)
 
 
 情報表示
