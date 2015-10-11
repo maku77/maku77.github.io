@@ -1,7 +1,21 @@
 
-<div class="maku-widget">
+<style>
+.snsButton {
+  float: right;
+  vertical-align: bottom;
+  line-height: 0;
+}
+</style>
+
+<div style="text-align:right">
+  <!-- Google plus -->
+  <div class="g-plusone snsButton"
+    data-size="medium"
+    data-href="{{ site.url }}{{ page.url }}">
+  </div>
+
   <!-- Facebook like button -->
-  <div class="fb-like"
+  <div class="fb-like snsButton"
     data-href="{{ site.url }}{{ page.url }}"
     data-layout="button_count"
     data-action="like"
