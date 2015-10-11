@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <!--
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  -->
-
-  <!-- Maku's style -->
-  <link rel="stylesheet" href="/css/default.css">
-  <link rel="stylesheet" href="/css/highlight.css">
-
-  <title>天才まくノート</title>
+  {% include head.html %}
+  <meta property="og:title" content="{{ site.name }}" />
+  <title>{{ page.title }}</title>
   <style>
     .siteHeader {
       margin: 12px 0px;
@@ -30,6 +19,7 @@
   </style>
 </head>
 <body>
+  {% include sns-sdk.html %}
   <div class="container-fluid">
     <h1 class="siteHeader">
       <img src="/img/logo.gif">
@@ -110,14 +100,9 @@
       </div>
     </div>
 
-
-
-    <!-- Rakuten widget : START -->
-    <p>
-      <script type="text/javascript">rakuten_design="slide";rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";rakuten_items="ctsmatch";rakuten_genreId=0;rakuten_size="468x160";rakuten_target="_blank";rakuten_theme="gray";rakuten_border="off";rakuten_auto_mode="on";rakuten_genre_title="off";rakuten_recommend="on";</script><script type="text/javascript" src="//xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-    </p>
-    <!-- Rakuten widget : END -->
+    {% include sns-widget.html %}
+    {% include widget-rakuten.html %}
   </div>
-
 </body>
+{% include analytics.html %}
 </html>
