@@ -2,13 +2,16 @@
 <html lang="ja">
 <head>
   {% include head.html %}
-  <title>Best Practice / {{ page.title }} - {{ site.name }}</title>
+  <meta property="og:title" content="Best Practice | {{ page.title }} - {{ site.name }}" />
+  <title>Best Practice | {{ page.title }} - {{ site.name }}</title>
 </head>
 <body>
-  <div class="maku-pageTitle">Best Practice / {{ page.title }}</div>
+  {% include sns-sdk.html %}
+  <div class="maku-pageTitle">Best Practice | {{ page.title }}</div>
   <div class="container-fluid">
     {% include breadcrumb-bestpractice.html %}
     <div class="maku-content">{{ content }}</div>
+    {% include sns-widget.html %}
     {% include widget-rakuten.html %}
     {% include breadcrumb-bestpractice.html %}
   </div>

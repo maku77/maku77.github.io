@@ -2,13 +2,16 @@
 <html lang="ja">
 <head>
   {% include head.html %}
+  <meta property="og:title" content="{{ page.title }} - {{ site.name }}" />
   <title>{{ page.title }} - {{ site.name }}</title>
 </head>
 <body>
+  {% include sns-sdk.html %}
   <div class="maku-pageTitle">{{ page.title }}</div>
   <div class="container-fluid">
     {% include breadcrumb.html %}
     <div class="maku-content">{{ content }}</div>
+    {% include sns-widget.html %}
     {% include widget-rakuten.html %}
     {% include breadcrumb.html %}
   </div>

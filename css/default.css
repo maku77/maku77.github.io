@@ -29,6 +29,10 @@ body {
   clear: both;
 }
 
+.maku-snsWidget {
+  margin: 10px;
+}
+
 h1, h2, h3, h4 { font-weight: bolder; }
 h1 { font-size: 16pt; border-bottom: 2px solid #ccc;}
 h2 { font-size: 14pt; }
