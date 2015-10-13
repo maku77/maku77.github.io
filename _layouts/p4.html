@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include head.html %}
+  <meta property="og:title" content="Perforce | {{ page.title }} - {{ site.name }}" />
+  <title>Perforce | {{ page.title }} - {{ site.name }}</title>
+</head>
+<body>
+  {% include sns-sdk.html %}
+  <div class="maku-pageTitle">Perforce | {{ page.title }}</div>
+  <div class="container-fluid">
+    {% include breadcrumb-p4.html %}
+    <div class="maku-content">{{ content }}</div>
+    {% include widget-sns.html %}
+    {% include widget-comment.html %}
+    {% include widget-rakuten.html %}
+    {% include breadcrumb-p4.html %}
+  </div>
+</body>
+{% include analytics.html %}
+</html>
