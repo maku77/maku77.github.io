@@ -33,9 +33,14 @@ title: Ruby
 文字列／数値
 ====
 
+文字列
+----
+* [インデント用の文字列を作成する](create-indent-string.html)
+
 正規表現
 ----
 * [文字列から正規表現にマッチする部分を取り出す](extract-string.html)
+
 
 入出力 (I/O)
 ====
