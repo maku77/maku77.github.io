@@ -30,5 +30,7 @@ title: Ruby
 * [ハッシュを作成する](hash.html)
 * [ハッシュのデフォルト値を設定する](default-hash-value.html)
 
-
+入出力 (I/O)
+====
+* [コマンドライン引数を扱う](command-line-params.html)
 
