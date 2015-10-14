@@ -32,6 +32,7 @@ title: Ruby
 
 入出力 (I/O)
 ====
+* [標準出力へ出力する](print-to-stdout.html)
 * [コマンドライン引数を扱う](command-line-params.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [外部プログラムを呼び出す](execute-external-command.html)
