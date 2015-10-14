@@ -14,4 +14,6 @@ title: Perforce メモ
 ====
 * [ユーザの各 depot へのアクセス権限を確認する](check-permission.html)
 * [特定のサーバに接続するためのショートカットを作成する](shortcut-icon.html)
+* [p4 sync 時に空のディレクトリを削除する ([no]rmdir)](rmdir-after-sync.html)
+* [p4 sync 時のファイル上書き設定 ([no]clobber)](clobber-settings.html)
 
