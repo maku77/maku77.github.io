@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include head.html %}
+  <meta property="og:title" content="Ruby | {{ page.title }} - {{ site.name }}" />
+  <title>Ruby | {{ page.title }} - {{ site.name }}</title>
+</head>
+<body>
+  {% include sns-sdk.html %}
+  <div class="maku-pageTitle">Ruby | {{ page.title }}</div>
+  <div class="container-fluid">
+    {% include breadcrumb-ruby.html %}
+    <div class="maku-content">{{ content }}</div>
+    {% include widget-sns.html %}
+    {% include widget-comment.html %}
+    {% include widget-rakuten.html %}
+    {% include breadcrumb-ruby.html %}
+  </div>
+</body>
+{% include analytics.html %}
+</html>

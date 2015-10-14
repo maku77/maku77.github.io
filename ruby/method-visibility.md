@@ -1,6 +1,7 @@
 ---
 title: メソッドの可視性を設定する（メソッドのアクセス制御）
 created: 2011-10-10
+layout: ruby
 ---
 
 **デフォルトでは Ruby のメソッドは public** になります（`initialize` メソッドだけは private）。

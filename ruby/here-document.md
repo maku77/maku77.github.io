@@ -1,6 +1,7 @@
 ---
 title: Ruby でヒアドキュメント
 created: 2011-11-04
+layout: ruby
 ---
 
 Ruby のヒアドキュメント定義は、下記のような構文で行います（Perl とほぼ同じ）。

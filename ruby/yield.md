@@ -1,6 +1,7 @@
 ---
 title: 関数にコードブロックを渡す（yield による呼び出し）
 created: 2011-10-07
+layout: ruby
 ---
 
 yield の基本

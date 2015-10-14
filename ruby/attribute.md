@@ -1,6 +1,7 @@
 ---
 title: 属性を定義する（アクセサメソッド）
 created: 2011-10-07
+layout: ruby
 ---
 
 Setter と Getter を同時に定義

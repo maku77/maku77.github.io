@@ -1,6 +1,7 @@
 ---
 title: コンストラクタを定義する
 created: 2011-10-07
+layout: ruby
 ---
 
 Ruby のクラスでコンストラクタを定義したいときは、`initialize` というメソッドを使用します。

@@ -1,6 +1,7 @@
 ---
 title: Ruby のループ構文
 created: 2011-12-01
+layout: ruby
 ---
 
 C/C++ の ```for (int i = 0; i < N; ++i)``` に相当することは、Ruby では times, Range#each, upto, downto, step を使って直感的に表現できます。
