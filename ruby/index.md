@@ -34,4 +34,5 @@ title: Ruby
 ====
 * [コマンドライン引数を扱う](command-line-params.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
+* [外部プログラムを呼び出す](execute-external-command.html)
 
