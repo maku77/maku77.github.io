@@ -30,6 +30,13 @@ title: Ruby
 * [ハッシュを作成する](hash.html)
 * [ハッシュのデフォルト値を設定する](default-hash-value.html)
 
+文字列／数値
+====
+
+正規表現
+----
+* [文字列から正規表現にマッチする部分を取り出す](extract-string.html)
+
 入出力 (I/O)
 ====
 * [標準出力へ出力する](print-to-stdout.html)
