@@ -34,6 +34,7 @@ title: Ruby
 ====
 * [標準出力へ出力する](print-to-stdout.html)
 * [コマンドライン引数を扱う](command-line-params.html)
+* [テキストファイルを読み込む](read-text-file.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [外部プログラムを呼び出す](execute-external-command.html)
 
