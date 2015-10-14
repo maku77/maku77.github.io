@@ -12,8 +12,9 @@ title: Perforce メモ
 
 管理／設定
 ====
-* [ユーザの各 depot へのアクセス権限を確認する](check-permission.html)
+* [Perforce クライアントのインストールと初期設定](install-client.html)
 * [特定のサーバに接続するためのショートカットを作成する](shortcut-icon.html)
+* [ユーザの各 depot へのアクセス権限を確認する](check-permission.html)
 * [p4 sync 時に空のディレクトリを削除する ([no]rmdir)](rmdir-after-sync.html)
 * [p4 sync 時のファイル上書き設定 ([no]clobber)](clobber-settings.html)
 * [p4admin で Perforce サーバを設定する](p4admin.html)
