@@ -3,7 +3,7 @@ name: まくノート
 url: https://maku77.github.io
 
 # Prevent the following files from converting by Jekyll.
-exclude: [README.md,run.bat,run.sh]
+exclude: [README.md,run.bat,run.sh,img.pptx]
 
 # Enable highlighter.
 highlighter: pygments
