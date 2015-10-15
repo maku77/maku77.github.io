@@ -5,6 +5,14 @@ title: Ruby
 はじめに
 ====
 * [Ruby のコーディングスタイル](conding-style.html)
+* [Ruby の対話型プログラムを起動する](interactive-ruby.html)
+
+RubyGems
+----
+
+RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャです。
+
+* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
 
 クラス
 ====
