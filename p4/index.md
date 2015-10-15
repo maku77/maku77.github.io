@@ -2,6 +2,10 @@
 title: Perforce メモ
 ---
 
+p4 コマンドあれこれ
+====
+* [p4 コマンドの引数で接続先や使用するクライアント名を指定する](port-by-parameter.html)
+
 ファイルを扱う
 ====
 * [オープンされているファイルを一覧表示する](list-opened-files.html)
