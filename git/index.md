@@ -32,7 +32,7 @@ git diff / patch
 hook スクリプト
 ----
 * [Git の update フックの基本](update-hook.html)
-
+* [特定のユーザのみ git push できるように制限する](limit-push-users.html)
 
 その他
 ----
