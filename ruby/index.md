@@ -55,6 +55,7 @@ RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャ
 * [コマンドライン引数を扱う](command-line-params.html)
 * [標準出力へ出力する](print-to-stdout.html)
 * [標準入力から読み込む](input-from-stdin.html)
+* [キーボードからの入力を取得する](input-from-keyboard.html)
 * [テキストファイルを読み込む](read-text-file.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [外部プログラムを呼び出す](execute-external-command.html)
