@@ -1,6 +1,7 @@
 ---
 title: GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する
 created: 2015-10-01
+layout: git
 ---
 
 GitHub の Organization アカウントの新しいパーミッションモデルが公開されました。

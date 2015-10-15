@@ -1,6 +1,7 @@
 ---
 title: 二要素認証を設定した後に git コマンドが Authentication failed になる場合
 created: 2015-06-24
+layout: git
 ---
 
 二要素認証を設定した後に、従来通りに git clone や git push コマンドを実行しようとすると、下記のように Authentication failed になってしまいます。

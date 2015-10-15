@@ -1,6 +1,7 @@
 ---
 title: GitHub と GitLab の比較
 created: 2015-07-03
+layout: git
 ---
 
 GitLab のよいところ
