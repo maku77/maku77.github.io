@@ -16,3 +16,13 @@ sed と同じくストリーム指向で、テキストファイルを 1 行ず�
 
 * [awk の基本的な使い方](awk-basic.html)
 
+
+tr
+====
+
+tr について
+----
+tr は translate や trunsliterate の略で、標準入力で渡された文字列内の文字を、別の文字に置換する簡単なテキスト処理ツールです。
+
+* [tr でテキストファイルの空行を削除する](remove-empty-lines.html)
+
