@@ -29,6 +29,10 @@ git diff / patch
 * [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
+git tag
+----
+* [git tag でコミットに対してタグをつける](add-tag.html)
+
 hook スクリプト
 ----
 * [Git の update フックの基本](update-hook.html)
