@@ -32,6 +32,8 @@ git diff / patch
 git tag
 ----
 * [git tag でコミットに対してタグをつける](add-tag.html)
+* [タグを中央リポジトリに push する](push-tag.html)
+
 
 hook スクリプト
 ----
