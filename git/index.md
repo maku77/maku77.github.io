@@ -33,6 +33,7 @@ git tag
 ----
 * [git tag でコミットに対してタグをつける](add-tag.html)
 * [タグを中央リポジトリに push する](push-tag.html)
+* [タグの名前を変更する](rename-tag.html)
 
 
 hook スクリプト
