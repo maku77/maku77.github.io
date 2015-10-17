@@ -10,6 +10,7 @@ Docker のインストールと設定
 ====
 * [Docker のインストール](install.html)
 * [Docker のプロキシ設定](proxy.html)
+* [一般ユーザから docker コマンドを実行できるようにする](run-docker-without-root.html)
 
 
 
