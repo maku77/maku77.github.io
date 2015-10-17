@@ -4,6 +4,11 @@ title: Shell メモ
 
 Linux のシェルや、Bash プログラミングに関するノートです。
 
+
+変数
+====
+* [変数の基本](variables.html)
+
 パス
 ====
 * [絶対パスと相対パスの変換](absolute-path-to-relative-path.html)
@@ -16,6 +21,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [関数へパラメータを渡す](pass-params-to-function.html)
 * [関数内でローカル変数を扱う](local-var-in-function.html)
 * [関数から戻り値を返す](return-value-from-function.html)
+* [関数のデフォルト引数を定義する](default-params-in-function.html)
 
 入出力 (I/O)
 ====
