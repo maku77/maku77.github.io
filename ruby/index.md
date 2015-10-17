@@ -43,6 +43,11 @@ title: Ruby
 ----
 * [文字列から正規表現にマッチする部分を取り出す](extract-string.html)
 
+数値
+----
+* [乱数を生成する](random.html)
+
+
 入出力 (I/O)
 ====
 * [コマンドライン引数を扱う](command-line-params.html)
