@@ -8,6 +8,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 変数
 ====
 * [変数の基本](variables.html)
+* [シェル変数/環境変数がセットされているか調べる](check-if-var-is-set.html)
 
 パス
 ====
