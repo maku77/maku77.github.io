@@ -15,6 +15,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 ====
 * [関数へパラメータを渡す](pass-params-to-function.html)
 * [関数内でローカル変数を扱う](local-var-in-function.html)
+* [関数から戻り値を返す](return-value-from-function.html)
 
 その他
 ====
