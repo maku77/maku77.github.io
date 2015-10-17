@@ -25,7 +25,8 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 入出力 (I/O)
 ====
-* [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input.html)
+* [ユーザ入力を取得する](obtain-user-input.html)
+* [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input2.html)
 * [ディレクトリ内のファイルを順に処理する](process-all-files.html)
 
 その他

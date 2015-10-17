@@ -1,37 +1,72 @@
 ---
-title: ユーザ入力を取得して "y" が入力された場合だけ処理を継続する
-created: 2012-08-01
+title: ユーザ入力を取得する
+created: 2012-11-05
 layout: shell
 ---
 
+ユーザ入力の基本
+====
+
+`read 変数名` とすると、ユーザからの一行分の入力を変数に取得することができます。
+
 #### sample.sh
-
 ```bash
-#!/bin/bash
-
-function remove_all {
-    echo -n 'Are you sure? (y/n): '
-    read line
-    if [ "$line" != 'y' ]; then
-        return
-    fi
-
-    # Process continues
-    echo 'All things have been removed!'
-}
-
-remove_all
+#!/bin/sh
+echo -n "Enter your name: "
+read name
+echo "Hello, $name"
 ```
 
-`if` の中で `$line` の内容を確認するときに、ダブルクォーテーションで囲んでいるのは、ユーザの入力がなかった場合に空文字 `""` を取得するためです。
-これがないと、ユーザが何も入力せずにエンターした場合にエラーになります。
-
-
-#### 実行例
-
-```bash
+#### 実行結果
+```
 $ ./sample.sh
-Are you sure? (y/n): y
-All things have been removed!
+Enter your name: まくまく へむむ
+Hello, まくまく へむむ
+```
+
+
+スペースで区切られたユーザ入力を別々の変数に取得する
+====
+
+`read` コマンドの後ろに複数の変数を指定すると、スペースで区切られたユーザ入力を別々の変数に取得することができます。
+
+#### sample.sh
+```bash
+#!/bin/sh
+read aaa bbb ccc
+echo "aaa = $aaa"
+echo "bbb = $bbb"
+echo "ccc = $ccc"
+```
+
+#### 実行結果
+```
+$ ./sample.sh
+100 200 300
+aaa = 100
+bbb = 200
+ccc = 300
+```
+
+`read` に指定した変数の数よりも、入力が少ない場合は、変数が空になります。
+
+#### 実行結果
+```
+$ ./sample.sh
+100 200
+aaa = 100
+bbb = 200
+ccc =
+```
+
+逆に、入力の方が多い場合は、`read` コマンドの最後に指定した変数にまとめて格納されます。
+
+#### 実行結果
+```
+$ ./sample.sh
+100 200 300 400 500 
+aaa = 100
+bbb = 200
+ccc = 300 400 500
 ```
 
