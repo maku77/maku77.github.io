@@ -11,32 +11,36 @@ layout: ruby
 #### sample.rb
 ```ruby
 puts ARGV.size
-puts ARGV[0]
+puts ARGV[0], ARGV[1], ARGV[2]
 ```
 
 #### 実行結果
 ```
-$ ruby sample.rb AAA BBB CCC
-3
+$ ruby sample.rb AAA BBB
+2
 AAA
+BBB
+nil
 ```
 
+指定したインデックスに対応するコマンドライン引数が存在しない場合は、`nil` を返します。
 
-サンプルコード
-====
 
 コマンドライン引数をループで処理する
-----
+====
 
 ```ruby
-while x = ARGV.shift
-  puts x
+while arg = ARGV.shift
+  puts arg
 end
 ```
 
+`ARGV` は配列としてアクセスできるので、`Array#shift` メソッドを使って、コマンドライン引数を一つずつ取得することができます。
+`shift` メソッドは要素が空 (`[]`) になると最後に `nil` を返すので、上記のように `while` ループで列挙できます。
+
 
 コマンドライン引数が 0 個の場合に Usage を表示して終了
-----
+====
 
 #### sample.rb
 ```ruby
