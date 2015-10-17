@@ -9,6 +9,7 @@ title: Ruby
 
 クラス
 ====
+* [クラスとメソッドを定義する](define-class.html)
 * [コンストラクタを定義する](constructor.html)
 * [擬似コンストラクタを定義する](pseudo-constructor.html)
 * [属性を定義する（アクセサメソッド）](attribute.html)
