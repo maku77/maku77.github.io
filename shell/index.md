@@ -4,5 +4,12 @@ title: Shell メモ
 
 Linux のシェルや、Bash プログラミングに関するノートです。
 
+パス
+====
+* [カレントディレクトリの絶対パスを取得する](absolute-path-of-current-dir.html)
+
+その他
+====
 * [bash のバージョンを調べる](bash-version.html)
+
 
