@@ -7,13 +7,6 @@ title: Ruby
 * [Ruby のコーディングスタイル](conding-style.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
 
-RubyGems
-----
-
-RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャです。
-
-* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
-
 クラス
 ====
 * [コンストラクタを定義する](constructor.html)
@@ -49,7 +42,6 @@ RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャ
 ----
 * [文字列から正規表現にマッチする部分を取り出す](extract-string.html)
 
-
 入出力 (I/O)
 ====
 * [コマンドライン引数を扱う](command-line-params.html)
@@ -60,4 +52,15 @@ RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャ
 * [テキストファイルを読み込む](read-text-file.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [外部プログラムを呼び出す](execute-external-command.html)
+
+その他
+====
+
+* [環境変数を扱う](environment-variable.html)
+
+RubyGems
+----
+RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャです。
+
+* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
 
