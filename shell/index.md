@@ -13,6 +13,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 関数
 ====
+* [関数へパラメータを渡す](pass-params-to-function.html)
 * [関数内でローカル変数を扱う](local-var-in-function.html)
 
 その他
