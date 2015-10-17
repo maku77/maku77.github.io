@@ -17,6 +17,10 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [関数内でローカル変数を扱う](local-var-in-function.html)
 * [関数から戻り値を返す](return-value-from-function.html)
 
+入出力 (I/O)
+====
+* [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input.html)
+
 その他
 ====
 * [bash のバージョンを調べる](bash-version.html)
