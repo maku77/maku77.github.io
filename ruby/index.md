@@ -64,6 +64,7 @@ XML
 ----
 * [REXML とは](rexml.html)
 * [REXML で XML ファイルを作成する](rexml-create-xml.html)
+* [REXML で XML ファイルを読み込む](rexml-read-xml.html)
 
 
 その他
