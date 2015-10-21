@@ -7,7 +7,7 @@ created: 2010-05-07
 
 #### sample.cmd
 
-```dos
+```bat
 @set script="%~dp0%sample.rb"
 ruby %script% %*
 ```
