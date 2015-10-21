@@ -60,6 +60,12 @@ title: Ruby
 * [外部プログラムを呼び出す](execute-external-command.html)
 * [ソースコード内にテキストデータを埋め込む](embed-data.html)
 
+XML
+----
+* [REXML とは](rexml.html)
+* [REXML で XML ファイルを作成する](rexml-create-xml.html)
+
+
 その他
 ====
 
