@@ -14,14 +14,10 @@ created: 2015-05-17
 | 文字列リテラル |  |  |  [Python](python-syntax-string-literal.html) |  |
 
 
-
 HTML/XML のパース
 ====
-* [Python で XML を扱う方法いろいろ](python-xml.html)
-* [Python で XML をパースする](python-xml-parse.html)
-* [Python で XPath を使用する](python-xml-xpath.html)
-* [Python で HTML をパースする](python-html-parse.html)
-* [Python で HTML をパースする (Beautiful Soup)](python-html-beautiful-soup.html)
+* [Python](/python/index.html#html/xml-のパース)
+
 
 HTTP アクセス
 ====
