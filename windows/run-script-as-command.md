@@ -8,7 +8,16 @@ created: 2010-05-07
 #### sample.cmd
 
 ```bat
-@set script="%~dp0%sample.rb"
+@echo off
+set script="%~dp0%sample.rb"
 ruby %script% %*
+```
+
+Python の場合も同様です。
+
+```bat
+@echo off
+set script="%~dp0%sample.py"
+python %script% %*
 ```
 
