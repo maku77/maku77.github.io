@@ -13,8 +13,10 @@ GitHub
 
 Git
 ====
+
+Commit 履歴の書き換え／リポジトリ移行
+---
 * [直前のコミットのコメントを修正する](git-modify-comment.html)
-* [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
 * [別のサーバに Git リポジトリを移行する（GitLab から GitHub への移行）](git-relocate-repository.html)
 * [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 * [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
@@ -36,7 +38,6 @@ git tag
 * [タグを中央リポジトリに push する](push-tag.html)
 * [タグの名前を変更する](rename-tag.html)
 
-
 hook スクリプト
 ----
 * [Git の update フックの基本](update-hook.html)
@@ -45,4 +46,7 @@ hook スクリプト
 その他
 ----
 * [Git 関連用語](git-words.html)
+* [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
+
+* [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
 
