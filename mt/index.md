@@ -1,5 +1,6 @@
 ---
 title: MetaTrader メモ
+layout: category-index
 ---
 
 インストール

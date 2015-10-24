@@ -32,6 +32,29 @@ body {
   clear: both;
 }
 
+.maku-content-multi {
+          column-width: 400px;
+     -moz-column-width: 400px;
+  -webkit-column-width: 400px;
+          column-rule: dotted 2px #ccc;
+     -moz-column-rule: dotted 2px #ccc;
+  -webkit-column-rule: dotted 2px #ccc;
+}
+
+/* column-span は Safari でうまく表示できない */
+/*
+h1 {
+  column-span: all;
+  -moz-column-span: all;
+  -webkit-column-span: all;
+}
+*/
+
+li {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
 .maku-widget {
   margin: 10px;
   padding: 5px;

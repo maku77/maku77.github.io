@@ -1,12 +1,10 @@
 ---
 title: Docker メモ
+layout: category-index
 ---
 
-Docker による環境仮想化に関するノートです。
 
-* [Docker チートシート](cheatsheet.html)
-
-Docker のインストールと設定
+Docker をはじめる（インストールと設定）
 ====
 * [Docker のインストール](install.html)
 * [Docker のプロキシ設定](proxy.html)
@@ -20,5 +18,6 @@ Docker の基本的な使い方
 
 Docker の操作
 ====
+* [Docker チートシート](cheatsheet.html)
 * [すべての Docker コンテナを削除する](remove-all-containers.html)
 

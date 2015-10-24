@@ -1,6 +1,7 @@
 ---
 title: HTML/CSS サンプル
 created: 2015-10-08
+layout: category-index
 ---
 
 使い回せそうな HTML/CSS パーツをメモメモφ(･ω･｀)

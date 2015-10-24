@@ -1,9 +1,7 @@
 ---
 title: Python メモ
-layout: python
+layout: category-index
 ---
-
-Python に関するノートです。
 
 HTML/XML のパース
 ====

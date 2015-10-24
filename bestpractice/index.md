@@ -1,5 +1,6 @@
 ---
 title: Best Practices メモ
+layout: category-index
 ---
 
 設計ノウハウ

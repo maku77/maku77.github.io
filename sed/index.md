@@ -1,5 +1,6 @@
 ---
 title: sed/awk メモ
+layout: category-index
 ---
 
 sed、awk やその他のテキストプロセッシングに関するノートです。

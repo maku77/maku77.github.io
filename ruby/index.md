@@ -1,5 +1,6 @@
 ---
 title: Ruby
+layout: category-index
 ---
 
 はじめに

@@ -1,5 +1,6 @@
 ---
 title: Shell メモ
+layout: category-index
 ---
 
 Linux のシェルや、Bash プログラミングに関するノートです。

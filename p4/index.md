@@ -1,5 +1,6 @@
 ---
 title: Perforce メモ
+layout: category-index
 ---
 
 p4 コマンドあれこれ
@@ -13,10 +14,12 @@ p4 コマンドあれこれ
 * [オープンされているファイルをバックアップする (p4-backup)](p4-backup.html)
 * [ディポ上のファイルを標準出力に出力する／ローカルファイルに保存する](p4-print.html)
 * [ディポ上のファイルを検索する](search-files-on-depot.html)
-* Have List
-  - [クライアントの have list を表示する](show-have-list.html)
-  - [クライアントの have list をサーバから削除する](delete-have-list.html)
-  - [ローカルのワークスペース上でのファイル編集情報をサーバへ通知する（have list の更新）](update-have-list.html)
+
+Have List
+----
+- [クライアントの have list を表示する](show-have-list.html)
+- [クライアントの have list をサーバから削除する](delete-have-list.html)
+- [ローカルのワークスペース上でのファイル編集情報をサーバへ通知する（have list の更新）](update-have-list.html)
 
 
 管理／設定

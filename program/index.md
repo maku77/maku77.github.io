@@ -1,6 +1,7 @@
 ---
 title: Program
 created: 2015-05-17
+layout: category-index
 ---
 
 構文

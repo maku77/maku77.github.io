@@ -1,5 +1,6 @@
 ---
 title: Windows メモ
+layout: category-index
 ---
 
 Windows バッチファイル
