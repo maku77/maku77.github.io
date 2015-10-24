@@ -52,11 +52,16 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [音声を再生する](play-sound.html)
 * [デバッグ用のマクロを定義する](debug-macro.html)
 
+プリプロセッサ
+----
+* [#property strict について](property-strict.html)
+* [デバッグモードでビルドされているか調べる](check-debug-mode.html)
+
+
 雑多
 ----
 * [スクリプトを実行する前に確認画面を表示する](confirmation.html)
 * [MetaTrader のターミナル情報を取得する](terminal-info.html)
-* [#property strict について](property-strict.html)
 * [スプレッドを表示する](show-spread.html)
 * [関数を実行しているのがスクリプトか、EA なのか、インジケータなのかを判別する](program-type.html)
 
