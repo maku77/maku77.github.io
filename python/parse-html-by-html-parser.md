@@ -1,6 +1,7 @@
 ---
 title: Python で HTML をパースする
 created: 2015-05-18
+layout: python
 ---
 
 Python に標準搭載されている HTML パーサである [html.parser.HTMLParser](https://docs.python.org/3/library/html.parser.html) は、イベントドリブンな HTML パーサです。
