@@ -1,6 +1,7 @@
 ---
 title: Gradle を Mac OSX にインストールする
 created: 2014-06-01
+layout: gradle
 ---
 
 ここでは、Groovy enVironment Manager (GVM) を使って gradle コマンドをインストールします。

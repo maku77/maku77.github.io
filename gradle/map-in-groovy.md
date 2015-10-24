@@ -1,6 +1,7 @@
 ---
 title: Groovy で Map を扱う
 created: 2015-07-08
+layout: gradle
 ---
 
 Groovy の Map の基本

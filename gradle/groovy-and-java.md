@@ -1,6 +1,7 @@
 ---
 title: Groovy と Java の違い
 created: 2015-07-07
+layout: gradle
 ---
 
 Groovy には Java 違って下記のような特徴があります。

@@ -1,6 +1,7 @@
 ---
 title: Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)
 created: 2015-09-25
+layout: gradle
 ---
 
 JaCoCo Plugin を使用すると、JUnit などによるユニットテスト結果のカバレッジレポートを生成することができます。

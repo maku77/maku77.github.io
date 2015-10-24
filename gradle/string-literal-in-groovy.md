@@ -1,6 +1,7 @@
 ---
 title: Groovy で文字列リテラルを扱う
 created: 2015-07-08
+layout: gradle
 ---
 
 文字列リテラルの基本

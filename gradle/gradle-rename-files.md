@@ -1,6 +1,7 @@
 ---
 title: "Gradle でファイルをリネームする"
 created: 2015-06-30
+layout: gradle
 ---
 
 Copy 仕様によりファイルをコピーする際に、rename メソッドを使用してファイル名を変更することができます。

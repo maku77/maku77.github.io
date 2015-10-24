@@ -1,6 +1,7 @@
 ---
 title: Groovy で assert を使用する
 created: 2015-07-07
+layout: gradle
 ---
 
 Groovy では、デフォルトで `assert` が使用できるようになっています。

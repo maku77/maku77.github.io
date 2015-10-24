@@ -1,6 +1,7 @@
 ---
 title: 既存の Gradle タスクにアクションを追加する
 created: 2015-07-13
+layout: gradle
 ---
 
 Gradle の既存のタスクには、自由にアクションを追加していくことができます。

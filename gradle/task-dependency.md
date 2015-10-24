@@ -1,6 +1,7 @@
 ---
 title: Gradle でタスクの依存関係を表現する
 created: 2015-07-09
+layout: gradle
 ---
 
 タスク定義後に依存関係を設定する

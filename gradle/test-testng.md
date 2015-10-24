@@ -1,6 +1,7 @@
 ---
 title: JUnit の代わりに TestNG を使ってユニットテストを実行する
 created: 2015-09-24
+layout: gradle
 ---
 
 JUnit の代わりに TestNG を使ってユニットテストを記述したい場合は、build.gradle スクリプトを下記のように書き換えます。

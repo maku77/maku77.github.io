@@ -1,6 +1,7 @@
 ---
 title: Gradle で Javadoc API Document を出力する
 created: 2015-08-03
+layout: gradle
 ---
 
 java プラグインをロードすると、自動的に **javadoc** タスクが定義されます。

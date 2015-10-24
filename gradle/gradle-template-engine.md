@@ -1,6 +1,7 @@
 ---
 title: Gradle のテンプレート機能によりファイル内容を書き換える
 created: 2015-06-30
+layout: gradle
 ---
 
 Groovy の SimpleTemplateEngine クラスの機能を使用することで、ファイルコピー時にファイル内の文字列を置換することができます。

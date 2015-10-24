@@ -1,6 +1,7 @@
 ---
 title: Gradle Wrapper スクリプト (gradlew) を作成する
 created: 2015-07-10
+layout: gradle
 ---
 
 Gradle Wrapper とは

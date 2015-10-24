@@ -1,6 +1,7 @@
 ---
 title: Gradle のプロキシを設定する
 created: 2014-06-01
+layout: gradle
 ---
 
 Gradle のプロキシ設定は、下記のいずれかのファイルで行います。
