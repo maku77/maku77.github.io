@@ -55,7 +55,8 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 プリプロセッサ
 ----
 * [#property strict について](property-strict.html)
-* [デバッグモードでビルドされているか調べる](check-debug-mode.html)
+* [デバッグモードでコンパイルされているか調べる](check-debug-mode.html)
+* [MQL4 と MQL5 のどちらでコンパイルされているか調べる](check-mql4-or-mql5.html)
 
 
 雑多
