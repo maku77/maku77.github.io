@@ -1,6 +1,7 @@
 ---
 title: protection レベルが dangerous なパーミッションの一覧を表示する
 created: 2015-08-04
+layout: android
 ---
 
 `pm list permissions` コマンドに **-d** オプションを付けて実行すると、**protectionLevel が dangerous** に設定されたパーミッションのみを一覧表示してくれます。

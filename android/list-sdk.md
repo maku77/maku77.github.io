@@ -1,6 +1,7 @@
 ---
 title: ダウンロード可能な Android SDK コンポーネントの一覧を取得する
 created: 2015-10-09
+layout: android
 ---
 
 Android SDK に付属している android コマンドを使用すると、追加でインストール可能な SDK コンポーネントの一覧を取得することができます。
