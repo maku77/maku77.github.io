@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  {% include head.html %}
+  <meta property="og:title" content="HTML/CSS | {{ page.title }} - {{ site.name }}" />
+  <title>HTML/CSS | {{ page.title }} - {{ site.name }}</title>
+  <style>
+  .maku-htmlSample {
+    margin: 10px;
+    padding: 10px;
+    border: dashed 1px gray;
+  }
+  </style>
+</head>
+<body>
+  {% include sns-sdk.html %}
+  <div class="maku-pageTitle">HTML/CSS | {{ page.title }}</div>
+  <div class="container-fluid">
+    {% include breadcrumb-web.html %}
+    <div class="maku-content">{{ content }}</div>
+    {% include widget-sns.html %}
+    {% include widget-comment.html %}
+    {% include widget-rakuten.html %}
+    {% include breadcrumb-web.html %}
+  </div>
+</body>
+{% include analytics.html %}
+</html>

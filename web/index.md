@@ -17,4 +17,7 @@ layout: category-index
 ----
 <iframe height="130" src="//jsfiddle.net/maku77/j4zbp0w4/embedded/result/" frameborder="0"></iframe>
 
+ボックスモデル
+====
+* [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 
