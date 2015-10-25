@@ -1,2 +1,4 @@
-See https://maku77.github.io/
+「[天才まくまくノート](https://maku77.github.io)」のサイトを管理するためのリポジトリです。
+プログラミングやシステムトレードなどに関する記事を書いています。Web サイトは下記から見ることができます。
 
+https://maku77.github.io/
