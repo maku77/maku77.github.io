@@ -14,6 +14,7 @@ Tools
 
 ADB 接続
 ----
+* [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
 
