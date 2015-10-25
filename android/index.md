@@ -16,3 +16,7 @@ ADB 接続
 ----
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 
+Android デバイス開発者向け
+----
+* [root ユーザで adb 接続する](adb-with-root.html)
+
