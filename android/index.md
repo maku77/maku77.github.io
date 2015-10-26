@@ -22,3 +22,7 @@ Android デバイス開発者向け
 ----
 * [root ユーザで adb 接続する](adb-with-root.html)
 
+その他
+----
+* [ネイティブライブラリの展開先](install-path-of-native-libs.html)
+
