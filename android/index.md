@@ -26,4 +26,5 @@ Android デバイス開発者向け
 その他
 ----
 * [ネイティブライブラリの展開先](install-path-of-native-libs.html)
+* [現在のスクリーンレイアウトサイズを取得する](screen-layout-size.html)
 
