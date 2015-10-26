@@ -12,6 +12,7 @@ Tools
 * [Dex 形式の Shared library (JAR) を作成する (dx)](create-dex-jar.html)
 * [adb から Backup Manager を走らせる (bmgr)](backup-manager.html)
 * [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
+* [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
 
 ADB 接続
 ----
