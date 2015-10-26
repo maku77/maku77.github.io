@@ -26,6 +26,10 @@ Android デバイス開発者向け
 * [LowMemoryKiller によるプロセス kill の優先順位の仕組み](low-memory-killer1.html)
 * [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
 
+Native レイヤ
+----
+* [RefBase によるスマートポインタ](refbase-smart-pointer.html)
+
 その他
 ----
 * [ネイティブライブラリの展開先](install-path-of-native-libs.html)
