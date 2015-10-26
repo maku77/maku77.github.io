@@ -23,7 +23,8 @@ Android デバイス開発者向け
 * [root ユーザで adb 接続する](adb-with-root.html)
 * [Sleep モードに遷移する](go-to-sleep.html)
 * [現在の Configuration を変更する](change-configuration.html)
-
+* [LowMemoryKiller によるプロセス kill の優先順位の仕組み](low-memory-killer1.html)
+* [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
 
 その他
 ----
