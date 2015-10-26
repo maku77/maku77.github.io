@@ -21,3 +21,10 @@ defaults:
       type: "pages"  # exclude raw files such as files in the css directory
     values:
       layout: "default"  # use _layout/default.html
+  -
+    scope:
+      path: "java"
+      type: "pages"
+    values:
+      layout: "java"
+
