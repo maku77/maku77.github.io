@@ -25,6 +25,7 @@ Android デバイス開発者向け
 * [現在の Configuration を変更する](change-configuration.html)
 * [LowMemoryKiller によるプロセス kill の優先順位の仕組み](low-memory-killer1.html)
 * [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
+* [Android デバイスのパーティション構成概要](partitions.html)
 
 Native レイヤ
 ----
