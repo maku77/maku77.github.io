@@ -11,6 +11,7 @@ Tools
 * [ダウンロード可能な Android SDK コンポーネントの一覧を取得する](list-sdk.html)
 * [Dex 形式の Shared library (JAR) を作成する (dx)](create-dex-jar.html)
 * [adb から Backup Manager を走らせる (bmgr)](backup-manager.html)
+* [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
 
 ADB 接続
 ----
