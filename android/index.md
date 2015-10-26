@@ -21,6 +21,7 @@ ADB 接続
 Android デバイス開発者向け
 ----
 * [root ユーザで adb 接続する](adb-with-root.html)
+* [現在の Configuration を変更する](change-configuration.html)
 
 その他
 ----
