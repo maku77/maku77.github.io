@@ -93,4 +93,10 @@ defaults:
       type: "pages"
     values:
       layout: "sed"
+  -
+    scope:
+      path: "shell"
+      type: "pages"
+    values:
+      layout: "shell"
 

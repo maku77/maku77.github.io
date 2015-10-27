@@ -1,7 +1,6 @@
 ---
 title: 変数の基本
 created: 2012-11-05
-layout: shell
 ---
 
 変数の定義と参照

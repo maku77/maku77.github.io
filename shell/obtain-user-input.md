@@ -1,7 +1,6 @@
 ---
 title: ユーザ入力を取得する
 created: 2012-11-05
-layout: shell
 ---
 
 ユーザ入力の基本

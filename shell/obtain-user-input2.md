@@ -1,7 +1,6 @@
 ---
 title: ユーザ入力を取得して "y" が入力された場合だけ処理を継続する
 created: 2012-08-01
-layout: shell
 ---
 
 #### sample.sh

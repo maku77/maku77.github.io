@@ -1,7 +1,6 @@
 ---
 title: 絶対パスと相対パスの変換
 created: 2010-07-20
-layout: shell
 ---
 
 basename - ディレクトリ、ファイル名だけを抽出する

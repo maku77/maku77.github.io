@@ -1,7 +1,6 @@
 ---
 title: bash のバージョンを調べる
 created: 2010-07-20
-layout: shell
 ---
 
 現在使用している bash のバージョンは、`$BASH_VERSION` 環境変数で参照することができます。
