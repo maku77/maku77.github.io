@@ -33,4 +33,10 @@ defaults:
       type: "pages"
     values:
       layout: "ruby"
+  -
+    scope:
+      path: "sed"
+      type: "pages"
+    values:
+      layout: "sed"
 

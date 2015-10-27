@@ -1,7 +1,6 @@
 ---
 title: tr でテキストファイルの空行を削除する
 created: 2009-04-05
-layout: sed
 ---
 
 ```

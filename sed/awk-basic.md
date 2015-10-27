@@ -1,7 +1,6 @@
 ---
 title: awk の基本的な使い方
 created: 2007-12-19
-layout: sed
 ---
 
 「手続き」だけを指定する方法
