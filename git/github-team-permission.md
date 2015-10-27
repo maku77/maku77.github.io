@@ -1,7 +1,6 @@
 ---
 title: GitHub の Organization を構成したときのチームの権限について理解する
 created: 2015-05-07
-layout: git
 ---
 
 GitHub の Organization の 4 種類のチーム

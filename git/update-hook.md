@@ -1,7 +1,6 @@
 ---
 title: Git の update フックの基本
 created: 2010-08-23
-layout: git
 ---
 
 `.git/hooks/update` スクリプトは、クライアントが `git push` しようとしたときに、クライアント側で実行されるフックスクリプトです。

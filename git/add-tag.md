@@ -1,7 +1,6 @@
 ---
 title: git tag でコミットに対してタグをつける
 created: 2015-10-16
-layout: git
 ---
 
 タグを追加する

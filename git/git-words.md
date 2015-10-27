@@ -1,7 +1,6 @@
 ---
 title: Git 関連用語
 created: 2010-07-17
-layout: git
 ---
 
 ### 作業ツリー

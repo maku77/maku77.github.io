@@ -23,6 +23,12 @@ defaults:
       layout: "default"  # use _layout/default.html
   -
     scope:
+      path: "git"
+      type: "pages"
+    values:
+      layout: "git"
+  -
+    scope:
       path: "java"
       type: "pages"
     values:

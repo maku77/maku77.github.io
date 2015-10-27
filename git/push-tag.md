@@ -1,7 +1,6 @@
 ---
 title: タグを中央リポジトリに push する
 created: 2011-08-08
-layout: git
 ---
 
 指定したタグを push する

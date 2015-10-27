@@ -1,7 +1,6 @@
 ---
 title: 特定のユーザのみ git push できるように制限する
 created: 2010-08-26
-layout: git
 ---
 
 git push できるユーザをホワイトリストで管理する

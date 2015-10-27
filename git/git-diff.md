@@ -1,7 +1,6 @@
 ---
 title: Git / git diff でファイルの差分を調べる
 created: 2010-07-14
-layout: git
 ---
 
 さまざまな差分を理解する
