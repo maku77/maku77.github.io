@@ -9,6 +9,7 @@ sed、awk やその他のテキストプロセッシングに関するノート�
 sed
 ====
 * [sed の基本的な使い方](sed-basic.html)
+* [sed で自分自身のファイルを書き換えるときの注意](sed-replace-itself.html)
 
 awk
 ====
