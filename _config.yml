@@ -99,4 +99,10 @@ defaults:
       type: "pages"
     values:
       layout: "shell"
+  -
+    scope:
+      path: "web"
+      type: "pages"
+    values:
+      layout: "web"
 
