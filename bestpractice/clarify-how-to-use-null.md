@@ -1,7 +1,6 @@
 ---
 title: プロジェクト内での null の扱い方をルール化する
 created: 2015-09-16
-layout: bestpractice
 ---
 
 Java のような null を簡単に扱える言語では、プロジェクト内で null の扱い方を統一しておかないと、`NullPointerException` のような不具合が多発します（これが Java の大きな欠点ともいえます）。

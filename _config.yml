@@ -23,6 +23,12 @@ defaults:
       layout: "default"  # use _layout/default.html
   -
     scope:
+      path: "bestpractice"
+      type: "pages"
+    values:
+      layout: "bestpractice"
+  -
+    scope:
       path: "git"
       type: "pages"
     values:

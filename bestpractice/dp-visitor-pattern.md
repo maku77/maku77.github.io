@@ -1,7 +1,6 @@
 ---
 title: Visitor パターン
 created: 2011-04-10
-layout: bestpractice
 ---
 
 Visitor パターンの特徴
