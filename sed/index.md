@@ -6,6 +6,10 @@ layout: category-index
 sed、awk やその他のテキストプロセッシングに関するノートです。
 
 
+sed
+====
+* [sed の基本的な使い方](sed-basic.html)
+
 awk
 ====
 
