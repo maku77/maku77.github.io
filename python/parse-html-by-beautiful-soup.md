@@ -1,7 +1,6 @@
 ---
 title: Python で HTML をパースする (Beautiful Soup)
 created: 2015-05-17
-layout: python
 ---
 
 Beautiful Soup とは

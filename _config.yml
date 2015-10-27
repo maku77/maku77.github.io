@@ -77,6 +77,12 @@ defaults:
       layout: "program"
   -
     scope:
+      path: "python"
+      type: "pages"
+    values:
+      layout: "python"
+  -
+    scope:
       path: "ruby"
       type: "pages"
     values:
