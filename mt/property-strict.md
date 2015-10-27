@@ -1,7 +1,6 @@
 ---
 title: "#property strict について"
 created: 2015-06-09
-layout: mt
 ---
 
 MetaTrader Build 765 以降は、EA 上で `#property strict` を指定していると、`OnInit()` が `INIT_SUCCEEDED` 以外を返した場合に、チャートから自動的に EA が取り除かれるようになりました。

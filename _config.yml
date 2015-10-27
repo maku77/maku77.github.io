@@ -59,6 +59,12 @@ defaults:
       layout: "java"
   -
     scope:
+      path: "mt"
+      type: "pages"
+    values:
+      layout: "mt"
+  -
+    scope:
       path: "ruby"
       type: "pages"
     values:

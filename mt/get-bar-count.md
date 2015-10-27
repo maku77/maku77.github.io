@@ -1,7 +1,6 @@
 ---
 title: チャートのローソク足の数を取得する
 created: 2015-06-10
-layout: mt
 ---
 
 [`Bars()` 関数](https://www.mql5.com/en/docs/series/bars)を使用すると、指定したシンボル、時間足のローソク足の数を調べることができます。

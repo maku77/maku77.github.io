@@ -1,7 +1,6 @@
 ---
 title: メッセージボックスを表示する
 created: 2015-02-01
-layout: mt
 ---
 
 MessageBox 関数を使用すると、Yes/Cancel ボタンなどを表示し、ユーザの意思を確かめることができます。

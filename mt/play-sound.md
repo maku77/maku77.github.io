@@ -1,7 +1,6 @@
 ---
 title: 音声を再生する
 created: 2014-12-07
-layout: mt
 ---
 
 `PlaySound()` を使って WAV ファイルを再生することができます。
