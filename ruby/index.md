@@ -28,6 +28,10 @@ layout: category-index
 * [関数にコードブロックを渡す（yield による呼び出し）](yield.html)
 * [関数を一行で定義する](oneline-method.html)
 
+配列
+====
+* [配列をループで処理する](loop-array.html)
+
 ハッシュ
 ====
 * [ハッシュを作成する](hash.html)
