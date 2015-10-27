@@ -67,6 +67,9 @@ XML
 * [REXML で XML ファイルを作成する](rexml-create-xml.html)
 * [REXML で XML ファイルを読み込む](rexml-read-xml.html)
 
+制御構文
+====
+* [2 つの変数の値をスワップする](swap-values.html)
 
 その他
 ====
