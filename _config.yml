@@ -27,4 +27,10 @@ defaults:
       type: "pages"
     values:
       layout: "java"
+  -
+    scope:
+      path: "ruby"
+      type: "pages"
+    values:
+      layout: "ruby"
 
