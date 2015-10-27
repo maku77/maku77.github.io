@@ -46,6 +46,7 @@ layout: category-index
 
 数値
 ----
+* [最大値／最小値を求める](max-and-min.html)
 * [乱数を生成する](random.html)
 
 
