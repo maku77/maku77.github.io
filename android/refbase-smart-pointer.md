@@ -1,7 +1,6 @@
 ---
 title: RefBase によるスマートポインタ
 created: 2011-02-03
-layout: android
 ---
 
 * android/frameworks/base/include/utils/RefBase.h

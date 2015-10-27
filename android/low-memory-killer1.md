@@ -1,7 +1,6 @@
 ---
 title: LowMemoryKiller によるプロセス kill の優先順位の仕組み
 created: 2011-09-07
-layout: android
 ---
 
 Android 独自の仕組みである **Low Memory Killer** は、空きメモリが一定以下になると、アプリプロセスを自動的に kill します。

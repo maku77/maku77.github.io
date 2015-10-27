@@ -1,7 +1,6 @@
 ---
 title: ネイティブサービスの実装 (1) Binder 関連のクラス
 created: 2011-04-27
-layout: android
 ---
 
 Binder 関連クラス

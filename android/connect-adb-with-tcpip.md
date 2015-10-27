@@ -1,7 +1,6 @@
 ---
 title: TCP/IP で adb 接続する
 created: 2014-04-08
-layout: android
 ---
 
 adb を TCP/IP 接続に切り替える

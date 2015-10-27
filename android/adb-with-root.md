@@ -1,7 +1,6 @@
 ---
 title: root ユーザで adb 接続する
 created: 2011-12-14
-layout: android
 ---
 
 （下記はデバイス開発者向けの解説であり、root を取得する権限があることを前提としています）

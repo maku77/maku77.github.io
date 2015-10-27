@@ -1,7 +1,6 @@
 ---
 title: Xperia Tablet Z に adb 接続する
 created: 2014-05-30
-layout: android
 ---
 
 まずは、下記と同様に「開発者向けオプション」を有効にし、「USB デバッグ」を有効にしておきます。

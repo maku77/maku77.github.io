@@ -23,6 +23,12 @@ defaults:
       layout: "default"  # use _layout/default.html
   -
     scope:
+      path: "android"
+      type: "pages"
+    values:
+      layout: "android"
+  -
+    scope:
       path: "bestpractice"
       type: "pages"
     values:

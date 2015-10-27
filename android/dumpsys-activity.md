@@ -1,7 +1,6 @@
 ---
 title: Activity の情報を表示する (dumpsys)
 created: 2011-06-08
-layout: android
 ---
 
 **dumpsys** コマンドで、Activity core サービスの情報を表示できます。

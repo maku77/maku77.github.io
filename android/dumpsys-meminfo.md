@@ -1,7 +1,6 @@
 ---
 title: メモリの使用状況を確認する (dumpsys)
 created: 2014-07-29
-layout: android
 ---
 
 各プロセスのメモリ使用状況を確認する

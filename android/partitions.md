@@ -1,7 +1,6 @@
 ---
 title: Android デバイスのパーティション構成概要
 created: 2013-11-07
-layout: android
 ---
 
 パーティション構成

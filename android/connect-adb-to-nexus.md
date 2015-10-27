@@ -1,7 +1,6 @@
 ---
 title: Nexus7 (2013) に adb 接続する
 created: 2013-11-06
-layout: android
 ---
 
 Android タブレットの Nexus7 に、`adb` コマンドで接続するまでの手順です。
