@@ -3,9 +3,6 @@ title: sed/awk メモ
 layout: category-index
 ---
 
-sed、awk やその他のテキストプロセッシングに関するノートです。
-
-
 sed
 ====
 * [sed の基本的な使い方](sed-basic.html)
@@ -16,7 +13,7 @@ awk
 
 * [awk の基本的な使い方](awk-basic.html)
 * [awk でフィールドセパレータを変更する](change-awk-separator.html)
-
+* [awk でテキストファイル内の単語数と行数をカウントする](wc-command-by-awk.html)
 
 tr
 ====
