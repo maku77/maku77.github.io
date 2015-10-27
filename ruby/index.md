@@ -72,6 +72,10 @@ XML
 * [REXML で XML ファイルを作成する](rexml-create-xml.html)
 * [REXML で XML ファイルを読み込む](rexml-read-xml.html)
 
+mp3
+----
+* [ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する](ruby-mp3info.html)
+
 制御構文
 ====
 * [2 つの変数の値をスワップする](swap-values.html)
