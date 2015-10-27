@@ -1,7 +1,6 @@
 ---
 title: 乱数を生成する
 created: 2003-10-17
-layout: ruby
 ---
 
 整数の乱数

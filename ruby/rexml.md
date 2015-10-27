@@ -1,7 +1,6 @@
 ---
 title: REXML とは
 created: 2010-05-07
-layout: ruby
 ---
 
 Ruby 1.8 以上には XML のパーサライブラリである **REXML** が標準で添付されています。

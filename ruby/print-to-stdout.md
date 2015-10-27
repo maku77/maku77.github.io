@@ -1,7 +1,6 @@
 ---
 title: 標準出力へ出力する
 created: 2011-10-01
-layout: ruby
 ---
 
 単純な出力 (puts / print)

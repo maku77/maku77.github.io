@@ -1,7 +1,6 @@
 ---
 title: キーボードからパスワードの入力を取得する
 created: 2015-10-15
-layout: ruby
 ---
 
 IO#noecho による入力表示の抑制

@@ -1,7 +1,6 @@
 ---
 title: Ruby のコーディングスタイル
 created: 2003-10-14
-layout: ruby
 ---
 
 命名規則

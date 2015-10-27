@@ -1,7 +1,6 @@
 ---
 title: REXML で XML ファイルを作成する
 created: 2010-06-13
-layout: ruby
 ---
 
 XML ファイルの出力（基本）

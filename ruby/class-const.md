@@ -1,7 +1,6 @@
 ---
 title: クラス定数を定義する
 created: 2011-10-10
-layout: ruby
 ---
 
 

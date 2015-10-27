@@ -1,7 +1,6 @@
 ---
 title: REXML で XML ファイルを読み込む
 created: 2011-06-22
-layout: ruby
 ---
 
 Document オブジェクトを作成する

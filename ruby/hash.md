@@ -1,7 +1,6 @@
 ---
 title: ハッシュを作成する
 created: 2011-10-07
-layout: ruby
 ---
 
 

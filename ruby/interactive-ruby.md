@@ -1,7 +1,6 @@
 ---
 title: Ruby の対話型プログラムを起動する
 created: 2015-10-15
-layout: ruby
 ---
 
 irb を使用する

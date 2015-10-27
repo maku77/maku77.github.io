@@ -1,7 +1,6 @@
 ---
 title: 環境変数を扱う
 created: 2015-10-16
-layout: ruby
 ---
 
 環境変数を参照する
