@@ -1,7 +1,6 @@
 ---
 title: Groovy でリストを扱う
 created: 2015-07-08
-layout: gradle
 ---
 
 Groovy のリストの基本

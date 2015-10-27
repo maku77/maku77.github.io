@@ -1,7 +1,6 @@
 ---
 title: Gradle タスクの一覧を表示する (tasks)
 created: 2014-06-17
-layout: gradle
 ---
 
 実行可能なタスクの一覧は `tasks` タスクを走らせることで確認できます。

@@ -1,7 +1,6 @@
 ---
 title: Gradle でファイルをコピーするためのタスクを作成する
 created: 2015-06-30
-layout: gradle
 ---
 
 ファイルコピーの基本

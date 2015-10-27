@@ -1,7 +1,6 @@
 ---
 title: Gradle で JUnit によるユニットテストを実行する
 created: 2015-09-24
-layout: gradle
 ---
 
 JUnit の設定とテストコードの作成

@@ -1,7 +1,6 @@
 ---
 title: Gradle で Checkstyle による静的解析を実行する
 created: 2015-08-10
-layout: gradle
 ---
 
 Checkstyle プラグインの基本

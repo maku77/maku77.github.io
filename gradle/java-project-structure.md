@@ -1,7 +1,6 @@
 ---
 title: Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する
 created: 2015-07-08
-layout: gradle
 ---
 
 java プラグインは、Java ソースコードが **src/main/java** や **src/test/java** に置かれていることを前提としています。

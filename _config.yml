@@ -47,6 +47,12 @@ defaults:
       layout: "git"
   -
     scope:
+      path: "gradle"
+      type: "pages"
+    values:
+      layout: "gradle"
+  -
+    scope:
       path: "java"
       type: "pages"
     values:

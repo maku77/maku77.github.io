@@ -1,7 +1,6 @@
 ---
 title: Gradle で PMD による静的解析を実行する
 created: 2015-09-14
-layout: gradle
 ---
 
 PMD プラグインの基本

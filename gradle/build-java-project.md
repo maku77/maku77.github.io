@@ -1,7 +1,6 @@
 ---
 title: Gradle で Java プロジェクトをビルドする
 created: 2014-06-08
-layout: gradle
 ---
 
 Java プラグインを適用すると、Java のプロジェクトをビルドするためのタスクが定義されます。
