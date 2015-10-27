@@ -45,3 +45,10 @@ This is a comment.
 This is also a comment.
 ```
 
+参考（sed の場合）
+----
+
+`sed` コマンドでも同様のことを行うことができます。
+
+* [sed でパターンに一致する行を削除する](sed-delete-specified-lines.html)
+
