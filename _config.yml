@@ -71,6 +71,12 @@ defaults:
       layout: "p4"
   -
     scope:
+      path: "program"
+      type: "pages"
+    values:
+      layout: "program"
+  -
+    scope:
       path: "ruby"
       type: "pages"
     values:
