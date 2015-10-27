@@ -65,6 +65,12 @@ defaults:
       layout: "mt"
   -
     scope:
+      path: "p4"
+      type: "pages"
+    values:
+      layout: "p4"
+  -
+    scope:
       path: "ruby"
       type: "pages"
     values:

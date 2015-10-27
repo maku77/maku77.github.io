@@ -1,7 +1,6 @@
 ---
 title: p4admin で Perforce サーバを設定する
 created: 2014-07-30
-layout: p4
 ---
 
 p4admin を起動する
