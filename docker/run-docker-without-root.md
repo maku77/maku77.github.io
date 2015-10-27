@@ -1,7 +1,6 @@
 ---
 title: 一般ユーザから docker コマンドを実行できるようにする
 created: 2015-03-10
-layout: docker
 ---
 
 `docker` コマンドは、内部で socket を使って通信を行っており、一般ユーザからコマンドを実行すると、permission denied で怒られることがあります。

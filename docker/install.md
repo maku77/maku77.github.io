@@ -1,7 +1,6 @@
 ---
 title: Docker のインストール
 created: 2015-03-09
-layout: docker
 ---
 
 Docker をインストールするときは、基本的には、下記のマニュアルに従ってインストールすれば OK です。

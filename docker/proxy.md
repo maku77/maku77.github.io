@@ -1,7 +1,6 @@
 ---
 title: Docker のプロキシ設定
 created: 2015-03-10
-layout: docker
 ---
 
 (1) Docker ホスト側のプロキシ設定

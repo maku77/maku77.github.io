@@ -1,7 +1,6 @@
 ---
 title: すべての Docker コンテナを削除する
 created: 2015-03-12
-layout: docker
 ---
 
 Docker コンテナ上のシェルで何度も作業を行っていると、`docker ps -a` コマンド表示される Docker コンテナの履歴がどんどん溜まってきてしまいます。

@@ -1,7 +1,6 @@
 ---
 title: Docker イメージのダウンロードと Hello World
 created: 2015-03-15
-layout: docker
 ---
 
 Docker イメージのダウンロード

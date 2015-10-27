@@ -35,6 +35,12 @@ defaults:
       layout: "bestpractice"
   -
     scope:
+      path: "docker"
+      type: "pages"
+    values:
+      layout: "docker"
+  -
+    scope:
       path: "git"
       type: "pages"
     values:
