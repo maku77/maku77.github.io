@@ -14,6 +14,7 @@ HTML/XML のパース
 入出力 (I/O)
 ====
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
+* [指定したファイル名のファイルを検索する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [ディレクトリを作成する](create-directory.html)
 * [ディレクトリを削除する](remove-directory.html)
