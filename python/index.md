@@ -11,3 +11,7 @@ HTML/XML のパース
 * [Python で HTML をパースする (HTMLParser)](parse-html-by-html-parser.html)
 * [Python で HTML をパースする (Beautiful Soup)](parse-html-by-beautiful-soup.html)
 
+入出力 (I/O)
+====
+* [ディレクトリ内のファイルを列挙する](enum-files.html)
+
