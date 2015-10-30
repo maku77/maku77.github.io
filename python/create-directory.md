@@ -12,18 +12,16 @@ created: 2013-05-08
 
 `os.mkdir()` を使用して、空のディレクトリを作成することができます。
 
-#### os.mkdir() の説明
-```
-os.mkdir(path, mode=0o777, *, dir_fd=None)
-    Create a directory.
-
-    If dir_fd is not None, it should be a file descriptor open to a directory,
-      and path should be relative; path will then be relative to that directory.
-    dir_fd may not be implemented on your platform.
-      If it is unavailable, using it will raise a NotImplementedError.
-
-    The mode argument is ignored on Windows.
-```
+#### os.mkdir の説明
+> os.mkdir(path, mode=0o777, *, dir_fd=None)
+>
+> Create a directory.
+>
+> If dir_fd is not None, it should be a file descriptor open to a directory, and path should be relative; path will then be relative to that directory.
+> dir_fd may not be implemented on your platform.
+> If it is unavailable, using it will raise a NotImplementedError.
+>
+> The mode argument is ignored on Windows.
 
 下記は、カレントディレクトリに `aaa` というディレクトリを作成する例です。
 
@@ -38,12 +36,10 @@ os.mkdir('./aaa')
 
 階層の深いディレクトリ構造を一度に作成するには、`os.mkdir` の代わりに `os.makedirs` を使用します。
 
-#### os.makedirs() の説明
-```
-makedirs(path [, mode=0o777][, exist_ok=False])
-
-Super-mkdir; create a leaf directory and all intermediate ones. Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist. If the target directory with the same mode as we specified already exists, raises an OSError if exist_ok is False, otherwise no exception is raised. This is recursive.
-```
+#### os.makedirs の説明
+> makedirs(path [, mode=0o777][, exist_ok=False])
+>
+> Super-mkdir; create a leaf directory and all intermediate ones. Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist. If the target directory with the same mode as we specified already exists, raises an OSError if exist_ok is False, otherwise no exception is raised. This is recursive.
 
 下記の例では、カレントディレクトリ以下に、`aaa/bbb/ccc` という深い階層のディレクトリを作成しています。
 `aaa` ディレクトリや、`aaa/bbb` ディレクトリが存在しない場合は、ついでに作成してくれます。
