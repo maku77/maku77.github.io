@@ -14,5 +14,6 @@ HTML/XML のパース
 入出力 (I/O)
 ====
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
+* [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [コマンドライン引数を取得する](command-line-params.html)
 
