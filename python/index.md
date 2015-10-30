@@ -20,3 +20,7 @@ HTML/XML のパース
 * [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 
+クラス
+====
+* [オブジェクトを print で出力できるようにする](print-object.html)
+
