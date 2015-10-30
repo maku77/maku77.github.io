@@ -3,6 +3,15 @@ title: Python メモ
 layout: category-index
 ---
 
+
+python コマンド
+====
+* [Python でワンライナーを実行する](one-liner.html)
+
+クラス
+====
+* [オブジェクトを print で出力できるようにする](print-object.html)
+
 HTML/XML のパース
 ====
 * [Python で XML を扱う方法いろいろ](xml-in-python.html)
@@ -20,8 +29,4 @@ HTML/XML のパース
 * [ディレクトリを削除する](remove-directory.html)
 * [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
-
-クラス
-====
-* [オブジェクトを print で出力できるようにする](print-object.html)
 
