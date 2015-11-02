@@ -32,6 +32,7 @@ HTML/XML のパース
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
 * [指定したファイル名のファイルを検索する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
+* [ファイル／ディレクトリの名前を変更する](change-filename.html)
 * [ディレクトリを作成する](create-directory.html)
 * [ディレクトリを削除する](remove-directory.html)
 * [コマンドライン引数を取得する](command-line-params.html)
@@ -41,4 +42,8 @@ HTML/XML のパース
 SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
+
+ユニットテスト
+====
+* Python のバージョン 2.1 から unittest モジュールが標準搭載されています。
 
