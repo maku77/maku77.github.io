@@ -9,6 +9,11 @@ layout: category-index
 * [Python のコーディングスタイル](coding-style.html)
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
 
+構文
+----
+* [Python の if 構文](if-syntax.html)
+
+
 python コマンド
 ====
 * [Python でワンライナーを実行する](one-liner.html)
