@@ -105,4 +105,10 @@ defaults:
       type: "pages"
     values:
       layout: "web"
+  -
+    scope:
+      path: "windows"
+      type: "pages"
+    values:
+      layout: "windows"
 
