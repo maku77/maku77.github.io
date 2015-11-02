@@ -40,6 +40,10 @@ HTML/XML のパース
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 * [キーボードからのユーザ入力を取得する](keyboard-input.html)
 
+標準出力
+----
+* [print 関数の改行を抑制する](print-without-line-break.html)
+
 SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
