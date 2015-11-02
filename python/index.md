@@ -15,6 +15,7 @@ python コマンド
 クラス
 ====
 * [オブジェクトを print で出力できるようにする](print-object.html)
+* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 HTML/XML のパース
 ====
