@@ -12,14 +12,14 @@ Windows バッチファイル
 
 入出力 (I/O)
 ----
-* [FOR コマンドでカレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
 * [echo の出力を標準エラー (stderr) に出力する](echo-to-stderr.html)
 * [echo で改行だけ出力する](echo-newline.html)
 
 ファイル検索
 ----
-* [カレントディレクトリ以下のファイルを再帰的に検索する](find-files.html)
+* [DIR コマンドでファイルを再帰的に検索する](find-files.html)
 * [DIR コマンドでファイルを OR 検索する](or-dir.html)
+* [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
 
 Windows の便利操作／ショートカット
 ====
