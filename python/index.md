@@ -48,6 +48,12 @@ HTML/XML のパース
 * [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 
+テキストファイル
+----
+* [テキストファイルを読み込む](read-text-file.html)
+* [JSON 形式のテキストファイルを整形して出力する](json-pretty-print.html)
+* [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
+
 標準入力
 ----
 * [標準入力から読み込む](read-stdin.html)

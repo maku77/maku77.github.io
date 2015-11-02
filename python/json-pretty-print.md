@@ -1,5 +1,5 @@
 ---
-title: Python で JSON 形式のテキストを整形して出力する
+title: JSON 形式のテキストファイルを整形して出力する
 created: 2014-11-28
 ---
 

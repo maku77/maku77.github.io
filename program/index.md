@@ -43,12 +43,6 @@ Java/JDBC
 * [プレースホルダを使用して SQL クエリを作成する](java-jdbc-placeholder.html)
 * [最初のレコードだけを取得する](java-jdbc-get-first-record.html)
 
-テキストファイル
-====
-* [Python でテキストファイルを読み込む](python-read-text-file.html)
-* [Python で JSON 形式のテキストを整形して出力する](python-json-pretty-print.html)
-* [JSON 形式のテキストを Python オブジェクトに変換する](python-json-to-object.html)
-
 ヒアドキュメント
 ====
 * [Perl でヒアドキュメント](perl-here-document.html)
