@@ -35,6 +35,7 @@ HTML/XML のパース
 * [ディレクトリを削除する](remove-directory.html)
 * [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
+* [キーボードからのユーザ入力を取得する](keyboard-input.html)
 
 SQL
 ----
