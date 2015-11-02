@@ -8,6 +8,7 @@ Windows バッチファイル
 * [Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する](run-script-as-command.html)
 * [バッチファイル内での FOR ループ](for-loop.html)
 * [バッチファイルを途中で終了する](exit-batch.html)
+* [バッチファイルで関数もどき（サブルーチン）を実現する](subroutine.html)
 
 入出力 (I/O)
 ----
