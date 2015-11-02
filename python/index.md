@@ -18,6 +18,7 @@ HTML/XML のパース
 * [Python で XML をパースする (ElementTree)](parse-xml-by-element-tree.html)
 * [Python で XML をパースする (minidom)](parse-xml-by-minidom.html)
 * [Python で XPath を使用する (ElementTree)](xpath.html)
+* [Python で XML を構築する (minidom)](create-xml-by-minidom.html)
 * [Python で HTML をパースする (HTMLParser)](parse-html-by-html-parser.html)
 * [Python で HTML をパースする (Beautiful Soup)](parse-html-by-beautiful-soup.html)
 
