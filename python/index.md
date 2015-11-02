@@ -4,9 +4,10 @@ layout: category-index
 ---
 
 
-はじめに
+はじめに／基本
 ====
 * [Python のコーディングスタイル](coding-style.html)
+* [Python でモジュールを import する方法いろいろ](import-modules.html)
 
 python コマンド
 ====
