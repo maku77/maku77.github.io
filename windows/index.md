@@ -16,6 +16,10 @@ Windows バッチファイル
 * [echo の出力を標準エラー (stderr) に出力する](echo-to-stderr.html)
 * [echo で改行だけ出力する](echo-newline.html)
 
+ファイル検索
+----
+* [カレントディレクトリ以下のファイルを再帰的に検索する](find-files.html)
+
 Windows の便利操作／ショートカット
 ====
 * [Windows でキーボード操作だけで様々なフォルダを素早く開く](open-dir-by-keyboard.html)
