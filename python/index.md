@@ -45,5 +45,5 @@ SQL
 
 ユニットテスト
 ====
-* Python のバージョン 2.1 から unittest モジュールが標準搭載されています。
+* [Python でユニットテストを記述する](unittest.html)
 
