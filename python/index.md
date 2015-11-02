@@ -23,6 +23,10 @@ python コマンド
 * [オブジェクトを print で出力できるようにする](print-object.html)
 * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
+文字列
+====
+* [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
+
 HTML/XML のパース
 ====
 * [Python で XML を扱う方法いろいろ](xml-in-python.html)
