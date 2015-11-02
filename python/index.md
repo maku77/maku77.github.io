@@ -43,6 +43,10 @@ HTML/XML のパース
 * [ディレクトリを削除する](remove-directory.html)
 * [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
+
+標準入力
+----
+* [標準入力から読み込む](read-stdin.html)
 * [キーボードからのユーザ入力を取得する](keyboard-input.html)
 
 標準出力
