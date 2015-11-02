@@ -4,6 +4,10 @@ layout: category-index
 ---
 
 
+はじめに
+====
+* [Python のコーディングスタイル](coding-style.html)
+
 python コマンド
 ====
 * [Python でワンライナーを実行する](one-liner.html)
