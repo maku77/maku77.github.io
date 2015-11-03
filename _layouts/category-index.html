@@ -2,12 +2,12 @@
 <html lang="ja">
 <head>
   {% include head.html %}
-  <meta property="og:title" content="{{ page.title }} | {{ site.name }}" />
-  <title>{{ page.title }} | {{ site.name }}</title>
+  <meta property="og:title" content="まくまく {{ page.category_title }} ノート" />
+  <title>まくまく {{ page.category_title }} ノート</title>
 </head>
 <body>
   {% include sns-sdk.html %}
-  <div class="maku-pageTitle">{{ page.title }} | {{ site.name }}</div>
+  <div class="maku-pageTitle">まくまく {{ page.category_title }} ノート</div>
   <div class="container-fluid">
     {% include breadcrumb-root.html %}
     <div class="maku-content maku-content-multi">{{ content }}</div>

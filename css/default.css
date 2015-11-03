@@ -23,6 +23,9 @@ body {
   padding: 5px 10px;
   box-shadow: 0px 0px 10px #000;
 }
+.maku-pageTitle_category {
+  font-size: 12pt;
+}
 
 .maku-pageDate {
   float: right;
@@ -104,7 +107,8 @@ strong {
  * Color theme
  */
 body { color: #666; }
-.maku-pageTitle { color: #faa; background-color: darkred; }
+.maku-pageTitle { color: #fdd; background-color: darkred; }
+.maku-pageTitle_category { color: #faa; }
 .maku-pageDate { color: #666; }
 h1, h2, h3, h4 { color: #333; }
 strong { color: #ff8300; }

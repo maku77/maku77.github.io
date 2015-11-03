@@ -2,12 +2,17 @@
 <html lang="ja">
 <head>
   {% include head.html %}
-  <meta property="og:title" content="{{page.title}} | {{page.category_title}} - {{site.name}}" />
-  <title>{{page.title}} | {{page.category_title}} - {{site.name}}</title>
+  <meta property="og:title" content="{{page.title}} | まくまく {{ page.category_title }} ノート" />
+  <title>{{page.title}} | まくまく {{ page.category_title }} ノート</title>
 </head>
 <body>
   {% include sns-sdk.html %}
-  <div class="maku-pageTitle">{{page.title}} | {{page.category_title}}</div>
+  <div class="maku-pageTitle">
+    <div class="maku-pageTitle_category">
+      まくまく {{ page.category_title }} ノート
+    </div>
+    {{page.title}}
+  </div>
   <div class="container-fluid">
     {% include breadcrumb.html %}
     {% include widget-adsense-link.html %}
