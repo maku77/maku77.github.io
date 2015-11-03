@@ -1,19 +1,42 @@
 <style>
-input[type=search] {
-  border: solid 1px lightgray;
-  background: #eee;
-  width: 100%;
+.maku-searchBar {
   margin-bottom: 5px;
+  text-align: right;
 }
-input:focus {
+.maku-searchBar_text {
+  border: solid 1px lightgray;
+  background: #f6f6f6;
+  width: 12em;
+}
+.maku-searchBar_button {
+  border: solid 1px lightgray;
+  background: #ddd;
+  border-radius: 5px;
+}
+input[type=search] {
+  padding: 2px;
+}
+input[type=search]:focus {
   background: #f0f8ff;
+  font-weight: bolder;
   color: #2040ff;
 }
 </style>
 
+<form action="http://www.google.co.jp/cse" id="cse-search-box">
+  <div class="maku-searchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="maku-searchBar_text" type="search" name="q" placeholder="Search..." size="55" results="5" />
+    <input class="maku-searchBar_button" type="submit" name="sa" value="検索" />
+  </div>
+</form>
+
+<!--
 <div>
   <form role="search" method="get" action="{{site.baseurl}}/search/">
     <input name="q" type="search" results=5 placeholder="Search...">
   </form>
 </div>
+-->
 
