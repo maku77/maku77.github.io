@@ -26,89 +26,104 @@ defaults:
       path: "android"
       type: "pages"
     values:
-      layout: "android"
+      category_title: "Android ノート"
+      category_name: "android"
   -
     scope:
       path: "bestpractice"
       type: "pages"
     values:
-      layout: "bestpractice"
+      category_title: "Bestpractice ノート"
+      category_name: "bestpractice"
   -
     scope:
       path: "docker"
       type: "pages"
     values:
-      layout: "docker"
+      category_title: "Docker ノート"
+      category_name: "docker"
   -
     scope:
       path: "git"
       type: "pages"
     values:
-      layout: "git"
+      category_title: "Git ノート"
+      category_name: "git"
   -
     scope:
       path: "gradle"
       type: "pages"
     values:
-      layout: "gradle"
+      category_title: "Gradle ノート"
+      category_name: "gradle"
   -
     scope:
       path: "java"
       type: "pages"
     values:
-      layout: "java"
+      category_title: "Java ノート"
+      category_name: "java"
   -
     scope:
       path: "mt"
       type: "pages"
     values:
-      layout: "mt"
+      category_title: "Meta Trader ノート"
+      category_name: "mt"
   -
     scope:
       path: "p4"
       type: "pages"
     values:
-      layout: "p4"
+      category_title: "Perforce ノート"
+      category_name: "p4"
   -
     scope:
       path: "program"
       type: "pages"
     values:
-      layout: "program"
+      category_title: "Program ノート"
+      category_name: "program"
   -
     scope:
       path: "python"
       type: "pages"
     values:
-      layout: "python"
+      category_title: "Python ノート"
+      category_name: "python"
   -
     scope:
       path: "ruby"
       type: "pages"
     values:
-      layout: "ruby"
+      category_title: "Ruby ノート"
+      category_name: "ruby"
   -
     scope:
       path: "sed"
       type: "pages"
     values:
-      layout: "sed"
+      category_title: "sed ノート"
+      category_name: "sed"
   -
     scope:
       path: "shell"
       type: "pages"
     values:
-      layout: "shell"
+      category_title: "Shell ノート"
+      category_name: "shell"
   -
     scope:
       path: "web"
       type: "pages"
     values:
-      layout: "web"
+      category_title: "HTML/CSS ノート"
+      category_name: "web"
   -
     scope:
       path: "windows"
       type: "pages"
     values:
-      layout: "windows"
+      category_title: "Windows ノート"
+      category_name: "windows"
 
