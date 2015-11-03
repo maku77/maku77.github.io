@@ -65,6 +65,13 @@ defaults:
       category_name: "java"
   -
     scope:
+      path: "middleman"
+      type: "pages"
+    values:
+      category_title: "Middleman"
+      category_name: "middleman"
+  -
+    scope:
       path: "mt"
       type: "pages"
     values:
