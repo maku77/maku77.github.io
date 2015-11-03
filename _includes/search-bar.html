@@ -1,0 +1,19 @@
+<style>
+input[type=search] {
+  border: solid 1px lightgray;
+  background: #eee;
+  width: 100%;
+  margin-bottom: 5px;
+}
+input:focus {
+  background: #f0f8ff;
+  color: #2040ff;
+}
+</style>
+
+<div>
+  <form role="search" method="get" action="{{site.baseurl}}/search/">
+    <input name="q" type="search" results=5 placeholder="Search...">
+  </form>
+</div>
+
