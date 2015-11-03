@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>{{ page.title }} - {{ site.name }}</title>
+  <title>{{ page.title }} | {{ site.name }}</title>
 </head>
 <body>
   <div class="container-fluid">
     <div class="maku-content">{{ content }}</div>
-    {% include breadcrumb.html %}
+    {% include breadcrumb-root.html %}
   </div>
 </body>
 {% include analytics.html %}

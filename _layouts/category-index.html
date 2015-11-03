@@ -2,19 +2,19 @@
 <html lang="ja">
 <head>
   {% include head.html %}
-  <meta property="og:title" content="{{ page.title }} - {{ site.name }}" />
-  <title>{{ page.title }} - {{ site.name }}</title>
+  <meta property="og:title" content="{{ page.title }} | {{ site.name }}" />
+  <title>{{ page.title }} | {{ site.name }}</title>
 </head>
 <body>
   {% include sns-sdk.html %}
-  <div class="maku-pageTitle">{{ page.title }} - {{ site.name }}</div>
+  <div class="maku-pageTitle">{{ page.title }} | {{ site.name }}</div>
   <div class="container-fluid">
-    {% include breadcrumb.html %}
+    {% include breadcrumb-root.html %}
     <div class="maku-content maku-content-multi">{{ content }}</div>
     {% include widget-sns.html %}
     {% include widget-comment.html %}
     {% include widget-rakuten.html %}
-    {% include breadcrumb.html %}
+    {% include breadcrumb-root.html %}
   </div>
 </body>
 {% include analytics.html %}
