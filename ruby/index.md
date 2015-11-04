@@ -11,9 +11,10 @@ layout: category-index
 Ruby の制御構文
 ====
 * [Ruby の真偽値](syntax/true-and-false.html)
-* [if と unless](syntax/if.html)
-* [while と until](syntax/while.html)
-* [for と each](syntax/for.html)
+* [if と unless による分岐](syntax/if.html)
+* [case による分岐](syntax/case.html)
+* [while と until によるループ](syntax/while.html)
+* [for と each によるループ](syntax/for.html)
 
 クラス
 ====
