@@ -21,3 +21,8 @@ layout: category-index
 ====
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 
+
+Web サイト作成の雑多メモ
+====
+* [SEO 対策](seo.html)
+
