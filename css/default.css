@@ -62,10 +62,11 @@ li {
 }
 
 .maku-widget {
-  margin: 10px;
-  padding: 5px;
+  clear: both;
+  margin-top: 10px;
+  padding-top: 10px;
   background-color: white;
-  border: dotted 1px gray;
+  border-top: dotted 1px gray;
 }
 
 h1, h2, h3, h4 { font-weight: bolder; }

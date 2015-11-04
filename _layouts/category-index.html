@@ -10,11 +10,20 @@
   <div class="maku-pageTitle">まくまく {{ page.category_title }} ノート</div>
   <div class="container-fluid">
     {% include breadcrumb-root.html %}
+    <div class="maku-widget">
+      {% include widget-sns.html %}
+    </div>
     <div class="maku-content maku-content-multi">{{ content }}</div>
     {% include widget-sns.html %}
-    {% include widget-adsense-responsive.html %}
-    {% include widget-comment.html %}
-    {% include widget-rakuten.html %}
+    <div class="maku-widget">
+      {% include widget-adsense-responsive.html %}
+    </div>
+    <div class="maku-widget">
+      {% include widget-rakuten-responsive-image.html %}
+    </div>
+    <div class="maku-widget">
+      {% include widget-comment.html %}
+    </div>
     {% include breadcrumb-root.html %}
   </div>
 </body>
