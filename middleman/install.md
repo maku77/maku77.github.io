@@ -9,7 +9,7 @@ Middleman は静的なサイトを作成するための統合ツールです。
 例えば、下記のような Web サイト作成に必要な機能をひととおり備えています。
 
 * Web サイトの雛形の生成
-* Sass や Less による CSS の生成
+* Sassy CSS (SCSS) による CSS の生成
 * CSS の結合 (minify)
 * ERB 言語で Ruby のループ構文などを使用した HTML ファイルの生成
 * Markdown や Stylus を使用した記事から HTML ファイルの生成
