@@ -1,5 +1,5 @@
 ---
-title: Ruby の制御構文 -- for と each
+title: Ruby の制御構文 -- for と each によるループ
 created: 2002-08-22
 ---
 

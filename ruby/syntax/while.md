@@ -1,5 +1,5 @@
 ---
-title: Ruby の制御構文 -- while と until
+title: Ruby の制御構文 -- while と until によるループ
 created: 2002-08-20
 ---
 
