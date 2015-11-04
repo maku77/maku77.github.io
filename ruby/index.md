@@ -8,6 +8,10 @@ layout: category-index
 * [Ruby のコーディングスタイル](conding-style.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
 
+Ruby の制御構文
+====
+* [if と unless](syntax/if.html)
+
 クラス
 ====
 * [クラスとメソッドを定義する](define-class.html)
