@@ -11,6 +11,7 @@ layout: category-index
 Ruby の制御構文
 ====
 * [if と unless](syntax/if.html)
+* [while と until](syntax/while.html)
 
 クラス
 ====
