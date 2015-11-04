@@ -10,6 +10,7 @@ layout: category-index
 
 Ruby の制御構文
 ====
+* [Ruby の真偽値](syntax/true-and-false.html)
 * [if と unless](syntax/if.html)
 * [while と until](syntax/while.html)
 
