@@ -29,4 +29,5 @@ Windows の便利操作／ショートカット
 Windows の設定／管理
 ====
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
+* [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 
