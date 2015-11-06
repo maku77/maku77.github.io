@@ -21,6 +21,7 @@ created: 2015-10-22
 | %appdata% | Application Data ディレクトリ | C:\Users\maku\AppData\Roaming |
 | %windir% | Windows ディレクトリ | C:\Windows |
 | %programfiles% | Program Files | C:\Program Files |
+| shell:sendto | SendTo ディレクトリ | C:\Users\maku\AppData\Roaming\Microsoft\Windows\SendTo |
 
 ちなみに、開いたフォルダを素早く閉じるには、`Ctrl + W` です。
 
