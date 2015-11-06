@@ -30,4 +30,5 @@ Windows の設定／管理
 ====
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
+* [Windows のアカウント名を変更する](change-account-name.html)
 
