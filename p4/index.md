@@ -14,6 +14,7 @@ p4 コマンドあれこれ
 * [オープンされているファイルをバックアップする (p4-backup)](p4-backup.html)
 * [ディポ上のファイルを標準出力に出力する／ローカルファイルに保存する](p4-print.html)
 * [ディポ上のファイルを検索する](search-files-on-depot.html)
+* [ファイルを p4 add したときにデフォルトで設定される filetype を調べる](default-filetype.html)
 
 Have List
 ----
