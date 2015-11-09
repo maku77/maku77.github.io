@@ -6,7 +6,8 @@ layout: category-index
 Windows バッチファイル
 ====
 * [Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する](run-script-as-command.html)
-* [バッチファイル内での FOR ループ](for-loop.html)
+* [バッチファイルの FOR ループ (1) 数値、ファイル集合、ディレクトリ集合のループ処理](for-loop.html)
+* [バッチファイルの FOR ループ (2) テキストファイル、コマンド出力を 1 行ずつループ処理](for-loop2.html)
 * [バッチファイルを途中で終了する](exit-batch.html)
 * [バッチファイルで関数もどき（サブルーチン）を実現する](subroutine.html)
 
