@@ -25,7 +25,9 @@ key2=value2
  */
 def loadProperties(filename) {
     def props = new Properties()
-    props.load(new FileInputStream(filename))
+    file(filename).withInputStream {
+        props.load(it)
+    }
     return props
 }
 
@@ -48,7 +50,9 @@ props.key2 = value2
 ```groovy
 def loadProperties(filename) {
     def props = new Properties()
-    props.load(new FileInputStream(filename))
+    file(filename).withInputStream {
+        props.load(it)
+    }
     ext.props = props    // ★プロジェクト全体から見えるようにする
 }
 
