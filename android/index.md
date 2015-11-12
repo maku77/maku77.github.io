@@ -36,6 +36,9 @@ Native レイヤ
 * [ネイティブサービスの実装 (2) サービスの実装から利用まで](native-service2.html)
 * [ネイティブサービスの実装 (3) サービスのインタフェースを定義する](native-service3.html)
 
+### ServiceManager 関連
+* [ServiceManager に登録されたサービスを列挙する](list-services.html)
+
 Gradle ビルド
 ----
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
