@@ -72,3 +72,8 @@ Groovy スクリプト
 * [Groovy で List を扱う](list-in-groovy.html)
 * [Groovy で Map を扱う](map-in-groovy.html)
 
+
+Android 開発における Gradle
+----
+* Android に関しては [こちらを参照](../android/)
+

@@ -39,7 +39,7 @@ Native レイヤ
 Gradle ビルド
 ----
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
-
+* Gradle 全般の説明は [こちらを参照](../gradle/)
 
 その他
 ----
