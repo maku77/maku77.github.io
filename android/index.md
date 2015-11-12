@@ -3,7 +3,6 @@ title: Android
 layout: category-index
 ---
 
-
 Tools
 ----
 * [protection レベルが dangerous なパーミッションの一覧を表示する](dangerous-permissions.html)
@@ -28,6 +27,7 @@ Android デバイス開発者向け
 * [LowMemoryKiller によるプロセス kill の優先順位の仕組み](low-memory-killer1.html)
 * [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
 * [Android デバイスのパーティション構成概要](partitions.html)
+* [make 後の生成イメージが格納されるディレクトリを調べる](product-out-dir.html)
 
 Native レイヤ
 ----
