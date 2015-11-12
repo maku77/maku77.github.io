@@ -55,6 +55,8 @@ Gradle でファイルを扱う
 * [Gradle でファイルをリネームする](gradle-rename-files.html)
 * [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
 
+### プロパティファイル
+* [Gradle でプロパティファイル (.properties) を読み込む](property-file.html)j
 
 Gradle のコマンド
 ----
