@@ -27,10 +27,11 @@ Windows の便利操作／ショートカット
 * [Windows でキーボード操作だけで様々なフォルダを素早く開く](open-dir-by-keyboard.html)
 
 
-Windows の設定／管理
+Windows の設定／管理／セキュリティ
 ====
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 * [Windows のアカウント名を変更する](change-account-name.html)
 * [ドメインユーザーにローカル PC の Administrator 権限を与える](add-admin-to-domain-user.html)
+* [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
 
