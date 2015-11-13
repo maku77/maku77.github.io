@@ -13,6 +13,7 @@ layout: category-index
 
 アノテーション
 ----
+* [アノテーションとは](what-is-annotation.html)
 * [Java でカスタムアノテーションを作成する](custom-annotation.html)
 * [Javadoc でアノテーションのサンプルコードを記述するときの &#064; の扱い](javadoc-for-annotation-example.html)
 
