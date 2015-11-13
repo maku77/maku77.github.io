@@ -30,19 +30,6 @@ HTTP アクセス
 * [パッケージ管理ツールいろいろ](common-package-management.html)
 * [Python のパッケージ管理ツール (pip)](python-pip.html)
 
-Java
-====
-* [Java でカスタムアノテーションを作成する](java-custom-annotation.html)
-* [Javadoc でアノテーションのサンプルコードを記述するときの &#064; の扱い](java-javadoc-for-annotation-example.html)
-
-Java/JDBC
-----
-* [JDBC ドライバの一覧を取得する](java-jdbc-list-drivers.html)
-* [Java から SQLite を扱えるようにする](java-jdbc-sqlite-driver.html)
-* [JDBC による DB 操作の流れ](java-jdbc-basic-flow.html)
-* [プレースホルダを使用して SQL クエリを作成する](java-jdbc-placeholder.html)
-* [最初のレコードだけを取得する](java-jdbc-get-first-record.html)
-
 ヒアドキュメント
 ====
 * [Perl でヒアドキュメント](perl-here-document.html)
