@@ -67,6 +67,10 @@ SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
 
+Web
+====
+* [Python で HTTP リクエストを送信する (1)](http-request.html)
+
 ユニットテスト
 ====
 * [Python でユニットテストを記述する](unittest.html)
