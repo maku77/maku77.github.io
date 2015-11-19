@@ -69,8 +69,9 @@ SQL
 
 Web
 ====
-* [Python で HTTP リクエストを送信する (1)](http-request.html)
-* [Python で HTTP リクエストを送信する (2) プロキシ経由でアクセス](http-request-with-proxy.html)
+* [Python で HTTP を扱う方法いろいろ](http-in-python.html)
+* [urllib による HTTP リクエスト (1)](http-request.html)
+* [urllib による HTTP リクエスト (2) プロキシ経由でアクセス](http-request-with-proxy.html)
 
 
 ユニットテスト

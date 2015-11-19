@@ -1,5 +1,5 @@
 ---
-title: Python で HTTP リクエストを送信する (2) プロキシ経由でアクセス
+title: urllib による HTTP リクエスト (2) プロキシ経由でアクセス
 created: 2014-11-28
 ---
 
