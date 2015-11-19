@@ -72,6 +72,7 @@ Web
 * [Python で HTTP を扱う方法いろいろ](http-in-python.html)
 * [urllib による HTTP リクエスト (1)](http-request.html)
 * [urllib による HTTP リクエスト (2) プロキシ経由でアクセス](http-request-with-proxy.html)
+* [urllib による HTTP リクエスト (3) Basic 認証](http-request-with-basic-auth.html)
 * [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
 * [HTTP でファイルをダウンロードする](download-file.html)
 
