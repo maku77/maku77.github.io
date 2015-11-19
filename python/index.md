@@ -70,6 +70,8 @@ SQL
 Web
 ====
 * [Python で HTTP リクエストを送信する (1)](http-request.html)
+* [Python で HTTP リクエストを送信する (2) プロキシ経由でアクセス](http-request-with-proxy.html)
+
 
 ユニットテスト
 ====
