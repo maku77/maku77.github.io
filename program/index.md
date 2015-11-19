@@ -19,11 +19,6 @@ HTML/XML のパース
 ====
 * [Python](/python/index.html#html/xml-のパース)
 
-
-HTTP アクセス
-====
-* [Python で HTTP アクセス](python-http-access.html)
-
 パッケージ管理
 ====
 * [パッケージ管理ツールいろいろ](common-package-management.html)

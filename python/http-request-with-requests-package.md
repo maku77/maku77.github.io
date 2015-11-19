@@ -1,11 +1,11 @@
 ---
-title: Python で HTTP アクセス
+title: requests パッケージによる HTTP リクエスト
 created: 2015-05-18
 ---
 
 requests パッケージのインストール
 ===
-[requests パッケージ](http://requests.readthedocs.org/en/latest/) を使用すると、Python 3 標準の urllib.request に比べ、HTTP リクエストを簡単に扱うことができます。
+オープンソースの [requests パッケージ](http://requests.readthedocs.org/en/latest/) を使用すると、Python 3 標準の `urllib.request` に比べ、HTTP リクエストを簡単に扱うことができます。
 例えば、以下のような処理をシンプルなコードで扱うことができます。
 
 * Basic 認証、ダイジェスト認証
@@ -15,17 +15,17 @@ requests パッケージのインストール
 * エンコーディング形式の自動判別
 * コンテンンツが圧縮されていた場合の自動展開
 
-requests パッケージは、pip コマンドで簡単にインストールできます。
+requests パッケージは、`pip` コマンドで簡単にインストールできます。
 
-```sh
+```
 $ pip install requests
 ```
 
 requests モジュールによる HTTP GET リクエスト
 ====
 
-```requests.get``` 関数により、インターネット上のコンテンツを簡単にダウンロードできます。
-```requests.get``` は、戻り値として ```requests.models.Response``` オブジェクトを返します。
+`requests.get` 関数により、インターネット上のコンテンツを簡単にダウンロードできます。
+`requests.get` は、戻り値として `requests.models.Response` オブジェクトを返します。
 
 ```python
 import requests
@@ -34,7 +34,7 @@ res = requests.get('http://google.com/')
 type(res)  #=> <class 'requests.models.Response'>
 ```
 
-```Response``` オブジェクトから、ステータスコードや、取得したコンテンツの内容を取得することができます。
+`Response` オブジェクトから、ステータスコードや、取得したコンテンツの内容を取得することができます。
 
 
 ```python
@@ -49,14 +49,14 @@ content = res.content  #=> コンテンツをバイトデータ (bytes) で取�
 text = res.text        #=> コンテンツをテキスト (str) で取得
 ```
 
-Response#text を使って Unicode のテキストデータを取得することができます。
+`Response#text` を使って Unicode のテキストデータを取得することができます。
 ダウンロードされたコンテンツからの変換に使われるエンコーディング形式は、HTTP のヘッダ、あるいは HTML 内のヘッダから判断されます。
 どちらのヘッダにも指定がない場合は、コンテンツ内の文字列からそれらしきエンコーディング形式が決定されます。
 
 requests モジュールによる HTTP POST リクエスト
 ====
 
-POST リクエストを送るには、```requests.get``` の代わりに ```requests.post``` を使用するだけです。
+POST リクエストを送るには、`requests.get` の代わりに `requests.post` を使用するだけです。
 
 ```python
 data = {'key1': 'value1', 'key2': 'value2'}
