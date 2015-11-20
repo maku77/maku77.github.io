@@ -14,7 +14,6 @@ layout: category-index
 | クラス |  | [PHP](php-syntax-class.html) | [Python](python-syntax-class.html) |  |
 | 文字列リテラル |  |  |  [Python](python-syntax-string-literal.html) |  |
 
-
 HTML/XML のパース
 ====
 * [Python](/python/index.html#html/xml-のパース)
@@ -34,4 +33,8 @@ HTML/XML のパース
 正規表現
 ====
 * [Python での正規表現の扱い方まとめ](python-regexp.html)
+
+静的解析
+====
+* [CPD でコードクローンを発見する](detect-code-clones.html)
 
