@@ -39,6 +39,7 @@ Ruby の制御構文
 配列
 ====
 * [配列を作成する](create-array.html)
+* [配列をコピーする](copy-array.html)
 * [配列をループで処理する](loop-array.html)
 
 ハッシュ
