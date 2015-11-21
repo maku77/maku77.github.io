@@ -7,6 +7,7 @@ layout: category-index
 ====
 * [Ruby のコーディングスタイル](coding-style.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
+* [require で他のライブラリを読み込む](require.html)
 
 Ruby の制御構文
 ====
