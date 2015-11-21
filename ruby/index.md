@@ -94,6 +94,7 @@ mp3
 その他
 ====
 
+* [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
 * [環境変数を扱う](environment-variable.html)
 
 RubyGems
