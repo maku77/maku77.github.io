@@ -5,7 +5,7 @@ layout: category-index
 
 はじめに
 ====
-* [Ruby のコーディングスタイル](conding-style.html)
+* [Ruby のコーディングスタイル](coding-style.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
 
 Ruby の制御構文
