@@ -95,7 +95,7 @@ mp3
 ====
 
 * [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
-* [Ruby のライブラリの検索パスを調べる](load-path.html)
+* [ユーザライブラリの検索パスを調べる](load-path.html)
 * [環境変数を扱う](environment-variable.html)
 
 RubyGems

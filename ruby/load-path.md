@@ -1,5 +1,5 @@
 ---
-title: Ruby のライブラリの検索パスを調べる
+title: ユーザライブラリの検索パスを調べる
 created: 2015-11-21
 ---
 
@@ -12,12 +12,10 @@ $ ruby -e 'puts $LOAD_PATH'
 /Library/Ruby/Site/2.0.0/x86_64-darwin15
 /Library/Ruby/Site/2.0.0/universal-darwin15
 /Library/Ruby/Site
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/vendor_ruby/2.0.0
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/vendor_ruby/2.0.0/x86_64-darwin15
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/vendor_ruby/2.0.0/universal-darwin15
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/vendor_ruby
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/x86_64-darwin15
-/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/universal-darwin15
+...
 ```
+
+通常のユーザライブラリは、`Site` や `site_ruby` といったディレクトリに置きます。
+その下の `2.0.0` というディレクトリは、Ruby のバージョンに依存したユーザライブラリを格納します。
+`x86_64-darwin15` や `i386-sygwin` といったディレクトリには、CPU アーキテクチャや OS に依存したユーザライブラリを格納します。
 
