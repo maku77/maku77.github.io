@@ -19,7 +19,7 @@ RVM を使って複数の Ruby をインストールする
 ====
 
 ```
-$ rvm list know
+$ rvm list known
 ```
 
 とすると、インストールできる Ruby のバージョンが一覧表示されます。
