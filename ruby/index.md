@@ -108,4 +108,5 @@ RubyGems
 RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャです。
 
 * [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
+* [Gem モジュールのインストール先を調べる](gem-environment-gemdir.html)
 
