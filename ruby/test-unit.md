@@ -88,7 +88,7 @@ end
 下記の `CounterTest` クラスは、この `Counter` クラスをテストするためコードです。
 同じディレクトリに `counter.rb` ファイルが存在すると仮定して、`require './counter'` とロードしています。
 
-#### counter_test.rb
+#### counter-test.rb
 ```ruby
 require 'test/unit'
 
@@ -110,7 +110,7 @@ end
 
 #### 実行方法
 ```
-$ ruby counter_test.rb
+$ ruby counter-test.rb
 ```
 
 assert_xxx 系のメソッドは他にもいろいろ用意されていますので、下記のドキュメントを参考に探してみてください。
