@@ -92,10 +92,10 @@ end
 ```ruby
 require 'test/unit'
 
-class SampleTest < Test::Unit::TestCase
+class CounterTest < Test::Unit::TestCase
   require './counter'
 
-  def test_hello
+  def test_increment
     counter = Counter.new
 
     # 初期値のチェック
