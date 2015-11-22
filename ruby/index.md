@@ -99,15 +99,13 @@ mp3
 
 その他
 ====
-
 * [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
 * [ユーザライブラリの検索パスを調べる](load-path.html)
 * [環境変数を扱う](environment-variable.html)
 
 RubyGems
 ----
-RubyGems（gem コマンド）は、Ruby 標準のパッケージマネージャです。
-
+* [RubyGems とは](what-is-rubygems.html)
 * [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
 * [Gem モジュールのインストール先を調べる](gem-environment-gemdir.html)
 
