@@ -24,11 +24,11 @@ ID3v1 規格の頃のエンコーディング形式には規定がなく、昔 W
 
 ruby-mp3info のインストール
 ====
-moumar さんの **ruby-mp3info** モジュールを使用すると、MP3 ファイルのタグ情報を簡単に扱うことができます。
+moumar さんの **ruby-mp3info** という Gem パッケージを使用すると、MP3 ファイルのタグ情報を簡単に扱うことができます。
 
 * [Documentation for ruby-mp3info](http://www.rubydoc.info/github/moumar/ruby-mp3info/)
 
-Ruby スクリプトから `require 'mp3info'` とするためには、まずはモジュールをインストールしておく必要があります。
+Ruby スクリプトから `require 'mp3info'` とするためには、まずは Gem パッケージをインストールしておく必要があります。
 
 ```
 $ sudo gem install mp3info

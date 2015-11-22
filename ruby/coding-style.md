@@ -33,13 +33,60 @@ Ruby では変数名のプレフィックスに記号をつけることにより
 
 ファイル名
 ====
-ファイル名はすべて小文字で、単語の区切りはハイフン (`-`) を使用する。
+ファイル名はすべて小文字で、クラス名などの単語の区切りはアンダースコア (`_`) を使用する。
 モジュールの階層はディレクトリ階層で表現する。
 
-- `test-case.rb`（TestCase クラス）
-- `unit/test-case.rb`（Unit モジュール以下の TestCase クラス）
+- `test_case.rb`（TestCase クラス）
+- `unit/test_case.rb`（Unit モジュール以下の TestCase クラス）
+
+このルールは、下記の RubyGems の命名規則を考慮しています。
+
+RubyGems で公開する Gem パッケージの命名規則
+====
+RubyGems.org などで公開する Gem の名前は、フラットなファイル名で一意に命名する必要があるため、アンダースコアやハイフンの使い方がルール化されています。
+
+| GEM NAME | REQUIRE STATEMENT | MAIN CLASS OR MODULE |
+| -------- | ----------------- | -------------------- |
+| ruby_parser | require 'ruby_parser' | RubyParser |
+| rdoc-data | require 'rdoc/data' | RDoc::Data |
+| net-http-persistent | require 'net/http/persistent' | Net::HTTP::Persistent |
+| net-http-digest_auth | require 'net/http/digest_auth' | Net::HTTP::DigestAuth |
+
+- ファイルシステムへの依存を防ぐため、Gem 名はすべて小文字。
+- モジュール名やクラス名の単語の区切りはアンダースコア (`_`) 。
+- 既存モジュールを拡張する場合の区切りはハイフン (`-`)。実際のモジュールファイルはディレクトリ構造を作って格納する。
+- 拡張が複数階層になった場合は、その分だけディレクトリ構造を掘り下げればよい。
+
+例えば、`net-http-digest_auth` という名前の Gem が提供する `DigestAuth` クラスは、実際には下記のようなファイルとして作成されています。
+
+#### net/http/digest_auth.rb
+```ruby
+class Net::HTTP::DigestAuth
+  VERSION = '1.4'
+  ...
+end
+```
+
+上記では `Net::HTTP::DigestAuth` と、`::` 区切りでクラス定義していますが、上位のクラスが定義されていない場合は `class` 定義を入れ子構造で記述する必要があります。
+
+クラスではなくて、モジュールを提供しているのであれば、例えば下記のようなファイルになります。
+
+#### foo/bar/my_module.rb
+```ruby
+module Foo
+  module Bar
+    module MyModule
+      def self.my_method
+        ..
+      end
+    end
+  end
+end
+```
+
 
 参考サイト
 ====
+* [Name your gem - RubyGems Guides](http://guides.rubygems.org/name-your-gem/)
 * [GitHub の Ruby コーディングスタイル](https://github.com/styleguide/ruby)
 
