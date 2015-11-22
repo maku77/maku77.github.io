@@ -6,6 +6,7 @@ layout: category-index
 はじめに
 ====
 * [Ruby のコーディングスタイル](coding-style.html)
+* [知っておくべき Ruby 関連ツール](ruby-tools.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
 * [require で他のライブラリを読み込む](require.html)
 
