@@ -121,6 +121,13 @@ defaults:
       category_name: "shell"
   -
     scope:
+      path: "vim"
+      type: "pages"
+    values:
+      category_title: "Vim"
+      category_name: "vim"
+  -
+    scope:
       path: "web"
       type: "pages"
     values:
