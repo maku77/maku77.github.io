@@ -3,6 +3,10 @@ title: Vim メモ
 layout: category-index
 ---
 
+編集操作
+====
+* [大文字と小文字を変換する](uppercase-lowercase.html)
+
 Vim の設定
 ====
 
