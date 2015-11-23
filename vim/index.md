@@ -9,6 +9,7 @@ layout: category-index
 * [空行（改行だけの行）を削除する](remove-empty-lines.html)
 * [行をソートして重複行を削除する](unique-lines.html)
 * [行を逆順にソートする](reverse-sort.html)
+* [XML/HTML の編集に便利なコマンド](edit-xml-and-html.html)
 
 Vim の設定
 ====
