@@ -7,6 +7,7 @@ layout: category-index
 ====
 * [大文字と小文字を変換する](uppercase-lowercase.html)
 * [空行（改行だけの行）を削除する](remove-empty-lines.html)
+* [行をソートして重複行を削除する](unique-lines.html)
 
 Vim の設定
 ====
