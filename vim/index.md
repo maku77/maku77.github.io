@@ -6,6 +6,7 @@ layout: category-index
 編集操作
 ====
 * [大文字と小文字を変換する](uppercase-lowercase.html)
+* [空行（改行だけの行）を削除する](remove-empty-lines.html)
 
 Vim の設定
 ====
