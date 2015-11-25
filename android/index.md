@@ -29,6 +29,7 @@ Android デバイス開発者向け
 * [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
 * [Android デバイスのパーティション構成概要](partitions.html)
 * [make 後の生成イメージが格納されるディレクトリを調べる](product-out-dir.html)
+* [インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる](check-user-id.html)
 
 Native レイヤ
 ----
