@@ -13,11 +13,12 @@ Tools
 * [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
 * [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
 
-ADB 接続
+開発環境／ADB 接続
 ----
 * [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
+* [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 Android デバイス開発者向け
 ----
