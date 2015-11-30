@@ -46,6 +46,7 @@ Native レイヤ
 ----
 * [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
+* [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 その他
