@@ -9,9 +9,9 @@ exclude: [README.md,run.bat,run.sh]
 highlighter: pygments
 
 # Parse markdown files just like GitHub Flavored Markdown.
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown: kramdown
+kramdown:
+  input: GFM
 
 # Layout settings.
 defaults:
