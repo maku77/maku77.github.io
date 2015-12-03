@@ -10,7 +10,7 @@ Dir.foreach を使用する方法
 ----
 ```ruby
 Dir.foreach('.') do |item|
-    puts item
+  puts item
 end
 ```
 
@@ -18,8 +18,8 @@ end
 
 ```ruby
 Dir.foreach('.') do |item|
-    next if item == '.' or item == '..'
-    puts item
+  next if item == '.' or item == '..'
+  puts item
 end
 ```
 
@@ -27,9 +27,9 @@ Dir.open を使用する方法
 ----
 ```ruby
 Dir.open('.') do |dir|
-    for item in dir
-        puts item
-    end
+  for item in dir
+    puts item
+  end
 end
 ```
 
@@ -39,7 +39,7 @@ Dir.glob を使用する方法
 ----
 ```ruby
 Dir.glob('*') do |item|
-    puts item
+  puts item
 end
 ```
 
@@ -58,7 +58,7 @@ Dir.glob を使用する方法
 
 ```ruby
 Dir.glob('**/*') do |item|
-    puts item
+  puts item
 end
 ```
 
@@ -90,8 +90,8 @@ require 'find'
 
 path = ARGV[0] ? ARGV[0] : '.'
 Find.find(path) do |item|
-    base = File.basename(item)
-    puts "#{base}\t#{File.ftype(item)}"
+  base = File.basename(item)
+  puts "#{base}\t#{File.ftype(item)}"
 end
 ```
 
@@ -102,15 +102,15 @@ end
 
 ```ruby
 def enum_files(dir_path)
-    Dir.foreach(dir_path) do |x|
-        next if x == '.' or x == '..'
-        new_path = File.join(dir_path, x)
-        if File.directory?(new_path) then
-            enum_files(new_path)
-        else
-            puts new_path
-        end
+  Dir.foreach(dir_path) do |x|
+    next if x == '.' or x == '..'
+    new_path = File.join(dir_path, x)
+    if File.directory?(new_path) then
+      enum_files(new_path)
+    else
+      puts new_path
     end
+  end
 end
 
 enum_files('.')
@@ -120,19 +120,19 @@ enum_files('.')
 
 ```ruby
 def enum_files(dir_path)
-    Dir.foreach(dir_path) do |x|
-        next if x == '.' or x == '..'
-        new_path = File.join(dir_path, x)
-        if File.directory?(new_path) then
-            enum_files(new_path) {|x| yield x }
-        else
-            yield new_path
-        end
+  Dir.foreach(dir_path) do |x|
+    next if x == '.' or x == '..'
+    new_path = File.join(dir_path, x)
+    if File.directory?(new_path) then
+      enum_files(new_path) {|x| yield x }
+    else
+      yield new_path
     end
+  end
 end
 
 enum_files('.') do |x|
-    puts x
+  puts x
 end
 ```
 

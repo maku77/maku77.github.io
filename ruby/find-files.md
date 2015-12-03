@@ -9,7 +9,7 @@ created: 2010-05-07
 
 ```ruby
 Dir.glob('**/*.html') do |item|
-    puts item
+  puts item
 end
 ```
 
@@ -20,7 +20,7 @@ end
 path = ARGV[0] ? ARGV[0] : '.'
 
 Dir.glob("#{path}/**/*.html") do |item|
-    puts item
+  puts item
 end
 ```
 
