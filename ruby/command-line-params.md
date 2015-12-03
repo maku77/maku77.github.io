@@ -43,14 +43,12 @@ end
 
 #### sample.rb
 ```ruby
-def ShowUsage()
-    puts "Usage: #{$0} <InputFile>\n"
+def show_usage()
+  puts "Usage: #{$0} <InputFile>"
+  exit(1)
 end
 
-if ARGV.empty?
-    ShowUsage()
-    exit(1)
-end
+show_usage() if ARGV.empty?
 ```
 
 #### 実行結果
