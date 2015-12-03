@@ -89,4 +89,6 @@ end
 ====
 * [Name your gem - RubyGems Guides](http://guides.rubygems.org/name-your-gem/)
 * [GitHub の Ruby コーディングスタイル](https://github.com/styleguide/ruby)
+* [LoveRuby.net コーディングスタイル](http://www.loveruby.net/w/RubyCodingStyle.html)
+* [The Unofficial Ruby Usage Guide](http://www.caliban.org/ruby/rubyguide.shtml)
 
