@@ -112,5 +112,6 @@ RubyGems
 * [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
 * [Gem パッケージのインストール先を調べる](gem-environment-gemdir.html)
 * [Gem パッケージを作成する (1) 基本](create-gem.html)
+* [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
 * [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
 
