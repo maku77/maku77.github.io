@@ -111,6 +111,6 @@ RubyGems
 * [RubyGems とは](what-is-rubygems.html)
 * [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
 * [Gem パッケージのインストール先を調べる](gem-environment-gemdir.html)
-* [Gem パッケージを作成する](create-gem.html)
+* [Gem パッケージを作成する (1) 基本](create-gem.html)
 * [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
 

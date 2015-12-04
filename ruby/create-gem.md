@@ -5,11 +5,11 @@ created: 2015-12-04
 
 作成する Gem パッケージのゴール
 ====
-ここでは、**hello-gem** という名前の Gem パッケージを作成してみます。
+ここでは、**hello_gem** という名前の Gem パッケージを作成してみます。
 下記のようなことができることがゴールです。
 
 1. `gem install` コマンドで Gem をインストールできる
-2. Ruby スクリプトの中から `require 'hello-gem'` と読み込める
+2. Ruby スクリプトの中から `require 'hello_gem'` と読み込める
 
 Gem パッケージを作成する
 ====
@@ -20,18 +20,18 @@ Gem パッケージ内部の構成
 Gem パッケージには、`xxx.gemspec` というファイルを作成しておく必要があります。
 Ruby のソースコード自体は `lib` ディレクトリに格納するので、プロジェクトのディレクトリには下記のようなファイルが作成されることになります。
 
-* hello-gem.gemspec
-* lib/hello-gem.rb
+* hello_gem.gemspec
+* lib/hello_gem.rb
 
-上記のように `hello-gem.rb` を配置しておくことで、Gem のユーザは、`require 'hello-gem'` とロードできるようになります。
+上記のように `hello_gem.rb` を配置しておくことで、Gem のユーザは、`require 'hello_gem'` とロードできるようになります。
 
 スクリプトを作成する
 ----
 
-下記は、メインのライブラリとなる `hello-gem.rb` の内容です。
+下記は、メインのライブラリとなる `hello_gem.rb` の内容です。
 単純に挨拶テキストを出力するだけの機能を提供します。
 
-#### lib/hello-gem.rb
+#### lib/hello_gem.rb
 
 ```ruby
 class HelloGem
@@ -41,15 +41,15 @@ class HelloGem
 end
 ```
 
-クラス名が複数の単語で構成される場合は、ファイル名の中ではハイフン (`-`) で単語を区切って表現するのが Gem の世界の慣例です。
-上記の場合では、クラス名が `HelloGem` なので、ファイル名は `hello-gem.rb` となっています。
+クラス名が複数の単語で構成される場合は、ファイル名の中ではアンダースコア (`_`) で単語を区切って表現するのが Gem の世界の慣例です。
+上記の場合では、クラス名が `HelloGem` なので、ファイル名は `hello_gem.rb` となっています。
 詳しいネーミングルールは[こちら](coding-style.html)を参照してください。
 
 ライブラリを作成し終わったら、簡単にテストしておきましょう。
 
 ```
 $ irb -Ilib
-irb(main):001:0> require 'hello-gem'
+irb(main):001:0> require 'hello_gem'
 => true
 irb(main):002:0> HelloGem.greet('maku')
 Hello maku!
@@ -57,7 +57,7 @@ Hello maku!
 ```
 
 `irb` コマンドのパラメータに、`-Ilib` を指定していることに注意してください。
-これは、`hello-gem.rb` の格納されている `lib` ディレクトリをロードパスに追加するためです。
+これは、`hello_gem.rb` の格納されている `lib` ディレクトリをロードパスに追加するためです。
 
 
 gemspec ファイルを作成する
@@ -76,20 +76,20 @@ gemspec ファイルには、公開する Gem パッケージの情報として�
 * ライセンス (license)
 * パッケージングするファイル (files)
 
-#### hello-gem.rb
+#### hello_gem.rb
 
 ```ruby
 Gem::Specification.new do |s|
-  s.name        = 'hello-gem'
+  s.name        = 'hello_gem'
   s.version     = '0.0.1'
   s.date        = '2015-12-04'
   s.summary     = "Hello Gem!"
   s.description = "The first Gem package for practice"
   s.authors     = ["Maku Makkuma"]
   s.email       = 'maku@example.com'
-  s.homepage    = 'http://example.com/hello-gem'
+  s.homepage    = 'http://example.com/hello_gem'
   s.license     = 'MIT'
-  s.files       = ["lib/hello-gem.rb"]
+  s.files       = ["lib/hello_gem.rb"]
 end
 ```
 
@@ -97,14 +97,14 @@ gemspec ファイルを作成したら、`gem build` コマンドでパッケー
 下記のように、パラメータに gemspec ファイルを指定して実行してください。
 
 ```
-$ gem build hello-gem.gemspec
+$ gem build hello_gem.gemspec
   Successfully built RubyGem
-  Name: hello-gem
+  Name: hello_gem
   Version: 0.0.1
-  File: hello-gem-0.0.1.gem
+  File: hello_gem-0.0.1.gem
 ```
 
-これで、`hello-gem-0.0.1.gem` という Gem パッケージが完成しました！
+これで、`hello_gem-0.0.1.gem` という Gem パッケージが完成しました！
 
 
 作成した Gem パッケージを使用する
@@ -113,15 +113,15 @@ $ gem build hello-gem.gemspec
 gem ファイルを使ってインストールする
 ----
 
-ここまでの作業で、ローカルディレクトリに `hello-gem-0.0.1.gem` という Gem パッケージが作成されました。
+ここまでの作業で、ローカルディレクトリに `hello_gem-0.0.1.gem` という Gem パッケージが作成されました。
 この Gem パッケージをインストールするには、下記のように `gem install` のパラメータにファイル名を指定して実行します。
 
 ```
-$ gem install hello-gem-0.0.1.gem
-Successfully installed hello-gem-0.0.1
-Parsing documentation for hello-gem-0.0.1
-Installing ri documentation for hello-gem-0.0.1
-Done installing documentation for hello-gem after 0 seconds
+$ gem install hello_gem-0.0.1.gem
+Successfully installed hello_gem-0.0.1
+Parsing documentation for hello_gem-0.0.1
+Installing ri documentation for hello_gem-0.0.1
+Done installing documentation for hello_gem after 0 seconds
 1 gem installed
 ```
 
@@ -133,9 +133,9 @@ $ gem list -d hello
 
 *** LOCAL GEMS ***
 
-hello-gem (0.0.1)
+hello_gem (0.0.1)
     Author: Maku Makkuma
-    Homepage: http://example.com/hello-gem
+    Homepage: http://example.com/hello_gem
     License: MIT
     Installed at: C:/app/Ruby/lib/ruby/gems/2.2.0
 
@@ -150,7 +150,7 @@ Gem を使用する
 #### sample.rb
 
 ```ruby
-require 'hello-gem'
+require 'hello_gem'
 
 HelloGem.greet('maku')
 ```
@@ -170,7 +170,7 @@ Gem のアンインストール
 インストールした Gem が必要ない場合は、下記のように削除しておきましょう。
 
 ```
-$ gem uninstall hello-gem
-Successfully uninstalled hello-gem-0.0.1
+$ gem uninstall hello_gem
+Successfully uninstalled hello_gem-0.0.1
 ```
 
