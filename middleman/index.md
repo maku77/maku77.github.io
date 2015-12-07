@@ -21,6 +21,10 @@ layout: category-index
 * [パーシャルでページを分割して管理する](partial.html)
 * [パーシャルにパラメータを設定する](partial-parameter.html)
 
+ヘルパーメソッド
+----
+* [ヘルパーメソッドを使って HTML を作成する](helper.html)
+
 設定
 ----
 * [LiveReload 機能を使って Web ブラウザを自動でリロードする](live-reload.html)
