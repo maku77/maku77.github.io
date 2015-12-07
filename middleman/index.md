@@ -10,6 +10,11 @@ layout: category-index
 * [Middleman サーバを立ち上げて Web サイトを開発する](middleman-server.html)
 * [デプロイ用に Web サイトをビルドする](build-project.html)
 
+レイアウト
+----
+* [レイアウト機能でページレイアウトを統一する](layout.html)
+
+
 設定
 ----
 * [LiveReload 機能を使って Web ブラウザを自動でリロードする](live-reload.html)
