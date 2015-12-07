@@ -16,6 +16,9 @@ layout: category-index
 * [ディレクトリ単位でデフォルトレイアウトを設定する](layout-for-dir.html)
 * [レイアウト機能を無効にする](disable-layout.html)
 
+パーシャル
+----
+* [パーシャルでページを分割して管理する](partial.html)
 
 設定
 ----
