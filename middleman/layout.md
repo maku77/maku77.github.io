@@ -56,3 +56,5 @@ layout: sample
 </html>
 ```
 
+レイアウトファイルの指定を行わなかった場合は、デフォルトで `source/layouts/layout.erb` というテンプレートファイルが使用されるようになっています。
+

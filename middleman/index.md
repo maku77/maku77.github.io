@@ -14,6 +14,7 @@ layout: category-index
 ----
 * [レイアウト機能でページレイアウトを統一する](layout.html)
 * [ディレクトリ単位でデフォルトレイアウトを設定する](layout-for-dir.html)
+* [レイアウト機能を無効にする](disable-layout.html)
 
 
 設定
