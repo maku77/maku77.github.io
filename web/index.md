@@ -17,9 +17,12 @@ layout: category-index
 ----
 <iframe height="130" src="//jsfiddle.net/maku77/j4zbp0w4/embedded/result/" frameborder="0"></iframe>
 
-ボックスモデル
+
+CSS
 ====
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
+* [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
+
 
 
 Web サイト作成の雑多メモ
