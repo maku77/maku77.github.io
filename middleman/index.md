@@ -19,6 +19,7 @@ layout: category-index
 パーシャル
 ----
 * [パーシャルでページを分割して管理する](partial.html)
+* [パーシャルにパラメータを設定する](partial-parameter.html)
 
 設定
 ----
