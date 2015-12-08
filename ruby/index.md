@@ -77,16 +77,17 @@ Ruby の制御構文
 * [標準入力から読み込む](input-from-stdin.html)
 * [キーボードからの入力を取得する](input-from-keyboard.html)
 * [キーボードからのパスワードの入力を取得する](input-password-from-keyboard.html)
-* [テキストファイルを読み込む](read-text-file.html)
 * [外部プログラムを呼び出す](execute-external-command.html)
 * [ソースコード内にテキストデータを埋め込む](embed-data.html)
 
-ディレクトリ
+ファイル／ディレクトリ
 ----
+* [テキストファイルを読み込む](read-text-file.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
 * [ディレクトリ内のファイルを検索する](find-files.html)
 * [ディレクトリを作成／削除する](create-dir.html)
+* [一時ディレクトリ／一時ファイルを使用する](temporary-file.html)
 
 XML
 ----
