@@ -40,10 +40,10 @@ Ruby の制御構文
 
 配列
 ====
-* [配列を作成する](create-array.html)
-* [配列をコピーする](copy-array.html)
-* [配列をループで処理する](loop-array.html)
-* [配列をソートする](sort-array.html)
+* [配列を作成する](array/create-array.html)
+* [配列をコピーする](array/copy-array.html)
+* [配列をループで処理する](array/loop-array.html)
+* [配列をソートする](array/sort-array.html)
 * [配列の各要素の値を変更する (collect)](array/collect-array.html)
 
 ハッシュ
