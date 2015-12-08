@@ -9,6 +9,7 @@ layout: category-index
 * [知っておくべき Ruby 関連ツール](ruby-tools.html)
 * [Ruby の対話型プログラムを起動する](interactive-ruby.html)
 * [require で他のライブラリを読み込む](require.html)
+* [グローバルスコープな実行コードを記述しない](global-main.html)
 
 Ruby の制御構文
 ====
