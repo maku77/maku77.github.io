@@ -17,6 +17,8 @@ created: 2015-11-22
 
 プロジェクトで使用する Gem パッケージを一括でインストールできるようにするツールです。`Gemfile` というファイルに必要な Gem を記述しておくと、`bundle install` コマンドで一括インストールできるようになります。
 
+`gem install` コマンドが、システム全体で使用する Gem をインストールするのに比べ、`bundle install` コマンドは、特定のプロジェクト用に限られたスコープで使用する Gem をインストールします。
+
 ### [rake](https://rubygems.org/gems/rake/)
 
 C/C++ の世界でいう Make の Ruby 版です（Java であれば ant や Gradle に相当するもの、Javascript であれば Grunt や gulp に相当するものです）。`Rakefile` という Ruby 構文で記述されたファイルにビルドタスクを定義していくことができます。例えば、rdoc による API ドキュメント生成、RSpec によるユニットテスト実行、Gem のパッケージング処理といったタスクを定義することができます。
