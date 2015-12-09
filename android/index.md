@@ -15,6 +15,7 @@ Tools
 
 開発環境／ADB 接続
 ----
+* [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
