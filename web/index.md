@@ -16,6 +16,7 @@ jQuery
 * [jQuery 関連用語](jquery/terms.html)
 * [jQuery で Hello World](jquery/hello-world.html)
 * [要素を追加、移動、コピーする (append, prepend)](jquery/add-element.html)
+* [要素を削除する (remove)](jquery/remove-element.html)
 
 見出し（ヘッダ）
 ====
