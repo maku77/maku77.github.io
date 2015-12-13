@@ -4,14 +4,15 @@ created: 2015-10-08
 layout: category-index
 ---
 
-使い回せそうな HTML/CSS パーツをメモメモφ(･ω･｀)
-
 CSS
 ====
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 * [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
 * [ヘッダ要素に連番を振る](number-header.html)
 
+jQuery
+====
+* [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
 
 見出し（ヘッダ）
 ====
