@@ -6,6 +6,13 @@ layout: category-index
 
 使い回せそうな HTML/CSS パーツをメモメモφ(･ω･｀)
 
+CSS
+====
+* [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
+* [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
+* [ヘッダ要素に連番を振る](number-header.html)
+
+
 見出し（ヘッダ）
 ====
 
@@ -16,13 +23,6 @@ layout: category-index
 [吹き出し風の見出し（塗り潰し）](http://jsfiddle.net/maku77/j4zbp0w4/)
 ----
 <iframe height="130" src="//jsfiddle.net/maku77/j4zbp0w4/embedded/result/" frameborder="0"></iframe>
-
-
-CSS
-====
-* [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
-* [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
-
 
 
 Web サイト作成の雑多メモ
