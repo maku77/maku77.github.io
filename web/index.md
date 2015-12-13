@@ -13,6 +13,7 @@ CSS
 jQuery
 ====
 * [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
+* [jQuery 関連用語](jquery/terms.html)
 
 見出し（ヘッダ）
 ====
