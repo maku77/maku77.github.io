@@ -14,6 +14,7 @@ jQuery
 ====
 * [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
 * [jQuery 関連用語](jquery/terms.html)
+* [jQuery で Hello World](jquery/hello-world.html)
 
 見出し（ヘッダ）
 ====
