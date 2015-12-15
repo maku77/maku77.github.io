@@ -30,8 +30,8 @@ user3  # Justine
 ```bash
 #!/bin/sh
 
-# Blanch name the user is about to push to.
-blanch_name="$1"
+# Branch name the user is about to push to.
+branch_name="$1"
 
 # Fullpath of hooks dir.
 self_dir=$(cd $(dirname $0); pwd)
@@ -52,7 +52,7 @@ do
         continue
     fi
     if [ "$USER" = "$line" ]; then
-        # The user can push to the blanch.
+        # The user can push to the branch.
         exit 0
     fi
     no_entry=0
@@ -60,17 +60,17 @@ done < "$self_dir/authorized_users"
 
 if [ $no_entry = 1 ]; then
     # No restriction.
-    # The user can push to the blanch.
+    # The user can push to the branch.
     exit 0
 fi
 
 echo "----------------------------------------------"
-echo "[$blanch_name] is in submit control."
-echo "You have no access to the blanch."
+echo "[$branch_name] is in submit control."
+echo "You have no access to the branch."
 echo "Please wait until the submit control finishes."
 echo "----------------------------------------------"
 
-# The user cannot push to the blanch.
+# The user cannot push to the branch.
 exit 1
 ```
 
@@ -132,16 +132,16 @@ update スクリプトは下記のような感じで作成できます。
 # User setting file
 readonly AUTH_USERS_FILE='authorized_users'
 
-# Blanch name the user is about to push to.
-target_blanch="$1"
+# Branch name the user is about to push to.
+target_branch="$1"
 
 # Fullpath of hooks dir.
 self_dir=$(cd $(dirname $0); pwd)
 
-# 1 if the target blanch name can be found in the $AUTH_USERS_FILE.
+# 1 if the target branch name can be found in the $AUTH_USERS_FILE.
 is_restricted=0
 
-# Parenthetic section which represents a blanch name in the $AUTH_USERS_FILE.
+# Parenthetic section which represents a branch name in the $AUTH_USERS_FILE.
 current_section=''
 
 # Search user names.
@@ -161,7 +161,7 @@ do
     # Parse section name. e.g. 'refs/heads/master'.
     section=$(echo $line | sed -n -e 's/\[\(.\+\)\]/\1/p')
     if [ -n "$section" ]; then
-        if [ "$section" = "$target_blanch" ]; then
+        if [ "$section" = "$target_branch" ]; then
             is_restricted=1
         fi
         current_section="$section"
@@ -169,28 +169,28 @@ do
     fi
 
     # Check if the user is listed.
-    if [ "$current_section" = "$target_blanch" ]; then
+    if [ "$current_section" = "$target_branch" ]; then
         if [ "$USER" = "$line" ]; then
-            # The user can push to the blanch.
+            # The user can push to the branch.
             exit 0
         fi
     fi
 done < "$self_dir/$AUTH_USERS_FILE"
 
 if [ $is_restricted = 0 ]; then
-    # No restriction. The user can push to the blanch.
+    # No restriction. The user can push to the branch.
     exit 0
 fi
 
 echo ""
 echo "----------------------------------------------"
-echo "[$target_blanch] is in submit control."
-echo "You do not have access to this blanch."
+echo "[$target_branch] is in submit control."
+echo "You do not have access to this branch."
 echo "Please wait until the submit control finishes."
 echo "----------------------------------------------"
 echo ""
 
-# The user cannot push to the blanch.
+# The user cannot push to the branch.
 exit 1
 ```
 
