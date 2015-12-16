@@ -30,6 +30,7 @@ git log
 git diff / patch
 ----
 * [git diff でファイルの差分を調べる](git-diff.html)
+* [git diff で改行コードの違いを無視する](diff-ignore-linefeed.html)
 * [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
