@@ -25,6 +25,10 @@ Java/JDBC
 * [プレースホルダを使用して SQL クエリを作成する](jdbc-placeholder.html)
 * [最初のレコードだけを取得する](jdbc-get-first-record.html)
 
+Java の仕様
+----
+* [static ブロックが実行されるタイミング](static-block.html)
+
 その他
 ----
 * [コールスタックを表示する](call-stack.html)
