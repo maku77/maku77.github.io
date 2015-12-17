@@ -45,6 +45,8 @@ public class Test {
 1 Test#main
 ```
 
+出力フォーマットにこだわりがないのであれば、単純に、`Trowable#printStackTrace()` を使用して標準エラー出力に情報を出力することもできます。
+
 
 コールスタック表示用のユーティリティクラスを作る
 ----
@@ -80,5 +82,33 @@ J2SE 5.0 からは `new Throwable()` せずに、`Thread.currentThread().getStac
 
 ```java
 StackTraceElement[] elems = Thread.currentThread().getStackTrace();
+```
+
+Throwable オブジェクトのスタックトレースを String で取得する
+----
+
+下記は Android フレームワークの `Log.java` からの抜粋です。
+`Throwable` オブジェクトには `printStackTrace` というメソッドがあり、スタックトレース情報を `PrintWriter` に対して出力することができます。
+これを利用して、スタックトレース情報を `String` で取得しています。
+
+#### Log.java より抜粋
+
+```java
+// import java.io.PrintWriter;
+// import java.io.StringWriter;
+
+/**
+ * Handy function to get a loggable stack trace from a Throwable.
+ * @param tr An exception to log
+ */
+public static String getStackTraceString(Throwable tr) {
+    if (tr == null) {
+        return "";
+    }
+    StringWriter sw = new StringWriter();
+    PrintWriter pw = new PrintWriter(sw);
+    tr.printStackTrace(pw);
+    return sw.toString();
+}
 ```
 
