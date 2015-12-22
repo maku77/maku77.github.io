@@ -4,10 +4,13 @@ created: 2015-05-17
 layout: category-index
 ---
 
+* [PMD が警告するゴッドクラス (God Class) とは](god-class.html)
+
 構文
 ====
-|    | Bash | PHP | Python | Ruby |
-|----|------|-----|--------|------|
+
+|      | Bash | PHP | Python | Ruby |
+| ---- | ---- | ---- | ---- | ---- |
 | if-else | [Bash](bash-syntax-if.html) | [PHP](php-syntax-if.html) |  |  |
 | switch-case |  |  | [Python](python-syntax-switch.html) |  |
 | ループ |  | [PHP](php-syntax-loop.html) |  | [Ruby](/ruby/syntax-loop.html) |
