@@ -83,6 +83,7 @@ PMD による解析結果は、下記のように出力されます。
 ここでは、共通の PMD 設定を下記のように定義し、すべてのサブプロジェクトに適用してみます。
 
 #### gradle/pmd.gradle
+
 ```groovy
 apply plugin: 'pmd'
 
@@ -114,7 +115,7 @@ subprojects {
 }
 ```
 
-おまけ PMD ルールセットいろいろ
+PMD ルールセットいろいろ
 ====
 
 PMD で設定できるルールセットは、他にもいろいろ定義されています。
@@ -129,3 +130,35 @@ PMD で設定できるルールセットは、他にもいろいろ定義され�
   * **java-controversial**  （異論のあるルールが多い）
   * **java-naming**  （命名規則が厳しすぎ）
   * **java-optimizations**  （final を強制しすぎ）
+
+
+PMD のルールを XML ファイルで定義する
+====
+
+PMD のルールセットは、XML 形式の別ファイルに定義しておくことができます。
+複数のプロジェクトで使用するルールセットを定義する場合は、このように設定ファイルとして作成して共有するのがよいでしょう。
+ここでは、プロジェクトのルートディレクトリの `config/pmd-settings.xml` として配置することにします。
+
+* [ルールセットファイルのサンプル (config/pmd-settings.xml)](pmd-settings.xml)
+
+Gradle スクリプトの中では、下記のように `ruleSetFiles` でルールセットの XML ファイルを指定します。
+
+#### gradle/pmd.gradle
+
+```groovy
+apply plugin: 'pmd'
+
+pmd {
+    toolVersion '5.3.3'
+    ignoreFailures = true
+    consoleOutput = true
+
+    ruleSetFiles = files("$rootDir/config/pmd-settings.xml")
+    ruleSets = []  // To apply only the custom rules
+}
+```
+
+ポイントは、`ruleSets` を空っぽにしておくことです。
+この指定を忘れると、XML ファイルで定義したルールと、デフォルトのルールの両方が有効になってしまいます（少なくとも上記で使用している ver 5.3.3 では）。
+XML ファイルの中で、何らかのルールを無効 (`exclude`) にしている場合は、忘れずに `ruleSets` を空にしておかないと、ルールの無効化がうまくいかなかったりします。
+

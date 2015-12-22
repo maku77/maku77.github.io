@@ -46,7 +46,7 @@ Gradle でマルチプロジェクトを扱う
 Gradle で静的解析 (static analysis) を行う
 ----
 * [Gradle で Checkstyle による静的解析を実行する](checkstyle.html)
-* [Gradle で PMD による静的解析を実行する](pmd.html)
+* [Gradle で PMD による静的解析を実行する](pmd/pmd.html)
 
 
 Gradle でファイルを扱う
