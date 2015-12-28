@@ -14,4 +14,5 @@ R の基本
 * [R の構文](basic/syntax.html)
 * [R のデータ型](basic/data-types.html)
 * [R スクリプトファイルを実行する (source)](basic/run-script.html)
+* [R コマンドの実行結果をファイルに保存する (sink)](basic/sink-output.html)
 
