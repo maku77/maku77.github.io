@@ -26,4 +26,5 @@ R の基本
 ----
 * [連番のベクトルを作成する](data/create-vector.html)
 * [あるベクトルの繰り返しからなるベクトルを作成する](data/repeated-vector.html)
+* [ベクトルに対する算術演算を行う](data/vector-operation.html)
 
