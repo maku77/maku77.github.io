@@ -25,4 +25,5 @@ R の基本
 データ生成
 ----
 * [連番のベクトルを作成する](data/create-vector.html)
+* [あるベクトルの繰り返しからなるベクトルを作成する](data/repeated-vector.html)
 
