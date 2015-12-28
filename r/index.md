@@ -28,4 +28,5 @@ R の基本
 * [あるベクトルの繰り返しからなるベクトルを作成する](data/repeated-vector.html)
 * [ベクトルに対する算術演算を行う](data/vector-operation.html)
 * [ベクトル同士の演算を行う](data/operation-between-vectors.html)
+* [2 つのデータを結合する](data/combine-values.html)
 
