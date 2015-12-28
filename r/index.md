@@ -20,5 +20,9 @@ R の基本
 出力
 ----
 * [画像ファイル (1) 出力先を画像ファイルに切り替える](io/create-image.html)
-* [画像ファイル (2) 画像の背景を 透過させる](io/transparent-bg.html)
+* [画像ファイル (2) 画像の背景を透過させる](io/transparent-bg.html)
+
+データ生成
+----
+* [連番のベクトルを作成する](data/create-vector.html)
 
