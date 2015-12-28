@@ -15,4 +15,5 @@ R の基本
 * [R のデータ型](basic/data-types.html)
 * [R スクリプトファイルを実行する (source)](basic/run-script.html)
 * [R コマンドの実行結果をファイルに保存する (sink)](basic/sink-output.html)
+* [現在作成されているオブジェクトの一覧を表示する (ls, objects)](basic/ls-objects.html)
 
