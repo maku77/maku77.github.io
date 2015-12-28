@@ -30,5 +30,6 @@ R の基本
 * [ベクトル同士の演算を行う](data/operation-between-vectors.html)
 * [2 つのデータを結合する](data/combine-values.html)
 * [ベクトルの各要素にプレフィックス、サフィックスを付ける](data/prefix-and-suffix.html)
+* [ベクトルのサイズを切り詰める、拡張する](data/shrink-and-extend-vector.html)
 * [ランダムな正規分布を生成する](data/normal-distribution.html)
 
