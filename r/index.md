@@ -13,5 +13,5 @@ R の基本
 * [ヘルプを表示する](basic/help.html)
 * [R の構文](basic/syntax.html)
 * [R のデータ型](basic/data-types.html)
-
+* [R スクリプトファイルを実行する (source)](basic/run-script.html)
 
