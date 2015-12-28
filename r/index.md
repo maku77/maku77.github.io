@@ -29,4 +29,5 @@ R の基本
 * [ベクトルに対する算術演算を行う](data/vector-operation.html)
 * [ベクトル同士の演算を行う](data/operation-between-vectors.html)
 * [2 つのデータを結合する](data/combine-values.html)
+* [ランダムな正規分布を生成する](data/normal-distribution.html)
 

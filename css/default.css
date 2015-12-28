@@ -11,6 +11,16 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+/*
+ * 画像の中央寄せ表示するときは、
+ * ![Description](filename.svg){: .center }
+ * のように記述すれば OK。
+ */
+.center {
+  margin: 0 auto;
+  display: block;
+}
+
 .maku-breadCrumb {
   float: left;
   margin-top: 10px;
