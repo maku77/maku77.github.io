@@ -17,3 +17,7 @@ R の基本
 * [R コマンドの実行結果をファイルに保存する (sink)](basic/sink-output.html)
 * [現在作成されているオブジェクトの一覧を表示する (ls, objects)](basic/ls-objects.html)
 
+出力
+----
+* [画像ファイル (1) 出力先を画像ファイルにする](io/create-image.html)
+
