@@ -1,19 +1,16 @@
 
 <style>
 .snsButton {
-  float: right;
+  display: inline-block;
   vertical-align: bottom;
   line-height: 0;
 }
+.snsWidget {
+  text-align: center;
+}
 </style>
 
-<div style="text-align:right">
-  <!-- Google plus -->
-  <div class="g-plusone snsButton"
-    data-size="medium"
-    data-href="{{ site.url }}{{ page.url }}">
-  </div>
-
+<div class="snsWidget">
   <!-- Facebook like button -->
   <div class="fb-like snsButton"
     data-href="{{ site.url }}{{ page.url }}"
@@ -21,6 +18,18 @@
     data-action="like"
     data-show-faces="true"
     data-share="true">
+  </div>
+
+  <!-- Tweet button -->
+  <div class="snsButton">
+    <a href="https://twitter.com/share" class="twitter-share-button"{count}>ツイート</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+  <!-- Google plus -->
+  <div class="g-plusone snsButton"
+    data-size="medium"
+    data-href="{{ site.url }}{{ page.url }}">
   </div>
 </div>
 

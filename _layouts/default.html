@@ -15,20 +15,25 @@
   </div>
   <div class="container-fluid">
     {% include breadcrumb.html %}
+
+    <div class="maku-content">{{ content }}</div>
+
     <div class="maku-widget">
       {% include widget-sns.html %}
     </div>
-    <div class="maku-content">{{ content }}</div>
-    {% include widget-sns.html %}
+
     <div class="maku-widget">
       {% include widget-adsense-responsive.html %}
     </div>
+
     <div class="maku-widget">
       {% include widget-rakuten-responsive-image.html %}
     </div>
+
     <div class="maku-widget">
       {% include widget-comment.html %}
     </div>
+
     {% include breadcrumb.html %}
   </div>
 </body>
