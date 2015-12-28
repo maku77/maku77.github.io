@@ -1,0 +1,29 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="72" width="100" version="1.0" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title>Rlogo simple</title>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title>Rlogo simple</dc:title>
+<cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/3.0/"/>
+<dc:creator>
+<cc:Agent>
+<dc:title>towolf</dc:title>
+</cc:Agent>
+</dc:creator>
+</cc:Work>
+<cc:License rdf:about="http://creativecommons.org/licenses/by-sa/3.0/">
+<cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+<cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+<cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+<cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+<cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+<cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+</cc:License>
+</rdf:RDF>
+</metadata>
+<path d="m49.49,0.5922c-25.89,0-46.9,14.08-46.9,31.42s21.01,31.42,46.9,31.42,46.9-14.08,46.9-31.42-21.01-31.42-46.9-31.42zm7.987,12.06c19.68,0,35.65,9.644,35.65,21.53,0.0000032,11.88-15.97,21.52-35.65,21.52s-35.65-9.642-35.65-21.52c0.000001-11.88,15.97-21.53,35.65-21.53z" fill="#9fa29c"/>
+<path d="m38.84,18.19s-0.0028,53.21-0.0028,53.21h15.83s0.1031-13.77,0.1546-20.66c2.839-0.2797,6.375-0.3761,7.906,2.566,3.299,5.949,9.624,18.1,9.624,18.1h18.04s-7.234-14.41-12.36-20.76c-1.635-1.756-4.249-2.144-6.424-3.074,5.321-0.524,10.9-3.386,12.79-8.674,1.72-5.037,1.416-11.23-2.148-15.43-3.556-4.124-9.269-5.517-14.53-5.227-9.479-0.01198-28.89-0.04683-28.89-0.04683zm15.99,11.76c3.629,0.01492,7.257,0.02984,10.89,0.04476,3.091,0.3374,4.114,4.134,2.822,6.576-0.957,2.147-3.446,2.412-5.502,2.25-2.737-0.01548-5.474-0.03095-8.21-0.04643-0.1351-2.934-0.1327-5.891,0.0041-8.825z" fill="#7e8eb0"/>
+</svg>
