@@ -59,7 +59,7 @@
       <span class="siteHeader_title">天才まくまくノート</span>
     </h1>
     {% include search-bar.html %}
-    {% include widget-sns.html %}
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
         <a class="maku-categoryLink" href="/bestpractice/">
@@ -221,9 +221,13 @@
       <a target="_blank" href="http://english.memoja.net/">パックン英検</a>
     </div>
 
-    <br>
-    {% include widget-sns.html %}
-    {% include widget-adsense-responsive.html %}
+    <div class="maku-widget">
+      {% include widget-sns.html %}
+    </div>
+
+    <div class="maku-widget">
+      {% include widget-adsense-responsive.html %}
+    </div>
   </div>
 </body>
 {% include analytics.html %}

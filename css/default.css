@@ -62,12 +62,11 @@ li {
 }
 
 .maku-widget {
+  clear: both;
   text-align: center;
 
-  clear: both;
   margin-top: 10px;
   padding-top: 10px;
-  background-color: white;
   border-top: dotted 1px gray;
 }
 
