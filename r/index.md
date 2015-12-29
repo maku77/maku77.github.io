@@ -38,4 +38,5 @@ R の基本
 ----
 * [データフレームとは](dataframe/what-is-dataframe.html)
 * [データフレームから特定のカラムを抽出する](dataframe/extract-dataframe.html)
+* [ベクトルからデータフレームを作成する](dataframe/create-dataframe.html)
 
