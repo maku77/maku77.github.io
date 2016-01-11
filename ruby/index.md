@@ -16,8 +16,8 @@ Ruby の制御構文
 * [Ruby の真偽値](syntax/true-and-false.html)
 * [if と unless による分岐](syntax/if.html)
 * [case による分岐](syntax/case.html)
-* [while と until によるループ](syntax/while.html)
-* [for と each によるループ](syntax/for.html)
+* [条件指定によるループ (while と until)](syntax/while.html)
+* [範囲指定によるループ (for, each, step)](syntax/for.html)
 
 クラス
 ====
