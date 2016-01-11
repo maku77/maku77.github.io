@@ -13,6 +13,7 @@ layout: category-index
 ----
 * [Python の if 構文](if-syntax.html)
 * [リスト/リストをシャッフルする](list/shuffle-list.html)
+* [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
 
 python コマンド
 ====
