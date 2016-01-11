@@ -12,7 +12,7 @@ layout: category-index
 構文
 ----
 * [Python の if 構文](if-syntax.html)
-
+* [リスト/リストをシャッフルする](list/shuffle-list.html)
 
 python コマンド
 ====
