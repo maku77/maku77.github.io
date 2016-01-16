@@ -24,6 +24,7 @@ layout: category-index
 ヘルパーメソッド
 ----
 * [ヘルパーメソッドを使って HTML を作成する](helper.html)
+* [カスタムヘルパを作成する](custom-helper.html)
 
 設定
 ----
