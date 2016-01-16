@@ -33,4 +33,5 @@ layout: category-index
 * [Resource オブジェクト (1) ページ情報を取得する](resource1.html)
 * [Resource オブジェクト (2) ページの親子関係を取得する](resource2.html)
 * [Resource オブジェクト (3) ページのツリー構造を取得する](resource3.html)
+* [パンくずリストを表示する](breadcrumbs.html)
 
