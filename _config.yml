@@ -6,7 +6,8 @@ url: https://maku77.github.io
 exclude: [README.md,run.bat,run.sh]
 
 # Enable highlighter.
-highlighter: pygments
+# highlighter: pygments
+highlighter: rouge
 
 # Parse markdown files just like GitHub Flavored Markdown.
 markdown: kramdown
