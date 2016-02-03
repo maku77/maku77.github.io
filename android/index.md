@@ -32,6 +32,7 @@ Android デバイス開発者向け
 * [make 後の生成イメージが格納されるディレクトリを調べる](product-out-dir.html)
 * [インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる](check-user-id.html)
 * [android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト](defines-in-makefile.html)
+* [ART/Dalvik VM のバージョンを調べる](dalvik-version.html)
 
 Native レイヤ
 ----
