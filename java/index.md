@@ -29,6 +29,10 @@ Java の仕様
 ----
 * [static ブロックが実行されるタイミング](static-block.html)
 
+Effective Java のメモ
+----
+* [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
+
 その他
 ----
 * [コールスタックを表示する](call-stack.html)
