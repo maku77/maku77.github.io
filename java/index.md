@@ -32,6 +32,7 @@ Java の仕様
 Effective Java のメモ
 ----
 * [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
+* [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
 
 その他
 ----
