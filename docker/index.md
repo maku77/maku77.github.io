@@ -20,6 +20,7 @@ Docker の基本的な使い方
 * [Docker イメージを作成する - docker commit アプローチ](create-image2.html)
 * [Docker イメージを作成する - docker build アプローチ](create-image3.html)
 * [Docker イメージを作成する - GitHub 上の Dockerfile からイメージを作成する](create-image4.html)
+* [Docker イメージを Docker Hub に登録する](register-image-to-dockerhub.html)
 
 Docker の操作
 ====
