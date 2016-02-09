@@ -15,7 +15,6 @@ Docker の基本的な使い方
 * [Docker イメージのダウンロードと Hello World](download-image.html)
 * [Docker コンテナを起動してシェル (bash) を扱う](run-container.html)
 * [Docker コンテナをデーモンとして動作させる](run-container-as-daemon.html)
-
 * [Docker イメージを作成する - 2 つの方法](create-image1.html)
 * [Docker イメージを作成する - docker commit アプローチ](create-image2.html)
 * [Docker イメージを作成する - docker build アプローチ](create-image3.html)
@@ -28,6 +27,7 @@ Docker の操作
 * [すべての Docker コンテナを削除する](remove-all-containers.html)
 * [リポジトリ名のついていない Docker イメージをすべて削除する](remove-unnamed-images.html)
 * [Docker コンテナ内で動作しているプロセスの一覧を表示する](list-processes.html)
+* [Docker コンテナの詳細情報を表示する](inspect-container.html)
 
 その他
 ====
