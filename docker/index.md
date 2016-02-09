@@ -16,6 +16,11 @@ Docker の基本的な使い方
 * [Docker コンテナを起動してシェル (bash) を扱う](run-container.html)
 * [Docker コンテナをデーモンとして動作させる](run-container-as-daemon.html)
 
+* [Docker イメージを作成する - 2 つの方法](create-image1.html)
+* [Docker イメージを作成する - docker commit アプローチ](create-image2.html)
+* [Docker イメージを作成する - docker build アプローチ](create-image3.html)
+* [Docker イメージを作成する - GitHub 上の Dockerfile からイメージを作成する](create-image4.html)
+
 Docker の操作
 ====
 * [Docker チートシート](cheatsheet.html)
