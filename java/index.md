@@ -34,6 +34,7 @@ Effective Java まとめ
 * [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
 * [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
 * [private のコンストラクタか enum 型でシングルトン特性を強制する](effective/03.html)
+* [private のコンストラクタでインスタンス化不可能を強制する](effective/04.html)
 
 その他
 ----
