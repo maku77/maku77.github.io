@@ -28,6 +28,7 @@ Docker の操作
 * [リポジトリ名のついていない Docker イメージをすべて削除する](remove-unnamed-images.html)
 * [Docker コンテナ内で動作しているプロセスの一覧を表示する](list-processes.html)
 * [Docker コンテナの詳細情報を表示する](inspect-container.html)
+* [Docker コンテナ内で公開しているポート番号が外部から見てどのポート番号にマッピングされているか調べる](port-mappings.html)
 
 その他
 ====
