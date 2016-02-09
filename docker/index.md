@@ -32,6 +32,7 @@ Docker の操作
 トラブルシューティング
 ----
 * [Docker で apt-get install するときに TERM 系のエラーが出る](term-error.html)
+* [Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき](zlib-error.html)
 
 その他
 ----
