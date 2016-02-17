@@ -35,6 +35,8 @@ Effective Java まとめ
 * [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
 * [private のコンストラクタか enum 型でシングルトン特性を強制する](effective/03.html)
 * [private のコンストラクタでインスタンス化不可能を強制する](effective/04.html)
+* [不必要なオブジェクトの生成を避ける](effective/05.html)
+
 
 その他
 ----
