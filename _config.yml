@@ -38,6 +38,13 @@ defaults:
       category_name: "bestpractice"
   -
     scope:
+      path: "cpp"
+      type: "pages"
+    values:
+      category_title: "C/C++"
+      category_name: "cpp"
+  -
+    scope:
       path: "docker"
       type: "pages"
     values:
