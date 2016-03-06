@@ -24,5 +24,7 @@ layout: category-index
 
 その他
 ----
+- [Perl スクリプトのエンコーディングを指定する](misc/script-encoding.html)
 - [Perl スクリプトが Windows で実行されているか調べる](misc/run-on-windows.html)
+
 
