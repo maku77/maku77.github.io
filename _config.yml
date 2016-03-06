@@ -94,6 +94,13 @@ defaults:
       category_name: "p4"
   -
     scope:
+      path: "perl"
+      type: "pages"
+    values:
+      category_title: "Perl"
+      category_name: "perl"
+  -
+    scope:
       path: "program"
       type: "pages"
     values:
