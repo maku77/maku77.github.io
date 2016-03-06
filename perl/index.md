@@ -28,6 +28,7 @@ layout: category-index
 - [インポート可能なモジュールを作成する](module/create-module.html)
 - [ディストリビューション用のテンプレートファイルを作成する (h2xs)](module/module-template.html)
 - [CPAN に登録されたディストリビューションの README ファイルを表示する](module/cpan-readme.html)
+- [指定したディレクトリにモジュールをインストールする](module/install-directory.html)
 
 その他
 ----
