@@ -25,6 +25,7 @@ layout: category-index
 モジュール
 ----
 - [use によるモジュールのインポート](module/import-module.html)
+- [インポート可能なモジュールを作成する](module/create-module.html)
 
 その他
 ----
