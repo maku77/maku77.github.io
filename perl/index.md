@@ -22,6 +22,10 @@ layout: category-index
 - [配列やリストをソートする](list/sort-array.html)
 - [配列あれこれ](list/misc.html)
 
+モジュール
+----
+- [use によるモジュールのインポート](module/import-module.html)
+
 その他
 ----
 - [Perl スクリプトのエンコーディングを指定する](misc/script-encoding.html)
