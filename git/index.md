@@ -23,12 +23,16 @@ Commit 履歴の書き換え／リポジトリ移行
 * [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 * [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
 
-git log
+ログ (git log)
 ----
 * [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
 * [Git でリモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
-git diff / patch
+ブランチ (git branch)
+----
+* [Git でブランチを作成する](create-branch.html)
+
+差分・パッチファイル (git diff / patch)
 ----
 * [git diff でファイルの差分を調べる](git-diff.html)
 * [git diff で改行コードの違いを無視する](diff-ignore-linefeed.html)
@@ -36,7 +40,7 @@ git diff / patch
 * [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
-git tag
+タグ (git tag)
 ----
 * [git tag でコミットに対してタグをつける](add-tag.html)
 * [タグを中央リポジトリに push する](push-tag.html)
