@@ -35,6 +35,7 @@ Commit 履歴の書き換え／リポジトリ移行
 * [Git でブランチの作成とチェックアウトを同時に行う](create-and-checkout-branch.html)
 * [Git でブランチを削除する](delete-branch.html)
 * [Git でリモートブランチを削除する](delete-remote-branch.html)
+* [Git でブランチ名を変更する](rename-branch.html)
 
 差分・パッチファイル (git diff / patch)
 ----
