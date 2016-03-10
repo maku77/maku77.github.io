@@ -31,6 +31,7 @@ Commit 履歴の書き換え／リポジトリ移行
 ブランチ (git branch)
 ----
 * [Git でブランチを作成する](create-branch.html)
+* [Git でブランチをチェックアウトする（作業対象のブランチを切り替える）](checkout-branch.html)
 
 差分・パッチファイル (git diff / patch)
 ----
