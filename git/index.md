@@ -61,6 +61,7 @@ Commit 履歴の書き換え／リポジトリ移行
 
 サーバー
 ----
+* [共有リポジトリを作成する](server/create-bare-repository.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
 
 hook スクリプト
