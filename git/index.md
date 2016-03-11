@@ -25,10 +25,11 @@ Commit 履歴の書き換え／リポジトリ移行
 
 ログ (git log)
 ----
-* [Git でのログ表示の基本](log/basic.html)
-* [Git でコミットログを絞り込んで表示する](log/filter-logs.html)
-* [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
-* [Git でリモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
+* [コミットログ表示の基本](log/basic.html)
+* [コミットログを絞り込んで表示する](log/filter-logs.html)
+* [ログ形式をカスタマイズして出力する](log/log-format.html)
+* [ブランチ間の差分を調べる](git-log-diff-between-branches.html)
+* [リモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
 ブランチ (git branch)
 ----
@@ -62,6 +63,7 @@ hook スクリプト
 その他
 ----
 * [Git 関連用語](git-words.html)
+* [Git で N 個前のコミットを表現する](other/represent-commit.html)
 * [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
 
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
