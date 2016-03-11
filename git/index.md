@@ -30,6 +30,7 @@ Commit 履歴の書き換え／リポジトリ移行
 * [コミットログにファイル名や変更行数を表示する](log/modified-lines.html)
 * [ログ形式をカスタマイズして出力する](log/log-format.html)
 * [コミットログを grep する](log/grep-log.html)
+* [指定したディレクトリ以下の変更に関連するコミットログのみ表示する](log/dir-log.html)
 * [ブランチ間の差分を調べる](git-log-diff-between-branches.html)
 * [リモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
