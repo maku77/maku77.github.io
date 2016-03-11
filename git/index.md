@@ -33,16 +33,17 @@ Commit 履歴の書き換え／リポジトリ移行
 * [指定したディレクトリ以下の変更に関連するコミットログのみ表示する](log/dir-log.html)
 * [ブランチ間の差分を調べる](git-log-diff-between-branches.html)
 * [リモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
+* [コミットログを標準出力へ出力する](log/output-to-stdout.html)
 
 ブランチ (git branch)
 ----
-* [Git でブランチを作成する](create-branch.html)
-* [Git でブランチをチェックアウトする（作業対象のブランチを切り替える）](checkout-branch.html)
-* [Git でブランチの作成とチェックアウトを同時に行う](create-and-checkout-branch.html)
-* [Git でブランチを削除する](delete-branch.html)
-* [Git でリモートブランチを削除する](delete-remote-branch.html)
-* [Git でブランチ名を変更する](rename-branch.html)
-* [Git でブランチやタグの作者を調べる](who-created-branch.html)
+* [ブランチを作成する](create-branch.html)
+* [ブランチをチェックアウトする（作業対象のブランチを切り替える）](checkout-branch.html)
+* [ブランチの作成とチェックアウトを同時に行う](create-and-checkout-branch.html)
+* [ブランチを削除する](delete-branch.html)
+* [リモートブランチを削除する](delete-remote-branch.html)
+* [ブランチ名を変更する](rename-branch.html)
+* [ブランチやタグの作者を調べる](who-created-branch.html)
 
 差分・パッチファイル (git diff / patch)
 ----
