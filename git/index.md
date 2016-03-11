@@ -37,13 +37,13 @@ Commit 履歴の書き換え／リポジトリ移行
 
 ブランチ (git branch)
 ----
-* [ブランチを作成する](create-branch.html)
-* [ブランチをチェックアウトする（作業対象のブランチを切り替える）](checkout-branch.html)
-* [ブランチの作成とチェックアウトを同時に行う](create-and-checkout-branch.html)
-* [ブランチを削除する](delete-branch.html)
-* [リモートブランチを削除する](delete-remote-branch.html)
-* [ブランチ名を変更する](rename-branch.html)
-* [ブランチやタグの作者を調べる](who-created-branch.html)
+* [ブランチを作成する](branch/create-branch.html)
+* [ブランチをチェックアウトする（作業対象のブランチを切り替える）](branch/checkout-branch.html)
+* [ブランチの作成とチェックアウトを同時に行う](branch/create-and-checkout-branch.html)
+* [ブランチを削除する](branch/delete-branch.html)
+* [リモートブランチを削除する](branch/delete-remote-branch.html)
+* [ブランチ名を変更する](branch/rename-branch.html)
+* [ブランチやタグの作者を調べる](branch/who-created-branch.html)
 
 差分・パッチファイル (git diff / patch)
 ----
