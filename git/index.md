@@ -59,6 +59,10 @@ Commit 履歴の書き換え／リポジトリ移行
 * [タグを中央リポジトリに push する](push-tag.html)
 * [タグの名前を変更する](rename-tag.html)
 
+サーバー
+----
+* [Git リポジトリを移行する](server/transfer-repository.html)
+
 hook スクリプト
 ----
 * [Git の update フックの基本](update-hook.html)
