@@ -62,6 +62,7 @@ Commit 履歴の書き換え／リポジトリ移行
 サーバー
 ----
 * [共有リポジトリを作成する](server/create-bare-repository.html)
+* [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
 
 hook スクリプト
