@@ -23,6 +23,10 @@ Tools
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
+Logcat
+----
+* [Logcat のログ出力をフィルタする](filter-logcat.html)
+
 Android デバイス開発者向け
 ----
 * [root ユーザで adb 接続する](adb-with-root.html)
