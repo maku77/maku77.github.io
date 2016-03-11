@@ -26,6 +26,7 @@ Commit 履歴の書き換え／リポジトリ移行
 ログ (git log)
 ----
 * [Git でのログ表示の基本](log/basic.html)
+* [Git でコミットログを絞り込んで表示する](log/filter-logs.html)
 * [Git でブランチ間の差分を調べる](git-log-diff-between-branches.html)
 * [Git でリモートブランチとローカルブランチの差分を調べる](git-log-diff-remote-and-local.html)
 
