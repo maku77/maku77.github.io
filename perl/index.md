@@ -31,6 +31,10 @@ layout: category-index
 - [指定したディレクトリにモジュールをインストールする](module/install-directory.html)
 - [POD フォーマットについて](module/pod.html)
 
+ファイル・ディレクトリ
+----
+- [カレントディレクトリを変更する](file/chdir.html)
+
 その他
 ----
 - [Perl スクリプトのエンコーディングを指定する](misc/script-encoding.html)
