@@ -31,6 +31,10 @@ layout: category-index
 - [指定したディレクトリにモジュールをインストールする](module/install-directory.html)
 - [POD フォーマットについて](module/pod.html)
 
+入出力
+----
+- [標準入力を読み込む](io/read-from-stdio.html)
+
 ファイル・ディレクトリ
 ----
 - [カレントディレクトリを変更する](file/chdir.html)
