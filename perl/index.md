@@ -34,6 +34,7 @@ layout: category-index
 入出力
 ----
 - [標準入力を読み込む](io/read-from-stdio.html)
+- [ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する](io/diamond-operator.html)
 
 ファイル・ディレクトリ
 ----
