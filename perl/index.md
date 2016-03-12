@@ -39,6 +39,7 @@ layout: category-index
 - [ディレクトリを作成する](file/mkdir.html)
 - [ディレクトリを削除する](file/rmdir.html)
 - [指定したディレクトリ以下のファイルを列挙する](file/find.html)
+- [ディレクトリ内のファイルの合計サイズを調べる](file/dir-size.html)
 
 その他
 ----
