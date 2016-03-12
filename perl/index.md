@@ -38,6 +38,7 @@ layout: category-index
 - [ディレクトリハンドルによってファイル名のリストを取得する](file/readdir.html)
 - [ディレクトリを作成する](file/mkdir.html)
 - [ディレクトリを削除する](file/rmdir.html)
+- [指定したディレクトリ以下のファイルを列挙する](file/find.html)
 
 その他
 ----
