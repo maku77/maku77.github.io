@@ -37,6 +37,7 @@ layout: category-index
 - [グロブよってファイル名のリストを取得する](file/glob.html)
 - [ディレクトリハンドルによってファイル名のリストを取得する](file/readdir.html)
 - [ディレクトリを作成する](file/mkdir.html)
+- [ディレクトリを削除する](file/rmdir.html)
 
 その他
 ----
