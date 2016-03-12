@@ -34,6 +34,7 @@ layout: category-index
 ファイル・ディレクトリ
 ----
 - [カレントディレクトリを変更する](file/chdir.html)
+- [グロブよってファイル名のリストを得る](file/glob.html)
 
 その他
 ----
