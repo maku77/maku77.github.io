@@ -44,6 +44,10 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [製品にパッケージングする APK を指定する](vendor/package-apks.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
 
+Java レイヤ
+----
+* [特殊ディレクトリの情報を取得する](special-dir-info.html)
+
 Native レイヤ
 ----
 * [RefBase によるスマートポインタ](refbase-smart-pointer.html)
