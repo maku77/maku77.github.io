@@ -19,6 +19,7 @@ Tools
 * [APK の情報を表示する (aapt)](aapt.html)
 * [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
+* [ANR の原因を突き止める](analyze-anr.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
@@ -27,7 +28,7 @@ Logcat
 ----
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
 
-Android デバイス開発者向け
+Android デバイス開発者向け（ベンダ向け情報）
 ----
 * [root ユーザで adb 接続する](adb-with-root.html)
 * [Sleep モードに遷移する](go-to-sleep.html)
@@ -40,6 +41,7 @@ Android デバイス開発者向け
 * [android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト](defines-in-makefile.html)
 * [ART/Dalvik VM のバージョンを調べる](dalvik-version.html)
 * [Locale を切り替える](change-locale.html)
+* [製品にパッケージングする APK を指定する](vendor/package-apks.html)
 
 Native レイヤ
 ----
