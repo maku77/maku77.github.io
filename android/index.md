@@ -42,6 +42,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [ART/Dalvik VM のバージョンを調べる](dalvik-version.html)
 * [Locale を切り替える](change-locale.html)
 * [製品にパッケージングする APK を指定する](vendor/package-apks.html)
+* [システムプロパティのあれこれ](vendor/system-property.html)
 
 Native レイヤ
 ----
