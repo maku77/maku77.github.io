@@ -86,3 +86,21 @@ long free = Debug.getNativeHeapFreeSize()
 long alloc = Debug.getNativeHeapAllocatedSize();
 ```
 
+
+デバイス上で procrank が使用できる場合
+====
+
+```
+# procrank
+  PID      Vss      Rss      Pss      Uss  cmdline
+  890   84456K   48668K   25850K   21284K  system_server
+ 1231   50748K   39088K   17587K   13792K  com.android.launcher2
+  947   34488K   28528K   10834K    9308K  com.android.wallpaper
+  987   26964K   26956K    8751K    7308K  com.google.process.gapps
+  954   24300K   24296K    6249K    4824K  com.android.phone
+  948   23020K   23016K    5864K    4748K  com.android.inputmethod.latin
+  888   25728K   25724K    5774K    3668K  zygote
+  977   24100K   24096K    5667K    4340K  android.process.acore
+  ...
+```
+
