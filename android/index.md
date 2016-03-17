@@ -50,6 +50,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 Java レイヤ
 ----
 * [特殊ディレクトリの情報を取得する](special-dir-info.html)
+* [AsyncTask による非同期処理と UI 更新処理](async-task.html)
 
 Native レイヤ
 ----
