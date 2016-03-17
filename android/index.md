@@ -52,6 +52,9 @@ Java レイヤ
 * [特殊ディレクトリの情報を取得する](special-dir-info.html)
 * [AsyncTask による非同期処理と UI 更新処理](async-task.html)
 
+### 設定 (Settings)
+* [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
+
 Native レイヤ
 ----
 * [RefBase によるスマートポインタ](refbase-smart-pointer.html)
