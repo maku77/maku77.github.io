@@ -37,6 +37,7 @@ Effective Java まとめ
 * [private のコンストラクタでインスタンス化不可能を強制する](effective/04.html)
 * [不必要なオブジェクトの生成を避ける](effective/05.html)
 * [廃れたオブジェクト参照を取り除く](effective/06.html)
+* [ファイナライザを避ける](effective/07.html)
 
 
 その他
