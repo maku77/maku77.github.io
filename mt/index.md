@@ -14,6 +14,10 @@ MQL
 
 MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。このサイトでは、この新しい構文を使ったコードを示します。
 
+はじめに
+----
+* [組み込み関数の実行に失敗したときにエラー情報を表示する](basic/show-error.html)
+
 カスタムインジケータ (Custom Indicator)
 ----
 * [カスタムインジケータを作成する](create-indicator.html)
