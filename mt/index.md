@@ -54,6 +54,7 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 ----
 * [チャート上にラベルを表示する](draw/label.html)
 * [チャート上に矩形を表示する](draw/rect.html)
+* [サンプル: 通貨ペアとタイムフレームを大きく表示する](draw/large-symbol.html)
 
 デバッグ
 ----
