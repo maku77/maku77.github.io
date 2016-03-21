@@ -40,6 +40,7 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 チャートの情報
 ----
 * [現在のチャートの通貨ペア（シンボル）を取得する](get-current-symbol.html)
+* [現在のチャートのタイムフレーム（H1 など）を取得する](chartinfo/get-current-timeframe.html)
 * [チャートのローソク足の数を取得する](get-bar-count.html)
 
 チャートの操作
