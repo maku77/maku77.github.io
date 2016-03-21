@@ -49,8 +49,11 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [チャートの描画スタイルを設定する](drawing-style.html)
 * [表示中のすべてのチャートに対して処理する](for-each-chart.html)
 
+描画オブジェクトの表示
+----
+* [ラベルを表示する](draw/label.html)
 
-情報表示
+デバッグ
 ----
 * [画面上にテキスト出力する (1) Alert, Comment, Print の基本](print-text1.html)
 * [画面上にテキスト出力する (2) Comment 関数を使いやすくする](print-text2.html)
