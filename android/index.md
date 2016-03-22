@@ -65,11 +65,12 @@ Native レイヤ
 ### ServiceManager 関連
 * [ServiceManager に登録されたサービスを列挙する](list-services.html)
 
-ビルド関連 / Gradle
+ビルド関連 / Gradle / Android Studio
 ----
 * [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
 * [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
+* [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 その他
