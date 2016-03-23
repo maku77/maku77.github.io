@@ -10,7 +10,7 @@ Android Studio を使ったり、Gradle でマルチプロジェクトを扱っ�
 | ---- | ---- | ---- | ---- |
 | build.gradle | 手動で編集 | コミットする | プロジェクトごとのビルドスクリプト |
 | settings.gradle | 手動で編集 | コミットする | マルチプロジェクト構成のプロジェクトにおいて、サブプロジェクトなどのリストを管理 |
-| project.properties | Android Studio が自動生成 | コミットする | プロジェクトで使用する Android のターゲットバージョンなどが設定される |
+| gradle.properties | Android Studio が自動生成 | コミットしない | Gradle 実行のプロキシ設定やメモリ容量設定 |
 | local.properties | Android Studio が自動生成 | コミットしない | Android SDK のパスなど、個人環境に依存する設定が格納される |
 | その他.properties | 手動で編集 | コミットする | 独自に作成したプロパティファイル（ビルドスクリプト内で読み込んだりしているはず） |
 
