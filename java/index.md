@@ -29,7 +29,7 @@ Java の仕様
 ----
 * [static ブロックが実行されるタイミング](static-block.html)
 
-Effective Java まとめ
+Effective Java や Java の鉄則など
 ----
 * [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
 * [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
@@ -38,7 +38,7 @@ Effective Java まとめ
 * [不必要なオブジェクトの生成を避ける](effective/05.html)
 * [廃れたオブジェクト参照を取り除く](effective/06.html)
 * [ファイナライザを避ける](effective/07.html)
-
+* [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
 その他
 ----
