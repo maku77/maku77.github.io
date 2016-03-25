@@ -56,6 +56,11 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 * [チャート上に矩形を表示する](draw/rect.html)
 * [サンプル: 通貨ペアとタイムフレームを大きく表示する](draw/large-symbol.html)
 
+資金管理／口座情報
+----
+* [口座残高／証拠金の情報を取得する](account/deposit.html)
+* [サンプル: チャート上に口座情報を表示するインジケータ](account/account-info-indicator.html)
+
 デバッグ
 ----
 * [画面上にテキスト出力する (1) Alert, Comment, Print の基本](print-text1.html)
