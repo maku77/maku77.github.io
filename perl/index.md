@@ -34,6 +34,7 @@ layout: category-index
 - [ハッシュをソートする](hash/sort-hash.html)
 - [ハッシュのキーが存在するか調べる](hash/check-key.html)
 - [ハッシュからキーを削除する](hash/remove-key.html)
+- [ハッシュを空にする（ハッシュの要素をすべて削除する）](hash/clear-hash.html)
 - [ハッシュをリストに展開する](hash/expand-hash-to-list.html)
 - [ハッシュをファイルに保存する（DBMハッシュ）](hash/save-hash-into-file.html)
 - [ハッシュへのリファレンスを取得する](hash/reference-to-hash.html)
