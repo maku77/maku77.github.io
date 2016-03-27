@@ -37,6 +37,7 @@ layout: category-index
 - [ハッシュをリストに展開する](hash/expand-hash-to-list.html)
 - [ハッシュをファイルに保存する（DBMハッシュ）](hash/save-hash-into-file.html)
 - [ハッシュへのリファレンスを取得する](hash/reference-to-hash.html)
+- [2 つのハッシュを合成する](hash/merge-hash.html)
 - [（コラム）ハッシュと連想配列](hash/history-of-name.html)
 
 モジュール
