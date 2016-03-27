@@ -26,6 +26,7 @@ layout: category-index
 ----
 - [ハッシュを定義する](hash/define-hash.html)
 - [ハッシュのキーや値のリストを取得する](hash/hash-key-value-list.html)
+- [ハッシュが空かどうか調べる](hash/check-if-hash-is-empty.html)
 
 モジュール
 ----
