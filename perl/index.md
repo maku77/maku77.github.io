@@ -22,6 +22,10 @@ layout: category-index
 - [配列やリストをソートする](list/sort-array.html)
 - [配列あれこれ](list/misc.html)
 
+ハッシュ
+----
+- [ハッシュを定義する](hash/define-hash.html)
+
 モジュール
 ----
 - [use によるモジュールのインポート](module/import-module.html)
