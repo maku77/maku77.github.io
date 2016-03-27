@@ -34,6 +34,7 @@ layout: category-index
 - [ハッシュのキーが存在するか調べる](hash/check-key.html)
 - [ハッシュからキーを削除する](hash/remove-key.html)
 - [ハッシュをリストに展開する](hash/expand-hash-to-list.html)
+- [（コラム）ハッシュと連想配列](hash/history-of-name.html)
 
 モジュール
 ----
