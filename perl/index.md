@@ -17,7 +17,7 @@ layout: category-index
 - [grep 演算子によるリスト要素のフィルタリング](list/grep-list.html)
 - [map 演算子を使ってリストの各要素を加工したリストを取得する](list/map-list.html)
 - [リストスライス、配列スライス、ハッシュスライス](list/list-slice.html)
-- [配列へのリファレンス、デリファレンス](list/reference.html)
+- [配列へのリファレンスを取得する](list/reference.html)
 - [配列の配列（二次元配列）を作成する](list/two-dimensional-array.html)
 - [配列やリストをソートする](list/sort-array.html)
 - [配列あれこれ](list/misc.html)
@@ -36,6 +36,7 @@ layout: category-index
 - [ハッシュからキーを削除する](hash/remove-key.html)
 - [ハッシュをリストに展開する](hash/expand-hash-to-list.html)
 - [ハッシュをファイルに保存する（DBMハッシュ）](hash/save-hash-into-file.html)
+- [ハッシュへのリファレンスを取得する](hash/reference-to-hash.html)
 - [（コラム）ハッシュと連想配列](hash/history-of-name.html)
 
 モジュール
