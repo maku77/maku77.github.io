@@ -33,6 +33,7 @@ layout: category-index
 - [ハッシュをソートする](hash/sort-hash.html)
 - [ハッシュのキーが存在するか調べる](hash/check-key.html)
 - [ハッシュからキーを削除する](hash/remove-key.html)
+- [ハッシュをリストに展開する](hash/expand-hash-to-list.html)
 
 モジュール
 ----
