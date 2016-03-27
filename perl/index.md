@@ -32,6 +32,7 @@ layout: category-index
 - [ハッシュの要素をループで処理する](hash/loop-hash.html)
 - [ハッシュをソートする](hash/sort-hash.html)
 - [ハッシュのキーが存在するか調べる](hash/check-key.html)
+- [ハッシュからキーを削除する](hash/remove-key.html)
 
 モジュール
 ----
