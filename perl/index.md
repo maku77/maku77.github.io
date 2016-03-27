@@ -25,6 +25,7 @@ layout: category-index
 ハッシュ
 ----
 - [ハッシュを定義する](hash/define-hash.html)
+- [キーのリストからハッシュを作成する](hash/create-hash-by-map.html)
 - [ハッシュのキーや値のリストを取得する](hash/hash-key-value-list.html)
 - [ハッシュが空かどうか調べる](hash/check-if-hash-is-empty.html)
 - [ハッシュのサイズを取得する](hash/get-hash-size.html)
