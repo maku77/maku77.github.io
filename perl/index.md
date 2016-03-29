@@ -48,6 +48,7 @@ layout: category-index
 - [サブルーチンがリストコンテキストで呼び出されたか調べる](subroutine/want-array.html)
 - [サブルーチン内では exit を使わずに die を使う](subroutine/use-die-instead-of-exit.html)
 - [サブルーチンの引数をリファレンスで渡す（参照渡し）](subroutine/call-by-reference.html)
+- [サブルーチンへのリファレンスを取得する](subroutine/reference-to-subroutine.html)
 
 モジュール
 ----
