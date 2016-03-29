@@ -47,6 +47,7 @@ layout: category-index
 - [サブルーチンを可変長引数に対応させる](subroutine/variable-length-arguments.html)
 - [サブルーチンがリストコンテキストで呼び出されたか調べる](subroutine/want-array.html)
 - [サブルーチン内では exit を使わずに die を使う](subroutine/use-die-instead-of-exit.html)
+- [サブルーチンの引数をリファレンスで渡す（参照渡し）](subroutine/call-by-reference.html)
 
 モジュール
 ----
