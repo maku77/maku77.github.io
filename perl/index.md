@@ -49,6 +49,7 @@ layout: category-index
 - [サブルーチン内では exit を使わずに die を使う](subroutine/use-die-instead-of-exit.html)
 - [サブルーチンの引数をリファレンスで渡す（参照渡し）](subroutine/call-by-reference.html)
 - [サブルーチンへのリファレンスを取得する](subroutine/reference-to-subroutine.html)
+- [無名サブルーチンを定義する](subroutine/anonymous-subroutine.html)
 
 モジュール
 ----
