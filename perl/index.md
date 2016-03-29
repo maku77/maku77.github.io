@@ -41,6 +41,10 @@ layout: category-index
 - [2 つのハッシュを合成する](hash/merge-hash.html)
 - [（コラム）ハッシュと連想配列](hash/history-of-name.html)
 
+サブルーチン
+----
+- [サブルーチンの基本](subroutine/basic.html)
+
 モジュール
 ----
 - [use によるモジュールのインポート](module/import-module.html)
