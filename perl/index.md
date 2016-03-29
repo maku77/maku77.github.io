@@ -45,6 +45,7 @@ layout: category-index
 ----
 - [サブルーチンの基本](subroutine/basic.html)
 - [サブルーチンを可変長引数に対応させる](subroutine/variable-length-arguments.html)
+- [サブルーチンがリストコンテキストで呼び出されたか調べる](subroutine/want-array.html)
 
 モジュール
 ----
