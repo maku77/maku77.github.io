@@ -60,6 +60,10 @@ layout: category-index
 - [指定したディレクトリにモジュールをインストールする](module/install-directory.html)
 - [POD フォーマットについて](module/pod.html)
 
+文字列／正規表現
+----
+- [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
+
 入出力
 ----
 - [標準入力を読み込む](io/read-from-stdio.html)
