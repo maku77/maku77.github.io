@@ -63,6 +63,7 @@ layout: category-index
 文字列／正規表現
 ----
 - [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
+- [大文字と小文字を区別しない文字列マッチング](string/ignore-case.html)
 
 入出力
 ----
