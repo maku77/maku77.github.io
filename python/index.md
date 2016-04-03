@@ -17,9 +17,11 @@ layout: category-index
 * [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
 * [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
 
-python コマンド
+python コマンド / 実行環境
 ====
 * [Python でワンライナーを実行する](one-liner.html)
+* [Python スクリプトを Windows で動く実行ファイル形式に変換する](py2exe.html)
+
 
 クラス
 ====
