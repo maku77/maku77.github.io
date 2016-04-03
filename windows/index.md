@@ -37,3 +37,12 @@ Windows の設定／管理／セキュリティ
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 
+MS Office / Word
+====
+- [Word で章・節・項の見出しを作成する](word/create-chapter.html)
+- [Word で章・節・項の「見出しマップ」を表示する](word/chapter-map.html)
+- [Word で章・節・項の見出しの表示スタイルを変更する](word/chapter-style.html)
+- [Word で章・節・項の見出しに連番（段落番号）を自動で振る](word/number-chapters.html)
+- [Word で章・節・項の見出しから目次を作成する](word/create-toc.html)
+
+
