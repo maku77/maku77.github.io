@@ -40,6 +40,10 @@ Effective Java や Java の鉄則など
 * [ファイナライザを避ける](effective/07.html)
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
+コラム
+----
+* [J2SE から Java SE へ](column/j2se-to-javase.html)
+
 その他
 ----
 * [コールスタックを表示する](call-stack.html)
