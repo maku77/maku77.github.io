@@ -35,4 +35,5 @@ Windows の設定／管理／セキュリティ
 * [ドメインユーザーにローカル PC の Administrator 権限を与える](add-admin-to-domain-user.html)
 * [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
+* [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 
