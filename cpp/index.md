@@ -18,5 +18,5 @@ STL
 ----
 - [C++ の virtual の効果まとめ](virtual.html)
 - [default ラベルの綴りを間違えてもエラーにならない](typo-of-default.html)
-
+- [switch の中の case の順序について](order-of-cases.html)
 
