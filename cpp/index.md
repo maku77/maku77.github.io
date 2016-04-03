@@ -14,6 +14,10 @@ STL
 ----
 - [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
 
+入出力 (I/O)
+----
+- [ストリームの入力によって文字列を構築する (stringstream)](io/stringstream.html)
+
 その他
 ----
 - [C++ の virtual の効果まとめ](virtual.html)
