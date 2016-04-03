@@ -10,3 +10,7 @@ STL
 ----
 - [コンテナ要素から特定の値を削除する](stl/remove-element.html)
 
+サンプルコード
+----
+- [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
+
