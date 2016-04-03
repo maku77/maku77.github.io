@@ -14,3 +14,7 @@ STL
 ----
 - [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
 
+その他
+----
+- [C++ の virtual の効果まとめ](virtual.html)
+
