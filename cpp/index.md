@@ -17,4 +17,6 @@ STL
 その他
 ----
 - [C++ の virtual の効果まとめ](virtual.html)
+- [default ラベルの綴りを間違えてもエラーにならない](typo-of-default.html)
+
 
