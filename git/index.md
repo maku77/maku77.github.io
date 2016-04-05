@@ -58,13 +58,14 @@ Git
 * [タグを中央リポジトリに push する](push-tag.html)
 * [タグの名前を変更する](rename-tag.html)
 
-サーバー／リポジトリ
+リポジトリ／サーバー／バックアップ
 ----
 * [共有リポジトリを作成する](server/create-bare-repository.html)
 * [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
 * [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
 * [ローカルディレクトリをリモートリポジトリとして使用する](server/dir-as-repository.html)
+* [ソースコードのアーカイブを作成する](create-src-archive.html)
 
 hook スクリプト
 ----
