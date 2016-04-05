@@ -43,6 +43,7 @@ Git
 * [リモートブランチを削除する](branch/delete-remote-branch.html)
 * [ブランチ名を変更する](branch/rename-branch.html)
 * [ブランチやタグの作者を調べる](branch/who-created-branch.html)
+* [detached HEAD 状態へのチェックアウトとは](branch/detached-head.html)
 
 差分・パッチファイル (git diff / patch)
 ----
