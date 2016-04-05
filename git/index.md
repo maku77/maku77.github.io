@@ -19,6 +19,7 @@ Git
 コミット／履歴の書き換え
 ---
 * [直前のコミットのコメントを修正する](git-modify-comment.html)
+* [変更の一部だけをコミットする](commit/commit-by-hunk.html)
 * [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 
 ログ (git log)
