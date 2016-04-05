@@ -59,11 +59,12 @@ Commit 履歴の書き換え／リポジトリ移行
 * [タグを中央リポジトリに push する](push-tag.html)
 * [タグの名前を変更する](rename-tag.html)
 
-サーバー
+サーバー／リポジトリ
 ----
 * [共有リポジトリを作成する](server/create-bare-repository.html)
 * [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
+* [ローカルディレクトリをリモートリポジトリとして使用する](server/dir-as-repository.html)
 
 hook スクリプト
 ----
