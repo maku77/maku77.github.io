@@ -16,6 +16,10 @@ GitHub
 Git
 ====
 
+設定
+---
+* [コミット、チェックアウト時に改行コードを自動変換する](settings/autocrlf.html)
+
 コミット／履歴の書き換え
 ---
 * [直前のコミットのコメントを修正する](git-modify-comment.html)
