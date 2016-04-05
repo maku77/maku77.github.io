@@ -16,12 +16,10 @@ GitHub
 Git
 ====
 
-Commit 履歴の書き換え／リポジトリ移行
+コミット／履歴の書き換え
 ---
 * [直前のコミットのコメントを修正する](git-modify-comment.html)
-* [別のサーバに Git リポジトリを移行する（GitLab から GitHub への移行）](git-relocate-repository.html)
 * [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
-* [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
 
 ログ (git log)
 ----
@@ -64,6 +62,7 @@ Commit 履歴の書き換え／リポジトリ移行
 * [共有リポジトリを作成する](server/create-bare-repository.html)
 * [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
+* [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
 * [ローカルディレクトリをリモートリポジトリとして使用する](server/dir-as-repository.html)
 
 hook スクリプト
