@@ -72,6 +72,7 @@ Native レイヤ
 * [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
 * [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
 * [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
+* [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 その他
