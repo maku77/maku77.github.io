@@ -75,6 +75,7 @@ Ruby の制御構文
 入出力 (I/O)
 ====
 * [コマンドライン引数を扱う](command-line-params.html)
+* [コマンドライン引数によるオプションに対応する (optparse)](io/optparse.html)
 * [標準出力へ出力する](print-to-stdout.html)
 * [標準入力から読み込む](input-from-stdin.html)
 * [キーボードからの入力を取得する](input-from-keyboard.html)
