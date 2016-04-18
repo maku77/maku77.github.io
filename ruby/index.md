@@ -43,6 +43,7 @@ Ruby の制御構文
 ====
 * [配列を作成する](array/create-array.html)
 * [配列要素の追加/配列に要素を追加する](array/add-element.html)
+* [配列要素の追加/配列を結合する](array/combine-arrays.html)
 * [配列をコピーする](array/copy-array.html)
 * [配列をループで処理する](array/loop-array.html)
 * [配列をソートする](array/sort-array.html)
