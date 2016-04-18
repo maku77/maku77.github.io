@@ -76,7 +76,7 @@ gemspec ファイルには、公開する Gem パッケージの情報として�
 * ライセンス (license)
 * パッケージングするファイル (files)
 
-#### hello_gem.rb
+#### hello_gem.gemspec
 
 ```ruby
 Gem::Specification.new do |s|

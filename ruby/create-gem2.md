@@ -55,7 +55,7 @@ gemspec に実行可能ファイルを追加する
 
 作成した実行可能ファイル `hello` を gemspec ファイルに登録します。
 
-#### hello_gem.rb
+#### hello_gem.gemspec
 
 ```ruby
 Gem::Specification.new do |s|
