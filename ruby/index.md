@@ -112,6 +112,7 @@ mp3
 * [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
 * [ユーザライブラリの検索パスを調べる](load-path.html)
 * [環境変数を扱う](environment-variable.html)
+* [プロファイラを使用してボトルネックを探る](other/profiler.html)
 
 RubyGems
 ----
