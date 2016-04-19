@@ -109,8 +109,13 @@ sample.rb:6:in `<main>': missing argument: -d (OptionParser::MissingArgument)
 require 'optparse'
 
 opt = OptionParser.new
-opt.on('-a', '--add [ITEM]', 'add an item') { |v| puts "Add #{v}" }
-opt.on('-d', '--del [ITEM]', 'delete an item') { |v| puts "Delete #{v}" }
+opt.on('-a', '--add [ITEM]', 'add an item') do |val|
+  if val != nil
+    puts "Add #{val}"
+  else
+    puts "Add something"
+  end
+end
 opt.parse(ARGV)
 ```
 
@@ -121,6 +126,120 @@ $ ruby sample.rb --add 100
 Add 100
 
 $ ruby sample.rb --add
-Add
+Add something
+```
+
+
+ヘルプオプション ('-h', '--help') の説明を表示する
+----
+
+`OptionParser` を使用すると、自動的に `-h` と `--help` オプションが定義されるのですが、それによるヘルプメッセージには `-h` と `--help` オプションの説明が表示されません。
+
+```
+$ ruby sample.rb --help
+Usage: sample [options]
+    -a, --add                        add an item
+```
+
+ヘルプメッセージに `-h` と `--help` の説明も表示するには、他のオプションと同じように `on` メソッドでオプションを定義します。
+これらのハンドラの中では、`OptionParser` オブジェクト自体を出力するようにすると、ヘルプメッセージを表示することができます。
+
+```ruby
+require 'optparse'
+
+opt = OptionParser.new
+opt.on('-a', '--add', 'add an item') { puts "Add" }
+opt.on('-h', '--help', 'show this help') { puts opt; exit }
+opt.parse(ARGV)
+```
+
+```
+$ ruby sample.rb --help
+Usage: sample [options]
+    -a, --add                        add an item
+    -h, --help                       show this help
+```
+
+オプションではない引数も扱う
+----
+
+例えば、下記のようにコマンドライン引数を指定したとします。
+
+```
+$ ruby sample.rb -n 100 hoge
+```
+
+最後に指定した `hoge` という引数は、オプションのパラメータとしてはみなされないので、`OptionParser#on('-n' ...)` によるハンドラの中で取得することができません。
+このような場合は、`OptionParser#parse!` を使用してコマンドライン引数をパースすることで、`ARGV` の中に `hoge` だけが残るようにします。
+
+```ruby
+require 'optparse'
+
+opt = OptionParser.new
+opt.on('-n VALUE', 'do something') { |v| puts "do something with #{v}" }
+opt.parse!(ARGV)
+
+# ARGV の中にオプションとしてパースされなかった残りの引数が残っている
+puts "ARGV = #{ARGV}"
+```
+
+```
+$ ruby sample.rb -n 100 hoge
+do something with 100
+ARGV = ["hoge"]
+```
+
+
+オプションの取得部分をクラス化する
+----
+
+`OptionParser` クラスを使用して、そのアプリケーションに必要なコマンドライン引数をパースするためのクラスを作成しておくと、オプションの扱うコードの見通しがよくなります。
+下記の例では、内部的に `OptionParser` を使用するクラス (`AppOption`) を作成しています。
+
+```ruby
+class AppOption
+  require 'optparse'
+
+  # インスタンス化と同時にコマンドライン引数をパース
+  def initialize
+    @options = {}
+    OptionParser.new do |o|
+      o.on('-a', '--add ITEM [OPT]', 'add item') { |v| @options[:add] = v }
+      o.on('-d', '--delete ITEM', 'delete item') { |v| @options[:del] = v }
+      o.on('-h', '--help', 'show this help') {|v| puts o; exit }
+      o.parse!(ARGV)
+    end
+  end
+
+  # オプションが指定されたかどうか
+  def has?(name)
+    @options.include?(name)
+  end
+
+  # オプションごとのパラメータを取得
+  def get(name)
+    @options[name]
+  end
+
+  # オプションパース後に残った部分を取得
+  def get_extras
+    ARGV
+  end
+end
+
+# 使用例
+option = AppOption.new
+if option.has?(:add)
+  puts option.get(:add)   # --add オプションのパラメータを取得
+  puts option.get_extras  # 残りのコマンドライン引数を取得
+end
+```
+
+#### 実行結果
+
+```
+$ ruby sample.rb --add AAA BBB
+AAA
+BBB
 ```
 
