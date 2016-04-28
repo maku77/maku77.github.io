@@ -38,7 +38,8 @@ Effective Java や Java の鉄則など
 * [不必要なオブジェクトの生成を避ける](effective/05.html)
 * [廃れたオブジェクト参照を取り除く](effective/06.html)
 * [ファイナライザを避ける](effective/07.html)
-* [equals をオーバーライドする時は一般契約に従う](effective/08.html)
+* [equals をオーバライドする時は一般契約に従う](effective/08.html)
+* [equals をオーバライドする時は常に hashCode をオーバライドする](effective/09.html)
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
 コラム
