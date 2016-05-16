@@ -40,6 +40,7 @@ Effective Java や Java の鉄則など
 * [ファイナライザを避ける](effective/07.html)
 * [equals をオーバライドする時は一般契約に従う](effective/08.html)
 * [equals をオーバライドする時は常に hashCode をオーバライドする](effective/09.html)
+* [toString を常にオーバライドする](effective/10.html)
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
 コラム
