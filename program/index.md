@@ -41,3 +41,8 @@ HTML/XML のパース
 ====
 * [CPD でコードクローンを発見する](detect-code-clones.html)
 
+
+Tera Term マクロ
+====
+* [Tera Term のマクロで特定の文字列を検出して処理を実行する](teraterm/detect-pattern.html)
+
