@@ -12,6 +12,7 @@ Tools
 * [adb から Backup Manager を走らせる (bmgr)](backup-manager.html)
 * [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
 * [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
+* [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
 * [Traceview でプロファイル情報を表示する](tools/traceview.html)
 
 開発環境／ADB 接続
