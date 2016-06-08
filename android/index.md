@@ -14,6 +14,7 @@ Tools
 * [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
 * [Traceview でプロファイル情報を表示する](tools/traceview.html)
+* [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
 
 開発環境／ADB 接続
 ----
