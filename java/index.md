@@ -25,6 +25,9 @@ layout: category-index
 * [Executor によるタスク処理 (4) 既存の Thread から Future オブジェクトを取得する](thread/executor4.html)
 * [Executor によるタスク処理 (5) ScheduledExecutorService によるタスクのスケジュール](thread/executor5.html)
 
+コレクション (Collection)
+----
+* [コレクションクラスのまとめ](collection/summary.html)
 
 データベース/JDBC
 ----
