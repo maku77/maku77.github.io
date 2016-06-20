@@ -70,3 +70,5 @@ BlockingQueue インタフェースを実装したクラスを用いると、そ
 | BlockingQueue | `DelayQueue<E extends Delayed>` | Delayed インタフェースを実装する要素を格納できるキュー。ある遅延時間を経過した後でなければ take() でその要素を取り出せない。 |
 | BlockingQueue | `SynchronousQueue` | サイズ 0 のキュー。put() 呼び出しは take() までブロックされ、take() 呼び出しは put() 呼び出しまでブロックされる。書き込みと読み出しが完全に同期されるということ。 |
 
+参考: [BlockingQueue を使ってスレッド間の通信を行う](../thread/blocking-queue.html)
+
