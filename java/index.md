@@ -28,6 +28,7 @@ layout: category-index
 * [Lock と Condition による条件ごとのスレッド待機](thread/lock-and-condition.html)
 * [TimeUnit によって単位時間を明確にする](thread/time-unit.html)
 * [スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする](thread/uncaught-exception.html)
+* [Java のオブジェクトロックは再入可能であることを理解する](thread/reentrant.html)
 
 
 コレクション (Collection)
