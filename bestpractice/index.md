@@ -31,7 +31,8 @@ layout: category-index
 ====
 * [無駄な汎用性ではなくシンプルな設計を (YAGNI)](simple-design.html)
 
-設計ドキュメント
+設計ドキュメント／設計ツール
 ====
+* [Enterprise Architect の図をシンプルにして Power Point に貼り付ける](tool/ea-to-powerpoint.html)
 * [テキストからシーケンス図を作成するツール](tool-sdedit.html)
 
