@@ -6,6 +6,7 @@ layout: category-index
 設計ノウハウ
 ====
 * [不具合修正では不具合を入れてしまった原因を取り除く](remove-error-prone-code.html)
+* [動的品質よりも静的品質の向上に力を入れる](static-and-dynamic-quality.html)
 * [プログラム内のコメントの書き方 (Javadoc ドキュメンテーションコメントの書き方）](how-to-write-comment.html)
 * [アプリ内の名前空間（Java のパッケージ階層）に迷った時のヒント](namespace-in-app.html)
 * [可変オブジェクトのメンバ参照を返さない](avoid-returning-mutable-reference.html)
