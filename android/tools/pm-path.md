@@ -40,3 +40,18 @@ package:/system/app/KeyChain/KeyChain.apk=com.android.keychain
 ...
 ```
 
+システムにプリインストールされているアプリケーションだけを列挙したい場合は、`-s` オプションも同時に指定します。
+
+```
+$ adb shell pm list packages -f -s
+```
+
+逆に、ユーザがインストールしたサードパーティ製のアプリだけを列挙したい場合は、`-3` オプションを指定します（`/data/app` 以下に格納されているのが分かります）。
+
+```
+$ adb shell pm list packages -f -3
+package:/data/app/com.hulu.livingroomplus.jp-1/base.apk=com.hulu.livingroomplus.jp
+package:/data/app/com.ted.android.tv-1/base.apk=com.ted.android.tv
+package:/data/app/tv.pluto.android-1/base.apk=tv.pluto.android
+```
+
