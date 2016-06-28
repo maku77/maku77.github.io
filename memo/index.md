@@ -37,3 +37,8 @@ layout: category-index
 * [Enterprise Architect の図をシンプルにして Power Point に貼り付ける](tool/ea-to-powerpoint.html)
 * [テキストからシーケンス図を作成するツール](tool-sdedit.html)
 
+ブックレビュー／読書メモ
+====
+* [『仕事は楽しいかね』デイル・ドーテン](book/shigo-tano1.html)
+* [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
+
