@@ -52,6 +52,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
 * [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
+* [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
 
 
 Java レイヤ
