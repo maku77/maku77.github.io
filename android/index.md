@@ -51,6 +51,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [製品にパッケージングする APK を指定する](vendor/package-apks.html)
 * [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
+* [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
 
 
 Java レイヤ
