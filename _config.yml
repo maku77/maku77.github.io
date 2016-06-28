@@ -32,13 +32,6 @@ defaults:
       category_name: "android"
   -
     scope:
-      path: "bestpractice"
-      type: "pages"
-    values:
-      category_title: "Bestpractice"
-      category_name: "bestpractice"
-  -
-    scope:
       path: "cpp"
       type: "pages"
     values:
@@ -72,6 +65,13 @@ defaults:
     values:
       category_title: "Java"
       category_name: "java"
+  -
+    scope:
+      path: "memo"
+      type: "pages"
+    values:
+      category_title: "いろいろ"
+      category_name: "memo"
   -
     scope:
       path: "middleman"
