@@ -41,4 +41,5 @@ layout: category-index
 ====
 * [『仕事は楽しいかね』デイル・ドーテン](book/shigo-tano1.html)
 * [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
+* [『ピープルウェア』トム・デマルコ](book/peopleware.html)
 
