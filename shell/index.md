@@ -34,5 +34,5 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 その他
 ====
 * [bash のバージョンを調べる](bash-version.html)
-
+* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
 
