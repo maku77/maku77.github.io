@@ -46,6 +46,7 @@ layout: category-index
 XML
 ====
 * [意外と知られていない XML 記述のルール](xml/xml-rules.html)
+* [XML の名前空間](xml/namespace.html)
 
 ツール
 ====
