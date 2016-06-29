@@ -43,6 +43,10 @@ layout: category-index
 * [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
 * [『ピープルウェア』トム・デマルコ](book/peopleware.html)
 
+XML
+====
+* [意外と知られていない XML 記述のルール](xml/xml-rules.html)
+
 ツール
 ====
 * [TFTP の使い方（TFTP によるファイル転送）](tool/tftp.html)
