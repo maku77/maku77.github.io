@@ -46,4 +46,5 @@ layout: category-index
 ツール
 ====
 * [TFTP の使い方（TFTP によるファイル転送）](tool/tftp.html)
+* [Windows (MinGW) で GLUT を使用する](tool/glut-in-windows.html)
 
