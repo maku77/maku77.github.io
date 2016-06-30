@@ -61,6 +61,10 @@ Effective Java や Java の鉄則など
 * [toString を常にオーバライドする](effective/10.html)
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
+国際化
+----
+* [Java アプリケーションの国際化 (i18n) と Locale クラス](i18n/locale.html)
+
 コラム
 ----
 * [J2SE から Java SE へ](column/j2se-to-javase.html)
