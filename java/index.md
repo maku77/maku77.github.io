@@ -64,6 +64,7 @@ Effective Java や Java の鉄則など
 国際化
 ----
 * [Java アプリケーションの国際化 (i18n) と Locale クラス](i18n/locale.html)
+* [Locale が変わったときに変化すべき表示項目](i18n/locale-sensitive-data.html)
 
 コラム
 ----
