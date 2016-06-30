@@ -48,6 +48,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト](defines-in-makefile.html)
 * [ART/Dalvik VM のバージョンを調べる](dalvik-version.html)
 * [Locale を切り替える](change-locale.html)
+* [サポートされている Locale の一覧 (Android 4.0)](supported-locales.html)
 * [製品にパッケージングする APK を指定する](vendor/package-apks.html)
 * [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
