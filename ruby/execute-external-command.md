@@ -32,3 +32,20 @@ result.each do |line|
 end
 ```
 
+実行するコマンドを文字列変数に格納している場合は、下記のように実行時に展開できます。
+
+```ruby
+command = 'date /t'
+result = `#{command}`
+```
+
+
+IO.popen を使用する方法
+====
+
+```ruby
+IO.popen('dir').each do |line|
+  puts '===> ' + line
+end
+```
+
