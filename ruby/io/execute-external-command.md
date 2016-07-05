@@ -27,8 +27,8 @@ puts result
 ```ruby
 #!/usr/bin/ruby
 result = `/bin/ls`
-result.each do |line|
-  puts '===' + line
+result.each_line do |line|
+  puts '===> ' + line
 end
 ```
 

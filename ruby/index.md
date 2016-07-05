@@ -80,8 +80,8 @@ Ruby の制御構文
 * [標準入力から読み込む](input-from-stdin.html)
 * [キーボードからの入力を取得する](input-from-keyboard.html)
 * [キーボードからのパスワードの入力を取得する](input-password-from-keyboard.html)
-* [外部プログラムを呼び出す](execute-external-command.html)
-* [外部プログラムを実行可能か調べる／外部プログラムの絶対パスを調べる](io/is_executable.html)
+* [外部プログラムを呼び出してその出力を取得する](io/execute-external-command.html)
+* [外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する](io/is_executable.html)
 * [ソースコード内にテキストデータを埋め込む](embed-data.html)
 
 ファイル／ディレクトリ
