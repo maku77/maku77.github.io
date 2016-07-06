@@ -17,6 +17,9 @@ Tools
 * [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
 * [APK のパッケージ名から APK ファイルのパスを調べる](tools/pm-path.html)
 
+### 外部ツールとの連携
+* [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
+
 
 開発環境／ADB 接続
 ----
@@ -73,6 +76,7 @@ Native レイヤ
 
 ### ServiceManager 関連
 * [ServiceManager に登録されたサービスを列挙する](list-services.html)
+
 
 ビルド関連 / Gradle / Android Studio
 ----
