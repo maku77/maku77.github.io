@@ -30,6 +30,7 @@ Tools
 * [ANR の原因を突き止める](analyze-anr.html)
 * [ADB でディレクトリ内のファイルをすべて取得する](adb/adb-pull-dir.html)
 * [ADB で指定したアプリを強制終了する](adb/adb-force-stop-app.html)
+* [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
