@@ -49,16 +49,18 @@ Java の仕様
 
 Effective Java や Java の鉄則など
 ----
-* [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
-* [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
-* [private のコンストラクタか enum 型でシングルトン特性を強制する](effective/03.html)
-* [private のコンストラクタでインスタンス化不可能を強制する](effective/04.html)
-* [不必要なオブジェクトの生成を避ける](effective/05.html)
-* [廃れたオブジェクト参照を取り除く](effective/06.html)
-* [ファイナライザを避ける](effective/07.html)
-* [equals をオーバライドする時は一般契約に従う](effective/08.html)
-* [equals をオーバライドする時は常に hashCode をオーバライドする](effective/09.html)
-* [toString を常にオーバライドする](effective/10.html)
+1. [コンストラクタの代わりに static ファクトリメソッドを検討する](effective/01.html)
+1. [数多くのコンストラクタパラメータに直面したときにはビルダーを検討する](effective/02.html)
+1. [private のコンストラクタか enum 型でシングルトン特性を強制する](effective/03.html)
+1. [private のコンストラクタでインスタンス化不可能を強制する](effective/04.html)
+1. [不必要なオブジェクトの生成を避ける](effective/05.html)
+1. [廃れたオブジェクト参照を取り除く](effective/06.html)
+1. [ファイナライザを避ける](effective/07.html)
+1. [equals をオーバライドする時は一般契約に従う](effective/08.html)
+1. [equals をオーバライドする時は常に hashCode をオーバライドする](effective/09.html)
+1. [toString を常にオーバライドする](effective/10.html)
+1. [clone を注意してオーバライドする](effective/11.html)
+
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
 国際化
