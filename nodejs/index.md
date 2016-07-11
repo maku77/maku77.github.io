@@ -17,6 +17,12 @@ Express
 npm (Node Package Manager)
 ---
 - [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
+- package.json
+  1. [package.json の書式、説明を確認する](npm/package-json1.html)
+  1. [package.json の雛形を生成する](npm/package-json2.html)
+  1. [最小限の package.json を作成する](npm/package-json3.html)
+  1. [npm start でアプリを起動できるようにする](npm/package-json4.html)
+
 
 Node.js いろいろ
 ----
