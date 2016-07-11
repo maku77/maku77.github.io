@@ -14,6 +14,10 @@ Express
 - [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
 - [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
 
+npm (Node Package Manager)
+---
+- [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
+
 Node.js いろいろ
 ----
 - [node アプリをシェバングで起動するようにする](shebang.html)
