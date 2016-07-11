@@ -88,6 +88,13 @@ defaults:
       category_name: "mt"
   -
     scope:
+      path: "nodejs"
+      type: "pages"
+    values:
+      category_title: "Node.js"
+      category_name: "nodejs"
+  -
+    scope:
       path: "p4"
       type: "pages"
     values:
