@@ -18,4 +18,5 @@ Node.js いろいろ
 ----
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
+- [Node.js が require() で検索するパスのまとめ](require.html)
 
