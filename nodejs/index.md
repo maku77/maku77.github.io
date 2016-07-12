@@ -15,6 +15,7 @@ Express
 - [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
 - [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
 - [Express で Basic 認証を有効にする](express/basic-authentication.html)
+- [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
 
 npm (Node Package Manager)
 ---
