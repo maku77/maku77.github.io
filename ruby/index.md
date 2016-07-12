@@ -60,9 +60,9 @@ Ruby の制御構文
 文字列
 ----
 * [文字列を結合する](string/concat.html)
-* [文字列を分割する](string/split.html)
+* [文字列をデリミタで分割する](string/split.html)
+* [文字列を１文字ずつに分割する](string/each-char.html)
 * [インデント用の文字列を作成する](string/create-indent.html)
-* [文字列を１文字ずつ処理する](string/each-char.html)
 
 正規表現
 ----
