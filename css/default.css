@@ -81,14 +81,18 @@ li {
 }
 
 h1, h2, h3, h4 { font-weight: bolder; }
-h1 { font-size: 16pt; border-bottom: 2px solid #ccc;}
-h2 { font-size: 14pt; }
-h3 { font-size: 12pt; }
-h4 { font-size: 10pt; }
+h1 { font-size: 18pt; border-bottom: 2px solid black; padding: 5px 0px; }
+h2 { font-size: 16pt; border-bottom: 1px solid black; padding: 2px 0px; }
+h3 { font-size: 14pt; }
+h4 { font-size: 12pt; }
 
-a:link {
+a {
+  font-weight: bolder;
   text-decoration: none;
-  border-bottom: dashed 1px;
+  /* border-bottom: dashed 1px; */
+}
+a:hover {
+  text-decoration: none;
 }
 
 img { max-width: 100%; }
@@ -122,14 +126,23 @@ body { color: #666; }
 .maku-pageTitle { color: #fdd; background-color: darkred; }
 .maku-pageTitle_category { color: #faa; }
 .maku-pageDate { color: #666; }
-h1, h2, h3, h4 { color: #333; }
-strong { color: #ff8300; }
+h1, h2, h3, h4 { color: black; }
+strong { color: darkred; }
+code { color: #333; background-color: #f6f6f6; }
 thead th, thead td { color: #555; background-color: #ccc; }
 tr:nth-child(odd) { background-color: #fcfcfc; }
 tr:nth-child(even) { background-color: #eeeeee; }
+
+a:link { color: #36f; } /* 未訪問 */
+a:visited { color: #03c; } /* 訪問済 */
+a:hover { background-color: #def; } /* マウスフォーカス */
+a:focus { background-color: #fdd; } /* 選択中 */
+
+/*
 a:link { color: #33f; }
 a:visited { color: #909; }
 a:hover { background-color: #cfa; }
 a:focus { color: hotpink; }
 a:active { color: #ccf; background-color: #f36; }
+*/
 
