@@ -8,6 +8,7 @@ Express
 - [Express の特徴](express/features.html)
 - [Express をインストールする](express/install.html)
 - [Express で Web サーバを作成する](express/web-server.html)
+- [GET/POST メソッドで送られてきたデータを取得する](express/handle-get-and-post-data.html)
 - [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](express/regexp-in-routing.html)
 - [Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)](express/access-log.html)
 - [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](express/internal-server-error.html)
