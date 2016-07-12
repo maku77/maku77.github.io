@@ -13,6 +13,7 @@ Express
 - [Express の動作環境を切り替える（NODE_ENV 変数）](express/switch-env.html)
 - [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
 - [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
+- [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
 
 npm (Node Package Manager)
 ---
