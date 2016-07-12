@@ -14,6 +14,7 @@ Express
 - [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
 - [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
 - [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
+- [Express で Basic 認証を有効にする](express/basic-authentication.html)
 
 npm (Node Package Manager)
 ---
