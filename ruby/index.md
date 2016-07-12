@@ -74,6 +74,9 @@ Ruby の制御構文
 * [最大値／最小値を求める](number/max-and-min.html)
 * [乱数を生成する](number/random.html)
 
+日時（Time オブジェクト）
+----
+* [文字列から時刻オブジェクト (Time) に変換する](time/parse.html)
 
 入出力 (I/O)
 ====
