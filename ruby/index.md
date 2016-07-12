@@ -51,27 +51,27 @@ Ruby の制御構文
 
 ハッシュ
 ====
-* [ハッシュを作成する](hash.html)
-* [ハッシュのデフォルト値を設定する](default-hash-value.html)
+* [ハッシュを作成する](hash/create-hash.html)
+* [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
 
 文字列／数値
 ====
 
 文字列
 ----
-* [文字列を結合する](concat-string.html)
+* [文字列を結合する](string/concat.html)
 * [文字列を分割する](string/split.html)
-* [インデント用の文字列を作成する](create-indent-string.html)
+* [インデント用の文字列を作成する](string/create-indent.html)
 * [文字列を１文字ずつ処理する](string/each-char.html)
 
 正規表現
 ----
-* [文字列から正規表現にマッチする部分を取り出す](extract-string.html)
+* [文字列から正規表現にマッチする部分を取り出す](string/extract.html)
 
 数値
 ----
-* [最大値／最小値を求める](max-and-min.html)
-* [乱数を生成する](random.html)
+* [最大値／最小値を求める](number/max-and-min.html)
+* [乱数を生成する](number/random.html)
 
 
 入出力 (I/O)
