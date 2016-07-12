@@ -26,6 +26,7 @@ npm (Node Package Manager)
 例外処理
 ----
 - [Node.js での例外処理: (1) try ～ catch による例外処理](exception/try-and-catch.html)
+- [Node.js での例外処理: (2) Uncaught Exception（未捕捉例外）をハンドルする](exception/uncaught-exception.html)
 
 Node.js いろいろ
 ----
