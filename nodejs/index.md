@@ -10,6 +10,7 @@ Express
 - [Express で Web サーバを作成する](express/web-server.html)
 - [GET/POST メソッドで送られてきたデータを取得する](express/handle-get-and-post-data.html)
 - [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](express/regexp-in-routing.html)
+- [RESTful API として検索用の URL を定義する](express/url-for-search.html)
 - [Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)](express/access-log.html)
 - [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](express/internal-server-error.html)
 - [Express の動作環境を切り替える（NODE_ENV 変数）](express/switch-env.html)
