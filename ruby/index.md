@@ -133,3 +133,7 @@ RubyGems
 * [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
 * [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
 
+トラブルシューティング
+----
+* [invalid byte sequence in Windows-31J というエラーが出る場合](trouble/invalid-byte-sequence.html)
+
