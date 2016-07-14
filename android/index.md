@@ -12,15 +12,19 @@ Tools
 * [adb から Backup Manager を走らせる (bmgr)](backup-manager.html)
 * [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
 * [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
+* [APK のパッケージ名から APK ファイルのパスを調べる](tools/pm-path.html)
+
+### パフォーマンス
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
 * [Traceview でプロファイル情報を表示する](tools/traceview.html)
 * [Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](tools/systrace-cmd.html)
 * [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
-* [APK のパッケージ名から APK ファイルのパスを調べる](tools/pm-path.html)
 
 ### 外部ツールとの連携
 * [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
 
+### ADB コマンドあれこれ
+* [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
 
 開発環境／ADB 接続
 ----
