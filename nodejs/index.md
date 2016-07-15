@@ -37,6 +37,9 @@ npm (Node Package Manager)
 - [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io.html)
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
+### ファイル／ディレクトリ
+- [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
+
 ### SQLite データベース
 - [SQLite を使用する (1) node-sqlite3 のインストール](io/sqlite1.html)
 - [SQLite を使用する (2) node-sqlite3 による逐次処理](io/sqlite2.html)
