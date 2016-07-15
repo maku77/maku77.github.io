@@ -11,6 +11,7 @@ Node.js 実行環境など
 - [Node.js が require() で検索するパスのまとめ](require.html)
 
 ### npm (Node Package Manager)
+- [npm コマンドで Node.js のモジュールをインストールする](npm/install-module.html)
 - [npm の HTTP プロキシ設定](npm/proxy.html)
 - [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
 
