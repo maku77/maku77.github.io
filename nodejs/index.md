@@ -38,6 +38,7 @@ npm (Node Package Manager)
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
 ### ファイル／ディレクトリ
+- [様々なディレクトリパスの取得やパスの結合方法](io/path.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
 
 ### SQLite データベース
