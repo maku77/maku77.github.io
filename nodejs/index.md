@@ -41,6 +41,7 @@ npm (Node Package Manager)
 - [様々なディレクトリパスの取得やパスの結合方法](io/path.html)
 - [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
+- [CSV ファイルを読み込む](io/csv.html)
 
 ### SQLite データベース
 - [SQLite を使用する (1) node-sqlite3 のインストール](io/sqlite1.html)
