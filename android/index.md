@@ -25,6 +25,7 @@ Tools
 
 ### ADB コマンドあれこれ
 * [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
+* [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
 
 開発環境／ADB 接続
 ----
