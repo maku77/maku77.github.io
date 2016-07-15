@@ -3,7 +3,24 @@ title: Node.js
 layout: category-index
 ---
 
-Express
+Node.js 実行環境など
+----
+
+- [node アプリをシェバングで起動するようにする](shebang.html)
+- [Node.js で assert を使用する](assert.html)
+- [Node.js が require() で検索するパスのまとめ](require.html)
+
+### npm (Node Package Manager)
+- [npm の HTTP プロキシ設定](npm/proxy.html)
+- [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
+
+### package.json ファイル
+- [package.json の書式、説明を確認する](npm/package-json1.html)
+- [package.json の雛形を生成する](npm/package-json2.html)
+- [最小限の package.json を作成する](npm/package-json3.html)
+- [npm start でアプリを起動できるようにする](npm/package-json4.html)
+
+Express（Web サーバ）
 ----
 - [Express の特徴](express/features.html)
 - [Express をインストールする](express/install.html)
@@ -21,16 +38,6 @@ Express
 - [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
 - [Express で Basic 認証を有効にする](express/basic-authentication.html)
 - [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
-
-npm (Node Package Manager)
----
-- [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
-
-### package.json ファイル
-1. [package.json の書式、説明を確認する](npm/package-json1.html)
-1. [package.json の雛形を生成する](npm/package-json2.html)
-1. [最小限の package.json を作成する](npm/package-json3.html)
-1. [npm start でアプリを起動できるようにする](npm/package-json4.html)
 
 入出力 (I/O)
 ----
@@ -80,10 +87,4 @@ Node.js の制御構文
 1. [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
 1. [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
 1. [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
-
-Node.js いろいろ
-----
-- [node アプリをシェバングで起動するようにする](shebang.html)
-- [Node.js で assert を使用する](assert.html)
-- [Node.js が require() で検索するパスのまとめ](require.html)
 
