@@ -39,6 +39,7 @@ npm (Node Package Manager)
 
 ### ファイル／ディレクトリ
 - [様々なディレクトリパスの取得やパスの結合方法](io/path.html)
+- [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
 
 ### SQLite データベース
