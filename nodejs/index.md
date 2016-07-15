@@ -25,22 +25,24 @@ Express
 npm (Node Package Manager)
 ---
 - [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
-- package.json
-  1. [package.json の書式、説明を確認する](npm/package-json1.html)
-  1. [package.json の雛形を生成する](npm/package-json2.html)
-  1. [最小限の package.json を作成する](npm/package-json3.html)
-  1. [npm start でアプリを起動できるようにする](npm/package-json4.html)
+
+### package.json ファイル
+1. [package.json の書式、説明を確認する](npm/package-json1.html)
+1. [package.json の雛形を生成する](npm/package-json2.html)
+1. [最小限の package.json を作成する](npm/package-json3.html)
+1. [npm start でアプリを起動できるようにする](npm/package-json4.html)
 
 入出力 (I/O)
 ----
 - [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io.html)
+- [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
-### SQLite
+### SQLite データベース
 - [SQLite を使用する (1) node-sqlite3 のインストール](io/sqlite1.html)
 - [SQLite を使用する (2) node-sqlite3 による逐次処理](io/sqlite2.html)
 - [SQLite を使用する (3) SELECT 文を実行する](io/sqlite3.html)
 
-### MongoDB
+### MongoDB データベース
 - [mongoose (1) mongoose をインストールする](io/mongoose1.html)
 - [mongoose (2) データベースへ接続する](io/mongoose2.html)
 - [mongoose (3) モデルクラスを作成する](io/mongoose3.html)
@@ -53,7 +55,7 @@ npm (Node Package Manager)
 ネットワーク
 ----
 
-### WebSocket
+### WebSocket 通信
 - [WebSocket のクライアントを作成する](net/websocket-client.html)
 - [Node.js で WebSocket サーバを作る（簡単な echo サーバ）](net/websocket-echo-server.html)
 - [Node.js で WebSocket サーバを作る（chat サーバ）](net/websocket-chat-server.html)
