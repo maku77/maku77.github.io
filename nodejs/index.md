@@ -9,6 +9,9 @@ Node.js 実行環境など
 - [Node.js とは／Node.js をインストールする](env/install-nodejs.html)
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
+
+### モジュール
+- [Node.js 用のモジュールを作成する](env/create-module.html)
 - [Node.js が require() で検索するパスのまとめ](require.html)
 
 ### npm (Node Package Manager)
