@@ -70,6 +70,9 @@ Express（Web サーバ）
 ネットワーク
 ----
 
+### HTTP 通信
+- [HTTP リクエスト (1) http 標準モジュールを使用する](net/http-module.html)
+
 ### WebSocket 通信
 - [WebSocket のクライアントを作成する](net/websocket-client.html)
 - [Node.js で WebSocket サーバを作る（簡単な echo サーバ）](net/websocket-echo-server.html)
