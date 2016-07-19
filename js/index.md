@@ -3,5 +3,6 @@ title: JavaScript
 layout: category-index
 ---
 
-JavaScript のメモをここに置きます。
+### 文字列
+- [文字列を置換する](string/replace.html)
 
