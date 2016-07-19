@@ -67,6 +67,13 @@ defaults:
       category_name: "java"
   -
     scope:
+      path: "js"
+      type: "pages"
+    values:
+      category_title: "JavaScript"
+      category_name: "js"
+  -
+    scope:
       path: "memo"
       type: "pages"
     values:
