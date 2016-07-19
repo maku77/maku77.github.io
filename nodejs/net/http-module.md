@@ -1,5 +1,5 @@
 ---
-title: Node.js で HTTP リクエスト (1) http 標準モジュールを使用する
+title: http 標準モジュールを使用して HTTP 通信を行う
 created: 2013-11-04
 ---
 

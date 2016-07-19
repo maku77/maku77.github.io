@@ -71,7 +71,8 @@ Express（Web サーバ）
 ----
 
 ### HTTP 通信
-- [HTTP リクエスト (1) http 標準モジュールを使用する](net/http-module.html)
+- [http 標準モジュールを使用して HTTP 通信を行う](net/http-module.html)
+- [request モジュールを使用して HTTP 通信を行う](net/request-module.html)
 
 ### WebSocket 通信
 - [WebSocket のクライアントを作成する](net/websocket-client.html)
