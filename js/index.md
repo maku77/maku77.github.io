@@ -20,4 +20,5 @@ layout: category-index
 
 ### 関数
 - [関数を定義する](syntax/define-function.html)
+- [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
 
