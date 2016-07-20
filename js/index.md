@@ -10,4 +10,5 @@ layout: category-index
 
 ### 配列
 - [配列の基本](array/basic.html)
+- [配列をループで処理する](array/loop.html)
 
