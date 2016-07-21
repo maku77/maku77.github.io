@@ -23,6 +23,9 @@ layout: category-index
 - [デフォルト引数を扱う関数を定義する](syntax/default-param.html)
 - [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
 
+### 名前空間
+- [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
+
 ### その他
 - [JavaScript において偽 (false) と評価される値](syntax/false-values.html)
 
