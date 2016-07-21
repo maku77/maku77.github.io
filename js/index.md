@@ -25,6 +25,7 @@ layout: category-index
 
 ### 名前空間
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
+- [関数内からしか参照できないプライベート関数を定義する](syntax/private-scope-function.html)
 
 ### その他
 - [JavaScript において偽 (false) と評価される値](syntax/false-values.html)
