@@ -27,3 +27,7 @@ Web サイト
 ----
 - [URL 内のハッシュフラグメントの変化を検出する](web/detect-fragment-change.html)
 
+実行環境
+----
+- [Chrome で Ajax (XMLHttpRequest) によるクロスドメイン通信の制約をなくす](env/disable-web-security-of-chrome.html)
+
