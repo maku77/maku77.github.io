@@ -3,6 +3,10 @@ title: JavaScript
 layout: category-index
 ---
 
+静的解析ツール
+----
+- [JavaScript の静的解析ツールまとめ (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
+
 文字列
 ----
 - [文字列を置換する (replace)](string/replace.html)
