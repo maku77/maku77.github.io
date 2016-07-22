@@ -5,7 +5,8 @@ layout: category-index
 
 静的解析ツール
 ----
-- [JavaScript の静的解析ツールまとめ (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
+- [JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
+- [JSHint で JavaScript コードの静的解析を行う](tool/jshint.html)
 
 文字列
 ----
