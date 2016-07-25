@@ -18,6 +18,7 @@ layout: category-index
 ----
 - [配列の基本](array/basic.html)
 - [配列をループで処理する](array/loop.html)
+- [配列をソートする](array/sort.html)
 - [配列要素をランダムで取り出す](array/random.html)
 
 時刻情報／タイマー
