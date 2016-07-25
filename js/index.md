@@ -39,6 +39,9 @@ layout: category-index
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
 - [関数内からしか参照できないプライベート関数を定義する](syntax/private-scope-function.html)
 
+### オブジェクト／クラス
+- [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
+
 ### その他
 - [JavaScript において偽 (false) と評価される値](syntax/false-values.html)
 - [入れ子になったループを一度に抜ける](syntax/break-nested-loop.html)
