@@ -32,6 +32,7 @@ layout: category-index
 - [関数を定義する](syntax/define-function.html)
 - [デフォルト引数を扱う関数を定義する](syntax/default-param.html)
 - [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
+- [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
 
 ### 名前空間
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
