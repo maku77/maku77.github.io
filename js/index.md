@@ -20,6 +20,10 @@ layout: category-index
 - [配列をループで処理する](array/loop.html)
 - [配列要素をランダムで取り出す](array/random.html)
 
+時刻情報／タイマー
+----
+- [タイマーで任意の関数を呼び出す](time/timer.html)
+
 構文
 ----
 
