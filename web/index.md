@@ -6,6 +6,7 @@ layout: category-index
 
 CSS／レイアウト
 ====
+* [モバイルファーストで考えるコツ](mobile-first.html)
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 * [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
 * [ヘッダ要素に連番を振る](number-header.html)
