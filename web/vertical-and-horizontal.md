@@ -3,8 +3,18 @@ title: 縦並びと横並びを切り替える
 created: 2016-08-01
 ---
 
+
 下記は、リスト項目の並べ方を縦／横で切り替える例です。
 メディアクエリを使用して、画面幅の広い場合は横向きに並べています。
+
+表示例
+----
+
+![vertical-and-horizontal-1.png](./vertical-and-horizontal-1.png)
+![vertical-and-horizontal-2.png](./vertical-and-horizontal-2.png)
+
+ソースコード
+----
 
 #### html
 
