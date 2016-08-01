@@ -57,6 +57,10 @@ body {
   -webkit-column-rule: dotted 2px #ccc;
 }
 
+.maku-htmlSample {
+  margin: 1em 2em;
+}
+
 /* column-span は Safari でうまく表示できない */
 /*
 h1 {
