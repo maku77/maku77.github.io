@@ -118,6 +118,11 @@ p {
   margin-top: 1em;
 }
 
+dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
 strong {
   font-style: normal;
   font-weight: bold;
