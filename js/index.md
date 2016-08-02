@@ -6,6 +6,7 @@ layout: category-index
 はじめに
 ----
 - [JavaScript のコーディングスタイル](intro/coding-style.html)
+- [最初から Strict モードを有効にすべし](intro/strict-mode.html)
 
 静的解析ツール
 ----
