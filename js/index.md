@@ -3,6 +3,10 @@ title: JavaScript
 layout: category-index
 ---
 
+はじめに
+----
+- [JavaScript のコーディングスタイル](intro/coding-style.html)
+
 静的解析ツール
 ----
 - [JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
