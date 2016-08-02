@@ -13,8 +13,7 @@ Gradle によるビルドを実行するとき、内部では下記のような 
 ---
 
 マルチプロジェクトにおけるプロジェクトの依存関係が解決され、プロジェクトのビルド順序が決められるフェーズです。
-サブプロジェクトの構成は `settings.gradle` ファイルで定義されます。
-Gradle の処理系内部では、`Project` インスタンスが生成されています（マルチプロジェクトなビルド構成であれば、複数の `Project` インスタンスが生成されます）。
+サブプロジェクトの構成は、トップレベルのディレクトリに置かれる `settings.gradle` ファイルで定義されます（Gradle の内部では、このファイルを基に [Settings](https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html) オブジェクトが生成されています）。
 
 #### settings.gradle
 ```groovy
@@ -22,6 +21,7 @@ include 'subproject1'
 include 'subproject2'
 ```
 
+また、プロジェクトごとに Gradle 内部で [Project](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html) インスタンスが生成されています（マルチプロジェクトなビルド構成であれば、複数の `Project` インスタンスが生成されます）。
 プロジェクトの依存関係は、各プロジェクトの `dependencies` ブロック内で定義されます。
 
 ```groovy
