@@ -12,6 +12,10 @@ layout: category-index
 - [JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
 - [JSHint で JavaScript コードの静的解析を行う](tool/jshint.html)
 
+デバッグ
+----
+- [デバッグ出力用の print 関数の統一について](debug/debug-print.html)
+
 文字列
 ----
 - [文字列を置換する (replace)](string/replace.html)
