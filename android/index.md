@@ -27,6 +27,24 @@ Tools
 * [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
 
+
+ビルド関連
+----
+
+### Gradle
+* [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
+* [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
+* [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
+* Gradle 全般の説明は [こちらを参照](../gradle/)
+
+### Android Studio
+* [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
+* [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
+* [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
+* [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
+* [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
+
+
 開発環境／ADB 接続
 ----
 * [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
@@ -84,23 +102,6 @@ Native レイヤ
 
 ### ServiceManager 関連
 * [ServiceManager に登録されたサービスを列挙する](list-services.html)
-
-
-ビルド関連
-----
-
-### Gradle
-* [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
-* [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
-* [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
-* Gradle 全般の説明は [こちらを参照](../gradle/)
-
-### Android Studio
-* [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
-* [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
-* [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
-* [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
-* [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
 
 その他
