@@ -20,7 +20,7 @@ layout: category-index
 
 文字列
 ----
-- [文字列リテラルから文字列を生成する](string/literal.html)
+- [new String は避ける](string/dont-use-new-string.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列を分割する (split)](string/split.html)
