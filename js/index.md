@@ -21,6 +21,7 @@ layout: category-index
 文字列
 ----
 - [文字列リテラルから文字列を生成する](string/literal.html)
+- [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列を分割する (split)](string/split.html)
 - [文字列の長さを取得する (length)](string/length.html)
