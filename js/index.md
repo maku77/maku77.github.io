@@ -16,6 +16,7 @@ layout: category-index
 デバッグ
 ----
 - [デバッグ出力用の print 関数の統一について](debug/debug-print.html)
+- [ある処理を 1 秒間に何回実行できるかプロファイリングする](debug/profile-function.html)
 
 文字列
 ----
