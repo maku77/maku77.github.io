@@ -54,9 +54,12 @@ layout: category-index
 ### オブジェクト／クラス
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
 
+### JavaScript 独自拡張
+- [JavaScript で定数を定義する](syntax/const.html)
+- [式クロージャ (Expression Closure)](syntax/expression-closure.html)
+
 ### その他
 - [JavaScript において偽 (false) と評価される値](syntax/false-values.html)
-- [JavaScript で定数を定義する](syntax/const.html)
 - [入れ子になったループを一度に抜ける](syntax/break-nested-loop.html)
 - [ある変数が初期化済みかどうか確認する](misc/check-if-undefined.html)
 - [外部スクリプトはなぜ (function(){})(); のような書き方をするのか？](misc/scope-of-library.html)
