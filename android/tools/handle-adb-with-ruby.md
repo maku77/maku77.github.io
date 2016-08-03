@@ -40,3 +40,27 @@ $ ruby sample.rb
 ...
 ```
 
+応用として、パッケージ名部分だけを取り出したいのであれば、下記のように正規表現でフィルタしてしまうこともできますね。
+
+```ruby
+adb_shell('pm list package') do |line|
+  if line =~ /package:((\w|.)+)/
+    puts '==> ' + $1
+  end
+end
+```
+
+#### 実行結果
+
+```
+$ ruby sample.rb
+==> android
+==> android.autoinstalls.config.google.fugu
+==> com.android.backupconfirm
+==> com.android.bluetooth
+==> com.android.certinstaller
+==> com.android.defcontainer
+==> com.android.dreams.basic
+...
+```
+
