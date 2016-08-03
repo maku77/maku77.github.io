@@ -28,6 +28,7 @@ layout: category-index
 - [文字列を分割する (split)](string/split.html)
 - [文字列の長さを取得する (length)](string/length.html)
 - [部分文字列を取得する (substring, slice)](string/substring.html)
+- [文字列内の１文字を取得する](string/char-at.html)
 
 配列
 ----
