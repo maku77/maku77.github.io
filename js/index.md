@@ -30,6 +30,7 @@ layout: category-index
 - [文字列の長さを取得する (length)](string/length.html)
 - [部分文字列を取得する (substring, slice)](string/substring.html)
 - [文字列内の１文字を取得する](string/char-at.html)
+- [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 
 配列
 ----
