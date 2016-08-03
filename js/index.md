@@ -26,6 +26,7 @@ layout: category-index
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列を分割する (split)](string/split.html)
+- [文字列の先頭と末尾の空白を削除する](string/trim.html)
 - [文字列の長さを取得する (length)](string/length.html)
 - [部分文字列を取得する (substring, slice)](string/substring.html)
 - [文字列内の１文字を取得する](string/char-at.html)
