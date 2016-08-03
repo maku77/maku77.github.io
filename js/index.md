@@ -22,6 +22,7 @@ layout: category-index
 ----
 - [new String は避ける](string/dont-use-new-string.html)
 - [== と === による文字列比較の違い](string/compare.html)
+- [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列を分割する (split)](string/split.html)
