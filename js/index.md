@@ -7,6 +7,7 @@ layout: category-index
 ----
 - [JavaScript のコーディングスタイル](intro/coding-style.html)
 - [最初から Strict モードを有効にすべし](intro/strict-mode.html)
+- [JavaScript の型の基本](intro/types.html)
 
 静的解析ツール
 ----
