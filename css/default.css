@@ -84,7 +84,7 @@ li {
   border-top: dotted 1px gray;
 }
 
-h1, h2, h3, h4 { font-weight: bolder; }
+h1, h2, h3, h4 { font-weight: bolder; margin: 1em 0; }
 h1 { font-size: 18pt; border-bottom: 2px solid black; padding: 5px 0px; }
 h2 { font-size: 16pt; border-bottom: 1px solid black; padding: 2px 0px; }
 h3 { font-size: 14pt; }
@@ -116,6 +116,14 @@ th, td {
 /* Adjust margins */
 p {
   margin-top: 1em;
+}
+
+blockquote {
+  margin-left: 1em;
+}
+
+blockquote > p {
+  margin: 0;
 }
 
 dd {
