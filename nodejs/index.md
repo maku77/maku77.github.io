@@ -9,6 +9,7 @@ Node.js 実行環境など
 - [Node.js とは／Node.js をインストールする](env/install-nodejs.html)
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
+- [Node.js で環境変数を参照する](env/environment-variable.html)
 
 ### モジュール
 - [Node.js 用のモジュールを作成する](env/create-module.html)
