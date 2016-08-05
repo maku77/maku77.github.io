@@ -1,5 +1,5 @@
 ---
-titie: Linux のメモリ情報を調べるコマンド
+title: Linux のメモリ情報を調べるコマンド
 created: 2011-01-20
 ---
 
