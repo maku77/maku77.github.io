@@ -14,24 +14,27 @@
 
     <div class="maku-content maku-content-multi">{{ content }}</div>
 
-    <div class="maku-widget">
-      {% include widget-sns.html %}
-    </div>
-
-    <div class="maku-widget">
-      {% include widget-adsense-responsive.html %}
-    </div>
-
-    <div class="maku-widget">
-      {% include widget-rakuten-responsive-image.html %}
-    </div>
-
-    <div class="maku-widget">
-      {% include widget-comment.html %}
-    </div>
+    {% if jekyll.environment != "development" %}
+      <div class="maku-widget">
+        {% include widget-sns.html %}
+      </div>
+      <div class="maku-widget">
+        {% include widget-adsense-responsive.html %}
+      </div>
+      <div class="maku-widget">
+        {% include widget-rakuten-responsive-image.html %}
+      </div>
+      <div class="maku-widget">
+        {% include widget-comment.html %}
+      </div>
+    {% endif %}
 
     {% include breadcrumb-root.html %}
   </div>
 </body>
-{% include analytics.html %}
+
+{% if jekyll.environment != "development" %}
+  {% include analytics.html %}
+{% endif %}
+
 </html>
