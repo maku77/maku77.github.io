@@ -38,6 +38,7 @@ Windows の設定／管理／セキュリティ
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
+* [Windows のユーザのパスワードの有効期限を無期限に設定する](settings/unlimited-password.html)
 
 
 MS Office
