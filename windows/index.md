@@ -39,6 +39,7 @@ Windows の設定／管理／セキュリティ
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [Windows のユーザのパスワードの有効期限を無期限に設定する](settings/unlimited-password.html)
+* [xcopy でディレクトリ内のファイルをバックアップする](xcopy.html)
 
 
 MS Office
