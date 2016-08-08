@@ -22,6 +22,7 @@ Windows バッチファイル
 * [DIR コマンドでファイルを再帰的に検索する](find-files.html)
 * [DIR コマンドでファイルを OR 検索する](or-dir.html)
 * [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
+* [findstr でファイル内の文字列を検索する](file/findstr.html)
 
 Windows の便利操作／ショートカット
 ====
