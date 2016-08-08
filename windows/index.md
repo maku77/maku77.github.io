@@ -34,12 +34,16 @@ Windows の設定／管理／セキュリティ
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 * [Windows のアカウント名を変更する](change-account-name.html)
 * [ドメインユーザーにローカル PC の Administrator 権限を与える](add-admin-to-domain-user.html)
-* [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [Windows のユーザのパスワードの有効期限を無期限に設定する](settings/unlimited-password.html)
 * [xcopy でディレクトリ内のファイルをバックアップする](xcopy.html)
+
+ネットワーク
+----
+* [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
+* [ネットワーク切り替え時に PC 名ですぐに検索できるようにする（NetBios 名の再登録）](network/register-netbios.html)
 
 
 MS Office
