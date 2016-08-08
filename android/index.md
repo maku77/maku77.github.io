@@ -35,6 +35,7 @@ Tools
 * [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
 * [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
+* [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
