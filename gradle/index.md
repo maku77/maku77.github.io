@@ -23,6 +23,9 @@ Gradle の基本
 * [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
 * [Gradle デーモンを使って gradle コマンドを高速化する](gradle-daemon.html)
 
+### Maven リポジトリ
+* [独自の Maven リポジトリを使用する](repository/specify-maven-url.html)
+
 Gradle で Java プロジェクトを扱う (java プラグイン)
 ----
 * [Gradle で Java プロジェクトをビルドする](build-java-project.html)
