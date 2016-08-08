@@ -39,8 +39,15 @@ Windows の設定／管理／セキュリティ
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 
 
-MS Office / Word
+MS Office
 ====
+
+PowerPoint
+----
+- [PowerPoint で使いこなすとかっこいいショートカット](powerpoint/shortcut.html)
+
+Word
+----
 - [Word で章・節・項の見出しを作成する](word/create-chapter.html)
 - [Word で章・節・項の「見出しマップ」を表示する](word/chapter-map.html)
 - [Word で章・節・項の見出しの表示スタイルを変更する](word/chapter-style.html)
