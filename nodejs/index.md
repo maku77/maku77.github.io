@@ -10,6 +10,7 @@ Node.js 実行環境など
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
 - [Node.js で環境変数を参照する](env/environment-variable.html)
+- [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
 
 ### モジュール
 - [Node.js 用のモジュールを作成する](env/create-module.html)
