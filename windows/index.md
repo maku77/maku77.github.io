@@ -44,6 +44,7 @@ Windows の設定／管理／セキュリティ
 ----
 * [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
 * [ネットワーク切り替え時に PC 名ですぐに検索できるようにする（NetBios 名の再登録）](network/register-netbios.html)
+* [Windows のログオフ時にネットワーク接続を維持する](network/keep-connection-after-logging-off.html)
 
 
 MS Office
