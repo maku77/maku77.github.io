@@ -36,6 +36,7 @@ Tools
 * [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
 * [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
+* [サブモジュールで使用する SDK バージョンを統一する](gradle/align-sdk-versions.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
