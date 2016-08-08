@@ -37,6 +37,7 @@ Tools
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
 * [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
 * [サブモジュールで使用する SDK バージョンを統一する](gradle/align-sdk-versions.html)
+* [外部から提供された AAR ファイルを利用する](gradle/external-aar.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
