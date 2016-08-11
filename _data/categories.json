@@ -1,0 +1,25 @@
+[
+  {"label": "いろいろメモ", "path": "memo"},
+  {"label": "Android", "path": "android"},
+  {"label": "C/C++", "path": "cpp"},
+  {"label": "Docker", "path": "docker"},
+  {"label": "Git/GitHub", "path": "git"},
+  {"label": "Gradle", "path": "gradle"},
+  {"label": "HTML/CSS", "path": "web"},
+  {"label": "Java", "path": "java"},
+  {"label": "JavaScript", "path": "js"},
+  {"label": "Linux/Shell", "path": "shell"},
+  {"label": "Middleman", "path": "middleman"},
+  {"label": "MT4/MT5", "path": "mt"},
+  {"label": "Node JS", "path": "nodejs"},
+  {"label": "Perforce", "path": "p4"},
+  {"label": "Perl", "path": "perl"},
+  {"label": "Program", "path": "program"},
+  {"label": "Python", "path": "python"},
+  {"label": "R", "path": "r"},
+  {"label": "Ruby", "path": "ruby"},
+  {"label": "sed/awk", "path": "sed"},
+  {"label": "Vim", "path": "vim"},
+  {"label": "Windows", "path": "windows"}
+]
+

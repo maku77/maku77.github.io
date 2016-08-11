@@ -1,3 +1,9 @@
+---
+---
+
+$COLOR_LINK_HOVER: #def;
+$COLOR_NAV_FOCUSED: #eaeaea;
+
 /* vim: set et sts=2 ts=2 sw=2: */
 body {
   line-height: 1.5;
@@ -44,6 +50,39 @@ body {
   font-style: italic;
 }
 
+/* 段組 */
+#maku-container {
+  /* フレキシブルボックスレイアウトによる段組 */
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+
+  #maku-container_main {
+    /* 画面幅が広い時はこの要素の横幅を拡張する */
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+  }
+
+  #maku-container_sidebar {
+    width: 200px;
+    padding: 0px 30px;
+  }
+}
+
+/* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
+@media screen and (max-width: 800px) {
+  #maku-container {
+    display: block;
+
+    #maku-container_sidebar {
+      display: none;
+    }
+  }
+}
+
 .maku-content {
   clear: both;
 }
@@ -59,6 +98,25 @@ body {
 
 .maku-htmlSample {
   margin: 1em 2em;
+}
+
+/* ナビゲーションメニュー */
+.maku-nav {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 0 0.5em;
+  }
+  .maku-nav-focused {
+    background: $COLOR_NAV_FOCUSED;
+  }
 }
 
 /* column-span は Safari でうまく表示できない */
@@ -152,7 +210,7 @@ tr:nth-child(even) { background-color: #eeeeee; }
 
 a:link { color: #36f; } /* 未訪問 */
 a:visited { color: #03c; } /* 訪問済 */
-a:hover { background-color: #def; } /* マウスフォーカス */
+a:hover { background-color: $COLOR_LINK_HOVER; } /* マウスフォーカス */
 a:focus { background-color: #fdd; } /* 選択中 */
 
 /*

@@ -1,0 +1,14 @@
+<nav class="maku-nav">
+  <h3>カテゴリ一覧</h3>
+  <ul>
+    {% for cat in site.data.categories %}
+      {% capture path %}/{{ cat.path }}/{% endcapture %}
+      {% if page.url contains path %}
+        <li class="maku-nav-focused"><a href="{{path}}">{{ cat.label }}</a>
+      {% else %}
+        <li><a href="{{path}}">{{ cat.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
+
