@@ -38,6 +38,7 @@ Tools
 * [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
 * [サブモジュールで使用する SDK バージョンを統一する](gradle/align-sdk-versions.html)
 * [外部から提供された AAR ファイルを利用する](gradle/external-aar.html)
+* [APK ファイル名のサフィックスにバージョンを追加する](gradle/add-version-name-to-apk.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
