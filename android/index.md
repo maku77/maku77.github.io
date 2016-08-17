@@ -23,9 +23,27 @@ Tools
 ### 外部ツールとの連携
 * [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
 
-### ADB コマンドあれこれ
+### 解析／デバッグ／ADB コマンド
+* [APK のパッケージ依存関係やクラス依存関係を調べる](analyze/apk-dependencies.html)
+* [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
+* [APK の情報を表示する (aapt)](aapt.html)
+* [ADB でディレクトリ内のファイルをすべて取得する](adb/adb-pull-dir.html)
+* [ADB で指定したアプリを強制終了する](adb/adb-force-stop-app.html)
+* [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
+* [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
 * [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
+* [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
+* [ANR の原因を突き止める](analyze-anr.html)
+
+### Logcat
+* [Logcat のログ出力をフィルタする](filter-logcat.html)
+
+### ADB 接続
+* [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
+* [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
+* [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
+* [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 
 ビルド関連
@@ -48,25 +66,6 @@ Tools
 * [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
-
-開発環境／ADB 接続
-----
-* [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
-* [APK の情報を表示する (aapt)](aapt.html)
-* [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
-* [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
-* [ANR の原因を突き止める](analyze-anr.html)
-* [ADB でディレクトリ内のファイルをすべて取得する](adb/adb-pull-dir.html)
-* [ADB で指定したアプリを強制終了する](adb/adb-force-stop-app.html)
-* [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
-* [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
-* [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
-* [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
-* [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
-
-Logcat
-----
-* [Logcat のログ出力をフィルタする](filter-logcat.html)
 
 Android デバイス開発者向け（ベンダ向け情報）
 ----
