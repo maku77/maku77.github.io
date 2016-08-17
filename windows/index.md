@@ -24,6 +24,12 @@ Windows バッチファイル
 * [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 
+コマンドプロンプト
+====
+* [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
+* [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
+* [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
+
 Windows の便利操作／ショートカット
 ====
 * [Windows でキーボード操作だけで様々なフォルダを素早く開く](open-dir-by-keyboard.html)
@@ -36,8 +42,6 @@ Windows の設定／管理／セキュリティ
 * [Windows のアカウント名を変更する](change-account-name.html)
 * [ドメインユーザーにローカル PC の Administrator 権限を与える](add-admin-to-domain-user.html)
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
-* [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
-* [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [Windows のユーザのパスワードの有効期限を無期限に設定する](settings/unlimited-password.html)
 * [xcopy でディレクトリ内のファイルをバックアップする](xcopy.html)
 
