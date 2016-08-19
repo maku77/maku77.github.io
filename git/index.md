@@ -21,6 +21,7 @@ GitLab（GitHub クローン）
 * [GitLab からの通知メールを設定する](gitlab/email-settings.html)
 * [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
 * [GitLab 用 nginx サーバの設定ファイルの場所](gitlab/nginx-conf-path.html)
+* [GitLab が使用する Unicorn 用のポート番号を変更する](gitlab/unicorn-port.html)
 
 Git
 ====
