@@ -19,6 +19,7 @@ GitLab（GitHub クローン）
 * [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
 * [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
 * [GitLab からの通知メールを設定する](gitlab/email-settings.html)
+* [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
 
 Git
 ====
