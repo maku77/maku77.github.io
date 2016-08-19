@@ -12,6 +12,9 @@ GitHub
 * [GitHub と GitLab の比較](github-vs-gitlab.html)
 * [GitHub の Markdown でメールアドレスへのリンクを記述する](email-address-in-markdown.html)
 
+GitLab（GitHub クローン）
+====
+* [GitLab をインストールする](gitlab/install.html)
 
 Git
 ====
