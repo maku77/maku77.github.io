@@ -20,6 +20,7 @@ GitLab（GitHub クローン）
 * [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
 * [GitLab からの通知メールを設定する](gitlab/email-settings.html)
 * [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
+* [GitLab 用 nginx サーバの設定ファイルの場所](gitlab/nginx-conf-path.html)
 
 Git
 ====
