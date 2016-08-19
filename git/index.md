@@ -9,7 +9,7 @@ GitHub
 * [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する](github-project-portal.html)
 * [GitHub の Organization を構成したときのチームの権限について理解する](github-team-permission.html)
 * [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github-new-organization-permissions.html)
-* [GitHub と GitLab の比較](github-vs-gitlab.html)
+* [GitHub のプランと GitHub ライクなツールの比較など](github-clones.html)
 * [GitHub の Markdown でメールアドレスへのリンクを記述する](email-address-in-markdown.html)
 
 GitLab（GitHub クローン）
