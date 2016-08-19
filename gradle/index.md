@@ -78,6 +78,11 @@ Groovy スクリプト
 * [Groovy で List を扱う](list-in-groovy.html)
 * [Groovy で Map を扱う](map-in-groovy.html)
 
+独自の Gradle プラグインを作成する
+----
+
+* [Gradle プラグインを作成する (1) Plugin クラスの基本](plugin/plugin-class.html)
+* [Gradle プラグインを作成する (2) JAR へのパッケージング](plugin/packaging.html)
 
 Android 開発における Gradle
 ----
