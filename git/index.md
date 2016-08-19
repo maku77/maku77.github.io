@@ -17,6 +17,7 @@ GitLab（GitHub クローン）
 * [GitLab をインストールする](gitlab/install.html)
 * [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
 * [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
+* [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
 
 Git
 ====
