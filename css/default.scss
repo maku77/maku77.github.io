@@ -3,12 +3,35 @@
 
 /* vim: set et sts=2 ts=2 sw=2: */
 
-$COLOR_LINK_HOVER: #def;
+$COLOR_MAIN: #666;
+$COLOR_HEADER: black;
+$COLOR_EMPHASIS: #d68;
+$COLOR_EMPHASIS_BG: #ff9;
+
+$COLOR_LINK: #36f;
+$COLOR_LINK_VISITED: #03c;
+$COLOR_LINK_HOVER_BG: #def;
+$COLOR_LINK_FOCUS_BG: #fdd;
+
+$COLOR_CODE: #333;
+$COLOR_CODE_BG: #f6f6f6;
+
+$COLOR_PAGE_TITLE: #fdd;
+$COLOR_PAGE_TITLE_BG: darkred;
+$COLOR_PAGE_TITLE_CATEGORY: #faa;
+$COLOR_PAGE_DATE: #666;
+
+$COLOR_THEAD: #555;
+$COLOR_THEAD_BG: #ccc;
+$COLOR_TR_ODD_BG: #fcfcfc;
+$COLOR_TR_EVEN_BG: #eeeeee;
+
 $COLOR_NAV_FOCUSED: #eaeaea;
 
 body {
+  color: $COLOR_MAIN;
   line-height: 1.5;
-  /* 
+  /*
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
   */
   font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
@@ -16,6 +39,103 @@ body {
 
   /* Keep font size when lotating screen in Android devices */
   -webkit-text-size-adjust: 100%;
+}
+
+/* column-span は Safari でうまく表示できない */
+/*
+h1 {
+  column-span: all;
+  -moz-column-span: all;
+  -webkit-column-span: all;
+}
+*/
+
+h1, h2, h3, h4 {
+  color: $COLOR_HEADER;
+  font-weight: bolder;
+  margin: 1em 0;
+}
+
+h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
+h2 { font-size: 16pt; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
+h3 { font-size: 14pt; }
+h4 { font-size: 12pt; }
+
+li {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+a {
+  font-weight: bolder;
+  text-decoration: none;
+  /* border-bottom: dashed 1px; */
+
+  &:link { /* 未訪問 */
+    color: $COLOR_LINK;
+  }
+  &:visited { /* 訪問済 */
+    color: $COLOR_LINK_VISITED;
+  }
+  &:hover { /* マウスフォーカス */
+    background-color: $COLOR_LINK_HOVER_BG;
+    text-decoration: none;
+  }
+  &:focus { /* 選択中 */
+    background-color: $COLOR_LINK_FOCUS_BG;
+  }
+}
+
+img { max-width: 100%; }
+
+code {
+  color: $COLOR_CODE;
+  background: $COLOR_CODE_BG;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 10px;
+
+  thead th, thead td {
+    color: $COLOR_THEAD;
+    background: $COLOR_THEAD_BG;
+    white-space: nowrap;
+  }
+
+  tr {
+    &:nth-child(odd) { background-color: $COLOR_TR_ODD_BG; }
+    &:nth-child(even) { background-color: $COLOR_TR_EVEN_BG; }
+  }
+
+  th, td {
+    padding: 3px;
+    border: solid 1px #999;
+  }
+}
+
+/* Adjust margins */
+p {
+  margin-top: 1em;
+}
+
+blockquote {
+  margin-left: 1em;
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+}
+
+strong {
+  color: $COLOR_EMPHASIS;
+  background: $COLOR_EMPHASIS_BG;
+  font-weight: bold;
 }
 
 /*
@@ -35,16 +155,20 @@ body {
 }
 
 .maku-pageTitle {
+  color: $COLOR_PAGE_TITLE;
+  background: $COLOR_PAGE_TITLE_BG;
   font-size: 18pt;
   line-height: 1.3;
   padding: 5px 10px;
   box-shadow: 0px 0px 10px #000;
 }
 .maku-pageTitle_category {
+  color: $COLOR_PAGE_TITLE_CATEGORY;
   font-size: 12pt;
 }
 
 .maku-pageDate {
+  color: $COLOR_PAGE_DATE;
   float: right;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -120,20 +244,6 @@ body {
   }
 }
 
-/* column-span は Safari でうまく表示できない */
-/*
-h1 {
-  column-span: all;
-  -moz-column-span: all;
-  -webkit-column-span: all;
-}
-*/
-
-li {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-}
-
 .maku-widget {
   clear: both;
   text-align: center;
@@ -142,83 +252,4 @@ li {
   padding-top: 10px;
   border-top: dotted 1px gray;
 }
-
-h1, h2, h3, h4 { font-weight: bolder; margin: 1em 0; }
-h1 { font-size: 18pt; border-bottom: 2px solid black; padding: 5px 0px; }
-h2 { font-size: 16pt; border-bottom: 1px solid black; padding: 2px 0px; }
-h3 { font-size: 14pt; }
-h4 { font-size: 12pt; }
-
-a {
-  font-weight: bolder;
-  text-decoration: none;
-  /* border-bottom: dashed 1px; */
-}
-a:hover {
-  text-decoration: none;
-}
-
-img { max-width: 100%; }
-
-table {
-  border-collapse: collapse;
-  margin: 10px;
-}
-thead th, thead td {
-  white-space: nowrap;
-}
-th, td {
-  padding: 3px;
-  border: solid 1px #999;
-}
-
-/* Adjust margins */
-p {
-  margin-top: 1em;
-}
-
-blockquote {
-  margin-left: 1em;
-}
-
-blockquote > p {
-  margin: 0;
-}
-
-dd {
-  margin-left: 1em;
-  margin-bottom: 0.5em;
-}
-
-strong {
-  font-style: normal;
-  font-weight: bold;
-}
-
-/*
- * Color theme
- */
-body { color: #666; }
-.maku-pageTitle { color: #fdd; background-color: darkred; }
-.maku-pageTitle_category { color: #faa; }
-.maku-pageDate { color: #666; }
-h1, h2, h3, h4 { color: black; }
-strong { color: darkred; }
-code { color: #333; background-color: #f6f6f6; }
-thead th, thead td { color: #555; background-color: #ccc; }
-tr:nth-child(odd) { background-color: #fcfcfc; }
-tr:nth-child(even) { background-color: #eeeeee; }
-
-a:link { color: #36f; } /* 未訪問 */
-a:visited { color: #03c; } /* 訪問済 */
-a:hover { background-color: $COLOR_LINK_HOVER; } /* マウスフォーカス */
-a:focus { background-color: #fdd; } /* 選択中 */
-
-/*
-a:link { color: #33f; }
-a:visited { color: #909; }
-a:hover { background-color: #cfa; }
-a:focus { color: hotpink; }
-a:active { color: #ccf; background-color: #f36; }
-*/
 
