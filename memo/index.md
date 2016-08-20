@@ -43,6 +43,7 @@ layout: category-index
 * [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
 * [『ピープルウェア』トム・デマルコ](book/peopleware.html)
 * [『レバレッジ・シンキング』本田直之](book/reverage-thinking.html)
+* [『ピーター流外国語習得術』ピーター・フランクル](book/peter.html)
 
 XML
 ====
