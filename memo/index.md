@@ -47,7 +47,8 @@ layout: category-index
 
 Jenkins
 ====
-* [CLI を使ってコマンドラインから Jenkins を操作する](jenkins/cli.html)
+* [Jenkins CLI を使ってコマンドラインから Jenkins を操作する](jenkins/cli.html)
+* [Groovy スクリプトで Jenkins サーバを制御する](jenkins/cli-groovy.html)
 
 XML
 ====
