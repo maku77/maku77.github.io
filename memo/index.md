@@ -45,6 +45,10 @@ layout: category-index
 * [『レバレッジ・シンキング』本田直之](book/reverage-thinking.html)
 * [『ピーター流外国語習得術』ピーター・フランクル](book/peter.html)
 
+Jenkins
+====
+* [CLI を使ってコマンドラインから Jenkins を操作する](jenkins/cli.html)
+
 XML
 ====
 * [意外と知られていない XML 記述のルール](xml/xml-rules.html)
