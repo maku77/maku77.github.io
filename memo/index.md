@@ -50,6 +50,7 @@ Jenkins
 * [Jenkins CLI を使ってコマンドラインから Jenkins を操作する](jenkins/cli.html)
 * [Groovy スクリプトで Jenkins サーバを制御する](jenkins/cli-groovy.html)
 * [Groovy スクリプトで Jenkins 上のすべての Job を制御する](jenkins/handle-jobs.html)
+* [Groovy スクリプトで Jenkins 上のすべてのスレーブを制御する](jenkins/handle-slaves.html)
 
 XML
 ====
