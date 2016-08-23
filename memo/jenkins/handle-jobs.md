@@ -19,9 +19,16 @@ jenkins.model.Jenkins.instance.items.each { job ->
     println "URL: ${job.url}"
     println "Absolute URL: ${job.absoluteUrl}"
     println "Description: ${job.description}"
+    if (job.lastSuccessfulBuild != null) {
+        println "Last successful time: ${job.lastSuccessfulBuild.timestamp.time}"
+    }
     println '----'
 }
 ```
+
+ループ中に参照可能な Job オブジェクトの詳細に関しては、下記の API ドキュメントを参照してください。
+
+* [hudson.model.Job クラス](http://javadoc.jenkins-ci.org/hudson/model/Job.html)
 
 #### 実行結果
 
@@ -32,6 +39,7 @@ Root Dir: C:\app\Jenkins\jobs\MySampleJob1
 URL: job/MySampleJob1/
 Absolute URL: http://localhost:8080/job/MySampleJob1/
 Description: despcription text
+Last successful time: Tue Aug 23 16:34:04 JST 2016
 ----
 Name: MySampleJob2
 Class: class hudson.model.FreeStyleProject
