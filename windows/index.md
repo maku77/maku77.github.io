@@ -58,6 +58,7 @@ MS Office
 PowerPoint
 ----
 - [PowerPoint で使いこなすとかっこいいショートカット](powerpoint/shortcut.html)
+- [SVG ファイルを EMF ファイルに変換して PowerPoint に貼り付ける](powerpoint/svg2emf.html)
 
 Word
 ----
