@@ -1,0 +1,239 @@
+<HTML>
+<HEAD>
+	<TITLE>Chapter 10 -- TCP(Transmission Control Protocol)</TITLE>
+	<STYLE type/css>
+	<!--
+	BODY { line-height: 150%; }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>Chapter 10 -- TCP(Transmission Control Protocol)</H1>
+<A href="19.html">Prev Chapter 9 -- ICMP(internet control message protocol)</A><BR>
+<A href="index.html">INDEX</A><BR>
+
+<HR><H2>高信頼のトランスポート</H2>
+<P>
+	　信頼性はトランスポートプロトコルの役割である。
+	TCP/IP suiteにおいて転送制御プロトコル(Transmission Conrol Protocol:TCP)は
+	高信頼トランスポートサービスを提供する。
+</P>
+
+<HR><H2>TCPの提供するサービス</H2>
+<P>
+	　TCPが提供するサービスには主に次の７つの特徴がある。
+</P>
+<UL>
+	<LI><B>コネクション指向 (connection oriented)</B>
+	<BLOCKQUOTE>
+		　アプリケーションは最初にあて先にコネクションを要求し、
+		データの転送にそのコネクションを利用する。
+	</BLOCKQUOTE>
+
+	<LI><B>２地点間通信 (point-to-point communication)</B>
+	<BLOCKQUOTE>
+		　TCPコネクションは２つのエンドポイントを持つ。
+	</BLOCKQUOTE>
+
+	<LI><B>完全信頼性 (complete reliability)</B>
+	<BLOCKQUOTE>
+		　TCPは送信データが、紛失なく、順序の乱れなく、
+		正確に配信されることを保証する。
+	</BLOCKQUOTE>
+
+	<LI><B>全二重通信 (full duplex communication)</B>
+	<BLOCKQUOTE>
+		　TCPコネクションでは双方向にデータを流すことができる。
+		また、並行的にデータの受信、送信が可能である。
+	</BLOCKQUOTE>
+
+	<LI><B>ストリームインターフェイス (stream interface)</B>
+	<BLOCKQUOTE>
+		　アプリケーションは、コネクションを通して一連の連続した
+		データを送信できる。
+	</BLOCKQUOTE>
+
+	<LI><B>高信頼コネクションの起動 (reliable connection startup)</B>
+	<BLOCKQUOTE>
+		　コネクションを張る時は、両方のアプリケーションが新しい
+		コネクションに合意しなければならない。これにより、
+		以前のコネクションで使用された重複パケットは存在しなくなる。
+	</BLOCKQUOTE>
+
+	<LI><B>正常コネクション停止 (graceful connection shutdown)</B>
+	<BLOCKQUOTE>
+		　TCPはコネクション停止にも双方の確認通知をし、
+		コネクションが閉じるまでにすべてのデータを高信頼に
+		配信することを保証する。
+	</BLOCKQUOTE>
+</UL>
+
+<HR><H2>終端間(end-to-end)プロトコル</H2>
+<P>
+	　TCPは、アプリケーションへのコネクションを提供するので、
+	end-to-end protocolと呼ばれる。
+	TCPで提供されるコネクションは、ソフトウェアによって実現されるので、
+	<B>仮想コネクション(virtual connection)</B>と呼ばれる。IPによって
+	TCPのデータを運ぶが、IPはTCPのデータを読んだり、解釈したりすることはない。
+	つまり、TCPは終端の２点おいてのみ必要である。（ルータには必要ない）
+</P>
+<CENTER><IMG src="20_1.gif"></CENTER>
+
+
+<HR><H2>パケット紛失と確認通知</H2>
+<P>
+	　TCPは再送(retransmission)によって、パケット紛失(packet loss)に対応する。
+	TCPはデータを受信すると、確認通知メッセージ(acknowledgenment)を送信元に
+	返送する。送信者はデータ送信時にタイマを起動し、確認通知が返ってこなかった
+	場合は再送信する。
+</P>
+<CENTER><IMG src="20_2.gif"></CENTER>
+
+
+<HR><H2>適応型再送</H2>
+<P>
+	　TCPのタイムアウト時間は最初、固定値が使われたが、これはうまく動かないこと
+	が分かった。そこで、TCPは適応型(adaptive)のタイムアウト時間を用いる。
+	TCPは応答を伴うメッセージを送信することによって、往復時間を計測し、
+	往復遅延時間(round-trip delay)を推定する。<BR>
+	　分散値を用いることで、パケットのバーストによって遅延時間が増大する場合に、
+	TCPが迅速に適応することを助けている。また、加重平均を用いることで、
+	一時的なバーストの後に遅延時間が小さく戻る時に、TCPが再送タイマを再セット
+	することを助けている。<BR>
+	　当然、LANにおいてはタイムアウト時間は短く、長距離通信においてはタイムアウト時間は長い。
+</P>
+<CENTER><IMG src="20_3.gif"></CENTER>
+
+<HR><H2>ウィンドウとフロー制御</H2>
+<P>
+	　TCPデータ受信者は、データを受信すると、残りバッファ量を送信者へ
+	送り返す。このバッファサイズ通知を<B>ウィンドウ広告(window advertisement)</B>という。
+	０のサイズを受け取った送信者は、データの送信を一時中断する。
+	そして、正のサイズを受信すると再び送信を開始する。
+</P>
+<CENTER>
+	最大セグメントサイズ1000オクテットのTCPフロー制御<BR>
+	<IMG src="20_4.gif" border="1">
+</CENTER><BR>
+
+<HR><H2>３方向ハンドシェーク</H2>
+<P>
+	　TCPはコネクションの生成、終結時に３方向ハンドシェーク法(3-way handshake)を
+	使用している。
+</P>
+<UL>
+	<LI><B>コネクション生成時</B>・・・同期セグメント(SYN segment)(synchronization segment)
+	<LI><B>コネクション終結時</B>・・・終了セグメント(FIN segment)(finish segment)
+</UL>
+<CENTER><IMG src="20_5.gif"></CENTER>
+<P>
+	　３ハンドシェーク時に各終端は32ビット乱数の順序番号(sequence number)を発生する。
+	コンピュータのリブート時にはTCPは新しい乱数を選択する。
+	これにより各コネクションは一対の通信を可能とする。
+</P>
+
+
+<HR><H2>輻輳制御 (congestion control)</H2>
+<P>
+	　現代のインターネットワークにおいて、パケット紛失はハードウェアの
+	故障よりも、輻輳によって引き起こされることが多い。
+	輻輳によってデータ送信が失敗した場合は、データを再送信するため、
+	さらにネットワークの渋滞を大きくすることになりかねない（→輻輳破壊 congestion collapse)。<BR>
+	　この問題に対処するため、TCPは輻輳の測度としてパケット紛失を用い、
+	再送の時は一時的にデータ量を小さくして輻輳に対応する。
+	送信者は、受信したウィンドウサイズの半分に達するまで、データサイズを
+	指数関数的に大きくしていく。半分に達すると、増加率を減少させる。
+</P>
+
+<HR><H2>TCPセグメントの形式</H2>
+<CENTER><IMG src="20_6.gif"></CENTER>
+<UL>
+	<LI><B>SOURCE PORT (16bit)</B>
+	<BLOCKQUOTE>
+		　発信元のポートを示す。
+		データを送信したプログラムを特定する。
+	</BLOCKQUOTE>
+
+	<LI><B>DESTINATION PORT (16bit)</B>
+	<BLOCKQUOTE>
+		　宛先のポート示す。受信コンピュータのどのアプリケーションが
+		データを受信すべきかを特定する。
+	</BLOCKQUOTE>
+
+	<LI><B>SEQUENCE NUMBER (32bit)</B>
+	<BLOCKQUOTE>
+		　順序番号。受信されたデータの順序乱れを直すのに用いられ、
+		確認通知番号を計算するのにも使用される。
+	</BLOCKQUOTE>
+
+	<LI><B>ACKNOWLEDGEMENT NUMBER (32bit)</B>
+	<BLOCKQUOTE>
+		　確認通知番号。受信されたデータの順序番号を特定する。
+	</BLOCKQUOTE>
+
+	<LI><B>H.LEN (4bit)</B>
+	<BLOCKQUOTE>
+		　TCPセグメントヘッダサイズ(32bit単位)。つまりペイロード部分までのオフセット。
+	</BLOCKQUOTE>
+
+	<LI><B>NOT USED (6bit)</B>
+	<BLOCKQUOTE>
+		　予約。
+	</BLOCKQUOTE>
+
+	<LI><B>CODE BITS(Control bits) (6bit)</B>
+	<BLOCKQUOTE>
+		　あるフィールドが意味を持つかを示すビットパターン。
+	</BLOCKQUOTE>
+</UL>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
+	<TR bgcolor="#dddddd">
+		<TH>flag</TH><TH>field name</TH><TH>description</TH>
+	</TR>
+	<TR>
+		<TD>000001</TD><TD>URG</TD>
+		<TD>urgent pointer(緊急ポインタ)が有効である。</TD>
+	</TR>
+	<TR>
+		<TD>000010</TD><TD>ACK</TD>
+		<TD>Acknowledgement Number(確認応答番号)が有効である。</TD>
+	</TR>
+	<TR>
+		<TD>000100</TD><TD>PSH</TD>
+		<TD>転送強制機能。</TD>
+	</TR>
+	<TR>
+		<TD>001000</TD><TD>RST</TD>
+		<TD>コネクションのリセットを要求。</TD>
+	</TR>
+	<TR>
+		<TD>010000</TD><TD>SYN</TD>
+		<TD>sequence numberの同期を要求。</TD>
+	</TR>
+	<TR>
+		<TD>100000</TD><TD>FIN</TD>
+		<TD>送信の終了を示す。</TD>
+	</TR>
+</TABLE>
+
+<UL>
+	<LI><B>WINDOW (16bit)</B>
+	<BLOCKQUOTE>
+		　受信バッファの残りサイズ(ウィンドウサイズ)。
+	</BLOCKQUOTE>
+
+	<LI><B>CHECKSUM (16bit)</B>
+	<BLOCKQUOTE>
+		　TCPセグメントヘッダとTCPセグメントデータの検査合計。
+	</BLOCKQUOTE>
+
+	<LI><B>URGENT POINTER (16bit)</B>
+	<BLOCKQUOTE>
+		　割り込み信号などの緊急データの終了位置。
+	</BLOCKQUOTE>
+</UL>
+
+<HR>
+<A href="19.html">Prev Chapter 9 -- ICMP(internet control message protocol)</A><BR>
+<A href="index.html">INDEX</A><BR>
+</BODY></HTML>

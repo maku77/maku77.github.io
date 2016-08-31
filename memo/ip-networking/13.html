@@ -1,0 +1,124 @@
+<HTML>
+<HEAD>
+	<TITLE>Chapter 1 -- Universal Service</TITLE>
+	<STYLE type="text/css">
+	<!--
+	BODY { line-height: 150%; }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>Chapter 1 -- Universal Service</H1>
+<A href="index.html">INDEX</A><BR>
+<A href="14.html">Next Chapter 2 -- IP Address</A>
+
+<HR><H2>ユニバーサルサービス(universal sevice)</H2>
+<P>
+　異なる目的で使用するネットワークには、異なるネットワーク技術を
+用いることで、ネットワークの最適化を実現している。
+ただ、この考え方には欠点がある。
+今、異なるネットワーク技術(A)とネットワーク技術(B)があったとする。
+ネットワーク(A)に接続された端末からは、(B)のネットワークを利用することができない。
+なぜなら、異なるネットワーク技術は、互換性のないパケット形式(packet format)、
+アドレス付け形式(addressing scheme)、ハードウェア等を用いているからである。
+</P>
+<TABLE align="center" border="1" cellpadding="0" cellspacing="0">
+<TR><TD>
+	<IMG src="13_island.gif"><BR>
+	<CENTER>
+		目的の違うネットワークを利用するために<BR>
+		ユーザが端末間を移動する必要がある<BR>
+		↓<BR>
+		ユニバーサルサービスの必要性
+	</CENTER>
+</TD></TR>
+</TABLE>
+<P>
+　つまり、ユーザがネットワーク(A)のコンピュータを使用している時に、
+ネットワーク(B)を使用したくなった時は、
+ユーザ自身がネットワーク(B)の端末まで移動しなければならない。
+この問題を解決し、どのネットワークに接続されたコンピュータからも
+任意のネットワークを利用できるようにしたものが、<B>ユニバーサルサービス</B>の概念である。<BR>
+　その結果として、<B>インターネットワーキング(internetworking)</B>と呼ばれる方式が考案された。
+これによって構成された物理ネットワークシステムを<B>インターネットワーク(internetwork)</B>という。
+</P>
+
+<HR><H2>ルータによるネットワーク接続</H2>
+
+<P>
+　異種のネットワーク同士を接続するには<B>ルータ(router)</B>を使うことになる（ブリッジではない）。
+ルータは各コネクション用に個別のインターフェイスを持つ、特化用途のコンピュータである。
+ルータを用いて各LAN、WANを相互接続(interconnect)することによって、１つのインターネットワークを構成する。
+</P>
+<CENTER><IMG src="13_1.gif" border="1"></CENTER>
+<P>
+　１つのルータを用いて組織のネットワーク全てを接続することは稀である。なぜなら、
+</P>
+<BLOCKQUOTE>
+<OL>
+	<LI>１つのルータで接続した場合には、全てのトラフィックがそのルータに集中してしまい、負荷が大きい。
+	<LI>冗長性を持たせることによって、あるルータが故障したときに、別のルートを利用することが出来る。
+</OL>
+</BLOCKQUOTE>
+<P>
+からである。つまり、ある組織でネットワークを構築するときには、
+</P>
+<BLOCKQUOTE>
+<B>ニーズやコストにあった構成をする</B>
+</BLOCKQUOTE>
+<P>
+ことが重要である。
+</P>
+
+<HR><H2>インターネットワークプロトコル</H2>
+<P>
+　ルータは、送られてきたデータをフォワード(forward)するために、
+異なるフレーム形式、アドレス付け方式のデータを処理するためのソフトウェアが必要である。
+（→インターネットワーキングに最も広く使用されるProtocol suiteが<B>TCP/IP Internet Protocols</B>であり、
+現在のグローバルインターネットにも利用されている)
+つまり、ユニバーサルサービスを実現するためには、
+コンピュータとルータ上に<B>プロトコルソフトウェア</B>が必要になる。
+</P>
+<P>
+　また、コンピュータは他のコンピュータと通信する際に、ルータの存在を意識する必要がない。
+→<B>仮想ネットワーク(virtual network)システム</B>
+</P>
+
+<HR><H2>TCP/IP階層化モデル(TCP/IP layering model)</H2>
+<P>
+　OSI参照モデルとTCP/IP階層化モデルを比べてみる。
+</P>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="#666666">
+	<TR bgcolor="#cccccc"><TH>OSI</TH><TH>TCP/IP</TH></TR>
+	<TR><TH>Application Layer</TH><TH rowspan="2">アプリケーション層(応用層)</TH></TR>
+	<TR><TH>Presentation Layer</TH></TR>
+	<TR><TH>Session Layer</TH><TH>&nbsp;</TH></TR>
+	<TR><TH>Transport Layer</TH><TH>トランスポート層</TH></TR>
+	<TR><TH>Network Layer</TH><TH>インターネットワーク層（ネットワーク層）</TH></TR>
+	<TR><TH>Data Link Layer</TH><TH>ネットワークインターフェイス層</TH></TR>
+	<TR><TH>Physical Layer</TH><TH>物理層</TH></TR>
+</TABLE>
+<P>
+<UL>
+	<LI>アプリケーション層・・・アプリケーションがデータをどう扱うか
+	<LI>トランスポート層・・・通信の信頼性
+	<LI>インターネットワーク層・・・パケットの転送、パケットの形式の規定
+	<LI>ネットワークインターフェイス層・・・コンピュータがどのようにフレームを送信するか
+	<LI>物理層・・・ネットワークハードウェア
+</UL>
+</P>
+<P>
+　コンピュータシステムが、
+大規模タイムシェアリングシステムから個人ワークステーションに移行するに従って、
+セッション層の重要性が薄れてきた。
+</P>
+<P>
+　TCP/IPではインターネットに接続してアプリケーションを実行するコンピュータを
+<B>ホストコンピュータ(host computer)</B>と定義している。
+ホストとルータにTCP/IPプロトコルソフトウェアが必要であるが、ルータ側でファイル転送ソフトを
+実行することはないので、ルータには第５階層（アプリケーション層）は不要である。
+</P>
+<HR>
+<A href="index.html">INDEX</A><BR>
+<A href="14.html">Next Chapter 2 -- IP Address</A>
+</BODY></HTML>

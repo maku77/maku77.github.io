@@ -1,0 +1,176 @@
+<HTML>
+<HEAD>
+	<TITLE>Chapter 4 -- Address Resolution Protocol</TITLE>
+	<STYLE type="text/css">
+	<!--
+	BODY { line-height: 150%; }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>Chapter 4 -- Address Resolution Protocol</H1>
+<A href="15_a.html">Prev Chapter 3 -- Address Resolution</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="16_a.html">Next Chapter 5 -- IP datagram, Routing</A>
+
+
+<HR><H2>ARP(address resolution protocol)</H2>
+<P>
+　TCP/IP protocol suiteには、アドレスリゾル－ションの形式、意味を規定するために
+アドレスリゾル－ションプロトコル(ARP)が存在する。
+ARPには要求(request)、応答(response)の２つのメッセージタイプがある。
+</P>
+
+<HR><H2>ARPのフォーマット</H2>
+<P>
+　以下は、IPプロトコルアドレス(4オクテット)と、イーサネットハードウェアアドレス(6オクテット)
+が用いられる場合の、ARPメッセージのフォーマットである。
+</P>
+
+<TABLE align="center" border="0" cellpadding="0">
+<TR bgcolor="white">
+	<TD colspan="2" width="200">0</TD>
+	<TD width="200">16</TD>
+	<TD width="200">32</TD>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH colspan="2">Hardware address type</TH><TH>Protocol address type</TH><TH bgcolor="white"></TH>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH width="100">HLEN</TH><TH width="100">PLEN</TH><TH>Operation</TH><TH bgcolor="white"></TH>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH colspan="4" width="600">Sender MAC address</TH>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH colspan="3">Sender IP address</TH><TH bgcolor="white"></TH>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH colspan="4">Target MAC address</TH>
+</TR>
+<TR bgcolor="#cccccc">
+	<TH colspan="3">Target IP address</TH><TH bgcolor="white"></TH>
+</TR>
+</TABLE>
+
+<UL>
+	<LI>Hardware address type … イーサネットの場合は１
+	<LI>Protocol address type … IPに使用されている場合は0x0800
+</UL>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
+	<TR bgcolor="#dddddd">
+		<TH>ETHER TYPES (hexadecimal numeral)</TH>
+		<TH>Protocol</TH>
+	</TR>
+	<TR>
+		<TD><B>800</B></TD><TD><B>IP</B></TD>
+	</TR>
+	<TR>
+		<TD>806</TD><TD>ARP</TD>
+	</TR>
+	<TR>
+		<TD>8035</TD><TD>Reverse ARP</TD>
+	</TR>
+	<TR>
+		<TD>809B</TD><TD>Appletalk</TD>
+	</TR>
+	<TR>
+		<TD>8137-8138</TD><TD>Novell</TD>
+	</TR>
+	<TR>
+		<TD>814C</TD><TD>SNMP</TD>
+	</TR>
+</TABLE>
+詳しくはRFC1700
+<UL>
+	<LI>HLEN … ハードウェアアドレス長(オクテット単位)　イーサネットの場合６オクテット
+	<LI>PLEN … プロトコルアドレス長(オクテット単位)　IPアドレスの場合４オクテット
+	<LI>OPERATION … ARP要求(=1)、ARP応答(=2)、RARP要求(=3)、RARP応答(=4)
+</UL>
+
+
+<HR><H2>ARPのアルゴリズム</H2>
+<CENTER><IMG src="15_5.gif"></CENTER>
+<P>
+　ホストＡがホストＢのハードウェアアドレスを得たい時は、
+ホストＡがARP要求メッセージをブロードキャストし、
+ホストＢのみホストＡへARP応答メッセージを（MACアドレスをのせて）返す。<BR>
+　ARPは汎用性を持たせてあるが、イーサネットとIPの組み合わせで使われるのが一般的である。
+ARP要求メッセージの、Target MAC addressはすべて０である。
+ちなみにRARPはMACアドレスからIPアドレスを得るために使われる。
+</P>
+
+<HR><H2>ARPメッセージの識別</H2>
+<P>
+　ARPはフレームの中にカプセル化して送信される。
+</P>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="black">
+<CAPTION>イーサネットのフレーム</CAPTION>
+<TR><TH>HEADER</TH><TH bgcolor="#cccccc">ARPメッセージ（フレームのデータ領域）</TH><TH>CRC</TH></TR>
+</TABLE>
+<P>
+　イーサネットでは、ARPメッセージを含むイーサネットフレームの
+ヘッダのタイプフィールド(type field)は0x806であると規定している。
+タイプフィールドによって、
+受信したコンピュータはこのフレームにARPが含まれていることを
+知ることができるが、要求メッセージなのか、応答メッセージなのかは識別できない。
+そこで、要求か応答かを決めるためには、OPERATIONフィールドを参照する必要がある。
+</P>
+
+<HR><H2>ARPキャッシュテーブル</H2>
+<P>
+　アドレスの結びつけは１度行えば、その後のパケット送信には同じものを利用できる。
+そのため、ARPはメモリ内にキャッシュテーブルを作成する。
+テーブルのエントリは、応答の到着ごとに書き換えられる。
+また、メモリには当然限りがあるので、テーブルが一杯になった時は、
+エントリの書き換え時期が最も古いものを破棄する。
+</P>
+<P>
+　キャッシュの作成はARP要求が到着した時にも作成可能である。
+ARP要求はブロードキャストされるので、すべてのコンピュータが
+結び付け情報をキャッシュテーブルに格納することができるが、
+それはCPU効率を考えるとあまり得策ではない。
+</P>
+<P>
+　ARP表を見るには次のようにする。
+</P>
+<CENTER>Unixの場合</CENTER>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
+<TR><TD><PRE>
+micky@puni$ /usr/sbin/arp -a
+Net to Media Table
+Device   IP Address               Mask      Flags   Phys Addr 
+------ -------------------- --------------- ----- ---------------
+le0    arith                 255.255.255.255       05:00:22:19:5e:31
+le0    risyu                 255.255.255.255       00:00:39:91:4d:ac
+le0    guilty                255.255.255.255       06:d0:fa:c7:eb:d9
+le0    gear                  255.255.255.255 SP    01:00:30:f9:17:d3
+    ...
+</TD></TR></TABLE><BR>
+
+<CENTER>Windows95/98の場合</CENTER>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
+<TR><TD><PRE>
+C:\> arp -a
+interface: 133.70.10.7
+  Internet Address	Physical Address	Type
+  133.70.10.1		03-00-52-34-e7-1c	dynamic
+  133.70.10.2		00-00-41-f4-1f-ab	dynamic
+    ...
+</TD></TR></TABLE><BR>
+
+
+<HR><H2>ARPの重要性</H2>
+<P>
+　アドレスリゾル－ションソフトウェアが、
+階層化モデル(layering model)の下位に位置していることにより、
+高位の階層のソフトウェアはプロトコルアドレス付けを使用できる。<BR>
+　つまり、下位のアドレスリゾル－ションによって、
+高位階層でハードウェアアドレスを気にせずに
+プロトコルソフトウェアを開発することが可能になる。
+</P>
+<HR>
+<A href="15_a.html">Prev Chapter 3 -- Address Resolution</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="16_a.html">Next Chapter 5 -- IP datagram, Routing</A>
+</BODY></HTML>

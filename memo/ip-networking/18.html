@@ -1,0 +1,242 @@
+<HTML>
+<HEAD>
+	<TITLE>Chapter 8 -- IP version 6</TITLE>
+	<STYLE type/css>
+	<!--
+	BODY { line-height: 150%; }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>Chapter 8 -- IP version 6</H1>
+<A href="17.html">Prev Chapter 7 -- MTU (Maximum Transmission Unit), Fragmentation</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="19.html">Next Chapter 9 -- ICMP(internet control message protocol)</A>
+
+<HR><H2>変更動機</H2>
+<P>
+　IPの現在の版（IPv4）はたいへんうまく動作している。
+しかし、次のような理由によりバージョンアップすべき時期がやってきた。
+</P>
+<UL>
+	<LI>インターネットの拡大に伴い、より大きなアドレス空間が必要である。(IPアドレスの枯渇)
+	<LI>オーディオやビデオの実時間配信に用いるサービスタイプを定義する必要性。
+	<LI>グループへのパケット送信。(→協調技術 collaboration technology)
+</UL>
+
+<HR><H2>なぜ IPv5 でなく IPv6 か？</H2>
+<P>
+	　研究者が新しいIPの開発を進めるにあたって、そのプロジェクト名が必要になった。
+	その名前は、人気のあるテレビ番組の名前を参考に、次世代IP（IP-The Next Generation）
+	と名づけられた。その後、正式の版番号をプロトコルのヘッダの中にいれることを決定した。
+	しかし、版番号５は実験的なST（ストリームプロトコル）に割り当てられていたため、
+	IPのバージョンは６となった。
+</P>
+
+<HR><H2>IPv6の特徴</H2>
+<UL>
+	<LI>IPv4と同様、コネクションレスである。（信頼性は上位プロトコルによって確立される）
+	<LI>アドレスサイズは128ビット。
+	<LI>ヘッダ形式がIPv4とは大きく異なる。
+	<LI>拡張ヘッダとして、分離したヘッダに情報を持たせる。
+	<LI>オーディオ、ビデオ用の通信サポート。
+	<LI>プロトコルを拡張可能である。
+	<LI>セキュリティ機能の導入。
+</UL>
+
+<HR><H2>アドレスの割り当てられ方</H2>
+<P>
+	　日本では、ISPに対してIPv6アドレスはAPNICから割り当てられる（IPv4はJPNICから割り当てられる）。
+	IPv4は割り当ての際、厳密な審査が入るが、IPv6ではアドレスの枯渇に関する審査はない。
+	ただし、きちんと運営できるという条件は課せられる。
+</P>
+
+<HR><H2>IPv6データグラムの形式</H2>
+<P>
+	　ベースヘッダ＋（拡張ヘッダ）＋データ領域という形からなる。
+	最小のデータグラムは、ベースヘッダ＋データ領域である。
+	経済性と拡張性という理由からこのような形式を使うことに決定した。
+</P>
+<CENTER><IMG src="18_1.gif"></CENTER>
+
+<HR><H2>IPv6ベースヘッダの形式</H2>
+<CENTER><IMG src="18_2.gif"></CENTER>
+<UL>
+	<LI><B>VERS (4bit)</B>
+	<BLOCKQUOTE>
+		　バージョン番号。
+	</BLOCKQUOTE>
+
+	<LI><B>FLOW LABEL (28bit)</B>
+	<BLOCKQUOTE>
+		　性能の保証を必要とする新しいアプリケーションに使用されることが意図される。
+	</BLOCKQUOTE>
+
+	<LI><B>PAYLOAD LENGTH (16bit)</B>
+	<BLOCKQUOTE>
+		　ペイロードのサイズを表す。（ヘッダのサイズは含まない）
+	</BLOCKQUOTE>
+
+	<LI><B>NEXT HEADER (8bit)</B>
+	<BLOCKQUOTE>
+		　後続のヘッダタイプを指定する。もしも、拡張ヘッダを持つならば、
+		拡張ヘッダのタイプを指定する。逆に、拡張ヘッダを持たないならば、
+		データのタイプを指定する。
+	</BLOCKQUOTE>
+
+	<LI><B>HOP LIMIT (8bit)</B>
+	<BLOCKQUOTE>
+		　中継限界数。IPv4のTIME TO LIVEフィールドに相当する。
+	</BLOCKQUOTE>
+</UL>
+
+<HR><H2>IPv6データグラムの構成例</H2>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="#666666">
+<TR>
+	<TH nowrap>base<BR>header</TH>
+	<TH nowrap>TCP<BR>header</TH>
+	<TH nowrap width="200">TCPデータ</TH>
+</TR>
+</TABLE><BR>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="#666666">
+<TR>
+	<TH nowrap>base<BR>header</TH>
+	<TH nowrap>routing<BR>header</TH>
+	<TH nowrap>fragment<BR>header</TH>
+	<TH nowrap>TCP<BR>header</TH>
+	<TH nowrap width="200">TCPデータ</TH>
+</TR>
+</TABLE><BR>
+
+<HR><H2>拡張ヘッダのフォーマット形式</H2>
+<P>
+	　拡張ヘッダのサイズは、データごとに変わりうるので、
+	そのサイズ情報を格納しなければならない。よって、次のような形式になる。
+</P>
+<CENTER><IMG src="18_4.gif"></CENTER>
+
+<HR><H2>パスMTU検出 (path MTU discovery)</H2>
+<P>
+	　IPv6にて、フラグメントは送信者において行われる
+	（ルータがフラグメンテーションを実行することはない）。
+	そのためには、あらかじめ転送ルートの最小MTU(path MTU)を知っておかなければならない。
+	パスMTU検出のためには、一般的に繰り返しの手順を用いる。
+	ホストは、一連のサイズのデータグラムを送信することによって、
+	最適なサイズを見つける。
+</P>
+
+<HR><H2>拡張ヘッダ番号</H2>
+<TABLE align="center" border="1" cellpadding="10" cellspacing="0">
+<TR><TD nowrap>
+ 0.  中継点オプション・ヘッダ (Hop-by-Hop Options Header)<BR>
+ 1.  ICMP<BR>
+ 4.  IPv4 ヘッダ<BR>
+ 6.  TCP ヘッダ<BR>
+13.  UDP ヘッダ<BR>
+41.  IPv6 ヘッダ<BR>
+43.  経路制御ヘッダ (Routing Header)<BR>
+44.  断片ヘッダ (Fragment Header)<BR>
+50.  暗号ペイロード <IPsec><BR>
+51.  認証ヘッダ <IPsec><BR>
+58.  ICMPv6<BR>
+60. 終点オプション・ヘッダ (Destination Options Header)
+</TD></TR>
+</TABLE><BR>
+
+<HR><H2>IPv6コロン16進記法</H2>
+<P>
+	　IPv4のようにドット区切り10進記法を用いると、
+	非常に長くなってしまうので、IPv6ではコロン16進記法を用いる。
+</P>
+<CENTER><PRE>
+F9DC:45a4:FFFF:FFFF:0:124B:88CA:FFFF
+</PRE></CENTER>
+<P>
+	　先頭の０は省略可能である。
+</P>
+<CENTER><PRE>
+0:0:0:FF02:0:0:0:1
+↓
+FF02:0:0:0:1
+</PRE></CENTER>
+<P>
+	　さらに連続する０は :: に置き換え可能である。(→ゼロ圧縮 zero compression)
+</P>
+<CENTER><PRE>
+FF02:0:0:0:1
+↓
+FF02::1
+</PRE></CENTER>
+<P>
+	　プレフィックス長は "/" の後に 0～128で指定する。
+</P>
+<CENTER><PRE>
+3FFE:10A::/16
+</PRE></CENTER>
+
+<HR><H2>IPv6のアドレス付け方式</H2>
+<P>
+	　IPv6は与えられたネットワーク上へのブロードキャスト用の特別アドレスを持っていない。
+	その代わりに、IPv6は次の３つの基本タイプを使う。
+</P>
+<UL>
+	<LI><B>ユニキャスト (unicast)</B>
+	<BLOCKQUOTE>
+		　特定の単一コンピュータとの通信。
+	</BLOCKQUOTE>
+
+	<LI><B>マルチキャスト (multicast)</B>
+	<BLOCKQUOTE>
+		　ある集合へ向けての配信。そのアドレスへ向けてデータを配信すると、
+		集合の中の各メンバへデータグラムのコピーが配信される。
+	</BLOCKQUOTE>
+
+	<LI><B>クラスタ (cluster)</B>
+	<BLOCKQUOTE>
+		　共通のアドレスプレフィックスを共有する集合のコンピュータに対応する。
+		送信者は集合のなかのコンピュータの最短のパスを１つ選択し、
+		１つのコンピュータに対してのみデータを送信する。
+	</BLOCKQUOTE>
+</UL>
+
+
+<HR><H2>３ビットのプレフィックス</H2>
+<TABLE align="center" border="1" cellpadding="10" cellspacing="0">
+<TR><TD nowrap>
+000  特殊なアドレス<BR>
+001  経路集約型アドレス<BR>
+010  未割り当て (was プロバイダ型アドレス)<BR>
+011  未割り当て (was 地域型アドレス)<BR>
+100  未割り当て<BR>
+101  未割り当て<BR>
+110  未割り当て<BR>
+111  リンクローカル、サイトローカル、マルチキャスト<BR>
+<BR>※ ブロードキャストは無くなった。
+</TD></TR>
+</TABLE><BR>
+
+<HR><H2>特別アドレス</H2>
+<UL>
+	<LI><B>ループバック・アドレス</B>
+	<UL>0000:0000:0000:0000:0000:0000:0000:0001 or ::1</UL>
+
+	<LI><B>未指定アドレス</B>
+	<UL>0000:0000:0000:0000:0000:0000:0000:0000 or ::<BR>
+	重複アドレス検知に利用</UL>
+
+	<LI><B>IPv4 互換アドレス</B>
+	<UL>0000:0000:0000:0000:0000:0000:xxxx:xxxx<BR>
+	(Example) ::123.212.102.31<BR>
+	自動トンネルに利用</UL>
+
+	<LI><B>IPv4 射影アドレス</B>
+	<UL>0000:0000:0000:0000:0000:ffff:xxxx:xxxx<BR>
+	(Example) ::ffff:223.121.42.41<BR>
+	カーネルの実装に利用</UL>
+</UL>
+
+<HR>
+<A href="17.html">Prev Chapter 7 -- MTU (Maximum Transmission Unit), Fragmentation</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="19.html">Next Chapter 9 -- ICMP(internet control message protocol)</A>
+</BODY></HTML>

@@ -62,3 +62,7 @@ XML
 * [TFTP の使い方（TFTP によるファイル転送）](tool/tftp.html)
 * [Windows (MinGW) で GLUT を使用する](tool/glut-in-windows.html)
 
+ネットワーク
+====
+* [IP によるインターネットワーキングの基礎（昔々2000年くらいに書いた記事）](./ip-networking/)
+

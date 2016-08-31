@@ -1,0 +1,230 @@
+<HTML>
+<HEAD>
+	<TITLE>Chapter 9 -- ICMP(internet control message protocol)</TITLE>
+	<STYLE type/css>
+	<!--
+	BODY { line-height: 150%; }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<H1>Chapter 9 -- ICMP(internet control message protocol)</H1>
+<A href="18.html">Prev Chapter 8 -- IP version 6</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="20.html">Next Chapter 10 -- TCP(Transmission Control Protocol)</A>
+
+<HR><H2>誤り報告プロトコル (error reporting protocol)</H2>
+<P>
+	　IPはコネクションレス型のネットワーク層プロトコルであり、
+	パケットを中継するのに最大の努力はするがパケット転送の保証はしない。
+	ルータやノードで異常が発生し、宛先までパケットが到達しない場合もある。
+	この時、異常を送信元に知らせる必要がある。
+	TCP/IPではこの目的のために、<B>ICMP(Internet Control Message Protocol)</B>というプロトコルを使用する。
+	また、通信を行う前に、宛先ノードが存在するかどうかという診断も行う。
+	ICMPは、５つのエラー（誤り）メッセージと、
+	４つの情報（診断）メッセージに分類される。 
+</P>
+
+<HR><H2>ICMPメッセージの構造</H2>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="black">
+<TR>
+	<TH>type field<BR>(1byte)</TH>
+	<TH>code<BR>(1byte)</TH>
+	<TH>checksum<BR>(2byte)</TH>
+	<TH>depend on type<BR>(field is variable in length)</TH>
+</TR>
+</TABLE>
+<BR>
+<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
+	<TR bgcolor="#dddddd">
+		<TH>type</TH><TH>message</TH><TH>description</TH>
+	</TR>
+	<TR>
+		<TD>0</TD>
+		<TD>echo reply</TD>
+		<TD>echo reauest(8)の返答</TD>
+	</TR>
+	<TR>
+		<TD>3</TD>
+		<TD>destination unreachable</TD>
+		<TD>IPデータグラムが到達しない(ルータ→発信者)</TD>
+	</TR>
+	<TR>
+		<TD>4</TD>
+		<TD>source quench</TD>
+		<TD>輻輳制御(データ転送抑制要求)</TD>
+	</TR>
+	<TR>
+		<TD>5</TD>
+		<TD>redirect</TD>
+		<TD>経路変更要求</TD>
+	</TR>
+	<TR>
+		<TD>8</TD>
+		<TD>echo request</TD>
+		<TD>返答要求</TD>
+	</TR>
+	<TR>
+		<TD>11</TD>
+		<TD>time exceeded for a datagram</TD>
+		<TD>TTLが０になった(ルータ→発信者)</TD>
+	</TR>
+	<TR>
+		<TD>12</TD>
+		<TD>parameter problem</TD>
+		<TD>データグラム形式による問題通知</TD>
+	</TR>
+	<TR>
+		<TD>13</TD>
+		<TD>timestamp request</TD>
+		<TD>時刻(14)を要求</TD>
+	</TR>
+	<TR>
+		<TD>14</TD>
+		<TD>timestamp replay</TD>
+		<TD>timestamp request(13)の返答</TD>
+	</TR>
+	<TR>
+		<TD>15</TD>
+		<TD>information request</TD>
+		<TD>ルータへの情報要求（使われていない）</TD>
+	</TR>
+	<TR>
+		<TD>16</TD>
+		<TD>information reply</TD>
+		<TD>information request(15)の返答（使われていない）</TD>
+	</TR>
+	<TR>
+		<TD>17</TD>
+		<TD>address mask request</TD>
+		<TD>サブネットマスク要求</TD>
+	</TR>
+	<TR>
+		<TD>18</TD>
+		<TD>address mask reply</TD>
+		<TD>address mask request(17)の返答</TD>
+	</TR>
+</TABLE>
+<BR>
+
+<HR><H2>５つのエラーメッセージ</H2>
+<UL>
+	<LI><B>送信元抑制(source quench)メッセージ</B></LI>
+	<BLOCKQUOTE>
+		　ルータには受信のためのバッファが存在するが、
+		このバッファには容量の限界があるため、この限界を
+		越えるとルータは送信元抑制メッセージを送る。
+		そして一時的に、到着するデータグラムを破棄する。
+		このメッセージを受け取った送信者は、転送速度を減少することを
+		要求される。
+	</BLOCKQUOTE>
+
+	<LI><B>時間超過(time exceeded)メッセージ</B>
+	<BLOCKQUOTE>
+		　このメッセージは、次の２つの場合に送信される。<BR>
+		　ルータはフォワードの際、TTLを減少させる。
+		この時にTTLが０になると、ルータはデータグラムを破棄し、
+		時間超過メッセージを送る。<BR>
+		　もう１つの場合は、データグラムがフラグメントされたときに、
+		受信者側の再組み立てタイマーを超過すると、このメッセージが
+		送信される。
+	</BLOCKQUOTE>
+
+	<LI><B>宛先不達(destination unreachable)メッセージ</B>
+	<BLOCKQUOTE>
+		　ルータの故障などによって、宛先の存在するネットワークが一時的に、ネットワークから
+		切り離されている場合や、宛先ホストが電源断などでオフラインの場合などに
+		送信される。
+	</BLOCKQUOTE>
+
+	<LI><B>リダイレクト(redirect)メッセージ</B>
+	<BLOCKQUOTE>
+		　異なるルータへ転送されるべきデータグラムをホストが
+		誤って送ってきたと判断するならば、そのデータグラムを受信したルータは
+		ホストにルートの変更を促すためのメッセージを送る。
+	</BLOCKQUOTE>
+
+	<LI><B>フラグメンテーション要求(fragmentation required)メッセージ</B>
+	<BLOCKQUOTE>
+		　データグラムのフラグメント不可ビットが立てられている場合、
+		ルータはフラグメントすることができない。この時もし、MTUの許容範囲を
+		越えている場合は、ルータはデータグラムをフォワードすることが
+		できないのでフラグメンテーション要求を送信し、そのデータグラムを破棄する。
+	</BLOCKQUOTE>
+</UL>
+
+<HR><H2>４つの情報メッセージ</H2>
+<UL>
+	<LI><B>エコー要求(echo request)メッセージ</B>
+	<LI><B>エコー返答(echo reply)メッセージ</B>
+	<BLOCKQUOTE>
+		 　エコー要求を受け取ったコンピュータは、
+		 エコー返答メッセージを返さなければならない。
+	</BLOCKQUOTE>
+
+	<LI><B>アドレスマスク要求(addressmask request)メッセージ</B>
+	<LI><B>アドレスマスク返答(addressmask reply)メッセージ</B>
+	<BLOCKQUOTE>
+		　ホストは立ち上がり時に、アドレスマスク要求メッセージをブロードキャストする。
+		ルータは要求を受信し、そのネットワークで使用されている32ビットの
+		サブネットマスクを含むアドレスマスク返答メッセージを送信する。
+	</BLOCKQUOTE>
+</UL>
+
+<HR><H2>ICMPメッセージのカプセル化</H2>
+<P>
+	　ICMPメッセージはIPデータグラムのIPデータ領域に格納されて送られる。
+</P>
+<CENTER><IMG src="19_1.gif"></CENTER>
+
+<HR><H2>ICMPを利用したソフトウェア</H2>
+<H3>PING</H3>
+<P>
+	　pingは宛先が到達可能かを調べるソフトウェアである。
+	pingプログラムはICMPのエコー要求メッセージを送信し、その返答が
+	返ってきたかどうかを利用する。<BR>
+	　エコー要求を送信し、短時間待ち、返答がない場合は要求を２度再送信する。
+	それでも返答がない場合は、宛先到達不可能と判断する。
+</P>
+<H3>TRACE ROUTE</H3>
+<P>
+	　trace routeは宛先までのルートを追跡するツールである。
+	このプログラムは時間超過(time exceeded)メッセージと宛先不達(destination unreachable)メッセージを利用する。
+	まず、TTL=1としてデータグラムを送信すると、最初のルータでTTL=0となるので、
+	そのルータは時間超過メッセージを返す。trace routeプログラムはそのメッセージ
+	に含まれるルータのIPアドレスを出力する。その後、TTL=2,3,4,...と増やして
+	データグラムを送信することによって、宛先ホストまでのルータのIPアドレスを調べることができる。<BR>
+</P>
+<P>
+	　TTLを増やしていくと、データグラムは、いずれ宛先ホストまで到着することになる。
+	ルート追跡プログラムはUDP(User Datagram Protocol)を利用する。
+	宛先の存在しないプログラムに対してこのUDPメッセージを送ることによって、
+	宛先のホストはこのデータグラムを受け取ると、ICMP宛先不達メッセージを返す。
+	これが、trace routeプログラムの終了通知となる。
+</P>
+<P>
+	　ルート追跡プログラムでは、タイムアウトの時間をユーザが指定する。
+	宛先までのルートは動的に変化するので、ルートが相対的に安定している
+	インターネットワークに対してtrace routeは有効である。
+	（インターネットの多くの部分において、数日、数週間の間はルートが変化しないことが多い）
+</P>
+<CENTER>
+	<B>trace routeの仕組み</B><BR>
+	<IMG src="19_trace_route.gif" border="1">
+</CENTER><BR>
+
+<HR><H2>パスMTU発見のためのICMPの利用</H2>
+<P>
+	　パスMTUを発見するために、ホストはICMPフラグメンテーション要求(fragmentation required message)メッセージ
+	を利用する。まず、ホストはフラグメント不可ビットを立てて
+	大きいデータグラムを送信する。ルータは転送するネットワークのMTUを越えた
+	データグラムサイズを受け取るので、フラグメンテーション要求メッセージを返すしかない。
+	このメッセージを受け取ると、ホストは送信に成功するまで探索メッセージを小さくして送信する。
+	ルート追跡と同様に、ホストは応答を受信できない場合、メッセージを再送する仕組みが必要である。
+</P>
+
+<HR>
+<A href="18.html">Prev Chapter 8 -- IP version 6</A><BR>
+<A href="index.html">INDEX</A><BR>
+<A href="20.html">Next Chapter 10 -- TCP(Transmission Control Protocol)</A>
+</BODY></HTML>
