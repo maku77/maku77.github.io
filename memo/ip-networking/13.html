@@ -12,111 +12,111 @@
 <A href="index.html">INDEX</A><BR>
 <A href="14.html">Next Chapter 2 -- IP Address</A>
 
-<HR><H2>���j�o�[�T���T�[�r�X(universal sevice)</H2>
+<HR><H2>ユニバーサルサービス(universal sevice)</H2>
 <P>
-�@�قȂ�ړI�Ŏg�p����l�b�g���[�N�ɂ́A�قȂ�l�b�g���[�N�Z�p��
-�p���邱�ƂŁA�l�b�g���[�N�̍œK�����������Ă���B
-�����A���̍l�����ɂ͌��_������B
-���A�قȂ�l�b�g���[�N�Z�p(A)�ƃl�b�g���[�N�Z�p(B)���������Ƃ���B
-�l�b�g���[�N(A)�ɐڑ����ꂽ�[������́A(B)�̃l�b�g���[�N�𗘗p���邱�Ƃ��ł��Ȃ��B
-�Ȃ��Ȃ�A�قȂ�l�b�g���[�N�Z�p�́A�݊����̂Ȃ��p�P�b�g�`��(packet format)�A
-�A�h���X�t���`��(addressing scheme)�A�n�[�h�E�F�A����p���Ă��邩��ł���B
+　異なる目的で使用するネットワークには、異なるネットワーク技術を
+用いることで、ネットワークの最適化を実現している。
+ただ、この考え方には欠点がある。
+今、異なるネットワーク技術(A)とネットワーク技術(B)があったとする。
+ネットワーク(A)に接続された端末からは、(B)のネットワークを利用することができない。
+なぜなら、異なるネットワーク技術は、互換性のないパケット形式(packet format)、
+アドレス付け形式(addressing scheme)、ハードウェア等を用いているからである。
 </P>
 <TABLE align="center" border="1" cellpadding="0" cellspacing="0">
 <TR><TD>
 	<IMG src="13_island.gif"><BR>
 	<CENTER>
-		�ړI�̈Ⴄ�l�b�g���[�N�𗘗p���邽�߂�<BR>
-		���[�U���[���Ԃ��ړ�����K�v������<BR>
-		��<BR>
-		���j�o�[�T���T�[�r�X�̕K�v��
+		目的の違うネットワークを利用するために<BR>
+		ユーザが端末間を移動する必要がある<BR>
+		↓<BR>
+		ユニバーサルサービスの必要性
 	</CENTER>
 </TD></TR>
 </TABLE>
 <P>
-�@�܂�A���[�U���l�b�g���[�N(A)�̃R���s���[�^���g�p���Ă��鎞�ɁA
-�l�b�g���[�N(B)���g�p�������Ȃ������́A
-���[�U���g���l�b�g���[�N(B)�̒[���܂ňړ����Ȃ���΂Ȃ�Ȃ��B
-���̖����������A�ǂ̃l�b�g���[�N�ɐڑ����ꂽ�R���s���[�^�����
-�C�ӂ̃l�b�g���[�N�𗘗p�ł���悤�ɂ������̂��A<B>���j�o�[�T���T�[�r�X</B>�̊T�O�ł���B<BR>
-�@���̌��ʂƂ��āA<B>�C���^�[�l�b�g���[�L���O(internetworking)</B>�ƌĂ΂��������l�Ă��ꂽ�B
-����ɂ���č\�����ꂽ�����l�b�g���[�N�V�X�e����<B>�C���^�[�l�b�g���[�N(internetwork)</B>�Ƃ����B
+　つまり、ユーザがネットワーク(A)のコンピュータを使用している時に、
+ネットワーク(B)を使用したくなった時は、
+ユーザ自身がネットワーク(B)の端末まで移動しなければならない。
+この問題を解決し、どのネットワークに接続されたコンピュータからも
+任意のネットワークを利用できるようにしたものが、<B>ユニバーサルサービス</B>の概念である。<BR>
+　その結果として、<B>インターネットワーキング(internetworking)</B>と呼ばれる方式が考案された。
+これによって構成された物理ネットワークシステムを<B>インターネットワーク(internetwork)</B>という。
 </P>
 
-<HR><H2>���[�^�ɂ��l�b�g���[�N�ڑ�</H2>
+<HR><H2>ルータによるネットワーク接続</H2>
 
 <P>
-�@�َ�̃l�b�g���[�N���m��ڑ�����ɂ�<B>���[�^(router)</B>���g�����ƂɂȂ�i�u���b�W�ł͂Ȃ��j�B
-���[�^�͊e�R�l�N�V�����p�Ɍʂ̃C���^�[�t�F�C�X�����A�����p�r�̃R���s���[�^�ł���B
-���[�^��p���ĊeLAN�AWAN�𑊌ݐڑ�(interconnect)���邱�Ƃɂ���āA�P�̃C���^�[�l�b�g���[�N���\������B
+　異種のネットワーク同士を接続するには<B>ルータ(router)</B>を使うことになる（ブリッジではない）。
+ルータは各コネクション用に個別のインターフェイスを持つ、特化用途のコンピュータである。
+ルータを用いて各LAN、WANを相互接続(interconnect)することによって、１つのインターネットワークを構成する。
 </P>
 <CENTER><IMG src="13_1.gif" border="1"></CENTER>
 <P>
-�@�P�̃��[�^��p���đg�D�̃l�b�g���[�N�S�Ă�ڑ����邱�Ƃ͋H�ł���B�Ȃ��Ȃ�A
+　１つのルータを用いて組織のネットワーク全てを接続することは稀である。なぜなら、
 </P>
 <BLOCKQUOTE>
 <OL>
-	<LI>�P�̃��[�^�Őڑ������ꍇ�ɂ́A�S�Ẵg���t�B�b�N�����̃��[�^�ɏW�����Ă��܂��A���ׂ��傫���B
-	<LI>�璷�����������邱�Ƃɂ���āA���郋�[�^���̏Ⴕ���Ƃ��ɁA�ʂ̃��[�g�𗘗p���邱�Ƃ��o����B
+	<LI>１つのルータで接続した場合には、全てのトラフィックがそのルータに集中してしまい、負荷が大きい。
+	<LI>冗長性を持たせることによって、あるルータが故障したときに、別のルートを利用することが出来る。
 </OL>
 </BLOCKQUOTE>
 <P>
-����ł���B�܂�A����g�D�Ńl�b�g���[�N���\�z����Ƃ��ɂ́A
+からである。つまり、ある組織でネットワークを構築するときには、
 </P>
 <BLOCKQUOTE>
-<B>�j�[�Y��R�X�g�ɂ������\��������</B>
+<B>ニーズやコストにあった構成をする</B>
 </BLOCKQUOTE>
 <P>
-���Ƃ��d�v�ł���B
+ことが重要である。
 </P>
 
-<HR><H2>�C���^�[�l�b�g���[�N�v���g�R��</H2>
+<HR><H2>インターネットワークプロトコル</H2>
 <P>
-�@���[�^�́A�����Ă����f�[�^���t�H���[�h(forward)���邽�߂ɁA
-�قȂ�t���[���`���A�A�h���X�t�������̃f�[�^���������邽�߂̃\�t�g�E�F�A���K�v�ł���B
-�i���C���^�[�l�b�g���[�L���O�ɍł��L���g�p�����Protocol suite��<B>TCP/IP Internet Protocols</B>�ł���A
-���݂̃O���[�o���C���^�[�l�b�g�ɂ����p����Ă���)
-�܂�A���j�o�[�T���T�[�r�X���������邽�߂ɂ́A
-�R���s���[�^�ƃ��[�^���<B>�v���g�R���\�t�g�E�F�A</B>���K�v�ɂȂ�B
+　ルータは、送られてきたデータをフォワード(forward)するために、
+異なるフレーム形式、アドレス付け方式のデータを処理するためのソフトウェアが必要である。
+（→インターネットワーキングに最も広く使用されるProtocol suiteが<B>TCP/IP Internet Protocols</B>であり、
+現在のグローバルインターネットにも利用されている)
+つまり、ユニバーサルサービスを実現するためには、
+コンピュータとルータ上に<B>プロトコルソフトウェア</B>が必要になる。
 </P>
 <P>
-�@�܂��A�R���s���[�^�͑��̃R���s���[�^�ƒʐM����ۂɁA���[�^�̑��݂��ӎ�����K�v���Ȃ��B
-��<B>���z�l�b�g���[�N(virtual network)�V�X�e��</B>
+　また、コンピュータは他のコンピュータと通信する際に、ルータの存在を意識する必要がない。
+→<B>仮想ネットワーク(virtual network)システム</B>
 </P>
 
-<HR><H2>TCP/IP�K�w�����f��(TCP/IP layering model)</H2>
+<HR><H2>TCP/IP階層化モデル(TCP/IP layering model)</H2>
 <P>
-�@OSI�Q�ƃ��f����TCP/IP�K�w�����f�����ׂĂ݂�B
+　OSI参照モデルとTCP/IP階層化モデルを比べてみる。
 </P>
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="#666666">
 	<TR bgcolor="#cccccc"><TH>OSI</TH><TH>TCP/IP</TH></TR>
-	<TR><TH>Application Layer</TH><TH rowspan="2">�A�v���P�[�V�����w(���p�w)</TH></TR>
+	<TR><TH>Application Layer</TH><TH rowspan="2">アプリケーション層(応用層)</TH></TR>
 	<TR><TH>Presentation Layer</TH></TR>
 	<TR><TH>Session Layer</TH><TH>&nbsp;</TH></TR>
-	<TR><TH>Transport Layer</TH><TH>�g�����X�|�[�g�w</TH></TR>
-	<TR><TH>Network Layer</TH><TH>�C���^�[�l�b�g���[�N�w�i�l�b�g���[�N�w�j</TH></TR>
-	<TR><TH>Data Link Layer</TH><TH>�l�b�g���[�N�C���^�[�t�F�C�X�w</TH></TR>
-	<TR><TH>Physical Layer</TH><TH>�����w</TH></TR>
+	<TR><TH>Transport Layer</TH><TH>トランスポート層</TH></TR>
+	<TR><TH>Network Layer</TH><TH>インターネットワーク層（ネットワーク層）</TH></TR>
+	<TR><TH>Data Link Layer</TH><TH>ネットワークインターフェイス層</TH></TR>
+	<TR><TH>Physical Layer</TH><TH>物理層</TH></TR>
 </TABLE>
 <P>
 <UL>
-	<LI>�A�v���P�[�V�����w�E�E�E�A�v���P�[�V�������f�[�^���ǂ�������
-	<LI>�g�����X�|�[�g�w�E�E�E�ʐM�̐M����
-	<LI>�C���^�[�l�b�g���[�N�w�E�E�E�p�P�b�g�̓]���A�p�P�b�g�̌`���̋K��
-	<LI>�l�b�g���[�N�C���^�[�t�F�C�X�w�E�E�E�R���s���[�^���ǂ̂悤�Ƀt���[���𑗐M���邩
-	<LI>�����w�E�E�E�l�b�g���[�N�n�[�h�E�F�A
+	<LI>アプリケーション層・・・アプリケーションがデータをどう扱うか
+	<LI>トランスポート層・・・通信の信頼性
+	<LI>インターネットワーク層・・・パケットの転送、パケットの形式の規定
+	<LI>ネットワークインターフェイス層・・・コンピュータがどのようにフレームを送信するか
+	<LI>物理層・・・ネットワークハードウェア
 </UL>
 </P>
 <P>
-�@�R���s���[�^�V�X�e�����A
-��K�̓^�C���V�F�A�����O�V�X�e������l���[�N�X�e�[�V�����Ɉڍs����ɏ]���āA
-�Z�b�V�����w�̏d�v��������Ă����B
+　コンピュータシステムが、
+大規模タイムシェアリングシステムから個人ワークステーションに移行するに従って、
+セッション層の重要性が薄れてきた。
 </P>
 <P>
-�@TCP/IP�ł̓C���^�[�l�b�g�ɐڑ����ăA�v���P�[�V���������s����R���s���[�^��
-<B>�z�X�g�R���s���[�^(host computer)</B>�ƒ�`���Ă���B
-�z�X�g�ƃ��[�^��TCP/IP�v���g�R���\�t�g�E�F�A���K�v�ł��邪�A���[�^���Ńt�@�C���]���\�t�g��
-���s���邱�Ƃ͂Ȃ��̂ŁA���[�^�ɂ͑�T�K�w�i�A�v���P�[�V�����w�j�͕s�v�ł���B
+　TCP/IPではインターネットに接続してアプリケーションを実行するコンピュータを
+<B>ホストコンピュータ(host computer)</B>と定義している。
+ホストとルータにTCP/IPプロトコルソフトウェアが必要であるが、ルータ側でファイル転送ソフトを
+実行することはないので、ルータには第５階層（アプリケーション層）は不要である。
 </P>
 <HR>
 <A href="index.html">INDEX</A><BR>

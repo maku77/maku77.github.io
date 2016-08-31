@@ -12,178 +12,178 @@
 <A href="19.html">Prev Chapter 9 -- ICMP(internet control message protocol)</A><BR>
 <A href="index.html">INDEX</A><BR>
 
-<HR><H2>���M���̃g�����X�|�[�g</H2>
+<HR><H2>高信頼のトランスポート</H2>
 <P>
-	�@�M�����̓g�����X�|�[�g�v���g�R���̖����ł���B
-	TCP/IP suite�ɂ����ē]������v���g�R��(Transmission Conrol Protocol:TCP)��
-	���M���g�����X�|�[�g�T�[�r�X��񋟂���B
+	　信頼性はトランスポートプロトコルの役割である。
+	TCP/IP suiteにおいて転送制御プロトコル(Transmission Conrol Protocol:TCP)は
+	高信頼トランスポートサービスを提供する。
 </P>
 
-<HR><H2>TCP�̒񋟂���T�[�r�X</H2>
+<HR><H2>TCPの提供するサービス</H2>
 <P>
-	�@TCP���񋟂���T�[�r�X�ɂ͎�Ɏ��̂V�̓���������B
+	　TCPが提供するサービスには主に次の７つの特徴がある。
 </P>
 <UL>
-	<LI><B>�R�l�N�V�����w�� (connection oriented)</B>
+	<LI><B>コネクション指向 (connection oriented)</B>
 	<BLOCKQUOTE>
-		�@�A�v���P�[�V�����͍ŏ��ɂ��Đ�ɃR�l�N�V������v�����A
-		�f�[�^�̓]���ɂ��̃R�l�N�V�����𗘗p����B
+		　アプリケーションは最初にあて先にコネクションを要求し、
+		データの転送にそのコネクションを利用する。
 	</BLOCKQUOTE>
 
-	<LI><B>�Q�n�_�ԒʐM (point-to-point communication)</B>
+	<LI><B>２地点間通信 (point-to-point communication)</B>
 	<BLOCKQUOTE>
-		�@TCP�R�l�N�V�����͂Q�̃G���h�|�C���g�����B
+		　TCPコネクションは２つのエンドポイントを持つ。
 	</BLOCKQUOTE>
 
-	<LI><B>���S�M���� (complete reliability)</B>
+	<LI><B>完全信頼性 (complete reliability)</B>
 	<BLOCKQUOTE>
-		�@TCP�͑��M�f�[�^���A�����Ȃ��A�����̗���Ȃ��A
-		���m�ɔz�M����邱�Ƃ�ۏ؂���B
+		　TCPは送信データが、紛失なく、順序の乱れなく、
+		正確に配信されることを保証する。
 	</BLOCKQUOTE>
 
-	<LI><B>�S��d�ʐM (full duplex communication)</B>
+	<LI><B>全二重通信 (full duplex communication)</B>
 	<BLOCKQUOTE>
-		�@TCP�R�l�N�V�����ł͑o�����Ƀf�[�^�𗬂����Ƃ��ł���B
-		�܂��A���s�I�Ƀf�[�^�̎�M�A���M���\�ł���B
+		　TCPコネクションでは双方向にデータを流すことができる。
+		また、並行的にデータの受信、送信が可能である。
 	</BLOCKQUOTE>
 
-	<LI><B>�X�g���[���C���^�[�t�F�C�X (stream interface)</B>
+	<LI><B>ストリームインターフェイス (stream interface)</B>
 	<BLOCKQUOTE>
-		�@�A�v���P�[�V�����́A�R�l�N�V������ʂ��Ĉ�A�̘A������
-		�f�[�^�𑗐M�ł���B
+		　アプリケーションは、コネクションを通して一連の連続した
+		データを送信できる。
 	</BLOCKQUOTE>
 
-	<LI><B>���M���R�l�N�V�����̋N�� (reliable connection startup)</B>
+	<LI><B>高信頼コネクションの起動 (reliable connection startup)</B>
 	<BLOCKQUOTE>
-		�@�R�l�N�V�����𒣂鎞�́A�����̃A�v���P�[�V�������V����
-		�R�l�N�V�����ɍ��ӂ��Ȃ���΂Ȃ�Ȃ��B����ɂ��A
-		�ȑO�̃R�l�N�V�����Ŏg�p���ꂽ�d���p�P�b�g�͑��݂��Ȃ��Ȃ�B
+		　コネクションを張る時は、両方のアプリケーションが新しい
+		コネクションに合意しなければならない。これにより、
+		以前のコネクションで使用された重複パケットは存在しなくなる。
 	</BLOCKQUOTE>
 
-	<LI><B>����R�l�N�V������~ (graceful connection shutdown)</B>
+	<LI><B>正常コネクション停止 (graceful connection shutdown)</B>
 	<BLOCKQUOTE>
-		�@TCP�̓R�l�N�V������~�ɂ��o���̊m�F�ʒm�����A
-		�R�l�N�V����������܂łɂ��ׂẴf�[�^�����M����
-		�z�M���邱�Ƃ�ۏ؂���B
+		　TCPはコネクション停止にも双方の確認通知をし、
+		コネクションが閉じるまでにすべてのデータを高信頼に
+		配信することを保証する。
 	</BLOCKQUOTE>
 </UL>
 
-<HR><H2>�I�[��(end-to-end)�v���g�R��</H2>
+<HR><H2>終端間(end-to-end)プロトコル</H2>
 <P>
-	�@TCP�́A�A�v���P�[�V�����ւ̃R�l�N�V������񋟂���̂ŁA
-	end-to-end protocol�ƌĂ΂��B
-	TCP�Œ񋟂����R�l�N�V�����́A�\�t�g�E�F�A�ɂ���Ď��������̂ŁA
-	<B>���z�R�l�N�V����(virtual connection)</B>�ƌĂ΂��BIP�ɂ����
-	TCP�̃f�[�^���^�Ԃ��AIP��TCP�̃f�[�^��ǂ񂾂�A���߂����肷�邱�Ƃ͂Ȃ��B
-	�܂�ATCP�͏I�[�̂Q�_�����Ă̂ݕK�v�ł���B�i���[�^�ɂ͕K�v�Ȃ��j
+	　TCPは、アプリケーションへのコネクションを提供するので、
+	end-to-end protocolと呼ばれる。
+	TCPで提供されるコネクションは、ソフトウェアによって実現されるので、
+	<B>仮想コネクション(virtual connection)</B>と呼ばれる。IPによって
+	TCPのデータを運ぶが、IPはTCPのデータを読んだり、解釈したりすることはない。
+	つまり、TCPは終端の２点おいてのみ必要である。（ルータには必要ない）
 </P>
 <CENTER><IMG src="20_1.gif"></CENTER>
 
 
-<HR><H2>�p�P�b�g�����Ɗm�F�ʒm</H2>
+<HR><H2>パケット紛失と確認通知</H2>
 <P>
-	�@TCP�͍đ�(retransmission)�ɂ���āA�p�P�b�g����(packet loss)�ɑΉ�����B
-	TCP�̓f�[�^����M����ƁA�m�F�ʒm���b�Z�[�W(acknowledgenment)�𑗐M����
-	�ԑ�����B���M�҂̓f�[�^���M���Ƀ^�C�}���N�����A�m�F�ʒm���Ԃ��Ă��Ȃ�����
-	�ꍇ�͍đ��M����B
+	　TCPは再送(retransmission)によって、パケット紛失(packet loss)に対応する。
+	TCPはデータを受信すると、確認通知メッセージ(acknowledgenment)を送信元に
+	返送する。送信者はデータ送信時にタイマを起動し、確認通知が返ってこなかった
+	場合は再送信する。
 </P>
 <CENTER><IMG src="20_2.gif"></CENTER>
 
 
-<HR><H2>�K���^�đ�</H2>
+<HR><H2>適応型再送</H2>
 <P>
-	�@TCP�̃^�C���A�E�g���Ԃ͍ŏ��A�Œ�l���g��ꂽ���A����͂��܂������Ȃ�����
-	�����������B�����ŁATCP�͓K���^(adaptive)�̃^�C���A�E�g���Ԃ�p����B
-	TCP�͉����𔺂����b�Z�[�W�𑗐M���邱�Ƃɂ���āA�������Ԃ��v�����A
-	�����x������(round-trip delay)�𐄒肷��B<BR>
-	�@���U�l��p���邱�ƂŁA�p�P�b�g�̃o�[�X�g�ɂ���Ēx�����Ԃ����傷��ꍇ�ɁA
-	TCP���v���ɓK�����邱�Ƃ������Ă���B�܂��A���d���ς�p���邱�ƂŁA
-	�ꎞ�I�ȃo�[�X�g�̌�ɒx�����Ԃ��������߂鎞�ɁATCP���đ��^�C�}���ăZ�b�g
-	���邱�Ƃ������Ă���B<BR>
-	�@���R�ALAN�ɂ����Ă̓^�C���A�E�g���Ԃ͒Z���A�������ʐM�ɂ����Ă̓^�C���A�E�g���Ԃ͒����B
+	　TCPのタイムアウト時間は最初、固定値が使われたが、これはうまく動かないこと
+	が分かった。そこで、TCPは適応型(adaptive)のタイムアウト時間を用いる。
+	TCPは応答を伴うメッセージを送信することによって、往復時間を計測し、
+	往復遅延時間(round-trip delay)を推定する。<BR>
+	　分散値を用いることで、パケットのバーストによって遅延時間が増大する場合に、
+	TCPが迅速に適応することを助けている。また、加重平均を用いることで、
+	一時的なバーストの後に遅延時間が小さく戻る時に、TCPが再送タイマを再セット
+	することを助けている。<BR>
+	　当然、LANにおいてはタイムアウト時間は短く、長距離通信においてはタイムアウト時間は長い。
 </P>
 <CENTER><IMG src="20_3.gif"></CENTER>
 
-<HR><H2>�E�B���h�E�ƃt���[����</H2>
+<HR><H2>ウィンドウとフロー制御</H2>
 <P>
-	�@TCP�f�[�^��M�҂́A�f�[�^����M����ƁA�c��o�b�t�@�ʂ𑗐M�҂�
-	����Ԃ��B���̃o�b�t�@�T�C�Y�ʒm��<B>�E�B���h�E�L��(window advertisement)</B>�Ƃ����B
-	�O�̃T�C�Y���󂯎�������M�҂́A�f�[�^�̑��M���ꎞ���f����B
-	�����āA���̃T�C�Y����M����ƍĂё��M���J�n����B
+	　TCPデータ受信者は、データを受信すると、残りバッファ量を送信者へ
+	送り返す。このバッファサイズ通知を<B>ウィンドウ広告(window advertisement)</B>という。
+	０のサイズを受け取った送信者は、データの送信を一時中断する。
+	そして、正のサイズを受信すると再び送信を開始する。
 </P>
 <CENTER>
-	�ő�Z�O�����g�T�C�Y1000�I�N�e�b�g��TCP�t���[����<BR>
+	最大セグメントサイズ1000オクテットのTCPフロー制御<BR>
 	<IMG src="20_4.gif" border="1">
 </CENTER><BR>
 
-<HR><H2>�R�����n���h�V�F�[�N</H2>
+<HR><H2>３方向ハンドシェーク</H2>
 <P>
-	�@TCP�̓R�l�N�V�����̐����A�I�����ɂR�����n���h�V�F�[�N�@(3-way handshake)��
-	�g�p���Ă���B
+	　TCPはコネクションの生成、終結時に３方向ハンドシェーク法(3-way handshake)を
+	使用している。
 </P>
 <UL>
-	<LI><B>�R�l�N�V����������</B>�E�E�E�����Z�O�����g(SYN segment)(synchronization segment)
-	<LI><B>�R�l�N�V�����I����</B>�E�E�E�I���Z�O�����g(FIN segment)(finish segment)
+	<LI><B>コネクション生成時</B>・・・同期セグメント(SYN segment)(synchronization segment)
+	<LI><B>コネクション終結時</B>・・・終了セグメント(FIN segment)(finish segment)
 </UL>
 <CENTER><IMG src="20_5.gif"></CENTER>
 <P>
-	�@�R�n���h�V�F�[�N���Ɋe�I�[��32�r�b�g�����̏����ԍ�(sequence number)�𔭐�����B
-	�R���s���[�^�̃��u�[�g���ɂ�TCP�͐V����������I������B
-	����ɂ��e�R�l�N�V�����͈�΂̒ʐM���\�Ƃ���B
+	　３ハンドシェーク時に各終端は32ビット乱数の順序番号(sequence number)を発生する。
+	コンピュータのリブート時にはTCPは新しい乱数を選択する。
+	これにより各コネクションは一対の通信を可能とする。
 </P>
 
 
-<HR><H2>�t�s���� (congestion control)</H2>
+<HR><H2>輻輳制御 (congestion control)</H2>
 <P>
-	�@����̃C���^�[�l�b�g���[�N�ɂ����āA�p�P�b�g�����̓n�[�h�E�F�A��
-	�̏�����A�t�s�ɂ���Ĉ����N������邱�Ƃ������B
-	�t�s�ɂ���ăf�[�^���M�����s�����ꍇ�́A�f�[�^���đ��M���邽�߁A
-	����Ƀl�b�g���[�N�̏a�؂�傫�����邱�ƂɂȂ肩�˂Ȃ��i���t�s�j�� congestion collapse)�B<BR>
-	�@���̖��ɑΏ����邽�߁ATCP���t�s�̑��x�Ƃ��ăp�P�b�g������p���A
-	�đ��̎��͈ꎞ�I�Ƀf�[�^�ʂ������������t�s�ɑΉ�����B
-	���M�҂́A��M�����E�B���h�E�T�C�Y�̔����ɒB����܂ŁA�f�[�^�T�C�Y��
-	�w���֐��I�ɑ傫�����Ă����B�����ɒB����ƁA������������������B
+	　現代のインターネットワークにおいて、パケット紛失はハードウェアの
+	故障よりも、輻輳によって引き起こされることが多い。
+	輻輳によってデータ送信が失敗した場合は、データを再送信するため、
+	さらにネットワークの渋滞を大きくすることになりかねない（→輻輳破壊 congestion collapse)。<BR>
+	　この問題に対処するため、TCPは輻輳の測度としてパケット紛失を用い、
+	再送の時は一時的にデータ量を小さくして輻輳に対応する。
+	送信者は、受信したウィンドウサイズの半分に達するまで、データサイズを
+	指数関数的に大きくしていく。半分に達すると、増加率を減少させる。
 </P>
 
-<HR><H2>TCP�Z�O�����g�̌`��</H2>
+<HR><H2>TCPセグメントの形式</H2>
 <CENTER><IMG src="20_6.gif"></CENTER>
 <UL>
 	<LI><B>SOURCE PORT (16bit)</B>
 	<BLOCKQUOTE>
-		�@���M���̃|�[�g�������B
-		�f�[�^�𑗐M�����v���O��������肷��B
+		　発信元のポートを示す。
+		データを送信したプログラムを特定する。
 	</BLOCKQUOTE>
 
 	<LI><B>DESTINATION PORT (16bit)</B>
 	<BLOCKQUOTE>
-		�@����̃|�[�g�����B��M�R���s���[�^�̂ǂ̃A�v���P�[�V������
-		�f�[�^����M���ׂ�������肷��B
+		　宛先のポート示す。受信コンピュータのどのアプリケーションが
+		データを受信すべきかを特定する。
 	</BLOCKQUOTE>
 
 	<LI><B>SEQUENCE NUMBER (32bit)</B>
 	<BLOCKQUOTE>
-		�@�����ԍ��B��M���ꂽ�f�[�^�̏�������𒼂��̂ɗp�����A
-		�m�F�ʒm�ԍ����v�Z����̂ɂ��g�p�����B
+		　順序番号。受信されたデータの順序乱れを直すのに用いられ、
+		確認通知番号を計算するのにも使用される。
 	</BLOCKQUOTE>
 
 	<LI><B>ACKNOWLEDGEMENT NUMBER (32bit)</B>
 	<BLOCKQUOTE>
-		�@�m�F�ʒm�ԍ��B��M���ꂽ�f�[�^�̏����ԍ�����肷��B
+		　確認通知番号。受信されたデータの順序番号を特定する。
 	</BLOCKQUOTE>
 
 	<LI><B>H.LEN (4bit)</B>
 	<BLOCKQUOTE>
-		�@TCP�Z�O�����g�w�b�_�T�C�Y(32bit�P��)�B�܂�y�C���[�h�����܂ł̃I�t�Z�b�g�B
+		　TCPセグメントヘッダサイズ(32bit単位)。つまりペイロード部分までのオフセット。
 	</BLOCKQUOTE>
 
 	<LI><B>NOT USED (6bit)</B>
 	<BLOCKQUOTE>
-		�@�\��B
+		　予約。
 	</BLOCKQUOTE>
 
 	<LI><B>CODE BITS(Control bits) (6bit)</B>
 	<BLOCKQUOTE>
-		�@����t�B�[���h���Ӗ��������������r�b�g�p�^�[���B
+		　あるフィールドが意味を持つかを示すビットパターン。
 	</BLOCKQUOTE>
 </UL>
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0">
@@ -192,44 +192,44 @@
 	</TR>
 	<TR>
 		<TD>000001</TD><TD>URG</TD>
-		<TD>urgent pointer(�ً}�|�C���^)���L���ł���B</TD>
+		<TD>urgent pointer(緊急ポインタ)が有効である。</TD>
 	</TR>
 	<TR>
 		<TD>000010</TD><TD>ACK</TD>
-		<TD>Acknowledgement Number(�m�F�����ԍ�)���L���ł���B</TD>
+		<TD>Acknowledgement Number(確認応答番号)が有効である。</TD>
 	</TR>
 	<TR>
 		<TD>000100</TD><TD>PSH</TD>
-		<TD>�]�������@�\�B</TD>
+		<TD>転送強制機能。</TD>
 	</TR>
 	<TR>
 		<TD>001000</TD><TD>RST</TD>
-		<TD>�R�l�N�V�����̃��Z�b�g��v���B</TD>
+		<TD>コネクションのリセットを要求。</TD>
 	</TR>
 	<TR>
 		<TD>010000</TD><TD>SYN</TD>
-		<TD>sequence number�̓�����v���B</TD>
+		<TD>sequence numberの同期を要求。</TD>
 	</TR>
 	<TR>
 		<TD>100000</TD><TD>FIN</TD>
-		<TD>���M�̏I���������B</TD>
+		<TD>送信の終了を示す。</TD>
 	</TR>
 </TABLE>
 
 <UL>
 	<LI><B>WINDOW (16bit)</B>
 	<BLOCKQUOTE>
-		�@��M�o�b�t�@�̎c��T�C�Y(�E�B���h�E�T�C�Y)�B
+		　受信バッファの残りサイズ(ウィンドウサイズ)。
 	</BLOCKQUOTE>
 
 	<LI><B>CHECKSUM (16bit)</B>
 	<BLOCKQUOTE>
-		�@TCP�Z�O�����g�w�b�_��TCP�Z�O�����g�f�[�^�̌������v�B
+		　TCPセグメントヘッダとTCPセグメントデータの検査合計。
 	</BLOCKQUOTE>
 
 	<LI><B>URGENT POINTER (16bit)</B>
 	<BLOCKQUOTE>
-		�@���荞�ݐM���Ȃǂً̋}�f�[�^�̏I���ʒu�B
+		　割り込み信号などの緊急データの終了位置。
 	</BLOCKQUOTE>
 </UL>
 

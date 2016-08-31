@@ -14,97 +14,97 @@
 <A href="18.html">Next Chapter 8 -- IP version 6</A>
 
 
-<HR><H2>�t���[���`���̈Ⴂ�̖��</H2>
+<HR><H2>フレーム形式の違いの問題</H2>
 <P>
-�@�f�[�^�O�������t���[���ɃJ�v�Z�������A�����̃l�b�g���[�N���o�R����ہA
-�t���[���`���̈Ⴂ�̖�肪�����B�قȂ�l�b�g���[�N�Z�p�́A
-�قȂ�t���[���`�����g�p���Ă���̂ŁA�َ�l�b�g���[�N��ڑ�����
-���[�^��IP�f�[�^�O�������t�H���[�h���鎞�ɁA�t���[������������K�v������B
+　データグラムをフレームにカプセル化し、複数のネットワークを経由する際、
+フレーム形式の違いの問題が現れる。異なるネットワーク技術は、
+異なるフレーム形式を使用しているので、異種ネットワークを接続する
+ルータはIPデータグラムをフォワードする時に、フレームを交換する必要がある。
 </P>
 <CENTER><IMG src="17_2.gif" border="1"></CENTER><BR>
 
 
 <HR><H2>MTU (Maximum Transmission Unit)</H2>
 <P>
-�@�e�n�[�h�E�F�A�Z�p�ɂ́A�ő�]���P�ʁiMaximum Transmission Unit : MTU)�����݂���B
-MTU�̓t���[�����^�Ԃ��Ƃ̂ł���f�[�^�ʁA�܂�IP�f�[�^�O�����̃T�C�Y�ł���B
-�l�b�g���[�N�n�[�h�E�F�A�́AMTU�o�C�g�ȉ��̃f�[�^�O��������M�A�y�ё��M���Ȃ���΂����Ȃ��B
-�Ⴆ�΁AMTU��1500�̃l�b�g���[�N�n�[�h�E�F�A�ł́AIP�f�[�^�O������1500byte���M�ł���B
-IP�f�[�^��IP�f�[�^�O�����w�b�_����������1480byte���M�ł��邱�ƂɂȂ�i�w�b�_��20byte�̎��j�B
+　各ハードウェア技術には、最大転送単位（Maximum Transmission Unit : MTU)が存在する。
+MTUはフレームが運ぶことのできるデータ量、つまりIPデータグラムのサイズである。
+ネットワークハードウェアは、MTUバイト以下のデータグラムを受信、及び送信しなければいけない。
+例えば、MTU＝1500のネットワークハードウェアでは、IPデータグラムを1500byte送信できる。
+IPデータはIPデータグラムヘッダ分を除いた1480byte送信できることになる（ヘッダが20byteの時）。
 </P>
 <CENTER><IMG src="17_3.gif" border="1"></CENTER><BR>
 <P>
-�@���̂܂܂ł́A�z�X�g�g<SUB>1</SUB>���z�X�g�g<SUB>2</SUB>��1500byte��IP�f�[�^�O�����𑗐M����ƁA
-�l�b�g���[�N�Q��MTU��1000�Ȃ̂ŁA���[�^�͂��̃f�[�^�O�����𑗐M�ł��Ȃ��B
-������IP�f�[�^�O������f�Љ��ifragmentation�j����K�v������B
+　そのままでは、ホストＨ<SUB>1</SUB>がホストＨ<SUB>2</SUB>へ1500byteのIPデータグラムを送信すると、
+ネットワーク２はMTU＝1000なので、ルータはこのデータグラムを送信できない。
+そこでIPデータグラムを断片化（fragmentation）する必要がある。
 </P>
 
 
-<HR><H2>�t���O�����e�[�V���� (fragmentation)</H2>
+<HR><H2>フラグメンテーション (fragmentation)</H2>
 <P>
-�@IP���[�^��MTU�̖����������邽�߂�IP�f�[�^�O�������t���O�����g(fragment)
-�ɕ�������B
+　IPルータはMTUの問題を解決するためにIPデータグラムをフラグメント(fragment)
+に分割する。
 </P>
 <CENTER><IMG src="17_4.gif" border="1"></CENTER><BR>
 <P>
-�@�t���O�����g�����ꂽIP�f�[�^�O�����ɂ́A���Ƃ̊��S��IP�f�[�^�O������
-�قƂ�Ǔ���IP�w�b�_���t���i�R�s�[�j�����B
-�ύX�����̂́AFLAGS�AFLAGMENT OFFSET�Ƃ������t���O�����e�[�V�����p�̃t�B�[���h�ł���B
-�i���R�ATOTAL LENGTH��AHEADER CHECKSUM�Ȃǂ��ύX�����j
+　フラグメント化されたIPデータグラムには、もとの完全なIPデータグラムと
+ほとんど同じIPヘッダが付加（コピー）される。
+変更されるのは、FLAGS、FLAGMENT OFFSETといったフラグメンテーション用のフィールドである。
+（当然、TOTAL LENGTHや、HEADER CHECKSUMなども変更される）
 </P>
 
 
-<HR><H2>�đg�ݗ��� (reassembly)</H2>
+<HR><H2>再組み立て (reassembly)</H2>
 <P>
-�@�C���^�[�l�b�g�v���g�R���ł́A�ŏI�I�Ȉ���z�X�g�ɂ�����
-�t���O�����g�͍đg�ݗ��Ă����ׂ����ƋK�肵�Ă���B
+　インターネットプロトコルでは、最終的な宛先ホストにおいて
+フラグメントは再組み立てされるべきだと規定している。
 </P>
 <CENTER><IMG src="17_5.gif" border="1"></CENTER><BR>
 <P>
-�@��ȗ��R�Ƃ��āA
+　主な理由として、
 	<UL>
-		<LI>���[�^���A�t�H���[�h���Ƀt���O�����g�ł��邩���ʂ���K�v���Ȃ��B
-		<LI>���ꂼ��̃t���O�����g���ʁX�̃��[�g�𗘗p���邱�Ƃ��ł���B
+		<LI>ルータが、フォワード時にフラグメントであるか判別する必要がない。
+		<LI>それぞれのフラグメントが別々のルートを利用することができる。
 	</UL>
-�Ȃǂ���������B
+などがあげられる。
 </P>
 <CENTER><IMG src="17_6.gif" border="1"></CENTER><BR>
 <P>
-�@IP�͔z�M��ۏ؂�����̂ł͂Ȃ��̂ŁA�S�Ẵt���O�����g���m���ɓ�������킯�ł͂Ȃ��B
-�܂��A�t���O�����g�̓����������o���o���ł���B����ɁA�قȂ�IP�f�[�^�O�����̃t���O�����g��
-�A�����Ď�M����邱�Ƃ�����B
-�܂�A��M�����t���O�����g���ǂ�IP�f�[�^�O�����̂��̂ŁA����IP�f�[�^�O������
-�ǂ̕����̃t���O�����g�ł��邩��m�邽�߂̎d�g�݂��K�v�ɂȂ�B
-���̂��߂ɁAIP�w�b�_�̎��ʔԍ��iIDENTIFICATION�j�ƁA
-�t���O�����g�I�t�Z�b�g�iFRAGMENT OFFSET�j���p�ӂ���Ă���B
-IP�f�[�^�O�����̏����𔻒肷�邽�߂ɂ́AIDENTIFICATION�̒l�����
-IP���M���A�h���X���g����B
+　IPは配信を保証するものではないので、全てのフラグメントが確実に到着するわけではない。
+また、フラグメントの到着順序もバラバラである。さらに、異なるIPデータグラムのフラグメントが
+連続して受信されることがある。
+つまり、受信したフラグメントがどのIPデータグラムのもので、そのIPデータグラムの
+どの部分のフラグメントであるかを知るための仕組みが必要になる。
+そのために、IPヘッダの識別番号（IDENTIFICATION）と、
+フラグメントオフセット（FRAGMENT OFFSET）が用意されている。
+IPデータグラムの所属を判定するためには、IDENTIFICATIONの値および
+IP送信元アドレスが使われる。
 </P>
 
 
-<HR><H2>�t���O�����g�̕����ƒx��</H2>
+<HR><H2>フラグメントの紛失と遅延</H2>
 <P>
-�@��M�҂̓t���O�����g�����������ہA�{���ɕ��������̂��A
-����Ƃ������x�����Ă��邾���Ȃ̂���m����@���Ȃ��B
-�����A�x�����Ă���Ƃ݂Ȃ��ĉi���ɑ҂��Â���Ƃ���ƁA
-����܂łɓ��������t���O�����g�̂��߂Ƀ�������Q��邱�ƂɂȂ�B
-�����ŁA��M�҂͍ŏ��̃t���O�����g����������ƃ^�C�}�[���N�����A
-�^�C�}�[���؂��Ǝ�M�����t���O�����g��j������悤�ɂ���B
-�^�C�}�[���؂��O�ɑS�Ẵt���O�����g����M�����ꍇ�́A�f�[�^�O�������đg�ݗ��Ă���B<BR>
-�@���M�҂́A�t���O�����g���ӎ����Ȃ��̂ŁA
-��M�҂����M�҂Ƀt���O�����g�̓�����m�点��悤�Ȃ��Ƃ͂Ȃ��B
+　受信者はフラグメントが紛失した際、本当に紛失したのか、
+それともただ遅延しているだけなのかを知る方法がない。
+もし、遅延しているとみなして永遠に待ちつづけるとすると、
+それまでに到着したフラグメントのためにメモリを浪費することになる。
+そこで、受信者は最初のフラグメントが到着するとタイマーを起動し、
+タイマーが切れると受信したフラグメントを破棄するようにする。
+タイマーが切れる前に全てのフラグメントを受信した場合は、データグラムを再組み立てする。<BR>
+　送信者は、フラグメントを意識しないので、
+受信者が送信者にフラグメントの到着を知らせるようなことはない。
 </P>
 
 
-<HR><H2>�t���O�����g�̃t���O�����e�[�V����</H2>
+<HR><H2>フラグメントのフラグメンテーション</H2>
 <P>
-�@IP�f�[�^�O�������t���O�����g������A
-���̎���IP���[�^�ł���ɍׂ����t���O�����g�ɕ�������邱�Ƃ�����B
-���̎��AIP�w�b�_��FRAGMENT OFFSET������ɏ������Ȃ邪�A
-��{�I�Ɍ��̃t���O�����g�ƃT�u�t���O�����g�ɈႢ�͂Ȃ��B
-����́AIP�f�[�^�O�����̍đg�ݗ��Ă̎��ɁA�t���O�����g�ƃT�u�t���O�����g
-�̋�ʂ����Ȃ��ŁA�P�x�ɍđg�ݗ��Ăł��邱�Ƃ������Ă���B<BR>
-�@MTU�������������Ă����悤�ȏꍇ�A�C���^�[�l�b�g���[�N�̐݌v�������Ƃ�����B
+　IPデータグラムがフラグメント化され、
+その次のIPルータでさらに細かいフラグメントに分割されることがある。
+この時、IPヘッダのFRAGMENT OFFSETがさらに小さくなるが、
+基本的に元のフラグメントとサブフラグメントに違いはない。
+これは、IPデータグラムの再組み立ての時に、フラグメントとサブフラグメント
+の区別をしないで、１度に再組み立てできることを示している。<BR>
+　MTUが順次減少していくような場合、インターネットワークの設計が悪いといえる。
 </P>
 
 <HR>

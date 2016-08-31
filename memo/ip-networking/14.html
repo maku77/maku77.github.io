@@ -13,27 +13,27 @@
 <A href="index.html">INDEX</A><BR>
 <A href="15_a.html">Next Chapter 3 -- Address Resolution</A>
 
-<HR><H2>�����A�h���X�̔�݊����̖��</H2>
+<HR><H2>物理アドレスの非互換性の問題</H2>
 <P>
-�@�e�l�b�g���[�N�͌݊����̂Ȃ��Ǝ��̋Z�p�ɂ���č\������Ă���̂ŁA
-���̕����A�h���X(physical address)���݊������Ȃ��B
-�����ŁA����A�h���X�t��(uniform addressing)���邽�߂ɁA
-�v���g�R���\�t�g�E�F�A�́A�Ǝ��̃A�h���X�t�����`����B
+　各ネットワークは互換性のない独自の技術によって構成されているので、
+その物理アドレス(physical address)も互換性がない。
+そこで、統一アドレス付け(uniform addressing)するために、
+プロトコルソフトウェアは、独自のアドレス付けを定義する。
 <BLOCKQUOTE>
-�� IP Address (32bit)
+→ IP Address (32bit)
 </BLOCKQUOTE>
-�@�܂�A����Q�̃A�v���P�[�V�������ʐM���s�����A
-����̃n�[�h�E�F�A�A�h���X��m��K�v�͂Ȃ��B
+　つまり、ある２つのアプリケーションが通信を行う時、
+相手のハードウェアアドレスを知る必要はない。
 </P>
 
-<HR><H2>IP Address�̃N���X</H2>
+<HR><H2>IP Addressのクラス</H2>
 <P>
-32�r�b�gIP Address�͂Q�̊K�w�ɕ������B
+32ビットIP Addressは２つの階層に分かれる。
 <UL>
-	<LI>�v���t�B�b�N�X�c�R���s���[�^�̐ڑ����ꂽ�����l�b�g���[�N��\��
-	<LI>�T�t�B�b�N�X�c���̃l�b�g���[�N�Ōʂ̃R���s���[�^�����ʂ���
+	<LI>プレフィックス…コンピュータの接続された物理ネットワークを表す
+	<LI>サフィックス…そのネットワークで個別のコンピュータを識別する
 </UL>
-IP Address�̃N���X�͈ȉ��̂悤�ɕ��ނ����B
+IP Addressのクラスは以下のように分類される。
 </P>
 
 <TABLE align="center" border="0" cellpadding="1" cellspacing="0">
@@ -89,115 +89,115 @@ IP Address�̃N���X�͈ȉ��̂悤�ɕ��ނ����B
 </TABLE>
 
 <P>
-�@�I�N�e�b�g�̋��E�Ńv���t�B�b�N�X�ƃT�t�B�b�N�X�͕��������B
-�N���XA�`C�̓z�X�g�A�h���X�Ɏg�p����A<B>��{�N���X(primary address)</B>�ƌĂ΂��B
+　オクテットの境界でプレフィックスとサフィックスは分割される。
+クラスA〜Cはホストアドレスに使用され、<B>基本クラス(primary address)</B>と呼ばれる。
 </P>
 
-<HR><H2>�h�b�g��؂�10�i�L�@</H2>
+<HR><H2>ドット区切り10進記法</H2>
 <P>
 <BLOCKQUOTE>
-10000000 10000000 11111111 00000000 �� 128.128.255.0
+10000000 10000000 11111111 00000000 → 128.128.255.0
 </BLOCKQUOTE>
-�@IP Address��IP Address���g���炻�̃A�h���X�N���X���v�Z�ł���̂ŁA
-<B>���ȓ���^(self identifying)</B>�ƌĂ΂��B
-�Ⴆ�΁A�Q�i�@�ł͍ŏ��̂Sbit�𒲂ׂ�΁A�N���X�������邵�A
-10�i�@�ł́A��P�I�N�e�b�g�𒲂ׂ�Δ��ʂł���B
+　IP AddressはIP Address自身からそのアドレスクラスを計算できるので、
+<B>自己特定型(self identifying)</B>と呼ばれる。
+例えば、２進法では最初の４bitを調べれば、クラスが分かるし、
+10進法では、第１オクテットを調べれば判別できる。
 </P>
 <TABLE align="center" border="1" cellpadding="3">
-	<TR bgcolor="#cccccc"><TH>�N���X</TH><TH>��P�I�N�e�b�g</TH></TR>
-	<TR><TH>A</TH><TH>0 �` 127</TH></TR>
-	<TR><TH>B</TH><TH>128 �` 191</TH></TR>
-	<TR><TH>C</TH><TH>192 �` 223</TH></TR>
-	<TR><TH>D</TH><TH>224 �` 239</TH></TR>
-	<TR><TH>E</TH><TH>240 �` 255</TH></TR>
+	<TR bgcolor="#cccccc"><TH>クラス</TH><TH>第１オクテット</TH></TR>
+	<TR><TH>A</TH><TH>0 〜 127</TH></TR>
+	<TR><TH>B</TH><TH>128 〜 191</TH></TR>
+	<TR><TH>C</TH><TH>192 〜 223</TH></TR>
+	<TR><TH>D</TH><TH>224 〜 239</TH></TR>
+	<TR><TH>E</TH><TH>240 〜 255</TH></TR>
 </TABLE>
 <CENTER><IMG src="14_2.gif"></CENTER>
 
-<HR><H2>���蓖�Ă���l�b�g���[�N���A�z�X�g��</H2>
+<HR><H2>割り当てられるネットワーク数、ホスト数</H2>
 <TABLE align="center" border="1" cellpadding="3">
-	<TR bgcolor="#cccccc"><TH>�N���X</TH><TH>�l�b�g���[�N��</TH><TH>�z�X�g��</TH></TR>
-	<TR><TH>A</TH><TD>2<SUP>7</SUP>�@= 128</TD><TD>2<SUP>24</SUP> = 16777216</TD></TR>
+	<TR bgcolor="#cccccc"><TH>クラス</TH><TH>ネットワーク数</TH><TH>ホスト数</TH></TR>
+	<TR><TH>A</TH><TD>2<SUP>7</SUP>　= 128</TD><TD>2<SUP>24</SUP> = 16777216</TD></TR>
 	<TR><TH>B</TH><TD>2<SUP>14</SUP> = 16384</TD><TD>2<SUP>16</SUP> = 65536</TD></TR>
-	<TR><TH>C</TH><TD>2<SUP>21</SUP> = 2097152</TD><TD>2<SUP>8</SUP>�@= 256</TD></TR>
+	<TR><TH>C</TH><TD>2<SUP>21</SUP> = 2097152</TD><TD>2<SUP>8</SUP>　= 256</TD></TR>
 </TABLE>
 <P>
-�@���ۂɂ͓��ʃA�h���X�t�H�[���Ɏg�p����A�h���X������̂ŁA�����Ə��Ȃ��B
+　実際には特別アドレスフォームに使用するアドレスがあるので、もっと少ない。
 </P>
 
-<HR><H2>���[�J���A�h���X</H2>
+<HR><H2>ローカルアドレス</H2>
 <TABLE align="center" border="1" cellpadding="3">
-	<TR bgcolor="#cccccc"><TH>�N���X</TH><TH>�A�h���X</TH><TH>�T�u�l�b�g�}�X�N</TH></TR>
+	<TR bgcolor="#cccccc"><TH>クラス</TH><TH>アドレス</TH><TH>サブネットマスク</TH></TR>
 	<TR><TH>A</TH><TD>10.0.0.0 - 10.255.255.255</TD><TD>255.0.0.0</TD></TR>
 	<TR><TH>B</TH><TD>172.16.0.0 - 172.31.255.255</TD><TD>255.255.0.0</TD></TR>
 	<TR><TH>C</TH><TD>192.168.0.0 - 192.168.255.255</TD><TD>255.255.255.0</TD></TR>
 </TABLE>
-<DIV align="right">RFC1597���</DIV>
+<DIV align="right">RFC1597より</DIV>
 
 
-<HR><H2>�N���X�`�`�b�ǂ��I�����邩</H2>
+<HR><H2>クラスＡ〜Ｃどれを選択するか</H2>
 <P>
 <UL>
-	<LI>�O���[�o���C���^�[�l�b�g�ɐڑ������l�b�g���[�N�ɑ΂��ẮA
-	ISP���N���X�̑I�����s���B
-	<LI>�{�݃C���^�[�l�b�g���[�N�ɐڑ������l�b�g���[�N�ɑ΂��ẮA
-	���̃l�b�g���[�N�̊Ǘ��҂��N���X�̑I�����s���B
+	<LI>グローバルインターネットに接続されるネットワークに対しては、
+	ISPがクラスの選択を行う。
+	<LI>施設インターネットワークに接続されるネットワークに対しては、
+	そのネットワークの管理者がクラスの選択を行う。
 </UL>
-�@ISP(Internet Service Providers)�́AIANA(Internet Assigned Number Authority)��
-�������A�e�l�b�g�|���[�N�v���t�B�b�N�X���O���[�o���C���^�[�l�b�g�ɑ΂��āA
-��ӂł��邱�Ƃ�ۏ؂���B�܂��A�N���X�`���F�߂��邱�Ƃ͖ő��ɂȂ��B
-�i���݂ł́A�N���X�`�����蓖�Ă��邱�Ƃ͂���܂���B
-�N���X�a�̃A�h���X���s������X���ɂ���܂����A�N���X�b�̃A�h���X�ɂ͂܂��]�T������܂��B�j
+　ISP(Internet Service Providers)は、IANA(Internet Assigned Number Authority)と
+協調し、各ネット−ワークプレフィックスがグローバルインターネットに対して、
+一意であることを保証する。また、クラスＡが認められることは滅多にない。
+（現在では、クラスＡが割り当てられることはありません。
+クラスＢのアドレスが不足する傾向にありますが、クラスＣのアドレスにはまだ余裕があります。）
 </P>
 
 
-<HR><H2>���ʃA�h���X�t�H�[��(special address form)</H2>
+<HR><H2>特別アドレスフォーム(special address form)</H2>
 <TABLE border="1" cellpadding="3">
 <TR bgcolor="#cccccc"><TH>Type</TH><TH>Example</TH><TH>Description</TH>
 <TR>
-	<TH><NOBR>�l�b�g���[�N�A�h���X<BR>(network address)</NOBR></TH>
+	<TH><NOBR>ネットワークアドレス<BR>(network address)</NOBR></TH>
 	<TD>10.0.0.0</TD>
-	<TD>�l�b�g���[�N���w�肷��Bsuffix���S�ĂO�B</TD>
+	<TD>ネットワークを指定する。suffixが全て０。</TD>
 </TR>
 <TR>
-	<TH><NOBR>�w��u���[�h�L���X�g�A�h���X<BR>(directed broadcast address)</NOBR></TH>
+	<TH><NOBR>指定ブロードキャストアドレス<BR>(directed broadcast address)</NOBR></TH>
 	<TD>10.255.255.255</TD>
-	<TD>�w��̃l�b�g���[�N�ւ̃u���[�h�L���X�g�Bsuffix���S�ĂP�B</TD>
+	<TD>指定のネットワークへのブロードキャスト。suffixが全て１。</TD>
 </TR>
 <TR>
-	<TH><NOBR>�����u���[�h�L���X�g�A�h���X<BR>(limited broadcast address)</NOBR></TH>
+	<TH><NOBR>制限ブロードキャストアドレス<BR>(limited broadcast address)</NOBR></TH>
 	<TD>255.255.255.255</TD>
-	<TD>���[�J���l�b�g���[�N�ւ̃u���[�h�L���X�g�B�S�ĂP�B</TD>
+	<TD>ローカルネットワークへのブロードキャスト。全て１。</TD>
 </TR>
 <TR>
-	<TH><NOBR>���ȃR���s���[�^�A�h���X<BR>(this computer address)</NOBR></TH>
+	<TH><NOBR>自己コンピュータアドレス<BR>(this computer address)</NOBR></TH>
 	<TD>0.0.0.0</TD>
-	<TD>�u�[�g�X�g���b�v���̎��ȃA�h���X�Ƃ��Ĉ����B�S�ĂO�B</TD>
+	<TD>ブートストラップ時の自己アドレスとして扱う。全て０。</TD>
 </TR>
 <TR>
-	<TH><NOBR>���[�v�o�b�N�A�h���X<BR>(loopback address)</NOBR></TH>
+	<TH><NOBR>ループバックアドレス<BR>(loopback address)</NOBR></TH>
 	<TD>127.0.0.1</TD>
-	<TD>�l�b�g���[�N�A�v���P�[�V�����̃e�X�g�Ɏg���B
-	���ȃR���s���[�^�ɑ΂��ăp�P�b�g�𑗐M���邪�A
-	���ۂ̃l�b�g���[�N����邱�Ƃ͂Ȃ��B�N���X�`��prefix��127�ɂ������́B</TD>
+	<TD>ネットワークアプリケーションのテストに使う。
+	自己コンピュータに対してパケットを送信するが、
+	実際のネットワークを介することはない。クラスＡのprefixを127にしたもの。</TD>
 </TR>
 </TABLE>
 <P>
-�@<B>�� �o�[�N���C�u���[�h�L���X�g�A�h���X�t�H�[��</B>
+　<B>※ バークレイブロードキャストアドレスフォーム</B>
 <BLOCKQUOTE>
-�@BSD UNIX�̏���TCP/IP�v���g�R���ł́A�w��u���[�h�L���X�g��\�����߂ɁA
-suffix���S�ĂP�ł͂Ȃ��A�S�ĂO�Ƃ����A�h���X��p���Ă����B
-��������TCP/IP�����ł́A�����𗼕��󂯓����悤�ɐ݌v����Ă���B
+　BSD UNIXの初期TCP/IPプロトコルでは、指定ブロードキャストを表すために、
+suffixが全て１ではなく、全て０というアドレスを用いていた。
+いくつかのTCP/IP実装では、これらを両方受け入れるように設計されている。
 </BLOCKQUOTE>
 </P>
 
 
-<HR><H2>���[�^��IP Address</H2>
+<HR><H2>ルータのIP Address</H2>
 <P>
-�@���[�^�́A�����̕����l�b�g���[�N�̐ړ_�Ƃ��ėp������̂ŁA
-������prefix�������ƂɂȂ�B
-�܂�A���[�^�ɂ͂Q�ȏ��IP�A�h���X�����蓖�Ă���(��multihomed)�B
-�g�D���l�b�g���[�N�ł́A���[�^��suffix�𓝈ꂷ��i�Ⴆ�΂P�Ƃ���j��
-�Ǘ����y�ɂȂ�B
+　ルータは、複数の物理ネットワークの接点として用いられるので、
+複数のprefixを持つことになる。
+つまり、ルータには２つ以上のIPアドレスが割り当てられる(→multihomed)。
+組織内ネットワークでは、ルータのsuffixを統一する（例えば１とする）と
+管理が楽になる。
 </P>
 <HR>
 <A href="13.html">Prev Chapter 1 -- Universal Service</A><BR>

@@ -14,7 +14,7 @@
 <A href="17.html">Next Chapter 7 -- MTU (Maximum Transmission Unit), Fragmentation</A>
 
 
-<HR><H2>IP�f�[�^�O�����̃w�b�_�`��</H2>
+<HR><H2>IPデータグラムのヘッダ形式</H2>
 <TABLE align="center" border="0" cellpadding="3" cellspacing="0">
 <TR>
 	<TD width="125">0</TD>
@@ -48,7 +48,7 @@
 	<TH colspan="5" bgcolor="#cccccc">DESTINATION IP ADDRESS</TH>
 </TR>
 <TR>
-	<TH colspan="4">IP OPTION (�ȗ���)</TH>
+	<TH colspan="4">IP OPTION (省略可)</TH>
 	<TH>PADDING</TH>
 </TR>
 </TABLE>
@@ -56,49 +56,49 @@
 <UL>
 	<LI><B>VERS (4bit)</B>
 	<BLOCKQUOTE>
-		�@�o�[�W�����ԍ� (���݂͂S(IPv4))�B
+		　バージョン番号 (現在は４(IPv4))。
 	</BLOCKQUOTE>
 	
 	<LI><B>H.LEN (4bit)</B>
 	<BLOCKQUOTE>
-		�@32bit�P�ʂ̃w�b�_�T�C�Y�BOption�������Ȃ��ꍇ�T�ɂȂ�B(�T�`15�ɂȂ�j
+		　32bit単位のヘッダサイズ。Optionを持たない場合５になる。(５〜15になる）
 	</BLOCKQUOTE>
 
 	<LI><B>SERVICE TYPE (8bit)</B>
 	<BLOCKQUOTE>
-		�@�ŏ��x���̃��[�g��]�ނ̂��A
-		�ő�X���[�v�b�g�̃��[�g��]�ނ̂��Ƃ������B
-		�����̃��[�g�����鎞�̓��[�^�͂��̒l���Q�Ƃ���B
-		SERVICE TYPE�͂���Ɏ��̂悤�ɕ��ނ����B
+		　最小遅延のルートを望むのか、
+		最大スループットのルートを望むのかという情報。
+		複数のルートがある時はルータはこの値を参照する。
+		SERVICE TYPEはさらに次のように分類される。
 		<TABLE border="1" cellpadding="3" cellspacing="0">
 		<TR>
-			<TH bgcolor="#dddddd">Precedence<BR>�D��<BR>(0-2)</TH>
+			<TH bgcolor="#dddddd">Precedence<BR>優位<BR>(0-2)</TH>
 			<TD nowrap>
-				111 : Network Control (�l�b�g���[�N����)<BR>
-				110 : Internetwork Control (�l�b�g���[�N�Ԑ���)<BR>
-				101 : CRITC/ECP (�d��)<BR>
-				100 : Flash Override (�����A�D��)<BR>
-				011 : Flash (����)<BR>
-				010 : Immediate (����)<BR>
-				001 : Priority (�D��)<BR>
-				000 : Routine (�ʏ�)
+				111 : Network Control (ネットワーク制御)<BR>
+				110 : Internetwork Control (ネットワーク間制御)<BR>
+				101 : CRITC/ECP (重大)<BR>
+				100 : Flash Override (即時、優先)<BR>
+				011 : Flash (即時)<BR>
+				010 : Immediate (即座)<BR>
+				001 : Priority (優先)<BR>
+				000 : Routine (通常)
 			</TD>
 		</TR>
 		<TR>
 			<TH bgcolor="#dddddd">TOS<BR>type of service<BR>(3-6)</TH>
 			<TD nowrap>
-				1111 : maximize security (�Z�L�����e�B�ő�)<BR>
-				1000 : minimize delay (�x���ŏ�)<BR>
-				0100 : maximize throughput (�X���[�v�b�g�ő�)<BR>
-				0010 : maximize reliability (�M�����ő�)<BR>
-				0001 : minimize monetary cost (���K��̃R�X�g�ŏ�)<BR>
-				0000 : normal service (�ʏ�̃T�[�r�X)
+				1111 : maximize security (セキュリティ最大)<BR>
+				1000 : minimize delay (遅延最小)<BR>
+				0100 : maximize throughput (スループット最大)<BR>
+				0010 : maximize reliability (信頼性最大)<BR>
+				0001 : minimize monetary cost (金銭上のコスト最小)<BR>
+				0000 : normal service (通常のサービス)
 			</TD>
 		</TR>
 		<TR>
 			<TH bgcolor="#dddddd">MBZ<BR>must be zero<BR>(7)</TH>
 			<TD nowrap>
-				0 : �ۗ��r�b�g
+				0 : 保留ビット
 			</TD>
 		</TR>
 		</TABLE>
@@ -106,115 +106,115 @@
 	
 	<LI><B>TOTAL LENGTH (16bit)</B>
 	<BLOCKQUOTE>
-		�@�f�[�^�O�����S�̂̃I�N�e�b�g(�o�C�g)���B
+		　データグラム全体のオクテット(バイト)数。
 	</BLOCKQUOTE>
 	
 	<LI><B>IDENTIFICATION (16bit)</B>
 	<BLOCKQUOTE>
-		�@��ʃv���g�R�����f�[�^�O���������ʂ��邽�߂̎��ʔԍ�(identification number)�B
+		　上位プロトコルがデータグラムを識別するための識別番号(identification number)。
 	</BLOCKQUOTE>
 	
 	<LI><B>FLAGS (3bit)</B>
 	<BLOCKQUOTE>
-		�@�t���O�����g�̍đg�ݗ���(reassemble)�Ɏg�p����B
-		���ꂼ��̂R�r�b�g�͎��̂悤�ȈӖ�������B
+		　フラグメントの再組み立て(reassemble)に使用する。
+		それぞれの３ビットは次のような意味がある。
 		<TABLE border="1" cellpadding="3" cellspacing="0">
 		<TR>
 			<TH nowrap bgcolor="#dddddd">ZERO</TD>
-			<TD nowrap>0 : �ۗ��r�b�g</TD>
+			<TD nowrap>0 : 保留ビット</TD>
 		</TR>
 		<TR>
 			<TH nowrap bgcolor="#dddddd">DF<BR>don't fragment</TH>
-			<TD nowrap>0 : �f�Љ��\<BR>1 : �f�Љ��s��</TD>
+			<TD nowrap>0 : 断片化可能<BR>1 : 断片化不可</TD>
 		</TR>
 		<TR>
 			<TH nowrap bgcolor="#dddddd">MF<BR>more fragment</TH>
-			<TD nowrap>0 : �Ō�̃t���O�����g�ł���<BR>1 : �Ō�̃t���O�����g�ł͂Ȃ�</TD>
+			<TD nowrap>0 : 最後のフラグメントである<BR>1 : 最後のフラグメントではない</TD>
 		</TR>
 		</TABLE>
-		�@�f�Љ��s�̃r�b�g�́Atrace route�v���O�����Ȃǂł����p�����B
+		　断片化不可のビットは、trace routeプログラムなどでも利用される。
 	</BLOCKQUOTE>
 	
 	<LI><B>FRAGMENT OFFSET (13bit)</B>
 	<BLOCKQUOTE>
-		�@�t���O�����g�����̃f�[�^�O�����̂ǂ̕�����������
-		�iIP�f�[�^�����̃I�t�Z�b�g���W�Ŋ��������̂�FRAGMENT OFFSET�Ƃ���j�B
-		�f�Љ����Ă��Ȃ����ƁA�ŏ��̃t���O�����g�̏ꍇ�͂O�ɂȂ�B
+		　フラグメントが元のデータグラムのどの部分かを示す
+		（IPデータ部分のオフセットを８で割ったものをFRAGMENT OFFSETとする）。
+		断片化していない時と、最初のフラグメントの場合は０になる。
 	</BLOCKQUOTE>
 	
 	<LI><B>TIME TO LIVE (TTL) (8bit)</B>
 	<BLOCKQUOTE>
-		�@���[�^���o�R���邲�Ƃɂ��̒l���f�N�������g���A
-		���̒l���O�ɂȂ�ƃf�[�^�O�����͔j������A�`�����Ɍ�胁�b�Z�[�W�𑗂�B
-		����ɂ��A���[�v���`������p�X�����Â��邱�Ƃ�h�~���Ă���B
-		8bit�Ȃ̂ŁA�ő�255�̃��[�^���o�R�ł��邱�ƂɂȂ�B
-		���̃f�[�^�O�������쐬�������M���̏�ʃv���g�R�����쐬����B<BR>
-		�@�l�b�g���[�N�̋K�͂��g�債�Ă����ƁA����ɔ����A
-		���E���ɑ��݂��郋�[�^�̐��������Ȃ邱�Ƃ��\���ł���B
-		����ɂ���āA����n�_�Ƀp�P�b�g�����B����܂łɁA
-		�o�R���郋�[�^�̐���������悤�ȋC�����邪�A
-		�t�ɑ����̃��[�g����œK�ȃ��[�g��I�Ԃ��Ƃɂ��A
-		�ړI�n�܂ł̃��[�^�o�R�������炷���Ƃ��ł���B
-		�Ⴆ�΁A�q�����P��IP���[�^�Ƃ��ė��p����Ȃ�΁A
-		���Ȃ����[�^�o�R���ŁA�������ւ�IP�f�[�^�O�����]�����\�Ƃ���B
-		�������ATTL�̍ő�l��255�ł���̂͑Ó����Ƃ�����B
-		IPv6�ɂ����Ă��ő�o�R����255�ł���B<BR>
-		�@���Ȃ݂ɂ��̒l���O�ɂȂ����ꍇ�́AICMP��time exceeded���b�Z�[�W�����M���֑�����B
+		　ルータを経由するごとにこの値をデクリメントし、
+		この値が０になるとデータグラムは破棄され、伝送元に誤りメッセージを送る。
+		これにより、ループを形成するパスを回りつづけることを防止している。
+		8bitなので、最大255個のルータを経由できることになる。
+		このデータグラムを作成した送信側の上位プロトコルが作成する。<BR>
+		　ネットワークの規模が拡大していくと、それに伴い、
+		世界中に存在するルータの数も多くなることが予測できる。
+		これによって、ある地点にパケットが到達するまでに、
+		経由するルータの数が増えるような気がするが、
+		逆に多くのルートから最適なルートを選ぶことにより、
+		目的地までのルータ経由数を減らすことができる。
+		例えば、衛星を１つのIPルータとして利用するならば、
+		少ないルータ経由数で、長距離へのIPデータグラム転送を可能とする。
+		これらより、TTLの最大値が255であるのは妥当だといえる。
+		IPv6においても最大経由数は255である。<BR>
+		　ちなみにこの値が０になった場合は、ICMPのtime exceededメッセージが送信元へ送られる。
 	</BLOCKQUOTE>
 
 	<LI><B>PROTOCOL (8bit)</B>
 	<BLOCKQUOTE>
-		�@�f�[�^���̏�ʃv���g�R����\���B
+		　データ部の上位プロトコルを表す。
 		<TABLE border="1" cellpadding="3" cellspacing="0">
 		<TR>
 			<TD nowrap>
-				 0 : �ۗ�<BR>
-				 <B>1 : ICMP�iInternet Control Message Protocol�j</B><BR>
-				 2 : IGMP�iInternet Group Management Protocol�j<BR>
-				 3 : GGP�iGateway-to-Gateway Protocol�j<BR>
-				 4 : IP�iIP Encapsulation�j<BR>
+				 0 : 保留<BR>
+				 <B>1 : ICMP（Internet Control Message Protocol）</B><BR>
+				 2 : IGMP（Internet Group Management Protocol）<BR>
+				 3 : GGP（Gateway-to-Gateway Protocol）<BR>
+				 4 : IP（IP Encapsulation）<BR>
 				 5 : Stream<BR>
-				 <B>6 : TCP�iTransmission Control Protocol�j</B><BR>
-				 <B>8 : EGP�iExterior Gateway Protocol�j</B><BR>
-				 <B>9 : IGP�iInterior Routing Protocol�j</B><BR>
-				<B>17 : UDP�iUser Datagram Protocol�j</B><BR>
-				89 : OSPF�iOpen Shortest Path First Protocol�j<BR>
-				�@�D�D�D
+				 <B>6 : TCP（Transmission Control Protocol）</B><BR>
+				 <B>8 : EGP（Exterior Gateway Protocol）</B><BR>
+				 <B>9 : IGP（Interior Routing Protocol）</B><BR>
+				<B>17 : UDP（User Datagram Protocol）</B><BR>
+				89 : OSPF（Open Shortest Path First Protocol）<BR>
+				　．．．
 			</TD>
 		</TR>
 		</TABLE>
 	</BLOCKQUOTE>
 	
-	<LI><B>HEADER CHECKSUM(�w�b�_�������v) (16bit)</B>
+	<LI><B>HEADER CHECKSUM(ヘッダ検査合計) (16bit)</B>
 	<BLOCKQUOTE>
-		�@�w�b�_���]�����ɕω����Ȃ��������Ƃ��m���߂�B
-		���M�҂́AHEADER CHECKSUM�ȊO�̃w�b�_��16�r�b�g�P�ʂō��v���A���̘a�̂P�̕␔��
-		���̒l�Ƃ���B��M�҂́AHEADER CHECKSUM���܂߂����v���O�ɂȂ�Ό������v�͐������B<BR>
-		�@���[�^�o�R���ɁATTL���P��������Ȃ�΁A���[�^�͌������v���Čv�Z����K�v������B
-		���ꂾ���̕ύX�Ȃ�΁A���[�^�͌������v���P���������邱�ƂɂȂ�B
+		　ヘッダが転送中に変化しなかったことを確かめる。
+		送信者は、HEADER CHECKSUM以外のヘッダを16ビット単位で合計し、その和の１の補数を
+		この値とする。受信者は、HEADER CHECKSUMを含めた合計が０になれば検査合計は正しい。<BR>
+		　ルータ経由時に、TTLを１減少するならば、ルータは検査合計を再計算する必要がある。
+		これだけの変更ならば、ルータは検査合計を１増加させることになる。
 	</BLOCKQUOTE>
 
-	<LI><B>SOURCE IP ADDRESS (���M���A�h���X)</B>
-	<LI><B>DESTINATION IP ADDRESS (����A�h���X)</B>
+	<LI><B>SOURCE IP ADDRESS (送信元アドレス)</B>
+	<LI><B>DESTINATION IP ADDRESS (宛先アドレス)</B>
 
 	<LI><B>IP OPTION</B>
 	<BLOCKQUOTE>
-		�@�I�v�V�����BIP�̓I�v�V�������쐬����@�\��v�����Ȃ����A
-		�I�v�V��������������@�\�͎������Ȃ���΂Ȃ�Ȃ��B
+		　オプション。IPはオプションを作成する機能を要求しないが、
+		オプションを処理する機能は実装しなければならない。
 	</BLOCKQUOTE>
 
 	<LI><B>PADDING</B>
 	<BLOCKQUOTE>
-		�@IP OPTION�ƍ��킹��32�r�b�g���E�ɂ��邽�߂̃p�f�B���O�B
+		　IP OPTIONと合わせて32ビット境界にするためのパディング。
 	</BLOCKQUOTE>
 </UL>
 
-<HR><H2>�f�[�^�����̍ő咷</H2>
+<HR><H2>データ部分の最大長</H2>
 <P>
-�@IP�f�[�^�O�����̓y�C���[�h���������ł��ő�65536bit(8292byte)�ɂȂ邪�A
-������t���[�����S�Ċi�[�ł���Ƃ͌���Ȃ��B
-�C�[�T�l�b�g�̃y�C���[�h�����̍ő�l��12000bit(1500byte)�ł��邽�߁A
-���̏ꍇ�͕������Ċi�[���邱�ƂɂȂ�B
+　IPデータグラムはペイロード部分だけでも最大65536bit(8292byte)になるが、
+これをフレームが全て格納できるとは限らない。
+イーサネットのペイロード部分の最大値は12000bit(1500byte)であるため、
+この場合は分割して格納することになる。
 <HR>
 <A href="16_a.html">Prev Chapter 5 -- IP datagram, Routing</A><BR>
 <A href="index.html">INDEX</A><BR>

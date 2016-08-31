@@ -13,36 +13,36 @@
 <A href="index.html">INDEX</A><BR>
 <A href="16_b.html">Next Chapter 6 -- IP datagram header</A>
 
-<HR><H2>�R�l�N�V�������X�^(connectionless)<BR>�R�l�N�V�����w���^(connection-oriented)</H2>
+<HR><H2>コネクションレス型(connectionless)<BR>コネクション指向型(connection-oriented)</H2>
 <P>
-�@TCP/IP�͗����̃T�[�r�X��񋟂���B��{�I�Ȕz�M�T�[�r�X���R�l�N�V�������X�^�Ƃ��A
-�R�l�N�V�������X�^�𗘗p���邱�Ƃɂ���āA�R�l�N�V�����w���^�T�[�r�X���������Ă���B
-���̕��@�͑��̃v���g�R���ł����p����Ă���B
+　TCP/IPは両方のサービスを提供する。基本的な配信サービスをコネクションレス型とし、
+コネクションレス型を利用することによって、コネクション指向型サービスを実現している。
+この方法は他のプロトコルでも利用されている。
 </P>
 
 
-<HR><H2>IP�f�[�^�O����(IP datagram)</H2>
+<HR><H2>IPデータグラム(IP datagram)</H2>
 <P>
-�@�C���^�[�l�b�g�v���g�R���\�t�g�E�F�A�́A�َ�l�b�g���[�N�̃A�h���X�`����
-�݊������������邽�߂ɁA�n�[�h�E�F�A�Ƃ͓Ɨ������p�P�b�g�`�����`���Ă���B
-TCP/IP�v���g�R���ł́A�����<B>IP�f�[�^�O����(IP datagram)</B>�Ƃ������O�Ŏg�p���Ă���B
-IP�f�[�^�O�����̃w�b�_�ɂ͑��M���A���M���IP�A�h���X�Ȃǂ��܂܂��B
+　インターネットプロトコルソフトウェアは、異種ネットワークのアドレス形式の
+互換性を解決するために、ハードウェアとは独立したパケット形式を定義している。
+TCP/IPプロトコルでは、これを<B>IPデータグラム(IP datagram)</B>という名前で使用している。
+IPデータグラムのヘッダには送信元、送信先のIPアドレスなどが含まれる。
 </P>
 <CENTER><IMG src="16_1.gif"></CENTER>
 <P>
-�@IP�f�[�^�O�����̑傫���͉ςŁA���݂�IPv4�ł́A
-�w�b�_���܂߂ĂP�I�N�e�b�g����64�L���I�N�e�b�g�܂ŗ��p�ł���B
-���̂������ŁA�A�v���P�[�V�������ƂɓK�؂ȑ��M�T�C�Y��p���邱�Ƃ��ł���B
+　IPデータグラムの大きさは可変で、現在のIPv4では、
+ヘッダを含めて１オクテットから64キロオクテットまで利用できる。
+このおかげで、アプリケーションごとに適切な送信サイズを用いることができる。
 </P>
 
 
-<HR><H2>���[�^�̃��[�`���O�e�[�u���Ǘ�</H2>
+<HR><H2>ルータのルーチングテーブル管理</H2>
 <P>
-�@���[�^�������オ�鎞�Ƀ��[�`���O�e�[�u���͏����������B�܂��A
-�g�|���W�̕ω��A���[�^�̌̏�ɂ��o�H�̕ύX�Ȃǂɂ���āA
-���[�`���O�e�[�u���͍X�V�����B<BR>
-�@���[�`���O�e�[�u���ɂ́A����IP�A�h���X��prefix(�l�b�g���[�N�A�h���X)�A�A�h���X�}�X�N�A���z�b�v
-�Ƃ�������񂪊i�[�����B(�z�X�g���Ƃ�IP�A�h���X�͊i�[���Ȃ�)
+　ルータが立ち上がる時にルーチングテーブルは初期化される。また、
+トポロジの変化、ルータの故障による経路の変更などによって、
+ルーチングテーブルは更新される。<BR>
+　ルーチングテーブルには、宛先IPアドレスのprefix(ネットワークアドレス)、アドレスマスク、次ホップ
+といった情報が格納される。(ホストごとのIPアドレスは格納しない)
 </P>
 <CENTER><IMG src="16_3.gif"></CENTER><BR>
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0" bordercolor="#666666">
@@ -69,20 +69,20 @@ IP�f�[�^�O�����̃w�b�_�ɂ͑��M���A���M���IP�A�h���X�Ȃǂ��܂܂��B
 </TABLE>
 
 <P>
-�@�Ⴆ�΁A�z�X�g�`����z�X�g�a�փf�[�^�O������]�����鎞�́A
-���[�^�q�ɂ����āA�z�X�g�a��IP�A�h���X�ƃA�h���X�}�X�N�̘_���ς��Ƃ������̂�
-Destination network addr�Ɣ�r����A�����������ꍇ�͂��̎��z�b�v�փf�[�^�O�������t�H���[�h�����B
+　例えば、ホストＡからホストＢへデータグラムを転送する時は、
+ルータＲにおいて、ホストＢのIPアドレスとアドレスマスクの論理積をとったものが
+Destination network addrと比較され、等しかった場合はその次ホップへデータグラムがフォワードされる。
 </P>
 <PRE>
 	Dest = 192.4.10.3;
 	if ((255.255.255.0 & Dest) == 192.4.10.0) {
-		// 128.1.0.9 �փt�H���[�h
+		// 128.1.0.9 へフォワード
 	}
 </PRE>
 <P>
-	�@���ꂼ��̌v�Z�@�̎����[�`���O�e�[�u����\������ɂ͎��̂悤�ɂ���B
+	　それぞれの計算機の持つルーチングテーブルを表示するには次のようにする。
 </P>
-<CENTER>Unix�̏ꍇ</CENTER>
+<CENTER>Unixの場合</CENTER>
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0">
 <TR><TD><PRE>
 micky@puni$ netstat -n -r
@@ -97,7 +97,7 @@ Routing Table:
 default              133.70.10.1           UG       0      0  
 </TD></TR></TABLE><BR>
 
-<CENTER>Windows95/98�̏ꍇ</CENTER>
+<CENTER>Windows95/98の場合</CENTER>
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0">
 <TR><TD><PRE>
 C:\> netstat -n -r
@@ -113,26 +113,26 @@ Active Routes:
 </TD></TR></TABLE><BR>
 
 
-<HR><H2>�J�v�Z���� (encapsulation)</H2>
+<HR><H2>カプセル化 (encapsulation)</H2>
 <P>
-�@�t���[���̃w�b�_�����̏��Ƀn�[�h�E�F�A�A�h���X���i�[�����̂ɑ΂��āA
-IP�f�[�^�O�����̃w�b�_�����ɂ�IP�A�h���X���i�[�����B
-�����l�b�g���[�N���o�R���ăf�[�^�𑗐M���邽�߂ɂ́A�n�[�h�E�F�A�A�h���X���K�v�ł���B
-����āA�n�[�h�E�F�A�A�h���X���������Ȃ�IP�f�[�^�O���������̂܂ܑ��M���邱�Ƃ͂ł��Ȃ��B
-���ۂɃf�[�^�O������]�����鎞�́A�܂��A���z�b�v(next hop)��IP�A�h���X���A�h���X���ѕt������p����
-�n�[�h�E�F�A�A�h���X�ɕύX���A������t���[���̃w�b�_�֊i�[����B
-�����āA�t���[���̃f�[�^�̈��IP�f�[�^�O�������i�[����
-���M���邱�ƂɂȂ�B�i<B>���J�v�Z���� encapsulation</B>�j<BR>
-�@IP�f�[�^�O�����w�b�_��Destination IP Address�͏�ɕύX����邱�Ƃ͂Ȃ��B
+　フレームのヘッダ部分の情報にハードウェアアドレスが格納されるのに対して、
+IPデータグラムのヘッダ部分にはIPアドレスが格納される。
+物理ネットワークを経由してデータを送信するためには、ハードウェアアドレスが必要である。
+よって、ハードウェアアドレス情報を持たないIPデータグラムをそのまま送信することはできない。
+実際にデータグラムを転送する時は、まず、次ホップ(next hop)のIPアドレスをアドレス結び付け情報を用いて
+ハードウェアアドレスに変更し、それをフレームのヘッダへ格納する。
+そして、フレームのデータ領域にIPデータグラムを格納して
+送信することになる。（<B>→カプセル化 encapsulation</B>）<BR>
+　IPデータグラムヘッダのDestination IP Addressは常に変更されることはない。
 </P>
 
 <TABLE align="center" border="1" cellpadding="3" cellspacing="0">
-<CAPTION>�t���[��</CAPTION>
+<CAPTION>フレーム</CAPTION>
 <TR>
 	<TH bgcolor="#cccccc">HEADER<BR>(MAC address)</TH>
 	<TH>
 		<TABLE align="center" border="1" cellpadding="3" cellspacing="0">
-		<CAPTION>IP�f�[�^�O����</CAPTION>
+		<CAPTION>IPデータグラム</CAPTION>
 		<TR>
 			<TH bgcolor="#cccccc">HEADER<BR>(IP address)</TH>
 			<TH width="200">IP Data</TH>
@@ -144,20 +144,20 @@ IP�f�[�^�O�����̃w�b�_�����ɂ�IP�A�h���X���i�[�����B
 </TABLE><BR>
 
 
-<HR><H2>�őP�^(best-effort)�z�M�T�[�r�X</H2>
+<HR><H2>最善型(best-effort)配信サービス</H2>
 <P>
-�@IP�̓f�[�^�O������z�M���邽�߂ɍőP�̓w�͂����݂邪�A
-���̖����������Ƃ�ۏ؂��Ȃ��ƒ�߂Ă���B
+　IPはデータグラムを配信するために最善の努力を試みるが、
+次の問題を扱うことを保証しないと定めている。
 </P>
 <UL>
-	<LI>�f�[�^�̔j��
-	<LI>�f�[�^�O�����̕���
-	<LI>�f�[�^�O�����̏d��
-	<LI>�x���܂��͏�������̔z�M
+	<LI>データの破損
+	<LI>データグラムの紛失
+	<LI>データグラムの重複
+	<LI>遅延または順序乱れの配信
 </UL>
 <P>
-�@�����̖����������߂ɂ́A��荂�ʊK�w�̃v���g�R���\�t�g�E�F�A��
-�������邱�Ƃ��K�v�ł���B(�� TCP)
+　これらの問題を扱うためには、より高位階層のプロトコルソフトウェアで
+解決することが必要である。(→ TCP)
 </P>
 <HR>
 <A href="15_b.html">Prev Chapter 4 -- Address Resolution Protocol</A><BR>
