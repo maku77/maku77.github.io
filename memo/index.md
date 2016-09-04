@@ -44,6 +44,7 @@ layout: category-index
 * [『ピープルウェア』トム・デマルコ](book/peopleware.html)
 * [『レバレッジ・シンキング』本田直之](book/reverage-thinking.html)
 * [『ピーター流外国語習得術』ピーター・フランクル](book/peter.html)
+* [『わたしの外国語学習法』ロンブ・カトー](book/kato-lomb.html)
 
 Jenkins
 ====
