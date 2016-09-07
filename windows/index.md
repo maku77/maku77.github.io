@@ -21,13 +21,14 @@ Windows バッチファイル
 * [echo で改行だけ出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
 
-ファイル／ディレクトリ
+ファイル／ディレクトリ／パス
 ----
 * [DIR コマンドでファイルを再帰的に検索する](find-files.html)
 * [DIR コマンドでファイルを OR 検索する](or-dir.html)
 * [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 * [既にディレクトリが存在している場合の mkdir のエラーを抑制する](file/avoid-mkdir-error.html)
+* [バッチファイルが格納されているディレクトリのパスを取得する](file/batch-dir.html)
 
 日時
 ----
