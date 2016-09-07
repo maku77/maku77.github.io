@@ -24,6 +24,10 @@ Windows バッチファイル
 * [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 
+日時
+----
+* [バッチファイル内で日時を出力する](batch/display-time.html)
+
 コマンドプロンプト
 ====
 * [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
