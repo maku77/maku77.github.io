@@ -33,6 +33,7 @@ Windows バッチファイル
 * [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
+* [doskey を使ってコマンドプロンプト用のマクロを登録する](settings/doskey.html)
 
 Windows の便利操作／ショートカット
 ====
