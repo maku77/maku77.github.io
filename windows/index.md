@@ -41,6 +41,7 @@ Windows の便利操作／ショートカット
 
 Windows の設定／管理／セキュリティ
 ====
+* [Windows OS のバージョン情報をコマンドラインから調べる](admin/os-version.html)
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 * [Windows のアカウント名を変更する](change-account-name.html)
