@@ -44,6 +44,7 @@ Windows の設定／管理／セキュリティ
 ====
 * [Windows OS のバージョン情報をコマンドラインから調べる](admin/os-version.html)
 * [NIC に割り当てられた MAC アドレスを調べる (getmac)](admin/getmac.html)
+* [Windows で実行中のタスクの一覧を表示する (tasklist)](admin/tasklist.html)
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 * [Windows のアカウント名を変更する](change-account-name.html)
