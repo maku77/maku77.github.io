@@ -63,6 +63,7 @@ Effective Java や Java の鉄則など
 1. [equals をオーバライドする時は常に hashCode をオーバライドする](effective/09.html)
 1. [toString を常にオーバライドする](effective/10.html)
 1. [clone を注意してオーバライドする](effective/11.html)
+1. [Comparable の実装を検討する](effective/12.html)
 
 * [コンストラクタからオーバライド可能なメソッドを呼び出さない](practice/dont-call-overridable-method-from-constructor.html)
 
