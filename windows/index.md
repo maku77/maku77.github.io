@@ -84,6 +84,7 @@ Word
 Outlook
 ----
 - [Outlook で返信メールのメッセージの行頭に引用記号 (>) を付ける](outlook/quote-mark.html)
+- [Outlook の予定表を他のユーザから見えるようにする](outlook/share-schedule.html)
 
 Windows API
 ====
