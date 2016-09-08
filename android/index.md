@@ -106,6 +106,9 @@ Native レイヤ
 ### ServiceManager 関連
 * [ServiceManager に登録されたサービスを列挙する](list-services.html)
 
+トラブルシューティング
+----
+* [repo init でエラーが出る場合](trouble/repo-init-error.html)
 
 その他
 ----
