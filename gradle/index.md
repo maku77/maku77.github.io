@@ -58,6 +58,7 @@ Gradle でファイルを扱う
 * [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
 * [Gradle でファイルをリネームする](gradle-rename-files.html)
 * [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
+* [Gradle でディレクトリ内のファイルを ZIP 圧縮する](file/zip.html)
 
 ### プロパティファイル
 * [Gradle でプロパティファイル (.properties) を読み込む](property-file.html)j
