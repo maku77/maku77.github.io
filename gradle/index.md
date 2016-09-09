@@ -4,12 +4,12 @@ created: 2015-07-01
 layout: category-index
 ---
 
-インストールと設定
+インストールと設定／管理
 ----
-* [Gradle をインストールする (Mac OSX)](install-gradle-to-mac.html)
-* [Gradle をインストールする (Windows)](install-gradle-to-win.html)
-* [Gradle のプロキシを設定する](proxy-settings.html)
-
+* [Gradle をインストールする (Mac OSX)](settings/install-gradle-to-mac.html)
+* [Gradle をインストールする (Windows)](settings/install-gradle-to-win.html)
+* [Gradle のプロキシを設定する](settings/proxy-settings.html)
+* [Gradle デーモンを使って gradle コマンドを高速化する](settings/gradle-daemon.html)
 
 Gradle の基本
 ----
@@ -21,7 +21,6 @@ Gradle の基本
 * [Gradle のタスクに説明を付け、グルーピングする (description, group)](group-tasks.html)
 * [既存の Gradle タスクにアクションを追加する](add-action-to-task.html)
 * [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
-* [Gradle デーモンを使って gradle コマンドを高速化する](gradle-daemon.html)
 
 ### Maven リポジトリ
 * [独自の Maven リポジトリを使用する](repository/specify-maven-url.html)

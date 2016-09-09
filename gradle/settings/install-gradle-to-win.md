@@ -3,7 +3,7 @@ title: Gradle を Windows にインストールする
 created: 2014-06-16
 ---
 
-* http://www.gradle.org/downloads
+[http://www.gradle.org/downloads](http://www.gradle.org/downloads)
 
 から `gradle-1.12-bin.zip` などをダウンロードして、適当なディレクトリに配置します。
 `gradle` コマンドを実行するには、`java` コマンドを実行できるようになっている必要があります。
