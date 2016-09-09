@@ -10,6 +10,7 @@ layout: category-index
 * [Gradle をインストールする (Windows)](settings/install-gradle-to-win.html)
 * [Gradle のプロキシを設定する](settings/proxy-settings.html)
 * [Gradle デーモンを使って gradle コマンドを高速化する](settings/gradle-daemon.html)
+* [Gradle によるビルドのボトルネックを探す（プロファイリング）](settings/profiling.html)
 
 Gradle の基本
 ----
