@@ -1,5 +1,5 @@
 ---
-title: 文字列を置換する
+title: 文字列を置換する (sub/gsub)
 created: 2011-10-07
 ---
 
