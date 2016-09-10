@@ -18,6 +18,7 @@ Ruby の制御構文
 * [case による分岐](syntax/case.html)
 * [条件指定によるループ (while と until)](syntax/while.html)
 * [範囲指定によるループ (for, each, step)](syntax/for.html)
+* [複数の値を同時に代入する（多重代入）](syntax/multiple-assignment.html)
 
 クラス
 ====
