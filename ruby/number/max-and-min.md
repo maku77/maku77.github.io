@@ -1,5 +1,5 @@
 ---
-title: 最大値／最小値を求める
+title: 最大値／最小値を求める (min/max/minmax)
 created: 2011-10-15
 ---
 
