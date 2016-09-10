@@ -46,8 +46,8 @@ Ruby の制御構文
 * [配列要素の追加/配列を結合する](array/combine-arrays.html)
 * [配列をコピーする](array/copy-array.html)
 * [配列をループで処理する](array/loop-array.html)
-* [配列をソートする](array/sort-array.html)
-* [配列をランダムに並び替える](array/sort-randomly.html)
+* [配列をソートする（昇順ソート／降順ソート）(sort)](array/sort-array.html)
+* [配列をランダムに並び替える (sort_by)](array/sort-randomly.html)
 * [配列の各要素の値を変更する (collect)](array/collect-array.html)
 
 ### 要素の参照
@@ -60,6 +60,7 @@ Ruby の制御構文
 * [条件を満たす要素を削除する](array/delete-if.html)
 * [先頭から n 個の要素を削除する](array/drop.html)
 * [先頭から条件を満たす間だけ要素を削除する](array/drop-while.html)
+* [重複する要素を削除する (uniq)](array/uniq.html)
 
 ### 要素の検索
 * [条件に一致する要素を検索する (find/find_all)](array/find.html)
