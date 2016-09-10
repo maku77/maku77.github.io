@@ -85,6 +85,7 @@ Ruby の制御構文
 * [文字列をコピーする (dup)](string/dup.html)
 * [文字列を置換する](string/replace.html)
 * [文字列を逆順にする (reverse)](string/reverse.html)
+* [文字列からある文字を取り除く (delete/gsub)](string/delete.html)
 * [インデント用の文字列を作成する](string/create-indent.html)
 * [文字列をインクリメントする (succ/next)](string/succ.html)
 
