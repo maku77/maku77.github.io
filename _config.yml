@@ -32,7 +32,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Android"
-      category_name: "android"
+      category_id: "android"
       category_logo: "logo-android.png"
       category_desc: "天才星人まくの Android ノート"
       category_long_desc: "Android スマホアプリ、Android TV の開発に関して。"
@@ -42,7 +42,7 @@ defaults:
       type: "pages"
     values:
       category_title: "C/C++"
-      category_name: "cpp"
+      category_id: "cpp"
       category_logo: "logo-cpp.svg"
       category_desc: "天才星人まくの C/C++ ノート"
       category_long_desc: "ポインタポインタポインター！"
@@ -52,7 +52,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Docker"
-      category_name: "docker"
+      category_id: "docker"
       category_logo: "logo-docker.png"
       category_desc: "天才星人まくの Docker ノート"
       category_long_desc: "アプリケーション実行環境をコンテナ化し、柔軟なデプロイを可能にする Docker の使い方。"
@@ -62,7 +62,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Git"
-      category_name: "git"
+      category_id: "git"
       category_logo: "logo-github.png"
       category_desc: "天才星人まくの Git/GitHub ノート"
       category_long_desc: "Git によるバージョン管理と、GitHub 特有の話もあるよ。"
@@ -72,7 +72,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Gradle"
-      category_name: "gradle"
+      category_id: "gradle"
       category_logo: "logo-gradle.png"
       category_desc: "天才星人まくの Gradle ノート"
       category_long_desc: "Java の最新のビルドシステム Gradle の使い方。"
@@ -82,7 +82,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Java"
-      category_name: "java"
+      category_id: "java"
       category_logo: "logo-java.svg"
       category_desc: "天才星人まくの Java ノート"
       category_long_desc: "Android のおかげで息を吹き返した感のある Java。"
@@ -92,7 +92,7 @@ defaults:
       type: "pages"
     values:
       category_title: "JavaScript"
-      category_name: "js"
+      category_id: "js"
       category_logo: "logo-js.svg"
       category_desc: "天才星人まくの JavaScript ノート"
       category_long_desc: "Web プログラマにとって必須の言語。"
@@ -102,7 +102,7 @@ defaults:
       type: "pages"
     values:
       category_title: "いろいろ"
-      category_name: "memo"
+      category_id: "memo"
       category_logo: "logo-program.svg"
       category_desc: "天才星人まくのごちゃまぜノート"
       category_long_desc: "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
@@ -112,7 +112,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Middleman"
-      category_name: "middleman"
+      category_id: "middleman"
       category_logo: "logo-middleman.svg"
       category_desc: "天才星人まくの Middleman ノート"
       category_long_desc: "静的サイトジェネレータ Middleman の使い方。"
@@ -122,7 +122,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Meta Trader"
-      category_name: "mt"
+      category_id: "mt"
       category_logo: "logo-metatrader.png"
       category_desc: "天才星人まくの Meta Trader ノート"
       category_long_desc: "メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。"
@@ -132,7 +132,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Node.js"
-      category_name: "nodejs"
+      category_id: "nodejs"
       category_logo: "logo-nodejs.svg"
       category_desc: "天才星人まくの Node JS ノート"
       category_long_desc: "今やクライアントもサーバも Node.js でバッチシ。"
@@ -142,7 +142,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Perforce"
-      category_name: "p4"
+      category_id: "p4"
       category_logo: "logo-p4.jpg"
       category_desc: "天才星人まくの Perforce ノート"
       category_long_desc: "p4 コマンドや p4v についていろいろ。"
@@ -152,7 +152,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Perl"
-      category_name: "perl"
+      category_id: "perl"
       category_logo: "logo-perl.svg"
       category_desc: "天才星人まくの Perl ノート"
       category_long_desc: "おそらくもうオワコンな言語、Perl。"
@@ -162,17 +162,17 @@ defaults:
       type: "pages"
     values:
       category_title: "Program"
-      category_name: "program"
+      category_id: "program"
       category_logo: "logo-program.svg"
       category_desc: "天才星人まくのプログラムノート"
-      category_long_desc: "各種言語の雑多メモ。"
+      category_long_desc: "各種言語の雑多メモ。工事中・・・"
   -
     scope:
       path: "python"
       type: "pages"
     values:
       category_title: "Python"
-      category_name: "python"
+      category_id: "python"
       category_logo: "logo-python.png"
       category_desc: "天才星人まくの Python ノート"
       category_long_desc: "海外で主流のオブジェクト指向言語 Python の使い方。"
@@ -182,7 +182,7 @@ defaults:
       type: "pages"
     values:
       category_title: "R"
-      category_name: "r"
+      category_id: "r"
       category_logo: "logo-r.svg"
       category_desc: "天才星人まくの R ノート"
       category_long_desc: "統計解析やグラフプロットに便利な R の入門。"
@@ -192,7 +192,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Ruby"
-      category_name: "ruby"
+      category_id: "ruby"
       category_logo: "logo-ruby.jpg"
       category_desc: "天才星人まくの Ruby ノート"
       category_long_desc: "日本で生まれたオブジェクト指向言語 Ruby の使い方。"
@@ -202,7 +202,7 @@ defaults:
       type: "pages"
     values:
       category_title: "sed/awk"
-      category_name: "sed"
+      category_id: "sed"
       category_logo: "logo-text.png"
       category_desc: "天才星人まくの Sed/Awk ノート"
       category_long_desc: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
@@ -212,7 +212,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Shell"
-      category_name: "shell"
+      category_id: "shell"
       category_logo: "logo-bash.png"
       category_desc: "天才星人まくの Shell ノート"
       category_long_desc: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
@@ -222,7 +222,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Vim"
-      category_name: "vim"
+      category_id: "vim"
       category_logo: "logo-vim.svg"
       category_desc: "天才星人まくの Vim ノート"
       category_long_desc: "素敵なテキストエディタ Vim のメモ。"
@@ -232,7 +232,7 @@ defaults:
       type: "pages"
     values:
       category_title: "HTML/CSS"
-      category_name: "web"
+      category_id: "web"
       category_logo: "logo-html5.svg"
       category_desc: "天才星人まくの HTML/CSS ノート"
       category_long_desc: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
@@ -242,7 +242,7 @@ defaults:
       type: "pages"
     values:
       category_title: "Windows"
-      category_name: "windows"
+      category_id: "windows"
       category_logo: "logo-windows.jpg"
       category_desc: "天才星人まくの Windows ノート"
       category_long_desc: "Windows の便利な使い方や、バッチファイルによるプログラミング方法。"
