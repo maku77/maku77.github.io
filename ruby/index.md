@@ -73,6 +73,7 @@ Ruby の制御構文
 ====
 * [ハッシュの基本](hash/basic.html)
 * [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
+* [ハッシュをループで処理する](hash/loop-hash.html)
 
 文字列／数値
 ====
