@@ -94,6 +94,7 @@ Ruby の制御構文
 * [最大値／最小値を求める (min/max/minmax)](number/max-and-min.html)
 * [配列内で最大値を持つ要素のインデックスを取得する](number/max-value-index.html)
 * [乱数を生成する](number/random.html)
+* [数値のインクリメントとデクリメント](number/increment.html)
 
 日時（Time オブジェクト）
 ----
