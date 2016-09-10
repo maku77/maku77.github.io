@@ -64,14 +64,18 @@
     ここには天才まくのいろんなノートが置いてありますよ～。日々更新中なり。
     </p>
 
-
     <div class="row">
-      {% for cat in site.data.categories %}
+
+      {% for x in site.defaults %}
+        {% assign values = x.values %}
+        {% if values.category_id == "NONE" %}
+          {% continue %}
+        {% endif %}
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <a class="maku-categoryLink" href="/{{ cat[1].path }}/">
-            <img class="img-thumbnail" src="/img/{{ cat[1].logo }}">
-            <div class="maku-categoryTitle">{{ cat[1].label }}</div>
-            <div class="maku-categoryDesc">{{ cat[1].desc }}</div>
+          <a class="maku-categoryLink" href="/{{ values.category_name }}/">
+            <img class="img-thumbnail" src="/img/{{ values.category_logo }}">
+            <div class="maku-categoryTitle">{{ values.category_title }}</div>
+            <div class="maku-categoryDesc">{{ values.category_long_desc }}</div>
           </a>
         </div>
       {% endfor %}
