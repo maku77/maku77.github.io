@@ -86,6 +86,7 @@ Ruby の制御構文
 * [文字列を置換する](string/replace.html)
 * [文字列を逆順にする (reverse)](string/reverse.html)
 * [インデント用の文字列を作成する](string/create-indent.html)
+* [文字列をインクリメントする (succ/next)](string/succ.html)
 
 正規表現
 ----
