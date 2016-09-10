@@ -102,7 +102,7 @@ Ruby の制御構文
 ====
 * [コマンドライン引数を扱う](command-line-params.html)
 * [コマンドライン引数によるオプションに対応する (optparse)](io/optparse.html)
-* [標準出力へ出力する](print-to-stdout.html)
+* [標準出力へ出力する (puts/print/printf)](io/print-to-stdout.html)
 * [標準入力から読み込む](input-from-stdin.html)
 * [キーボードからの入力を取得する](input-from-keyboard.html)
 * [キーボードからのパスワードの入力を取得する](input-password-from-keyboard.html)
