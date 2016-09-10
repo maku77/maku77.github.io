@@ -49,6 +49,13 @@ Ruby の制御構文
 * [配列をソートする](array/sort-array.html)
 * [配列の各要素の値を変更する (collect)](array/collect-array.html)
 
+### 配列要素の削除
+* [指定した位置の要素を削除する](array/delete-at.html)
+* [指定した値と同じ値を持つ要素を削除する](array/delete-same-elements.html)
+* [条件を満たす要素を削除する](array/delete-if.html)
+* [先頭から n 個の要素を削除する](array/drop.html)
+* [先頭から条件を満たす間だけ要素を削除する](array/drop-while.html)
+
 ハッシュ
 ====
 * [ハッシュを作成する](hash/create-hash.html)
