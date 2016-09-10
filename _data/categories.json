@@ -1,135 +1,135 @@
-[
-  {
+{
+  "memo": {
     "label": "いろいろメモ",
     "path": "memo",
     "logo": "logo-program.svg",
     "desc": "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
   },
-  {
+  "android": {
     "label": "Android",
     "path": "android",
     "logo": "logo-android.png",
     "desc": "Android スマホアプリ、Android TV の開発に関して。"
   },
-  {
+  "cpp": {
     "label": "C/C++",
     "path": "cpp",
     "logo": "logo-cpp.svg",
     "desc": "ポインタポインタポインター！"
   },
-  {
+  "docker": {
     "label": "Docker",
     "path": "docker",
     "logo": "logo-docker.png",
     "desc": "アプリケーション実行環境をコンテナ化し、柔軟なデプロイを可能にする Docker の使い方。"
   },
-  {
+  "git": {
     "label": "Git/GitHub",
     "path": "git",
     "logo": "logo-github.png",
     "desc": "Git によるバージョン管理と、GitHub 特有の話もあるよ。"
   },
-  {
+  "gradle": {
     "label": "Gradle",
     "path": "gradle",
     "logo": "logo-gradle.png",
     "desc": "Java の最新のビルドシステム Gradle の使い方。"
   },
-  {
+  "web": {
     "label": "HTML/CSS",
     "path": "web",
     "logo": "logo-html5.svg",
     "desc": "スタイルシートの使い方や、Web 用パーツサンプルなど。"
   },
-  {
+  "java": {
     "label": "Java",
     "path": "java",
     "logo": "logo-java.svg",
     "desc": "Android のおかげで息を吹き返した感のある Java。"
   },
-  {
+  "js": {
     "label": "JavaScript",
     "path": "js",
     "logo": "logo-js.svg",
     "desc": "Web プログラマにとって必須の言語。"
   },
-  {
+  "shell": {
     "label": "Linux/Shell",
     "path": "shell",
     "logo": "logo-bash.png",
     "desc": "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
   },
-  {
+  "middleman": {
     "label": "Middleman",
     "path": "middleman",
     "logo": "logo-middleman.svg",
     "desc": "静的サイトジェネレータ Middleman の使い方。"
   },
-  {
+  "mt": {
     "label": "MT4/MT5",
     "path": "mt",
     "logo": "logo-metatrader.png",
     "desc": "メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。"
   },
-  {
+  "nodejs": {
     "label": "Node.js",
     "path": "nodejs",
     "logo": "logo-nodejs.svg",
     "desc": "今やクライアントもサーバも Node.js でバッチシ。"
   },
-  {
+  "p4": {
     "label": "Perforce",
     "path": "p4",
     "logo": "logo-p4.jpg",
     "desc": "p4 コマンドや p4v についていろいろ。"
   },
-  {
+  "perl": {
     "label": "Perl",
     "path": "perl",
     "logo": "logo-perl.svg",
     "desc": "おそらくもうオワコンな言語、Perl。"
   },
-  {
+  "program": {
     "label": "Program",
     "path": "program",
     "logo": "logo-program.svg",
     "desc": "各種言語の雑多メモ。"
   },
-  {
+  "python": {
     "label": "Python",
     "path": "python",
     "logo": "logo-python.png",
     "desc": "海外で主流のオブジェクト指向言語 Python の使い方。"
   },
-  {
+  "r": {
     "label": "R",
     "path": "r",
     "logo": "logo-r.svg",
     "desc": "統計解析やグラフプロットに便利な R の入門。"
   },
-  {
+  "ruby": {
     "label": "Ruby",
     "path": "ruby",
     "logo": "logo-ruby.jpg",
     "desc": "日本で生まれたオブジェクト指向言語 Ruby の使い方。"
   },
-  {
+  "sed": {
     "label": "sed/awk",
     "path": "sed",
     "logo": "logo-text.png",
     "desc": "Linux 系のコマンドを用いたテキスト処理いろいろ。"
   },
-  {
+  "vim": {
     "label": "Vim",
     "path": "vim",
     "logo": "logo-vim.svg",
     "desc": "素敵なテキストエディタ Vim のメモ。"
   },
-  {
+  "windows": {
     "label": "Windows",
     "path": "windows",
     "logo": "logo-windows.jpg",
     "desc": "Windows の便利な使い方や、バッチファイルによるプログラミング方法。"
   }
-]
+}
 

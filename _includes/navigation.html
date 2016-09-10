@@ -2,11 +2,11 @@
   <h3>カテゴリ一覧</h3>
   <ul>
     {% for cat in site.data.categories %}
-      {% capture path %}/{{ cat.path }}/{% endcapture %}
+      {% capture path %}/{{ cat[1].path }}/{% endcapture %}
       {% if page.url contains path %}
-        <li class="maku-nav-focused"><a href="{{path}}">{{ cat.label }}</a>
+        <li class="maku-nav-focused"><a href="{{path}}">{{ cat[1].label }}</a>
       {% else %}
-        <li><a href="{{path}}">{{ cat.label }}</a>
+        <li><a href="{{path}}">{{ cat[1].label }}</a>
       {% endif %}
     {% endfor %}
   </ul>

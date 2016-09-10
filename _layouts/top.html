@@ -68,10 +68,10 @@
     <div class="row">
       {% for cat in site.data.categories %}
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <a class="maku-categoryLink" href="/{{ cat.path }}/">
-            <img class="img-thumbnail" src="/img/{{ cat.logo }}">
-            <div class="maku-categoryTitle">{{ cat.label }}</div>
-            <div class="maku-categoryDesc">{{ cat.desc }}</div>
+          <a class="maku-categoryLink" href="/{{ cat[1].path }}/">
+            <img class="img-thumbnail" src="/img/{{ cat[1].logo }}">
+            <div class="maku-categoryTitle">{{ cat[1].label }}</div>
+            <div class="maku-categoryDesc">{{ cat[1].desc }}</div>
           </a>
         </div>
       {% endfor %}
