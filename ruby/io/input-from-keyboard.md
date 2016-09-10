@@ -1,5 +1,5 @@
 ---
-title: キーボードからの入力を取得する
+title: キーボードからの入力を取得する (STDIN.gets/readline)
 created: 2015-10-15
 ---
 
