@@ -72,7 +72,7 @@ Ruby の制御構文
 
 ハッシュ
 ====
-* [ハッシュを作成する](hash/create-hash.html)
+* [ハッシュの基本](hash/basic.html)
 * [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
 
 文字列／数値
