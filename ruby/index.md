@@ -47,6 +47,7 @@ Ruby の制御構文
 * [配列をコピーする](array/copy-array.html)
 * [配列をループで処理する](array/loop-array.html)
 * [配列をソートする](array/sort-array.html)
+* [配列をランダムに並び替える](array/sort-randomly.html)
 * [配列の各要素の値を変更する (collect)](array/collect-array.html)
 
 ### 要素の参照
