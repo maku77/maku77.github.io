@@ -154,18 +154,35 @@ strong {
   margin-bottom: 10px;
 }
 
-.maku-pageTitle {
-  color: $COLOR_PAGE_TITLE;
+.maku-pageHeader {
   background: $COLOR_PAGE_TITLE_BG;
-  font-size: 18pt;
-  line-height: 1.3;
-  padding: 5px 10px;
   box-shadow: 0px 0px 10px #000;
+  min-height: 80px;
 }
-.maku-pageTitle_category {
-  color: $COLOR_PAGE_TITLE_CATEGORY;
-  font-size: 12pt;
-}
+  .maku-pageHeader_logo {
+    float: left;
+    margin: 5px 10px 5px 5px;
+    padding: 2px;
+    width: 70px;
+    height: 70px;
+    background: #ffeeee;
+    border-radius: 5px;
+  }
+  .maku-pageHeader_titleLarge {
+    color: $COLOR_PAGE_TITLE;
+    font-size: 28pt;
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+  .maku-pageHeader_title {
+    color: $COLOR_PAGE_TITLE;
+    font-size: 18pt;
+  }
+  .maku-pageHeader_category {
+    color: $COLOR_PAGE_TITLE_CATEGORY;
+    font-size: 12pt;
+    padding-top: 10px;
+  }
 
 .maku-pageDate {
   color: $COLOR_PAGE_DATE;

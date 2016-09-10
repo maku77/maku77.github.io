@@ -7,7 +7,12 @@
 </head>
 <body>
   {% include sns-sdk.html %}
-  <div class="maku-pageTitle">まくまく {{ page.category_title }} ノート</div>
+
+  <div class="maku-pageHeader">
+    <img src="/img/{{ page.category_logo }}" class="maku-pageHeader_logo">
+    <div class="maku-pageHeader_titleLarge">まくまく {{ page.category_title }} ノート</div>
+  </div>
+
   <div class="container-fluid">
     {% include breadcrumb-root.html %}
     {% include search-bar.html %}

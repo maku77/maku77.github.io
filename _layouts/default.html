@@ -7,11 +7,17 @@
 </head>
 <body>
   {% include sns-sdk.html %}
-  <div class="maku-pageTitle">
-    <div class="maku-pageTitle_category">
+
+  <div class="maku-pageHeader">
+    <a href="/{{ page.category_id }}/">
+      <img src="/img/{{ page.category_logo }}" class="maku-pageHeader_logo">
+    </a>
+    <a href="/{{ page.category_id }}/">
+      <div class="maku-pageHeader_category">
       まくまく {{ page.category_title }} ノート
-    </div>
-    {{page.title}}
+      </div>
+    </a>
+    <div class="maku-pageHeader_title">{{ page.title }}</div>
   </div>
 
   <div class="container-fluid">
