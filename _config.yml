@@ -26,6 +26,19 @@ defaults:
       category_id: "NONE"
       category_desc: "天才星人まくのソフトウェア開発に関するノート"
       category_logo: "logo.jpg"
+
+  # このカテゴリだけトップに表示するため、最初に定義しておく
+  -
+    scope:
+      path: "memo"
+      type: "pages"
+    values:
+      category_title: "いろいろ"
+      category_id: "memo"
+      category_logo: "logo-program.svg"
+      category_desc: "天才星人まくのごちゃまぜノート"
+      category_long_desc: "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
+
   -
     scope:
       path: "android"
@@ -96,16 +109,6 @@ defaults:
       category_logo: "logo-js.svg"
       category_desc: "天才星人まくの JavaScript ノート"
       category_long_desc: "Web プログラマにとって必須の言語。"
-  -
-    scope:
-      path: "memo"
-      type: "pages"
-    values:
-      category_title: "いろいろ"
-      category_id: "memo"
-      category_logo: "logo-program.svg"
-      category_desc: "天才星人まくのごちゃまぜノート"
-      category_long_desc: "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
   -
     scope:
       path: "middleman"
