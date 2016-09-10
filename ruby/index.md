@@ -49,6 +49,10 @@ Ruby の制御構文
 * [配列をソートする](array/sort-array.html)
 * [配列の各要素の値を変更する (collect)](array/collect-array.html)
 
+### 要素の参照
+* [部分配列を取得する（配列スライシング）](array/slice.html)
+* [配列の要素をランダムに取得する](array/random.html)
+
 ### 要素の削除
 * [指定した位置の要素を削除する](array/delete-at.html)
 * [指定した値と同じ値を持つ要素を削除する](array/delete-same-elements.html)
