@@ -69,7 +69,6 @@ Ruby の制御構文
 * [文字列配列から正規表現に一致する要素を検索する (grep)](array/grep.html)
 * [先頭から条件を満たす範囲の配列を取得する (take_while)](array/take-while.html)
 
-
 ハッシュ
 ====
 * [ハッシュの基本](hash/basic.html)
