@@ -8,10 +8,14 @@ layout: category-index
 ====
 * [Python のコーディングスタイル](coding-style.html)
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
+* [Python のパッケージ管理ツール (pip)](pip.html)
 
 構文
 ----
-* [Python の if 構文](if-syntax.html)
+* [Python の if 構文](syntax/if.html)
+* [Python の switch 構文](syntax/switch.html)
+* [Python のクラス構文](syntax/class.html)
+* [Python の文字列リテラル](syntax/string-literal.html)
 * [range によるループ処理いろいろ](loop-with-range.html)
 * [リスト/リスト内の要素をループで処理する](list/loop-list.html)
 * [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
@@ -31,6 +35,7 @@ python コマンド / 実行環境
 文字列
 ====
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
+* [Python での正規表現の扱い方まとめ](regexp.html)
 
 HTML/XML のパース
 ====

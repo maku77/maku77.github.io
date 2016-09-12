@@ -9,6 +9,7 @@ layout: category-index
 * [動的品質よりも静的品質の向上に力を入れる](static-and-dynamic-quality.html)
 * [プログラム内のコメントの書き方 (Javadoc ドキュメンテーションコメントの書き方）](how-to-write-comment.html)
 * [アプリ内の名前空間（Java のパッケージ階層）に迷った時のヒント](namespace-in-app.html)
+* [PMD が警告するゴッドクラス (God Class) とは](god-class.html)
 * [可変オブジェクトのメンバ参照を返さない](avoid-returning-mutable-reference.html)
 * [プロジェクト内での null の扱い方をルール化する](clarify-how-to-use-null.html)
 * [時制や単数形・複数形を考慮して命名する](tense-and-plural.html)
@@ -59,11 +60,32 @@ XML
 ====
 * [意外と知られていない XML 記述のルール](xml/xml-rules.html)
 * [XML の名前空間](xml/namespace.html)
+* 言語別 XML のパース: [Python](/python/#html/xml-のパース) / [Ruby](/ruby/#xml)
+
+言語別の構文
+====
+
+|      | Bash | PHP  | Python | Ruby | Perl |
+| ---- | ---- | ---- | ------ | ---- | ---- |
+| if-else | [Bash](/shell/syntax/if.html) | [PHP](/program/php-syntax-if.html) | [Python](/python/syntax/if.html)  |  |  |
+| switch-case |  |  | [Python](/python/syntax/switch.html) |  |  |
+| ループ |  | [PHP](/program/php-syntax-loop.html) |  | [Ruby](/ruby/syntax-loop.html) |  |
+| クラス |  | [PHP](/program/php-syntax-class.html) | [Python](/python/syntax/class.html) |  |  |
+| 文字列リテラル |  |  |  [Python](/python/syntax/string-literal.html) |  |  |
+| ヒアドキュメント | | [PHP](/program/php-here-document.html) | [Python](/python/syntax/here-document.html) | [Ruby](/ruby/here-document.html) | [Perl](/perl/string/here-document.html) |
+| 正規表現 |  |  | [Python](/python/regexp.html) |  |  |
 
 ツール
 ====
+* [CPD でコードクローンを発見する](tool/detect-code-clones.html)
 * [TFTP の使い方（TFTP によるファイル転送）](tool/tftp.html)
 * [Windows (MinGW) で GLUT を使用する](tool/glut-in-windows.html)
+* [Tera Term のマクロで特定の文字列を検出して処理を実行する](tool/teraterm-detect-pattern.html)
+
+パッケージ管理
+----
+* [パッケージ管理ツールいろいろ](common-package-management.html)
+* [Python のパッケージ管理ツール (pip)](/python/pip.html)
 
 ネットワーク
 ====

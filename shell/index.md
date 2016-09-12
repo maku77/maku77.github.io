@@ -13,6 +13,10 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [変数の基本](variables.html)
 * [シェル変数/環境変数がセットされているか調べる](check-if-var-is-set.html)
 
+制御構文
+----
+* [if-else による分岐処理](syntax/if.html)
+
 パス
 ----
 * [絶対パスと相対パスの変換](absolute-path-to-relative-path.html)
