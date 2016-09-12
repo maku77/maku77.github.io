@@ -67,12 +67,12 @@ XML
 
 |      | Bash | PHP  | Python | Ruby | Perl |
 | ---- | ---- | ---- | ------ | ---- | ---- |
-| if-else | [Bash](/shell/syntax/if.html) | [PHP](/program/php-syntax-if.html) | [Python](/python/syntax/if.html)  |  |  |
+| if-else | [Bash](/shell/syntax/if.html) | [PHP](/php/syntax/if.html) | [Python](/python/syntax/if.html)  |  |  |
 | switch-case |  |  | [Python](/python/syntax/switch.html) |  |  |
-| ループ |  | [PHP](/program/php-syntax-loop.html) |  | [Ruby](/ruby/syntax-loop.html) |  |
-| クラス |  | [PHP](/program/php-syntax-class.html) | [Python](/python/syntax/class.html) |  |  |
+| ループ |  | [PHP](/php/syntax/loop.html) |  | [Ruby](/ruby/syntax-loop.html) |  |
+| クラス |  | [PHP](/php/syntax/class.html) | [Python](/python/syntax/class.html) |  |  |
 | 文字列リテラル |  |  |  [Python](/python/syntax/string-literal.html) |  |  |
-| ヒアドキュメント | | [PHP](/program/php-here-document.html) | [Python](/python/syntax/here-document.html) | [Ruby](/ruby/here-document.html) | [Perl](/perl/string/here-document.html) |
+| ヒアドキュメント | | [PHP](/php/syntax/here-document.html) | [Python](/python/syntax/here-document.html) | [Ruby](/ruby/here-document.html) | [Perl](/perl/string/here-document.html) |
 | 正規表現 |  |  | [Python](/python/regexp.html) |  |  |
 
 ツール

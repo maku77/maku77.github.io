@@ -161,14 +161,14 @@ defaults:
       category_long_desc: "おそらくもうオワコンな言語、Perl。"
   -
     scope:
-      path: "program"
+      path: "php"
       type: "pages"
     values:
-      category_title: "Program"
-      category_id: "program"
-      category_logo: "logo-program.svg"
-      category_desc: "天才星人まくのプログラムノート"
-      category_long_desc: "各種言語の雑多メモ。工事中・・・"
+      category_title: "PHP"
+      category_id: "php"
+      category_logo: "logo-php.svg"
+      category_desc: "天才星人まくの PHP ノート"
+      category_long_desc: "サーバサイド言語の世界で一世を風靡した PHP。CodeIgnitor は RoR よりも手軽でオススメ。"
   -
     scope:
       path: "python"
