@@ -49,6 +49,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 Linux 全般　
 ====
 
+* [find で見つけたファイルを grep 検索する](basic/find-and-grep.html)
 * [rsync コマンドでディレクトリを同期する](basic/rsync.html)
 * [行番号付きでテキストファイルの内容を出力する](basic/cat-with-line-number.html)
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
