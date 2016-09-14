@@ -65,4 +65,5 @@ Linux 全般　
 curl コマンド
 ----
 * [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)
+* [curl で HTTP のレスポンスヘッダのみを確認する](tool/curl-response-header.html)
 
