@@ -51,6 +51,7 @@ Linux 全般　
 * [リダイレクトとパイプの役割](basic/redirect-and-pipe.html)
 * [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ](basic/avoid-overridden-by-redirect.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)
+* [ls コマンドが使えないときに echo コマンドで代用する](basic/echo-instead-of-ls.html)
 
 その他
 ----
