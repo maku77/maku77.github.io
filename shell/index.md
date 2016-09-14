@@ -38,6 +38,10 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input2.html)
 * [ディレクトリ内のファイルを順に処理する](process-all-files.html)
 
+日時
+----
+* [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
+
 Linux 全般　
 ====
 
