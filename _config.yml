@@ -91,6 +91,16 @@ defaults:
       category_long_desc: "Java の最新のビルドシステム Gradle の使い方。"
   -
     scope:
+      path: "web"
+      type: "pages"
+    values:
+      category_title: "HTML/CSS"
+      category_id: "web"
+      category_logo: "logo-html5.svg"
+      category_desc: "天才星人まくの HTML/CSS ノート"
+      category_long_desc: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
+  -
+    scope:
       path: "java"
       type: "pages"
     values:
@@ -109,6 +119,16 @@ defaults:
       category_logo: "logo-js.svg"
       category_desc: "天才星人まくの JavaScript ノート"
       category_long_desc: "Web プログラマにとって必須の言語。"
+  -
+    scope:
+      path: "linux"
+      type: "pages"
+    values:
+      category_title: "Linux/Shell"
+      category_id: "linux"
+      category_logo: "logo-linux.svg"
+      category_desc: "天才星人まくの Linux/Shell ノート"
+      category_long_desc: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
   -
     scope:
       path: "middleman"
@@ -211,16 +231,6 @@ defaults:
       category_long_desc: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
   -
     scope:
-      path: "linux"
-      type: "pages"
-    values:
-      category_title: "Linux/Shell"
-      category_id: "linux"
-      category_logo: "logo-linux.svg"
-      category_desc: "天才星人まくの Linux/Shell ノート"
-      category_long_desc: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
-  -
-    scope:
       path: "vim"
       type: "pages"
     values:
@@ -229,16 +239,6 @@ defaults:
       category_logo: "logo-vim.svg"
       category_desc: "天才星人まくの Vim ノート"
       category_long_desc: "素敵なテキストエディタ Vim のメモ。"
-  -
-    scope:
-      path: "web"
-      type: "pages"
-    values:
-      category_title: "HTML/CSS"
-      category_id: "web"
-      category_logo: "logo-html5.svg"
-      category_desc: "天才星人まくの HTML/CSS ノート"
-      category_long_desc: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
   -
     scope:
       path: "windows"
