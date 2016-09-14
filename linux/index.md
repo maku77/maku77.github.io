@@ -58,9 +58,10 @@ Linux 全般　
 * [Linux のメモリ情報を調べるコマンド](memory.html)
 * [ls コマンドが使えないときに echo コマンドで代用する](basic/echo-instead-of-ls.html)
 * [いずれかの文字列を含むファイルだけを列挙する](basic/ls-with-pattern-matching.html)
-
-その他
-----
 * [bash のバージョンを調べる](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
+
+curl コマンド
+----
+* [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)
 
