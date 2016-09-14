@@ -42,6 +42,10 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 ----
 * [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
 
+数値
+----
+* [ランダムな数値を取得する ($RANDOM)](number/random.html)
+
 Linux 全般　
 ====
 
