@@ -41,8 +41,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 Linux 全般　
 ====
 
-メモリ
-----
+* [リダイレクトとパイプの役割](basic/redirect-and-pipe.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)
 
 その他
