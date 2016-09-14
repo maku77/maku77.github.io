@@ -53,9 +53,9 @@
     "logo": "logo-js.svg",
     "desc": "Web プログラマにとって必須の言語。"
   },
-  "shell": {
+  "linux": {
     "label": "Linux/Shell",
-    "path": "shell",
+    "path": "linux",
     "logo": "logo-bash.png",
     "desc": "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
   },
