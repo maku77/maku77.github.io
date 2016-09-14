@@ -41,6 +41,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 Linux 全般　
 ====
 
+* [rsync コマンドでディレクトリを同期する](basic/rsync.html)
 * [行番号付きでテキストファイルの内容を出力する](basic/cat-with-line-number.html)
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
 * [リダイレクトとパイプの役割](basic/redirect-and-pipe.html)
