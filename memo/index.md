@@ -91,3 +91,7 @@ XML
 ====
 * [IP によるインターネットワーキングの基礎（昔々2000年くらいに書いた記事）](./ip-networking/)
 
+ソフトウェア開発参考リンク
+====
+* [Introduction to Software Engineering/Quality/Metrics](https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Quality/Metrics) いろんなソフトウェアメトリクス
+
