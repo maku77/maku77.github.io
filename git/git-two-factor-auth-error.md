@@ -13,11 +13,12 @@ Password for 'https://maku77@github.com': *****
 fatal: Authentication failed
 ```
 
-この認証エラーが出た場合は、*Personal settings* の *Personal access tokens* のページから生成できる 40 桁のアクセストークンを、上記のパスワードとして入力すれば認証に成功します。
+この認証エラーが出た場合は、Personal settings の [Personal access tokens のページ](https://github.com/settings/tokens) から生成できる 40 桁のアクセストークンを、上記のパスワードとして入力すれば認証に成功します。
 
-毎回アクセストークンを入力するのが面倒な場合は、$HOME/.netrc（Windows の場合は %HOME%/_netrc）に下記のように記述しておくと、ユーザ名とアクセストークンの入力を省略できます。
+毎回アクセストークンを入力するのが面倒な場合は、`$HOME/.netrc`（Windows の場合は `%HOME%/_netrc`）に下記のように記述しておくと、ユーザ名とアクセストークンの入力を省略できます。
 
 #### %HOME%/_netrc
+
 ```
 machine github.com
 login maku77
