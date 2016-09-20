@@ -3,13 +3,16 @@ title: Groovy スクリプトで Jenkins 上のすべてのスレーブを制御
 created: 2016-08-23
 ---
 
-下記のようにすると、現在登録されている Jenkins スレーブをループで処理することができます。
+下記のサンプルでは、現在マスターサーバに登録されている Jenkins スレーブをループで処理しています。
 ループ中は、**Slave** オブジェクトの情報を扱うことができます。
 
 * [hudson.model.Slave クラス](http://javadoc.jenkins-ci.org/hudson/model/Slave.html)
 
 
-#### dump-nodes.groovy
+スレーブの登録情報を列挙する
+----
+
+#### slave-info.groovy
 
 ```groovy
 for (slave in jenkins.model.Jenkins.instance.slaves) {
@@ -34,5 +37,27 @@ Slave label: xxx
 Slave num executors: 1
 ---
 ...
+```
+
+スレーブとなっている PC がオンラインかどうか確認する
+----
+
+#### slave-check-online.groovy
+
+```groovy
+import jenkins.model.Jenkins
+
+Jenkins.instance.slaves.each {
+  boolean isOn = it.getComputer().isOnline();
+  println it.name + (isOn ? ": ON" : ": OFF")
+}
+```
+
+#### 実行結果
+
+```
+mynode1: ON
+mynode2: OFF
+mynode3: OFF
 ```
 
