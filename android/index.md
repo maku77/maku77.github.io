@@ -27,6 +27,7 @@ Tools
 * [APK のパッケージ依存関係やクラス依存関係を調べる](analyze/apk-dependencies.html)
 * [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
 * [APK の情報を表示する (aapt)](aapt.html)
+* [ADB でアプリを起動する intent を投げる (am start/am broadcast)](adb/adb-am-start.html)
 * [ADB でディレクトリ内のファイルをすべて取得する](adb/adb-pull-dir.html)
 * [ADB で指定したアプリを強制終了する](adb/adb-force-stop-app.html)
 * [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
