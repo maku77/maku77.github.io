@@ -71,13 +71,13 @@ Gradle のコマンド
 
 Groovy スクリプト
 ----
-* [Groovy と Java の違い](groovy-and-java.html)
-* [Groovy で assert を使用する](assert-in-groovy.html)
-* [Groovy でメソッドを定義する](method-in-groovy.html)
-* [Groovy でクラスを定義する](class-in-groovy.html)
-* [Groovy で文字列リテラルを扱う](string-literal-in-groovy.html)
-* [Groovy で List を扱う](list-in-groovy.html)
-* [Groovy で Map を扱う](map-in-groovy.html)
+* [Groovy と Java の違い](groovy/groovy-and-java.html)
+* [Groovy で assert を使用する](groovy/assert.html)
+* [Groovy でメソッドを定義する](groovy/method.html)
+* [Groovy でクラスを定義する](groovy/class.html)
+* [Groovy で文字列リテラルを扱う](groovy/string-literal.html)
+* [Groovy で List を扱う](groovy/list.html)
+* [Groovy で Map を扱う](groovy/map.html)
 
 独自の Gradle プラグインを作成する
 ----
