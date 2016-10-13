@@ -53,15 +53,19 @@ Gradle で静的解析 (static analysis) を行う
 * [Gradle で PMD による静的解析を実行する](pmd/pmd.html)
 
 
-Gradle でファイルを扱う
+Gradle での I/O（ファイル入出力、環境変数、ユーザ入力）
 ----
+
+### ファイル
 * [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
 * [Gradle でファイルをリネームする](gradle-rename-files.html)
 * [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
 * [Gradle でディレクトリ内のファイルを ZIP 圧縮する](file/zip.html)
 
-### プロパティファイル
-* [Gradle でプロパティファイル (.properties) を読み込む](property-file.html)j
+### プロパティ
+* [Gradle でプロパティファイル (.properties) を読み込む](property-file.html)
+* [Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する](envvar.html)
+
 
 Gradle のコマンド
 ----
