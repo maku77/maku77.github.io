@@ -83,6 +83,7 @@ Groovy スクリプト
 * [Groovy で List を扱う](groovy/list.html)
 * [Groovy で Map を扱う](groovy/map.html)
 * [Groovy のクロージャ](groovy/closure.html)
+* [Groovy でパスワードなどをユーザに入力させる](groovy\input-password.html)
 
 独自の Gradle プラグインを作成する
 ----
