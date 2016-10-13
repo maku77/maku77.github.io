@@ -78,6 +78,7 @@ Groovy スクリプト
 * [Groovy で文字列リテラルを扱う](groovy/string-literal.html)
 * [Groovy で List を扱う](groovy/list.html)
 * [Groovy で Map を扱う](groovy/map.html)
+* [Groovy のクロージャ](groovy/closure.html)
 
 独自の Gradle プラグインを作成する
 ----
