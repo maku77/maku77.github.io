@@ -56,6 +56,7 @@ Jenkins
 * [Groovy スクリプトで Jenkins 上のすべてのスレーブを制御する](jenkins/handle-slaves.html)
 * [お試しインスタンスとして Jenkins サーバを起動する](jenkins/trial-server.html)
 * [Jenkins サーバの設定ファイルの場所](jenkins/settings-dir.html)
+* [Amazon EC2 に Jenkins をインストールする](jenkins/amazon-ec2.html)
 
 XML
 ====
