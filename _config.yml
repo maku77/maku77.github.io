@@ -231,6 +231,16 @@ defaults:
       category_long_desc: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
   -
     scope:
+      path: "vagrant"
+      type: "pages"
+    values:
+      category_title: "Vagrant"
+      category_id: "vagrant"
+      category_logo: "logo-vagrant.svg"
+      category_desc: "天才星人まくの Vagrant ノート"
+      category_long_desc: "仮想環境の立ち上げ＆設定の自動化に関するメモ。"
+  -
+    scope:
       path: "vim"
       type: "pages"
     values:
