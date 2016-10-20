@@ -133,6 +133,10 @@ XML
 * [REXML で XML ファイルを作成する](rexml-create-xml.html)
 * [REXML で XML ファイルを読み込む](rexml-read-xml.html)
 
+YAML
+----
+* [Ruby で YAML ファイルを扱う](file/yaml.html)
+
 mp3
 ----
 * [ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する](ruby-mp3info.html)
