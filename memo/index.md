@@ -54,6 +54,7 @@ Jenkins
 * [Groovy スクリプトで Jenkins サーバを制御する](jenkins/cli-groovy.html)
 * [Groovy スクリプトで Jenkins 上のすべての Job を制御する](jenkins/handle-jobs.html)
 * [Groovy スクリプトで Jenkins 上のすべてのスレーブを制御する](jenkins/handle-slaves.html)
+* [Jenkins ジョブの設定 (config.xml) を確認する](jenkins/config-xml.html)
 * [お試しインスタンスとして Jenkins サーバを起動する](jenkins/trial-server.html)
 * [Jenkins サーバの設定ファイルの場所](jenkins/settings-dir.html)
 * [Amazon EC2 に Jenkins をインストールする](jenkins/amazon-ec2.html)
