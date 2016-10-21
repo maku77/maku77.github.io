@@ -31,3 +31,27 @@ Vagrant.configure("2") do |config|
 end
 ```
 
+すると、Vagrant 仮想マシンを立ち上げるときに、自動的に各アプリ用のプロキシが設定されます。
+
+
+これで、Vagrant 仮想マシンから `apt-get` コマンドなどを実行したときにプロキシ経由でアクセスするようになります。
+
+
+ホスト側の環境変数 http_proxy の値で仮想マシンのプロキシを設定する
+----
+
+Ruby では、環境変数の値を `ENV` で取得できるので、下記のようにすれば、ホスト側のプロキシ設定 (`http_proxy`) を、仮想マシン側のプロキシ設定にも反映することができます。
+
+#### Vagrantfile
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/precise64"
+  config.proxy.http = ENV['http_proxy'] if ENV['http_proxy']
+  config.proxy.https = ENV['https_proxy'] if ENV['https_proxy']
+  config.proxy.no_proxy = "localhost,127.0.0.1"
+end
+```
+
+連動させるのが好ましくない場合は、独自の環境変数 `VAGRANT_VM_HTTP_PROXY` などを定義するという運用にするのもよいでしょう。
+
