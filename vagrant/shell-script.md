@@ -23,7 +23,7 @@ end
 #### bootstrap.sh
 
 ```sh
-echo Hellooooooooooo
+apt-get update
 apt-get install -y nginx
 ```
 
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 end
 
 $script = <<END
-echo Helooooooooooo
+apt-get update
 apt-get install -y nginx
 END
 ```
