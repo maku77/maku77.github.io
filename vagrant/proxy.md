@@ -33,6 +33,12 @@ end
 
 すると、Vagrant 仮想マシンを立ち上げるときに、自動的に各アプリ用のプロキシが設定されます。
 
+```
+$ vagrant up
+...
+==> default: Configuring proxy for Apt...
+==> default: Configuring proxy environment variables...
+```
 
 これで、Vagrant 仮想マシンから `apt-get` コマンドなどを実行したときにプロキシ経由でアクセスするようになります。
 
