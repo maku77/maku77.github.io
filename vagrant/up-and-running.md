@@ -117,10 +117,21 @@ suspend the virtual machine. In either case, to restart it again,
 simply run `vagrant up`.
 ```
 
+仮想マシンの停止と破棄
+----
+
 仮想マシンを停止したい場合は `vagrant halt` コマンドを実行します。
 
 ```
 $ vagrant halt
 ==> default: Attempting graceful shutdown of VM...
+```
+
+仮想マシンそのものを削除してしまいたい場合は、`vagrant destroy` コマンドを実行します。
+
+```
+$ vagrant destory
+    default: Are you sure you want to destroy the 'default' VM? [y/N]
+==> default: Destroying VM and associated drives...
 ```
 
