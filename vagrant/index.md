@@ -19,5 +19,6 @@ Vagrant プラグイン
 * [仮想マシンのプロキシを設定する](proxy.html)
 * [仮想マシン側のポートを公開する（ポートフォワード設定）](port-forward.html)
 * [複数の仮想マシンを同時に立ち上げる](multiple-machines.html)
+* [複数の仮想マシンで共通の SSH キーを使用する](same-ssh-key.html)
 * [不要な仮想マシンを削除する](destroy-vm.html)
 
