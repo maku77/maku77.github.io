@@ -24,21 +24,34 @@ Ansible の特徴:
 Ansible のインストール
 ----
 
-#### apt でインストール (Ubuntu)
+### apt でインストール (Ubuntu)
 
 ```
-$ sudo apt-get install software-properties-common
+$ sudo apt-get install -y software-properties-common
 $ sudo apt-get update
-$ sudo apt-get install ansible
+$ sudo apt-get install -y ansible
 ```
 
-#### yum でインストール (CentOS, RedHat Linux)
+上記のようにすると、2016-10-22 時点では、Ansible 1.4 系がインストールされました。
+Ansible 2 系をインストールしたい場合は、下記のように、拡張リポジトリ (PPA: Personal Package Archive) を登録してから `update` と `install` を実行する必要があります。
 
 ```
+$ sudo apt-get install -y python-software-properties
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install -y ansible
+```
+
+### yum でインストール (CentOS, RedHat Linux)
+
+```
+$ sudo yum install epel-release
 $ sudo yum install ansible
 ```
 
-#### pip でインストール (Mac OSX)
+yum の拡張リポジトリ (EPEL: Extra Package for Enterprise Linux) から Ansible をインストールするために、最初に `epel-release` をインストールしています。
+
+### pip でインストール (Mac OSX)
 
 ```
 $ sudo easy_install pip  # pip 入っていない場合
@@ -49,7 +62,9 @@ $ sudo pip install ansible
 
 ```
 $ ansible --version
-ansible 1.4.4
+ansible 2.1.2.0
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = Default w/o overrides
 ```
 
 インストールに関しての詳細なドキュメントはこちら。

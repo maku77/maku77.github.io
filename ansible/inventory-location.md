@@ -6,7 +6,7 @@ created: 2016-10-22
 インベントリファイルは、下記のようなファイルが読み込まれます。
 
 1. コマンドラインオプション `-i` で指定したファイル
-2. コンフィグファイル `ansible.cfg` 内の `hostfile` で指定したファイル（参考: [ansible.cfg ファイルの検索パス](path-of-ansible-config.md)）
+2. コンフィグファイル `ansible.cfg` 内の `hostfile` で指定したファイル（参考: [ansible.cfg ファイルの検索パス](path-of-ansible-config.html)）
 3. `/etc/ansible/inventry`
 
 以下の例は、いずれもカレントディレクトリ内の `hosts` というファイルをインベントリファイルとして使用するように指定しています。
