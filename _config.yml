@@ -51,6 +51,16 @@ defaults:
       category_long_desc: "Android スマホアプリ、Android TV の開発に関して。"
   -
     scope:
+      path: "ansible"
+      type: "pages"
+    values:
+      category_title: "Ansible"
+      category_id: "ansible"
+      category_logo: "logo-ansible.svg"
+      category_desc: "天才星人まくの Ansible ノート"
+      category_long_desc: "これからの構成管理は Ansible で！ DevOps の要！ Infrastructur as Code！"
+  -
+    scope:
       path: "cpp"
       type: "pages"
     values:
