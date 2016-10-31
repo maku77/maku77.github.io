@@ -16,7 +16,7 @@ Vagrant プラグイン
 
 Vagrant のネットワーク構成
 ----
-* [仮想マシン側のポートを公開する（ポートフォワード設定）](port-forward.html)
+* [ポートフォワードにより仮想マシン内のサーバにアクセスする](port-forward.html)
 * [ホストオンリーネットワークを構成する](host-only-network.html)
 * [ブリッジネットワークを構築する](bridged-network.html)
 
