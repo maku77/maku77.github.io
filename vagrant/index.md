@@ -16,6 +16,7 @@ Vagrant プラグイン
 
 Vagrant のネットワーク構成
 ----
+* [Vagrant の３種類のネットワーク構成の違い](network-type.html)
 * [ポートフォワードにより仮想マシン内のサーバにアクセスする](port-forward.html)
 * [ホストオンリーネットワークを構成する](host-only-network.html)
 * [ブリッジネットワークを構築する](bridged-network.html)
