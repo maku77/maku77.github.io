@@ -14,10 +14,14 @@ Vagrant プラグイン
 ----
 * [Vagrant プラグインを vagrant up で自動的にインストールする](install-plugin.html)
 
+Vagrant のネットワーク構成
+----
+* [仮想マシン側のポートを公開する（ポートフォワード設定）](port-forward.html)
+* [ブリッジネットワークを構築する](bridged-network.html)
+
 仮想マシンの設定／制御
 ----
 * [仮想マシンのプロキシを設定する](proxy.html)
-* [仮想マシン側のポートを公開する（ポートフォワード設定）](port-forward.html)
 * [複数の仮想マシンを同時に立ち上げる](multiple-machines.html)
 * [複数の仮想マシンで共通の SSH キーを使用する](same-ssh-key.html)
 * [不要な仮想マシンを削除する](destroy-vm.html)
