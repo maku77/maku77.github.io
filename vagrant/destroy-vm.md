@@ -1,5 +1,5 @@
 ---
-title: 不要な Vagrant 仮想マシンを削除する
+title: 不要な Vagrant 仮想マシンを削除する (vagrant destroy)
 created: 2016-10-27
 ---
 
