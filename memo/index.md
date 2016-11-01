@@ -10,6 +10,7 @@ layout: category-index
 * [プログラム内のコメントの書き方 (Javadoc ドキュメンテーションコメントの書き方）](how-to-write-comment.html)
 * [アプリ内の名前空間（Java のパッケージ階層）に迷った時のヒント](namespace-in-app.html)
 * [PMD が警告するゴッドクラス (God Class) とは](god-class.html)
+* [スケジューリングや見積りの段階では要求と設計要素のマトリクスで考える](request-factor-matrix.html)
 * [可変オブジェクトのメンバ参照を返さない](avoid-returning-mutable-reference.html)
 * [プロジェクト内での null の扱い方をルール化する](clarify-how-to-use-null.html)
 * [時制や単数形・複数形を考慮して命名する](tense-and-plural.html)
