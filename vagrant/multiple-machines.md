@@ -4,30 +4,32 @@ created: 2016-10-25
 ---
 
 Vagrant 仮想マシンとして複数のサーバを同時に立ち上げるには、`Vagrantfile` の中で下記のようにそれぞれの仮想マシン定義を行います。
+ここでは、すべて仮想マシンの box として `hashicorp/precise` (Ubuntu 12.04) を指定していますが、仮想マシンごとに異なる box を設定することもできます。
 
 #### Vagrantfile
 
 ```ruby
 Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/precise64"
+
   config.vm.define "vagrant1" do |c|
-    c.vm.box = "hashicorp/precise64"
     c.vm.network "forwarded_port", guest: 80, host: 10080
     c.vm.network "forwarded_port", guest: 443, host: 10443
   end
+
   config.vm.define "vagrant2" do |c|
-    c.vm.box = "hashicorp/precise64"
     c.vm.network "forwarded_port", guest: 80, host: 20080
     c.vm.network "forwarded_port", guest: 443, host: 20443
   end
+
   config.vm.define "vagrant3" do |c|
-    c.vm.box = "hashicorp/precise64"
     c.vm.network "forwarded_port", guest: 80, host: 30080
     c.vm.network "forwarded_port", guest: 443, host: 30443
   end
 end
 ```
 
-ここでは、HTTP 用のポートと HTTPS 用のポートをホスト側のポートにそれぞれマッピングしています。
+各仮想マシンのコンフィギュレーションブロック内でポートフォワード設定を行っていますが、単純に仮想マシンを立ち上げるだけであれば、このあたりの個別の設定は後回しにしても構いません。
 あとは、`vagrant up` とするだけで、すべての仮想マシンが順番に立ち上がります。
 
 ```
