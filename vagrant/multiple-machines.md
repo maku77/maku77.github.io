@@ -3,6 +3,9 @@ title: 複数の仮想マシンを同時に立ち上げる
 created: 2016-10-25
 ---
 
+複数の仮想マシンを立ち上げる
+----
+
 Vagrant 仮想マシンとして複数のサーバを同時に立ち上げるには、`Vagrantfile` の中で下記のようにそれぞれの仮想マシン定義を行います。
 ここでは、すべて仮想マシンの box として `hashicorp/precise` (Ubuntu 12.04) を指定していますが、仮想マシンごとに異なる box を設定することもできます。
 
@@ -60,4 +63,18 @@ VM, run `vagrant status NAME`.
 ```
 $ vagrant ssh vagrant1
 ```
+
+複数の仮想マシンを同時に制御する
+----
+
+複数の仮想マシンが存在する環境では、Vagrant のコマンドも複数の仮想マシンに影響するように変化します。
+
+```
+$ vagrant reload            # すべての仮想マシンを再起動
+$ vagrant reload web1       # web1 という名前の仮想マシンを再起動
+$ vagrant reload web1 web2  # web1 と web2 を再起動
+$ vagrant reload /web\d/    # 正規表現で仮想マシンを指定することも可能
+```
+
+上記は、`vagrant reload` の例ですが、`vagrant up` や `vagrant halt` も同様に仮想マシン名を指定した制御を行えます。
 
