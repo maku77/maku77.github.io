@@ -30,6 +30,10 @@ layout: category-index
 * [スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする](thread/uncaught-exception.html)
 * [Java のオブジェクトロックは再入可能であることを理解する](thread/reentrant.html)
 
+JAR
+----
+* [jar コマンドで JAR ライブラリを作成する](jar/create-jar.html)
+
 数値／文字列
 ----
 * [数値と文字列の変換方法いろいろ](numstr/convert.html)
