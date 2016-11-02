@@ -33,6 +33,7 @@ layout: category-index
 JAR
 ----
 * [jar コマンドで JAR ライブラリを作成する](jar/create-jar.html)
+* [JAR ファイルの署名について](jar/jarsigner.html)
 
 数値／文字列
 ----
