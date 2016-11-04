@@ -62,6 +62,11 @@ Linux 全般　
 * [bash のバージョンを調べる](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
 
+Linux のシステム設定
+----
+* [NTP でシステム時刻を設定する](settings/ntp.html)
+
+
 curl コマンド
 ----
 * [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)
