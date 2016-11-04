@@ -56,6 +56,7 @@ Linux 全般　
 * [いずれかの文字列を含むファイルだけを列挙する](basic/ls-with-pattern-matching.html)
 * [bash のバージョンを調べる](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
+* [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
 
 ### Linux のシステム設定
 * [NTP でシステム時刻を設定する](settings/ntp.html)
