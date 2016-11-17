@@ -55,6 +55,12 @@ D-Bus
 * [dbus-glib で method call を実装する（サーバ側の実装）](dbus/dbus-glib-3.html)
 * [dbus-glib で method call を実装する（クライアント側の実装）](dbus/dbus-glib-4.html)
 
+### GDBubs
+* [GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する](dbus/gdbus.html)
+* [GDBus サーバから signal を発行する](dbus/gdbus-emit-signal.html)
+* [GDBus でバイナリデータ（バイト配列）を受け取る方法](dbus/gdbus-receive-binary.html)
+* [glib の GVariant を使ってみる](dbus/gvariant.html)
+
 
 Linux 全般　
 ----
