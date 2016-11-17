@@ -61,6 +61,10 @@ D-Bus
 * [GDBus でバイナリデータ（バイト配列）を受け取る方法](dbus/gdbus-receive-binary.html)
 * [glib の GVariant を使ってみる](dbus/gvariant.html)
 
+### D-Bus Java
+* [D-Bus Java をインストールする](dbus/dbus-java-install.html)
+* [D-Bus Java で Session bus に接続してメソッドを呼び出す](dbus/dbus-java-session-bus.html)
+* [D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル](dbus/dbus-java-p2p-client.html)
 
 Linux 全般　
 ----
