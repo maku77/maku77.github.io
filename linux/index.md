@@ -42,6 +42,20 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 ### トラブルシューティング
 * [改行コードが原因の関数定義の syntax error](trouble/function-syntax-error.html)
 
+D-Bus
+----
+
+### D-Bus 全般
+* [D-Bus 関連用語](dbus/words.html)
+* [GDBus と dbus-glib](dbus/gdbus-and-dbus-glib.html)
+
+### dbus-glib
+* [dbus-glib 開発用ライブラリをインストールする](dbus/dbus-glib-1.html)
+* [dbus-glib で method call を実装する（ヘッダファイルの生成）](dbus/dbus-glib-2.html)
+* [dbus-glib で method call を実装する（サーバ側の実装）](dbus/dbus-glib-3.html)
+* [dbus-glib で method call を実装する（クライアント側の実装）](dbus/dbus-glib-4.html)
+
+
 Linux 全般　
 ----
 * [Windows で Linux 系のコマンドを使用できるようにする (Gow)](basic/gow.html)
