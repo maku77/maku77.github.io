@@ -47,6 +47,7 @@ D-Bus
 
 ### D-Bus 全般
 * [D-Bus 関連用語](dbus/words.html)
+* [D-Bus 関連リンクと関連ツール](dbus/links.html)
 * [GDBus と dbus-glib](dbus/gdbus-and-dbus-glib.html)
 
 ### dbus-glib
