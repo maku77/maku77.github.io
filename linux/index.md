@@ -73,7 +73,16 @@ D-Bus
 * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](dbus/dbus-python/server-and-client-2.html)
 * [dbus-python で D-Bus の P2P クライアントを実装する](dbus/dbus-python/p2p-client.html)
 
-Linux 全般　
+Linux 管理
+----
+* [Linux カーネル／OS のバージョンを調べる](linux-version.html)
+* [bash のバージョンを調べる](bash-version.html)
+* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
+* [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
+* [Linux のメモリ情報を調べるコマンド](memory.html)
+* [NTP でシステム時刻を設定する](settings/ntp.html)
+
+Linux コマンド全般　
 ----
 * [Windows で Linux 系のコマンドを使用できるようにする (Gow)](basic/gow.html)
 * [find で見つけたファイルを grep 検索する](basic/find-and-grep.html)
@@ -82,15 +91,8 @@ Linux 全般　
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
 * [リダイレクトとパイプの役割](basic/redirect-and-pipe.html)
 * [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ](basic/avoid-overridden-by-redirect.html)
-* [Linux のメモリ情報を調べるコマンド](memory.html)
 * [ls コマンドが使えないときに echo コマンドで代用する](basic/echo-instead-of-ls.html)
 * [いずれかの文字列を含むファイルだけを列挙する](basic/ls-with-pattern-matching.html)
-* [bash のバージョンを調べる](bash-version.html)
-* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
-* [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
-
-### Linux のシステム設定
-* [NTP でシステム時刻を設定する](settings/ntp.html)
 
 ### curl コマンド
 * [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)
