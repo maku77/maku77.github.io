@@ -72,6 +72,7 @@ layout: category-index
 - [複数のオブジェクトを一度に作成する](class/bulk-instantiation.html)
 - [すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する](class/universal.html)
 - [あるクラスを継承しているかどうか調べる](class/check-inheritance.html)
+- [あるメソッドが存在するか調べる](class/check-method-existence.html)
 
 文字列／正規表現
 ----
