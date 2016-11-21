@@ -70,6 +70,7 @@ layout: category-index
 - [オブジェクトを明示的に破棄する](class/undef.html)
 - [クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する](class/hybrid-method.html)
 - [複数のオブジェクトを一度に作成する](class/bulk-instantiation.html)
+- [すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する](class/universal.html)
 
 文字列／正規表現
 ----
