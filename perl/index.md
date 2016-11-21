@@ -67,6 +67,7 @@ layout: category-index
 - [メンバ変数とメンバメソッドを定義する](class/member.html)
 - [クラスを継承する](class/inherit.html)
 - [デストラクタを定義する](class/destructor.html)
+- [オブジェクトを明示的に破棄する](class/undef.html)
 
 文字列／正規表現
 ----
