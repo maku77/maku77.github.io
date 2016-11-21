@@ -64,6 +64,7 @@ layout: category-index
 ----
 - マニュアルは `perldoc perlobj` で
 - [コンストラクタを定義する](class/constructor.html)
+- [メンバ変数とメンバメソッドを定義する](class/member.html)
 
 文字列／正規表現
 ----
