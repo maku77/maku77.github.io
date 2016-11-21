@@ -60,6 +60,11 @@ layout: category-index
 - [指定したディレクトリにモジュールをインストールする](module/install-directory.html)
 - [POD フォーマットについて](module/pod.html)
 
+クラス／オブジェクト
+----
+- マニュアルは `perldoc perlobj` で
+- [コンストラクタを定義する](class/constructor.html)
+
 文字列／正規表現
 ----
 - [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
