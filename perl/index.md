@@ -68,6 +68,7 @@ layout: category-index
 - [クラスを継承する](class/inherit.html)
 - [デストラクタを定義する](class/destructor.html)
 - [オブジェクトを明示的に破棄する](class/undef.html)
+- [クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する](class/hybrid-method.html)
 
 文字列／正規表現
 ----
