@@ -69,6 +69,7 @@ layout: category-index
 - [デストラクタを定義する](class/destructor.html)
 - [オブジェクトを明示的に破棄する](class/undef.html)
 - [クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する](class/hybrid-method.html)
+- [複数のオブジェクトを一度に作成する](class/bulk-instantiation.html)
 
 文字列／正規表現
 ----
