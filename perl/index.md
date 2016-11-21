@@ -71,6 +71,7 @@ layout: category-index
 - [クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する](class/hybrid-method.html)
 - [複数のオブジェクトを一度に作成する](class/bulk-instantiation.html)
 - [すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する](class/universal.html)
+- [あるクラスを継承しているかどうか調べる](class/check-inheritance.html)
 
 文字列／正規表現
 ----
