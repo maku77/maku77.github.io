@@ -39,6 +39,7 @@ python コマンド / 実行環境
 
 数値
 ====
+* [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
 
 HTML/XML のパース
