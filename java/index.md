@@ -86,10 +86,11 @@ Effective Java や Java の鉄則など
 ----
 * [J2SE から Java SE へ](column/j2se-to-javase.html)
 
-その他
+その他（解析）
 ----
 * [コールスタックを表示する](call-stack.html)
 * [Java で Linux の CPU 使用率を調べる](parse-proc-stat.html)
 * [SuprressWarnings アノテーションで Checkstyle の警告を抑制する](suppress-checkstyle.html)
 * [Java ビルドツールのまとめ (Ant, Maven, Gradle)](tools/build-tools.html)
+* [クラスやメソッドの依存関係を調べる](tools/jdeps.html)
 

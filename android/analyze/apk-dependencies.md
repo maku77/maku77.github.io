@@ -87,3 +87,12 @@ Android や Java のコアライブラリが提供しているクラスへの依
 $ jdeps -f "java.*|android.*|dalvik.*" app.jar
 ```
 
+
+APK ファイルのメソッドレベルの依存関係を調べる
+----
+
+昔は Android の [dexdeps](https://github.com/android/platform_dalvik/tree/master/tools/dexdeps) というツールでメソッドレベルの依存関係を調べることができたのですが、このツールは multidex 構成の APK には対応していません（APK 内の１つの DEX ファイルしか解析対象にならない）。
+Yasuenag さんの cfa というツールを使用すれば、.class ファイルを解析してメソッドレベルの依存関係を調べることができますので、こちらを利用するのがよいかもしれません。
+
+- [クラスやメソッドの依存関係を調べる ─ まくまく Java ノート](/java/tools/jdeps.html)
+
