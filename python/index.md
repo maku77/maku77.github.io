@@ -37,6 +37,10 @@ python コマンド / 実行環境
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
 * [Python での正規表現の扱い方まとめ](regexp.html)
 
+数値
+====
+* [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
+
 HTML/XML のパース
 ====
 * [Python で XML を扱う方法いろいろ](xml-in-python.html)
