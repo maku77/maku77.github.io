@@ -5,7 +5,11 @@ layout: category-index
 
 Windows バッチファイル
 ====
+
+環境
+----
 * [Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する](run-script-as-command.html)
+* [環境変数が設定されているかどうか調べる](batch/check-env-var.html)
 
 構文
 ----
