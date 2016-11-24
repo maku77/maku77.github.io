@@ -26,7 +26,6 @@ python コマンド / 実行環境
 * [Python でワンライナーを実行する](one-liner.html)
 * [Python スクリプトを Windows で動く実行ファイル形式に変換する](py2exe.html)
 
-
 クラス
 ====
 * [オブジェクトを print で出力できるようにする](print-object.html)
@@ -42,6 +41,11 @@ python コマンド / 実行環境
 * [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
 * [数値と文字列を変換する](numstr/convert-number-and-string.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
+
+ディクショナリ (Dictionary)
+====
+* [dictionary オブジェクトを生成する ({})](dictionary/create.html)
+
 
 HTML/XML のパース
 ====
