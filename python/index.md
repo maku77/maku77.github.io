@@ -46,6 +46,7 @@ python コマンド / 実行環境
 ====
 * [dictionary オブジェクトを生成する ({})](dictionary/create.html)
 * [dictionary の要素を参照する ([], get)](dictionary/get.html)
+* [dictionary の要素を削除する (del)](dictionary/del.html)
 
 
 HTML/XML のパース
