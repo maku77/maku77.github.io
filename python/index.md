@@ -49,6 +49,7 @@ python コマンド / 実行環境
 * [dictionary の要素を削除する (del)](dictionary/del.html)
 * [dictionary に指定したキーが存在するか調べる (in)](dictionary/in.html)
 * [dictionary からキー、値のリストを作成する (keys, values, items)](dictionary/keys-values.html)
+* [2 つの dictionary をマージする (update)](dictionary/update.html)
 
 
 HTML/XML のパース
