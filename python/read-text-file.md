@@ -27,11 +27,24 @@ Python 2.5 以降なら ```with``` を使って ```close``` を自動化でき�
 ファイルを使用している区間が明示的になるので、**この方法を使うのがオススメ**です。
 
 ```python
-with open('input.xml') as f:
+with open('input.txt') as f:
     for line in f:
         line = line.rstrip('\r\n')
         print(line)
 ```
+
+`with` によってインデントが深くなってしまうのが嫌な場合は、下記のようにユーティリティ関数を用意しておくのもよいですね。
+
+```python
+def each_line(filename):
+    with open(filename) as f:
+        for line in f:
+            yield line.rstrip('\r\n')
+
+for line in each_line('input.txt'):
+    print(line)
+```
+
 
 readline で一行ずつ読み込む方法
 ----
