@@ -54,6 +54,7 @@ python コマンド / 実行環境
 * [2 つの dictionary をマージする (update)](dictionary/update.html)
 * [dictionary の要素をループで処理する](dictionary/loop.html)
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
+* [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
 
 
 HTML/XML のパース
