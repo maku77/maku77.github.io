@@ -47,6 +47,7 @@ python コマンド / 実行環境
 * [dictionary オブジェクトを生成する ({})](dictionary/create.html)
 * [dictionary の要素を参照する ([], get)](dictionary/get.html)
 * [dictionary の要素を削除する (del)](dictionary/del.html)
+* [dictionary の要素数を取得する (len)](dictionary/len.html)
 * [dictionary に指定したキーが存在するか調べる (in)](dictionary/in.html)
 * [キーのリストと値のリストから dictionary を生成する (zip)](dictionary/zip.html)
 * [dictionary からキー、値のリストを作成する (keys, values, items)](dictionary/keys-values.html)
