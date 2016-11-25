@@ -24,6 +24,7 @@ python コマンド / 実行環境
 ====
 * [Python でワンライナーを実行する](one-liner.html)
 * [Python スクリプトを Windows で動く実行ファイル形式に変換する](py2exe.html)
+* [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
 
 クラス
 ====
