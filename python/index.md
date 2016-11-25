@@ -111,3 +111,8 @@ Web
 ====
 * [Python でユニットテストを記述する](unittest.html)
 
+
+コラム
+====
+* [Python 開発の歴史](column/history.html)
+
