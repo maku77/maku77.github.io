@@ -36,7 +36,8 @@ python コマンド / 実行環境
 ====
 * [Python の文字列リテラルいろいろ](numstr/string-literal.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
-* [Python での正規表現の扱い方まとめ](regexp.html)
+* [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
+* [文字列を置換する](numstr/replace-string.html)
 
 数値
 ====
