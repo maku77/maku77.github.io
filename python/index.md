@@ -115,4 +115,4 @@ Web
 コラム
 ====
 * [Python 開発の歴史](column/history.html)
-
+* [Python のインタラクティブモードの小技](column/interactive.html)
