@@ -50,6 +50,7 @@ python コマンド / 実行環境
 * [dictionary に指定したキーが存在するか調べる (in)](dictionary/in.html)
 * [dictionary からキー、値のリストを作成する (keys, values, items)](dictionary/keys-values.html)
 * [2 つの dictionary をマージする (update)](dictionary/update.html)
+* [dictionary の要素をソートして出力する](dictionary/sort.html)
 
 
 HTML/XML のパース
