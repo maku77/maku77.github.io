@@ -42,6 +42,7 @@ python コマンド / 実行環境
 ====
 * [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
 * [数値と文字列を変換する](numstr/convert-number-and-string.html)
+* [整数の割り算の結果を整数 or 少数点数で取得する](numstr/num-division.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
 
 ディクショナリ (Dictionary)
