@@ -48,6 +48,7 @@ python コマンド / 実行環境
 * [dictionary の要素を参照する ([], get)](dictionary/get.html)
 * [dictionary の要素を削除する (del)](dictionary/del.html)
 * [dictionary に指定したキーが存在するか調べる (in)](dictionary/in.html)
+* [キーのリストと値のリストから dictionary を生成する (zip)](dictionary/zip.html)
 * [dictionary からキー、値のリストを作成する (keys, values, items)](dictionary/keys-values.html)
 * [2 つの dictionary をマージする (update)](dictionary/update.html)
 * [dictionary の要素をループで処理する](dictionary/loop.html)
