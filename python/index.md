@@ -15,7 +15,6 @@ layout: category-index
 * [Python の if 構文](syntax/if.html)
 * [Python の switch 構文](syntax/switch.html)
 * [Python のクラス構文](syntax/class.html)
-* [Python の文字列リテラル](syntax/string-literal.html)
 * [range によるループ処理いろいろ](loop-with-range.html)
 * [リスト/リスト内の要素をループで処理する](list/loop-list.html)
 * [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
@@ -33,6 +32,7 @@ python コマンド / 実行環境
 
 文字列
 ====
+* [Python の文字列リテラルいろいろ](numstr/string-literal.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
 * [Python での正規表現の扱い方まとめ](regexp.html)
 
