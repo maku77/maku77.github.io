@@ -33,6 +33,7 @@ Windows バッチファイル
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 * [既にディレクトリが存在している場合の mkdir のエラーを抑制する](file/avoid-mkdir-error.html)
 * [バッチファイルが格納されているディレクトリのパスを取得する](file/batch-dir.html)
+* [複数のファイルを連結する](file/concat-file.html)
 
 日時
 ----
