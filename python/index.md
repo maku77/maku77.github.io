@@ -16,9 +16,6 @@ layout: category-index
 * [Python の switch 構文](syntax/switch.html)
 * [Python のクラス構文](syntax/class.html)
 * [range によるループ処理いろいろ](loop-with-range.html)
-* [リスト/リスト内の要素をループで処理する](list/loop-list.html)
-* [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
-* [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
 
 python コマンド / 実行環境
 ====
@@ -47,6 +44,14 @@ python コマンド / 実行環境
 * [整数の割り算の結果を整数 or 少数点数で取得する](numstr/num-division.html)
 * [小数点以下を四捨五入する／切り捨てる／切り上げる](numstr/round-number.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
+
+シーケンス (Lists and Tuples)
+====
+
+* [リストとタプルの違い](list/list-and-tuple.html)
+* [リスト/リスト内の要素をループで処理する](list/loop-list.html)
+* [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
+* [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
 
 ディクショナリ (Dictionary)
 ====
