@@ -43,3 +43,13 @@ for i in range(len(arr)):
     if arr[i] % 2 == 0: arr[i] = 0
 ```
 
+文字列も sequence の一種なので、`map()` 関数を適用することができます。
+下記の例では、文字列中の各文字の文字コードをリストで取得しています。
+
+#### 例: 文字ごとのコードを取得する
+
+```python
+s = 'ABCDE'
+arr = list(map(lambda x: ord(x), s))  #=> [65, 66, 67, 68, 69]
+```
+
