@@ -87,28 +87,28 @@ HTML/XML のパース
 
 入出力 (I/O)
 ====
+
+ファイル／ディレクトリ
+----
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
 * [指定したファイル名のファイルを検索する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [ファイル／ディレクトリの名前を変更する](change-filename.html)
 * [ディレクトリを作成する](create-directory.html)
 * [ディレクトリを削除する](remove-directory.html)
-* [コマンドライン引数を取得する](command-line-params.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 
-テキストファイル
+テキストファイルの読み書き
 ----
 * [テキストファイルを読み込む](read-text-file.html)
 * [JSON 形式のテキストファイルを整形して出力する](json-pretty-print.html)
 * [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
 
-標準入力
+コマンドライン引数／標準入力／標準エラー出力
 ----
+* [コマンドライン引数を取得する](command-line-params.html)
+* [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
 * [標準入力から読み込む](read-stdin.html)
-* [キーボードからのユーザ入力を取得する](keyboard-input.html)
-
-標準出力
-----
 * [print 関数の改行を抑制する](print-without-line-break.html)
 
 SQL
