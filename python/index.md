@@ -25,6 +25,7 @@ python コマンド / 実行環境
 * [Python でワンライナーを実行する](one-liner.html)
 * [Python スクリプトを Windows で動く実行ファイル形式に変換する](py2exe.html)
 * [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
+* [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 
 クラス
