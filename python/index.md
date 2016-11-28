@@ -78,6 +78,10 @@ python コマンド / 実行環境
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
 
+セット (Set)
+====
+* [set オブジェクトの基本](set/basic.html)
+* [set オブジェクトで集合演算を行う](set/set-operation.html)
 
 HTML/XML のパース
 ====
