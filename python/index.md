@@ -51,6 +51,7 @@ python コマンド / 実行環境
 ====
 
 * [リストとタプルの違い](list/list-and-tuple.html)
+* [リストに要素を追加する／リストを結合する (append, extend, +)](list/append.html)
 * [リスト／タプルをループで処理する](list/loop-list.html)
 * [リスト／タプルのサイズを取得する (len)](list/len.html)
 * [リスト／タプル内の要素をランダムで取得する (random.choice)](list/random-choice.html)
