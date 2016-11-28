@@ -52,6 +52,7 @@ python コマンド / 実行環境
 * [リスト/リスト内の要素をループで処理する](list/loop-list.html)
 * [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
 * [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
+* [二次元配列を作成する](list/multidimensional-array.html)
 
 ディクショナリ (Dictionary)
 ====
