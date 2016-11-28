@@ -49,9 +49,9 @@ python コマンド / 実行環境
 ====
 
 * [リストとタプルの違い](list/list-and-tuple.html)
-* [リスト/リスト内の要素をループで処理する](list/loop-list.html)
-* [リスト/リスト内の要素をシャッフルする](list/shuffle-list.html)
-* [リスト/リスト内の要素をランダムで取得する](list/choice-from-list.html)
+* [リスト／タプルをループで処理する](list/loop-list.html)
+* [リスト／タプル内の要素をランダムで取得する (random.choice)](list/random-choice.html)
+* [リスト内の要素をシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 
 ディクショナリ (Dictionary)
