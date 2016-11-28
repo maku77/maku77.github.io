@@ -121,4 +121,5 @@ Web
 ====
 * [Python 開発の歴史](column/history.html)
 * [Python のインデントによる構造化に慣れる](column/indent.html)
+* [Python のリスト内包表記に慣れる](column/list-comprehension.html)
 * [Python のインタラクティブモードの小技](column/interactive.html)
