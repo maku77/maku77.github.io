@@ -52,7 +52,7 @@ python コマンド / 実行環境
 * [リスト／タプルをループで処理する](list/loop-list.html)
 * [リスト／タプル内の要素をランダムで取得する (random.choice)](list/random-choice.html)
 * [リスト内の要素をシャッフルする (random.shuffle)](list/random-shuffle.html)
-* [リストを昇順ソート／降順ソートする (list.sort)](list/sort.html)
+* [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 
 ディクショナリ (Dictionary)
