@@ -54,6 +54,7 @@ python コマンド / 実行環境
 * [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
+* [リスト内の条件に一致する要素の数を調べる](list/count-if.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
 
