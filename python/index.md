@@ -50,6 +50,7 @@ python コマンド / 実行環境
 
 * [リストとタプルの違い](list/list-and-tuple.html)
 * [リスト／タプルをループで処理する](list/loop-list.html)
+* [リスト／タプルのサイズを取得する (len)](list/len.html)
 * [リスト／タプル内の要素をランダムで取得する (random.choice)](list/random-choice.html)
 * [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
