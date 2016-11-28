@@ -55,6 +55,7 @@ python コマンド / 実行環境
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
 * [リスト内の条件に一致する要素の数を調べる](list/count-if.html)
+* [リスト内の要素をまとめて変更する (map)](list/map.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
 
