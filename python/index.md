@@ -12,10 +12,19 @@ layout: category-index
 
 構文
 ----
+
+### 制御構文
 * [Python の if 構文](syntax/if.html)
 * [Python の switch 構文](syntax/switch.html)
-* [Python のクラス構文](syntax/class.html)
 * [range によるループ処理いろいろ](loop-with-range.html)
+
+### メソッド / 関数
+* [可変長引数を扱う](syntax/variable-length-args.html)
+
+### クラス
+* [Python のクラス構文](syntax/class.html)
+* [オブジェクトを print で出力できるようにする](print-object.html)
+* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 python コマンド / 実行環境
 ====
@@ -25,10 +34,6 @@ python コマンド / 実行環境
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 
-クラス
-====
-* [オブジェクトを print で出力できるようにする](print-object.html)
-* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 文字列
 ====
