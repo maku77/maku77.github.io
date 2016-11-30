@@ -5,13 +5,31 @@
   text-align: right;
 }
 .maku-searchBar_text {
-  border: solid 1px lightgray;
-  background: #f6f6f6;
-  width: 12em;
+  /* border: solid 1px lightgray; */
+  /* background: #f6f6f6; */
+  border: solid 1px #db7093;
+  color: #db7093;
+  background: #fff0fc;
+  width: 13em;
 }
+
+/* placeholder の文字色 */
+.maku-searchBar_text:placeholder-shown { color: #db7093; }
+.maku-searchBar_text::-webkit-input-placeholder { color: #db7093; }
+.maku-searchBar_text::-moz-placeholder { color: #db7093; opacity: 1; }
+.maku-searchBar_text:-ms-input-placeholder { color: #db7093; }
+.maku-searchBar_text:focus::placeholder { color: transparent; }
+.maku-searchBar_text:focus::-webkit-input-placeholder { color:transparent; }
+.maku-searchBar_text:focus:-moz-placeholder { color:transparent; }
+.maku-searchBar_text:focus::-moz-placeholder { color:transparent; }
+
+
 .maku-searchBar_button {
-  border: solid 1px lightgray;
-  background: #ddd;
+  /* border: solid 1px lightgray; */
+  /* background: #ddd; */
+  border: solid 1px #db7093;
+  background: #db7093;
+  color: white;
   border-radius: 5px;
 }
 input[type=search] {
@@ -22,14 +40,15 @@ input[type=search]:focus {
   font-weight: bolder;
   color: #2040ff;
 }
+
 </style>
 
 <form action="http://www.google.co.jp/cse" id="cse-search-box">
   <div class="maku-searchBar">
     <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
     <input type="hidden" name="ie" value="UTF-8" />
-    <input class="maku-searchBar_text" type="search" name="q" placeholder="Search..." size="55" results="5" />
-    <input class="maku-searchBar_button" type="submit" name="sa" value="検索" />
+    <input class="maku-searchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" />
+    <input class="maku-searchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
   </div>
 </form>
 
