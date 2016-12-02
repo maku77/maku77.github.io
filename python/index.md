@@ -53,7 +53,8 @@ python コマンド / 実行環境
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
 * [リスト要素の合計値を求める (sum)](numstr/sum.html)
 * [階乗を求める (math.factorial)](numstr/factorial.html)
-* [順列の数 (nPr) を計算する](numstr/number-of-permutation.html)
+* [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
+* [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
 
 シーケンス (Lists and Tuples)
 ====
