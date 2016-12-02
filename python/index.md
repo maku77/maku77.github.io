@@ -44,6 +44,10 @@ python コマンド / 実行環境
 * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
 * [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
 
+### JSON
+* [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
+* [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
+
 数値
 ====
 * [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
