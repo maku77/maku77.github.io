@@ -52,6 +52,7 @@ python コマンド / 実行環境
 * [小数点以下を四捨五入する／切り捨てる／切り上げる](numstr/round-number.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
 * [リスト要素の合計値を求める (sum)](numstr/sum.html)
+* [階乗を求める (math.factorial)](numstr/factorial.html)
 
 シーケンス (Lists and Tuples)
 ====
