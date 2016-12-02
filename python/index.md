@@ -43,6 +43,7 @@ python コマンド / 実行環境
 * [文字列を置換する](numstr/replace-string.html)
 * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
 * [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
+* [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
 
 ### JSON
 * [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
