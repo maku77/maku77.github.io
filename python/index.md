@@ -12,6 +12,7 @@ layout: category-index
 
 開発環境／デバッグ／ユニットテスト
 ----
+* [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
 * [Python のパッケージ管理ツール (pip)](pip.html)
 * [Python でユニットテストを記述する](unittest.html)
 * [Python コードの実行時間を計測する](misc/measure-time.html)
