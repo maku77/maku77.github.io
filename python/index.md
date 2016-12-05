@@ -148,9 +148,10 @@ Web
 * [HTTP でファイルをダウンロードする](download-file.html)
 
 
-ユニットテスト
+デバッグ／ユニットテスト
 ====
 * [Python でユニットテストを記述する](unittest.html)
+* [Python コードの実行時間を計測する](misc/measure-time.html)
 
 
 コラム
