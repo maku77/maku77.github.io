@@ -1,5 +1,5 @@
 ---
-title: range によるループ処理いろいろ
+title: range による数値のループ処理いろいろ
 created: 2007-10-23
 ---
 

@@ -16,7 +16,7 @@ layout: category-index
 ### 制御構文
 * [Python の if 構文](syntax/if.html)
 * [Python の switch 構文](syntax/switch.html)
-* [range によるループ処理いろいろ](loop-with-range.html)
+* [range による数値のループ処理いろいろ](loop-with-range.html)
 
 ### メソッド / 関数
 * [可変長引数を扱う](syntax/variable-length-args.html)
