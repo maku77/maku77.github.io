@@ -130,7 +130,7 @@ HTML/XML のパース
 ファイル／ディレクトリ
 ----
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
-* [指定したファイル名のファイルを検索する](find-files.html)
+* [指定した拡張子、名前のファイルを列挙する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [ファイル／ディレクトリの名前を変更する](change-filename.html)
 * [ディレクトリを作成する](create-directory.html)
