@@ -8,7 +8,15 @@ layout: category-index
 ====
 * [Python のコーディングスタイル](coding-style.html)
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
+
+
+開発環境／デバッグ／ユニットテスト
+----
 * [Python のパッケージ管理ツール (pip)](pip.html)
+* [Python でユニットテストを記述する](unittest.html)
+* [Python コードの実行時間を計測する](misc/measure-time.html)
+* [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
+
 
 構文
 ----
@@ -154,12 +162,6 @@ Web
 * [urllib による HTTP リクエスト (3) Basic 認証](http-request-with-basic-auth.html)
 * [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
 * [HTTP でファイルをダウンロードする](download-file.html)
-
-
-デバッグ／ユニットテスト
-====
-* [Python でユニットテストを記述する](unittest.html)
-* [Python コードの実行時間を計測する](misc/measure-time.html)
 
 
 コラム
