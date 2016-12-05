@@ -111,6 +111,10 @@ HTML/XML のパース
 入出力 (I/O)
 ====
 
+パス
+----
+* [パスからファイル名だけを取り出す (basename)](io/basename.html)
+
 ファイル／ディレクトリ
 ----
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
@@ -133,6 +137,7 @@ HTML/XML のパース
 * [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
 * [標準入力から読み込む](read-stdin.html)
 * [print 関数の改行を抑制する](print-without-line-break.html)
+
 
 SQL
 ----
