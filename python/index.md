@@ -113,8 +113,10 @@ HTML/XML のパース
 
 パス
 ----
-* [パスからファイル名だけを取り出す (basename)](io/basename.html)
 * [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
+* [パスからファイル名だけを取り出す (basename)](io/basename.html)
+* [パスを結合する (join)](io/join-path.html)
+
 
 ファイル／ディレクトリ
 ----
