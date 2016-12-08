@@ -18,6 +18,7 @@ layout: category-index
 * [Python でユニットテストを記述する](unittest.html)
 * [Python コードの実行時間を計測する](misc/measure-time.html)
 * [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
+* [Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)](dev/py2exe.html)
 
 
 構文
