@@ -12,6 +12,7 @@ layout: category-index
 
 開発環境／デバッグ／ユニットテスト
 ----
+* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
 * [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
 * [Python のパッケージ管理ツール (pip)](pip.html)
 * [Python でユニットテストを記述する](unittest.html)
