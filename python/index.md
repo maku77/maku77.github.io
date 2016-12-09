@@ -146,6 +146,7 @@ HTML/XML のパース
 * [テキストファイルを読み込む](io/read-text-file.html)
 * [JSON 形式のテキストファイルを整形して出力する](json-pretty-print.html)
 * [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
+* [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
 
 ZIP/JAR ファイルの読み書き
 ----
