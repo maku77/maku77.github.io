@@ -143,7 +143,7 @@ HTML/XML のパース
 
 テキストファイルの読み書き
 ----
-* [テキストファイルを読み込む](read-text-file.html)
+* [テキストファイルを読み込む](io/read-text-file.html)
 * [JSON 形式のテキストファイルを整形して出力する](json-pretty-print.html)
 * [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
 
