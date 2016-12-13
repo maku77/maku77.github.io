@@ -174,6 +174,9 @@ Web
 * [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
 * [HTTP でファイルをダウンロードする](download-file.html)
 
+NumPy / Matplotlib
+====
+* [NumPy と Matplotlib をインストールする](numpy/install.html)
 
 コラム
 ====
