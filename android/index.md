@@ -90,6 +90,10 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
 
 
+Android Framework
+----
+* [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
+
 Java レイヤ
 ----
 * [特殊ディレクトリの情報を取得する](special-dir-info.html)
