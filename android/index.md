@@ -93,6 +93,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 Android Framework
 ----
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
+* [SharedPreference でアプリの設定値を保存する](fw/shared-preference.html)
 
 Java レイヤ
 ----
