@@ -8,6 +8,7 @@ layout: category-index
 ====
 * [Python のコーディングスタイル](coding-style.html)
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
+* [Python のモジュール／パッケージを作成する](env/create-module.html)
 
 
 開発環境／デバッグ／ユニットテスト
