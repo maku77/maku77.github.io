@@ -69,6 +69,10 @@ Git
 * [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
+ファイル操作
+----
+* [git clean で追跡されていないファイルを削除する](git-clean.html)
+
 タグ (git tag)
 ----
 * [git tag でコミットに対してタグをつける](add-tag.html)
