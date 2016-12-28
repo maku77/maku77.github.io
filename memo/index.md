@@ -3,7 +3,7 @@ title: Best Practices メモ
 layout: category-index
 ---
 
-設計ノウハウ
+設計ノウハウ／ベストプラクティス
 ====
 * [不具合修正に対する向き合い方](attitude-to-defect.html)
 * [動的品質よりも静的品質の向上に力を入れる](static-and-dynamic-quality.html)
@@ -20,6 +20,7 @@ layout: category-index
 * [型変換用メソッドは受け取り側クラスに作る](api-convert-type.html)
 * [静的チェックのレベルはプロジェクト初期に厳しくする](strict-analysis-in-the-beginning.html)
 * [リソースは finally ブロックで閉じる](finally-close.html)
+* [コメント内で使える特殊キーワード（XXX、TODO など）を理解する](practice/keyword-in-comment.html)
 
 デザインパターン
 ====
