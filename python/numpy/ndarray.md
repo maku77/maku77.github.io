@@ -158,8 +158,20 @@ array([[    1,     4,    27],
 >>> a + b
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-ValueError: operands could not be broadcast together with shapes (2,3) (2,2) 
+ValueError: operands could not be broadcast together with shapes (2,3) (2,2)
 ~~~
+
+ただし、１次元の NumPy 配列と演算処理を行うと、ブロードキャストの仕組みがうまく働いて演算処理が成功します（単独の数値との演算がうまくいくのと同じ仕組みです）。
+
+~~~ python
+>>> a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+>>> b = np.array([1, 2, 3])
+>>> a * b
+array([[ 1,  4,  9],
+       [ 4, 10, 18],
+       [ 7, 16, 27]])
+~~~
+
 
 行列演算を行う（内積、外積、転置）
 ----
