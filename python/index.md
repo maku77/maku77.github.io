@@ -177,7 +177,7 @@ Web
 
 NumPy / Matplotlib
 ====
-* [NumPy と Matplotlib をインストールする](numpy/install.html)
+* [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
 * [NumPy 配列 (ndarray) で行列を扱う](numpy/ndarray.html)
 
 
