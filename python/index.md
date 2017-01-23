@@ -180,6 +180,9 @@ NumPy / Matplotlib
 * [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
 * [NumPy 配列 (ndarray) で行列を扱う](numpy/ndarray.html)
 
+#### pandas
+* [pandas.Series - Pandas でラベル付き一次元データを扱う](numpy/pd-series.html)
+* [pandas.DataFrame - Pandas でラベル付き二次元データを扱う](numpy/pd-dataframe.html)
 
 wxPython
 ====
