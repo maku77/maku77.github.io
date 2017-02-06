@@ -191,6 +191,7 @@ wxPython
 * [wxPython - Dialog（ダイアログ）](wxpython/dialog.html)
 * [wxPython - Frame（フレーム）](wxpython/frame.html)
 * [wxPython - Layout（レイアウト）](wxpython/layout.html)
+* [wxPython - SplitterWindow（スプリッターウィンドウ）](wxpython/splitterwindow.html)
 
 各種コンポーネント
 ----
