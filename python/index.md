@@ -214,6 +214,7 @@ wxPython
 その他の wxPython メモ
 ----
 * [wxPython のイベントハンドラを理解する](wxpython/event-handler.html)
+* [wxPython アプリケーションのエラー出力方法を理解する](wxpython/error-output.html)
 * [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
 * [wxPython のコンポーネントをドラッグで動かせるようにする](wxpython/drag-component.html)
 
