@@ -213,6 +213,7 @@ wxPython
 
 その他の wxPython メモ
 ----
+* [wxPython のイベントハンドラに関して理解する](wxpython/event-handler.html)
 * [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
 
 コラム
