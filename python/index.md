@@ -207,6 +207,7 @@ wxPython
 * [wxPython - Menu（メニュー）](wxpython/menu.html)
 * [wxPython - Slider（スライダー）](wxpython/slider.html)
 * [wxPython - SpinCtrl（スピンコントロール）](wxpython/spinctrl.html)
+* [wxPython - StaticText（変更不可のラベル）](wxpython/statictext.html)
 
 コラム
 ====
