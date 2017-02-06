@@ -203,7 +203,7 @@ wxPython
 * [wxPython - Grid（グリッド）](wxpython/grid.html)
 * [wxPython - HtmlWindow（HTML ウィンドウ）](wxpython/htmlwindow.html)
 * [wxPython - ListBox（リストボックス）](wxpython/listbox.html)
-
+* [wxPython - Menu（メニュー）](wxpython/menu.html)
 
 コラム
 ====
