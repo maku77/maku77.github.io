@@ -209,6 +209,7 @@ wxPython
 * [wxPython - SpinCtrl（スピンコントロール）](wxpython/spinctrl.html)
 * [wxPython - StaticText（変更不可のラベル）](wxpython/statictext.html)
 * [wxPytnon - StatusBar（ステータスバー）](wxpython/statusbar.html)
+* [wxPython - TextCtrl（テキスト入力用）](wxpython/textctrl.html)
 
 コラム
 ====
