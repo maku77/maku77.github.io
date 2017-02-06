@@ -205,6 +205,7 @@ wxPython
 * [wxPython - ListBox（リストボックス）](wxpython/listbox.html)
 * [wxPython - Menu（メニュー）](wxpython/menu.html)
 * [wxPython - Slider（スライダー）](wxpython/slider.html)
+* [wxPython - SpinCtrl（スピンコントロール）](wxpython/spinctrl.html)
 
 コラム
 ====
