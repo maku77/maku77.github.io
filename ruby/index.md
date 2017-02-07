@@ -121,6 +121,7 @@ Ruby の制御構文
 ファイル／ディレクトリ
 ----
 * [テキストファイルを読み込む](read-text-file.html)
+* [テキストファイルを grep する](array/grep.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
 * [ディレクトリ内のファイルを検索する](find-files.html)
