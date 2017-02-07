@@ -216,6 +216,7 @@ wxPython
 ----
 * [wxPython のイベントハンドラを理解する](wxpython/event-handler.html)
 * [wxPython アプリケーションのエラー出力方法を理解する](wxpython/error-output.html)
+* [wxPython によるグラフィックス処理を理解する](wxpython/graphics.html)
 * [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
 * [wxPython のコンポーネントをドラッグで動かせるようにする](wxpython/drag-component.html)
 
