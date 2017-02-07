@@ -188,6 +188,7 @@ wxPython
 
 基本ウィンドウとレイアウト
 ----
+* [wxPython によるウィンドウ表示の基本](wxpython/basic.html)
 * [wxPython - Dialog（ダイアログ）](wxpython/dialog.html)
 * [wxPython - Frame（フレーム）](wxpython/frame.html)
 * [wxPython - Layout（レイアウト）](wxpython/layout.html)

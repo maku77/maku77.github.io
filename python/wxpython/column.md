@@ -24,6 +24,26 @@ wxPython のベースとなっている wxWidget プロジェクトは、1992 �
 - x は Unix X server の **X**
 
 
+wxPython のコーディングスタイル
+----
+
+Python のメソッド名は一般的に、
+
+~~~ python
+lower_case_separeted_by_underscores
+lowerCaseInterCap
+~~~
+
+のようなスタイルが使用されますが、wxPython のメソッド名は wxWidget のスタイルが採用されているため、
+
+~~~python
+UpperCaseInterCap
+~~~
+
+といったスタイルで記述されています。
+wxPython を使って作成するアプリケーションでは、スタイルを統一するために後者の形式を使うことが推奨されています。
+
+
 wxPython の旧パッケージ名について
 ----
 
