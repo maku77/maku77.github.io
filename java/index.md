@@ -89,6 +89,7 @@ Swing
 * [Swing で Hello World](swing/basic/helloworld.html)
 * [Swing - Container と JComponent と JFrame の関係](swing/basic/container.html)
 * [Swing - JPanel に GUI コンポーネントを配置する](swing/basic/jpanel.html)
+* [Swing - 標準的なダイアログいろいろ](swing/basic/dialogs.html)
 * [Swing - OK ボタンと Cancel ボタンのあるダイアログを作る](swing/basic/ok-cancel-dialog.html)
 * [Swing - JDialog のウィンドウサイズを変更できるようにする](swing/basic/change-dialog-size.html)
 * [Swing - スプリッターを配置してウィンドウを分割する](swing/basic/splitpane1.html)
