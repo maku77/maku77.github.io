@@ -91,6 +91,9 @@ Swing
 * [Swing - JPanel に GUI コンポーネントを配置する](swing/basic/jpanel.html)
 * [Swing - OK ボタンと Cancel ボタンのあるダイアログを作る](swing/basic/ok-cancel-dialog.html)
 * [Swing - JDialog のウィンドウサイズを変更できるようにする](swing/basic/change-dialog-size.html)
+* [Swing - スプリッターを配置してウィンドウを分割する](swing/basic/splitpane1.html)
+* [Swing - スプリッターを折り畳み可能にする](swing/basic/splitpane2.html)
+* [Swing - スプリッターの分割方向を動的に変更する](swing/basic/splitpane3.html)
 
 ### レイアウト
 * [Swing - レイアウトマネージャの種類](swing/layout/layout-manager.html)
