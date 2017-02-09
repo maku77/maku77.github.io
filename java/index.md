@@ -107,6 +107,9 @@ Swing
 * [Swing - FlowLayout でコンポーネントを左上から並べる](swing/layout/flow-layout1.html)
 * [Swing - FlowLayout でコンポーネントが複数行表示されるときに左寄せ／右寄せする](swing/layout/flow-layout2.html)
 
+### ウィジェット
+* [Swing - JButton（ボタン）にショートカットキーを割り当てる](swing/widget/jbutton-shortcut.html)
+
 コラム
 ----
 * [J2SE から Java SE へ](column/j2se-to-javase.html)
