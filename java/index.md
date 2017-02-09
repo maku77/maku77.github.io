@@ -109,6 +109,7 @@ Swing
 
 ### ウィジェット
 * [Swing - JButton（ボタン）にショートカットキーを割り当てる](swing/widget/jbutton-shortcut.html)
+* [Swing - JComboBox でルック＆フィールの選択肢を表示する](swing/widget/jcombobox.html)
 
 コラム
 ----
