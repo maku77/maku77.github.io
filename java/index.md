@@ -84,11 +84,24 @@ Effective Java や Java の鉄則など
 
 Swing
 ----
+
+### 基本
 * [Swing で Hello World](swing/basic/helloworld.html)
 * [Swing - Container と JComponent と JFrame の関係](swing/basic/container.html)
 * [Swing - JPanel に GUI コンポーネントを配置する](swing/basic/jpanel.html)
 * [Swing - OK ボタンと Cancel ボタンのあるダイアログを作る](swing/basic/ok-cancel-dialog.html)
 * [Swing - JDialog のウィンドウサイズを変更できるようにする](swing/basic/change-dialog-size.html)
+
+### レイアウト
+* [Swing - レイアウトマネージャの種類](swing/layout/layout-manager.html)
+* [Swing - デフォルトのレイアウトマネージャについて](swing/layout/default-layout.html)
+* [Swing - BorderLayout でコンポーネントを上下左右中央に並べる](swing/layout/border-layout1.html)
+* [Swing - BorderLayout で中央に配置するコンポーネントのデフォルトサイズを設定する](swing/layout/border-layout2.html)
+* [Swing - BorderLayout でコンポーネント間のスペースを設定する](swing/layout/border-layout3.html)
+* [Swing - BoxLayout でコンポーネントを縦方向、横方向に並べる](swing/layout/box-layout1.html)
+* [Swing - BoxLayout で左寄せ／中央寄せ／右寄せ表示する](swing/layout/box-layout2.html)
+* [Swing - FlowLayout でコンポーネントを左上から並べる](swing/layout/flow-layout1.html)
+* [Swing - FlowLayout でコンポーネントが複数行表示されるときに左寄せ／右寄せする](swing/layout/flow-layout2.html)
 
 コラム
 ----
