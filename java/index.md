@@ -110,6 +110,8 @@ Swing
 ### ウィジェット
 * [Swing - JButton（ボタン）にショートカットキーを割り当てる](swing/widget/jbutton-shortcut.html)
 * [Swing - JComboBox でルック＆フィールの選択肢を表示する](swing/widget/jcombobox.html)
+* [Swing - JEditorPane で HTML コンテンツを表示する](swing/widget/jeditorpane1.html)
+* [Swing - JEditorPane でハイパーリンク関連のイベントをハンドルする](swing/widget/jeditorpane2.html)
 
 コラム
 ----
