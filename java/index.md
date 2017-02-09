@@ -119,6 +119,7 @@ Swing
 * [Swing - JList で最初に表示される行数を指定する](swing/widget/jlist-init-lines.html)
 * [Swing - JList で選択されている項目を取得する](swing/widget/jlist-get-selection.html)
 * [Swing - JList で単一の項目のみ選択できるようにする](swing/widget/jlist-single-selection.html)
+* [Swing - JSpinner を使って上下矢印で値を入力できるようにする](swing/widget/jspinner.html)
 
 コラム
 ----
