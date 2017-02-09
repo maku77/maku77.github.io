@@ -53,8 +53,8 @@ Zip ファイル
 * [JDBC ドライバの一覧を取得する](jdbc-list-drivers.html)
 * [Java から SQLite を扱えるようにする](jdbc-sqlite-driver.html)
 * [JDBC による DB 操作の流れ](jdbc-basic-flow.html)
-* [プレースホルダを使用して SQL クエリを作成する](jdbc-placeholder.html)
-* [最初のレコードだけを取得する](jdbc-get-first-record.html)
+* [JDBC でプレースホルダを使用して SQL クエリを作成する](jdbc-placeholder.html)
+* [JDBC で最初のレコードだけを取得する](jdbc-get-first-record.html)
 
 Java の仕様
 ----
