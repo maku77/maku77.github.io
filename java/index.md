@@ -120,6 +120,9 @@ Swing
 * [Swing - JList で選択されている項目を取得する](swing/widget/jlist-get-selection.html)
 * [Swing - JList で単一の項目のみ選択できるようにする](swing/widget/jlist-single-selection.html)
 * [Swing - JSpinner を使って上下矢印で値を入力できるようにする](swing/widget/jspinner.html)
+* [Swing - JTextArea で複数行のテキストを表示する](swing/widget/jtextarea-multiline.html)
+* [Swing - JTextArea のテキストを画面端で折り返す](swing/widget/jtextarea-wrap.html)
+* [Swing - JTextArea のテキストを編集不可にする](swing/widget/jtextarea-prohibit-edit.html)
 
 コラム
 ----
