@@ -95,6 +95,7 @@ Swing
 * [Swing - スプリッターを配置してウィンドウを分割する](swing/basic/splitpane1.html)
 * [Swing - スプリッターを折り畳み可能にする](swing/basic/splitpane2.html)
 * [Swing - スプリッターの分割方向を動的に変更する](swing/basic/splitpane3.html)
+* [Swing - コンポーネントにツールティップを表示する](swing/basic/tooltip.html)
 
 ### レイアウト
 * [Swing - レイアウトマネージャの種類](swing/layout/layout-manager.html)
@@ -107,7 +108,7 @@ Swing
 * [Swing - FlowLayout でコンポーネントを左上から並べる](swing/layout/flow-layout1.html)
 * [Swing - FlowLayout でコンポーネントが複数行表示されるときに左寄せ／右寄せする](swing/layout/flow-layout2.html)
 
-### ウィジェット
+### コンポーネント（ウィジェット）
 * [Swing - JButton（ボタン）にショートカットキーを割り当てる](swing/widget/jbutton-shortcut.html)
 * [Swing - JComboBox でルック＆フィールの選択肢を表示する](swing/widget/jcombobox.html)
 * [Swing - JEditorPane で HTML コンテンツを表示する](swing/widget/jeditorpane1.html)
