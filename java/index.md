@@ -123,6 +123,8 @@ Swing
 * [Swing - JTextArea で複数行のテキストを表示する](swing/widget/jtextarea-multiline.html)
 * [Swing - JTextArea のテキストを画面端で折り返す](swing/widget/jtextarea-wrap.html)
 * [Swing - JTextArea のテキストを編集不可にする](swing/widget/jtextarea-prohibit-edit.html)
+* [Swing - JTextField のテキストを右寄せで表示する](swing/widget/jtextfield-align.html)
+* [Swing - JTextField でテキストの先頭／末尾部分を強制的に表示する](swing/widget/jtextfield-scroll.html)
 
 コラム
 ----
