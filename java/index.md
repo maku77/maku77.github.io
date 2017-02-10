@@ -96,8 +96,10 @@ Swing
 * [Swing - スプリッターを折り畳み可能にする](swing/basic/splitpane2.html)
 * [Swing - スプリッターの分割方向を動的に変更する](swing/basic/splitpane3.html)
 * [Swing - コンポーネントにツールティップを表示する](swing/basic/tooltip.html)
+* [Swing - ショートカットキーでフォーカスを移動する](swing/basic/move-focus-by-shortcut.html)
 
 ### レイアウト
+
 * [Swing - レイアウトマネージャの種類](swing/layout/layout-manager.html)
 * [Swing - デフォルトのレイアウトマネージャについて](swing/layout/default-layout.html)
 * [Swing - BorderLayout でコンポーネントを上下左右中央に並べる](swing/layout/border-layout1.html)
