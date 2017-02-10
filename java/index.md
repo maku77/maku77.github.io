@@ -97,6 +97,7 @@ Swing
 * [Swing - スプリッターの分割方向を動的に変更する](swing/basic/splitpane3.html)
 * [Swing - コンポーネントにツールティップを表示する](swing/basic/tooltip.html)
 * [Swing - ショートカットキーでフォーカスを移動する](swing/basic/move-focus-by-shortcut.html)
+* [Swing - 右クリックでポップアップメニューを表示する](swing/basic/popup-menu.html)
 
 ### レイアウト
 
