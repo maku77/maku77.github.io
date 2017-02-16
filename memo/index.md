@@ -66,7 +66,6 @@ XML
 ====
 * [意外と知られていない XML 記述のルール](xml/xml-rules.html)
 * [XML の名前空間](xml/namespace.html)
-* 言語別 XML のパース: [Python](/python/#html/xml-のパース) / [Ruby](/ruby/#xml)
 
 言語別の構文
 ====
