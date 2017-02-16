@@ -107,20 +107,12 @@ python コマンド / 実行環境
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
 
+
 セット (Set)
 ====
 * [set オブジェクトの基本](set/basic.html)
 * [set オブジェクトで集合演算を行う](set/set-operation.html)
 
-HTML/XML のパース
-====
-* [Python で XML を扱う方法いろいろ](xml-in-python.html)
-* [Python で XML をパースする (ElementTree)](parse-xml-by-element-tree.html)
-* [Python で XML をパースする (minidom)](parse-xml-by-minidom.html)
-* [Python で XPath を使用する (ElementTree)](xpath.html)
-* [Python で XML を構築する (minidom)](create-xml-by-minidom.html)
-* [Python で HTML をパースする (HTMLParser)](parse-html-by-html-parser.html)
-* [Python で HTML をパースする (Beautiful Soup)](parse-html-by-beautiful-soup.html)
 
 入出力 (I/O)
 ====
@@ -149,10 +141,23 @@ HTML/XML のパース
 * [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
 * [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
 
-ZIP/JAR ファイルの読み書き
+HTML/XML ファイル
+----
+* [Python で XML を扱う方法いろいろ](xml-in-python.html)
+* [Python で XML をパースする (ElementTree)](parse-xml-by-element-tree.html)
+* [Python で XML をパースする (minidom)](parse-xml-by-minidom.html)
+* [Python で XPath を使用する (ElementTree)](xpath.html)
+* [Python で XML を構築する (minidom)](create-xml-by-minidom.html)
+* [Python で HTML をパースする (HTMLParser)](parse-html-by-html-parser.html)
+* [Python で HTML をパースする (Beautiful Soup)](parse-html-by-beautiful-soup.html)
+
+Excel ファイル
+----
+* [Excel ファイルを読み込む (xlrd)](io/read-excel-file.html)
+
+ZIP/JAR ファイル
 ----
 * [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
-
 
 コマンドライン引数／標準入力／標準エラー出力
 ----
@@ -161,10 +166,10 @@ ZIP/JAR ファイルの読み書き
 * [標準入力から読み込む](read-stdin.html)
 * [print 関数の改行を抑制する](print-without-line-break.html)
 
-
 SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
+
 
 Web
 ====
@@ -175,6 +180,7 @@ Web
 * [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
 * [HTTP でファイルをダウンロードする](download-file.html)
 
+
 NumPy / Matplotlib
 ====
 * [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
@@ -182,6 +188,7 @@ NumPy / Matplotlib
 * [pandas.Series - Pandas でラベル付き一次元データを扱う](numpy/pd-series.html)
 * [pandas.DataFrame - Pandas でラベル付き二次元データを扱う](numpy/pd-dataframe.html)
 * [pandas.DataFrame - DataFrame から部分データを抽出する](numpy/dataframe-select.html)
+
 
 wxPython
 ====
@@ -221,6 +228,7 @@ wxPython
 * [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
 * [wxPython のコンポーネントをドラッグで動かせるようにする](wxpython/drag-component.html)
 * [wxPython 関連コラム](wxpython/column.html)
+
 
 コラム
 ====
