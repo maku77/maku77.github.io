@@ -29,6 +29,7 @@ layout: category-index
 * [TimeUnit によって単位時間を明確にする](thread/time-unit.html)
 * [スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする](thread/uncaught-exception.html)
 * [Java のオブジェクトロックは再入可能であることを理解する](thread/reentrant.html)
+* [Boolean 型で synchronized するのは NG](thread/boolean-sync.html)
 
 JAR
 ----
