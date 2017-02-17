@@ -125,8 +125,16 @@ for row_index in range(sheet.nrows):
 
 ~~~ python
 for row_index in range(sheet.nrows):
-    row = sheet.row(row_index)  # xlrd.sheet.Cell のリスト
+    row = sheet.row(row_index)  # 一行分の xlrd.sheet.Cell のリスト
     for cell in row:
         print(cell.value)
+~~~
+
+`sheet.row` の代わりに、`sheet.row_values` を使用すると、`xlrd.sheet.Cell` のリストではなく、一行分の「値」のリストを取得することができます。
+
+~~~ python
+for row_index in range(sheet.nrows):
+    row = sheet.row_values(row_index)  # 一行分の「値」のリスト
+    print(row[0], row[1], row[2], row[3])
 ~~~
 
