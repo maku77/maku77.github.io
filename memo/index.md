@@ -84,9 +84,18 @@ XML
 * [パッケージ管理ツールいろいろ](common-package-management.html)
 * [Python のパッケージ管理ツール (pip)](/python/pip.html)
 
+
+暗号／セキュリティ
+====
+* [共通鍵暗号化方式と公開鍵暗号化方式](security/encryption-scheme.html)
+* [SSH 鍵の作成と登録](security/ssh-keygen.html)
+* [SSH 接続用のエイリアスを設定する (~/.ssh/config)](security/ssh-alias.html)
+
+
 ネットワーク
 ====
 * [IP によるインターネットワーキングの基礎（昔々2000年くらいに書いた記事）](./ip-networking/)
+
 
 ソフトウェア開発参考リンク
 ====
