@@ -103,7 +103,6 @@ public class DummyContentProvider implements ITreeContentProvider {
 ~~~
 
 この ContentProvider を TreeViewer で表示するための Composite クラスは以下のようになります。
-ここではダミーデータを表示しているので、`TreeViewer.setInput()` で渡すデータは何でもよいのですが、`null` 以外のデータを渡さないとツリーに何も表示されないので、とりあえず適当な文字列を渡しています。
 
 #### MyComposite.java
 
@@ -127,6 +126,15 @@ public class MyComposite extends Composite {
     }
 }
 ~~~
+
+ここではダミーデータを表示しているので、`TreeViewer#setInput()` で渡すデータは何でもよいのですが、`null` 以外のデータを渡さないとツリーに何も表示されないので、とりあえず適当な文字列 `"dummy"` を渡しています。
+`TreeViewer#setInput()` を実行すると、ContentProvider の下記のメソッドが呼ばれます。
+
+~~~ java
+Object[] getElements(Object element)
+~~~
+
+このメソッドで、ツリーのルート要素として表示する要素の配列を返すように実装しておく必要があります。
 
 
 TreeViewer 上のアイテムを選択したときのイベントをハンドルする
