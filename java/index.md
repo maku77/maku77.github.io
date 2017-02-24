@@ -164,6 +164,7 @@ SWT (Standard Widget Toolkit)
 * [JFace の TreeViewer を使用する](swt/jface-tree-viewer.html)
 * [JFace の TreeViewer を使ってディレクトリツリーを表示する](swt/jface-tree-viewer-dir.html)
 * [階層構想を表現した RDB のデータを JFace の TreeViewer でツリー表示する](swt/jface-tree-viewer-rdb.html)
+* [JFace の CheckboxTreeViewer を使用する](swt/jface-checkbox-tree-viewer.html)
 * [JFace の TableViewer を使用してテーブルにデータを表示する](swt/jface-table-viewer.html)
 
 コラム
