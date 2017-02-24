@@ -31,21 +31,47 @@ private static void createComponents(Composite parent) {
     Tree tree = new Tree(parent, SWT.SINGLE);
 
     // 最上位のノードを追加
-    TreeItem item1 = new TreeItem(tree, SWT.SINGLE);
-    TreeItem item2 = new TreeItem(tree, SWT.SINGLE);
-    TreeItem item3 = new TreeItem(tree, SWT.SINGLE);
+    TreeItem item1 = new TreeItem(tree, SWT.NONE);
+    TreeItem item2 = new TreeItem(tree, SWT.NONE);
+    TreeItem item3 = new TreeItem(tree, SWT.NONE);
     item1.setText("Item 1");
     item2.setText("Item 2");
     item3.setText("Item 3");
 
     // 子ノードを追加
-    TreeItem sub1 = new TreeItem(item1, SWT.SINGLE);
-    TreeItem sub2 = new TreeItem(item1, SWT.SINGLE);
-    TreeItem sub3 = new TreeItem(item1, SWT.SINGLE);
+    TreeItem sub1 = new TreeItem(item1, SWT.NONE);
+    TreeItem sub2 = new TreeItem(item1, SWT.NONE);
+    TreeItem sub3 = new TreeItem(item1, SWT.NONE);
     sub1.setText("Sub item 1");
     sub2.setText("Sub item 2");
     sub3.setText("Sub item 3");
 }
+~~~
+
+
+ツリーへの要素の追加方法
+----
+
+#### root ノードを追加する
+
+Tree のトップレベルにノードを追加する時は、TreeItem のコンストラクタの第一引数に Table のインスタンスを指定します。
+
+~~~ java
+TreeItem rootItem = new TreeItem(tree, SWT.NONE);
+rootItem.setText("Item 1");
+~~~
+
+#### ノードの下に子ノードを追加
+
+TreeItem の下に子ノードとして TreeItem を追加する時は、TreeItem のコンストラクタの第一引数に親となる TreeItem のインスタンスを指定します。
+
+~~~ java
+TreeItem item = new TreeItem(rootItem, SWT.NONE);
+item.setText("Item 1-1");
+item = new TreeItem(rootItem, SWT.NONE);
+item.setText("Item 1-2");
+item = new TreeItem(rootItem, SWT.NONE);
+item.setText("Item 1-3");
 ~~~
 
 
@@ -77,6 +103,7 @@ tree.addListener(SWT.Selection, new Listener() {
 tree.addSelectionListener(new SelectionListener() {
     @Override
     public void widgetDefaultSelected(SelectionEvent e) {
+        // Do nothing.
     }
 
     @Override
@@ -111,6 +138,52 @@ MyData data = (MyData) item.getData();
 item.setData("key", new MyData());
 MyData data = (MyData) item.getData("key");
 ~~~
+
+
+（おまけ）ツリー用の TreeItem のサンプルデータ
+----
+
+Tree にサンプルデータを追加したい場合のユーティリティ関数です。
+
+~~~ java
+/**
+ * Tree にサンプルの TreeItem を追加します．
+ *
+ * +-- Item 1
+ * |    +-- Item 1-1
+ * |    |    +-- Item 1-1-1
+ * |    |    +-- Item 1-1-2
+ * |    +-- Item 1-2
+ * |         +-- Item 1-2-1
+ * |         +-- Item 1-2-2
+ * +-- Item 2
+ *      +-- Item 2-1
+ *      |    +-- Item 2-1-1
+ *      |    +-- Item 2-1-2
+ *      +-- Item 2-2
+ *           +-- Item 2-2-1
+ *           +-- Item 2-2-2
+ *
+ * @param tree TreeItem を追加する Tree オブジェクト
+ */
+private void addSampleTreeItems(Tree tree) {
+    for (int i = 1; i <= 2; ++i) {
+        TreeItem first = new TreeItem(tree, SWT.NONE);
+        first.setText("Item " + i);
+
+        for (int j = 1; j <= 2; ++j) {
+            TreeItem second = new TreeItem(first, SWT.NONE);
+            second.setText(first.getText() + '-' + j);
+
+            for (int k = 1; k <= 2; ++k) {
+                TreeItem third = new TreeItem(second, SWT.NONE);
+                third.setText(second.getText() + '-' + k);
+            }
+        }
+    }
+}
+~~~
+
 
 JFace の TreeViewer クラスについて
 ----
