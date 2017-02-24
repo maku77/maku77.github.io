@@ -116,3 +116,38 @@ if (reply != SWT.OK) {
 }
 ~~~
 
+
+MessageBox を簡単に使うためのクラス
+----
+
+下記のような MsgBox クラスを作成しておけば、MessageBox の表示を、
+
+~~~ java
+MsgBox.show("Hello!");
+~~~
+
+のように簡単に実行できるようになります。
+
+#### MsgBox.java
+
+~~~ java
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.SWT;
+
+public final class MsgBox {
+    static private MessageBox msg = new MessageBox(new Shell(), SWT.NULL);
+
+    public static void show(String message) {
+        msg.setMessage(message);
+        msg.open();
+    }
+
+    public static void show(String title, String message) {
+        msg.setText(title);
+        msg.setMessage(message);
+        msg.open();
+    }
+}
+~~~
+
