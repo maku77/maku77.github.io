@@ -189,6 +189,7 @@ NumPy / Matplotlib
 ====
 * [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
 * [NumPy 配列 (ndarray) で行列を扱う](numpy/ndarray.html)
+* [連番からなる NumPy 配列を作成する (np.arange)](numpy/np-arange.html)
 * [pandas.Series - Pandas でラベル付き一次元データを扱う](numpy/pd-series.html)
 * [pandas.DataFrame - Pandas でラベル付き二次元データを扱う](numpy/pd-dataframe.html)
 * [pandas.DataFrame - DataFrame から部分データを抽出する](numpy/dataframe-select.html)
