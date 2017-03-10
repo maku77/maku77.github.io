@@ -5,8 +5,8 @@
 
 $COLOR_MAIN: #666;
 $COLOR_HEADER: black;
-$COLOR_EMPHASIS: #d68;
-$COLOR_EMPHASIS_BG: #ff9;
+$COLOR_EMPHASIS: #a00; /* #d68; */
+/* $COLOR_EMPHASIS_BG: #ff9; */
 
 $COLOR_LINK: #36f;
 $COLOR_LINK_VISITED: #03c;
@@ -31,6 +31,7 @@ $COLOR_NAV_FOCUSED: #eaeaea;
 body {
   color: $COLOR_MAIN;
   line-height: 1.5;
+  letter-spacing: 0.12em;
   /*
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
   */
@@ -53,7 +54,7 @@ h1 {
 h1, h2, h3, h4 {
   color: $COLOR_HEADER;
   font-weight: bolder;
-  margin: 1em 0;
+  margin: 1.5em 0 1em 0;
 }
 
 h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
@@ -134,7 +135,7 @@ dd {
 
 strong {
   color: $COLOR_EMPHASIS;
-  background: $COLOR_EMPHASIS_BG;
+  /* background: $COLOR_EMPHASIS_BG; */
   font-weight: bold;
 }
 
