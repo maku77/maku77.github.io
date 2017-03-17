@@ -7,12 +7,14 @@ layout: category-index
 ----
 - [配列とリストを定義する](list/define-array-list.html)
 - [配列のサイズを取得する](list/get-array-size.html)
+- [配列のサイズを切り詰める](list/shorten-array.html)
 - [配列の範囲外アクセス](list/undef.html)
 - [配列の末尾の要素を取得する](list/get-last-element.html)
 - [配列に要素を追加する／取り出す](list/push-unshift.html)
 - [配列の要素を print で出力する](list/print-array.html)
 - [配列の要素をループで処理する](list/loop-array.html)
 - [配列をコピーする](list/copy-array.html)
+- [配列を連結する](list/concat-array.html)
 - [リスト代入](list/list-substitution.html)
 - [grep 演算子によるリスト要素のフィルタリング](list/grep-list.html)
 - [map 演算子を使ってリストの各要素を加工したリストを取得する](list/map-list.html)
@@ -78,6 +80,7 @@ layout: category-index
 ----
 - [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
 - [大文字と小文字を区別しない文字列マッチング](string/ignore-case.html)
+- [文字列の置換／文字の置換](string/replace.html)
 
 入出力
 ----

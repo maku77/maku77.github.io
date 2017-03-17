@@ -57,20 +57,43 @@ created: 2010-05-07
 
 |      | Python | Ruby | Perl |
 | ---- | ------ | ---- | ---- |
-|末尾の改行削除| `s = s.rstrip('\r\n')` | `s.chomp!` | `chomp($s)` |
+| 文字列の長さを調べる | `len(s)` | `s.length` | `length($s)` |
+| 末尾の改行を削除する | `s = s.rstrip('\r\n')` | `s.chomp!` | `chomp($s)` |
+| 文字列を逆順にする | `s[::-1]` | `s.reverse` | `reverse($s)` |
+| デリミタ文字で結合する | `','.join(arr)` | `arr.join(',')` | `join("delim", LIST...)` |
+| デリミタ文字で分割する | `s.split(',')` | `s.split(',')` | `split(/PATTERN/, $s)` |
+| １文字ずつに分割する | `tuple(s)` | `s.chars` | `split(//, $s)` |
+| 部分文字列を取得する | `s[start:end]` | `s[start..end]` | `substr($s, start, length)` |
+| 文字列検索（前方） | `s.find('pattern')` | `s.index('pattern')` | `index($s, "pattern")` |
+| 文字列検索（後方） | `s.rfind('pattern')` | `s.rindex('pattern')` | `rindex($s, "pattern")` |
+| 文字列を置換する | `s.replace('from', 'to')` | `s.gsub('from', 'to')` | `$s =~ s/from/to/g` |
 
 
-リストの操作
+リスト／配列の操作
 ----
 
 |      | Python | Ruby | Perl |
 | ---- | ------ | ---- | ---- |
-|末尾に追加      | `lst.append(x)` |    ||
-|先頭に追加      | `lst.insert(0, x)` |    ||
-|末尾から取り出す| `x = lst.pop()` |    ||
-|先頭から取り出す| `x = lst.pop(0)` |    ||
-| 指定した位置の要素を削除 | `del lst[2]` | | |
-|昇順ソートする| `lst.sort()` |||
-|降順ソートする| `lst.sort(reverse=True)` |||
-|逆順にする| `lst.reverse()` |||
+| 末尾に追加する | `lst.append(x)` |    | `push(@arr, x)` |
+| 先頭に追加する | `lst.insert(0, x)` |    | `unshift(@arr, x)` |
+| 末尾から取り出す | `x = lst.pop()` |    | `pop(@arr)` |
+| 先頭から取り出す | `x = lst.pop(0)` |    | `shift(@arr)` |
+| 指定した位置の要素を削除 | `del lst[2]` | | `splice(@arr, offset, length)` |
+| 昇順ソートする | `lst.sort()` | | `sort [EXPR] @arr` |
+| 降順ソートする | `lst.sort(reverse=True)` | | `sort { $b <=> $a } @nums` |
+| 逆順にする | `lst.reverse()` | | `reverse(@arr)` |
+| EXPR を満たす要素を取り出す | | | `grep(expr, @arr)` |
+| 各要素に EXPR を適用する | | | `map(EXPR, @arr)` |
+
+
+ハッシュ／連想配列の操作
+
+|      | Python | Ruby | Perl |
+| ---- | ------ | ---- | ---- |
+| キーの数を取得する | | | `scalar(keys %HASH)` |
+| キーのリストを取得する | | | `@arr = keys %HASH` |
+| 値のリストを取得する | | | `@arr = values %HASH` |
+| キーが存在するか確認する | | | `exists $HASH{'key'}` |
+| キーのエントリを削除する | | | `delete $HASH{'key'}` |
+| ハッシュ全体を削除する | | | `undef %HASH` |
 
