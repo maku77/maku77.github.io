@@ -10,7 +10,6 @@ layout: category-index
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
 * [Python のモジュール／パッケージを作成する](env/create-module.html)
 
-
 開発環境／デバッグ／ユニットテスト
 ----
 * [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
@@ -21,24 +20,20 @@ layout: category-index
 * [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
 * [Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)](dev/py2exe.html)
 
-
 構文
 ----
-
-### 制御構文
-* [Python の if 構文](syntax/if.html)
-* [Python の switch 構文](syntax/switch.html)
-* [range による数値のループ処理いろいろ](loop-with-range.html)
-* [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
-* [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
-
-### メソッド / 関数
-* [可変長引数を扱う](syntax/variable-length-args.html)
-
-### クラス
-* [Python のクラス構文](syntax/class.html)
-* [オブジェクトを print で出力できるようにする](print-object.html)
-* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
+* 制御構文
+  * [Python の if 構文](syntax/if.html)
+  * [Python の switch 構文](syntax/switch.html)
+  * [range による数値のループ処理いろいろ](loop-with-range.html)
+  * [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
+  * [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
+* メソッド / 関数
+  * [可変長引数を扱う](syntax/variable-length-args.html)
+* クラス
+  * [Python のクラス構文](syntax/class.html)
+  * [オブジェクトを print で出力できるようにする](print-object.html)
+  * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 python コマンド / 実行環境
 ====
@@ -48,23 +43,6 @@ python コマンド / 実行環境
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 * [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
-
-
-文字列
-====
-* [Python の文字列リテラルいろいろ](numstr/string-literal.html)
-* [文字列の長さを調べる (len)](numstr/string-length.html)
-* [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
-* [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
-* [文字列を置換する](numstr/replace-string.html)
-* [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
-* [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
-* [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
-* [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
-
-### JSON
-* [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
-* [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
 
 数値
 ====
@@ -78,9 +56,24 @@ python コマンド / 実行環境
 * [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
 * [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
 
+文字列
+====
+* [Python の文字列リテラルいろいろ](numstr/string-literal.html)
+* [文字列の長さを調べる (len)](numstr/string-length.html)
+* [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
+* [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
+* [文字列を置換する](numstr/replace-string.html)
+* [文字列をデリミタで分割する (split)](numstr/split-string.html)
+* [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
+* [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
+* [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
+* [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
+* JSON
+  * [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
+  * [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
+
 シーケンス (Lists and Tuples)
 ====
-
 * [リストとタプルの違い](list/list-and-tuple.html)
 * [リストに要素を追加する／リストを結合する (append, extend, +)](list/append.html)
 * [リスト／タプルをループで処理する](list/loop-list.html)
@@ -109,12 +102,10 @@ python コマンド / 実行環境
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
 
-
 セット (Set)
 ====
 * [set オブジェクトの基本](set/basic.html)
 * [set オブジェクトで集合演算を行う](set/set-operation.html)
-
 
 入出力 (I/O)
 ====
@@ -124,7 +115,6 @@ python コマンド / 実行環境
 * [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
 * [パスからファイル名だけを取り出す (basename)](io/basename.html)
 * [パスを結合する (join)](io/join-path.html)
-
 
 ファイル／ディレクトリ
 ----
@@ -176,7 +166,6 @@ SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
 
-
 Web
 ====
 * [Python で HTTP を扱う方法いろいろ](http-in-python.html)
@@ -186,7 +175,6 @@ Web
 * [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
 * [HTTP でファイルをダウンロードする](download-file.html)
 
-
 NumPy / Matplotlib
 ====
 * [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
@@ -195,7 +183,6 @@ NumPy / Matplotlib
 * [pandas.Series - Pandas でラベル付き一次元データを扱う](numpy/pd-series.html)
 * [pandas.DataFrame - Pandas でラベル付き二次元データを扱う](numpy/pd-dataframe.html)
 * [pandas.DataFrame - DataFrame から部分データを抽出する](numpy/dataframe-select.html)
-
 
 wxPython
 ====
@@ -235,7 +222,6 @@ wxPython
 * [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
 * [wxPython のコンポーネントをドラッグで動かせるようにする](wxpython/drag-component.html)
 * [wxPython 関連コラム](wxpython/column.html)
-
 
 コラム
 ====
