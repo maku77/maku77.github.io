@@ -22,12 +22,13 @@ layout: category-index
 - [ある処理を 1 秒間に何回実行できるかプロファイリングする](debug/profile-function.html)
 
 
-文字列
+文字列／数値
 ----
 - [new String は避ける](string/dont-use-new-string.html)
 - [== と === による文字列比較の違い](string/compare.html)
 - [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
+- [文字列と数値を変換する](string/convert.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列を分割する (split)](string/split.html)
 - [文字列の先頭と末尾の空白を削除する](string/trim.html)
