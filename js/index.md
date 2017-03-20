@@ -84,7 +84,7 @@ jQuery
 - [jQuery で動的にリスト項目 (li) を追加する](jquery/add-list-item.html)
 - [jQuery でテーブルに動的にレコード (tr) を追加する](jquery/add-table-record.html)
 - [jQuery の ajax/get/post メソッドが動作しない](jquery/trouble-ajax-get-post.html)
-- [jQuery でフォーム内の input 要素で Enter キーを押したときのイベントをハンドルする](jquery/handle-enter-in-form.html)
+- [jQuery でフォームに入力した値を取得する](jquery/form.html)
 
 
 Node.js
