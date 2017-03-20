@@ -20,11 +20,7 @@ CSS／レイアウト
 
 jQuery
 ----
-* [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
-* [jQuery 関連用語](jquery/terms.html)
-* [jQuery で Hello World](jquery/hello-world.html)
-* [要素を追加、移動、コピーする (append, prepend)](jquery/add-element.html)
-* [要素を削除する (remove)](jquery/remove-element.html)
+* jQuery に関しては [JavaScript のページ](../js/index.html) を参照
 
 Web サイト作成の雑多メモ
 ----

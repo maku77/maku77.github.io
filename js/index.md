@@ -81,8 +81,13 @@ layout: category-index
 
 jQuery
 ----
-- [jQuery で動的にリスト項目 (li) を追加する](jquery/add-list-item.html)
-- [jQuery でテーブルに動的にレコード (tr) を追加する](jquery/add-table-record.html)
+- [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
+- [jQuery 関連用語](jquery/terms.html)
+- [jQuery で Hello World](jquery/hello-world.html)
+- [jQuery で要素を追加、移動、コピーする (append, prepend)](jquery/add-element.html)
+  - [jQuery で動的にリスト項目 (li) を追加する](jquery/add-list-item.html)
+  - [jQuery でテーブルに動的にレコード (tr) を追加する](jquery/add-table-record.html)
+- [jQuery で要素を削除する (remove)](jquery/remove-element.html)
 - [jQuery の ajax/get/post メソッドが動作しない](jquery/trouble-ajax-get-post.html)
 - [jQuery でフォームに入力した値を取得する](jquery/form.html)
 
