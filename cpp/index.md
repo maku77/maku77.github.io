@@ -3,14 +3,13 @@ title: C/C++
 layout: category-index
 ---
 
-
 STL
 ----
 - [コンテナ要素から特定の値を削除する](stl/remove-element.html)
 
-サンプルコード
+文字列
 ----
-- [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
+- [strncpy／strncat／snprintf の安全な使い方](string/correct-way-of-str-methods.html)
 
 入出力 (I/O)
 ----
@@ -28,4 +27,5 @@ STL
 ----
 - [ビット演算で大文字と小文字を変換する小技](bit-op-lowercase.html)
 - [C11 で定義された _Noreteurn の使い方](no-return.html)
+- [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
 
