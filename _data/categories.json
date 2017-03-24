@@ -77,6 +77,12 @@
     "logo": "logo-nodejs.svg",
     "desc": "今やクライアントもサーバも Node.js でバッチシ。"
   },
+  "octave": {
+    "label": "Octave",
+    "path": "octave",
+    "logo": "logo-octave.svg",
+    "desc": "MATLAB のような数値解析ソフト Octave。グラフも描けるよ！"
+  },
   "p4": {
     "label": "Perforce",
     "path": "p4",

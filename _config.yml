@@ -171,6 +171,16 @@ defaults:
       category_long_desc: "今やクライアントもサーバも Node.js でバッチシ。"
   -
     scope:
+      path: "octave"
+      type: "pages"
+    values:
+      category_title: "Octave"
+      category_id: "octave"
+      category_logo: "logo-octave.svg"
+      category_desc: "天才星人まくの Octave ノート"
+      category_long_desc: "MATLAB 互換な数値解析ソフト Octave。グラフも描けるよ！"
+  -
+    scope:
       path: "p4"
       type: "pages"
     values:
