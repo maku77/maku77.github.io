@@ -12,6 +12,7 @@ layout: category-index
 - [ランダムな数値で行列を作成する (rand)](rand.html)
 - [転置行列を作成する](transposed-matrix.html)
 - [逆行列を作成する (inv)](inverse-matrix.html)
+- [対角行列を作成する (diag)](diagonal-matrix.html)
 
 行列／ベクトルに対する処理
 ----
