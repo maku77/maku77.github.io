@@ -17,6 +17,7 @@ layout: category-index
 行列／ベクトルに対する処理
 ----
 - [行列／ベクトルのサイズ（形状）を確認する (size、length)](size.html)
+- [行列／ベクトルのサイズを変更する](change-size.html)
 - [行列／ベクトル内の要素を参照する](refer-elements.html)
 - [行列／ベクトルを結合する](combine-vectors.html)
 - [行列／ベクトルの四則演算（加算、減算、乗算、除算）を行う](arithmetic.html)
