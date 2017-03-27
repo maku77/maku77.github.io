@@ -22,6 +22,12 @@ layout: category-index
 - [行列／ベクトルを結合する](combine-vectors.html)
 - [行列／ベクトルの四則演算（加算、減算、乗算、除算）を行う](arithmetic.html)
 
+制御命令
+----
+- [Octave の制御命令: if ～ else](syntax/if-else.html)
+- [Octave の制御命令: switch ～ case](syntax/switch-case.html)
+- [Octave の制御命令: for/while/until ループ](syntax/loop.html)
+
 設定
 ----
 - [出力する桁数を増やす (format)](format.html)
