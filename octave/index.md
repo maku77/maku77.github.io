@@ -28,6 +28,12 @@ layout: category-index
 - [Octave の制御命令: switch ～ case](syntax/switch-case.html)
 - [Octave の制御命令: for/while/until ループ](syntax/loop.html)
 
+
+ファイル、I/O 処理
+----
+- [ファイルに記述したプログラムを読み込む](io/read-script.html)
+- [ファイルに記述したデータを読み込む (load)](io/read-data.html)
+
 設定
 ----
 - [出力する桁数を増やす (format)](format.html)
@@ -35,4 +41,9 @@ layout: category-index
 おまけ
 ----
 - [TeX メモ](tex.html)
+- 記述ルール:
+  - インデントは４。
+  - 文字列はシングルクォート囲み。
+  - コードのフォーマットは `matlab`。
+  - 画像サイズは 400x300 の PNG (`print '-S400,300' fig.png`)。
 
