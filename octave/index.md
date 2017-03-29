@@ -28,6 +28,9 @@ layout: category-index
 - [Octave の制御命令: switch ～ case](syntax/switch-case.html)
 - [Octave の制御命令: for/while/until ループ](syntax/loop.html)
 
+関数
+----
+- [関数を定義する (function)](syntax/define-function.html)
 
 ファイル、I/O 処理
 ----
