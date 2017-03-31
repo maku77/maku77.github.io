@@ -34,7 +34,8 @@ layout: category-index
 
 ファイル、I/O 処理
 ----
-- [ファイルに記述したプログラムを読み込む](io/read-script.html)
+- [ファイルに記述したプログラムを実行する（スクリプトファイル）](io/read-script.html)
+- [ファイルに記述した関数を実行する（関数ファイル）](io/read-function-file.html)
 - [ファイルに記述したデータを読み込む (load)](io/read-data.html)
 
 設定
