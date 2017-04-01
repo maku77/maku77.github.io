@@ -1,5 +1,6 @@
 ---
-layout: default
+title: Vagrant
+layout: category-index
 ---
 
 Vagrant の基本
