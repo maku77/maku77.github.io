@@ -43,6 +43,7 @@ layout: category-index
 ブックレビュー／読書メモ
 ====
 * [『僕らが毎日やっている最強の読み方』佐藤優／池上彰](book/saikyo-no-yomikata.html)
+* [『99％の会社はいらない』堀江貴文](book/99percent.html)
 * [『ゼロ』堀江貴文](book/zero.html)
 * [『仕事は楽しいかね』デイル・ドーテン](book/shigo-tano1.html)
 * [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
