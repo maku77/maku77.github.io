@@ -24,19 +24,19 @@ R の基本
 
 データ生成
 ----
-* [連番のベクトルを作成する](data/create-vector.html)
-* [あるベクトルの繰り返しからなるベクトルを作成する](data/repeated-vector.html)
+* [連番のベクトルを作成する (seq)](data/create-vector.html)
+* [あるベクトルの繰り返しからなるベクトルを作成する (rep)](data/repeated-vector.html)
 * [ベクトルに対する算術演算を行う](data/vector-operation.html)
 * [ベクトル同士の演算を行う](data/operation-between-vectors.html)
-* [2 つのデータを結合する](data/combine-values.html)
-* [ベクトルの各要素にプレフィックス、サフィックスを付ける](data/prefix-and-suffix.html)
-* [ベクトルのサイズを切り詰める、拡張する](data/shrink-and-extend-vector.html)
+* [2 つのデータを結合する (c)](data/combine-values.html)
+* [ベクトルの各要素にプレフィックス、サフィックスを付ける (paste)](data/prefix-and-suffix.html)
+* [ベクトルのサイズを切り詰める、拡張する (length)](data/shrink-and-extend-vector.html)
 * [ベクトルのサブセットを生成する（ベクトルのフィルタ）](data/filter-vector.html)
-* [ランダムな正規分布を生成する](data/normal-distribution.html)
+* [ランダムな正規分布を生成する (rnorm)](data/normal-distribution.html)
 
 データフレーム
 ----
 * [データフレームとは](dataframe/what-is-dataframe.html)
 * [データフレームから特定のカラムを抽出する](dataframe/extract-dataframe.html)
-* [ベクトルからデータフレームを作成する](dataframe/create-dataframe.html)
+* [ベクトルからデータフレームを作成する (data.frame)](dataframe/create-dataframe.html)
 
