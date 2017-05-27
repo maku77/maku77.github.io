@@ -42,6 +42,7 @@ layout: category-index
 
 ブックレビュー／読書メモ
 ====
+* [『シンプルに生きれば、すべてがうまくいく！』西村豪庸](book/simple-living.html)
 * [『僕らが毎日やっている最強の読み方』佐藤優／池上彰](book/saikyo-no-yomikata.html)
 * [『99％の会社はいらない』堀江貴文](book/99percent.html)
 * [『ゼロ』堀江貴文](book/zero.html)
