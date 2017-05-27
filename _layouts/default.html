@@ -29,7 +29,9 @@
         <div class="maku-content">{{ content }}</div>
       </div>
       <div id="maku-container_sidebar">
-        {% include widget-adsense-200x200.html %}
+        {% if jekyll.environment != "development" %}
+          {% include widget-adsense-200x200.html %}
+        {% endif %}
         {% include navigation.html %}
       </div>
     </div>
