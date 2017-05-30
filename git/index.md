@@ -61,6 +61,17 @@ Git
 * [detached HEAD 状態へのチェックアウトとは](branch/detached-head.html)
 * [他の人が作成したブランチ上で作業する](branch/checkout-pushed-branch.html)
 
+マージ (git merge, git cherry-pick)
+----
+* [ブランチでの変更をマージする（直接マージ、スカッシュマージ、チェリーピック）
+](merge/merge-branch.html)
+* [マージ時のコンフリクトを解決する](merge/resolve-conflict.html)
+* [別ブランチへの複数のコミットを１つのコミットとしてマージする (squash merge)](merge/squash-merge.html)
+* [マージのためのコミットを revert する（取り消す）](merge/revert-merge.html)
+* [マージ作業に失敗したときにやり直す](merge/cancel-merge.html)
+* [マージで競合解決が必要なファイルを調べる](merge/list-conflicted-files.html)
+* [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）](merge/find-fast-forward.html)
+
 差分・パッチファイル (git diff / patch)
 ----
 * [git diff でファイルの差分を調べる](git-diff.html)
