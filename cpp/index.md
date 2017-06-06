@@ -29,6 +29,7 @@ STL
 その他
 ----
 - [値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする](misc/avoid-default-copy-constructor.html)
+- [仮想デストラクタには実装が必要](misc/destructor-needs-implementation.html)
 - [ビット演算で大文字と小文字を変換する小技](bit-op-lowercase.html)
 - [C11 で定義された _Noreteurn の使い方](no-return.html)
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
