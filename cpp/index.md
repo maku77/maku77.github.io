@@ -35,6 +35,7 @@ STL
 - [ビット演算で大文字と小文字を変換する小技](bit-op-lowercase.html)
 - [C11 で定義された _Noreteurn の使い方](no-return.html)
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
+- [signed が使える場所では signed を使え](misc/signed.html)
 
 サンプル
 ----
