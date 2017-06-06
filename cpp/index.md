@@ -24,9 +24,11 @@ STL
 - [ポインタ同士の引き算](pointer-subtraction.html)
 - [複雑なポインタ宣言の備忘録](syntax/complicated-pointer.html)
 - [switch の中の case の順序について](order-of-cases.html)
+- [プリプロセッサで文字列を結合する](syntax/join-tokens-in-preprocessor.html)
 
 その他
 ----
+- [値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする](misc/avoid-default-copy-constructor.html)
 - [ビット演算で大文字と小文字を変換する小技](bit-op-lowercase.html)
 - [C11 で定義された _Noreteurn の使い方](no-return.html)
 - [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
