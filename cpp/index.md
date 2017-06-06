@@ -31,6 +31,10 @@ STL
 - [値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする](misc/avoid-default-copy-constructor.html)
 - [ビット演算で大文字と小文字を変換する小技](bit-op-lowercase.html)
 - [C11 で定義された _Noreteurn の使い方](no-return.html)
-- [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
+
+サンプル
+----
+- [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
+- [Usage の出力例](misc/usage.html)
 
