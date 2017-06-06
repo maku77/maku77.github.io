@@ -22,6 +22,7 @@ STL
 
 文法・構文
 ----
+- [メンバ関数の関数ポインタを扱う方法](syntax/pointer-to-member-method.html)
 - [C++ の virtual の効果まとめ](virtual.html)
 - [default ラベルの綴りを間違えてもエラーにならない](typo-of-default.html)
 - [ポインタ同士の引き算](pointer-subtraction.html)
