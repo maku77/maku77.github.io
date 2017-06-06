@@ -97,4 +97,5 @@ Windows API
 * [プロセス・ハンドルについて](winapi/process-handle.html)
 * [Windows の静的ライブラリと動的ライブラリ](misc/windows-library.html)
 * [指定したウィンドウ (HWND) を確実にアクティブにする](winapi/activate-window-forcedly.html)
+- [現在使用中の Windows OS のバージョンを調べる](winapi/os-version.html)
 
