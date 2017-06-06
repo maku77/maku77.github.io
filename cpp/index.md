@@ -11,6 +11,7 @@ STL
 ----
 - [strncpy／strncat／snprintf の安全な使い方](string/correct-way-of-str-methods.html)
 - [文字列がある文字列で終わっていることを確認する (ends_with)](string/ends_with.html)
+- [拡張子が (.txt) かどうか調べる](string/compare-extension.html)
 
 入出力 (I/O)／ファイル／ディレクトリ
 ----
