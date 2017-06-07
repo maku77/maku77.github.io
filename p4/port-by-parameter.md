@@ -4,29 +4,31 @@ created: 2015-10-15
 ---
 
 p4 のオプションにより接続情報を指定する
-====
+----
 
 `p4` コマンドによる接続先のサーバは `P4PORT` 変数、使用するクライアントは `P4CLIENT` 変数で指定しておくのが一般的な使い方ですが、`p4` コマンド実行時のオプションで指定することも可能です。
 一時的に接続先を変えたい場合や、スクリプト内で `p4` コマンドを実行したい場合などに便利です。
 
 #### 書式
 
-```
+~~~
 $ p4 -p <port> -u <user> -P <pass> <command>
-```
+~~~
 
 #### 具体例
 
-```
+~~~
 $ p4 -p p4.example.com:2666 -u maku -P pass files //...
-```
+$ p4 -p 192.168.0.1:1666 print //depot/dir/filename
+~~~
 
 
 ヘルプ
-====
+----
+
 ちなみにこのようなパラメータ (options) として、他にどのようなものを指定できるかは、`p4 help usage` で確認することができます。
 
-```
+~~~
 $ p4 help usage
 
     Perforce client usage:
@@ -86,5 +88,5 @@ $ p4 help usage
 
         The -z tag option returns output of reporting commands in the
         format returned by 'p4 fstat'.
-```
+~~~
 
