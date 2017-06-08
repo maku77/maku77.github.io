@@ -1,5 +1,5 @@
 ---
-title: クライアントの have list を表示する
+title: クライアントの have list を表示する (p4 have)
 created: 2008-06-06
 ---
 
