@@ -27,19 +27,42 @@ GitLab（GitHub クローン）
 Git
 ====
 
+基本
+---
+* [Git の作業ツリーを作成する (git init, git clone)](basic/init-and-clone.html)
+* [Git でファイルの変更をステージする（コミットの印をつける）](basic/stage.html)
+* [Git で変更をローカルリポジトリにコミットする](basic/commit.html)
+* [コミット対象になっているファイルを確認する (git status)](basic/status.html)
+* [Git コマンドの長いオプション名を省略して入力する](basic/abbreviate-option.html)
+
 設定
 ---
+* [git config で設定すべき一般的な設定項目まとめ](settings/common.html)
+* [コミット時に使用するユーザ名とメールアドレスを設定する](settings/user.html)
 * [コミット、チェックアウト時に改行コードを自動変換する](settings/autocrlf.html)
+* [コミット時にコメント記述に使用するエディタを設定する](settings/editor.html)
+* [Git コマンドの出力をカラフルにする](settings/color.html)
+* [Git コマンドのエイリアスを作成する](settings/alias.html)
+* [Git の local 設定と global 設定と system 設定の違い](settings/local-global-system.html)
+- [git config による設定を削除する](settings/unset.html)
+* [Windows の git diff で改行コードが "^M" で表示される問題を解決する](settings/cr-at-eol.html)
+- [Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ](settings/permission-diff.html)
+* [gitignore ファイルで Git にバージョン管理させないファイルを指定する](settings/gitignore.html)
+* [bash のプロンプトにカレントブランチ名を表示する](settings/branch-name-on-prompt.html)
+* [msysGit で "terminal is not fully functional" と怒られる場合の対策](settings/terminal-error.html)
 
 コミット／履歴の書き換え
 ---
 * [直前のコミットのコメントを修正する](git-modify-comment.html)
+* [直前のコミットを取り消す](commit/reset-prev-commit.html)
+* [最近のコミットを歴史から抹消する](commit/delete-recent-commits.html)
 * [変更の一部だけをコミットする](commit/commit-by-hunk.html)
 * [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 
 ログ (git log)
 ----
 * [コミットログ表示の基本](log/basic.html)
+* [コミットログの書き方](log/commit-log-rules.html)
 * [コミットログを絞り込んで表示する](log/filter-logs.html)
 * [コミットログにファイル名や変更行数を表示する](log/modified-lines.html)
 * [コミットログの出力形式をカスタマイズする](log/log-format.html)
@@ -60,6 +83,7 @@ Git
 * [ブランチやタグの作者を調べる](branch/who-created-branch.html)
 * [detached HEAD 状態へのチェックアウトとは](branch/detached-head.html)
 * [他の人が作成したブランチ上で作業する](branch/checkout-pushed-branch.html)
+* [他のブランチの最新ファイルを現在のブランチにコピーする](branch/copy-file-between-branches.html)
 
 マージ (git merge, git cherry-pick)
 ----
@@ -83,6 +107,10 @@ Git
 ファイル操作
 ----
 * [git clean で追跡されていないファイルを削除する](git-clean.html)
+* [ファイルを削除せずに Git によるバージョン管理の対象から外す (git rm --cached)](file/preclude-file-from-git.html)
+* [コミットからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-commit.html)
+* [インデックスからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-index.html)
+* [特定のバージョンのファイルの内容を確認する (cat-file)](file/cat-file.html)
 
 タグ (git tag)
 ----
@@ -92,11 +120,13 @@ Git
 
 リポジトリ／サーバー／バックアップ
 ----
-* [共有リポジトリを作成する](server/create-bare-repository.html)
+* [共有リポジトリを作成する](server/create-repository.html)
 * [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
 * [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
 * [ローカルディレクトリをリモートリポジトリとして使用する](server/dir-as-repository.html)
+* [リモートリポジトリに略称を付ける](server/remote-alias.html)
+* [共有リポジトリからの fetch と push](server/fetch-and-push.html)
 * [ソースコードのアーカイブを作成する](create-src-archive.html)
 
 hook スクリプト
@@ -109,6 +139,12 @@ hook スクリプト
 * [Git 関連用語](git-words.html)
 * [Git で N 個前のコミットを表現する](other/represent-commit.html)
 * [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
-
+* [git pull の引数省略の仕組み](other/remote-complement.html)
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
+
+オワコン情報 (Subversion とか CVS とか）
+====
+* [git-svn を使って Git と Subversion を連携する](svn/git-svn.html)
+* [CVS のファイルのパーミッションの扱いについて](svn/cvs-file-permission.html)
+* [.svn ディレクトリをまとめて削除する](svn/delete-all-svn-dirs.html)
 

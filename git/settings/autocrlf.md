@@ -20,6 +20,7 @@ created: 2014-03-21
 ```
 $ git config --global core.autocrlf true  # コミット時: CRLF=>LF チェックアウト時: LF=>CRLF
 $ git config --global core.safecrlf true  # ファイル内に複数の改行コードが混じっている場合に自動変換をしない
+$ git config --global core.whitespace cr-at-eol  # git diff 時の ^M を抑制
 ```
 
 #### Mac/Linux の場合
