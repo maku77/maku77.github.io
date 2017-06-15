@@ -56,3 +56,9 @@ pthread（マルチスレッド）
 - [stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)](xml/petit-xml-writer.html)
 - [Usage の出力例](misc/usage.html)
 
+C/C++/STL リファレンス
+----
+- [http://en.cppreference.com/w/](http://en.cppreference.com/w/)
+- [http://ja.cppreference.com/w/](http://ja.cppreference.com/w/)
+- [http://www.sgi.com/tech/stl/](http://www.sgi.com/tech/stl/)
+
