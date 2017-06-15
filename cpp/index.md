@@ -50,6 +50,7 @@ pthread（マルチスレッド）
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
 - [signed が使える場所では signed を使え](misc/signed.html)
 - [変数の型情報を文字列で取得する (typeid)](misc/typeid.html)
+- [タイムスタンプ（時刻）を取得する](misc/timestamp.html)
 
 サンプル
 ----
