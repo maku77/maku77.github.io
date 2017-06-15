@@ -14,6 +14,7 @@ STL
 - [拡張子が (.txt) かどうか調べる](string/compare-extension.html)
 - [ファイルパスから拡張子を取得する](string/get-extension.html)
 - [printf のフォーマット文字列でインデントの空白を出力する](string/print-indent.html)
+- [文字列の中に指定した文字列の中のいずれかの文字が含まれているか調べる (strpbrk)](string/strpbrk.html)
 
 入出力 (I/O)／ファイル／ディレクトリ
 ----
