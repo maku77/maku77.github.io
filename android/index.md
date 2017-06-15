@@ -44,6 +44,7 @@ Tools
 * [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
 * [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
 * [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
+* [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 
