@@ -41,6 +41,11 @@ pthread（マルチスレッド）
 - [pthread で自身のスレッドハンドルを取得する](pthread/own-handle.html)
 - [pthread で mutex による排他制御を行う](pthread/mutex.html)
 
+日時
+----
+- [タイムスタンプ（時刻）を取得する](misc/timestamp.html)
+- [プログラムの実行時間を計測するクラス (PerfTimer) を作成する](time/perftimer.html)
+
 その他
 ----
 - [値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする](misc/avoid-default-copy-constructor.html)
@@ -50,7 +55,6 @@ pthread（マルチスレッド）
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
 - [signed が使える場所では signed を使え](misc/signed.html)
 - [変数の型情報を文字列で取得する (typeid)](misc/typeid.html)
-- [タイムスタンプ（時刻）を取得する](misc/timestamp.html)
 
 サンプル
 ----
