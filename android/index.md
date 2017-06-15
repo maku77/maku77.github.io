@@ -41,9 +41,9 @@ Tools
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
 
 ### ADB 接続
-* [TCP/IP で adb 接続する](connect-adb-with-tcpip.html)
-* [Nexus7 (2013) に adb 接続する](connect-adb-to-nexus.html)
-* [Xperia Tablet Z に adb 接続する](connect-adb-to-xperia-tablet-z.html)
+* [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
+* [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
+* [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
 * [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
 * [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
