@@ -55,6 +55,7 @@ pthread（マルチスレッド）
 - [CppUnit で private メソッドをテストできるようにする](unittest/test-private-method.html)
 - [signed が使える場所では signed を使え](misc/signed.html)
 - [変数の型情報を文字列で取得する (typeid)](misc/typeid.html)
+- [演算子のオーバーロードの勘所メモ](misc/operator-overloading.html)
 
 サンプル
 ----
