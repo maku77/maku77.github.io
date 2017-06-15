@@ -43,7 +43,7 @@ pthread（マルチスレッド）
 
 日時
 ----
-- [タイムスタンプ（時刻）を取得する](misc/timestamp.html)
+- [タイムスタンプ（時刻）を取得する](time/timestamp.html)
 - [プログラムの実行時間を計測するクラス (PerfTimer) を作成する](time/perftimer.html)
 
 その他
