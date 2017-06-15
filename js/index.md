@@ -105,5 +105,6 @@ Web サイト
 
 実行環境
 ----
+- [CORS - Cross-Origin Resource Sharing とは？](env/cors.html)
 - [Chrome で Ajax (XMLHttpRequest) によるクロスドメイン通信の制約をなくす](env/disable-web-security-of-chrome.html)
 
