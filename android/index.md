@@ -37,6 +37,7 @@ Tools
 * [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [ANR の原因を突き止める](analyze-anr.html)
 * [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
+* [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
 
 ### Logcat
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
