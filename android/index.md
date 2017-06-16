@@ -36,6 +36,7 @@ Tools
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
 * [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [ANR の原因を突き止める](analyze-anr.html)
+* [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
 
 ### Logcat
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
