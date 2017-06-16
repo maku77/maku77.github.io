@@ -3,14 +3,6 @@ title: Java
 layout: category-index
 ---
 
-ユニットテスト
-----
-- [例外のテストを記述する](test-exception.html)
-
-入出力 (I/O)
-----
-* [Java7 の try with resources でストリームの close を自動的に行う](try-with-resources.html)
-
 アノテーション
 ----
 * [アノテーションとは](what-is-annotation.html)
@@ -31,14 +23,11 @@ layout: category-index
 * [Java のオブジェクトロックは再入可能であることを理解する](thread/reentrant.html)
 * [Boolean 型で synchronized するのは NG](thread/boolean-sync.html)
 
-JAR
+JAR/ZIP ファイル
 ----
 * [jar コマンドで JAR ライブラリを作成する](jar/create-jar.html)
 * [jar コマンドで実行可能な JAR ファイルを作成する](jar/executable-jar.html)
 * [JAR ファイルの署名について](jar/jarsigner.html)
-
-Zip ファイル
-----
 * [Zip ファイル内の要素（ファイルとディレクトリ）を列挙する](zip/enum-entries.html)
 
 数値／文字列／ユニコード
@@ -56,10 +45,6 @@ Zip ファイル
 * [ある文字のコードポイントに対応するユニコード名を調べる](numstr/unicode-name.html)
 * [対応している文字セット (Charset) の一覧を取得する](numstr/available-charsets.html)
 
-コレクション (Collection)
-----
-* [コレクションクラスのまとめ](collection/summary.html)
-
 データベース/JDBC
 ----
 * [JDBC ドライバの一覧を取得する](jdbc-list-drivers.html)
@@ -68,9 +53,6 @@ Zip ファイル
 * [JDBC でプレースホルダを使用して SQL クエリを作成する](jdbc-placeholder.html)
 * [JDBC で最初のレコードだけを取得する](jdbc-get-first-record.html)
 
-Java の仕様
-----
-* [static ブロックが実行されるタイミング](static-block.html)
 
 解析／デバッグ
 ----
@@ -80,6 +62,14 @@ Java の仕様
 * [Java ビルドツールのまとめ (Ant, Maven, Gradle)](tools/build-tools.html)
 * [クラスやメソッドの依存関係を調べる](tools/jdeps.html)
 * [DEBUG フラグでログ出力を ON/OFF するときは、呼び出し側で if 分岐すること](debug/debug-flag.html)
+
+その他
+----
+* [Javadoc コメントの書き方](../memo/how-to-write-comment.html)
+* [例外のテストを記述する](test-exception.html)
+* [Java7 の try with resources でストリームの close を自動的に行う](try-with-resources.html)
+* [コレクションクラスのまとめ](collection/summary.html)
+* [static ブロックが実行されるタイミング](static-block.html)
 
 コラム
 ----
