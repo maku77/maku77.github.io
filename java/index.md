@@ -41,9 +41,20 @@ Zip ファイル
 ----
 * [Zip ファイル内の要素（ファイルとディレクトリ）を列挙する](zip/enum-entries.html)
 
-数値／文字列
+数値／文字列／ユニコード
 ----
 * [数値と文字列の変換方法いろいろ](numstr/convert.html)
+* [バイト配列から 16 進数文字列を作成する](numstr/byte-to-hex.html)
+* [文字列をデリミタで分割する (String.split)](numstr/split-string.html)
+* [文字列を単語単位で分割する (BreakIterator)](numstr/break-iterator.html)
+* [文字列の結合には StringBuffer ではなく StringBuilder を使用する](numstr/string-builder.html)
+* [小文字と大文字の変換を行う](numstr/case-conversion.html)
+* [小文字と大文字の判別を行う](numstr/is-lower-case.html)
+* [全角文字と半角文字を含んだ文字列を正規化する](numstr/normalize-string.html)
+* [ある文字が空白文字（スペース）かどうかを判別する](numstr/is-space.html)
+* [コードポイントに対応するユニコード文字 (char) を取得する](numstr/code-point-to-char.html)
+* [ある文字のコードポイントに対応するユニコード名を調べる](numstr/unicode-name.html)
+* [対応している文字セット (Charset) の一覧を取得する](numstr/available-charsets.html)
 
 コレクション (Collection)
 ----
@@ -60,6 +71,19 @@ Zip ファイル
 Java の仕様
 ----
 * [static ブロックが実行されるタイミング](static-block.html)
+
+解析／デバッグ
+----
+* [コールスタックを表示する](call-stack.html)
+* [Java で Linux の CPU 使用率を調べる](parse-proc-stat.html)
+* [SuprressWarnings アノテーションで Checkstyle の警告を抑制する](suppress-checkstyle.html)
+* [Java ビルドツールのまとめ (Ant, Maven, Gradle)](tools/build-tools.html)
+* [クラスやメソッドの依存関係を調べる](tools/jdeps.html)
+* [DEBUG フラグでログ出力を ON/OFF するときは、呼び出し側で if 分岐すること](debug/debug-flag.html)
+
+コラム
+----
+* [J2SE から Java SE へ](column/j2se-to-javase.html)
 
 Effective Java や Java の鉄則など
 ----
@@ -166,16 +190,4 @@ SWT (Standard Widget Toolkit)
 * [階層構想を表現した RDB のデータを JFace の TreeViewer でツリー表示する](swt/jface-tree-viewer-rdb.html)
 * [JFace の CheckboxTreeViewer を使用する](swt/jface-checkbox-tree-viewer.html)
 * [JFace の TableViewer を使用してテーブルにデータを表示する](swt/jface-table-viewer.html)
-
-コラム
-----
-* [J2SE から Java SE へ](column/j2se-to-javase.html)
-
-その他（解析）
-----
-* [コールスタックを表示する](call-stack.html)
-* [Java で Linux の CPU 使用率を調べる](parse-proc-stat.html)
-* [SuprressWarnings アノテーションで Checkstyle の警告を抑制する](suppress-checkstyle.html)
-* [Java ビルドツールのまとめ (Ant, Maven, Gradle)](tools/build-tools.html)
-* [クラスやメソッドの依存関係を調べる](tools/jdeps.html)
 
