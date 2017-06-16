@@ -70,6 +70,7 @@ JAR/ZIP ファイル
 * [Java7 の try with resources でストリームの close を自動的に行う](try-with-resources.html)
 * [コレクションクラスのまとめ](collection/summary.html)
 * [static ブロックが実行されるタイミング](static-block.html)
+* [オブジェクトプールを実現するためのクラスを実装する](misc/object-pool.html)
 
 コラム
 ----
