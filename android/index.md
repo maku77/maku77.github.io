@@ -48,7 +48,6 @@ Tools
 * [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
 * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
-
 ビルド関連
 ----
 
@@ -70,7 +69,6 @@ Tools
 * [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
-
 Android デバイス開発者向け（ベンダ向け情報）
 ----
 * [root ユーザで adb 接続する](adb-with-root.html)
@@ -91,11 +89,11 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
 * [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
 
-
 Android Framework
 ----
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SharedPreference でアプリの設定値を保存する](fw/shared-preference.html)
+* [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
 
 Java レイヤ
 ----
