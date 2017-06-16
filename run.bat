@@ -1,2 +1,2 @@
-jekyll serve --incremental --config _config.yml,_config_win.yml
+jekyll serve --incremental --limit_posts 1
 
