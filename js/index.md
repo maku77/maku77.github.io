@@ -82,6 +82,10 @@ layout: category-index
 - [外部スクリプトはなぜ (function(){})(); のような書き方をするのか？](misc/scope-of-library.html)
 
 
+HTML/DOM 操作
+----
+- [HTML 要素に独自の data 属性（カスタム属性）を設定する](dom/data-attribute.html)
+
 jQuery
 ----
 - [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)
