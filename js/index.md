@@ -99,11 +99,19 @@ jQuery
 - [jQuery の ajax/get/post メソッドが動作しない](jquery/trouble-ajax-get-post.html)
 - [jQuery でフォームに入力した値を取得する](jquery/form.html)
 
+HTML5 Canvas
+----
+- [HTML5 Canvas によるテキストの描画サイズを調べる](canvas/measure-text.html)
+- [HTML5 Canvas に矩形や円を描画する](canvas/draw-rect-circle.html)
+- [HTML5 Canvas に画像ファイルを描画する](canvas/draw-image-file.html)
+- [HTML5 Canvas 内のマウスドラッグで、描画オブジェクト全体を移動させる](canvas/drag-object.html)
+- [ウィンドウサイズに応じて HTML5 Canvas のサイズを変更する](canvas/auto-resize.html)
+- [HTML5 Canvas の描画領域全体をクリアする](canvas/clear.html)
+- [IE 8 以下でも canvas タグを使用できるようにする](canvas/ie8.html)
 
 Node.js
 ----
 - [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](node/create-node-module.html)
-
 
 Web サイト
 ----
