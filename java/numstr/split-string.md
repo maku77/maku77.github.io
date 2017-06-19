@@ -1,17 +1,26 @@
 ---
-title: 文字列をデリミタで分割する (String.split)
+title: 文字列をデリミタで分割する (String.split, Pattern.split)
 created: 2012-09-18
 ---
 
-String クラスの `split` メソッドを使用すると、文字列を任意のデリミタ（区切り文字）で分割することができます。
-デリミタとして使用する文字列は、正規表現で指定します。
+Pattern オブジェクトの以下のメソッドを使用すると、渡された文字列を、デリミタ文字列（正規表現パターン）を使って分割することができます。
 
-~~~ java
-public String[] split(String regex)
-public String[] split(String regex, int limit)
+~~~
+String[] Pattern#split(CharSequence input);
 ~~~
 
-#### 例: 空白文字で分割（ここでは先に trim() で前後の空白を削除）
+あるいは、String オブジェクトの `split` メソッドでも同じことができます。
+この場合は、デリミタとして使用する正規表現パターンの方をパラメータで渡すことになります。
+
+~~~
+String[] String#split(String regex)
+String[] String#split(String regex, int limit)
+~~~
+
+文字列をスペースで分割する
+----
+
+ここでは分割前に、`String#trim()` を使用して前後の空白を取り除いています。
 
 ~~~ java
 String s = "  AAA  BBB CCC  ";
@@ -29,6 +38,36 @@ AAA
 BBB
 CCC
 ~~~
+
+文字列を連続したコロン、あるいはスペースで分割する
+----
+
+デリミタとして使用する文字列は、正規表現で指定するので、複数の文字の組み合わせをデリミタとして指定することができます。
+ここでは、コロン (`:`) やスペースの連なりを、ひとつのデリミタとして処理する例を示します。
+
+~~~ java
+// import java.util.regex.Pattern;
+
+String input = "one:two: three   four  ::  five  ";
+Pattern p = Pattern.compile("[:\\s]+");
+String[] arr = p.split(input);
+
+for (String s : arr) {
+    System.out.println(s);
+}
+~~~
+
+#### 実行結果
+
+~~~
+one
+two
+three
+four
+five
+~~~
+
+`:` という文字も、`  ::  ` という文字列も、**ひとつの**デリミタとして扱われています。
 
 参考
 ----

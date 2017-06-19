@@ -30,5 +30,5 @@ ccc
 参考
 ----
 
-* [文字列をデリミタで分割する (String.split)](split-string.html)
+* [文字列をデリミタで分割する (String.split, Pattern.split)](split-string.html)
 

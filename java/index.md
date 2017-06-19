@@ -32,19 +32,23 @@ JAR/ZIP ファイル
 
 数値／文字列／ユニコード
 ----
+
 * [数値と文字列の変換方法いろいろ](numstr/convert.html)
 * [バイト配列から 16 進数文字列を作成する](numstr/byte-to-hex.html)
 * [文字列をデリミタで分割する (String.split)](numstr/split-string.html)
-* [CSV 形式の文字列を配列に分割する (String.split)](numstr/split-csv.html)
+* [CSV 形式の文字列を配列に分割する (String.split, Pattern.split)](numstr/split-csv.html)
 * [文字列を単語単位で分割する (BreakIterator)](numstr/break-iterator.html)
 * [文字列の結合には StringBuffer ではなく StringBuilder を使用する](numstr/string-builder.html)
 * [小文字と大文字の変換を行う](numstr/case-conversion.html)
 * [小文字と大文字の判別を行う](numstr/is-lower-case.html)
-* [全角文字と半角文字を含んだ文字列を正規化する](numstr/normalize-string.html)
 * [ある文字が空白文字（スペース）かどうかを判別する](numstr/is-space.html)
+* [全角文字と半角文字を含んだ文字列を正規化する](numstr/normalize-string.html)
 * [コードポイントに対応するユニコード文字 (char) を取得する](numstr/code-point-to-char.html)
 * [ある文字のコードポイントに対応するユニコード名を調べる](numstr/unicode-name.html)
 * [対応している文字セット (Charset) の一覧を取得する](numstr/available-charsets.html)
+* [文字列が正規表現に完全に一致するか調べる (String.matches)](numstr/string-matches.html)
+* [文字列の一部が正規表現に一致するか調べ、一致した部分をグループごとに抜き出す (Pattern.matcher)](numstr/pattern-matcher.html)
+* [文字列の正規表現に一致した部分を置き換える (String.replaceAll)](numstr/string-replace-all.html)
 
 データベース/JDBC
 ----
