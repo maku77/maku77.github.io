@@ -6,8 +6,7 @@ created: 2013-04-07
 Vundle とは
 ----
 
-Vundle をインストールすると、Vim のプラグインを、`~/.vim/bundle` ディレクトリ内で管理することができるようになります。
-インストールしたプラグインを消すのもディレクトリごと削除するだけで済みます。
+Vundle をインストールすると、Vim のプラグインを BundleInstall コマンドで簡単にインストールすることができるようになります。
 
 Vundle のインストール
 ----
@@ -16,19 +15,23 @@ Vundle のインストール
 
 * [https://github.com/gmarik/vundle](https://github.com/gmarik/vundle)
 
+下記のようにインストールすると、Vim のプラグインを `~/.vim/bundle` ディレクトリ内で管理することができるようになります。
+インストールしたプラグインを消す場合も、ディレクトリごと削除するだけなのでお手軽です。
+
 ~~~
 $ git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ~~~
 
-本家サイトには、`.vimrc` に設定を追記していく方法が記述されていますが、個人的には `~/my_vundle.vimrc` のような別ファイルに Vundle 用の設定を書いて、`~/.vimrc` からこのファイルを `source` でインクルードするようにしてます。
+本家サイトには、`.vimrc` に Vundle 用の設定と、インストールするプラグインの一覧を記述する方法が示されています。
+個人的には、プラグイン関連の情報は別ファイルで管理したいので、`~/my_vundle.vimrc` というファイルを作成し、そこに Vundle の設定を記述しています。
 
-#### ~/.vimrc
+#### ~/.vimrc（Vundle 用の設定をインクルード）
 
 ~~~ vim
 source ~/my_vundle.vimrc
 ~~~
 
-#### ~/my_vundle.vimrc
+#### ~/my_vundle.vimrc（Vundle 用の設定）
 
 ~~~ vim
 """ Enable vundle commands
