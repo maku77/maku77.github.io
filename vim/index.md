@@ -20,15 +20,20 @@ layout: category-index
 * [別ファイルの内容やコマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
 * [カーソル位置の単語をファイル名としてファイルを開く](file/open-file-at-cursor.html)
 * [ディレクトリエクスプローラー (Explore) を使用してファイルを開く](file/explore.html)
+* [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
 
 編集操作
 ----
-* [大文字と小文字を変換する](uppercase-lowercase.html)
-* [空行（改行だけの行）を削除する](remove-empty-lines.html)
-* [行をソートして重複行を削除する](unique-lines.html)
-* [行を逆順にソートする](reverse-sort.html)
-* [XML/HTML の編集に便利なコマンド](edit-xml-and-html.html)
+* [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
+* [選択した範囲を自動インデントする](edit/re-indent.html)
+* [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
+* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
+* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+* [行をソートして重複行を削除する](edit/unique-lines.html)
+* [行を逆順にソートする](edit/reverse-sort.html)
+* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 * [補完機能を使用してテキストを入力する](edit/complete.html)
+* [テキストを中央寄せ／左寄せ／右寄せする](edit/adjust.html)
 
 検索
 ----
@@ -61,6 +66,10 @@ Vim の設定
 
 ### その他の設定
 * [バックアップファイル／スワップファイルの設定 (backup, swapfile)](settings/backup.html)
+* [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
+* [自動インデントモードを有効にする](settings/auto-indent.html)
+* [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
+* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
 * [フォント設定ダイアログを開いてフォントを設定する](settings/font-dialog.html)
 * [タブ文字と行末のスペースを表示する](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
