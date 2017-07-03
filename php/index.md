@@ -18,16 +18,36 @@ layout: category-index
 - [PHP でヒアドキュメント](syntax/here-document.html)
 - [メソッドのパラメータにはタイプヒントを指定しよう](syntax/type-hint.html)
 - [PHP ファイルからの相対パスで require_once する](syntax/relative-require.html)
+- [関数内でグローバル変数を参照する](syntax/refer-to-global.html)
+- [関数のデフォルト引数を設定する](syntax/default-parameter.html)
+- [複数の値を返す関数を定義する（多値関数）](syntax/multivalued-function.html)
 
 設定／環境
 ----
 - [PHP で UTF-8 を使用するための設定](settings/utf8.html)
 - [現在の include_path 設定を調べる](settings/include-path.html)
+- [パッケージ管理環境 PEAR をインストールする](env/pear.html)
+
+入出力 (I/O)、ファイル
+----
+- [標準出力への出力を行う](io/stdio.html)
+- [echo と print で迷ったら echo を使おう](io/echo-and-print.html)
+
+データベース (PDO)
+----
+- [PDO - PDO を使ってデータベースにアクセスする](pdo/basic.html)
+- [PDO - PHP ファイルからの相対パスで SQLite のデータベースファイルを開く](pdo/relative-open.html)
+- [PDO - SELECT で取得したレコードの数を調べる](pdo/count-records.html)
+
+Web アプリ
+----
+- [Web サイトへのアクセス時にリダイレクト要求を返す](web/redirect.html)
 
 未分類
 ---
+- [PHPUnit を使用してユニットテストを行う](misc/phpunit.html)
 - [foreach でループ処理できるクラスを作成する（Iterator の実装）](misc/iterable-class.html)
-- [echo と print で迷ったら echo を使おう](misc/echo-and-print.html)
+
 
 CakePHP
 ----
