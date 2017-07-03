@@ -28,10 +28,26 @@ layout: category-index
 - [現在の include_path 設定を調べる](settings/include-path.html)
 - [パッケージ管理環境 PEAR をインストールする](env/pear.html)
 
+配列／連想配列 (array)
+----
+- [配列を生成する](array/create.html)
+- [多次元配列を生成する](array/multidimensional-array.html)
+- [配列をループ処理する (foreach)](array/loop.html)
+- [配列をソートする (sort, ksort, asort)](array/sort.html)
+- [配列にある値が含まれているか調べる (in_array)](array/in_array.html)
+- [配列要素を検索する (array_search)](array/search.html)
+- [配列要素を結合して１つの文字列にする (implode)](array/implode.html)
+- [連想配列にキーが存在するか調べる (array_key_exists)](array/key_exists.html)
+- [連想配列の要素を削除する (unset)](array/unset.html)
+
 入出力 (I/O)、ファイル
 ----
 - [標準出力への出力を行う](io/stdio.html)
 - [echo と print で迷ったら echo を使おう](io/echo-and-print.html)
+
+日付／時刻
+----
+- [DateTime クラスで時刻を扱う](time/datetime.html)
 
 データベース (PDO)
 ----
