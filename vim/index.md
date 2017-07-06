@@ -21,9 +21,12 @@ layout: category-index
 * [カーソル位置の単語をファイル名としてファイルを開く](file/open-file-at-cursor.html)
 * [ディレクトリエクスプローラー (Explore) を使用してファイルを開く](file/explore.html)
 * [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
+* [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
 
 編集操作
 ----
+* [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
+* [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
 * [選択した範囲を自動インデントする](edit/re-indent.html)
 * [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
@@ -48,7 +51,7 @@ layout: category-index
 * [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
 * [キーボードマクロを記録して一連のキー入力を繰り返し実行する](advanced/macro.html)
 
-インストール／環境設定
+インストール／環境
 ----
 * [MacOSX に香り屋版の GVim をインストールする](install/kaoriya-gvim.html)
 * [Vundle をインストールして Vim のプラグイン環境を作る](install/vundle.html)
@@ -65,6 +68,7 @@ Vim の設定
 * [map コマンドなどで指定できる特殊なキーの名前一覧](keymap/keycodes.html)
 
 ### その他の設定
+* [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 * [バックアップファイル／スワップファイルの設定 (backup, swapfile)](settings/backup.html)
 * [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
 * [自動インデントモードを有効にする](settings/auto-indent.html)
@@ -73,4 +77,8 @@ Vim の設定
 * [フォント設定ダイアログを開いてフォントを設定する](settings/font-dialog.html)
 * [タブ文字と行末のスペースを表示する](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
+
+Vim プログラミング（マクロ）
+----
+* [Learn Vimscript the Hard Way（外部サイト）](http://learnvimscriptthehardway.stevelosh.com/)
 
