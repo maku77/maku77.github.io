@@ -9,7 +9,6 @@ layout: category-index
 
 構文
 ----
-
 - [PHP の if-else 構文](syntax/if.html)
 - [PHP のループ構文](syntax/loop.html)
 - [PHP のクラス構文](syntax/class.html)
@@ -21,6 +20,7 @@ layout: category-index
 - [関数内でグローバル変数を参照する](syntax/refer-to-global.html)
 - [関数のデフォルト引数を設定する](syntax/default-parameter.html)
 - [複数の値を返す関数を定義する（多値関数）](syntax/multivalued-function.html)
+- [変数のスコープについて](syntax/scope.html)
 
 設定／環境
 ----
@@ -64,7 +64,6 @@ Web アプリ
 - [PHPUnit を使用してユニットテストを行う](misc/phpunit.html)
 - [foreach でループ処理できるクラスを作成する（Iterator の実装）](misc/iterable-class.html)
 
-
 CakePHP
 ----
 - [CakePHP 入門 (1) セットアップ](cakephp/abc-1.html)
@@ -80,4 +79,41 @@ CakePHP
 - [CakePHP - クライアントからのリクエストで送られたデータを取得する](cakephp/get-request-data.html)
 - [CakePHP - 使用するテンプレートファイルを指定する](cakephp/specify-template.html)
 - [CakePHP - 他のページにリダイレクトする](cakephp/redirect.html)
+
+CodeIgniter
+----
+
+### コントローラー
+- [CodeIgniter - コントローラーを作成する](codeigniter/create-controller.html)
+- [CodeIgniter - フォームに入力した値をコントローラーで受け取る](codeigniter/get-form-input.html)
+- [CodeIgniter - 別のコントローラー、アクションへリダイレクトする](codeigniter/redirect.html)
+- [CodeIgniter - コントローラやライブラリの中から通常のクラスを require_once する](codeigniter/require-once.html)
+
+### ビュー
+- [CodeIgniter - ビューに動的引数（テンプレート引数）を渡す](codeigniter/template-param.html)
+- [CodeIgniter - Form タグの出力には Form ヘルパーの form_open を使う](codeigniter/form-open.html)
+- [CodeIgniter - URL ヘルパーでコントローラへのリンクを挿入する](codeigniter/anchor.html)
+- [CodeIgniter- HTML ヘルパーでスタイルシート用の link タグを挿入する](codeigniter/link-tag.html)
+
+### データベース
+- [CodeIgniter - MySQL データベースの接続設定を行う](codeigniter/setup-mysql.html)
+- [CodeIgniter- SQLite3 データベースの接続設定を行う](codeigniter/setup-sqlite.html)
+- [CodeIgniter - モデルクラスを使用してデータベースから値を取得する](codeigniter/model.html)
+- [CodeIgniter - Active Record でデータベースの CRUD 操作を行う](codeigniter/crud.html)
+- [CodeIgniter - ActiveRecord でカラムが NULL のもの、NULL でないものを検索する](codeigniter/search-null-column.html)
+- [CodeIgniter - データベースのテーブルを作成する](codeigniter/create-db-table.html)
+- [CodeIgniter - データベースのテーブルを列挙する](codeigniter/list-tables.html)
+- [CodeIgniter - 現在どんなデータベースを使用しているか調べる](codeigniter/db-platform.html)
+
+### ライブラリ／ヘルパー
+- [CodeIgniter - ライブラリ、ヘルパーの基礎](codeigniter/library-and-helper.html)
+- [CodeIgniter - 独自のユーザライブラリから別のライブラリをロードする](codeigniter/load-lib-from-user-lib.html)
+- [CodeIgniter - Form Validation クラスでフォームに入力された値を検査する](codeigniter/form-validation.html)
+- [CodeIgniter - Session クラスでセッションデータを保持する](codeigniter/session.html)
+
+### 応用
+- [CodeIgniter - ユーザのログイン状態を管理する](codeigniter/manage-login.html)
+- [CodeIgniter - index.php を省略した URL でアクセスできるようにする](codeigniter/pretty-url.html)
+- [CodeIgniter - 使用中の CodeIgniter のバージョンを調べる](codeigniter/version.html)
+- [CodeIgniter - 参考になるチュートリアル動画集](codeigniter/tutorials.html)
 
