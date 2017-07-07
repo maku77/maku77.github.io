@@ -38,3 +38,9 @@ arsort($arr);  # 降順ソート => apple:500, mango:300, banana:100
 
 `asort()`, `arsort()` は、パラメータで渡した配列そのものを変更することに注意してください。
 
+
+参考
+----
+
+- [配列を逆順にする (array_reverse)](./array-reverse.html)
+

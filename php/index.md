@@ -27,18 +27,34 @@ layout: category-index
 - [PHP で UTF-8 を使用するための設定](settings/utf8.html)
 - [現在の include_path 設定を調べる](settings/include-path.html)
 - [パッケージ管理環境 PEAR をインストールする](env/pear.html)
+- [XAMPP で PHP のテスト環境を作成する](env/xampp.html)
 
 配列／連想配列 (array)
 ----
 - [配列を生成する](array/create.html)
 - [多次元配列を生成する](array/multidimensional-array.html)
+- [配列のサイズを調べる (count)](array/count.html)
+- [配列が空かどうか調べる (empty)](array/empty.html)
 - [配列をループ処理する (foreach)](array/loop.html)
 - [配列をソートする (sort, ksort, asort)](array/sort.html)
-- [配列にある値が含まれているか調べる (in_array)](array/in_array.html)
+- [配列を逆順にする (array_reverse)](array/array-reverse.html)
+- [配列にある値が含まれているか調べる (in_array)](array/in-array.html)
 - [配列要素を検索する (array_search)](array/search.html)
+- [配列の先頭要素を取り出す (array_shift)](array/array-shift.html)
+- [配列をスタックとして扱う (array_push, array_pop)](array/stack.html)
+- [配列の各要素に対して同じ処理を行う (array_map)](array/array-map.html)
 - [配列要素を結合して１つの文字列にする (implode)](array/implode.html)
-- [連想配列にキーが存在するか調べる (array_key_exists)](array/key_exists.html)
+- [連想配列にキーが存在するか調べる (array_key_exists)](array/key-exists.html)
 - [連想配列の要素を削除する (unset)](array/unset.html)
+- [配列の内容を再帰的にダンプする (print_r, var_dump)](array/dump-array.html)
+- [PHP の配列要素は初期化された順番に保持される](array/internal-order.html)
+
+文字列
+----
+- [文字列を比較する (strcmp)](string/strcmp.html)
+- [文字列を大文字、小文字に変換する (strtolower, strtoupper)](string/strtolower.html)
+- [各単語の先頭１文字を大文字に変換する](string/camelcase.html)
+- [文字列の先頭と末尾のスペースを削除する (trim)](string/trim.html)
 
 入出力 (I/O)、ファイル
 ----
