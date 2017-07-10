@@ -1,5 +1,5 @@
 ---
-title: 文字列を比較する (strcmp)
+title: 文字列を比較する (strcmp, strcasecmp)
 created: 2012-01-15
 ---
 

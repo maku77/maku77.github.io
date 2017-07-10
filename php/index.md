@@ -11,9 +11,12 @@ layout: category-index
 ----
 - [PHP の if-else 構文](syntax/if.html)
 - [PHP のループ構文](syntax/loop.html)
-- [PHP のクラス構文](syntax/class.html)
+- [クラスを定義する](syntax/class.html)
 - [抽象クラス、抽象メソッドを定義する](syntax/abstract.html)
-- [定数を定義する](syntax/constant.html)
+- [グローバル定数、クラス定数を定義する](syntax/constant.html)
+- [定義されている定数をすべて表示する](syntax/list-constants.html)
+- [名前を使って変数にアクセスする（可変変数）](syntax/variable-variables.html)
+- [変数がセットされているか調べる (isset)](syntax/isset.html)
 - [PHP でヒアドキュメント](syntax/here-document.html)
 - [メソッドのパラメータにはタイプヒントを指定しよう](syntax/type-hint.html)
 - [PHP ファイルからの相対パスで require_once する](syntax/relative-require.html)
@@ -24,6 +27,7 @@ layout: category-index
 
 設定／環境
 ----
+- [PHP のエラー出力レベルを設定する](settings/error-level.html)
 - [PHP で UTF-8 を使用するための設定](settings/utf8.html)
 - [現在の include_path 設定を調べる](settings/include-path.html)
 - [パッケージ管理環境 PEAR をインストールする](env/pear.html)
@@ -51,10 +55,15 @@ layout: category-index
 
 文字列
 ----
-- [文字列を比較する (strcmp)](string/strcmp.html)
+- [文字列を比較する (strcmp, strcasecmp)](string/strcmp.html)
 - [文字列を大文字、小文字に変換する (strtolower, strtoupper)](string/strtolower.html)
 - [各単語の先頭１文字を大文字に変換する](string/camelcase.html)
 - [文字列の先頭と末尾のスペースを削除する (trim)](string/trim.html)
+- [文字列を分割する (explode)](string/explode.html)
+- [文字列を結合する (implode)](string/implode.html)
+- [文字列がある文字列で始まっているか調べる](string/starts-with.html)
+- [文字列を URL エンコードする (urlencode)](string/urlencode.html)
+- [HTML の特殊文字をエスケープする (htmlspecialchars)](string/htmlspecialchars.html)
 
 入出力 (I/O)、ファイル
 ----
@@ -73,6 +82,8 @@ layout: category-index
 
 Web アプリ
 ----
+- [Web サーバ上のコンテンツを HTTP で取得する (file_get_contents)](web/file-get-contents.html)
+- [cURL 関数を使って HTTP リクエストを送る](web/curl.html)
 - [Web サイトへのアクセス時にリダイレクト要求を返す](web/redirect.html)
 
 未分類
@@ -128,7 +139,9 @@ CodeIgniter
 - [CodeIgniter - Session クラスでセッションデータを保持する](codeigniter/session.html)
 
 ### 応用
+- [CodeIgniter - 相対パスの扱い方のまとめ](codeigniter/path.html)
 - [CodeIgniter - ユーザのログイン状態を管理する](codeigniter/manage-login.html)
+- [CodeIgniter - JSON テキストを返す Web API をサクッと作成する](codeigniter/json-webapi.html)
 - [CodeIgniter - index.php を省略した URL でアクセスできるようにする](codeigniter/pretty-url.html)
 - [CodeIgniter - 使用中の CodeIgniter のバージョンを調べる](codeigniter/version.html)
 - [CodeIgniter - 参考になるチュートリアル動画集](codeigniter/tutorials.html)

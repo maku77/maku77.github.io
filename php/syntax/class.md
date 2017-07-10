@@ -1,53 +1,41 @@
 ---
-title: PHP のクラス構文
+title: クラスを定義する
 created: 2012-08-04
 ---
 
-クラス定数
-----
+PHP のクラスは、Java や C++ と似た構文で定義することができます。
+下記の例では、シンプルなコンストラクタやメソッドを持つ、カウンタークラスを定義しています。
 
-グローバルな定数は `define()` を使用して定義しますが、
-クラス定数は `const` キーワードを使って定義することができます (PHP5~)。
-クラス定数にアクセス修飾子は付けることができず、必ず public になります。
+#### クラスを定義する
 
-```php
-class MyClass {
-    const MY_CONST = 100;
-    ...
-}
-```
-
-クラス定数を参照する場合は、以下のようにします。
-
-* クラス内部からアクセスするとき `self::定数名`
-* クラス外部からアクセスするとき `クラス名::定数名`
-
-メンバメソッドからアクセスするときも、いちいち `self::` を付けないといけないのがちょっと面倒ですね。
-
-#### サンプルコード: sample.php
-
-```php
+~~~ php
 <?php
-class Config {
-    const CONST_INT = 100;
-    const CONST_STR = 'ABC';
+class Counter {
+    // メンバ変数
+    private $_value;
 
-    public function hoge() {
-        echo self::CONST_STR . "\n";
+    // コンストラクタ
+    public function __construct($value = 0) {
+        $this->_value = $value;
+    }
+
+    // メンバメソッド
+    public function getValue() {
+        return $this->_value;
+    }
+
+    // static メンバメソッド
+    public static function sayHello() {
+        echo "Hello\n";
     }
 }
+~~~
 
-echo Config::CONST_INT . "\n";
+#### クラスを使用する
 
-$conf = new Config();
-$conf->hoge();
-```
-
-#### 実行結果
-
-```
-$ php sample.php
-100
-ABC
-```
+~~~ php
+$cnt = new Counter(100);
+echo $cnt->getValue() . "\n";  //=> 100
+Counter::sayHello();           //=> Hello
+~~~
 
