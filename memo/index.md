@@ -21,6 +21,7 @@ layout: category-index
 * [静的チェックのレベルはプロジェクト初期に厳しくする](strict-analysis-in-the-beginning.html)
 * [リソースは finally ブロックで閉じる](finally-close.html)
 * [コメント内で使える特殊キーワード（XXX、TODO など）を理解する](practice/keyword-in-comment.html)
+* [よいツールの条件](good-tools.html)
 
 デザインパターン
 ====
