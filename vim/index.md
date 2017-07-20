@@ -7,11 +7,13 @@ layout: category-index
 ----
 * [ヘルプコマンドの使い方 (:help)](basic/help.html)
 * [カーソル移動の方法いろいろ](basic/move-cursor.html)
+* [C/C++ の変数／マクロの定義位置にジャンプする](basic/cpp-jump.html)
 * [画面スクロールの方法いろいろ](basic/scroll.html)
 * [文字の削除方法いろいろ](basic/delete.html)
 * [文字の置換方法いろいろ (:substitute)](basic/substitute.html)
 * [ウィンドウを分割する](basic/window.html)
 * [カーソル位置の単語を検索する](basic/search-current-word.html)
+* [アンドゥとリドゥ操作](basic/undo-and-redo.html)
 
 ファイル
 ----
@@ -27,6 +29,7 @@ layout: category-index
 ----
 * [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
 * [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
+* [切り取り＆貼り付け操作、レジスタの扱いについて理解する](edit/register.html)
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
 * [選択した範囲を自動インデントする](edit/re-indent.html)
 * [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
@@ -50,6 +53,7 @@ layout: category-index
 * [指定した行範囲を一時的に表示する](advanced/show-lines.html)
 * [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
 * [キーボードマクロを記録して一連のキー入力を繰り返し実行する](advanced/macro.html)
+* [プリンタで印刷する (hardcopy)](advanced/hardcopy.html)
 
 インストール／環境
 ----
@@ -62,14 +66,19 @@ Vim の設定
 ----
 
 ### キーマップ
-* [ショートカットキーで .vimrc ファイルを開く](open-vimrc-quickly.html)
+* [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
 * [ショートカットキーで日時を挿入する](insert-date.html)
 * [ショートカットキーでタブを切り替える](keymap/tab.html)
 * [map コマンドなどで指定できる特殊なキーの名前一覧](keymap/keycodes.html)
 
+### 設定関連の操作
+* [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
+* [現在の環境で読み込まれる設定ファイルの一覧を確認する](settings/rc-files.html)
+
 ### その他の設定
 * [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 * [バックアップファイル／スワップファイルの設定 (backup, swapfile)](settings/backup.html)
+* [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
 * [自動インデントモードを有効にする](settings/auto-indent.html)
 * [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
@@ -77,8 +86,13 @@ Vim の設定
 * [フォント設定ダイアログを開いてフォントを設定する](settings/font-dialog.html)
 * [タブ文字と行末のスペースを表示する](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
+* [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
+* [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
+* [GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)](settings/window-size.html)
 
-Vim プログラミング（マクロ）
+Vim プログラミング（マクロ）／特殊用途
 ----
-* [Learn Vimscript the Hard Way（外部サイト）](http://learnvimscriptthehardway.stevelosh.com/)
+* [（外部サイト）Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
+* [カーソル位置の単語を取得する (cword)](misc/cword.html)
+* [カーソル位置の文字の文字コードを表示する (ascii)](misc/ascii.html)
 

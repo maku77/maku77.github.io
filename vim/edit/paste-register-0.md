@@ -25,5 +25,6 @@ Ctrl-R 0
 参考
 ----
 
+* [切り取り＆貼り付け操作、レジスタの扱いについて理解する](register.html)
 * [挿入モード、コマンドモードでの貼り付け](paste-in-insert-mode.html)
 
