@@ -77,6 +77,7 @@ XML
 
 ツール
 ====
+* [make を使いこなすためのメモ](tool/make.html)
 * [CPD でコードクローンを発見する](tool/detect-code-clones.html)
 * [TFTP の使い方（TFTP によるファイル転送）](tool/tftp.html)
 * [Windows (MinGW) で GLUT を使用する](tool/glut-in-windows.html)
