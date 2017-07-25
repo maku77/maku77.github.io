@@ -76,6 +76,7 @@ JAR/ZIP ファイル
 * [コレクションクラスのまとめ](collection/summary.html)
 * [static ブロックが実行されるタイミング](static-block.html)
 * [オブジェクトプールを実現するためのクラスを実装する](misc/object-pool.html)
+* [JNI (Java Native Interface) の基本](misc/jni.html)
 
 コラム
 ----
