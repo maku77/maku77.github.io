@@ -77,6 +77,7 @@ JAR/ZIP ファイル
 * [static ブロックが実行されるタイミング](static-block.html)
 * [オブジェクトプールを実現するためのクラスを実装する](misc/object-pool.html)
 * [JNI (Java Native Interface) の基本](misc/jni.html)
+* [Java でランダムな UUID を生成する](misc/uuid.html)
 
 コラム
 ----
