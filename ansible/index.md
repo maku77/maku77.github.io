@@ -1,4 +1,5 @@
 ---
+title: まくまく Ansible ノート
 ---
 
 Ansible の基本
