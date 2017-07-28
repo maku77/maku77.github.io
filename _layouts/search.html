@@ -2,6 +2,9 @@
 <html lang="ja">
 <head>
   <title>{{ page.title }} | {{ site.name }}</title>
+  {% if jekyll.environment != "development" %}
+    {% include analytics.html %}
+  {% endif %}
 </head>
 <body>
   <div class="container-fluid">
@@ -9,5 +12,4 @@
     {% include breadcrumb-root.html %}
   </div>
 </body>
-{% include analytics.html %}
 </html>

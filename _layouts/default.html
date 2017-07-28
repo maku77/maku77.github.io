@@ -4,6 +4,9 @@
   {% include head.html %}
   <meta property="og:title" content="{{page.title}} | まくまく {{ page.category_title }} ノート" />
   <title>{{page.title}} | まくまく {{ page.category_title }} ノート</title>
+  {% if jekyll.environment != "development" %}
+    {% include analytics.html %}
+  {% endif %}
 </head>
 <body>
   {% include sns-sdk.html %}
@@ -54,10 +57,6 @@
     {% include breadcrumb.html %}
   </div>
 </body>
-
-{% if jekyll.environment != "development" %}
-  {% include analytics.html %}
-{% endif %}
 
 <!-- MathJax -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

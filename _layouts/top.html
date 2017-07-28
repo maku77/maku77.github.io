@@ -50,6 +50,9 @@
       background: #eee;
     }
   </style>
+  {% if jekyll.environment != "development" %}
+    {% include analytics.html %}
+  {% endif %}
 </head>
 <body>
   {% include sns-sdk.html %}
@@ -126,5 +129,4 @@
     </div>
   </div>
 </body>
-{% include analytics.html %}
 </html>
