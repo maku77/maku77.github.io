@@ -13,6 +13,8 @@ Tools
 * [Activity の情報を表示する (dumpsys)](dumpsys-activity.html)
 * [メモリの使用状況を確認する (dumpsys)](dumpsys-meminfo.html)
 * [APK のパッケージ名から APK ファイルのパスを調べる](tools/pm-path.html)
+* [APK ファイルに署名する](tools/sign-jar.html)
+* [APK ファイルの署名を確認する](tools/verify-certs.html)
 
 ### パフォーマンス
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
@@ -90,6 +92,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [システムプロパティのあれこれ](vendor/system-property.html)
 * [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
 * [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
+* [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
 
 Android Framework
 ----
@@ -101,6 +104,20 @@ Java レイヤ
 ----
 * [特殊ディレクトリの情報を取得する](special-dir-info.html)
 * [AsyncTask による非同期処理と UI 更新処理](async-task.html)
+
+### I/O（入出力）
+* [キーイベント (KeyEvent) を見やすく出力する](io/print-keyevents.html)
+* [タッチイベントをハンドルする](io/handle-touch-events.html)
+
+### UI（描画）
+* [任意の View をフォーカスする](ui/focus-view.html)
+* [ソフトウェアキーボードを常に表示する](ui/show-keyboard-all-the-time.html)
+* [カスタムビューを作成する](ui/create-custom-view.html)
+* [カスタムビューでソフトウェア D-Pad を表示する](ui/software-dpad.html)
+* [ValueAnimator でアニメーションに使用する値を計算する](ui/value-animator.html)
+* [ScrollView を一番下までスクロールさせる](ui/scroll-to-bottom.html)
+* [Canvas に複数行のテキストを描画する](ui/draw-multiline-text-on-canvas.html)
+* [Canvas への描画時にアンチエイリアスを有効にする](ui/antialias-on-canvas.html)
 
 ### 設定 (Settings)
 * [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
