@@ -119,6 +119,11 @@ Java レイヤ
 * [Canvas に複数行のテキストを描画する](ui/draw-multiline-text-on-canvas.html)
 * [Canvas への描画時にアンチエイリアスを有効にする](ui/antialias-on-canvas.html)
 
+### Service（サービス）
+* [同じプロセス内のサービスへバインドする (Local Bind)](service/local-bind.html)
+* [別プロセスのサービスへバインドする (Remote Bind)](service/remote-bind.html)
+* [サービスからコールバックできるようにする](service/callback.html)
+
 ### 設定 (Settings)
 * [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
 
