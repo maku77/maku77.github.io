@@ -251,6 +251,16 @@ defaults:
       category_long_desc: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
   -
     scope:
+      path: "sql"
+      type: "pages"
+    values:
+      category_title: "SQL"
+      category_id: "sql"
+      category_logo: "logo-sql.svg"
+      category_desc: "天才星人まくの SQL ノート"
+      category_long_desc: "SQL 全般や SQLite、MySQL に関するメモ。"
+  -
+    scope:
       path: "vagrant"
       type: "pages"
     values:
