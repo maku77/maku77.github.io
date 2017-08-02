@@ -22,18 +22,21 @@ layout: category-index
 
 構文
 ----
-* 制御構文
-  * [Python の if 構文](syntax/if.html)
-  * [Python の switch 構文](syntax/switch.html)
-  * [range による数値のループ処理いろいろ](loop-with-range.html)
-  * [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
-  * [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
-* メソッド / 関数
-  * [可変長引数を扱う](syntax/variable-length-args.html)
-* クラス
-  * [Python のクラス構文](syntax/class.html)
-  * [オブジェクトを print で出力できるようにする](print-object.html)
-  * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
+
+### 制御構文
+* [Python の if 構文](syntax/if.html)
+* [Python の switch 構文](syntax/switch.html)
+* [range による数値のループ処理いろいろ](loop-with-range.html)
+* [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
+* [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
+
+### メソッド / 関数
+* [可変長引数を扱う](syntax/variable-length-args.html)
+
+### クラス
+* [Python のクラス構文](syntax/class.html)
+* [オブジェクトを print で出力できるようにする](print-object.html)
+* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 python コマンド / 実行環境
 ====
@@ -68,9 +71,10 @@ python コマンド / 実行環境
 * [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
 * [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
-* JSON
-  * [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
-  * [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
+
+### JSON
+* [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
+* [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
 
 シーケンス (Lists and Tuples)
 ====
