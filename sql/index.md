@@ -21,6 +21,8 @@ SQL 全般
 ### レコードの取得 (SELECT)
 * [テーブルからランダムでレコードを取得する](random-record.html)
 
+### その他
+* [リレーショナルデータベース (RDB) でツリー構造や階層構造を表現する](hierarchy.html)
 
 SQLite
 ----
@@ -29,7 +31,8 @@ SQLite
 * [SQLite で瞬断などによるロールバック処理に備える (journaling)](sqlite/journaling.html)
 * [(FAQ) SQLite で書き込みエラーが出た場合の対処](sqlite/write-error.html)
 * [SQLite でテーブルの内容をダンプする (.dump)](sqlite/dump-table.html)
-
+* [SQLite の対話型プロンプトでテーブルのカラム名を表示する (.header)](sqlite/show-header.html)
+* [SQLite でワンライナー実行する](sqlite/oneliner.html)
 
 MySQL
 ----
