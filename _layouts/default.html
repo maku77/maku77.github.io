@@ -25,10 +25,14 @@
 
   <div class="container-fluid">
     {% include breadcrumb.html %}
+    {% comment %}
+      {% include draft-sns-buttons.html %}
+    {% endcomment %}
     {% include search-bar.html %}
 
     <div id="maku-container">
       <div id="maku-container_main">
+        {% include ad-google-infeed.html %}
         <div class="maku-content">{{ content }}</div>
       </div>
       <div id="maku-container_sidebar">
