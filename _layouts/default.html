@@ -35,27 +35,14 @@
         {% include ad-google-infeed.html %}
         <div class="maku-content">{{ content }}</div>
       </div>
-      <div id="maku-container_sidebar">
-        {% if jekyll.environment != "development" %}
-          {% include widget-adsense-200x200.html %}
-        {% endif %}
-        {% include navigation.html %}
-      </div>
+      <div id="maku-container_sidebar">{% include sidebar.html %}</div>
     </div>
 
     {% if jekyll.environment != "development" %}
-      <div class="maku-widget">
-        {% include widget-sns.html %}
-      </div>
-      <div class="maku-widget">
-        {% include widget-adsense-responsive.html %}
-      </div>
-      <div class="maku-widget">
-        {% include widget-rakuten-responsive-image.html %}
-      </div>
-      <div class="maku-widget">
-        {% include widget-comment.html %}
-      </div>
+      <div class="maku-widget">{% include widget-sns.html %}</div>
+      <div class="maku-widget">{% include widget-adsense-responsive.html %}</div>
+      <div class="maku-widget">{% include widget-rakuten-responsive-image.html %}</div>
+      <div class="maku-widget">{% include widget-comment.html %}</div>
     {% endif %}
 
     {% include breadcrumb.html %}
