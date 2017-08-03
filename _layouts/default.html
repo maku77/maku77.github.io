@@ -32,8 +32,10 @@
 
     <div id="maku-container">
       <div id="maku-container_main">
+        <!-- maku-container_main_ad1 -->
         {% include ad-google-infeed.html %}
         <div class="maku-content">{{ content }}</div>
+        <!-- maku-container_main_ad2 -->
       </div>
       <div id="maku-container_sidebar">{% include sidebar.html %}</div>
     </div>
@@ -44,7 +46,9 @@
       <div class="maku-widget">{% include widget-comment.html %}</div>
     {% endif %}
 
-    {% include breadcrumb.html %}
+    <!-- <div class="maku-pageFooter"> -->
+      {% include breadcrumb.html %}
+    <!-- </div> -->
   </div>
 </body>
 
