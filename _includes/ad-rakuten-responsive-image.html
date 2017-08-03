@@ -1,8 +1,15 @@
 <!-- Rakuten Widget FROM HERE -->
 <script>
   /* レスポンシブデザインもどき */
+  var SIDEBAR_HIDE_THRESHOLD = 800;
+  var SIDEBAR_WIDTH = 250;
   var OFFSET = 10;
-  var w = document.documentElement.clientWidth - OFFSET;
+  var w = window.innerWidth;
+  if (w >= SIDEBAR_HIDE_THRESHOLD) {
+    w -= SIDEBAR_WIDTH;
+  }
+  w -= OFFSET;
+
   if (w >= 728) {
     rakuten_size="728x200";
   } else if (w >= 600) {

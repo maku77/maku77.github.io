@@ -38,17 +38,18 @@
       <div id="maku-container_main">
         <!-- maku-container_main_ad1 -->
         {% include ad-google-infeed.html %}
+
         <div class="maku-content">{{ content }}</div>
+
         <!-- maku-container_main_ad2 -->
+        {% if jekyll.environment != "development" %}
+          <div class="maku-widget">{% include widget-sns.html %}</div>
+          <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
+          <div class="maku-widget">{% include widget-comment.html %}</div>
+        {% endif %}
       </div>
       <div id="maku-container_sidebar">{% include sidebar.html %}</div>
     </div>
-
-    {% if jekyll.environment != "development" %}
-      <div class="maku-widget">{% include widget-sns.html %}</div>
-      <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
-      <div class="maku-widget">{% include widget-comment.html %}</div>
-    {% endif %}
 
     <!-- <div class="maku-pageFooter"> -->
       {% include breadcrumb.html %}
