@@ -16,6 +16,7 @@ CSS／レイアウト
 * [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
 * [ヘッダ要素に連番を振る](number-header.html)
 * [フレキシブルボックスによるレスポンシブレイアウト](flexible-box.html)
+* [（コラム）フレキシブルボックスの旧式の定義方法](flexible-box-old.html)
 * [画面スクロールしても表示位置の変わらない要素を表示する](fixed-position.html)
 
 jQuery

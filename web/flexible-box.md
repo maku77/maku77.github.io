@@ -22,10 +22,10 @@ created: 2016-01-01
 ```css
 #container {
   /* フレキシブルボックスレイアウトによる段組 */
-  display: box;
+  display: flex;
+  display: -webkit-flex;
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
 }
 
 #sidebar1, #sidebar2 {
@@ -36,12 +36,14 @@ created: 2016-01-01
 #main {
   background: cyan;
   /* 画面幅が広い時はこの要素の横幅を拡張する */
-  box-flex: 1;
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
-  -ms-box-flex: 1;
 }
 ```
+
+* [（コラム）フレキシブルボックスの旧式の定義方法](flexible-box-old.html)
 
 さらに、メディアクエリを利用して、画面幅が一定サイズ以下になったときに、このフレキシブルボックスレイアウトを解除することができます。
 例えば、スマートフォンなどで表示する場合に、サイドバーを縦に並べたり、省略してもよいサイドバーを非表示にしたりできます。
