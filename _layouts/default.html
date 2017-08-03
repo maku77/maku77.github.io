@@ -30,9 +30,9 @@
     {% endcomment %}
     {% include search-bar.html %}
 
-    <div class="maku-widget">
-      {% include widget-sns.html %}
-    </div>
+    {% if jekyll.environment != "development" %}
+      <div class="maku-widget">{% include widget-sns.html %}</div>
+    {% endif %}
 
     <div id="maku-container">
       <div id="maku-container_main">
