@@ -3,6 +3,9 @@ title: DIR コマンドでファイルやディレクトリを再帰的に検索
 created: 2008-11-30
 ---
 
+DIR コマンドによる列挙
+----
+
 カレントディレクトリ以下の `index.html` という名前のファイルを検索するには以下のように **dir** コマンドを使用します。
 
 #### 例: index.html というファイルを再帰的に検索
@@ -62,4 +65,21 @@ C:\ccc\zzz\testbuild
 ```
 C:\> dir /b /s /a-d *Sample*.java
 ```
+
+
+FOR コマンドによる列挙
+---
+
+`dir` コマンドの代わりに、`for` ループを使用しても同様のことを行えます。
+
+#### 例: build という名前のディレクトリを列挙する
+
+~~~
+C:\> for /r /d %a in (*build) do @echo %a
+C:\aaa\xxx\build
+C:\bbb\yyy\build
+C:\ccc\zzz\testbuild （プレフィックスを含むものまで列挙してしまうのは dir と同様）
+~~~
+
+オプションの `/r` は再帰的検索、`d` はディレクトリ検索を表しています。
 

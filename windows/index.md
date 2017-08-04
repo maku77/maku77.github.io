@@ -25,7 +25,7 @@ Windows バッチファイル
 ### ファイル／ディレクトリ／パス
 * [DIR コマンドでファイルやディレクトリを再帰的に検索する](find-files.html)
 * [DIR コマンドでファイルやディレクトリを OR 検索する](or-dir.html)
-* [カレントディレクトリ以下のファイルを順に処理する](for-each-file.html)
+* [カレントディレクトリ以下のファイルやディレクトリを順に処理する](for-each-file.html)
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 * [既にディレクトリが存在している場合の mkdir のエラーを抑制する](file/avoid-mkdir-error.html)
 * [バッチファイルが格納されているディレクトリのパスを取得する](file/batch-dir.html)
