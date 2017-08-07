@@ -9,7 +9,10 @@ created: 2015-12-04
 下記のようなことができることがゴールです。
 
 1. `gem install` コマンドで Gem をインストールできる
-2. Ruby スクリプトの中から `require 'hello_gem'` と読み込める
+2. Ruby スクリプトの中から `require 'hello_gem'` と読み込むと、`HelloGem` クラスを参照できるようになる
+
+Gem に関する命名規則などは、[Ruby のコーディングスタイル](coding-style.html) を参照してください。
+
 
 Gem パッケージを作成する
 ====
@@ -63,7 +66,8 @@ Hello maku!
 gemspec ファイルを作成する
 ----
 
-gemspec ファイルには、公開する Gem パッケージの情報として、下記のような内容を記述しておきます。詳細は[こちら](http://guides.rubygems.org/specification-reference/)。
+gemspec ファイルには、公開する Gem パッケージの情報として、下記のような内容を記述しておきます。
+詳細は [Specification Reference - RubyGems Guides](http://guides.rubygems.org/specification-reference/) を参照してください。
 
 * Gem の名前 (name)
 * バージョン (version)

@@ -111,6 +111,7 @@ Ruby の制御構文
 * [コマンドライン引数を扱う](command-line-params.html)
 * [コマンドライン引数によるオプションに対応する (optparse)](io/optparse.html)
 * [標準出力へ出力する (puts/print/printf)](io/print-to-stdout.html)
+* [標準エラー出力へ出力する (STDERR)](io/print-to-stderr.html)
 * [キーボードからの入力を取得する (STDIN.gets/readline)](io/input-from-keyboard.html)
 * [標準入力から読み込む (gets)](io/input-from-stdin.html)
 * [キーボードからのパスワードの入力を取得する](input-password-from-keyboard.html)
@@ -123,6 +124,7 @@ Ruby の制御構文
 * [テキストファイルを読み込む](read-text-file.html)
 * [テキストファイルを grep する](array/grep.html)
 * [様々なディレクトリのパスを取得する／パスを加工する](get-dir-path.html)
+* [親ディレクトリのパスを取得する](io/get-parent-directory.html)
 * [ディレクトリ内のファイルを列挙する](enum-files.html)
 * [ディレクトリ内のファイルを検索する](find-files.html)
 * [ディレクトリを作成／削除する](create-dir.html)
@@ -150,21 +152,22 @@ mp3
 ====
 * [test-unit によるユニットテスト](test-unit.html)
 
+RubyGems
+====
+* [RubyGems とは](what-is-rubygems.html)
+* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
+* [Gem パッケージのインストール先を調べる](gem-environment-gemdir.html)
+* [Gem パッケージを作成する (1) 基本](create-gem.html)
+* [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
+* [Gem パッケージを作成する (3) パッケージを公開する](publish-gem.html)
+* [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
+
 その他
 ====
 * [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
 * [ユーザライブラリの検索パスを調べる](load-path.html)
 * [環境変数を扱う](environment-variable.html)
 * [プロファイラを使用してボトルネックを探る](other/profiler.html)
-
-RubyGems
-----
-* [RubyGems とは](what-is-rubygems.html)
-* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
-* [Gem パッケージのインストール先を調べる](gem-environment-gemdir.html)
-* [Gem パッケージを作成する (1) 基本](create-gem.html)
-* [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
-* [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
 
 トラブルシューティング
 ----
