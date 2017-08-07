@@ -22,6 +22,7 @@ Gradle の基本
 * [Gradle のタスクに説明を付け、グルーピングする (description, group)](group-tasks.html)
 * [既存の Gradle タスクにアクションを追加する](add-action-to-task.html)
 * [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
+* [Gradle Wrapper スクリプト (gradlew) をサブプロジェクトから簡単に呼び出せるようにする](gradle-wrapper-wrapper.html)
 
 ### Maven リポジトリ
 * [独自の Maven リポジトリを使用する](repository/specify-maven-url.html)
