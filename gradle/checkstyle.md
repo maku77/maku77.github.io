@@ -5,7 +5,7 @@ created: 2015-08-10
 
 Checkstyle プラグインの基本
 ====
-Gradle には標準の静的解析プラグインとして、Checkstyle, PMD CodeNarc, FindBugs, JDepend などが組み込まれています。
+Gradle には標準の静的解析プラグインとして、Checkstyle、PMD、CodeNarc、FindBugs、JDepend などが組み込まれています。
 
 * [Gradle - Checkstyle Plugin](https://docs.gradle.org/current/userguide/checkstyle_plugin.html)
 
