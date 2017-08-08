@@ -1,5 +1,5 @@
 <nav class="maku-nav">
-  <h3>カテゴリ一覧</h3>
+  <div class="maku-nav_header">カテゴリ一覧</div>
   <ul>
     {% for category in site.defaults %}
       {% assign category_id = category.values.category_id %}
@@ -14,7 +14,3 @@
   </ul>
 </nav>
 
-<!-- tradersshop -->
-<a target="_blank" href="https://www.tradersshop.com/bin/mainfrm?a=16313">
-  <div><img src="/img/tradersshop-large.png" style="padding:10px;"></div>
-</a>

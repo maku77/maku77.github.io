@@ -215,7 +215,12 @@ strong {
 
   #maku-container_sidebar {
     width: 250px;
-    padding: 0px 30px;
+    padding: 0px 0px 0px 10px;
+
+      .maku-container_sidebar_ad {
+        margin: 10px;
+        max-width: 200px;
+      }
   }
 }
 
@@ -261,6 +266,15 @@ strong {
 
 /* ナビゲーションメニュー */
 .maku-nav {
+  margin: 10px 0px 10px 10px;
+  .maku-nav_header {
+    border-bottom: 1px gray solid;
+    margin: 0px 0px 8px 0px;
+    padding: 0 0 0.2em 0;
+    font-size: 14pt;
+    font-weight: bolder;
+    color: black;
+  }
   ul {
     margin: 0;
     padding: 0;
