@@ -84,3 +84,23 @@ ENTERED: url=file:/hoge.txt, desc=file:///hoge.txt
 ACTIVATED: url=file:/hoge.txt, desc=file:///hoge.txt
 ~~~
 
+クリックされた URL を Web ブラウザで開きたい場合は、`java.awt.Desktop` クラスを使用して以下のようにすればよいでしょう。
+
+~~~ java
+private HyperlinkListener hyperlinkListener = new HyperlinkListener() {
+    @Override
+    public void hyperlinkUpdate(HyperlinkEvent e) {
+        if (HyperlinkEvent.EventType.ACTIVATED.equals(e.getEventType())) {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                desktop.browse(e.getURL().toURI());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+};
+~~~
+
