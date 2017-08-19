@@ -18,6 +18,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 ### パス
 * [絶対パスと相対パスの変換](absolute-path-to-relative-path.html)
 * [カレントディレクトリの絶対パスを取得する](absolute-path-of-current-dir.html)
+* [シェルスクリプトのファイル名と絶対パスを取得する](path/path-of-script.html)
 * [シェルスクリプトのあるディレクトリの絶対パスを取得する](absolute-path-of-script-dir.html)
 * [シェルスクリプトのあるディレクトリに移動する](move-to-script-dir.html)
 * [指定したファイルの絶対パスを取得する](absolute-path-of-file.html)
