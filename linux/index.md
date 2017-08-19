@@ -81,6 +81,7 @@ Linux 管理
 * [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)
 * [NTP でシステム時刻を設定する](settings/ntp.html)
+* [ディレクトリ内のファイルを zip ファイルにバックアップする](manage/backup.html)
 
 Linux コマンド全般　
 ----
