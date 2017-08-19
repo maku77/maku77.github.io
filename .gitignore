@@ -1,5 +1,5 @@
 .DS_Store
-.jekyll-metadata
+*.jekyll-metadata
 _site/
 (draft)*
 _memo_*
