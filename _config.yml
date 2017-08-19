@@ -261,6 +261,16 @@ defaults:
       category_long_desc: "SQL 全般や SQLite、MySQL に関するメモ。"
   -
     scope:
+      path: "tradestation"
+      type: "pages"
+    values:
+      category_title: "トレードステーション"
+      category_id: "tradestation"
+      category_logo: "logo-tradestation.png"
+      category_desc: "天才星人まくのトレステノート"
+      category_long_desc: "最強のトレードソフト TradeStation。EasyLanguage によるシストレ用プログラムなど。"
+  -
+    scope:
       path: "vagrant"
       type: "pages"
     values:
