@@ -15,6 +15,12 @@ $ git config --global user.email "taro@example.com"
 $ git config --global color.ui auto    # コマンド出力に色を付ける
 $ git config --global core.editor vim  # git commit 時のエディタ
 
+### 文字化け防止 (git diff)
+$ git config --global core.pager "LESSCHARSET=utf-8 less"
+
+### 文字化け防止 (git status)
+$ git config --global core.quotepath false
+
 ### 改行コードの自動変換なし
 $ git config --global core.autocrlf false
 
