@@ -36,4 +36,5 @@ layout: category-index
 * [パンくずリストを表示する](breadcrumbs.html)
 * [現在のページがディレクトリインデックスであるか調べる](directory-index.html)
 * [同じ階層にある index.html ページの Resource オブジェクトを取得する](index-resource.html)
+* [ローカル環境での開発中だけアフィリエイト広告を非表示にする](development.html)
 
