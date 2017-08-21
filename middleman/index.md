@@ -26,7 +26,7 @@ layout: category-index
 * [ヘルパーメソッドを使って HTML を作成する](helper.html)
 * [カスタムヘルパを作成する](custom-helper.html)
 
-その他
+応用
 ----
 * [LiveReload 機能を使って Web ブラウザを自動でリロードする](live-reload.html)
 * [Middleman で Sassy CSS (SCSS) を使用する](scss.html)
@@ -34,4 +34,6 @@ layout: category-index
 * [Resource オブジェクト (2) ページの親子関係を取得する](resource2.html)
 * [Resource オブジェクト (3) ページのツリー構造を取得する](resource3.html)
 * [パンくずリストを表示する](breadcrumbs.html)
+* [現在のページがディレクトリインデックスであるか調べる](directory-index.html)
+* [同じ階層にある index.html ページの Resource オブジェクトを取得する](index-resource.html)
 

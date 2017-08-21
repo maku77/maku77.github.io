@@ -49,13 +49,13 @@ helpers do
   # 戻り値は Resources オブジェクトの配列。最上位の index ページで
   # 呼び出した場合や、親ページが存在しない場合は空の配列を返す。
   def get_breadcrumbs
-    items = []
-    res = current_page
-    while res.parent
-      res = res.parent
-      items.unshift(res)
+    result = []
+    r = current_page.parent
+    while r
+      result.unshift(r)
+      r = r.parent
     end
-    return items
+    return result
   end
 end
 ```
@@ -77,4 +77,18 @@ end
 
 上記では、各 index ページの Frontmatter に記述されている `title` 情報を表示するようにしています（`res.data.title` の部分）。
 パンくずリストに表示するラベルはもう少しシンプルにしたいという場合は、パンくずリストのラベルを Frontmatter で新しく定義することで実現できます。
+
+ちなみに、前述の `get_breadcrumbs` は、自分自身のページの `Resource` を含まないリストを返しますが、自分自身のページも含めてしまいたい場合は、下記の様に変更すれば OK です（１行変わっただけ）。
+
+~~~ ruby
+def get_breadcrumbs
+  result = []
+  r = current_page
+  while r
+    result.unshift(r)
+    r = r.parent
+  end
+  return result
+end
+~~~
 
