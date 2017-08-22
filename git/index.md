@@ -51,6 +51,7 @@ Git
 * [gitignore ファイルで Git にバージョン管理させないファイルを指定する](settings/gitignore.html)
 * [bash のプロンプトにカレントブランチ名を表示する](settings/branch-name-on-prompt.html)
 * [msysGit で "terminal is not fully functional" と怒られる場合の対策](settings/terminal-error.html)
+* [git プロトコルではなく強制的に https プロトコルで git clone するようにする](settings/https-instead-of-git.html)
 
 コミット／履歴の書き換え
 ---
