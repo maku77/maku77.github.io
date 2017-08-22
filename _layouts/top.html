@@ -14,26 +14,45 @@
       font-size: 18pt;
       vertical-align: middle;
     }
-    .maku-categoryTitle {
+    .maku-categoryBoxes div {
+      padding: 0px;
+    }
+    .maku-categoryBox {
+      display: block;
+      width: 100%;
+      height: 100px;
+    }
+    /*
+     * categoryBox_title と categoryBox_desc の height の合計が
+     * .maku-categoryBox_image の height になるようにすること。
+     */
+    .maku-categoryBox_image {
+      width: 90px;
+      height: 90px;
+      float: left;
+      padding: 5px;
+      margin: 5px 5px 5px 10px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .maku-categoryBox_title {
+      padding-top: 5px !important;
+      padding-left: 5px !important;
+      height: 30px;
+      overflow: hidden;
       font-size: 14pt;
       font-weight: bolder;
       color: black;
     }
-    .maku-categoryDesc {
-      font-size: 12pt;
+    .maku-categoryBox_desc {
+      padding-top: 2px !important;
+      padding-left: 5px !important;
+      height: 68px;
+      padding: 5px 0px;
+      overflow: hidden;
+      /* text-overflow: ellipsis; */  /* はみ出たら ... 表示 */
+      font-size: 11pt;
+      font-weight: normal;
       color: gray;
-    }
-    .img-thumbnail {
-      padding: 5px;
-      width: 100px;
-      height: 100px;
-      float: left;
-      margin-right: 10px;
-    }
-    .maku-categoryLink {
-      display: block;
-      width: 100%;
-      height: 100px;
     }
     a:link {
       border: none;
@@ -71,7 +90,7 @@
     ここには天才まくのいろんなノートが置いてありますよ～。日々更新中なり。
     </p>
 
-    <div class="row">
+    <div class="row maku-categoryBoxes">
 
       {% for x in site.defaults %}
         {% assign values = x.values %}
@@ -79,43 +98,35 @@
           {% continue %}
         {% endif %}
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <a class="maku-categoryLink" href="/{{ values.category_id }}/">
-            <img class="img-thumbnail" src="/img/{{ values.category_logo }}">
-            <div class="maku-categoryTitle">{{ values.category_title }}</div>
-            <div class="maku-categoryDesc">{{ values.category_long_desc }}</div>
+          <a class="maku-categoryBox" href="/{{ values.category_id }}/">
+            <img class="maku-categoryBox_image" src="/img/{{ values.category_logo }}">
+            <div class="maku-categoryBox_title">{{ values.category_title }}</div>
+            <div class="maku-categoryBox_desc">{{ values.category_long_desc }}</div>
           </a>
         </div>
       {% endfor %}
 
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <a class="maku-categoryLink" href="http://hb.afl.rakuten.co.jp/hsc/14722cbc.ad6285bf.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=17&item_id=&link_type=pict&image_type=original" target="_blank">
-          <img class="img-thumbnail" src="http://hbb.afl.rakuten.co.jp/hsb/14722cbc.ad6285bf.14683058.77b4f5eb/?category_id=17&cmd=shop&image_type=original&item_id=&link_type=pict&me_id=1" border="0">
-          <div class="maku-categoryTitle">タイムセール</div>
+        <a class="maku-categoryBox" href="http://hb.afl.rakuten.co.jp/hsc/14722cbc.ad6285bf.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=17&item_id=&link_type=pict&image_type=original" target="_blank">
+          <img class="maku-categoryBox_image" src="http://hbb.afl.rakuten.co.jp/hsb/14722cbc.ad6285bf.14683058.77b4f5eb/?category_id=17&cmd=shop&image_type=original&item_id=&link_type=pict&me_id=1" border="0">
+          <div class="maku-categoryBox_title">タイムセール</div>
           <div>いまだけ安い！限定セール中♪</div>
         </a>
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <a class="maku-categoryLink" href="http://hb.afl.rakuten.co.jp/hsc/14722fc9.60d0beca.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=58&item_id=&link_type=pict&image_type=original" target="_blank">
-          <img class="img-thumbnail" src="http://hbb.afl.rakuten.co.jp/hsb/14722fc9.60d0beca.14683058.77b4f5eb/?category_id=58&cmd=shop&image_type=original&item_id=&link_type=pict&me_id=1" border="0">
-          <div class="maku-categoryTitle">季節特集</div>
+        <a class="maku-categoryBox" href="http://hb.afl.rakuten.co.jp/hsc/14722fc9.60d0beca.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=58&item_id=&link_type=pict&image_type=original" target="_blank">
+          <img class="maku-categoryBox_image" src="http://hbb.afl.rakuten.co.jp/hsb/14722fc9.60d0beca.14683058.77b4f5eb/?category_id=58&cmd=shop&image_type=original&item_id=&link_type=pict&me_id=1" border="0">
+          <div class="maku-categoryBox_title">季節特集</div>
           <div>季節ものの人気商品をチェック♪</div>
         </a>
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <a class="maku-categoryLink" href="http://hb.afl.rakuten.co.jp/hsc/14722c02.14ea69a9.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=14&item_id=&link_type=pict&image_type=original" target="_blank">
-          <img class="img-thumbnail" src="http://hbb.afl.rakuten.co.jp/hsb/14722c02.14ea69a9.14683058.77b4f5eb/?category_id=14&cmd=shop&image_type=original&item_id=&link_type=pict&me_id=1" border="0">
-          <div class="maku-categoryTitle">ベストセラー</div>
-          <div>おすすめの本を読んで気分転換♪</div>
-        </a>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <a class="maku-categoryLink" href="http://memoja.net/">
-          <img class="img-thumbnail" src="/img/logo-invest.jpg">
-          <div class="maku-categoryTitle">投資で実現！不労所得生活</div>
-          <div class="maku-categoryDesc">好きなことをして楽しく暮らしたいなぁ。いっしょに投資の勉強をして不労所得生活を目指そうよ♪</div>
+        <a class="maku-categoryBox" href="http://memoja.net/">
+          <img class="maku-categoryBox_image" src="/img/logo-invest.jpg">
+          <div class="maku-categoryBox_title">投資で実現！不労所得生活</div>
+          <div class="maku-categoryBox_desc">好きなことをして楽しく暮らしたいなぁ。いっしょに投資の勉強をして不労所得生活を目指そうよ♪</div>
         </a>
       </div>
     </div>
