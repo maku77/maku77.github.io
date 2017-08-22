@@ -1,2 +1,2 @@
-jekyll serve --incremental --limit_posts 1
+jekyll serve --destination D:\y\jekyll_temp --incremental --limit_posts 1
 

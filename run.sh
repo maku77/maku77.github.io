@@ -1,1 +1,1 @@
-jekyll serve --incremental --host=0.0.0.0
+jekyll serve --destination $HOME/y/jekyll_temp --incremental --host=0.0.0.0
