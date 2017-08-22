@@ -94,5 +94,6 @@ Groovy スクリプト
 
 Android 開発における Gradle
 ----
-* Android に関しては [こちらを参照](../android/)
+
+Android に関しては [こちらを参照](../android/)
 

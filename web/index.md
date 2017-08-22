@@ -21,7 +21,8 @@ CSS／レイアウト
 
 jQuery
 ----
-* jQuery に関しては [JavaScript のページ](../js/index.html) を参照
+
+jQuery に関しては [JavaScript のページ](../js/index.html) を参照
 
 Web サイト作成の雑多メモ
 ----

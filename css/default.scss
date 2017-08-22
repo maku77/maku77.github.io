@@ -266,6 +266,15 @@ strong {
   -webkit-column-rule: dotted 2px #ccc;
 }
 
+.maku-content-fullWidthLink {
+  p {
+    margin: 0.5em 0.5em 1em 0.5em;
+  }
+  li a {
+    display: block;
+  }
+}
+
 .maku-htmlSample {
   margin: 1em 2em;
 }
