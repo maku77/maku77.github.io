@@ -161,6 +161,7 @@ RubyGems
 * [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
 * [Gem パッケージを作成する (3) パッケージを公開する](publish-gem.html)
 * [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
+* [Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ](gem/add-files-to-gemspec.html)
 
 その他
 ====
