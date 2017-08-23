@@ -154,13 +154,13 @@ mp3
 
 RubyGems
 ====
-* [RubyGems とは](what-is-rubygems.html)
-* [プロキシ経由で gem コマンドを使用する](gem-with-proxy.html)
-* [Gem パッケージのインストール先を調べる](gem-environment-gemdir.html)
-* [Gem パッケージを作成する (1) 基本](create-gem.html)
-* [Gem パッケージを作成する (2) 実行可能コマンドを追加する](create-gem2.html)
-* [Gem パッケージを作成する (3) パッケージを公開する](publish-gem.html)
-* [勉強用に Gem パッケージをダウンロードする](fetch-gem.html)
+* [RubyGems とは](gem/what-is-rubygems.html)
+* [プロキシ経由で gem コマンドを使用する](gem/gem-with-proxy.html)
+* [Gem パッケージのインストール先を調べる](gem/gem-environment-gemdir.html)
+* [Gem パッケージを作成する (1) 基本](gem/create-gem.html)
+* [Gem パッケージを作成する (2) 実行可能コマンドを追加する](gem/create-gem2.html)
+* [Gem パッケージを作成する (3) パッケージを公開する](gem/publish-gem.html)
+* [勉強用に Gem パッケージをダウンロードする](gem/fetch-gem.html)
 * [Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ](gem/add-files-to-gemspec.html)
 
 その他
