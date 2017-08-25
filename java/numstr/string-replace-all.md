@@ -100,13 +100,14 @@ AAA <img src="1.jpg"> BBB <img src="2.png"> CCC
 
 正規表現パターン内で中括弧（`{` や `}`）を使用するときは、`\\{` や `\\}` のようにバックスラッシュ２つでエスケープする必要があることに注意してください。
 
+
 本格的な置換クラスのサンプル
 ----
 
 下記の ImagePattern クラスは、下記のような Wiki っぽい文字列を img タグに変換するためのユーティリティクラスです。
 
 ~~~
-置換前: {{image1.jpg|画像1}}
+置換前: 【image1.jpg|画像1】
 置換後: <img src='file:image/image1.jpg' alt='画像1' />
 ~~~
 
@@ -117,7 +118,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ImagePattern {
-    private static final String IMAGE_PATTERN = "\\{\\{([a-zA-Z0-9._-]+?)\\|(.+?)\\}\\}";
+    private static final String IMAGE_PATTERN = "【([a-zA-Z0-9._-]+?)\\|(.+?)】";
     private static final String IMAGE_REPLACEMENT = "<img src='file:image/$1' alt='$2' />";
     private static final Pattern pattern = Pattern.compile(IMAGE_PATTERN);
 
@@ -128,7 +129,7 @@ public class ImagePattern {
 
     // Test.
     public static void main(String[] args) {
-        String s = replace("AAA {{test-image.jpg|Image 1}} BBB {{2.png}} CCC");
+        String s = replace("AAA 【test-image.jpg|Image 1】 BBB 【2.png】 CCC");
         System.out.println(s);
     }
 }
