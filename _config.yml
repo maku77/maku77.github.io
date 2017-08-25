@@ -1,6 +1,7 @@
 # Maku settings.
 name: まくノート
 url: https://maku77.github.io
+keep_files: [img]
 
 # Prevent the following files from converting by Jekyll.
 exclude: [README.md, run.bat, run.sh, remove_conflicts.bat]
@@ -27,7 +28,8 @@ defaults:
       category_desc: "天才星人まくのソフトウェア開発に関するノート"
       category_logo: "logo.jpg"
 
-  # このカテゴリだけトップに表示するため、最初に定義しておく
+  # この「いろいろ」カテゴリだけトップに表示するため、
+  # 最初に定義しておく（残りはアルファベット順）
   -
     scope:
       path: "memo"
@@ -109,6 +111,16 @@ defaults:
       category_logo: "logo-html5.svg"
       category_desc: "天才星人まくの HTML/CSS ノート"
       category_long_desc: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
+  -
+    scope:
+      path: "hugo"
+      type: "pages"
+    values:
+      category_title: "Hugo"
+      category_id: "hugo"
+      category_logo: "logo-hugo.png"
+      category_desc: "天才星人まくの Hugo ノート"
+      category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。Go 言語で作られています。"
   -
     scope:
       path: "java"
