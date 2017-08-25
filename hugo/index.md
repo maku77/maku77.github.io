@@ -15,6 +15,11 @@ Hello World
 * [Hugo でドラフトページを作成する](draft.html)
 * [Hugo のテーマを設定する](theme.html)
 
+hugo コマンド
+----
+* [カレントディレクトリを気にせずに hugo コマンドを実行する](source-dir.html)
+* [ポート番号を指定して Hugo サーバーを起動する](server-port.html)
+
 Links
 ----
 * [Hugo Themes](https://themes.gohugo.io/)
