@@ -6,6 +6,8 @@ created: 2017-08-23
 Hugo とは
 ----
 
+[![install.png](./install.png){: .center}](https://gohugo.io/)
+
 - [Hugo (https://gohugo.io/)](https://gohugo.io/)
 
 Hugo は Jekyll や [Middleman](/middleman/) と同様の静的サイトジェネレータです。
