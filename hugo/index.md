@@ -20,6 +20,10 @@ hugo コマンド
 * [カレントディレクトリを気にせずに hugo コマンドを実行する](source-dir.html)
 * [ポート番号を指定して Hugo サーバーを起動する](server-port.html)
 
+応用
+----
+* [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
+
 Links
 ----
 * [Hugo Themes](https://themes.gohugo.io/)
