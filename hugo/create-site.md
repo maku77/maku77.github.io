@@ -39,10 +39,10 @@ my_site/
   +-- archetypes/ （新しいページを作成するときのひな形）
   |    +-- default.md
   +-- content/ （記事を格納。Markdown 形式のファイルを置いていく）
-  +-- data/
-  +-- layouts/
-  +-- static/
-  +-- themes/ （テーマディレクトリを配置。実際にどのテーマを使用するかは config.toml で指定）
+  +-- data/    （サイト生成時に利用するデータ）
+  +-- layouts/  (レイアウトテンプレート）
+  +-- static/  （画像ファイルなど、サイト生成時にそのままコピーするファイルを置く）
+  +-- themes/  （テーマディレクトリを配置。実際にどのテーマを使用するかは config.toml で指定）
 ~~~
 
 
