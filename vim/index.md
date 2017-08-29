@@ -77,7 +77,7 @@ Vim の設定
 
 ### その他の設定
 * [モードラインでファイルごとに書式を設定する](settings/modeline.html)
-* [バックアップファイル／スワップファイルの設定 (backup, swapfile)](settings/backup.html)
+* [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
 * [自動インデントモードを有効にする](settings/auto-indent.html)
