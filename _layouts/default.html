@@ -39,7 +39,12 @@
         <!-- maku-container_main_ad1 -->
         {% include ad-google-infeed.html %}
 
-        <div class="maku-content">{{ content }}</div>
+        <div class="maku-content">
+          {% if page.description %}
+            <div class="maku-pageDescription">{{ page.description }}</div>
+            {% endif %}
+          {{ content }}
+        </div>
 
         <!-- maku-container_main_ad2 -->
         {% if jekyll.environment != "development" %}
