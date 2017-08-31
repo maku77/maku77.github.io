@@ -116,11 +116,11 @@ defaults:
       path: "hugo"
       type: "pages"
     values:
-      category_title: "Hugo"
+      category_title: "Hugo/Go"
       category_id: "hugo"
       category_logo: "logo-hugo.png"
-      category_desc: "天才星人まくの Hugo ノート"
-      category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。Go 言語で作られています。"
+      category_desc: "天才星人まくの Hugo/Go ノート"
+      category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。Go 言語の説明も。"
   -
     scope:
       path: "java"
