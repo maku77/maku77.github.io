@@ -45,6 +45,12 @@ Go 言語 (Golang)
 * [Go 言語で Hello World をコンパイル、実行する](go/hello-world.html)
 * [Go 言語のコーディングスタイル（コーディング規約）](go/coding-style.html)
 * [Go ツアーを起動して Go 言語の基本を勉強する](go/go-tour.html)
+* [Go のワークスペースの考え方 (GOPATH)](go/workspace.html)
+
+Go の文法
+----
+* [パッケージを参照する (import)](go/import.html)
+* [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
 
 外部リンク
 ----
