@@ -51,9 +51,22 @@ Go の文法
 ----
 * [パッケージを参照する (import)](go/import.html)
 * [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
+* [Go の組込み型一覧](go/types.html)
+* [変数を定義する (var)／ゼロ値について](go/var.html)
+* 配列とスライスを扱う
+* [定数を定義する (const)](go/const.html)
+* [if による条件分岐](go/if.html)
+* [switch による条件分岐](go/switch.html)
+* [for によるループ処理](go/for.html)
+* [関数を定義する (func)](go/func.html)
+* 構造体を定義する (struct)
+* メソッドを定義する（レシーバ付き関数）
 
 外部リンク
 ----
 * [公式サイト](https://golang.org/)
-* [公式サイト - 標準パッケージ一覧](https://golang.org/pkg/)
-* [公式サイト - コマンドラインツール説明](https://golang.org/doc/cmd)
+  * [Language Specification（Go 言語仕様）](https://golang.org/ref/spec)
+  * [Command Documentation（コマンドラインツール説明）](https://golang.org/doc/cmd)
+  * [Effective Go（よいコーディング指針）](https://golang.org/doc/effective_go.html)
+  * [Packages（標準パッケージ一覧）](https://golang.org/pkg/)
+
