@@ -48,7 +48,7 @@ defaults:
     values:
       category_title: "Android"
       category_id: "android"
-      category_logo: "logo-android.png"
+      category_logo: "logo-android.jpg"
       category_desc: "天才星人まくの Android ノート"
       category_long_desc: "Android スマホアプリ、Android TV の開発に関して。"
   -
