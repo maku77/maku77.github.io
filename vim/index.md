@@ -75,14 +75,18 @@ Vim の設定
 * [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
 * [現在の環境で読み込まれる設定ファイルの一覧を確認する](settings/rc-files.html)
 
+### autocmd（自動コマンド）
+* [autocmd で自動コマンドを登録する](settings/autocmd.html)
+* [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](settings/autocmd-exec.html)
+
 ### その他の設定
 * [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 * [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
+* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
 * [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
 * [自動インデントモードを有効にする](settings/auto-indent.html)
 * [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
-* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
 * [フォント設定ダイアログを開いてフォントを設定する](settings/font-dialog.html)
 * [タブ文字と行末のスペースを表示する](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
