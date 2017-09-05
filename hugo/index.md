@@ -61,8 +61,13 @@ Go の文法
 * [switch による条件分岐](go/switch.html)
 * [for によるループ処理](go/for.html)
 * [関数を定義する (func)](go/func.html)
-* 構造体を定義する (struct)
-* メソッドを定義する（レシーバ付き関数）
+
+Go の型システムと構造体（クラスもどき）
+----
+* [組込み型に独自の型名を付ける (type)](go/type.html)
+* [構造体を定義する (struct)](go/struct.html)
+* [構造体のコンストラクタ（ファクトリ関数）を定義する](go/constructor.html)
+* [メソッドを定義する（レシーバ付き関数）](go/method.html)
 
 外部リンク
 ----
