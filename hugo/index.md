@@ -36,7 +36,7 @@ Links
 * [Hugo Themes](https://themes.gohugo.io/)
   - たくさんの Hugo 用テーマが公開されています。
 
-Go 言語 (Golang)
+Go 言語入門（Golang 入門）
 ====
 
 はじめに
@@ -53,7 +53,9 @@ Go の文法
 * [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
 * [Go の組込み型一覧](go/types.html)
 * [変数を定義する (var)／ゼロ値について](go/var.html)
-* 配列とスライスを扱う
+* [配列とスライスを扱う](go/array.html)
+* [マップを扱う (map)](go/map.html)
+* [ポインタを扱う](go/pointer.html)
 * [定数を定義する (const)](go/const.html)
 * [if による条件分岐](go/if.html)
 * [switch による条件分岐](go/switch.html)
