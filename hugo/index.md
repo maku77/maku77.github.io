@@ -30,6 +30,7 @@ hugo コマンド
 応用
 ----
 * [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
+* [独自のテーマを作成する](create-theme.html)
 
 Links
 ----
