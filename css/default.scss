@@ -110,6 +110,11 @@ code {
   background: $COLOR_CODE_BG;
 }
 
+pre {
+  tab-size: 5;
+  -moz-tab-size: 5;
+}
+
 table {
   border-collapse: collapse;
   margin: 10px;
