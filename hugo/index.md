@@ -6,7 +6,7 @@ layout: category-index
 Hugo
 ====
 
-Hello World
+はじめに
 ----
 
 * [Hugo とは／Hugo をインストールする](install.html)
@@ -62,6 +62,7 @@ Go の文法
 * [switch による条件分岐](go/switch.html)
 * [for によるループ処理](go/for.html)
 * [関数を定義する (func)](go/func.html)
+* [パニックによるエラー処理 (panic, recover)](go/panic.html)
 
 Go の型システムと構造体（クラスもどき）
 ----
