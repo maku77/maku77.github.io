@@ -52,7 +52,7 @@ Go の文法
 ----
 * [パッケージを参照する (import)](go/import.html)
 * [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
-* [Go の組込み型一覧](go/types.html)
+* [Go 言語の組込み型一覧](go/types.html)
 * [変数を定義する (var)／ゼロ値について](go/var.html)
 * [配列とスライスを扱う](go/array.html)
 * [マップを扱う (map)](go/map.html)
@@ -70,11 +70,16 @@ Go の型システムと構造体（クラスもどき）
 * [構造体を定義する (struct)](go/struct.html)
 * [構造体のコンストラクタ（ファクトリ関数）を定義する](go/constructor.html)
 * [メソッドを定義する（レシーバ付き関数）](go/method.html)
+* [Go 言語のインタフェースの扱いを理解する (interface)](go/interface.html)
+* [型のキャストと、型アサーションによる型変換](go/cast.html)
+* [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](go/embedding.html)
 
 Go の標準パッケージ
 ----
 * [ファイルからの読み出し／ファイルへの書き込みを行う (os, io)](go/file.html)
-* [テンプレート機能を使用する (html/template)](go/template.html)
+* [テンプレート機能を使用する (text/template, html/template)](go/template.html)
+* [時刻データを扱う (time)](go/time.html)
+* [ベンチマークを行う (testing.B)](go/benchmark.html)
 
 外部リンク
 ----

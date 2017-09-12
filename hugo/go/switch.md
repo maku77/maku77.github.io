@@ -53,7 +53,7 @@ default:
 連続する if else の代わりとして switch 文を使用する
 ----
 
-条件部分を省略した switch は、`switch true` と記述するのと同様の振る舞いをします。
+条件部分を省略した switch 文は、`switch true` と記述するのと同様の振る舞いをします。
 この記述方法は、連続した `if else` を簡潔に記述するために使用することができます。
 
 ~~~ go
@@ -112,15 +112,15 @@ if t := time.Now(); t.Hour() < 12 {
 まぁ、このくらいであればそれほど見にくくはないですが、switch の方がパッと見分かりやすいですね。
 
 
-型 switch (Type Switch)
+型スイッチ (Type Switch)
 ----
 
-Type Switch は `switch` 文の特殊な使用方法で、ある変数の型に基いた分岐を行いたいときに使用します。
+**型スイッチ (Type Switch)** は `switch` 文の特殊な使用方法で、空インタフェース型 (`interface{}`) の変数の実際の型に基いた分岐を行いたいときに使用します。
 主に、任意の型のパラメータを受け取る関数の実装で使用されます。
 
 ~~~ go
 func checkType(value interface{}) {
-	switch v := x.(type) {
+	switch v := value.(type) {
 	case nil:
 		fmt.Println("value is nil")
 	case int:
@@ -136,4 +136,6 @@ func checkType(value interface{}) {
 	}
 }
 ~~~
+
+型スイッチは、[型アサーション (Type Assertion)](./cast.html) の特殊形態だと考えることができます。
 
