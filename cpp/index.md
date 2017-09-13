@@ -15,6 +15,11 @@ STL
 - [ファイルパスから拡張子を取得する](string/get-extension.html)
 - [printf のフォーマット文字列でインデントの空白を出力する](string/print-indent.html)
 - [文字列の中に指定した文字列の中のいずれかの文字が含まれているか調べる (strpbrk)](string/strpbrk.html)
+- [文字列を区切り文字で分割する (istringstream)](string/split.html)
+- [文字列から部分文字列を取得する (substr)](string/substr.html)
+- [ASCII コードで次の文字を取得する、A〜Z までループで処理する](string/loop-ascii.html)
+- [文字列を逆順にする (reverse)](string/reverse.html)
+- [ビット演算で小文字と大文字を変換する](string/convert-case.html)
 
 入出力 (I/O)／ファイル／ディレクトリ
 ----
