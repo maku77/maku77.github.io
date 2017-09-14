@@ -22,24 +22,13 @@ layout: category-index
 * [リソースは finally ブロックで閉じる](finally-close.html)
 * [コメント内で使える特殊キーワード（XXX、TODO など）を理解する](practice/keyword-in-comment.html)
 * [よいツールの条件](good-tools.html)
-
-デザインパターン
-====
-* [Visitor パターン](dp-visitor-pattern.html)
+* [アジャイルプラクティス ─ 無駄な汎用性ではなくシンプルな設計を (YAGNI)](simple-design.html)
 
 テスト
-====
+----
 * [テストピラミッドを意識してテストの自動化を進める](test-pyramid.html)
 * [単体テスト、結合テスト、システムテスト、受入テストの関係を理解する](test-relation.html)
 
-アジャイルプラクティス
-====
-* [無駄な汎用性ではなくシンプルな設計を (YAGNI)](simple-design.html)
-
-設計ドキュメント／設計ツール
-====
-* [Enterprise Architect の図をシンプルにして Power Point に貼り付ける](tool/ea-to-powerpoint.html)
-* [テキストからシーケンス図を作成するツール](tool-sdedit.html)
 
 ブックレビュー／読書メモ
 ====
@@ -65,16 +54,6 @@ Jenkins
 * [Jenkins サーバの設定ファイルの場所](jenkins/settings-dir.html)
 * [Amazon EC2 に Jenkins をインストールする](jenkins/amazon-ec2.html)
 
-XML
-====
-* [意外と知られていない XML 記述のルール](xml/xml-rules.html)
-* [XML の名前空間](xml/namespace.html)
-
-言語別の構文
-====
-
-* [スクリプト言語の文法比較など](program/comparison.html)
-
 ツール
 ====
 * [make を使いこなすためのメモ](tool/make.html)
@@ -83,23 +62,33 @@ XML
 * [Windows (MinGW) で GLUT を使用する](tool/glut-in-windows.html)
 * [Tera Term のマクロで特定の文字列を検出して処理を実行する](tool/teraterm-detect-pattern.html)
 
+設計ドキュメント／設計ツール
+----
+* [Enterprise Architect の図をシンプルにして Power Point に貼り付ける](tool/ea-to-powerpoint.html)
+* [テキストからシーケンス図を作成するツール](tool-sdedit.html)
+
 パッケージ管理
 ----
 * [パッケージ管理ツールいろいろ](common-package-management.html)
 * [Python のパッケージ管理ツール (pip)](/python/pip.html)
 
 
-暗号／セキュリティ
+ネットワーク／暗号／セキュリティ
 ====
+* [IP によるインターネットワーキングの基礎（昔々2000年くらいに書いた記事）](./ip-networking/)
+* [GENA と SSDP プロトコルを理解する](network/ssdp.html)
 * [共通鍵暗号化方式と公開鍵暗号化方式](security/encryption-scheme.html)
 * [SSH 鍵の作成と登録](security/ssh-keygen.html)
 * [SSH 接続用のエイリアスを設定する (~/.ssh/config)](security/ssh-alias.html)
 
 
-ネットワーク
+雑多メモ
 ====
-* [IP によるインターネットワーキングの基礎（昔々2000年くらいに書いた記事）](./ip-networking/)
-* [GENA と SSDP プロトコルを理解する](network/ssdp.html)
+* [PIC めもめも（電子工作、PIC アセンブラのメモ）](pic/index.html)
+* [言語別の構文 - スクリプト言語の文法比較など](program/comparison.html)
+* [意外と知られていない XML 記述のルール](xml/xml-rules.html)
+* [XML の名前空間](xml/namespace.html)
+* [デザインパターン ─ Visitor パターン](dp-visitor-pattern.html)
 
 
 ソフトウェア開発参考リンク

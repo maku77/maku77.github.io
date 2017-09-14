@@ -1,0 +1,330 @@
+---
+title: "PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも"
+created: 2002-08-01
+---
+
+<STYLE>
+  TABLE.code TD {
+    font-family: monospace;
+  }
+  TABLE.code SPAN.strong {
+    color: black;
+    font-weight: bolder;
+  }
+  TD.c { text-align: center; }
+  TD { background: white; }
+  TH { background: #ddd; }
+  SPAN.lit { color: blue; font-weight: bolder; }
+  SPAN.dest { color: red; font-weight: bolder; }
+  SPAN.bit { color: green; font-weight: bolder; }
+</STYLE>
+
+
+<h2>PIC16Fxxx 命令セット (14bit)</h2>
+
+<TABLE class="code" align="center">
+	<TR>
+		<TH>カテゴリ</TH><TH>ニモニック</TH><TH colspan="2">意味</TH><TH>コード</TH>
+	</TR>
+	<TR>
+		<TD class="namec" rowspan="4">加算・減算</TD>
+		<TD><SPAN class="strong">ADDWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W + f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Add W and f</TD>
+		<TD>00 0111 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SUBWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - W → <SPAN class="dest">d</SPAN></TD>
+		<TD>Subtract W from f</TD>
+		<TD>00 0010 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">ADDLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W + <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Add literal and W</TD>
+		<TD>11 111x <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SUBLW</SPAN> <SPAN class="lit">k</SPAN></TD><TD><SPAN class="lit">k</SPAN> - W → W</TD>
+		<TD>Subtract W from literal</TD>
+		<TD>11 110x <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR class="line"></TR>
+
+	<TR>
+		<TD class="namec" rowspan="7">論理演算</TD>
+		<TD><SPAN class="strong">ANDWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W AND f → <SPAN class="dest">d</SPAN></TD>
+		<TD>AND W with f</TD>
+		<TD>00 0101 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">IORWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W OR f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Inclusive OR W with f</TD>
+		<TD>00 0100 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">XORWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W XOR f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Exclusive OR W with f</TD>
+		<TD>00 0110 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">ANDLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W AND <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>And literal with W</TD>
+		<TD>11 1001 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">IORLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W OR <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Inclusive OR literal with W</TD>
+		<TD>11 1000 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">XORLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W XOR <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Exclusive OR literal with W</TD>
+		<TD>11 1010 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">COMF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Complement f</TD>
+		<TD>00 1001 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">移動</TD>
+		<TD><SPAN class="strong">MOVF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Move f</TD>
+		<TD>00 1000 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">MOVWF</SPAN> f</TD>
+		<TD>W → f</TD>
+		<TD>Move W to f</TD>
+		<TD>00 0000 1fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">MOVLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD><SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Move litaral to W</TD>
+		<TD>11 00xx <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">クリア</TD>
+		<TD><SPAN class="strong">CLRF</SPAN> f</TD>
+		<TD>0 → f</TD>
+		<TD>Clear f</TD>
+		<TD>00 0001 1fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">CLRW</SPAN> W</TD>
+		<TD>0 → W</TD>
+		<TD>Clear W</TD>
+		<TD>00 0001 0xxx xxxx</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="4">インクリメント<BR>デクリメント</TD>
+		<TD><SPAN class="strong">DECF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - 1 → <SPAN class="dest">d</SPAN></TD>
+		<TD>Decrement f</TD>
+		<TD>00 0011 <SPAN class="dest">d</SPAN>fff ffff
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">INCF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f + 1 → <SPAN class="dest">d</SPAN></TD>
+		<TD>Increment f</TD>
+		<TD>00 1010 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">DECFSZ</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - 1 → <SPAN class="dest">d</SPAN><BR>Skip if result = 0</TD>
+		<TD>Decrement f, Skip if 0</TD>
+		<TD>00 1011 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">INCFSZ</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f + 1 → <SPAN class="dest">d</SPAN><BR>Skip if result = 0</TD>
+		<TD>Increment f, Skip if 0</TD>
+		<TD>00 1111 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">ビット操作</TD>
+		<TD><SPAN class="strong">BCF</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>0 → f[<SPAN class="bit">b</SPAN>]</TD>
+		<TD>Bit Clear f</TD>
+		<TD>01 00<SPAN class="bit">bb b</SPAN>fff ffff</SPAN>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">BSF</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>1 → f[<SPAN class="bit">b</SPAN>]</TD>
+		<TD>Bit set f</TD>
+		<TD>01 01<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">スキップ</TD>
+		<TD><SPAN class="strong">BTFSC</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>Skip if f[<SPAN class="bit">b</SPAN>] = 0</TD>
+		<TD>Bit Test f, Skip if Clear</TD>
+		<TD>01 10<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">BTFSS</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>Skip if f[<SPAN class="bit">b</SPAN>] = 1</TD>
+		<TD>Bit Test f, Skip if Set</TD>
+		<TD>01 11<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">シフト</TD>
+		<TD><SPAN class="strong">RLF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[n] → <SPAN class="dest">d</SPAN>[n+1]<BR>
+			f[7] → C → <SPAN class="dest">d</SPAN>[0]
+		</TD>
+		<TD>Rotate Left f through Carry<BR>(左巡回シフト)</TD>
+		<TD>00 1101 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RRF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[n] → <SPAN class="dest">d</SPAN>[n-1]<BR>
+			f[0] → c → <SPAN class="dest">d</SPAN>[7]
+		</TD>
+		<TD>Rotate Right f through Carry<BR>(右巡回シフト)</TD>
+		<TD>00 1100 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SWAPF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[0:3] → <SPAN class="dest">d</SPAN>[4:7]<BR>
+			f[4:7] → <SPAN class="dest">d</SPAN>[0:3]
+		</TD>
+		<TD>Swap nibbles in f<BR>(上位ビット ⇔ 下位ビット)</TD>
+		<TD>00 1110 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR class="line"></TR>
+
+	<TR>
+		<TD class="namec" rowspan="5">ジャンプ</TD>
+		<TD><SPAN class="strong">GOTO</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Go to address</TD>
+		<TD>10 1<SPAN class="lit">kkk kkkk kkkk</SPAN>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">CALL</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Call subroutine</TD>
+		<TD>10 0<SPAN class="lit">kkk kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETFIE</SPAN></TD>
+		<TD></TD>
+		<TD>Return from interrupt</TD>
+		<TD>00 0000 0000 1001</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Return with literal in W</TD>
+		<TD>11 01xx <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETURN</SPAN></TD>
+		<TD></TD>
+		<TD>Return from Subroutine</TD>
+		<TD>00 0000 0000 1000</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">その他</TD>
+		<TD><SPAN class="strong">CLRWDT</SPAN></TD>
+		<TD></TD>
+		<TD>Clear Watchdog Timer</TD>
+		<TD>00 0000 0110 0100</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">NOP</SPAN></TD>
+		<TD></TD>
+		<TD>No Operation</TD>
+		<TD>00 0000 0xx0 0000</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SLEEP</SPAN></TD>
+		<TD></TD>
+		<TD>Go into standby mode</TD>
+		<TD>00 0000 0110 0011</TD>
+	</TR>
+</TABLE>
+
+<TABLE align="center">
+  <caption>OPCODE フィールドの説明</caption>
+	<TR>
+		<TH>Field</TH><TH>Size</TH><TH>Description</TH>
+	</TR>
+	<TR>
+		<TD class="c">f</TD><TD class="c">7</TD>
+		<TD>ワーキングレジスタのアドレス (0x00 ～ 0x7F)</TD>
+	</TR>
+	<TR>
+		<TD class="c">W</TD><TD class="c">─</TD>
+		<TD>ワーキングレジスタ（アキュムレータ）</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="bit">b</SPAN></TD><TD class="c">3</TD>
+		<TD>8 ビットファイルレジスタ内のビットアドレス</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="lit">k</SPAN></TD><TD class="c">8/11</TD>
+		<TD>
+			リテラル、定数またはラベル<BR>
+			(0 ～ 255) or (-128 ～ 127) or (アスキーコード 'A' とか)
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c">x</TD><TD class="c">─</TD>
+		<TD>
+			無効 (0 or 1)<BR>
+      アセンブラは x=0 としてコードを生成します。<br>
+			すべてのソフトウェアツールとの互換性を確保するために x=0 を推奨します。
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="dest">d</SPAN></TD><TD class="c">1</TD>
+		<TD>
+			結果格納先指名子 (0 or 1)<BR>
+			0: W に格納<BR>
+			1: ファイルレジスタ f に格納 (Default)
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c">PC</TD><TD class="c">─</TD>
+		<TD>プログラムカウンタ</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN style="text-decoration: overline;">TO</SPAN></TD><TD class="c">─</TD>
+		<TD>タイムアウトビット</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN style="text-decoration: overline;">PD</SPAN></TD><TD class="c">─</TD>
+		<TD>パワーダウンビット</TD>
+	</TR>
+</TABLE>
+

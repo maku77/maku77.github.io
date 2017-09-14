@@ -96,12 +96,12 @@ img {
  * ![Description](filename.svg){: .center }
  * のように記述すれば OK。
  */
-.center {
+img.center {
   /* max-width: 95%; */
-  width: 50vmax;
+  /* width: 50vmax; */
+  max-width: 50vmax;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
 }
 
@@ -117,7 +117,7 @@ pre {
 
 table {
   border-collapse: collapse;
-  margin: 10px;
+  margin: 30px auto;  /* 左右は中央寄せ */
 
   thead th, thead td {
     color: $COLOR_THEAD;
