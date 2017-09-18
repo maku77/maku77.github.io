@@ -22,7 +22,9 @@ layout: category-index
 EasyLanguage
 ====
 
+* [インジケーター名の命名規則](naming.html)
 * [Print 関数によるデバッグ](io/print.html)
+* [インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)](basic/max-bars-back.html)
 * [各バーに注釈を付ける (Commentary, CommentaryCL)](chart/commentary.html)
 * [チャートのバータイプ、足種を取得する (BarType, BarInterval)](chart/bar-type.html)
 * [四本値（始値、高値、安値、終値）を取得する](ohlc.html)
