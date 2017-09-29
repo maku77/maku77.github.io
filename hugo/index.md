@@ -18,6 +18,11 @@ Hugo
 * [Hugo でドラフトページを作成する](draft.html)
 * [Hugo のテーマを設定する](theme.html)
 
+ショートコード (Shortcode)
+----
+* [ショートコードで本文内に HTML スニペットを埋め込む](shortcode/basic.html)
+* [独自のショートコードを作成する](shortcode/create-shortcode.html)
+
 hugo コマンド
 ----
 * [カレントディレクトリを気にせずに hugo コマンドを実行する](source-dir.html)
