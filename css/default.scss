@@ -97,9 +97,8 @@ img {
  * のように記述すれば OK。
  */
 img.center {
-  /* max-width: 95%; */
-  /* width: 50vmax; */
   max-width: 50vmax;
+  max-height: 50vmax;
   display: block;
   margin: 30px auto;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
@@ -158,6 +157,11 @@ strong {
   color: $COLOR_EMPHASIS;
   /* background: $COLOR_EMPHASIS_BG; */
   font-weight: bold;
+
+  code {
+    color: $COLOR_EMPHASIS;
+    background: $COLOR_EMPHASIS + #eeeeee;
+  }
 }
 
 .maku-breadCrumb {
