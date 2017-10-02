@@ -22,6 +22,8 @@ Hugo
 ----
 * [ショートコードで本文内に HTML スニペットを埋め込む](shortcode/basic.html)
 * [独自のショートコードを作成する](shortcode/create-shortcode.html)
+* [ショートコードの中からフロントマターのパラメータを参照する ($.Page.Params)](shortcode/frontmatter-params.html)
+* [ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)](shortcode/site-params.html)
 
 hugo コマンド
 ----

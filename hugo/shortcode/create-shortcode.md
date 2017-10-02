@@ -7,7 +7,7 @@ description: "独自のショートコードを作成すると、定型の HTML 
 ショートコード作成の基本
 ----
 
-ショートコードは、`layouts/shortcodes` ディレクトリ内に作成しておきます。
+ショートコードは、`/layouts/shortcodes/` ディレクトリ内に作成しておきます。
 ファイル名から拡張子を除いたものが、ショートコード名となります。
 
 #### layouts/shortcodes/myshortcode.html
@@ -93,4 +93,17 @@ This is my first short code.
 この**発射ボタン**を押さないでください。
 {{ "{{" }}% /caution %}}
 ~~~
+
+
+テーマ用のショートコード
+----
+
+ショートコード用の HTML ファイルは、`/layouts/shortcodes/` ディレクトリに配置することで、任意のコンテンツ内から利用できるようになります。
+ショートコード用の HTML ファイルをテーマの一部（付属品）として提供したい場合は、下記のディレクトリに配置してください。
+
+~~~
+/themes/<THEME>/layouts/shortcodes/<SHORTCODE>.html
+~~~
+
+同じ名前のショートコードが `/layouts/shortcodes/` ディレクトリにも存在する場合は、そちらが優先して使用されます。
 

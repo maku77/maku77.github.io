@@ -90,6 +90,10 @@ $ hugo server -t my-theme
 </ul>
 ~~~
 
+
+各ページ用のレイアウトを作成する (layouts/_default/single.html)
+----
+
 リンク先の各ページは、`layouts/_default/single.html` テンプレートファイルを元に生成されるので、このファイルもあらかじめ作成しておく必要があります。
 このテンプレートの中では、[Page 変数](https://gohugo.io/variables/page/) のフィールド（例えば `.Title`）を参照することができます。
 
@@ -112,4 +116,8 @@ date: 2017-09-10
 
 Page1 Content
 ~~~
+
+上記のようにレイアウトとコンテンツを作成しておけば、各ページの内容が下記のように表示されるはずです。
+
+![create-theme3.png](./create-theme3.png){: .center}
 
