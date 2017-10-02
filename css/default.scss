@@ -60,7 +60,12 @@ h1, h2, h3, h4 {
 h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
 h2 { font-size: 16pt; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
 h3 { font-size: 14pt; }
-h4 { font-size: 12pt; }
+h4 { font-size: 12pt; margin: 20px 30px 20px 30px; }
+@media screen and (max-width: 800px) {
+  h4 {
+    margin: 20px 0 20px 0;
+  }
+}
 
 li {
   break-inside: avoid;
@@ -112,7 +117,14 @@ code {
 pre {
   tab-size: 5;
   -moz-tab-size: 5;
+  margin: 10px 30px 20px 30px;
 }
+@media screen and (max-width: 800px) {
+  pre {
+    margin: 10px 0px;
+  }
+}
+
 
 table {
   border-collapse: collapse;
@@ -164,6 +176,34 @@ strong {
   }
 }
 
+/*
+ * ワンポイントを示したいときに
+ * <div class="note">...</div>
+ * みたいに使う。この中でマークダウンは書けないことに注意。
+ */
+.note {
+  margin: 30px;
+  padding: 10px 0px 10px 0px;
+  border-top: 5px dashed #eee;
+  border-bottom: 5px dashed #eee;
+  &:before {
+    content: url(../img/onepoint.png);
+    float: left;
+  }
+  &:after {
+      content: "";
+      clear: both;
+      height: 0;
+      display: block;
+      visibility: hidden;
+  }
+}
+@media screen and (max-width: 800px) {
+  .note {
+    margin: 30px 0px;
+  }
+}
+
 .maku-breadCrumb {
   float: left;
   margin-top: 10px;
@@ -208,10 +248,14 @@ strong {
 }
 
 .maku-pageDescription {
-  background: #eeeeee;
-  padding: 10px;
+  background-color: #f3d3d8;
+  background-image: radial-gradient(#f5e2e6 20%, transparent 0), radial-gradient(#f5e2e6 20%, transparent 0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  color: #590c11;
+  padding: 20px 15px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .maku-snsButtons {
@@ -271,6 +315,15 @@ strong {
 
 .maku-content {
   clear: both;
+}
+
+.maku-content > p {
+  margin: 10px 30px 20px 30px;
+}
+@media screen and (max-width: 800px) {
+  .maku-content > p {
+    margin: 10px 0px;
+  }
 }
 
 .maku-content-multi {
