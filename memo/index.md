@@ -89,7 +89,7 @@ Jenkins
 * [意外と知られていない XML 記述のルール](xml/xml-rules.html)
 * [XML の名前空間](xml/namespace.html)
 * [デザインパターン ─ Visitor パターン](dp-visitor-pattern.html)
-
+* [ぐちゃぐちゃなコードしかないチーム／プロジェクトに配属された場合のポジティブ思考](mind/gucha.html)
 
 ソフトウェア開発参考リンク
 ====
