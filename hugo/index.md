@@ -34,10 +34,14 @@ hugo コマンド
 ----
 * [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ](settings/japanese.html)
 
+レイアウト（テンプレート／テーマ）
+----
+* [独自のテーマを作成する](create-theme.html)
+- [セクション機能を使って記事を階層化する](layout/section.html)
+
 応用
 ----
 * [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
-* [独自のテーマを作成する](create-theme.html)
 
 Links
 ----
