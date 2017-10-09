@@ -29,6 +29,9 @@ $COLOR_TR_EVEN_BG: #eeeeee;
 $COLOR_NAV_FOCUSED: #eaeaea;
 
 $WIDTH_MOBILE: 800px;
+$SIDE_MARGIN_DESKTOP: 30px;  // 横幅が広い場合の左右のマージン
+$SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
+$DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
 
 body {
   color: $COLOR_MAIN;
@@ -44,19 +47,16 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* column-span は Safari でうまく表示できない */
-/*
-h1 {
-  column-span: all;
-  -moz-column-span: all;
-  -webkit-column-span: all;
-}
-*/
-
+// ヘッダー
 h1, h2, h3, h4 {
   color: $COLOR_HEADER;
   font-weight: bolder;
-  margin: 1.5em 0 1em 0;
+  margin: 1.5em $SIDE_MARGIN_DESKTOP 1em 0;
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin-left: $SIDE_MARGIN_MOBILE;
+    margin-right: $SIDE_MARGIN_MOBILE;
+  }
 }
 
 h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
@@ -65,33 +65,54 @@ h3 { font-size: 14pt; }
 
 h4 {
   font-size: 12pt;
-  margin: 20px 30px 20px 30px;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: 20px 0 20px 0;
+    margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
   }
 }
 
+// 定義リスト
 dl {
-  margin: 20px 30px 20px 30px;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   color: black;
+
   @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: 20px 0 20px 0;
+    margin-left: $SIDE_MARGIN_MOBILE;
+    margin-right: $SIDE_MARGIN_MOBILE;
+  }
+
+  dt {
+    font-size: 110%;
+    margin: 20px 0px 10px;
+  }
+
+  dd {
+    margin-left: 1em;
+    margin-bottom: 20px;
   }
 }
 
-dt {
-  margin: 10px 0px;
-}
-
+// リスト
 ul, ol {
-  margin: 20px;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin-left: $SIDE_MARGIN_MOBILE;
+    margin-right: $SIDE_MARGIN_MOBILE;
+  }
+
+  // リストの二階層目以降はマージンを減らす
+  ul, ol {
+    margin: 0px;
+  }
+
+  li {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+  }
 }
 
-li {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-}
-
+// リンク
 a {
   font-weight: bolder;
   text-decoration: none;
@@ -137,10 +158,11 @@ code {
 pre {
   tab-size: 5;
   -moz-tab-size: 5;
-  margin: 10px 30px 20px 30px;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
 
   @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: 10px 0px;
+    margin-left: $SIDE_MARGIN_MOBILE;
+    margin-right: $SIDE_MARGIN_MOBILE;
   }
 }
 
@@ -178,11 +200,6 @@ blockquote {
   }
 }
 
-dd {
-  margin-left: 1em;
-  margin-bottom: 0.5em;
-}
-
 strong {
   color: $COLOR_EMPHASIS;
   /* background: $COLOR_EMPHASIS_BG; */
@@ -200,7 +217,7 @@ strong {
  * みたいに使う。この中でマークダウンは書けないことに注意。
  */
 .note {
-  margin: 30px;
+  margin: $SIDE_MARGIN_DESKTOP;
   padding: 10px 0px 10px 0px;
   border-top: 5px dashed #eee;
   border-bottom: 5px dashed #eee;
@@ -216,10 +233,33 @@ strong {
       visibility: hidden;
   }
   @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: 30px 0px;
+    margin: 30px $SIDE_MARGIN_MOBILE;
   }
 }
 
+
+// HTML の表示サンプルを表示するとき、
+// なるべくプレーンな表示を行えるようにする。
+// <div class="htmlSample"> ... </div> のように使う。
+.htmlSample {
+  * { all: unset; }
+  p, div { display: block; }
+  h2 { font-size: 130%; }
+  h3 { font-size: 120%; }
+  h4 { font-size: 110%; }
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
+  padding: 10px;
+  border: solid #ccc 1px;
+  background: #ffd;
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  }
+}
+
+//-------------------------------------------------------------------------
+// まくまくクラス
+//-------------------------------------------------------------------------
 .maku-breadCrumb {
   float: left;
   margin-top: 10px;
@@ -264,14 +304,20 @@ strong {
 }
 
 .maku-pageDescription {
+  font-size: 110%;
   background-color: #f3d3d8;
   background-image: radial-gradient(#f5e2e6 20%, transparent 0), radial-gradient(#f5e2e6 20%, transparent 0);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
   color: #590c11;
-  padding: 20px 15px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin: $DEFAULT_MARGIN;
+  margin-left: 0;
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin-right: 0;
+    padding: 10px;
+  }
 }
 
 .maku-snsButtons {
@@ -331,10 +377,10 @@ strong {
   clear: both;
 
   & > p {
-    margin: 10px 30px 20px 30px;
+    margin: 10px $SIDE_MARGIN_DESKTOP $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
 
     @media screen and (max-width: $WIDTH_MOBILE) {
-      margin: 10px 0px;
+      margin: 10px $SIDE_MARGIN_MOBILE;
     }
   }
 }
@@ -355,10 +401,6 @@ strong {
   li a {
     display: block;
   }
-}
-
-.maku-htmlSample {
-  margin: 1em 2em;
 }
 
 /* ナビゲーションメニュー */
