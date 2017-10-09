@@ -28,6 +28,8 @@ $COLOR_TR_EVEN_BG: #eeeeee;
 
 $COLOR_NAV_FOCUSED: #eaeaea;
 
+$WIDTH_MOBILE: 800px;
+
 body {
   color: $COLOR_MAIN;
   line-height: 1.5;
@@ -60,11 +62,29 @@ h1, h2, h3, h4 {
 h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
 h2 { font-size: 16pt; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
 h3 { font-size: 14pt; }
-h4 { font-size: 12pt; margin: 20px 30px 20px 30px; }
-@media screen and (max-width: 800px) {
-  h4 {
+
+h4 {
+  font-size: 12pt;
+  margin: 20px 30px 20px 30px;
+  @media screen and (max-width: $WIDTH_MOBILE) {
     margin: 20px 0 20px 0;
   }
+}
+
+dl {
+  margin: 20px 30px 20px 30px;
+  color: black;
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin: 20px 0 20px 0;
+  }
+}
+
+dt {
+  margin: 10px 0px;
+}
+
+ul, ol {
+  margin: 20px;
 }
 
 li {
@@ -94,19 +114,19 @@ a {
 
 img {
   max-width: 100%;
-}
 
-/*
- * 画像の中央寄せ表示するときは、
- * ![Description](filename.svg){: .center }
- * のように記述すれば OK。
- */
-img.center {
-  max-width: 50vmax;
-  max-height: 50vmax;
-  display: block;
-  margin: 30px auto;
-  box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+  /*
+   * 画像の中央寄せ表示するときは、
+   * ![Description](filename.svg){: .center }
+   * のように記述すれば OK。
+   */
+  &.center {
+    max-width: 50vmax;
+    max-height: 50vmax;
+    display: block;
+    margin: 30px auto;
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.8);
+  }
 }
 
 code {
@@ -118,13 +138,11 @@ pre {
   tab-size: 5;
   -moz-tab-size: 5;
   margin: 10px 30px 20px 30px;
-}
-@media screen and (max-width: 800px) {
-  pre {
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
     margin: 10px 0px;
   }
 }
-
 
 table {
   border-collapse: collapse;
@@ -154,10 +172,10 @@ p {
 
 blockquote {
   margin-left: 1em;
-}
 
-blockquote > p {
-  margin: 0;
+  & > p {
+    margin: 0;
+  }
 }
 
 dd {
@@ -197,9 +215,7 @@ strong {
       display: block;
       visibility: hidden;
   }
-}
-@media screen and (max-width: 800px) {
-  .note {
+  @media screen and (max-width: $WIDTH_MOBILE) {
     margin: 30px 0px;
   }
 }
@@ -288,11 +304,9 @@ strong {
         max-width: 200px;
       }
   }
-}
 
-/* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
-@media screen and (max-width: 800px) {
-  #maku-container {
+  /* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
+  @media screen and (max-width: $WIDTH_MOBILE) {
     display: block;
 
     #maku-container_sidebar {
@@ -315,14 +329,13 @@ strong {
 
 .maku-content {
   clear: both;
-}
 
-.maku-content > p {
-  margin: 10px 30px 20px 30px;
-}
-@media screen and (max-width: 800px) {
-  .maku-content > p {
-    margin: 10px 0px;
+  & > p {
+    margin: 10px 30px 20px 30px;
+
+    @media screen and (max-width: $WIDTH_MOBILE) {
+      margin: 10px 0px;
+    }
   }
 }
 
