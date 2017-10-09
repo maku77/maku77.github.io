@@ -18,8 +18,8 @@ float プロパティに left を設定すると、その要素は左端に表�
 
 #### float を指定しない場合
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px;">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px;">
     float: none;
     </div>
     <div>
@@ -29,12 +29,13 @@ float プロパティに left を設定すると、その要素は左端に表�
 
 #### float: left を指定した場合
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
     <div>
-        float プロパティに left や right<br>
+        float プロパティに<br>
+        left や right<br>
         を指定すると、後続の要素は、<br>
         回り込んで表示されるように<br>
         なります。
@@ -48,13 +49,13 @@ float プロパティに left を設定すると、その要素は左端に表�
 
 float プロパティに left や right を設定した場合、その要素は**フローティングボックス**を形成します。
 後続の要素は、フローティングボックスが存在しないとして配置されるので、横幅いっぱいのサイズが確保されます。
-下記の例は、後続要素に背景色を付けたサンプルです。
+下記の例は、後続要素に緑色の背景色を付けたサンプルです。
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
-    <div style="background: yellow">
+    <div style="background: #9f9">
         フローティングボックスは<br>
         後続要素から見ると<br>
         あたかもそこには存在しない<br>
@@ -82,8 +83,8 @@ clear: both;   /* 全てのフローティングボックスへの回りこみ�
 
 #### clear を指定しない場合
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
     <div>後続の 1 つ目の要素</div>
@@ -93,8 +94,8 @@ clear: both;   /* 全てのフローティングボックスへの回りこみ�
 
 #### clear: left; を指定した場合
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
     <div>後続の 1 つ目の要素</div>
@@ -113,11 +114,11 @@ float:left を連続して配置
 
 float プロパティを left に設定した要素を連続して配置すると、それら全てのフローティングボックスを回りこむように後続の要素が配置されます。
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
     <div>
@@ -135,11 +136,11 @@ float:left と float:right を配置
 
 float プロパティを left に設定した要素と、right に設定した要素を連続して配置すると、それぞれ左側と右側にフローティングボックスが配置されます。
 
-<div class="maku-htmlSample">
-    <div style="border: solid 1px gray; height:70px; width:70px; float: left">
+<div class="htmlSample">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: left">
         float: left;
     </div>
-    <div style="border: solid 1px gray; height:70px; width:70px; float: right">
+    <div style="border: solid 1px gray; height:60px; width:60px; float: right">
         float: right;
     </div>
     <div>
@@ -147,5 +148,4 @@ float プロパティを left に設定した要素と、right に設定した�
     </div>
     <div style="clear:both"></div>
 </div>
-
 
