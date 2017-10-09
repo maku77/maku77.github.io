@@ -23,6 +23,9 @@ CSS／レイアウト
 * [（コラム）フレキシブルボックスの旧式の定義方法](flexible-box-old.html)
 * [画面スクロールしても表示位置の変わらない要素を表示する](fixed-position.html)
 
+### セレクタ
+* [結合子を使用して構造に応じてスタイルシートを適用する](selector/connector.html)
+
 その他
 ----
 * [吹き出し風の見出しを作る](sample/balloon.html)
