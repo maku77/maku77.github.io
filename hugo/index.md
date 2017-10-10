@@ -27,8 +27,9 @@ Hugo
 
 hugo コマンド
 ----
-* [カレントディレクトリを気にせずに hugo コマンドを実行する](source-dir.html)
-* [ポート番号を指定して Hugo サーバーを起動する](server-port.html)
+* [カレントディレクトリを気にせずに hugo コマンドを実行する](command/source-dir.html)
+* [ポート番号を指定して Hugo サーバーを起動する](command/server-port.html)
+* [複数の Hugo サーバーを１つのコマンドプロンプト上で立ち上げる](command/multi-server.html)
 
 設定
 ----
