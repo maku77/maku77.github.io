@@ -4,7 +4,7 @@ url: https://maku77.github.io
 keep_files: [img]
 
 # Prevent the following files from converting by Jekyll.
-exclude: [README.md, run.bat, run.sh, remove_conflicts.bat]
+exclude: ["*.jekyll-metadata", Gemfile, Gemfile.lock, README.md, run.bat, run.sh, remove_conflicts.bat]
 
 # Enable highlighter.
 # highlighter: pygments
