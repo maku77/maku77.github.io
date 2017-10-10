@@ -41,6 +41,7 @@ Windows バッチファイル
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [doskey を使ってコマンドプロンプト用のマクロを登録する](settings/doskey.html)
+* [コマンドプロンプトから複数のコマンドを並列実行する (start)](cmd/parallel.html)
 
 
 Windows の便利操作／ショートカット
@@ -50,9 +51,12 @@ Windows の便利操作／ショートカット
 
 Windows の設定／管理／セキュリティ
 ----
+
+* タスク管理
+    * [Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist)](admin/tasklist.html)
+    * [Windows で実行中のプロセス（タスク）を終了 (kill) する (taskkill)](admin/taskkill.html)
 * [Windows OS のバージョン情報をコマンドラインから調べる](admin/os-version.html)
 * [NIC に割り当てられた MAC アドレスを調べる (getmac)](admin/getmac.html)
-* [Windows で実行中のタスクの一覧を表示する (tasklist)](admin/tasklist.html)
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
 * [Administrator で Windows にログオンできるようにする](logon-as-admin.html)
 * [Windows のアカウント名を変更する](change-account-name.html)
