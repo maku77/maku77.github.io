@@ -47,6 +47,13 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+// 外部リンクアイコン
+.externalLinkIcon::after {
+  content: url("/assets/img/icon-external-link.png");
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
 // ヘッダー
 h1, h2, h3, h4 {
   color: $COLOR_HEADER;
@@ -243,7 +250,7 @@ strong {
 // <div class="htmlSample"> ... </div> のように使う。
 .htmlSample {
   * { all: unset; }
-  p, div { display: block; }
+  p, div, ul, ol, li { display: block; }
   h2 { font-size: 130%; }
   h3 { font-size: 120%; }
   h4 { font-size: 110%; }

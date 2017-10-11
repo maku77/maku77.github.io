@@ -24,7 +24,8 @@ CSS／レイアウト
 * [画面スクロールしても表示位置の変わらない要素を表示する](fixed-position.html)
 
 ### セレクタ
-* [結合子を使用して構造に応じてスタイルシートを適用する](selector/connector.html)
+* [結合子を使用して構造に応じてスタイルシートを適用する](selector/combinator.html)
+* [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)
 
 その他
 ----
