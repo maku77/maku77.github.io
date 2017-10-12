@@ -3,7 +3,11 @@
 
 <script>
 $(function() {
+  // 外部リンクにクラス属性を付加する
   $('a[href^="http"]:not(:has(img))').addClass("externalLinkIcon");
+
+  // 外部リンクを必ず新しいタブで開く
+  $('a[href^=http]').attr('target', '_blank');
 });
 </script>
 

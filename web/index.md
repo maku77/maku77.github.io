@@ -25,7 +25,10 @@ CSS／レイアウト
 
 ### セレクタ
 * [結合子を使用して構造に応じてスタイルシートを適用する](selector/combinator.html)
+
+### リンク
 * [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)
+* [外部リンクをクリックしたときに必ず新しいタブで開く](link/open-new-tab.html)
 
 その他
 ----
