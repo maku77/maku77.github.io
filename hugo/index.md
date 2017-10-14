@@ -38,7 +38,8 @@ hugo コマンド
 レイアウト（テンプレート／テーマ）
 ----
 * [独自のテーマを作成する](create-theme.html)
-- [セクション機能を使って記事を階層化する](layout/section.html)
+* [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
+* [セクション機能を使って記事を階層化する](layout/section.html)
 
 応用
 ----
