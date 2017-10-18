@@ -72,7 +72,7 @@ layout: category-index
 * [Java で Linux の CPU 使用率を調べる](parse-proc-stat.html)
 * [SuprressWarnings アノテーションで Checkstyle の警告を抑制する](suppress-checkstyle.html)
 * [Java ビルドツールのまとめ (Ant, Maven, Gradle)](tools/build-tools.html)
-* [クラスやメソッドの依存関係を調べる](tools/jdeps.html)
+* [クラスやメソッドの依存関係を調べる (jdeps, cfa)](tools/jdeps.html)
 * [DEBUG フラグでログ出力を ON/OFF するときは、呼び出し側で if 分岐すること](debug/debug-flag.html)
 
 その他
