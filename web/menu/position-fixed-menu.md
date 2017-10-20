@@ -82,6 +82,7 @@ description: "CSS で position: fixed; を指定すると、画面をスクロ�
 
 ~~~ css
 main {
+  display: block;
   margin-left: 150px;
 }
 .menu {
@@ -96,6 +97,10 @@ main {
 }
 ~~~
 
+<div class="note">
+IE では、<code>main</code> 要素のデフォルト設定が <code>display: block;</code> になっていないため、明示的に CSS で指定してやる必要があります。これを指定しておかないと、<code>margin-left</code> の設定が効きません。
+</div>
+
 可能であれば、CSS ファイルを直接記述するのではなく、SASS などを使用して共通の横幅を変数で指定してしまうのがよいですね。
 
 #### SASS の場合（メニューの幅を変数で定義）
@@ -104,6 +109,7 @@ main {
 $menu_width: 150px;
 
 main {
+  display: block;
   margin-left: $menu_width;
 }
 .menu {

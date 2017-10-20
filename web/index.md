@@ -25,7 +25,7 @@ CSS／レイアウト
 * [メニューの縦並びと横並びを切り替える](menu/vertical-and-horizontal.html)
 * [メニューの表示位置を固定する](menu/position-fixed-menu.html)
 * [メニューの高さを画面の高さに合わせる](menu/full-height-menu.html)
-
+* [メニュー要素内でスクロールできるようにする](menu/scroll-menu.html)
 
 ### セレクタ
 * [結合子を使用して構造に応じてスタイルシートを適用する](selector/combinator.html)
