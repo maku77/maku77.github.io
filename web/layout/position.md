@@ -25,6 +25,8 @@ position: fixed
 
 ![position-fixed.png](position-fixed.png){: .center }
 
+### デモ
+<iframe class="maku-htmlDemo" src="position-fixed.html"></iframe>
 <a target="_blank" href="position-fixed.html">デモページを開く</a>
 
 `position: fixed;` を指定すると、ブラウザの表示領域内でどの位置に表示するかを指定することができます。
@@ -38,6 +40,8 @@ position: relative
 
 ![position-relative.png](position-relative.png){: .center }
 
+### デモ
+<iframe class="maku-htmlDemo" height="400px" src="position-relative.html"></iframe>
 <a target="_blank" href="position-relative.html">デモページを開く</a>
 
 `position: relative;` を指定すると、本来その要素が表示されるはずだった位置からのオフセットを指定して、表示位置をずらすことができます。
@@ -64,6 +68,8 @@ position: absolute
 
 ![position-absolute.png](position-absolute.png){: .center }
 
+### デモ
+<iframe class="maku-htmlDemo" src="position-absolute.html"></iframe>
 <a target="_blank" href="position-absolute.html">デモページを開く</a>
 
 `position: absolute;` を使用すると、その親要素を基準とした絶対位置で表示位置を指定することができます（感覚的には絶対位置というよりは相対位置ですが）。

@@ -16,7 +16,10 @@ description: "CSS3 のメディアクエリをうまく使うと、Web ブラウ
 今このページを PC のブラウザで見ているのであれば、下記のデモページを表示して、画面幅を変更してみてください。
 画面幅に応じてレイアウトが自動的に変更されるはずです。
 
-[デモページを表示](change-layout-demo.html)
+#### デモ
+
+<iframe class="maku-htmlDemo" style="height: 450px" src="change-layout-demo.html"></iframe>
+<a target="_blank" href="change-layout-demo.html">デモページを表示</a>
 
 HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、フッタと、4 つの部分に分かれています。
 
@@ -24,13 +27,13 @@ HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、
 <div id="page">
   <header id="header">Header</header>
   <article id="content">
-    <section>Content</section>
-    <section>Content</section>
-    <section>Content</section>
+    <div>Content</div>
+    <div>Content</div>
+    <div>Content</div>
   </article>
   <aside id="sidebar">
-    <section>Sidebar</section>
-    <section>Sidebar</section>
+    <div>Sidebar</div>
+    <div>Sidebar</div>
   </aside>
   <footer id="footer">Footer</footer>
 </div>

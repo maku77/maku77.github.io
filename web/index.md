@@ -14,7 +14,7 @@ CSS／レイアウト
 * [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)
 * [モバイルファーストで考えるコツ（max-width ではなく min-width を使うべし）](mobile-first.html)
 * [position プロパティによるレイアウト方法を理解する](layout/position.html)
-* [画像の下に隙間が空くのを防ぐ](remove-margin-of-image.html)
+* [画像の下に隙間が空くのを防ぐ](layout/remove-margin-of-image.html)
 * [画像と埋め込み動画のサイズを画面内に収める](responsive/image-width.html)
 * [画面サイズによって全体のレイアウトを変更する](responsive/change-layout.html)
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
