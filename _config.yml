@@ -27,6 +27,7 @@ defaults:
       category_id: "NONE"
       category_desc: "天才星人まくのソフトウェア開発に関するノート"
       category_logo: "logo.jpg"
+      category_og_image: "logo.jpg"
 
   # この「いろいろ」カテゴリだけトップに表示するため、
   # 最初に定義しておく（残りはアルファベット順）
@@ -38,6 +39,7 @@ defaults:
       category_title: "いろいろ"
       category_id: "memo"
       category_logo: "logo-program.svg"
+      category_og_image: "logo-program.svg"
       category_desc: "天才星人まくのごちゃまぜノート"
       category_long_desc: "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
 
@@ -49,6 +51,7 @@ defaults:
       category_title: "Android"
       category_id: "android"
       category_logo: "logo-android.jpg"
+      category_og_image: "logo-android.jpg"
       category_desc: "天才星人まくの Android ノート"
       category_long_desc: "Android スマホアプリ、Android TV の開発に関して。"
   -
@@ -59,6 +62,7 @@ defaults:
       category_title: "Ansible"
       category_id: "ansible"
       category_logo: "logo-ansible.svg"
+      category_og_image: "logo-ansible.png"
       category_desc: "天才星人まくの Ansible ノート"
       category_long_desc: "これからの構成管理は Ansible で！ DevOps の要！ Infrastructur as Code！"
   -
@@ -69,6 +73,7 @@ defaults:
       category_title: "C/C++"
       category_id: "cpp"
       category_logo: "logo-cpp.svg"
+      category_og_image: "logo-cpp.png"
       category_desc: "天才星人まくの C/C++ ノート"
       category_long_desc: "ポインタポインタポインター！"
   -
@@ -79,6 +84,7 @@ defaults:
       category_title: "Docker"
       category_id: "docker"
       category_logo: "logo-docker.png"
+      category_og_image: "logo-docker.png"
       category_desc: "天才星人まくの Docker ノート"
       category_long_desc: "アプリケーション実行環境をコンテナ化し、柔軟なデプロイを可能にする Docker の使い方。"
   -
@@ -89,6 +95,7 @@ defaults:
       category_title: "Git"
       category_id: "git"
       category_logo: "logo-github.png"
+      category_og_image: "logo-github.png"
       category_desc: "天才星人まくの Git/GitHub ノート"
       category_long_desc: "Git によるバージョン管理と、GitHub 特有の話もあるよ。"
   -
@@ -99,6 +106,7 @@ defaults:
       category_title: "Gradle"
       category_id: "gradle"
       category_logo: "logo-gradle.png"
+      category_og_image: "logo-gradle.png"
       category_desc: "天才星人まくの Gradle ノート"
       category_long_desc: "Java の最新のビルドシステム Gradle の使い方。"
   -
@@ -109,6 +117,7 @@ defaults:
       category_title: "HTML/CSS"
       category_id: "web"
       category_logo: "logo-html5.svg"
+      category_og_image: "logo-html5.png"
       category_desc: "天才星人まくの HTML/CSS ノート"
       category_long_desc: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
   -
@@ -119,6 +128,7 @@ defaults:
       category_title: "Hugo/Go"
       category_id: "hugo"
       category_logo: "logo-hugo.png"
+      category_og_image: "logo-hugo.png"
       category_desc: "天才星人まくの Hugo/Go ノート"
       category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。Go 言語の説明も。"
   -
@@ -129,6 +139,7 @@ defaults:
       category_title: "Java"
       category_id: "java"
       category_logo: "logo-java.svg"
+      category_og_image: "logo-java.png"
       category_desc: "天才星人まくの Java ノート"
       category_long_desc: "Android のおかげで息を吹き返した感のある Java。"
   -
@@ -139,6 +150,7 @@ defaults:
       category_title: "JavaScript"
       category_id: "js"
       category_logo: "logo-js.svg"
+      category_og_image: "logo-js.png"
       category_desc: "天才星人まくの JavaScript ノート"
       category_long_desc: "Web プログラマにとって必須の言語。"
   -
@@ -149,6 +161,7 @@ defaults:
       category_title: "Linux/Shell"
       category_id: "linux"
       category_logo: "logo-linux.svg"
+      category_og_image: "logo-linux.png"
       category_desc: "天才星人まくの Linux/Shell ノート"
       category_long_desc: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
   -
@@ -159,6 +172,7 @@ defaults:
       category_title: "Middleman"
       category_id: "middleman"
       category_logo: "logo-middleman.svg"
+      category_og_image: "logo-middleman.png"
       category_desc: "天才星人まくの Middleman ノート"
       category_long_desc: "静的サイトジェネレータ Middleman の使い方。"
   -
@@ -169,6 +183,7 @@ defaults:
       category_title: "Meta Trader"
       category_id: "mt"
       category_logo: "logo-metatrader.png"
+      category_og_image: "logo-metatrader.png"
       category_desc: "天才星人まくの Meta Trader ノート"
       category_long_desc: "メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。"
   -
@@ -179,6 +194,7 @@ defaults:
       category_title: "Node.js"
       category_id: "nodejs"
       category_logo: "logo-nodejs.svg"
+      category_og_image: "logo-nodejs.png"
       category_desc: "天才星人まくの Node JS ノート"
       category_long_desc: "今やクライアントもサーバも Node.js でバッチシ。"
   -
@@ -189,6 +205,7 @@ defaults:
       category_title: "Octave"
       category_id: "octave"
       category_logo: "logo-octave.svg"
+      category_og_image: "logo-octave.png"
       category_desc: "天才星人まくの Octave ノート"
       category_long_desc: "MATLAB 互換な数値解析ソフト Octave。グラフも描けるよ！"
   -
@@ -199,6 +216,7 @@ defaults:
       category_title: "Perforce"
       category_id: "p4"
       category_logo: "logo-p4.jpg"
+      category_og_image: "logo-p4.jpg"
       category_desc: "天才星人まくの Perforce ノート"
       category_long_desc: "p4 コマンドや p4v についていろいろ。"
   -
@@ -209,6 +227,7 @@ defaults:
       category_title: "Perl"
       category_id: "perl"
       category_logo: "logo-perl.svg"
+      category_og_image: "logo-perl.png"
       category_desc: "天才星人まくの Perl ノート"
       category_long_desc: "おそらくもうオワコンな言語、Perl。"
   -
@@ -219,6 +238,7 @@ defaults:
       category_title: "PHP"
       category_id: "php"
       category_logo: "logo-php.svg"
+      category_og_image: "logo-php.png"
       category_desc: "天才星人まくの PHP ノート"
       category_long_desc: "サーバサイド言語の世界で一世を風靡した PHP。CodeIgnitor は RoR よりも手軽でオススメ。"
   -
@@ -229,6 +249,7 @@ defaults:
       category_title: "Python"
       category_id: "python"
       category_logo: "logo-python.png"
+      category_og_image: "logo-python.png"
       category_desc: "天才星人まくの Python ノート"
       category_long_desc: "海外で主流のオブジェクト指向言語 Python の使い方。"
   -
@@ -239,6 +260,7 @@ defaults:
       category_title: "R"
       category_id: "r"
       category_logo: "logo-r.svg"
+      category_og_image: "logo-r.png"
       category_desc: "天才星人まくの R ノート"
       category_long_desc: "統計解析やグラフプロットに便利な R の入門。"
   -
@@ -249,6 +271,7 @@ defaults:
       category_title: "Ruby"
       category_id: "ruby"
       category_logo: "logo-ruby.jpg"
+      category_og_image: "logo-ruby.jpg"
       category_desc: "天才星人まくの Ruby ノート"
       category_long_desc: "日本で生まれたオブジェクト指向言語 Ruby の使い方。"
   -
@@ -259,6 +282,7 @@ defaults:
       category_title: "sed/awk"
       category_id: "sed"
       category_logo: "logo-text.png"
+      category_og_image: "logo-text.png"
       category_desc: "天才星人まくの Sed/Awk ノート"
       category_long_desc: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
   -
@@ -269,6 +293,7 @@ defaults:
       category_title: "SQL"
       category_id: "sql"
       category_logo: "logo-sql.svg"
+      category_og_image: "logo-sql.png"
       category_desc: "天才星人まくの SQL ノート"
       category_long_desc: "SQL 全般や SQLite、MySQL に関するメモ。"
   -
@@ -279,6 +304,7 @@ defaults:
       category_title: "トレードステーション"
       category_id: "tradestation"
       category_logo: "logo-tradestation.png"
+      category_og_image: "logo-tradestation.png"
       category_desc: "天才星人まくのトレステノート"
       category_long_desc: "最強のトレードソフト TradeStation。EasyLanguage によるシストレ用プログラムなど。"
   -
@@ -289,6 +315,7 @@ defaults:
       category_title: "Vagrant"
       category_id: "vagrant"
       category_logo: "logo-vagrant.svg"
+      category_og_image: "logo-vagrant.png"
       category_desc: "天才星人まくの Vagrant ノート"
       category_long_desc: "仮想環境の立ち上げ＆設定の自動化に関するメモ。"
   -
@@ -299,6 +326,7 @@ defaults:
       category_title: "Vim"
       category_id: "vim"
       category_logo: "logo-vim.svg"
+      category_og_image: "logo-vim.png"
       category_desc: "天才星人まくの Vim ノート"
       category_long_desc: "素敵なテキストエディタ Vim のメモ。"
   -
@@ -309,6 +337,7 @@ defaults:
       category_title: "Windows"
       category_id: "windows"
       category_logo: "logo-windows.jpg"
+      category_og_image: "logo-windows.jpg"
       category_desc: "天才星人まくの Windows ノート"
       category_long_desc: "Windows の便利な使い方や、バッチファイルによるプログラミング方法。"
 

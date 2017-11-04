@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 
-{% capture logo %}{{ site.url }}/img/{{ page.category_logo }}{% endcapture %}
+{% capture og_image %}{{ site.url }}/img/{{ page.category_og_image }}{% endcapture %}
 
 <!-- Google Search Console -->
 <meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
@@ -18,7 +18,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:site_name" content="{{ site.name }}" />
 <meta property="og:url"     content="{{ site.url }}{{ page.url }}" />
 <meta property="og:type"    content="website" />
-<meta property="og:image"   content="{{ logo }}" />
+<meta property="og:image"   content="{{ og_image }}" />
 {% if page.description %}
   <meta property="og:description" content="{{ page.description }}">
 {% else %}
