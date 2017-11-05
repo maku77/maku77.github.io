@@ -1,5 +1,5 @@
 ---
-title: 相対パスの扱い方のまとめ
+title: "CodeIgniter - 相対パスの扱い方のまとめ"
 created: 2013-03-02
 ---
 
