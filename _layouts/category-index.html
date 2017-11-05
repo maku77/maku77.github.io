@@ -10,8 +10,6 @@
   {% endif %}
 </head>
 <body>
-  {% include sns-sdk.html %}
-
   <div class="maku-pageHeader">
     <img src="/img/{{ page.category_logo }}" class="maku-pageHeader_logo">
     <div class="maku-pageHeader_titleLarge">まくまく {{ page.category_title }} ノート</div>
@@ -19,28 +17,22 @@
 
   <div class="container-fluid">
     {% include breadcrumb-root.html %}
-    {% comment %}
-      {% include draft-sns-buttons.html %}
-    {% endcomment %}
     {% include search-bar.html %}
-
-    {% if jekyll.environment != "development" %}
-      <div class="maku-widget">{% include widget-sns.html %}</div>
-    {% endif %}
 
     <div id="maku-container">
       <div id="maku-container_main">
+        {% include widget-sns.html %}
+
         {% comment %}
           <!-- カテゴリ説明文 -->
           <div class="maku-intro">{{ page.intro }}</div>
         {% endcomment %}
+
         <div class="maku-content maku-content-multi maku-content-fullWidthLink">{{ content }}</div>
 
-        <!-- maku-container_main_ad2 -->
+        {% include widget-sns.html %}
         {% if jekyll.environment != "development" %}
-          <div class="maku-widget">{% include widget-sns.html %}</div>
           <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
-          <div class="maku-widget">{% include widget-comment.html %}</div>
         {% endif %}
       </div>
       <div id="maku-container_sidebar">{% include sidebar.html %}</div>

@@ -1,39 +1,100 @@
-
 <style>
-.snsWidget {
-  text-align: center;
-}
-.snsWidget_button {
-  display: inline-block;
-  vertical-align: bottom;
-  line-height: 0;
-}
+    /* SNS ボタンのグループ */
+    .maku-snsButtons {
+      margin: 5px;
+      padding: 0px;
+      text-align: center;
+    }
+    /* 各 SNS ボタンのボックス */
+    .maku-snsButtons li {
+      display: inline-block;  /* 水平に並べる */
+      list-style-type: none;  /* 先頭のポッチを消す */
+      margin: 3px 0px;
+      padding: 0px;
+      color: white;
+      border-radius: 4px;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    }
+    .maku-snsButtons li a {
+      all: initial;  /* リンクハイライトなどの設定をリセット */
+      font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+      display: block;
+      padding: 6px 0px;
+      text-decoration: none;
+      color: white;
+    }
+    /* マウスカーソルを重ねたとき */
+    .maku-snsButtons li:hover {
+      opacity: 0.7;
+    }
+    /* クリックしたとき */
+    .maku-snsButtons li:active {
+      box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+      transform: translateY(2px);
+    }
+    /* アイコン部分 */
+    .maku-snsButtons i {
+      font-size: 18pt;
+      min-width: 40px;
+      margin: 0px;
+      padding: 0px 0px 0px 8px;
+      vertical-align: bottom;
+    }
+    /* テキスト部分 */
+    .maku-snsButtons_label {
+      min-width: 80px;
+      display: inline-block;
+      padding: 0px 8px 0px 0px;
+      text-align: center;
+      font-size: 12pt;
+    }
+    /* 各 SNS のブランドカラー */
+    .maku-snsButtons_twitter  { background: #1da1f2; }
+    .maku-snsButtons_facebook { background: #3b5998; }
+    .maku-snsButtons_pocket   { background: #ee4056; }
+    .maku-snsButtons_google   { background: #dd4b39; }
 </style>
 
-<div class="snsWidget">
-  <!-- Facebook like button -->
-  <div class="snsWidget_button">
-    <div class="fb-like"
-      data-href="{{ site.url }}{{ page.url }}"
-      data-layout="button_count"
-      data-action="like"
-      data-show-faces="true"
-      data-share="true">
-    </div>
-  </div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <!-- Tweet button -->
-  <div class="snsWidget_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"{count}></a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </div>
 
-  <!-- Google plus -->
-  <div class="snsWidget_button">
-    <div class="g-plusone"
-      data-size="medium"
-      data-href="{{ site.url }}{{ page.url }}">
-    </div>
-  </div>
-</div>
+{% capture page_url %}{{ site.url }}{{ page.url }}{% endcapture %}
+{% capture page_title %}まくまく{{ page.category_title }}ノート： {{ page.title }}{% endcapture %}
 
+<ul class="maku-snsButtons">
+  <!-- Twitter -->
+  <li class="maku-snsButtons_twitter">
+    <a rel="nofollow" href="http://twitter.com/share?text={{ page_title }}&url={{ page_url }}"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="maku-snsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="maku-snsButtons_facebook">
+    <a rel="nofollow" href="http://www.facebook.com/share.php?u={{ page_url }}"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="maku-snsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="maku-snsButtons_pocket">
+    <a rel="nofollow" href="http://getpocket.com/edit?url={{ page_url }}"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="maku-snsButtons_label">Pocket</span>
+    </a>
+  </li>
+
+  <!-- Google Plus -->
+  <li class="maku-snsButtons_google">
+    <a rel="nofollow" href="https://plus.google.com/share?url={{ page_url }}"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'google_window',
+        'width=400, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-google-plus"></i><span class="maku-snsButtons_label">Google</span>
+    </a>
+  </li>
+</ul>
