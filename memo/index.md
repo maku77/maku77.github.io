@@ -80,7 +80,10 @@ Jenkins
 * [共通鍵暗号化方式と公開鍵暗号化方式](security/encryption-scheme.html)
 * [SSH 鍵の作成と登録](security/ssh-keygen.html)
 * [SSH 接続用のエイリアスを設定する (~/.ssh/config)](security/ssh-alias.html)
-
+* [ダイナミック・ルーティング・プロトコルのメモ](network/dynamic-routing.html)
+* [ルーティングテーブルの管理](network/routing-table.html)
+* [NAT の種類のメモ](network/nat.html)
+* [VMware のネットワーク設定](network/vmware.html)
 
 雑多メモ
 ====
