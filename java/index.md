@@ -32,6 +32,11 @@ layout: category-index
 * [JAR ファイルの署名について](jar/jarsigner.html)
 * [Zip ファイル内の要素（ファイルとディレクトリ）を列挙する](zip/enum-entries.html)
 
+### XML
+* [DOM プログラミング - XML のルート要素を取得する](file/dom-root.html)
+* [DOM プログラミング - 子要素のテキストノードの値を取得する](file/dom-get-text.html)
+* [DOM プログラミング - 同じタグ名を持つ全ての子要素をループ処理する](file/dom-loop.html)
+
 ### ファイル一般
 * [Propertiesファイルから設定値を読み込む](file/properties-file.html)
 * [MANIFEST.MF ファイルの内容を取得する](file/manifest.html)
