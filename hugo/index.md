@@ -37,9 +37,11 @@ hugo コマンド
 
 レイアウト（テンプレート／テーマ）
 ----
+* [レイアウト用のテンプレートの種類を理解する](layout/template-types.html)
 * [独自のテーマを作成する](create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 * [セクション機能を使って記事を階層化する](layout/section.html)
+* [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
 
 応用
 ----
