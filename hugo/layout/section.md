@@ -75,25 +75,25 @@ date: 2017-10-04
 セクションの index ページを作成する
 ----
 
-セクションの index ページ（**section list page** と呼ぶ）は、`_index.md` というファイル名で作成します。
+セクションの index ページ（**section page** と呼ぶ）は、`_index.md` というファイル名で作成します。
 例えば、下記は `event` セクションに属するコンテンツの構成を示しています。
 
 #### event セクションの記事
 
 ~~~
-/content/event/_index.md  (section list page)
+/content/event/_index.md  (section page)
 /content/event/page1.md   (single page)
 /content/event/page2.md   (single page)
 /content/event/page3.md   (single page)
 ~~~
 
 上記の index ページには、`http://localhost:1313/event/` というアドレスでアクセスできるようになります。
-セクションの index ページがレンダリングされるとき、レイアウトファイルとしては `list.html` ([list page template](https://gohugo.io/templates/lists/))、あるいは `section.html` ([section page template](https://gohugo.io/templates/section-templates/)) が使用されます。
+セクションの index ページがレンダリングされるとき、レイアウトファイルとしては `section.html` ([section page template](https://gohugo.io/templates/section-templates/)) 、あるいは `list.html` ([list page template](https://gohugo.io/templates/lists/)) が使用されます。
 個々の記事ファイルをレンダリングするときに使用される `single.html` ([single page template](https://gohugo.io/templates/single-page-templates/)) とは異なるレイアウトファイルが使用されることに注意してください。
 これはつまり、index ページがセクション内のコンテンツを一覧表示するためのリストページとして特殊扱いされることを意味しています。
 より具体的には、下記のファイルのうち、最初に見つかったレイアウトファイルが `_index.md` のレンダリングに使用されます。
 
-#### セクションの index ページ用のレイアウトファイル（[List Page Templates](https://gohugo.io/templates/lists/) より抜粋）
+#### セクションの index ページ用のレイアウトファイル（[Section Page Templates](https://gohugo.io/templates/section-templates/) より抜粋）
 
 ~~~
 /layouts/section/<SECTION>.html
@@ -107,10 +107,11 @@ date: 2017-10-04
 ~~~
 
 <div class="note">
-<code>/layouts/_default/list.html</code> は、ホームページ（ルートの <code>_index.html</code>）のレイアウトファイルとしても使用されます。ただし、<code>/layouts/index.html</code> がある場合はそちらが優先的に使用されます。ホームページのテンプレートの詳細は、Hugo マニュアルの <a href="https://gohugo.io/templates/homepage/">Homepage Template</a> を参照してください。
+<code>/layouts/_default/list.html</code> は、ホームページ（ルートの <code>_index.html</code>）や、タクソノミーリスト（あるタグがついたページの一覧）などのレイアウトファイルとしても使用されます。
+ホームページ専用のレイアウトファイル、タクソノミーリスト専用のレイアウトファイルを用意したい場合は、<code>/layouts/index.html</code>、<code>/layouts/_default/taxonomy.html</code> などを作成します。これらの詳細は、Hugo マニュアルの <a href="https://gohugo.io/templates/homepage/">Homepage Template</a>、<a href="https://gohugo.io/templates/taxonomy-templates/">Taxonomy Templates</a>を参照してください。
 </div>
 
-ここでは、`/layouts/_default/list.html` というファイルとしてレイアウトファイルを作成してみます。
+ここでは、`/layouts/_default/list.html` というファイルとしてレイアウトファイルを作成してみます（`list.html` は、ホームページやタクソノミーリストのページにも使用される、リスト系ページ用の汎用レイアウトファイルです）。
 
 #### /layouts/_default/list.html
 
@@ -137,11 +138,12 @@ date: 2017-10-04
 ![section3.png](section3.png){: .center }
 
 
-セクションの index ページ専用のレイアウトを作成する
+セクションの index ページ専用のレイアウトを作成する (section.html)
 ----
 
 `layouts/_default/list.html` というレイアウトファイルは、汎用的な list page template として使用されるため、各セクションの `_index.md` のレンダリング以外にも、ホームページ（ルートの `_index.md`）のレンダリングや、タグの一覧ページのレンダリングにも使用されます。
 各セクションの `_index.md` をレンダリングするための専用のレイアウトファイルを用意したいときは、`list.html` という名前のレイアウトファイルの代わりに、下記のような名前のレイアウトファイルを作成します。
+
 
 #### セクションの index ページ専用のレイアウトファイル
 
