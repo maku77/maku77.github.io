@@ -41,6 +41,9 @@ hugo コマンド
 * [独自のテーマを作成する](create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 
+### Hugo のテンプレート文法
+* [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
+
 ### セクション機能
 * [セクション機能を使って記事を階層化する](layout/section.html)
 * [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
