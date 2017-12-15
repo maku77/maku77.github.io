@@ -42,6 +42,9 @@ hugo コマンド
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 
 ### Hugo のテンプレート文法
+* [Hugo テンプレート内にコメントを記述する](template/comment.html)
+* [Hugo テンプレート内で変数を扱う](template/variable.html)
+* [Hugo テンプレート内で配列（スライス）を定義する](template/array.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 
 ### セクション機能
