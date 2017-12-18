@@ -8,6 +8,7 @@ HTML 全般
 ----
 * [HTML ファイルの雛形（テンプレート）](html/template.html)
 * [IE 8 でも HTML5 の header や footer 要素を使えるようにする](html/ie8.html)
+* [Web サイトに favicon を設定する](html/favicon.html)
 
 フォーム
 ----
