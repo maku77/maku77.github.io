@@ -16,6 +16,13 @@ HTML 要素のスタイルに `height: 100vh;` と指定すると、画面の高
 #### HTML 抜粋
 
 ~~~ html
+<main>
+  <p>
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    ...
+  </p>
+</main>
+
 <nav class="menu">
   <ul>
     <li>Item 1
@@ -27,12 +34,21 @@ HTML 要素のスタイルに `height: 100vh;` と指定すると、画面の高
 
 #### CSS 抜粋
 
-~~~
-.menu {
+~~~ css
+main {
   display: block;
-  ...
-  height: 100vh;
+  margin-left: 150px;
+}
+.menu {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   width: 150px;
+  height: 100vh;
+  background: lightgray;
+}
+.menu li {
+  list-style: none;
 }
 ~~~
 
