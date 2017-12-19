@@ -44,7 +44,8 @@ hugo コマンド
 ### Hugo のテンプレート文法
 * [Hugo テンプレート内にコメントを記述する](template/comment.html)
 * [Hugo テンプレート内で変数を扱う](template/variable.html)
-* [Hugo テンプレート内で配列（スライス）を定義する](template/array.html)
+* [Hugo テンプレート内で配列（スライス）変数を定義する (slice)](template/array.html)
+* [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 
 ### セクション機能
