@@ -47,11 +47,20 @@ hugo コマンド
 * [Hugo テンプレート内で配列（スライス）変数を定義する (slice)](template/array.html)
 * [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
+* [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
 
 ### セクション機能
 * [セクション機能を使って記事を階層化する](layout/section.html)
 * [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
+
+### ページ一覧を表示するサンプル
+* [全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
+* [全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
+* [セクションに属するページの一覧を表示する (.Pages)](list/section-children.html)
+
+### その他
+* [ホームページの Page オブジェクトを取得する](template/misc/homepage.html)
 
 応用
 ----
