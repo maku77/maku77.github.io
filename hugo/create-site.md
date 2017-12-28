@@ -77,6 +77,25 @@ theme = "mainroad"
 これでテーマの設定は完了です。
 
 
+サイトのタイトルと言語を設定する
+----
+
+サイトの設定ファイルでは、テーマ設定以外にも、サイトタイトルや、全体で使用する言語の設定を行っておきます。
+
+#### config.toml
+
+~~~ toml
+baseURL = "http://example.org/"
+languageCode = "ja-jp"
+title = "My New Hugo Site"
+theme = "mainroad"
+~~~
+
+<div class="note">
+ここで設定した値は、テンプレートファイルの中から、<code>{{ "{{" }} .Site.Title }}</code>、<code>{{ "{{" }} .Site.BaseURL }}</code>、<code>{{ "{{" }} .Site.LanguageCode }}</code> のように参照することができます。
+</div>
+
+
 記事を作成する
 ----
 

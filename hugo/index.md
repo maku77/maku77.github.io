@@ -60,6 +60,7 @@ hugo コマンド
 * [セクションに属するページの一覧を表示する (.Pages)](list/section-children.html)
 
 ### その他
+* [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
 * [ホームページの Page オブジェクトを取得する](template/misc/homepage.html)
 
 応用
