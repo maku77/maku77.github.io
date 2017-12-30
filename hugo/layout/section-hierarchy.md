@@ -7,7 +7,7 @@ description: "Hugo のテンプレートファイル内から参照できる .Pa
 セクション系の情報を取得するための [Page 変数](https://gohugo.io/variables/page/) には下記のようなものがあります。
 
 .CurrentSection
-: 自分自身が所属するセクションの情報。自分自身がセクションページであったり、ホームページである場合は、自分自身のページの情報。型は Page オブジェクト。
+: 自分自身が所属するセクションの情報。自分自身がセクションページであったり、ホームページである場合は、自分自身のページの情報。型は Page オブジェクト。通常の記事ページ、ホームページ、セクションページ以外では `nil` になります（つまり、タクソノミーリストのページでは `nil` になる）。
 
 .Parent
 : 自分自身がセクションページの場合、親セクションの情報。自分自身が通常ページの場合、自分が所属するセクションの情報。型は Page オブジェクト。
@@ -49,9 +49,7 @@ contents/
 - Section page template: `layouts/_default/section.html`
 - Single page template: `layouts/_default/single.html`
 
-テンプレートファイルに記述する内容は共通です。
-
-#### テンプレートファイルの記述
+#### テンプレートファイルの記述（共通）
 
 ~~~
 <pre>
@@ -64,6 +62,17 @@ contents/
 {{ "{{" }} end }}
 </pre>
 ~~~
+
+`.CurrentSections` は通常ページ、ホームページ、セクションページ以外のテンプレートから参照すると `nil` になります。
+つまり、`layout/_default/taxonomy.html` の中で参照すると必ず `nil` になるので、タクソノミーリストテンプレートの中では参照しないでださい。
+また、`layouts/_default/list.html` の中で参照した場合は、それがタクソノミーリストテンプレートとして使用されたときに `.CurrentSections` は `nil` になります。
+`layouts/_default/list.html` の中で `.CurrentSection` の値を使用するときは、上記のように `with` ブロックや `if` ブロックで `nil` チェックしてから参照するようにしましょう。
+
+- [参考: hugo/site_sections.go at master · gohugoio/hugo · GitHub](https://github.com/gohugoio/hugo/blob/master/hugolib/site_sections.go#L47)
+
+> CurrentSection returns the page's current section or the page itself if home or a section.
+> Note that this will return nil for pages that is not regular, home or section pages.
+
 
 ### ホームページ (/index.html) にアクセスしたとき
 

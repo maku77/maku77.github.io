@@ -81,3 +81,19 @@ Hugo サーバーのプロセスをまとめて終了したいときは、`killa
 killall hugo
 ~~~
 
+
+下記のように、関数やエイリアスとして用意しておくのが手っ取り早いかもしれません。
+
+#### ~/.bash_profile
+
+~~~ sh
+function hugo-start {
+    hugo server -p 50001 -s ~/website/site1 &
+    hugo server -p 50002 -s ~/website/site2 &
+    hugo server -p 50003 -s ~/website/site3 &
+}
+function hugo-stop {
+    killall hugo
+}
+~~~
+

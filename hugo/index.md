@@ -57,7 +57,8 @@ hugo コマンド
 ### ページ一覧を表示するサンプル
 * [全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
 * [全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
-* [セクションに属するページの一覧を表示する (.Pages)](list/section-children.html)
+* [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
+* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
 
 ### その他
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
