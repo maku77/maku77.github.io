@@ -12,7 +12,7 @@ content-box 指定と border-box 指定
 
 ![](box-sizing.svg){: .center }
 
-`box-sizing` プロパティのデフォルト値は `content-box` なっており、簡単に言うと、テキストの描画部分の領域のことを表しています。
+`box-sizing` プロパティのデフォルト値は `content-box` になっており、簡単に言うと、テキストの描画部分の領域のことを表しています。
 デフォルトの状態で、`width: 300px;` というスタイル指定を行った場合、その `300px` にはパディング (padding) 部分や、ボーダー (border) 部分のサイズは含まれません。
 つまり、`width: 300px;` と指定された要素が実際に描画されるときには、それよりも大きなサイズで描画されることになります。
 
@@ -23,7 +23,7 @@ content-box 指定と border-box 指定
   /* width と height にボーダー領域まで含める */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: content-box;
+  -webkit-box-sizing: border-box;
 }
 ~~~
 
