@@ -35,7 +35,7 @@ hugo コマンド
 ----
 * [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ](settings/japanese.html)
 
-レイアウト（テンプレート／テーマ）
+テンプレート／テーマ
 ----
 * [レイアウト用のテンプレートの種類を理解する](layout/template-types.html)
 * [独自のテーマを作成する](create-theme.html)
@@ -59,6 +59,13 @@ hugo コマンド
 * [全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
 * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
 * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
+
+### タクソノミー（タグ／カテゴリの仕組み）
+* [タクソノミーの基本](taxonomy/basic.html)
+* [タクソノミー関連のテンプレートを定義する](taxonomy/template.html)
+* [タクソノミーごとにターム一覧を表示する](taxonomy/list-all-taxonomies.html)
+* [記事ページに付けられたターム一覧（タグ一覧）を表示する](taxonomy/terms-in-page.html)
+* [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](taxonomy/too-many-terms.html)
 
 ### その他
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)

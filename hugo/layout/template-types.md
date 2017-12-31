@@ -160,7 +160,6 @@ content/
 
 下記のテンプレートファイルのうち、最初に見つかったファイルがシングルページテンプレートとして使用されます。
 
-~~~
 1. /layouts/＜タイプ名＞/＜レイアウト名＞.html
 2. /layouts/＜セクション名＞/＜レイアウト名＞.html
 3. /layouts/＜タイプ名＞/single.html
@@ -171,7 +170,6 @@ content/
 8. /themes/＜テーマ名＞/layouts/＜タイプ名＞/single.html
 9. /themes/＜テーマ名＞/layouts/＜セクション名＞/single.html
 10. /themes/＜テーマ名＞/layouts/_default/single.html
-~~~
 
 セクションテンプレートと同様、セクション固有のテンプレートファイルを用意することもできますが、まずは `/layouts/_default/single.html` を作成し、すべてのページを同じレイアウトでレンダリングするところから始めるのがよいでしょう。
 
