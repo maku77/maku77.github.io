@@ -48,6 +48,7 @@ hugo コマンド
 * [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 * [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
+* [Hugo テンプレート内で define よる部分テンプレート定義を行う](template/define.html)
 
 ### セクション機能
 * [セクション機能を使って記事を階層化する](layout/section.html)
@@ -69,7 +70,8 @@ hugo コマンド
 
 ### その他
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
-* [ホームページの Page オブジェクトを取得する](template/misc/homepage.html)
+* [パンくずリストを表示する](template/breadcrumbs.html)
+* [ホームページの Page オブジェクトを取得する](template/homepage.html)
 
 応用
 ----
