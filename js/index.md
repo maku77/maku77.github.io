@@ -32,11 +32,11 @@ layout: category-index
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列と数値を変換する](string/convert.html)
 - [文字列を置換する (replace)](string/replace.html)
-- [文字列を分割する (split)](string/split.html)
-- [文字列の先頭と末尾の空白を削除する](string/trim.html)
+- [文字列をデリミタで分割する／１文字ずつに分割する (split)](string/split.html)
+- [文字列の先頭と末尾の空白を削除する ($.trim)](string/trim.html)
 - [文字列の長さを取得する (length)](string/length.html)
 - [部分文字列を取得する (substring, slice)](string/substring.html)
-- [文字列内の１文字を取得する](string/char-at.html)
+- [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
 - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 
 
@@ -73,7 +73,7 @@ layout: category-index
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
 
 ### JavaScript 独自拡張
-- [JavaScript で定数を定義する](syntax/const.html)
+- [JavaScript で定数を定義する (const)](syntax/const.html)
 - [式クロージャ (Expression Closure)](syntax/expression-closure.html)
 
 ### その他
@@ -85,6 +85,8 @@ layout: category-index
 
 HTML/DOM 操作
 ----
+- [HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索](dom/get-element1.html)
+- [HTML の DOM 要素を取得する (2) 親要素、子要素、兄弟要素を検索](dom/get-element2.html)
 - [HTML 要素に独自の data 属性（カスタム属性）を設定する](dom/data-attribute.html)
 - [HTML 要素の class 属性の値を追加・削除・トグルする](dom/control-class-attribute.html)
 - [ページ内の h2 要素から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
@@ -117,7 +119,7 @@ Node.js
 
 Web サイト
 ----
-- [URL 内のハッシュフラグメントの変化を検出する](web/detect-fragment-change.html)
+- [URL 内のハッシュフラグメントの変化を検出する (hashchange)](web/detect-fragment-change.html)
 
 
 実行環境

@@ -1,5 +1,5 @@
 ---
-title: JavaScript で定数を定義する
+title: "JavaScript で定数を定義する (const)"
 created: 2012-10-27
 ---
 

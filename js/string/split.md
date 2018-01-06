@@ -1,9 +1,14 @@
 ---
-title: 文字列を分割する
+title: "文字列をデリミタで分割する／１文字ずつに分割する (split)"
 created: 2012-01-20
 ---
 
-例: カンマで文字列を分割する
+文字列の `split` メソッドを使用すると、文字列を複数の部分文字列に分割することができます。
+
+- 参考: [String.prototype.split() - JavaScript｜MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+
+
+カンマで文字列を分割する
 ----
 
 ```javascript
@@ -31,4 +36,18 @@ var arr = s.trim().split(/\s*,\s*/);  // => ["aaa", "bbb", "ccc"]
 ```javascript
 arr = s.split(',').map(function(val, i){ return val.trim() });
 ```
+
+文字列を一文字ずつに分割する
+----
+
+`split` メソッドのパラメータに空文字列 (`''`) を指定すると、文字列を一文字ずつに分割することができます。
+
+~~~javascript
+var s = 'ABCDE';
+var arr = s.split('');  // => ["A", "B", "C", "D", "E"]
+
+for (var i = 0; i < arr.length; ++i) {
+  console.log(arr[i]);
+}
+~~~
 
