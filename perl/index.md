@@ -17,6 +17,7 @@ layout: category-index
 - [配列を連結する](list/concat-array.html)
 - [リスト代入](list/list-substitution.html)
 - [grep 演算子によるリスト要素のフィルタリング](list/grep-list.html)
+- [条件に一致するリスト要素の数を調べる](list/grep-count.html)
 - [map 演算子を使ってリストの各要素を加工したリストを取得する](list/map-list.html)
 - [リストスライス、配列スライス、ハッシュスライス](list/list-slice.html)
 - [配列へのリファレンスを取得する](list/reference.html)
@@ -78,9 +79,29 @@ layout: category-index
 
 文字列／正規表現
 ----
+
+### マッチングと抽出
 - [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
+- [欲張りな量指定子と欲張りでない量指定子による文字列マッチング](string/greedy-match.html)
 - [大文字と小文字を区別しない文字列マッチング](string/ignore-case.html)
-- [文字列の置換／文字の置換](string/replace.html)
+- [行をまたいだ文字列マッチング](string/multi-line-match.html)
+- [正規表現パターンにマッチした部分文字列を抜き出す](string/extract.html)
+- [インデックス指定で文字列を抜き出す (substr)](string/substr.html)
+- [サンプル: インデントされた行、インデントされていない行を抜き出す](string/indented-lines.html)
+
+### 置換
+- [文字列を置換する](string/replace-string.html)
+- [文字単位で置換する](string/replace-char.html)
+- [大文字と小文字を置換する](string/replace-case.html)
+- [インデックス指定で文字列を置換する (substr)](string/replace-by-index.html)
+- [サンプル: 数値を３桁ごとにカンマを入れて表示する](string/number-with-comma.html)
+
+### その他の文字列処理
+- [文字列をデリミタで分割する (split)](string/split.html)
+- [文字列を１文字ずつに分割する (split)](string/split-into-chars.html)
+- [リスト要素を結合して１つの文字列にする (join)](string/join.html)
+- [部分文字列の位置を検索する (index, rindex)](string/index-rindex.html)
+- [文字列リテラルを囲むクォート文字に任意の記号を使用する](string/quote-char.html)
 
 入出力
 ----
