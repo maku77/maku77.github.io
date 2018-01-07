@@ -19,7 +19,7 @@ import re
 GLOB = '**/*.md'
 PATTERN = r'title:\s*(.+)'
 
-def process_file(filename):
+def process_file(f):
     for line in f:
         match = re.search(PATTERN, line)
         if match:
