@@ -17,6 +17,7 @@ HTML 全般
 ### レイアウトの基礎知識
 * [position プロパティによるレイアウト方法を理解する](layout/position.html)
 * [box-sizing プロパティで width の計算方法を制御する](layout/box-sizing.html)
+* [全要素に統一された上下マージンを設定する（ふくろうセレクタ）](layout/vertical-margin.html)
 * [画像の下に隙間が空くのを防ぐ](layout/remove-margin-of-image.html)
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 
