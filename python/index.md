@@ -29,6 +29,7 @@ layout: category-index
 * [range による数値のループ処理いろいろ](loop-with-range.html)
 * [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
 * [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
+* [Python で定数を定義する](syntax/const.html)
 
 ### メソッド / 関数
 * [可変長引数を扱う](syntax/variable-length-args.html)
@@ -134,6 +135,10 @@ python コマンド / 実行環境
 ----
 * [テキストファイルを読み込む](io/read-text-file.html)
 * [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
+
+### 応用サンプル
+* [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
+* [複数ファイルをまとめて grep する](io/grep-files.html)
 
 YAML ファイル / JSON ファイル
 ----
