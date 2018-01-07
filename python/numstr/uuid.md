@@ -1,6 +1,6 @@
 ---
 title: Python で UUID を生成する (uuid.uuid4)
-creatd: 2013-05-29
+date: "2013-05-29"
 ---
 
 uuid モジュールを使用して UUID を生成する

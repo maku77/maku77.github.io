@@ -1,6 +1,6 @@
 ---
 title: "DOM プログラミング - XML のルート要素を取得する"
-created: "2005-08-12"
+date: "2005-08-12"
 description: "Java で XML データを扱う時に、DOM オブジェクトとして操作する場合は、まずは XML 全体を表す Document オブジェクトを取得します。"
 ---
 
