@@ -43,7 +43,7 @@ description: "パンくずリストは、親ページに素早くジャンプす
   display: inline;
   list-style: none;
 }
-.breadcrumb li:not(:last-child):after {
+.breadcrumb li:not(:last-child)::after {
   content: '>';
   padding: 0 0.5em;
 }
