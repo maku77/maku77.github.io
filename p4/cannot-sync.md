@@ -1,6 +1,6 @@
 ---
 title: "p4 sync しようとすると opened for edit and can't be deleted というエラーになる"
-created: 2006-06-16
+date: "2006-06-16"
 ---
 
 `p4 sync` を実行したときに下記のように失敗することがあります。

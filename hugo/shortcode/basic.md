@@ -1,6 +1,6 @@
 ---
 title: "ショートコードで本文内に HTML スニペットを埋め込む"
-created: 2017-09-29
+date: "2017-09-29"
 description: "記事の中に定型のコード（YouTube 動画表示用 HTML など）を埋め込みたいときは、Hugo のショートコード (Shortcode) の機能を使用すると便利です。"
 ---
 

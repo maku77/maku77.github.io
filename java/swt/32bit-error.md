@@ -1,6 +1,6 @@
 ---
 title: SWT - Cannot load 32-bit SWT libraries エラーが発生する場合
-created: 2010-11-23
+date: "2010-11-23"
 ---
 
 SWT ライブラリを使用したアプリの実行時に、下記のような Exception が発生することがあります。

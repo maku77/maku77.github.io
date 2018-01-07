@@ -1,6 +1,6 @@
 ---
 title: JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)
-created: 2015-04-07
+date: "2015-04-07"
 ---
 
 各ツールのトレンド

@@ -1,6 +1,6 @@
 ---
 title: Java アプリケーションの国際化 (i18n) と Locale クラス
-created: 2010-05-16
+date: "2010-05-16"
 ---
 
 Locale クラスについて

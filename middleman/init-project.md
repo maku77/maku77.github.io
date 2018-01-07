@@ -1,6 +1,6 @@
 ---
 title: Middleman による Web サイトの雛形の作成
-created: 2015-11-03
+date: "2015-11-03"
 ---
 
 Middleman で Web サイトを新しく作成するには、`init` コマンドを実行します。

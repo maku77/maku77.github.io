@@ -1,6 +1,6 @@
 ---
 title: Swing - JTree でノードを選択したときのイベントをハンドルする
-created: 2011-02-12
+date: "2011-02-12"
 ---
 
 JTree の各ノードが選択されたときのイベントをハンドルするには、TreeSelectionListner を設定します。

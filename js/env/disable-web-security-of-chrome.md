@@ -1,6 +1,6 @@
 ---
 title: "Chrome で Ajax (XMLHttpRequest) によるクロスドメイン通信の制約をなくす"
-created: 2014-11-17
+date: "2014-11-17"
 ---
 
 HTTP サーバなしの Chrome ローカル環境でウェブアプリの開発をしているときに、`XMLHttpRequest` による Ajax 通信を行おうとすると、クロスドメイン制約によって以下のようなエラーが出て通信できないことがあります。

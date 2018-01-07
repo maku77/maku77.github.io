@@ -1,6 +1,6 @@
 ---
 title: Docker で apt-get install するときに TERM 系のエラーが出る
-created: 2015-04-02
+date: "2015-04-02"
 ---
 
 `docker build` などで `apt-get install` を実行中に、下記のようなエラーが出ることがあります。

@@ -1,6 +1,6 @@
 ---
 title: ANR の原因を突き止める
-created: 2010-08-16
+date: "2010-08-16"
 ---
 
 メインスレッドなどでブロックするコードがあると、ANR (Application Not Responding) が発生し、アプリケーションが強制終了されます。

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - コントローラーを作成する
-created: 2012-05-29
+date: "2012-05-29"
 ---
 
 （CodeIgniter 2.1.0 で確認しています）

@@ -1,6 +1,6 @@
 ---
 title: dbus-glib で method call を実装する（サーバ側の実装）
-created: 2012-05-08
+date: "2012-05-08"
 ---
 
 下記は dbus-glib によるサーバ実装のファイル一式です。

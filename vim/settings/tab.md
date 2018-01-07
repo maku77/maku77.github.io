@@ -1,6 +1,6 @@
 ---
 title: タブ文字の設定 (tabstop, expandtab)
-created: 2007-04-11
+date: "2007-04-11"
 ---
 
 タブ文字 1 文字分の表示幅を設定する

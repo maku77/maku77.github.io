@@ -1,6 +1,6 @@
 ---
 title: ZIP/JAR ファイル内のファイルリストを取得する
-created: 2016-12-06
+date: "2016-12-06"
 ---
 
 Python に標準搭載されている [zipfile モジュール](https://docs.python.org/3/library/zipfile.html) を使用すると、ZIP ファイルや JAR ファイルの読み書きを手軽に行うことができます。

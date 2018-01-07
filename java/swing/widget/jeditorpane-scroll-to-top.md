@@ -1,6 +1,6 @@
 ---
 title: Swing - JEditorPane で先頭部分を表示する
-created: 2011-03-21
+date: "2011-03-21"
 ---
 
 `JEditorPane` に長いテキストを `setText()` でセットすると、そのテキストの最後の部分が表示された状態になります。

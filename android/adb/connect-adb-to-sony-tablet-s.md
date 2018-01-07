@@ -1,6 +1,6 @@
 ---
 title: Sony Tablet S に adb 接続する
-created: 2011-09-24
+date: "2011-09-24"
 ---
 
 基本的には、以下の Sony 公式説明に従えば OK です。

@@ -1,6 +1,6 @@
 ---
 title: Gradle Wrapper スクリプト (gradlew) をサブプロジェクトから簡単に呼び出せるようにする
-created: 2017-08-07
+date: "2017-08-07"
 ---
 
 Gradle Wrapper Wrapper (gradleww) とは

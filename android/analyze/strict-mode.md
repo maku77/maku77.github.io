@@ -1,6 +1,6 @@
 ---
 title: StrictMode を有効にして望ましくない実装を検出する
-created: 2011-08-10
+date: "2011-08-10"
 ---
 
 StrictMode とは

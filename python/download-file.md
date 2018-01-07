@@ -1,6 +1,6 @@
 ---
 title: HTTP でファイルをダウンロードする
-created: 2015-11-19
+date: "2015-11-19"
 ---
 
 urllib.request によるファイルのダウンロード

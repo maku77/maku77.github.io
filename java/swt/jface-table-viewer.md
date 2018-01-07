@@ -1,6 +1,6 @@
 ---
 title: JFace の TableViewer を使用してテーブルにデータを表示する
-created: 2005-07-23
+date: "2005-07-23"
 ---
 
 JFace の TableViewer で独自オブジェクトを表示する

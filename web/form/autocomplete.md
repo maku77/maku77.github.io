@@ -1,6 +1,6 @@
 ---
 title: "入力エリアの入力候補を表示する（autocomplete 属性）"
-created: 2017-12-12
+date: "2017-12-12"
 description: "input 要素の autocomplete 属性を使用すると、テキスト入力時に自動補完できるようになります。"
 ---
 

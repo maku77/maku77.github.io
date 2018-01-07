@@ -1,6 +1,6 @@
 ---
 title: SEO 対策のメモ
-created: 2015-10-28
+date: "2015-10-28"
 ---
 
 Google Search Console

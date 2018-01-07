@@ -1,6 +1,6 @@
 ---
 title: Java から SQLite を扱えるようにする
-created: 2010-08-08
+date: "2010-08-08"
 ---
 
 SQLite 用の JDBC ドライバをインストールすれば、JDBC インタフェースを使って SQlite データベースにアクセスできるようになります。

@@ -1,6 +1,6 @@
 ---
 title: Swing - JPanel に GUI コンポーネントを配置する
-created: 2011-01-09
+date: "2011-01-09"
 ---
 
 Swing で GUI コンポーネントを配置していくときは、基本的に JPanel 上に配置していくことになります。

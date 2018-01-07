@@ -1,6 +1,6 @@
 ---
 title: "Outlook で返信メールのメッセージの行頭に引用記号 (>) を付ける"
-created: 2009-04-07
+date: "2009-04-07"
 ---
 
 Version: Outlook 2003

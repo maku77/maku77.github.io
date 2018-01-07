@@ -1,6 +1,6 @@
 ---
 title: Swing - JEditorPane にスタイルシート (CSS) を設定する
-created: 2011-03-19
+date: "2011-03-19"
 ---
 
 `JEditorPane` に CSS（スタイルシート）を設定するには、`HTMLEditorKit`、`StyleSheet` オブジェクトを使用する必要があります。

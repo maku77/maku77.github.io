@@ -1,6 +1,6 @@
 ---
 title: CORS - Cross-Origin Resource Sharing とは？
-created: 2012-10-23
+date: "2012-10-23"
 ---
 
 CORS の概要

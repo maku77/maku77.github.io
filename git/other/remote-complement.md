@@ -1,6 +1,6 @@
 ---
 title: git pull の引数省略の仕組み
-created: 2010-08-23
+date: "2010-08-23"
 ---
 
 `git pull` を実行するときに、

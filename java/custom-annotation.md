@@ -1,6 +1,6 @@
 ---
 title: Java でカスタムアノテーションを作成する
-created: 2015-10-05
+date: "2015-10-05"
 ---
 
 Java 5.0 Tiger では、標準のアノテーションとして `@Override`, `@Deprecated`, `@SuppressWarnings` などが定義されました。

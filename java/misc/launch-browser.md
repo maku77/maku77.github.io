@@ -1,6 +1,6 @@
 ---
 title: 既定の Web ブラウザで URL を開く
-created: 2011-05-05
+date: "2011-05-05"
 ---
 
 OS の規定の Web ブラウザとして設定されているアプリを起動するには、`java.awt.Desktop#browse()` メソッドが使用できます。

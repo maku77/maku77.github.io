@@ -1,6 +1,6 @@
 ---
 title: 文字列を比較する (strcmp, strcasecmp)
-created: 2012-01-15
+date: "2012-01-15"
 ---
 
 文字列の比較には === か strcmp を使用する

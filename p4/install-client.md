@@ -1,6 +1,6 @@
 ---
 title: Perforce クライアントのインストールと初期設定
-created: 2006-06-16
+date: "2006-06-16"
 ---
 
 Perforce クライアント p4、p4v のインストール

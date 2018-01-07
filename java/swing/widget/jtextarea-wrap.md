@@ -1,6 +1,6 @@
 ---
 title: Swing - JTextArea のテキストを画面端で折り返す
-created: 2011-01-23
+date: "2011-01-23"
 ---
 
 ![jtextarea-wrap.png](./jtextarea-wrap.png)

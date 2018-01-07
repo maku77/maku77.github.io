@@ -1,6 +1,6 @@
 ---
 title: DateTime クラスで時刻を扱う
-created: 2012-07-31
+date: "2012-07-31"
 ---
 
 DataTime オブジェクトとは

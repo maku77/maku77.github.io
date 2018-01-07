@@ -1,6 +1,6 @@
 ---
 title: wxPython - HtmlWindow（HTML ウィンドウ）
-created: 2007-04-26
+date: "2007-04-26"
 ---
 
 wx.html.HtmlWindow の基本

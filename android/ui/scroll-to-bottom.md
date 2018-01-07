@@ -1,6 +1,6 @@
 ---
 title: ScrollView を一番下までスクロールさせる
-created: 2015-03-14
+date: "2015-03-14"
 ---
 
 `ScrollView#fullScroll()` を使って、`ScrollView` の一番下に移動することができます。

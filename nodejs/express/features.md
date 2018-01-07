@@ -1,6 +1,6 @@
 ---
 title: "Express/Express の特徴"
-created: 2013-10-21
+date: "2013-10-21"
 ---
 
 Express は Node.js で簡単に Web サーバを構築できるようにするためのモジュールで、下記のような特徴を持っています。

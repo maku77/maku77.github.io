@@ -1,6 +1,6 @@
 ---
 title: Windows の git diff で改行コードが "^M" で表示される問題を解決する
-created: 2014-06-04
+date: "2014-06-04"
 ---
 
 Windows の CLI 環境において、改行コードが CR+LF のファイルを編集している場合、

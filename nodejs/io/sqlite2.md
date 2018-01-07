@@ -1,6 +1,6 @@
 ---
 title: "Node.js で SQLite を使用する (2) node-sqlite3 による逐次処理"
-created: 2014-01-25
+date: "2014-01-25"
 ---
 
 `node-sqlite3` による各種 DB 処理は、非同期に実行されるようになっています。

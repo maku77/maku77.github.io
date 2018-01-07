@@ -1,6 +1,6 @@
 ---
 title: Groovy スクリプトで Jenkins サーバを制御する
-created: 2016-08-23
+date: "2016-08-23"
 ---
 
 Jenkins の API

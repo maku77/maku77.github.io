@@ -1,6 +1,6 @@
 ---
 title: "Node.js で SQLite を使用する (1) node-sqlite3 のインストール"
-created: 2014-01-24
+date: "2014-01-24"
 ---
 
 node-sqlite3 のインストール

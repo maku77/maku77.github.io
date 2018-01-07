@@ -1,6 +1,6 @@
 ---
 title: リストに要素を追加する／リストを結合する (append, extend, +)
-created: 2009-11-26
+date: "2009-11-26"
 ---
 
 リストの末尾に要素を追加する (append, extend)

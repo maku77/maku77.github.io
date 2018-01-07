@@ -1,6 +1,6 @@
 ---
 title: jQuery で Hello World
-created: 2012-11-28
+date: "2012-11-28"
 ---
 
 コードの基本構成

@@ -1,6 +1,6 @@
 ---
 title: wxPytnon - StatusBar（ステータスバー）
-created: 2007-02-06
+date: "2007-02-06"
 ---
 
 Frame にステータスバーを追加する

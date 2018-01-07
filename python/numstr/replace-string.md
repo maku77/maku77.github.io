@@ -1,6 +1,6 @@
 ---
 title: 文字列を置換する
-created: 2012-07-03
+date: "2012-07-03"
 
 
 単純な置換 (str.replace)

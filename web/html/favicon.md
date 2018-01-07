@@ -1,6 +1,6 @@
 ---
 title: "Web サイトに favicon を設定する"
-created: 2017-12-18
+date: "2017-12-18"
 description: "Web サイトの favicon は、Web ブラウザのタブのアイコンや、ブックマークのアイコンとして使用されます。"
 ---
 

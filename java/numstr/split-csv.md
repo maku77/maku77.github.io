@@ -1,6 +1,6 @@
 ---
 title: CSV 形式の文字列を配列に分割する (String.split)
-created: 2005-05-25
+date: "2005-05-25"
 ---
 
 `String#split()` を使用して、文字列をデリミタで区切ることができます。

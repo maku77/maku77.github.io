@@ -1,6 +1,6 @@
 ---
 title: Ruby の制御構文 -- if と unless による分岐
-created: 2002-08-20
+date: "2002-08-20"
 ---
 
 if の構文

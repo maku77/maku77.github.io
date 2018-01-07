@@ -1,6 +1,6 @@
 ---
 title: MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）
-created: 2014-11-15
+date: "2014-11-15"
 ---
 
 XM.com では、Mac OSX 用の MetaTrader4 を配布しているので、簡単に Mac OSX 上で動作する環境を構築できます。

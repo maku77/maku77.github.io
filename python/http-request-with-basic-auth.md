@@ -1,6 +1,6 @@
 ---
 title: urllib による HTTP リクエスト (3) Basic 認証
-created: 2015-11-19
+date: "2015-11-19"
 ---
 
 `urllib.request` モジュールを使って Basic 認証の設定された Web サイトにアクセスすると、デフォルトでは下記のようなエラーが発生します。

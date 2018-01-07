@@ -1,6 +1,6 @@
 ---
 title: RubyGems とは
-created: 2015-11-22
+date: "2015-11-22"
 ---
 
 RubyGems とは

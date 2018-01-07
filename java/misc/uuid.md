@@ -1,6 +1,6 @@
 ---
 title: Java でランダムな UUID を生成する
-created: 2010-08-29
+date: "2010-08-29"
 ---
 
 `java.util.UUID` クラスを使用すると、ユニークな ID を表現するための UUID を生成することができます。

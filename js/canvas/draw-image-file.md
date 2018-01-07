@@ -1,6 +1,6 @@
 ---
 title: HTML5 Canvas に画像ファイルを描画する
-created: 2013-06-24
+date: "2013-06-24"
 ---
 
 ![draw-image-file.png](./draw-image-file.png)

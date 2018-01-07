@@ -1,6 +1,6 @@
 ---
 title: "JavaScript において偽 (false) と評価される値"
-created: 2015-02-11
+date: "2015-02-11"
 ---
 
 JavaScript では下記のような値は、「偽 (false)」と判断されます。

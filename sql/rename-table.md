@@ -1,6 +1,6 @@
 ---
 title: テーブル名を変更する (ALTER TABLE ～ RENAME TO)
-created: 2013-01-06
+date: "2013-01-06"
 ---
 
 データベースのテーブル名は、`ALTER TABLE` コマンドを使用して変更することができます。

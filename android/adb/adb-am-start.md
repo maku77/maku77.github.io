@@ -1,6 +1,6 @@
 ---
 title: ADB でアプリを起動する intent を投げる (am start/broadcast)
-created: 2016-10-03
+date: "2016-10-03"
 ---
 
 以下のコマンドは、`adb shell` でデバイスに接続した状態から実行することを想定しています。

@@ -1,6 +1,6 @@
 ---
 title: Python で XML をパースする
-created: 2014-11-28
+date: "2014-11-28"
 ---
 
 ElementTree XML API

@@ -1,6 +1,6 @@
 ---
 title: Groovy で Map を扱う
-created: 2015-07-08
+date: "2015-07-08"
 ---
 
 Groovy の Map の基本

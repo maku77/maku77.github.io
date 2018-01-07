@@ -1,6 +1,6 @@
 ---
 title: 現在のスクリーンレイアウトサイズを取得する
-created: 2011-09-14
+date: "2011-09-14"
 ---
 
 現在のスクリーンサイズ (small, medium, large, xlarge) などの情報は `Configuration` オブジェクトに格納されています。

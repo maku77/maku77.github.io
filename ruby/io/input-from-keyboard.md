@@ -1,6 +1,6 @@
 ---
 title: キーボードからの入力を取得する (STDIN.gets/readline)
-created: 2015-10-15
+date: "2015-10-15"
 ---
 
 STDIN でキーボードからの入力を取得する

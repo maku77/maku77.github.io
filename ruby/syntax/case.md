@@ -1,6 +1,6 @@
 ---
 title: Ruby の制御構文 -- case による分岐
-created: 2002-08-22
+date: "2002-08-22"
 ---
 
 case の構文

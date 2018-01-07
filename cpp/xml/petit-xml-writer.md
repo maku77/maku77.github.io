@@ -1,6 +1,6 @@
 ---
 title: stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)
-created: 2007-06-06
+date: "2007-06-06"
 ---
 
 PetitXmlWriter クラスは、C の stdio を使用したシンプルな XML ファイル出力のサンプルです。

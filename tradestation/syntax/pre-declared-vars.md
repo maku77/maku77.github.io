@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: 定義済み変数を使用する (Value0, Condition0)"
-created: 2017-10-08
+date: "2017-10-08"
 description: "ユーザ定義の変数は Vars による初期化が必要ですが、初期化処理を行わずに使用可能な定義済み変数というものが用意されています。"
 ---
 

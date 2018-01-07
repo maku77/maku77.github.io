@@ -1,6 +1,6 @@
 ---
 title: SWT - SWT アプリケーションの雛形コード
-created: 2010-08-14
+date: "2010-08-14"
 ---
 
 #### Main.java

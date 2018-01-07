@@ -1,6 +1,6 @@
 ---
 title: Git と GitHub の記事
-created: 2015-05-17
+date: "2015-05-17"
 layout: category-index
 ---
 

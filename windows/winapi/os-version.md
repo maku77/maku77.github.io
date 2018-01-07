@@ -1,6 +1,6 @@
 ---
 title: 現在使用中の Windows OS のバージョンを調べる
-created: 2005-08-22
+date: "2005-08-22"
 ---
 
 ~~~ cpp

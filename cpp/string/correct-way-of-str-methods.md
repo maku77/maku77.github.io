@@ -1,6 +1,6 @@
 ---
 title: strncpy／strncat／snprintf の安全な使い方
-created: 2007-11-16
+date: "2007-11-16"
 ---
 
 各関数の概要

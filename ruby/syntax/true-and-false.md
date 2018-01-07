@@ -1,6 +1,6 @@
 ---
 title: Ruby の制御構文 -- Ruby の真偽値
-created: 2002-08-21
+date: "2002-08-21"
 ---
 
 Ruby では、「偽」を表す組み込み変数は `FALSE (false)` と `NIL (nil)` のみです。

@@ -1,6 +1,6 @@
 ---
 title: Python のパッケージ管理ツール (pip)
-created: 2015-05-17
+date: "2015-05-17"
 ---
 
 pip とは

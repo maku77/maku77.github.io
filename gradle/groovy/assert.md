@@ -1,6 +1,6 @@
 ---
 title: Groovy で assert を使用する
-created: 2015-07-07
+date: "2015-07-07"
 ---
 
 Groovy では、デフォルトで `assert` が使用できるようになっています。

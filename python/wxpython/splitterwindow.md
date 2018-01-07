@@ -1,6 +1,6 @@
 ---
 title: wxPython - SplitterWindow（スプリッターウィンドウ）
-created: 2007-04-06
+date: "2007-04-06"
 ---
 
 wx.SplitterWindow 上下、左右にウィンドウを分割する

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter- HTML ヘルパーでスタイルシート用の link タグを挿入する
-created: 2012-08-12
+date: "2012-08-12"
 ---
 
 CSS スタイルシートをロードするための `link` タグを出力するには、HTML ヘルパーの提供する `link_tag` 関数を使用すると便利です。

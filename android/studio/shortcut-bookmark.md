@@ -1,6 +1,6 @@
 ---
 title: Android Studio の便利なショートカット (2) ブックマーク
-created: 2016-06-20
+date: "2016-06-20"
 ---
 
 Android Studio には、任意の行をブックマークしておく機能が備わっています。

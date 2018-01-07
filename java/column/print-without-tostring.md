@@ -1,6 +1,6 @@
 ---
 title: System.out.println() でオブジェクトを出力するときは toString() しない
-created: 2005-06-27
+date: "2005-06-27"
 ---
 
 任意のオブジェクトの内容を `System.out.println` で出力する場合は、オブジェクトそのものを渡してしまうのが一番楽で安全です。

@@ -1,6 +1,6 @@
 ---
 title: Docker コンテナを起動してシェル (bash) を扱う
-created: 2015-03-12
+date: "2015-03-12"
 ---
 
 Ubuntu 14.04 の Docker イメージ上で bash を動作させ、そのコマンドを実行した端末上でその bash を扱うには、下記のように `docker run` コマンドを実行します。

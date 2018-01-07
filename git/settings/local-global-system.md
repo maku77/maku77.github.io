@@ -1,6 +1,6 @@
 ---
 title: Git の local 設定と global 設定と system 設定の違い
-created: 2014-05-25
+date: "2014-05-25"
 ---
 
 `git config` による設定のスコープは 3 種類あり、スコープが狭くなるほど参照時の優先度は高くなります。

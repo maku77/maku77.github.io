@@ -1,6 +1,6 @@
 ---
 title: 全てが真 (all)、少なくとも一つが真 (any) かどうか調べる
-created: 2014-05-02
+date: "2014-05-02"
 ---
 
 Python の all 関数と any 関数

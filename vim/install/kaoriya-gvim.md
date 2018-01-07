@@ -1,6 +1,6 @@
 ---
 title: MacOSX に香り屋版の GVim をインストールする
-created: 2011-03-23
+date: "2011-03-23"
 ---
 
 MacVim をインストール

@@ -1,6 +1,6 @@
 ---
 title: jQuery 関連用語
-created: 2013-01-04
+date: "2013-01-04"
 ---
 
 jQuery function（jQuery 関数）

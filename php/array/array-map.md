@@ -1,6 +1,6 @@
 ---
 title: 配列の各要素に対して同じ処理を行う (array_map)
-created: 2012-10-13
+date: "2012-10-13"
 ---
 
 array_map 関数

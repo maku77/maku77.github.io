@@ -1,6 +1,6 @@
 ---
 title: Docker イメージを作成する - docker build アプローチ
-created: 2015-03-12
+date: "2015-03-12"
 ---
 
 **Dockerfile** という、Docker イメージ作成のための手順書を作成しておくと、`docker build` コマンドを使って自動的にイメージを作成することができます。

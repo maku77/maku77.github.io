@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: 変数を定義する (Vars, Variables)"
-created: 2017-10-08
+date: "2017-10-08"
 description: "コード内の複数個所から同じ値を使用したい場合は、その値を変数として定義しておくと便利です。"
 ---
 

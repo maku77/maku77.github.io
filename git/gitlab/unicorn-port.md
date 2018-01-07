@@ -1,6 +1,6 @@
 ---
 title: GitLab が使用する Unicorn 用のポート番号を変更する
-created: 2014-05-16
+date: "2014-05-16"
 ---
 
 GitLab 内部では、Rails サーバの Unicorn を使用しています。

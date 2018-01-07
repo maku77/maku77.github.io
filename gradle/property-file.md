@@ -1,6 +1,6 @@
 ---
 title: Gradle でプロパティファイル (.properties) を読み込む
-created: 2015-11-12
+date: "2015-11-12"
 ---
 
 

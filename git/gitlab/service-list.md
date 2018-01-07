@@ -1,6 +1,6 @@
 ---
 title: 起動中の GitLab 関連サービスを調べる
-created: 2014-05-15
+date: "2014-05-15"
 ---
 
 `gitlab-ctl service-list` や `gitlab-ctl status` コマンドを使用すると、起動している GitLab 関連のサービスの一覧や状態を確認できます。

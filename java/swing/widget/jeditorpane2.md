@@ -1,6 +1,6 @@
 ---
 title: Swing - JEditorPane でハイパーリンク関連のイベントをハンドルする
-created: 2011-02-06
+date: "2011-02-06"
 ---
 
 ![jeditorpane-hyperlink.png](./jeditorpane-hyperlink.png)

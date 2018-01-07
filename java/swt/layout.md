@@ -1,6 +1,6 @@
 ---
 title: SWT - SWT の Layout は Composite の入れ子で構成する
-created: 2010-08-28
+date: "2010-08-28"
 ---
 
 SWT を使ったレイアウトは、主に Composite を入れ子構造にして配置していきます。

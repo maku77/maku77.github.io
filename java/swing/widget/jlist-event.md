@@ -1,6 +1,6 @@
 ---
 title: Swing - JList で項目を選択したときのイベントをハンドルする
-created: 2011-01-23
+date: "2011-01-23"
 ---
 
 JList 内の項目が選択されたときのイベントをハンドルするには、以下のメソッドで `javax.swing.event.ListSelectionListener` オブジェクトを登録します。

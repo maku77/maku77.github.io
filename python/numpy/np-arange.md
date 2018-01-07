@@ -1,6 +1,6 @@
 ---
 title: 連番からなる NumPy 配列を作成する (np.arange)
-created: 2017-02-27
+date: "2017-02-27"
 ---
 
 `numpy.arange` 関数を使用して、連番からなる NumPy 配列を生成することができます。

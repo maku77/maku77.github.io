@@ -1,6 +1,6 @@
 ---
 title: "async.js で非同期処理のフロー制御を行う (1) async.js を使う準備"
-created: 2013-12-16
+date: "2013-12-16"
 ---
 
 async.js とは

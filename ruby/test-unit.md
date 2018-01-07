@@ -1,6 +1,6 @@
 ---
 title: test-unit によるユニットテスト
-created: 2015-11-21
+date: "2015-11-21"
 ---
 
 Ruby のユニットテストフレームワークとして、**test-unit** という RubyGems モジュールが提供されています。

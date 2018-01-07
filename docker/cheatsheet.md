@@ -1,6 +1,6 @@
 ---
 title: Docker チートシート
-created: 2015-04-02
+date: "2015-04-02"
 ---
 
 Registry / Repository / Image / Tag の概念

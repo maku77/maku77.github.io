@@ -1,6 +1,6 @@
 ---
 title: Python で YAML ファイルを扱う
-created: 2017-02-17
+date: "2017-02-17"
 ---
 
 [PyYaml](http://pyyaml.org/) というライブラリを使用すると、Python で簡単に YAML データを扱うことができます。

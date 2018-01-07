@@ -1,6 +1,6 @@
 ---
 title: 要素を追加、移動、コピーする (append, prepend)
-created: 2013-01-06
+date: "2013-01-06"
 ---
 
 

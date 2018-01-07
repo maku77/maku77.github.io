@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - 参考になるチュートリアル動画集
-created: 2012-08-13
+date: "2012-08-13"
 ---
 
 Codeigniter Login Form (Part 1-4)

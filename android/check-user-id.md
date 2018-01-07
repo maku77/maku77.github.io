@@ -1,6 +1,6 @@
 ---
 title: インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる
-created: 2011-04-05
+date: "2011-04-05"
 ---
 
 `/data/system/packages.xml` ファイルに各 APK のユーザー ID が記述されています。

@@ -1,6 +1,6 @@
 ---
 title: パッケージ管理環境 PEAR をインストールする
-created: 2012-09-22
+date: "2012-09-22"
 ---
 
 **PEAR (PHP Extension and Application Repository)** は、PHP のパッケージ（ライブラリ）管理を行うための環境です。

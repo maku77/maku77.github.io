@@ -1,6 +1,6 @@
 ---
 title: XAMPP で PHP のテスト環境を作成する
-created: 2012-01-12
+date: "2012-01-12"
 ---
 
 XAMPP とは

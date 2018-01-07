@@ -1,6 +1,6 @@
 ---
 title: 文字の置換方法いろいろ (:substitute)
-created: 2007-01-08
+date: "2007-01-08"
 ---
 
 

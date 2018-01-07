@@ -1,6 +1,6 @@
 ---
 title: Swing - JTextField で Enter キーを押したときにテキストを取得する
-created: 2011-05-05
+date: "2011-05-05"
 ---
 
 ![jtextfield-handle-enter.png](jtextfield-handle-enter.png)

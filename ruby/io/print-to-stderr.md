@@ -1,6 +1,6 @@
 ---
 title: 標準エラー出力へ出力する (STDERR)
-created: 2017-08-07
+date: "2017-08-07"
 ---
 
 Ruby で標準エラー出力へ出力を行うには、`STDERR.puts` や `STDERR.print` を使用します。

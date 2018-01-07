@@ -1,6 +1,6 @@
 ---
 title: Swing - デフォルトのレイアウトマネージャについて
-created: 2011-01-15
+date: "2011-01-15"
 ---
 
 JFrame の content pane と、JPanel にはデフォルトで以下のレイアウトマネージャが設定されています。

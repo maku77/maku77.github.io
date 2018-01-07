@@ -1,6 +1,6 @@
 ---
 title: MetaTrader のターミナル情報を取得する
-created: 2014-12-06
+date: "2014-12-06"
 ---
 
 MetaTrader（ターミナル）の情報を取得するには、`TerminalInfoString()` や `TerminalInfoInteger()` を使用します。

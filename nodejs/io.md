@@ -1,6 +1,6 @@
 ---
 title: 標準出力 (stdout)、標準エラー出力 (stderr) への出力
-created: 2014-07-13
+date: "2014-07-13"
 ---
 
 [参考: Node.js ドキュメント - console](http://nodejs.org/api/console.html)

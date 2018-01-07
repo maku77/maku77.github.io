@@ -1,6 +1,6 @@
 ---
 title: 配列をソートする (sort, ksort, asort)
-created: 2012-01-30
+date: "2012-01-30"
 ---
 
 数値配列のソート (sort, rsort)

@@ -1,6 +1,6 @@
 ---
 title: npm start でアプリを起動できるようにする
-created: 2013-12-28
+date: "2013-12-28"
 ---
 
 `package.json` の `scripts` プロパティを設定しておくと、`npm start` コマンドで設定したコマンドを実行できるようになります。

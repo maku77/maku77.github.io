@@ -1,6 +1,6 @@
 ---
 title: Python で Excel ファイルを読み込む (xlrd)
-created: 2017-02-16
+date: "2017-02-16"
 ---
 
 xlrd パッケージのインストール

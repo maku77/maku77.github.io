@@ -1,6 +1,6 @@
 ---
 title: Android の Locale を切り替える
-created: 2011-05-19
+date: "2011-05-19"
 ---
 
 ```java

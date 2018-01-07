@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - index.php を省略した URL でアクセスできるようにする
-created: 2012-05-30
+date: "2012-05-30"
 ---
 
 CodeIgniter で Web アプリケーションを作成すると、そのアクセス URL はデフォルトで下記のような感じになります。

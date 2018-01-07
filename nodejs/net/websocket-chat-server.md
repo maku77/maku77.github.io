@@ -1,6 +1,6 @@
 ---
 title: Node.js で WebSocket サーバを作る（chat サーバ）
-created: 2014-03-05
+date: "2014-03-05"
 ---
 
 WebSocket サーバは、接続中の全てのクライアントに対して処理を行うことができます。

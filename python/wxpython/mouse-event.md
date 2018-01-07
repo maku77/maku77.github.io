@@ -1,6 +1,6 @@
 ---
 title: wxPython でマウスカーソル関連のイベントを処理する
-created: 2007-03-29
+date: "2007-03-29"
 ---
 
 mouse enter イベントと mouse leave イベント

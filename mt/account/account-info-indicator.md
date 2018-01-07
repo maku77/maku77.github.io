@@ -1,6 +1,6 @@
 ---
 title: チャート上に口座情報を表示するインジケータ
-created: 2016-03-26
+date: "2016-03-26"
 ---
 
 ![account-info-indicator.png](./account-info-indicator.png)

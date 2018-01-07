@@ -1,6 +1,6 @@
 ---
 title: コレクションクラスのまとめ
-created: 2014-06-16
+date: "2014-06-16"
 ---
 
 Vector と List (ArrayList, LinkedList)

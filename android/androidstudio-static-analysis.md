@@ -1,6 +1,6 @@
 ---
 title: Android Studio で静的解析プラグインを使用する
-created: 2015-12-09
+date: "2015-12-09"
 ---
 
 Gradle で Checkstyle や FindBugs のタスクを実行するのもよいですが、Android Studio に Plugin を入れておくと、警告箇所を簡単に調べられるようになります。

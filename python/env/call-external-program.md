@@ -1,6 +1,6 @@
 ---
 title: Python から外部プログラムを起動する (subprocess.run)
-created: 2012-09-28
+date: "2012-09-28"
 ---
 
 単純に実行するだけの場合

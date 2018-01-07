@@ -1,6 +1,6 @@
 ---
 title: Bash の if-else 構文
-created: 2007-05-08
+date: "2007-05-08"
 ---
 
 ```bash

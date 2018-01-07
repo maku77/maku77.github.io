@@ -1,6 +1,6 @@
 ---
 title: GDBus と dbus-glib
-created: 2012-05-09
+date: "2012-05-09"
 ---
 
 D-Bus の low-level API は **libdbus** というライブラリで提供されています。

@@ -1,6 +1,6 @@
 ---
 title: Express で静的ファイル（static ファイル）をホスティングする
-created: 2013-10-28
+date: "2013-10-28"
 ---
 
 Express で static ファイルを使用するには、標準で組み込まれている static ミドルウェアを使用します。

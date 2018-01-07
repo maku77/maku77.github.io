@@ -1,6 +1,6 @@
 ---
 title: Swing - JTextArea に表示するフォントを設定する
-created: 2011-03-21
+date: "2011-03-21"
 ---
 
 `JTextArea#setFont` メソッドにより、表示するフォントを変更することができます。

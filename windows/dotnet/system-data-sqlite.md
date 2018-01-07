@@ -1,6 +1,6 @@
 ---
 title: .NET - System.Data.SQLite で SQLite データベースを使用する
-created: 2009-03-01
+date: "2009-03-01"
 ---
 
 ダウンロード＆ DLL の参照設定

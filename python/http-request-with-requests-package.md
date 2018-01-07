@@ -1,6 +1,6 @@
 ---
 title: requests パッケージによる HTTP リクエスト
-created: 2015-05-18
+date: "2015-05-18"
 ---
 
 requests パッケージのインストール

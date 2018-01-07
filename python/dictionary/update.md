@@ -1,6 +1,6 @@
 ---
 title: 2 つの dictionary をマージする (update)
-created: 2005-10-20
+date: "2005-10-20"
 ---
 
 dictionary  オブジェクト `d1` に、`d2` の要素をマージするには下記のようにします。

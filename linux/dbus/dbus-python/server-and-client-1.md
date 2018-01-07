@@ -1,6 +1,6 @@
 ---
 title: dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）
-created: 2012-09-05
+date: "2012-09-05"
 ---
 
 dbus-python を利用したサーバとクライアントの実装例です。

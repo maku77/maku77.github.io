@@ -1,6 +1,6 @@
 ---
 title: CLASSPATH 関連のエラーに対処する
-created: 2005-06-27
+date: "2005-06-27"
 ---
 
 java.lang.NoClassDefFoundError: XXX/class

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - Active Record でデータベースの CRUD 操作を行う
-created: 2012-07-24
+date: "2012-07-24"
 ---
 
 Active Recode による CRUD 操作

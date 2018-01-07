@@ -1,6 +1,6 @@
 ---
 title: CPAN に登録されたディストリビューションの README ファイルを表示する
-created: 2008-07-06
+date: "2008-07-06"
 ---
 
 #### 例: DBD::mysql モジュールの README を表示

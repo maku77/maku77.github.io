@@ -1,6 +1,6 @@
 ---
 title: "コマンドライン引数によるオプションに対応する (optparse)"
-created: 2016-04-18
+date: "2016-04-18"
 ---
 
 OptionParser の基本

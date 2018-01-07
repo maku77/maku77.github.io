@@ -1,6 +1,6 @@
 ---
 title: 定義されている定数をすべて表示する (get_defined_constants)
-created: 2012-12-24
+date: "2012-12-24"
 ---
 
 get_defined_constants

@@ -1,6 +1,6 @@
 ---
 title: テーブルを作成したときのコマンドを表示する (SHOW CREATE TABLE)
-created: 2012-08-17
+date: "2012-08-17"
 ---
 
 `SHOW CREATE TABLE テーブル名` と実行すると、指定したテーブルの作成に使われた `CREATE TABLE` コマンドを表示することができます。

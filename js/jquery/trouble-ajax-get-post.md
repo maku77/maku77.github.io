@@ -1,6 +1,6 @@
 ---
 title: jQuery の ajax/get/post メソッドが動作しない
-created: 2013-10-29
+date: "2013-10-29"
 ---
 
 dataType 間違いでコールバックが呼ばれないケース

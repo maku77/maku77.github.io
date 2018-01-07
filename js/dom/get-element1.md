@@ -1,6 +1,6 @@
 ---
 title: "HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索"
-created: 2018-01-06
+date: "2018-01-06"
 ---
 
 タグ名で要素を取得する (getElementsByTagName)

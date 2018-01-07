@@ -1,6 +1,6 @@
 ---
 title: Git の作業ツリーを作成する (git init, git clone)
-created: 2010-07-17
+date: "2010-07-17"
 ---
 
 Git の作業ツリーの作成方法は２つ

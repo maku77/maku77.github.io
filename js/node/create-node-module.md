@@ -1,6 +1,6 @@
 ---
 title: Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）
-created: 2013-10-23
+date: "2013-10-23"
 ---
 
 Node モジュールの作り方

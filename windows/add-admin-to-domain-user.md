@@ -1,6 +1,6 @@
 ---
 title: ドメインユーザーにローカル PC の Administrator 権限を与える
-created: 2011-02-24
+date: "2011-02-24"
 ---
 
 下記は Windows 7 で確認しています。

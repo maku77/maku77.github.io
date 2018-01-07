@@ -1,6 +1,6 @@
 ---
 title: Express をインストールする
-created: 2013-10-22
+date: "2013-10-22"
 ---
 
 Express は Node Package Manager (NPM) を使って以下のようにインストールできます。

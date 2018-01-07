@@ -1,6 +1,6 @@
 ---
 title: 文字列を分割する (explode)
-created: 2012-01-25
+date: "2012-01-25"
 ---
 
 explode による文字列分割

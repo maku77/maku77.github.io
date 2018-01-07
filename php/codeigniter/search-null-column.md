@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - ActiveRecord でカラムが NULL のもの、NULL でないものを検索する
-created: 2013-01-07
+date: "2013-01-07"
 ---
 
 CodeIgniter の Active Record 機能を使用することで、データベース内から、ある条件に一致するレコードを検索することができます。

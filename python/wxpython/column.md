@@ -1,6 +1,6 @@
 ---
 title: wxPython 関連コラム
-created: 2007-03-23
+date: "2007-03-23"
 ---
 
 Python 標準搭載の Tkinter ではダメなわけ

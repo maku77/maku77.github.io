@@ -1,6 +1,6 @@
 ---
 title: JSLint で JavaScript コードの静的解析を行う
-created: 2015-04-07
+date: "2015-04-07"
 ---
 
 jslist コマンドのインストール

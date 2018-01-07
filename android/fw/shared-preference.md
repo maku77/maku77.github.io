@@ -1,6 +1,6 @@
 ---
 title: SharedPreference でアプリの設定値を保存する
-created: 2010-05-29
+date: "2010-05-29"
 ---
 
 SharedPreferences とは

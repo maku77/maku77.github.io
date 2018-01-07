@@ -1,6 +1,6 @@
 ---
 title: getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う
-created: 2010-11-15
+date: "2010-11-15"
 ---
 
 getevent により入力デバイスへの入力情報を監視する

@@ -1,6 +1,6 @@
 ---
 title: "サンプル: 通貨ペアとタイムフレームを大きく表示する"
-created: 2016-03-21
+date: "2016-03-21"
 ---
 
 ![large-symbol.png](./large-symbol.png)

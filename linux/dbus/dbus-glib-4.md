@@ -1,6 +1,6 @@
 ---
 title: dbus-glib で method call を実装する（クライアント側の実装）
-created: 2012-05-10
+date: "2012-05-10"
 ---
 
 `dbus-binding-tool` を使用すると、クライアント側の実装に使うヘッダーファイルとして、

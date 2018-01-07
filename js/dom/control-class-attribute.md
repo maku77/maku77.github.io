@@ -1,6 +1,6 @@
 ---
 title: HTML 要素の class 属性の値を追加・削除・トグルする
-created: 2015-03-01
+date: "2015-03-01"
 ---
 
 下記の `addClass()`、`removeClass()`、`toggleClass()` 関数は、指定した要素の class 属性を操作します。

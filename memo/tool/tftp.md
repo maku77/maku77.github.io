@@ -1,6 +1,6 @@
 ---
 title: TFTP の使い方（TFTP によるファイル転送）
-created: 2009-05-25
+date: "2009-05-25"
 ---
 
 TFTP の特徴

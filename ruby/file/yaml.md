@@ -1,6 +1,6 @@
 ---
 title: Ruby で YAML ファイルを扱う
-created: 2016-10-20
+date: "2016-10-20"
 ---
 
 Ruby には [YAML ファイル](https://ja.wikipedia.org/wiki/YAML)を扱うためのモジュール `yaml` が標準で搭載されています。

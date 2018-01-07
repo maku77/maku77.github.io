@@ -1,6 +1,6 @@
 ---
 title: Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する
-created: 2016-10-13
+date: "2016-10-13"
 ---
 
 環境変数で Gradle プロジェクトのプロパティを設定する

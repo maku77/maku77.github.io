@@ -1,6 +1,6 @@
 ---
 title: Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)
-created: 2007-04-10
+date: "2007-04-10"
 ---
 
 py2exe を使用すると、Python のスクリプトから Windows 上で実行可能な .exe ファイルを作成することができます。

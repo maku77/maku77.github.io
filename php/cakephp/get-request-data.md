@@ -1,6 +1,6 @@
 ---
 title: CakePHP - クライアントからのリクエストデータを取得する (Controller::request)
-created: 2012-05-27
+date: "2012-05-27"
 ---
 
 

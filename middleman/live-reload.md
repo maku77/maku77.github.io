@@ -1,6 +1,6 @@
 ---
 title: LiveReload 機能を使って Web ブラウザを自動でリロードする
-created: 2015-11-04
+date: "2015-11-04"
 ---
 
 LiveReload 機能とは

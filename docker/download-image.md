@@ -1,6 +1,6 @@
 ---
 title: Docker イメージのダウンロードと Hello World
-created: 2015-03-15
+date: "2015-03-15"
 ---
 
 Docker イメージのダウンロード

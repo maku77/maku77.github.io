@@ -1,6 +1,6 @@
 ---
 title: mongoose で MongoDB (1) mongoose をインストールする
-created: 2014-02-10
+date: "2014-02-10"
 ---
 
 **mongoose** は Node.js で MongoDB を使用するためのモジュールです。

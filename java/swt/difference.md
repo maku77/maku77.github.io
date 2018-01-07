@@ -1,6 +1,6 @@
 ---
 title: Swt - AWT と Swing と SWT と JFace の違い
-created: 2010-08-10
+date: "2010-08-10"
 ---
 
 AWT (Abstract Window Toolkit)

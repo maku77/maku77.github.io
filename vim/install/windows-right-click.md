@@ -1,6 +1,6 @@
 ---
 title: Windows の右クリックから Vim を開けるようにする
-created: 2013-06-10
+date: "2013-06-10"
 ---
 
 （Windows Vista、Windows 7 で動作確認）

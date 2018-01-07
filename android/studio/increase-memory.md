@@ -1,6 +1,6 @@
 ---
 title: Android Studio に割り当てるメモリを増やす
-created: 2016-03-22
+date: "2016-03-22"
 ---
 
 Android Studio に割り当てられる VM のメモリ容量は、デフォルトで最大 750MB (`-Xmx750m`) に設定されています。

@@ -1,6 +1,6 @@
 ---
 title: Android Studio を使っているときの Gradle 関連ファイル
-created: 2015-11-12
+date: "2015-11-12"
 ---
 
 Android Studio を使ったり、Gradle でマルチプロジェクトを扱っていたりすると、Gradle 関連のプロパティファイル (.properties) やビルドスクリプト (.gradle) が増えてきます。

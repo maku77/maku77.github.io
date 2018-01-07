@@ -1,6 +1,6 @@
 ---
 title: JSON 形式のテキストを Python のオブジェクトに変換する
-created: 2013-05-22
+date: "2013-05-22"
 ---
 
 * 参考: [Python のオブジェクトを JSON 形式のテキストに変換する](./python-to-json.html)

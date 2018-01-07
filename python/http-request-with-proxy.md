@@ -1,6 +1,6 @@
 ---
 title: urllib による HTTP リクエスト (2) プロキシ経由でアクセス
-created: 2014-11-28
+date: "2014-11-28"
 ---
 
 `urllib.request` を使用した HTTP アクセスは、デフォルトで `http_proxy (ftp_proxy)` 環境変数に指定したプロキシ経由でアクセスが行われます。

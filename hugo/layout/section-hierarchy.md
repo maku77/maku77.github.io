@@ -1,6 +1,6 @@
 ---
 title: "セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)"
-created: 2017-12-05
+date: "2017-12-05"
 description: "Hugo のテンプレートファイル内から参照できる .Parent や .Sections といった Page 変数を参照すると、親セクションの情報や、子セクションの情報を取得することができます。"
 ---
 

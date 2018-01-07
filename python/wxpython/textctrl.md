@@ -1,6 +1,6 @@
 ---
 title: wxPython - TextCtrl（テキスト入力用）
-created: 2007-02-06
+date: "2007-02-06"
 ---
 
 wx.TextCtrl の基本

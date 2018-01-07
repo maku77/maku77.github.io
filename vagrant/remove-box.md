@@ -1,6 +1,6 @@
 ---
 title: 不要な box を削除する (vagrant remove box)
-created: 2016-11-01
+date: "2016-11-01"
 ---
 
 box ファイルとは

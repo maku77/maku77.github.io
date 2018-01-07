@@ -1,6 +1,6 @@
 ---
 title: Express で Web サーバを作成する
-created: 2013-10-22
+date: "2013-10-22"
 ---
 
 Express のメインオブジェクトは Application オブジェクトと呼ばれ、以下のようにして生成します。

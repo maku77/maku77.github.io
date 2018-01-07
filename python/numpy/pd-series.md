@@ -1,6 +1,6 @@
 ---
 title: pandas.Series - Pandas でラベル付き一次元データを扱う
-created: 2017-01-23
+date: "2017-01-23"
 ---
 
 pandas.Series はラベル付き一次元配列

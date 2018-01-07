@@ -1,6 +1,6 @@
 ---
 title: Express で CORS の設定を行う（クロスドメインでの Ajax を許可）
-created: 2013-12-01
+date: "2013-12-01"
 ---
 
 特定のリクエスト時にクロスドメイン通信を許すには、下記のように特定のリクエストに対する `response` で `Access-Control-Allow-Origin` ヘッダを追加します。

@@ -1,6 +1,6 @@
 ---
 title: 最初から Strict モードを有効にすべし
-created: 2012-11-09
+date: "2012-11-09"
 ---
 
 Strict Mode を有効にする

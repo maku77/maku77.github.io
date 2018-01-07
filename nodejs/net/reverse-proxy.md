@@ -1,6 +1,6 @@
 ---
 title: Node.js でお手軽リバースプロキシを作る
-created: 2012-12-07
+date: "2012-12-07"
 ---
 
 Node.js の http-proxy モジュールについて

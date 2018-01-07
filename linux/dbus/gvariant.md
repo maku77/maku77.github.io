@@ -1,6 +1,6 @@
 ---
 title: glib の GVariant を使ってみる
-created: 2012-06-20
+date: "2012-06-20"
 ---
 
 GVariant 型とは

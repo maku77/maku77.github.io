@@ -1,6 +1,6 @@
 ---
 title: Go 言語のインタフェースの扱いを理解する (interface)
-created: 2017-09-11
+date: "2017-09-11"
 description: "Go 言語の interface は、Java などとは異なり、implements 宣言による実装の明示を行いません。"
 ---
 

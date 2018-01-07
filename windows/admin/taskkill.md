@@ -1,6 +1,6 @@
 ---
 title: "Windows で実行中のプロセス（タスク）を終了 (kill) する (taskkill)"
-created: 2017-10-10
+date: "2017-10-10"
 description: "taskkill コマンドを使用すると、実行ファイル名 (.exe) やプロセス ID (PID) を指定してタスクを終了することができます。"
 ---
 

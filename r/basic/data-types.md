@@ -1,6 +1,6 @@
 ---
 title: R のデータ型
-created: 2014-12-08
+date: "2014-12-08"
 ---
 
 実数 (numeric)

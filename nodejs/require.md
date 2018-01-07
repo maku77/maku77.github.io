@@ -1,6 +1,6 @@
 ---
 title: Node.js が require() で検索するパスのまとめ
-created: 2014-09-22
+date: "2014-09-22"
 ---
 
 `app/main.js` の中で `require()` を実行したときに、Node.js がどのようにファイルをサーチするかのまとめです。

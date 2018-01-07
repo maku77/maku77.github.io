@@ -1,6 +1,6 @@
 ---
 title: "Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)"
-created: 2014-09-22
+date: "2014-09-22"
 ---
 
 Express の HTTP サーバログを表示するには、Logger 系のミドルウェアを使用します。

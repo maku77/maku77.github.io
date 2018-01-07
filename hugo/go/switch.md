@@ -1,6 +1,6 @@
 ---
 title: "switch による条件分岐"
-created: 2017-08-31
+date: "2017-08-31"
 description: "Go 言語の switch 文は、Java や C++ に比べて簡潔に記述できるようになっています。"
 ---
 

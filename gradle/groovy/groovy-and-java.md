@@ -1,6 +1,6 @@
 ---
 title: Groovy と Java の違い
-created: 2015-07-07
+date: "2015-07-07"
 ---
 
 Groovy は Java と異なり、下記のような特徴を持っています。

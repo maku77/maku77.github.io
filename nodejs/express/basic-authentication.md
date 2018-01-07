@@ -1,6 +1,6 @@
 ---
 title: Express で Basic 認証を有効にする
-created: 2013-10-29
+date: "2013-10-29"
 ---
 
 Express に標準で付属している、`basicAuth` ミドルウェアを使用すると、簡単に Basic 認証をかけることができます。

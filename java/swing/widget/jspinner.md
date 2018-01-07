@@ -1,6 +1,6 @@
 ---
 title: Swing - JSpinner を使って上下矢印で値を入力できるようにする
-created: 2011-02-02
+date: "2011-02-02"
 ---
 
 数値を選択するための JSpinner を使用する (SpinnerNumberModel)

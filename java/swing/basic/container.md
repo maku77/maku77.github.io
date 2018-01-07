@@ -1,6 +1,6 @@
 ---
 title: Swing - Container と JComponent と JFrame の関係
-created: 2011-01-09
+date: "2011-01-09"
 ---
 
 クラス階層

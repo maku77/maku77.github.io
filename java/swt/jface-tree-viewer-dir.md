@@ -1,6 +1,6 @@
 ---
 title: JFace の TreeViewer を使ってディレクトリツリーを表示する
-created: 2005-07-24
+date: "2005-07-24"
 ---
 
 JFace の TreeViewer で、ディレクトリツリーを表示するサンプルです。

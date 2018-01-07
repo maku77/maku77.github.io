@@ -1,6 +1,6 @@
 ---
 title: Middleman で Sassy CSS (SCSS) を使用する
-created: 2015-11-04
+date: "2015-11-04"
 ---
 
 SCSS ファイルから CSS ファイルを生成する

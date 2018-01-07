@@ -1,6 +1,6 @@
 ---
 title: LowMemoryKiller の too many background によるプロセス kill の仕組み
-created: 2011-09-07
+date: "2011-09-07"
 ---
 
 ActivityManagerService.java の中の `updateOomAdjLocked()` は、Android の動作中に頻繁に呼び出され、バックグラウンドで走っているプロセスが多くなると、プロセスを自動的に kill するようになっています。

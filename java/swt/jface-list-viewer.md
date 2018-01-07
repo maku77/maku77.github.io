@@ -1,6 +1,6 @@
 ---
 title: JFace - JFace の ListViewer を使用する
-created: 2010-10-17
+date: "2010-10-17"
 ---
 
 本格的なことをやるなら List じゃなくて ListViewer

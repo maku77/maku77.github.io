@@ -1,6 +1,6 @@
 ---
 title: テーブルにカラムを追加する (ALTER TABLE ～ ADD COLUMN)
-created: 2013-01-06
+date: "2013-01-06"
 ---
 
 カラムを（末尾に）追加する

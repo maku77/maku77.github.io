@@ -1,6 +1,6 @@
 ---
 title: .NET - 現地時刻（ローカルタイム）と世界協定時刻 (UTC) の扱いを理解する
-created: 2009-03-07
+date: "2009-03-07"
 ---
 
 .NET の `DateTime` オブジェクトが、local time を表しているか UTC を表しているかは、`DateTime.Kind` プロパティ（型: `DateTimeKind`）で調べることができます。

@@ -1,6 +1,6 @@
 ---
 title: "ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)"
-created: 2017-10-02
+date: "2017-10-02"
 description: "ショートコードの中で $.Site.Params を参照すると、サイト設定ファイル (config.toml) で設定した params 情報にアクセスすることができます。"
 ---
 

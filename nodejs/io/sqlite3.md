@@ -1,6 +1,6 @@
 ---
 title: "Node.js で SQLite を使用する (3) SELECT 文を実行する"
-created: 2014-01-24
+date: "2014-01-24"
 ---
 
 `SELECT` ステートメントを実行して結果を取得するには、`sqlite3.Database` オブジェクトの以下のメソッドを使用します。

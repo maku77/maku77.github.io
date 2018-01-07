@@ -1,6 +1,6 @@
 ---
 title: "Octave の制御命令: if ～ else"
-created: 2017-03-27
+date: "2017-03-27"
 ---
 
 Octave (MATLAB) の if ～ else の構文は以下のようになっています。

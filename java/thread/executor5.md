@@ -1,6 +1,6 @@
 ---
 title: Executor によるタスク処理 (5) ScheduledExecutorService によるタスクのスケジュール
-created: 2014-07-12
+date: "2014-07-12"
 ---
 
 `Executors` クラスが提供する、`Executor` インスタンスのファクトリのうち、下記の 2 つは、`ScheduledExecutorService` オブジェクトを生成します。

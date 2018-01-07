@@ -1,6 +1,6 @@
 ---
 title: Android ビルド環境を構築するための Dockerfile
-created: 2015-04-02
+date: "2015-04-02"
 ---
 
 下記の Dockerfile を使うと、Ubuntu 14.04 あるいは、Ubuntu 12.04 をベースにした Android ビルド用の Docker イメージを作成することができます。

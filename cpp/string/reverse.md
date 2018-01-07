@@ -1,6 +1,6 @@
 ---
 title: "文字列を逆順にする (reverse)"
-created: 2011-12-05
+date: "2011-12-05"
 ---
 
 `algorithm` ライブラリで提供されている `std::reverse()` 関数を使用すれば、`char` 配列や `string` 変数に格納された文字列を逆順にすることができます。

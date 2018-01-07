@@ -1,6 +1,6 @@
 ---
 title: Ansible とは？ Ansible をインストールする
-created: 2016-10-22
+date: "2016-10-22"
 ---
 
 Ansible とは？

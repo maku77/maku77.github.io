@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - Form Validation クラスでフォームに入力された値を検査する
-created: 2012-08-14
+date: "2012-08-14"
 ---
 
 

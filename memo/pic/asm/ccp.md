@@ -1,6 +1,6 @@
 ---
 title: "CCP (Compare/Capture/PWM) モジュール ─ PIC めもめも"
-created: 2002-08-01
+date: "2002-08-01"
 ---
 
 CCP モジュールのモード

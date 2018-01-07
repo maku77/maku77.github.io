@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: Print 関数によるデバッグ"
-created: 2017-09-17
+date: "2017-09-17"
 description: "Print 関数を使用すると、プログラムの実行中に任意のテキストを印刷ログウィンドウに表示することができます。"
 ---
 

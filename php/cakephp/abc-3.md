@@ -1,6 +1,6 @@
 ---
 title: CakePHP 入門 (3) CakePHP アプリの URL の仕組み
-created: 2012-05-03
+date: "2012-05-03"
 ---
 
 CakePHP で作成したアプリケーションは、以下のような URL でアクセスする規約になっています（Ruby on Rails なども同様の考え方です）。

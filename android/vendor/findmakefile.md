@@ -1,6 +1,6 @@
 ---
 title: findmakefile コマンドで Android.mk のあるディレクトリを調べる
-created: 2011-08-09
+date: "2011-08-09"
 ---
 
 `build/envsetup.sh` で定義されているシェル関数 `findmakefile` を使用すると、カレントディレクトリから上に `Android.mk` を探してそのパスを調べることができます。

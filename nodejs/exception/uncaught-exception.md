@@ -1,6 +1,6 @@
 ---
 title: "Node.js での例外処理: (2) Uncaught Exception（未捕捉例外）をハンドルする"
-created: 2014-01-25
+date: "2014-01-25"
 ---
 
 ハンドルされていない例外を、最上位でまとめてハンドルするには、以下のようにして `process` グローバルオブジェクトに、`uncaughtException` イベントのハンドラを設定します。

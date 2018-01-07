@@ -1,6 +1,6 @@
 ---
 title: SWT - JFace アプリケーションの雛形コード
-created: 2010-10-11
+date: "2010-10-11"
 ---
 
 #### MainWindow.java （このクラスはあまり変更しない）

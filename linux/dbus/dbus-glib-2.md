@@ -1,6 +1,6 @@
 ---
 title: dbus-glib で method call を実装する（ヘッダファイルの生成）
-created: 2012-05-08
+date: "2012-05-08"
 ---
 
 ここでは、D-Bus (GLib bindings) を使って、リモートメソッド呼び出しを実現してみます。

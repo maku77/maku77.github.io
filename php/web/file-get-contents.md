@@ -1,6 +1,6 @@
 ---
 title: Web サーバ上のコンテンツを HTTP で取得する (file_get_contents)
-created: 2013-06-11
+date: "2013-06-11"
 ---
 
 file_get_contents の基本

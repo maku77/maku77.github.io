@@ -1,6 +1,6 @@
 ---
 title: 条件指定によるループ (while と until)
-created: 2002-08-20
+date: "2002-08-20"
 ---
 
 while の構文

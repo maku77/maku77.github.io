@@ -1,6 +1,6 @@
 ---
 title: wxPython - RadioButton（ラジオボタン）
-created: 2007-04-09
+date: "2007-04-09"
 ---
 
 ラジオボタンを使用する

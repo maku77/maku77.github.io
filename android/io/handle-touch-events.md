@@ -1,6 +1,6 @@
 ---
 title: タッチイベントをハンドルする
-created: 2014-07-29
+date: "2014-07-29"
 ---
 
 onTouchEvent/OnTouchListener で基本情報を取得する

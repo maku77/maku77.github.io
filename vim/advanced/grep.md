@@ -1,6 +1,6 @@
 ---
 title: Vim 内で grep を実行して見つかったファイルへジャンプする
-created: 2010-09-13
+date: "2010-09-13"
 ---
 
 内部 grep  (internal grep) と外部 grep (external grep)

@@ -1,6 +1,6 @@
 ---
 title: 文字列の結合には StringBuffer ではなく StringBuilder を使用する
-created: 2014-07-02
+date: "2014-07-02"
 ---
 
 StringBuffer と StringBuilder

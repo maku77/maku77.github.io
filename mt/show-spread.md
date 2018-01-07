@@ -1,6 +1,6 @@
 ---
 title: スプレッドを表示する
-created: 2015-10-08
+date: "2015-10-08"
 ---
 
 指定した通貨ペアのスプレッドを取得するには、`SymbolInfoInteger` 関数で `SYMBOL_SPREAD` を指定します。

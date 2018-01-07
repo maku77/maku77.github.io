@@ -1,6 +1,6 @@
 ---
 title: プログラムの実行時間を計測するクラス (PerfTimer) を作成する
-created: 2011-06-28
+date: "2011-06-28"
 ---
 
 下記は、`gettimeofday` を使用した、パフォーマンス計測用クラス `PerfTimer` の実装例です。

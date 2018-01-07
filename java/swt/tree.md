@@ -1,6 +1,6 @@
 ---
 title: SWT - ツリービュー (Tree) を表示する
-created: 2010-10-10
+date: "2010-10-10"
 ---
 
 SWT でツリービュー (org.eclipse.swt.widgets.Tree) を使用するサンプルです。

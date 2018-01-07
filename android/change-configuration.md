@@ -1,6 +1,6 @@
 ---
 title: 現在の Configuration を変更する
-created: 2011-09-14
+date: "2011-09-14"
 ---
 
 `ActivityManagerNative` は hide クラスなので、一般のアプリ開発者は以下のコードはビルドできません。

@@ -1,6 +1,6 @@
 ---
 title: Swing で Hello World
-created: 2011-01-05
+date: "2011-01-05"
 ---
 
 下記は、Swing を使って簡単なウィンドウを表示するサンプルです。

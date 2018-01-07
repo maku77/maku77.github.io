@@ -1,6 +1,6 @@
 ---
 title: JFace の CheckboxTreeViewer を使用する
-created: 2005-07-27
+date: "2005-07-27"
 ---
 
 JFace の CheckboxTreeViewer を使用すると、チェックボックス付きのツリーを表示することができます。

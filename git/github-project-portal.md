@@ -1,6 +1,6 @@
 ---
 title: GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する
-created: 2014-07-14
+date: "2014-07-14"
 ---
 
 GitHub Pages という機能を使用すると、GitHub 上で Web サイトをホスティングできます。

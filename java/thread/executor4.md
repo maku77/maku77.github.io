@@ -1,6 +1,6 @@
 ---
 title: Executor によるタスク処理 (4) 既存の Thread から Future オブジェクトを取得する
-created: 2014-07-12
+date: "2014-07-12"
 ---
 
 `Future` オブジェクトは通常 `ExecutorService#submit()` に `Callable` オブジェクトを渡すことで取得しますが、従来の `Thread` オブジェクトを使って同様のことを行う手段も提供されています。

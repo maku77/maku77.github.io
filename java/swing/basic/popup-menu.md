@@ -1,6 +1,6 @@
 ---
 title: Swing - 右クリックでポップアップメニューを表示する
-created: 2011-02-20
+date: "2011-02-20"
 ---
 
 マウスの右クリックをしたときにポップアップメニューを表示するには、JPopupMenu に JMenuItem を登録しておき、`JPopupMenu.show()` を実行します。

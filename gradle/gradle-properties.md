@@ -1,6 +1,6 @@
 ---
 title: Gradle のプロジェクトで使用可能なプロパティの一覧を表示する (properties)
-created: 2014-06-08
+date: "2014-06-08"
 ---
 
 ```sh

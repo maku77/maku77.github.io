@@ -1,6 +1,6 @@
 ---
 title: "Octave の制御命令: for/while/until ループ"
-created: 2017-03-27
+date: "2017-03-27"
 ---
 
 Octave のループ構文は、下記のようなものが用意されています。

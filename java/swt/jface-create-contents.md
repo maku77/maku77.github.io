@@ -1,6 +1,6 @@
 ---
 title: JFace - JFace のウィンドウにウィジェットを配置する
-created: 2010-08-21
+date: "2010-08-21"
 ---
 
 ![jface-create-contents1.png](./jface-create-contents1.png)

@@ -1,6 +1,6 @@
 ---
 title: CakePHP 入門 (7) レコードを追加できるようにする
-created: 2012-05-04
+date: "2012-05-04"
 ---
 
 まず、Controller に新しい Action として `add()` を追加し、対応するテンプレートとして、`add.ctp` を作成します。

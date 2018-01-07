@@ -1,6 +1,6 @@
 ---
 title: "MPLAB-SIM Software Simulator によるデバッグ ─ PIC めもめも"
-created: 2002-08-01
+date: "2002-08-01"
 ---
 
 MPLAB-SIM Software Simulator を使うと、ブレークポイントやトレース機能などを用いてプログラムのデバッグを行なうことができます。

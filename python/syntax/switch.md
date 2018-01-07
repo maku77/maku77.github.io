@@ -1,6 +1,6 @@
 ---
 title: Python の switch-case 構文
-created: 2014-11-28
+date: "2014-11-28"
 ---
 
 Python には switch-case 構文はありません。

@@ -1,6 +1,6 @@
 ---
 title: "SWT - SWT/JFace における色 (Color) 情報の扱い方"
-created: 2010-10-17
+date: "2010-10-17"
 ---
 
 SWT Color Model

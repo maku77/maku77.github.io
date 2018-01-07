@@ -1,6 +1,6 @@
 ---
 title: Amazon EC2 に Jenkins をインストールする
-created: 2016-10-14
+date: "2016-10-14"
 ---
 
 ここでは、EC2 インスタンスとして、**Amazon Linux AMI (t2.micro)** を選択した場合の Jenkins インストール方法を示します。

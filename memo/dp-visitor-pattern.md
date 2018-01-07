@@ -1,6 +1,6 @@
 ---
 title: Visitor パターン
-created: 2011-04-10
+date: "2011-04-10"
 ---
 
 Visitor パターンの特徴

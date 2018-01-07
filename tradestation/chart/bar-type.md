@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: チャートのバータイプ、足種を取得する (BarType, BarInterval)"
-created: 2017-09-17
+date: "2017-09-17"
 description: "分析チャートがどのような足のタイプで表示されているかを調べるには BarType 属性を参照します。"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - Session クラスでセッションデータを保持する
-created: 2012-08-13
+date: "2012-08-13"
 ---
 
 Session クラスとは

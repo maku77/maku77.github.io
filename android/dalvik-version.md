@@ -1,6 +1,6 @@
 ---
 title: ART/Dalvik VM のバージョンを調べる
-created: 2010-06-01
+date: "2010-06-01"
 ---
 
 Android デバイスの VM のバージョンは `dalvikvm` コマンドで調べることができます。

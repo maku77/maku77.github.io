@@ -1,6 +1,6 @@
 ---
 title: Dex 形式の Shared library (JAR) を作成する (dx)
-created: 2014-10-30
+date: "2014-10-30"
 ---
 
 Android デバイスの `/system/framework` に以下に格納して使用する Shared JAR ライブラリは、DEX 形式にコンパイルされたクラスを含んでいる必要があります。Eclipse などで単純に JAR ファイルを生成すると、PC 用の JAR ライブラリができてしまうので、DEX 形式に変換してから `/system/framework` にインストールする必要があります。

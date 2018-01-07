@@ -1,6 +1,6 @@
 ---
 title: MySQL で新しいデータベースを作成する (CREATE DATABASE)
-created: 2012-07-14
+date: "2012-07-14"
 ---
 
 ユーザ testuser から操作可能なデータベース testdb を作成する

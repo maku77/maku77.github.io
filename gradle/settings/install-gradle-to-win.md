@@ -1,6 +1,6 @@
 ---
 title: Gradle を Windows にインストールする
-created: 2014-06-16
+date: "2014-06-16"
 ---
 
 [http://www.gradle.org/downloads](http://www.gradle.org/downloads)

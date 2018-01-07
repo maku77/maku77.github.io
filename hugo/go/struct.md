@@ -1,6 +1,6 @@
 ---
 title: "構造体を定義する (struct)"
-created: 2017-09-05
+date: "2017-09-05"
 descrition: "Go 言語の構造体は、struct というキーワードを使って定義します。"
 ---
 

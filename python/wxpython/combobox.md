@@ -1,6 +1,6 @@
 ---
 title: wxPython - ComboBox（コンボボックス）
-created: 2007-04-10
+date: "2007-04-10"
 ---
 
 コンボ・ボックスを作成する

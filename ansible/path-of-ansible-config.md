@@ -1,6 +1,6 @@
 ---
 title: ansible.cfg ファイルの検索パス
-created: 2016-10-23
+date: "2016-10-23"
 ---
 
 Ansible の実行環境が参照する設定ファイル (`ansible.cfg`) は、下記のようなパスから検索されます。

@@ -1,6 +1,6 @@
 ---
 title: GitHub のプランと GitHub ライクなツールの比較など（GitHub と GitLab の比較）
-created: 2014-05-14
+date: "2014-05-14"
 ---
 
 GitHub (https://github.com/) デファクトスタンダード

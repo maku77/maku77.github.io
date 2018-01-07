@@ -1,6 +1,6 @@
 ---
 title: Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ
-created: 2014-01-02
+date: "2014-01-02"
 ---
 
 プロセス ID (pid: Process ID)

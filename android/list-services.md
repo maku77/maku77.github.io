@@ -1,6 +1,6 @@
 ---
 title: ServiceManager に登録されたサービスを列挙する
-created: 2011-05-09
+date: "2011-05-09"
 ---
 
 下記は、デバイス上の ServiceManager に登録されたサービスを列挙するためのプログラムです。

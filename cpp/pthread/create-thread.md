@@ -1,6 +1,6 @@
 ---
 title: pthread でスレッドを生成する
-created: 2010-11-07
+date: "2010-11-07"
 ---
 
 pthread で新しいスレッドを生成するには、`pthread_create` を使用します。

@@ -1,6 +1,6 @@
 ---
 title: dictionary の要素を参照する ([], get)
-created: 2005-10-20
+date: "2005-10-20"
 ---
 
 Python の dictionary オブジェクトの要素を参照するには下記のようにします。

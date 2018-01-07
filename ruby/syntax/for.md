@@ -1,6 +1,6 @@
 ---
 title: 範囲指定によるループ (for, each, step)
-created: 2002-08-22
+date: "2002-08-22"
 ---
 
 for ~ in の構文

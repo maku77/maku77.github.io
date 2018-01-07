@@ -1,6 +1,6 @@
 ---
 title: adb から Backup Manager を走らせる (bmgr)
-created: 2012-01-26
+date: "2012-01-26"
 ---
 
 各アプリケーションは **BackupAgent** を実装することで、設定値などを Google account に紐づけてバックアップすることができます。

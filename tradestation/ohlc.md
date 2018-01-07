@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: 四本値（始値、高値、安値、終値）を取得する"
-created: 2017-07-29
+date: "2017-07-29"
 description: "Open、High、Low、Close という組み込みキーワードを使用して、代表的な四本値を取得することができます。"
 ---
 

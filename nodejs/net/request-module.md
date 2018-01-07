@@ -1,6 +1,6 @@
 ---
 title: request モジュールを使用して HTTP 通信を行う
-created: 2013-12-14
+date: "2013-12-14"
 ---
 
 request モジュールのインストール

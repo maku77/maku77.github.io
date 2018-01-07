@@ -1,6 +1,6 @@
 ---
 title: dictionary の要素を削除する (del)
-created: 2005-10-20
+date: "2005-10-20"
 ---
 
 dictionary から指定したキーの要素を削除するには、下記のようにします。

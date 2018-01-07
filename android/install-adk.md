@@ -1,6 +1,6 @@
 ---
 title: Eclipse から Android SDK を使えるようにする (ADK)
-created: 2010-04-11
+date: "2010-04-11"
 ---
 
 （Android SDK のインストールは済んでいるとします）

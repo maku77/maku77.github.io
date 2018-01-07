@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - データベースのテーブルを作成する
-created: 2012-07-14
+date: "2012-07-14"
 ---
 
 ここでは、CodeIgniter のデータベースフォージクラス (dbforge) を使用して、`books` テーブルを作成してみます。

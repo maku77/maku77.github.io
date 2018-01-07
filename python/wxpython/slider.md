@@ -1,6 +1,6 @@
 ---
 title: wxPython - Slider（スライダー）
-created: 2007-04-09
+date: "2007-04-09"
 ---
 
 スライダーを使用する

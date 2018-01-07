@@ -1,6 +1,6 @@
 ---
 title: PHP の if-else 構文
-created: 2012-01-15
+date: "2012-01-15"
 ---
 
 PHP の if 構文は、C/C++ や Java と同じです。

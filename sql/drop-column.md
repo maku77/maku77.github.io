@@ -1,6 +1,6 @@
 ---
 title: テーブルからカラムを削除する (ALTER TABLE ～ DROP COLUMN)
-created: 2013-01-06
+date: "2013-01-06"
 ---
 
 SQLite の場合

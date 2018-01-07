@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter- SQLite3 データベースの接続設定を行う
-created: 2012-07-07
+date: "2012-07-07"
 ---
 
 （以下の手順で SQLite3 を使用するには、CodeIgniter 2.1.1 以上が必要です）

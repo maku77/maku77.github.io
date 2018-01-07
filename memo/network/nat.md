@@ -1,6 +1,6 @@
 ---
 title: "NAT の種類のメモ"
-created: 2008-05-07
+date: "2008-05-07"
 description: "NAT (Network Address Translation) 関連の用語 SNAT、DNAT、NAPT、IP マスカレードなどの説明です。"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Python で XML を構築する (minidom)
-created: 2012-06-08
+date: "2012-06-08"
 ---
 
 下記は、Python の minidom モジュールが提供する DOM インタフェースを使用して XML を構築し、XML ファイルとして保存するサンプルです。

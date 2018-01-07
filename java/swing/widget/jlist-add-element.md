@@ -1,6 +1,6 @@
 ---
 title: Swing - JList に動的に要素を追加／削除する
-created: 2011-01-29
+date: "2011-01-29"
 ---
 
 ListModel を利用した JList への要素の動的な追加

@@ -1,6 +1,6 @@
 ---
 title: Swing - BorderLayout でコンポーネントを上下左右中央に並べる
-created: 2011-01-15
+date: "2011-01-15"
 ---
 
 BorderLayout は JFrame の content pane にデフォルトで設定されているレイアウトマネージャで、上下左右にコンポーネントを配置します。

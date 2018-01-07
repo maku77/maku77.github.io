@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - ユーザのログイン状態を管理する
-created: 2012-08-14
+date: "2012-08-14"
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Windows で Linux 系のコマンドを使用できるようにする (Gow)"
-created: 2012-11-19
+date: "2012-11-19"
 ---
 
 Gow のインストール

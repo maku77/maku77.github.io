@@ -1,6 +1,6 @@
 ---
 title: "position プロパティによるレイアウト方法を理解する"
-created: 2017-10-23
+date: "2017-10-23"
 description: "CSS の position プロパティには、static、fixed、relative、absolute を指定することができます。これらの使い方を理解することで、HTML 要素の配置方法に広がりが出ます。"
 ---
 

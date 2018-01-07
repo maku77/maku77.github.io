@@ -1,6 +1,6 @@
 ---
 title: BuildConfig クラスでアプリの動作を切り替える
-created: 2016-08-01
+date: "2016-08-01"
 ---
 
 Android SDK のバージョン 17 以降では、ビルド時に自動的に `BuildConfig` というクラスが生成されるようになっています。

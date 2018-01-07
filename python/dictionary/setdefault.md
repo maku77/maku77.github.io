@@ -1,6 +1,6 @@
 ---
 title: dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)
-created: 2013-06-15
+date: "2013-06-15"
 ---
 
 dictionary に値をセットするときに、まだそのキーが存在しない場合だけ新しい値をセットしたいというときには、`dict.setdefault()` メソッドを使用します。

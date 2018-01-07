@@ -1,6 +1,6 @@
 ---
 title: SuprressWarnings アノテーションで Checkstyle の警告を抑制する
-created: 2015-12-21
+date: "2015-12-21"
 ---
 
 下記のように Checkstyle の警告を `@SuppressWarnings` アノテーションで抑制できるようにするには、Checkstyle で使用するルールファイルにそれ用の設定を記述しておく必要があります。

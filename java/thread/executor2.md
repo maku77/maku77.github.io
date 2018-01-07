@@ -1,6 +1,6 @@
 ---
 title: Executor によるタスク処理 (2) ExecutorService インタフェースで Executor を停止する
-created: 2014-07-11
+date: "2014-07-11"
 ---
 
 `Executors` クラスの `Executor` ファクトリメソッド（`Executors.newCachedThreadPool()` など）が返すオブジェクトは、`ExecutorService` インタフェースを実装しています。

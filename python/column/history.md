@@ -1,6 +1,6 @@
 ---
 title: Python 開発の歴史
-created: 2013-04-07
+date: "2013-04-07"
 ---
 
 * 1989-12: 作者 Guido van Rossum がクリスマス休暇に遊びで作った

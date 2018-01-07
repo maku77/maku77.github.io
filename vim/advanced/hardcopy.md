@@ -1,6 +1,6 @@
 ---
 title: プリンタで印刷する (hardcopy)
-created: 2014-01-27
+date: "2014-01-27"
 ---
 
 Vim で印刷する

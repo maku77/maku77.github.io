@@ -1,6 +1,6 @@
 ---
 title: ADB で WakeLock を強制的に外す
-created: 2016-07-07
+date: "2016-07-07"
 ---
 
 `/sys/power/wake_unlock` に対して、WakeLock 名を書き込むと、その WakeLock を強制キャンセルすることができます。

@@ -1,6 +1,6 @@
 ---
 title: C++ の virtual の効果まとめ
-created: 2006-07-14
+date: "2006-07-14"
 ---
 
 virtual の基本

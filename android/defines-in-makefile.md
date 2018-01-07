@@ -1,6 +1,6 @@
 ---
 title: android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト
-created: 2011-04-08
+date: "2011-04-08"
 ---
 
 下記のスクリプトを `android/build/core` 以下で実行すると、Android の Makefile (.mk) 用に定義されている関数を一覧で取得できます。

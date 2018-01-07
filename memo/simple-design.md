@@ -1,6 +1,6 @@
 ---
 title: "無駄な汎用性ではなくシンプルな設計を (YAGNI)"
-created: 2015-06-15
+date: "2015-06-15"
 ---
 
 **YAGNI** (You ain't gonna need it) (You aren't going to need it) というのは、将来のためにあらかじめ入れておいた実装が、結局は使われないことを言っています。

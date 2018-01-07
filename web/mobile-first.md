@@ -1,6 +1,6 @@
 ---
 title: "モバイルファーストで考えるコツ（max-width ではなく min-width を使うべし）"
-created: 2016-07-31
+date: "2016-07-31"
 description: "モバイルファーストで Web サイトを作成するには、メディアクエリで max-width は使用せずに、min-width を使用するようにしましょう。"
 ---
 

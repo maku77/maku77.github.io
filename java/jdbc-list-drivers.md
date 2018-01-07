@@ -1,6 +1,6 @@
 ---
 title: JDBCドライバの一覧を取得する
-created: 2010-08-15
+date: "2010-08-15"
 ---
 
 ```java.sql.DriverManager#getDrivers()``` メソッドを使用して、```Drivermanager``` に登録済みの JDBC ドライバをすべて取得することができます。

@@ -1,6 +1,6 @@
 ---
 title: Lock と Condition による条件ごとのスレッド待機
-created: 2014-08-20
+date: "2014-08-20"
 ---
 
 従来の Object#wait によるスレッド待機

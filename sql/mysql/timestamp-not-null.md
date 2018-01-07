@@ -1,6 +1,6 @@
 ---
 title: MySQL の TIMESTAMP NOT NULL な時刻データの振る舞い
-created: 2012-07-18
+date: "2012-07-18"
 ---
 
 `TIMESTAMP` 型のカラムを `NOT NULL` 修飾子を付けて定義すると、そこには必ず何らかの時刻データが格納されることが保証されます。

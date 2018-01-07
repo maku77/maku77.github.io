@@ -1,6 +1,6 @@
 ---
 title: Node.js で assert を使用する
-created: 2014-07-13
+date: "2014-07-13"
 ---
 
 Node.js には、標準で assert モジュールが用意されています。

@@ -1,6 +1,6 @@
 ---
 title: dictionary オブジェクトを生成する ({})
-created: 2005-10-20
+date: "2005-10-20"
 ---
 
 空の dictionary を作成する

@@ -1,6 +1,6 @@
 ---
 title: CppUnit で private メソッドをテストできるようにする
-created: 2009-03-26
+date: "2009-03-26"
 ---
 
 テスト対象となるクラスに、テストクラスを `friend class` 指定してやれば `private` メンバのテストが可能になります。

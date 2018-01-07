@@ -1,6 +1,6 @@
 ---
 title: wxPython - Menu（メニュー）
-created: 2007-04-13
+date: "2007-04-13"
 ---
 
 メニューバーの構成

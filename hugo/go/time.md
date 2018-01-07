@@ -1,6 +1,6 @@
 ---
 title: "時刻データを扱う (time)"
-created: 2017-09-12
+date: "2017-09-12"
 description: "Go 言語で日付や時刻の情報を扱うには time パッケージの time.Time 型を使用します。"
 ---
 

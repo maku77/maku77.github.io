@@ -1,6 +1,6 @@
 ---
 title: wxPython のコンポーネントをドラッグで動かせるようにする
-created: 2007-04-23
+date: "2007-04-23"
 ---
 
 ![./image/20070423-drag_window.png](./image/20070423-drag_window.png)

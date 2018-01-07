@@ -1,6 +1,6 @@
 ---
 title: wxPython - Dialog（ダイアログ）
-created: 2007-11-05
+date: "2007-11-05"
 ---
 
 ユーザ入力を取得するダイアログ

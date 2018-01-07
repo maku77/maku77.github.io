@@ -1,6 +1,6 @@
 ---
 title: WebSocket クライアントを作成する
-created: 2014-03-05
+date: "2014-03-05"
 ---
 
 JavaScript の WebSocket API を使うときの流れは以下のようになります。

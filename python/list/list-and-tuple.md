@@ -1,6 +1,6 @@
 ---
 title: リストとタプルの違い
-created: 2009-11-24
+date: "2009-11-24"
 ---
 
 tuple と list は一連の要素を保持する sequence の一種です。

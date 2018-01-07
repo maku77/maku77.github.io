@@ -1,6 +1,6 @@
 ---
 title: Python で HTTP を扱う方法いろいろ
-created: 2015-05-17
+date: "2015-05-17"
 ---
 
 Python3 の標準 HTTP ライブラリ

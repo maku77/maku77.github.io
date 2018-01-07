@@ -1,6 +1,6 @@
 ---
 title: Administrator で Windows にログオンできるようにする
-created: 2011-02-24
+date: "2011-02-24"
 ---
 
 Windows 7 のデフォルトでは Administrator でログオンできないようになっています。

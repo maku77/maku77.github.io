@@ -1,6 +1,6 @@
 ---
 title: Node.js とは／Node.js をインストールする
-created: 2012-11-25
+date: "2012-11-25"
 ---
 
 Node.js とは

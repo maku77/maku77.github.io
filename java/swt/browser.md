@@ -1,6 +1,6 @@
 ---
 title: SWT - ブラウザウィジェット (Browser) で HTML を表示する
-created: 2010-11-24
+date: "2010-11-24"
 ---
 
 SWT の Browser ウィジェットのプラットフォーム対応状況

@@ -1,6 +1,6 @@
 ---
 title: 小文字と大文字の判別を行う
-created: 2014-11-20
+date: "2014-11-20"
 ---
 
 ある文字が、大文字と小文字のどちらであるかを判別するには、`Character.isLowerCase()` や `Character.isUpperCase()` を使用します。

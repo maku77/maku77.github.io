@@ -1,6 +1,6 @@
 ---
 title: コミットログの書き方
-created: 2008-05-20
+date: "2008-05-20"
 ---
 
 [Tim Pope さんのブログ](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)に Git のコミットログの書き方の要約が書いてあります。

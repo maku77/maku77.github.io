@@ -1,6 +1,6 @@
 ---
 title: "トラブル: Systrace の画面が真っ白になる"
-created: 2016-06-08
+date: "2016-06-08"
 ---
 
 Android の DDMS などで利用可能な systrace を実行すると、trace.html ファイルが生成されますが、この中で非推奨になった JavaScript API(Object.observe) を使用しているため、最新の Chrome では表示できない問題が出ています。

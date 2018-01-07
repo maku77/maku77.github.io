@@ -1,6 +1,6 @@
 ---
 title: mongojs で MongoDB を扱う
-created: 2013-10-25
+date: "2013-10-25"
 ---
 
 Node.js で実行する JavaScript から MongoDB にアクセスするには、Node.js Driver をインストールする必要があります。

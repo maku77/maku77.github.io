@@ -1,6 +1,6 @@
 ---
 title: Docker コンテナの詳細情報を表示する
-created: 2015-03-11
+date: "2015-03-11"
 ---
 
 `docker inspect` コマンドを使用すると、Docker コンテナの詳細情報を表示することができます。

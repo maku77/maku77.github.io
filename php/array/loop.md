@@ -1,6 +1,6 @@
 ---
 title: 配列をループ処理する (foreach)
-created: 2012-02-22
+date: "2012-02-22"
 ---
 
 foreach() によるループ処理

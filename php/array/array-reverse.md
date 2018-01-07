@@ -1,6 +1,6 @@
 ---
 title: 配列を逆順にする (array_reverse)
-created: 2012-12-24
+date: "2012-12-24"
 ---
 
 array_reverse の使い方

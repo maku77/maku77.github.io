@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - Form タグの出力には Form ヘルパーの form_open を使う
-created: 2012-08-30
+date: "2012-08-30"
 ---
 
 HTML フォームの開始タグは、例えば以下のように記述できます。

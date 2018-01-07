@@ -1,6 +1,6 @@
 ---
 title: Docker イメージを作成する - docker commit アプローチ
-created: 2015-03-12
+date: "2015-03-12"
 ---
 
 `docker commit` コマンドによるアプローチでは、Docker イメージをインタラクティブに作成していくことができます。

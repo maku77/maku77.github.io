@@ -1,6 +1,6 @@
 ---
 title: 配列をスタックとして扱う (array_push, array_pop)
-created: 2012-01-30
+date: "2012-01-30"
 ---
 
 PHP では配列をスタックとして使用できます。

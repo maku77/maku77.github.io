@@ -1,6 +1,6 @@
 ---
 title: Swing - OK ボタンと Cancel ボタンのあるダイアログを作る
-created: 2011-01-29
+date: "2011-01-29"
 ---
 
 

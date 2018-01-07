@@ -1,6 +1,6 @@
 ---
 title: new String は避ける
-created: 2012-10-20
+date: "2012-10-20"
 ---
 
 JavaScript の文字列リテラル

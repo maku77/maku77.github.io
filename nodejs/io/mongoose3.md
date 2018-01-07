@@ -1,6 +1,6 @@
 ---
 title: mongoose で MongoDB (3) モデルクラスを作成する
-created: 2014-02-10
+date: "2014-02-10"
 ---
 
 モデルクラスを作成する

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - 独自のユーザライブラリから別のライブラリをロードする
-created: 2012-08-13
+date: "2012-08-13"
 ---
 
 `application/libraries` ディレクトリに作成するユーザライブラリは、`CI_Controller` クラスや、`CI_Model` クラスを継承しないので、他のライブラリやモデルをロードするときに、

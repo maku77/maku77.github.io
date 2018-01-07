@@ -1,6 +1,6 @@
 ---
 title: SWT - リストボックス (List) を表示する
-created: 2010-08-14
+date: "2010-08-14"
 ---
 
 SWT のリストボックス (org.eclipse.swt.widgets.List) を使用するサンプルです。

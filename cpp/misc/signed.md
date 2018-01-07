@@ -1,6 +1,6 @@
 ---
 title: signed が使える場所では signed を使え
-created: 2008-04-22
+date: "2008-04-22"
 ---
 
 C/C++ において、`signed int` が使用できる場所で無理に `unsigned int` を使おうとすると、思わぬ落とし穴にはまることがあります。

@@ -1,6 +1,6 @@
 ---
 title: リストをシャッフルする (random.shuffle)
-created: 2014-04-19
+date: "2014-04-19"
 ---
 
 `random.shuffle` を使用すると、リストの要素をランダムに並び替えることができます。

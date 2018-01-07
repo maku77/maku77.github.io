@@ -1,6 +1,6 @@
 ---
 title: Swing - BorderLayout で中央に配置するコンポーネントのデフォルトサイズを設定する
-created: 2011-01-15
+date: "2011-01-15"
 ---
 
 BorderLayout を設定した Container のサイズを広げると、中央 (`BorderLayout.CENTER`) に置かれたコンポーネントのサイズが広がるため、一般的には、ユーザーに多くの領域を見せたいコンポーネントを中央に配置します。

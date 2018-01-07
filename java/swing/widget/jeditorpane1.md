@@ -1,6 +1,6 @@
 ---
 title: Swing - JEditorPane で HTML コンテンツを表示する
-created: 2011-02-06
+date: "2011-02-06"
 ---
 
 JEditorPane を使用すると、URL で指定した HTML を表示できます。

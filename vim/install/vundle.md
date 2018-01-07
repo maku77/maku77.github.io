@@ -1,6 +1,6 @@
 ---
 title: Vundle をインストールして Vim のプラグイン環境を作る
-created: 2013-04-07
+date: "2013-04-07"
 ---
 
 Vundle とは

@@ -1,6 +1,6 @@
 ---
 title: 文字列を逆順にする (reverse)
-created: 2011-12-05
+date: "2011-12-05"
 ---
 
 ```ruby

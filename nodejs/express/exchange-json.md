@@ -1,6 +1,6 @@
 ---
 title: jQuery クライアントと Express サーバで JSON データを送受信する
-created: 2013-11-05
+date: "2013-11-05"
 ---
 
 クライアント (jQuery) からサーバ (Express) への JSON データ送信（GET メソッド）

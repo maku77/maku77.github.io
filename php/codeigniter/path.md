@@ -1,6 +1,6 @@
 ---
 title: "CodeIgniter - 相対パスの扱い方のまとめ"
-created: 2013-03-02
+date: "2013-03-02"
 ---
 
 CodeIgniter のツリー構造

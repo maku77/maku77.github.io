@@ -1,6 +1,6 @@
 ---
 title: 式クロージャ (Expression Closure)
-created: 2012-11-09
+date: "2012-11-09"
 ---
 
 JavaScript の独自拡張として **Expression Closure** という文法があります。

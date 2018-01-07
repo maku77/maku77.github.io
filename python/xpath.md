@@ -1,6 +1,6 @@
 ---
 title: Python で XPath を使用する
-created: 2014-11-28
+date: "2014-11-28"
 ---
 
 Python 2.5 以降に搭載されている ElementTree XML API は、XPath による要素アクセスをサポートしています。

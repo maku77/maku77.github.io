@@ -1,6 +1,6 @@
 ---
 title: HTML/CSS サンプル
-created: 2015-10-08
+date: "2015-10-08"
 layout: category-index
 ---
 

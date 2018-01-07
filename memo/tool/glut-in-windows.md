@@ -1,6 +1,6 @@
 ---
 title: Windows (MinGW) で GLUT を使用する
-created: 2012-12-21
+date: "2012-12-21"
 ---
 
 Windows の MinGW で GLUT を使用するには、**freeglut** を使用するのが簡単です。

@@ -1,6 +1,6 @@
 ---
 title: Express の動作環境を切り替える（NODE_ENV 変数）
-created: 2014-03-09
+date: "2014-03-09"
 ---
 
 Express は、`NODE_ENV` 環境変数を見て、現在の実行環境を判断する機能を持っています。

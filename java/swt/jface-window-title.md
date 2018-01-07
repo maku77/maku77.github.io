@@ -1,6 +1,6 @@
 ---
 title: JFace - JFace のウィンドウのタイトルを設定する
-created: 2010-08-21
+date: "2010-08-21"
 ---
 
 ![jface-window-title.png](./jface-window-title.png)

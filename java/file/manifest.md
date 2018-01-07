@@ -1,6 +1,6 @@
 ---
 title: MANIFEST.MF ファイルの内容を取得する
-created: 2011-05-05
+date: "2011-05-05"
 ---
 
 `java.util.jar.JarFile` クラスは、JAR ファイル内に含まれている `MANIFEST.MF` ファイルの情報を読み込む機能を備えています。

@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - ライブラリ、ヘルパーの基礎
-created: 2012-07-22
+date: "2012-07-22"
 ---
 
 CodeIgniter のライブラリ、ヘルパーとは？

@@ -1,6 +1,6 @@
 ---
 title: HTML5 Canvas によるテキストの描画サイズを調べる
-created: 2015-04-08
+date: "2015-04-08"
 ---
 
 HTML5 Canvas に描画したテキストのサイズは、`CanvasRenderingContext2D.measureText()` を使用して調べることができます。

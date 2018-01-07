@@ -1,6 +1,6 @@
 ---
 title: wxPython - Layout（レイアウト）
-created: 2007-03-15
+date: "2007-03-15"
 ---
 
 最上位 Panel の作成

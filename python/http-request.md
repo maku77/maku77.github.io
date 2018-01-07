@@ -1,6 +1,6 @@
 ---
 title: urllib による HTTP リクエスト (1)
-created: 2014-11-28
+date: "2014-11-28"
 ---
 
 ここでは、`urllib.request` を使った HTTP アクセスの例を示します。

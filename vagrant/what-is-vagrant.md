@@ -1,6 +1,6 @@
 ---
 title: Vagrant とは？ Vagrant をインストールする
-created: 2016-10-18
+date: "2016-10-18"
 ---
 
 Vagrant とは？

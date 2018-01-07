@@ -1,6 +1,6 @@
 ---
 title: 階乗を求める (math.factorial)
-created: 2013-05-04
+date: "2013-05-04"
 ---
 
 math.factorial() を使う方法

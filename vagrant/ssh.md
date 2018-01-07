@@ -1,6 +1,6 @@
 ---
 title: Vagrant の仮想マシンに SSH で接続する
-created: 2016-10-19
+date: "2016-10-19"
 ---
 
 vagrant ssh コマンドで SSH 接続する

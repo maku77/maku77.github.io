@@ -1,6 +1,6 @@
 ---
 title: APK の情報を表示する
-created: 2011-09-11
+date: "2011-09-11"
 ---
 
 Android SDK に付属している **aapt (Android Asset Packaging Tool)** を使用すると、APK の情報を調べることができます。

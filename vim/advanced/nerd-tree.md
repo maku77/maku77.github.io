@@ -1,6 +1,6 @@
 ---
 title: Vim 上でディレクトリツリーを表示する (NERD Tree)
-created: 2012-07-22
+date: "2012-07-22"
 ---
 
 NERD Tree とは

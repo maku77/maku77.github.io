@@ -1,6 +1,6 @@
 ---
 title: SWT - Canvas を使って自由に描画する
-created: 2010-09-18
+date: "2010-09-18"
 ---
 
 SWT で任意の図形を描画するには、Canvas オブジェクトを作成し、そこに GC (graphic context) オブジェクトで描画していきます。

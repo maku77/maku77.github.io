@@ -1,6 +1,6 @@
 ---
 title: HTML5 Canvas に矩形や円を描画する
-created: 2012-01-20
+date: "2012-01-20"
 ---
 
 ![draw-rect-circle.png](./draw-rect-circle.png)

@@ -1,6 +1,6 @@
 ---
 title: Swing - JTree でルートノードを表示する
-created: 2011-02-11
+date: "2011-02-11"
 ---
 
 ![jtree-vector.png](./jtree-vector.png)

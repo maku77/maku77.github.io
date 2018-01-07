@@ -1,6 +1,6 @@
 ---
 title: Middleman とは／Middleman のインストール
-created: 2015-11-03
+date: "2015-11-03"
 ---
 
 Middleman とは

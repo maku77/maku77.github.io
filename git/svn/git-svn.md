@@ -1,6 +1,6 @@
 ---
 title: git-svn を使って Git と Subversion を連携する
-created: 2010-12-07
+date: "2010-12-07"
 ---
 
 git-svn とは

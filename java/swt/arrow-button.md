@@ -1,6 +1,6 @@
 ---
 title: SWT - 矢印ボタンを作る
-created: 2010-10-17
+date: "2010-10-17"
 ---
 
 ![arrow-button.png](./arrow-button.png)

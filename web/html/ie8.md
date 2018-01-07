@@ -1,6 +1,6 @@
 ---
 title: "IE 8 でも HTML5 の header や footer 要素を使えるようにする"
-created: 2016-07-01
+date: "2016-07-01"
 ---
 
 IE 8 では HTML5 の header 要素や footer 要素に適用したスタイルが反映されません。

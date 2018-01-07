@@ -1,6 +1,6 @@
 ---
 title: "EasyLanguage: 各バーに注釈を付ける (Commentary, CommentaryCL)"
-created: 2017-09-17
+date: "2017-09-17"
 description: "Commentary 機能を使用すると、各バー（足）に注釈テキストを設定することができます。"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: pandas.DataFrame - DataFrame から部分データを抽出する
-created: 2017-01-23
+date: "2017-01-23"
 ---
 
 サンプルデータ

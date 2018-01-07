@@ -1,6 +1,6 @@
 ---
 title: Swing - ショートカットキーでフォーカスを移動する
-created: 2011-01-29
+date: "2011-01-29"
 ---
 
 ![move-focus-by-shortcut.png](./move-focus-by-shortcut.png)

@@ -1,6 +1,6 @@
 ---
 title: pandas.DataFrame - Pandas でラベル付き二次元データを扱う
-created: 2017-01-23
+date: "2017-01-23"
 ---
 
 

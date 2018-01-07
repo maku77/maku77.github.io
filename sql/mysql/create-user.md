@@ -1,6 +1,6 @@
 ---
 title: MySQL でデータベースのユーザを作成／削除する (CREATE USER, DROP USER)
-created: 2005-04-03
+date: "2005-04-03"
 ---
 
 MySQL のユーザを作成する (CREATE USER)

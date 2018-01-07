@@ -1,6 +1,6 @@
 ---
 title: Boolean 型で synchronized するのは NG
-created: 2014-06-16
+date: "2014-06-16"
 ---
 
 下記のように、`synchronized` ブロックのパラメータで Boolean 型のオブジェクトを指定するのは間違いです。

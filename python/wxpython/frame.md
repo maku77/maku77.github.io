@@ -1,6 +1,6 @@
 ---
 title: wxPython - Frame（フレーム）
-created: 2007-04-11
+date: "2007-04-11"
 ---
 
 Frame に特殊スタイルを指定する

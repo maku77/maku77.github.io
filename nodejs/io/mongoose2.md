@@ -1,6 +1,6 @@
 ---
 title: mongoose で MongoDB (2) データベースへ接続する
-created: 2014-02-10
+date: "2014-02-10"
 ---
 
 下記は、`mongoose` を使用して MongoDB のデータベースに接続する例です。

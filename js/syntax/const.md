@@ -1,6 +1,6 @@
 ---
 title: "JavaScript で定数を定義する (const)"
-created: 2012-10-27
+date: "2012-10-27"
 ---
 
 ECMAScript の規格には、定数を定義するための構文はありません。

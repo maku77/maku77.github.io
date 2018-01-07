@@ -1,6 +1,6 @@
 ---
 title: SWT - SWT を使用するための設定
-created: 2010-08-08
+date: "2010-08-08"
 ---
 
 swt.jar のダウンロード

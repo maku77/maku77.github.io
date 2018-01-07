@@ -1,6 +1,6 @@
 ---
 title: 文字列を単語単位で分割する (BreakIterator)
-created: 2014-11-21
+date: "2014-11-21"
 ---
 
 `java.text.BreakIterator` クラスを使用すると、指定したテキストを単語単位（あるいは文単位など）で分割することができます。

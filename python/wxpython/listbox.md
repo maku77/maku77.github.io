@@ -1,6 +1,6 @@
 ---
 title: wxPython - ListBox（リストボックス）
-created: 2007-03-08
+date: "2007-03-08"
 ---
 
 リストボックスを使う

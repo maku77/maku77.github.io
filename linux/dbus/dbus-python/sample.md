@@ -1,6 +1,6 @@
 ---
 title: dbus-python の公式サンプルコード
-created: 2012-09-04
+date: "2012-09-04"
 ---
 
 dbus-python のサンプルコード

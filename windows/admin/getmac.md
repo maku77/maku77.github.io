@@ -1,6 +1,6 @@
 ---
 title: NIC に割り当てられた MAC アドレスを調べる (getmac)
-created: 2015-04-13
+date: "2015-04-13"
 ---
 
 `getmac` コマンドを使用すると、各 Network カード (NIC) に割り当てられた MAC アドレスを確認することができます。

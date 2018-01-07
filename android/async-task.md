@@ -1,6 +1,6 @@
 ---
 title: AsyncTask による非同期処理と UI 更新処理
-created: 2011-08-22
+date: "2011-08-22"
 ---
 
 AsyncTask とは

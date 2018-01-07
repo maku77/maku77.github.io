@@ -1,6 +1,6 @@
 ---
 title: p4 update と p4 integrate の違いを理解する
-created: 2005-07-14
+date: "2005-07-14"
 ---
 
 ~~~

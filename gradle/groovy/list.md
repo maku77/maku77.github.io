@@ -1,6 +1,6 @@
 ---
 title: Groovy でリストを扱う
-created: 2015-07-08
+date: "2015-07-08"
 ---
 
 Groovy のリストの基本

@@ -1,6 +1,6 @@
 ---
 title: D-Bus 関連リンクと関連ツール
-created: 2012-05-10
+date: "2012-05-10"
 ---
 
 GDBus

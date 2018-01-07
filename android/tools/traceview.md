@@ -1,6 +1,6 @@
 ---
 title: Traceview でプロファイル情報を表示する
-created: 2011-01-14
+date: "2011-01-14"
 ---
 
 参考: [Traceview - Android Developers](http://developer.android.com/guide/developing/tools/traceview.html)

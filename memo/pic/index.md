@@ -1,6 +1,6 @@
 ---
 title: PIC めもめも（PIC アセンブラ）
-created: 2002-08-01
+date: "2002-08-01"
 ---
 
 アセンブラ MPASM (MPLAB に含まれる)

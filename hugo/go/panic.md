@@ -1,6 +1,6 @@
 ---
 title: "パニックによるエラー処理 (panic, recover)"
-created: 2017-09-11
+date: "2017-09-11"
 description: "Go 言語には try-catch による例外処理の仕組み存在しませんが、panic という仕組みが用意されています。"
 ---
 

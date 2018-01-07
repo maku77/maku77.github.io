@@ -1,6 +1,6 @@
 ---
 title: SHARP IS03 に adb 接続する
-created: 2012-10-09
+date: "2012-10-09"
 ---
 
 SHARP のスマホ IS03 を adb devices コマンドで認識させるための手順です。

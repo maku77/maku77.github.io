@@ -1,6 +1,6 @@
 ---
 title: wxPython - Grid（グリッド）
-created: 2007-04-02
+date: "2007-04-02"
 ---
 
 wx.grid.Grid の基本

@@ -1,6 +1,6 @@
 ---
 title: git config による設定を削除する
-created: 2010-07-17
+date: "2010-07-17"
 ---
 
 `git config` で設定した値を削除したい場合は、以下のように `--unset` オプションを指定して `git config` を実行します。

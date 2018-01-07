@@ -1,6 +1,6 @@
 ---
 title: 同じ階層にある index.html ページの Resource オブジェクトを取得する
-created: 2017-08-20
+date: "2017-08-20"
 ---
 
 下記の `get_index_resource` メソッドを任意のページの ERB ファイル内で実行すると、そのページと同じ階層にある `index.html` ページの `Resource` オブジェクトを取得できます。

@@ -1,6 +1,6 @@
 ---
 title: Swing - JTree で一階層目のノード間に水平線を表示する
-created: 2011-02-11
+date: "2011-02-11"
 ---
 
 ![jtree-line.png](./jtree-line.png)

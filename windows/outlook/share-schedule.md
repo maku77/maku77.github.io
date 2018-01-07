@@ -1,6 +1,6 @@
 ---
 title: Outlook の予定表を他のユーザから見えるようにする
-created: 2010-07-30
+date: "2010-07-30"
 ---
 
 _Version: Microsoft Outlook 2003_

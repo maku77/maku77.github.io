@@ -1,6 +1,6 @@
 ---
 title: BlockingQueue を使ってスレッド間の通信を行う
-created: 2014-06-29
+date: "2014-06-29"
 ---
 
 参考: [コレクションクラスのまとめ](../collection/summary.html)

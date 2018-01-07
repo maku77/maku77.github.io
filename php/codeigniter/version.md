@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - 使用中の CodeIgniter のバージョンを調べる
-created: 2012-10-04
+date: "2012-10-04"
 ---
 
 CodeIgniter のバージョンは、`system/core/CodeIgniter.php` の中で以下のように定義されています。

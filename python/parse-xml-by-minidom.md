@@ -1,6 +1,6 @@
 ---
 title: Python で XML をパースする (minidom)
-created: 2012-06-04
+date: "2012-06-04"
 ---
 
 Python 2.0 以降では、Document Object Model インタフェース (DOM API) の最小の実装として、**xml.dom.minidom** が搭載されています。

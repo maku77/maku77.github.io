@@ -1,6 +1,6 @@
 ---
 title: サポートされている Locale の一覧 (Android 4.0)
-created: 2012-09-18
+date: "2012-09-18"
 ---
 
 下記は、Android 4.0 においてサポートされている Locale の一覧です。

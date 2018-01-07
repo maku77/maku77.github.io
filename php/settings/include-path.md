@@ -1,6 +1,6 @@
 ---
 title: 現在の include_path 設定を調べる
-created: 2012-09-23
+date: "2012-09-23"
 ---
 
 方法1: php コマンドで調べる

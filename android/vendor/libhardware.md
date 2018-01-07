@@ -1,6 +1,6 @@
 ---
 title: libhardware.so が hardware サポートライブラリをロードする仕組み
-created: 2014-01-29
+date: "2014-01-29"
 ---
 
 Android の `hardware/libhardware/hardware.c` で定義されている、`hw_get_modules()` の仕組みの説明です。

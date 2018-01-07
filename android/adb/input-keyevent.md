@@ -1,6 +1,6 @@
 ---
 title: "ADB からキー入力やテキスト入力を行う (input text, input keyevent)"
-created: 2016-07-14
+date: "2016-07-14"
 ---
 
 ADB shell 上で `input` コマンドを使用すると、任意のキー入力やテキスト入力をエミュレートすることができます。

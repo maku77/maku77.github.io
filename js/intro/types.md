@@ -1,6 +1,6 @@
 ---
 title: JavaScript の型の基本
-created: 2012-10-28
+date: "2012-10-28"
 ---
 
 JavaScript is a "Loosely Typed Language"

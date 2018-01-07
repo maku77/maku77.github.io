@@ -1,6 +1,6 @@
 ---
 title: D-Bus Java で Session bus に接続してメソッドを呼び出す
-created: 2012-05-15
+date: "2012-05-15"
 ---
 
 D-Bus Java の `CreateInterface` コマンドを使用すると、API インタフェースを定義した XML ファイル (introspection data) から、Java のインタフェースを作成することができます。

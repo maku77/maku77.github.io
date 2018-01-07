@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - JSON テキストを返す Web API をサクッと作成する
-created: 2013-03-02
+date: "2013-03-02"
 ---
 
 CodeIgniter のコントローラの実装で、PHP の `json_encode()` 関数を使えば、簡単に JSON 形式のテキストをクライアントに返すことができます。

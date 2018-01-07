@@ -1,6 +1,6 @@
 ---
 title: Enterprise Architect の図をシンプルにして Power Point に貼り付ける
-created: 2016-06-21
+date: "2016-06-21"
 ---
 
 （下記は Enterprise Architect バージョン 12.0.1215 で確認しています）

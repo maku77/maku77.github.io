@@ -1,6 +1,6 @@
 ---
 title: .NET - XML 形式の設定ファイルを XPath で操作するサンプル
-created: 2006-03-09
+date: "2006-03-09"
 ---
 
 ~~~ csharp

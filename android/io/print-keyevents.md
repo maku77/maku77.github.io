@@ -1,6 +1,6 @@
 ---
 title: キーイベント (KeyEvent) を見やすく出力する
-created: 2014-07-28
+date: "2014-07-28"
 ---
 
 `View` に対するキー入力は、`View#dispatchKeyEvent(KeyEvent event)` などでハンドルすることができます。

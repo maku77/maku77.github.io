@@ -1,6 +1,6 @@
 ---
 title: スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする
-created: 2014-06-25
+date: "2014-06-25"
 ---
 
 `Thread` オブジェクトに対して、`Thread.UncaughtExceptionHandler` オブジェクトを設定しておくと、そのスレッド内で発生した未捕捉例外を処理することができます（`NullPointerException` などの `RuntimeException` をまとめて捕捉できるということ）。

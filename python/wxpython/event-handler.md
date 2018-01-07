@@ -1,6 +1,6 @@
 ---
 title: wxPython のイベントハンドラを理解する
-created: 2007-03-29
+date: "2007-03-29"
 ---
 
 wxPython のイベントのハンドリング方法

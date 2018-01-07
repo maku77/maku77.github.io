@@ -1,6 +1,6 @@
 ---
 title: Gradle
-created: 2015-07-01
+date: "2015-07-01"
 layout: category-index
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: NumPy／pandas／Matplotlib の概要とインストール
-created: 2016-12-13
+date: "2016-12-13"
 ---
 
 NumPy／pandas／Matplotlib とは

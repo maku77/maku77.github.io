@@ -1,6 +1,6 @@
 ---
 title: pthread のスレッドハンドルを比較する
-created: 2010-11-08
+date: "2010-11-08"
 ---
 
 pthread のスレッドのハンドル (`pthread_t`) を比較するには、`pthread_equal()` を使用します。

@@ -1,6 +1,6 @@
 ---
 title: D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル
-created: 2012-06-22
+date: "2012-06-22"
 ---
 
 #### Main.java

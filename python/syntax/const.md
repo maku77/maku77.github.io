@@ -1,6 +1,6 @@
 ---
 title: "Python で定数を定義する"
-created: 2018-01-08
+date: "2018-01-08"
 description: "Python には、C/C++ の const のような、定数を定義するためのキーワードは用意されていません。"
 ---
 

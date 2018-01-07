@@ -1,6 +1,6 @@
 ---
 title: Java7 の try with resources でストリームの close を自動的に行う
-created: 2014-10-07
+date: "2014-10-07"
 ---
 
 Java 6 の時代は、何らかのストリームに対して I/O 処理を行った後は、`try ~ finally` を利用して、自力で `close()` 処理を行う必要がありました。

@@ -1,6 +1,6 @@
 ---
 title: "部品メモ: LED（Light Emitting Diode: 発光ダイオード） ─ PIC めもめも"
-created: 2002-08-01
+date: "2002-08-01"
 ---
 
 LED の極性

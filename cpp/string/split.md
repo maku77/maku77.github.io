@@ -1,6 +1,6 @@
 ---
 title: "文字列を区切り文字で分割する (istringstream)"
-created: 2011-12-02
+date: "2011-12-02"
 ---
 
 istringstream で空白文字で分割する

@@ -1,6 +1,6 @@
 ---
 title: Swing - BorderLayout でコンポーネント間のスペースを設定する
-created: 2011-01-15
+date: "2011-01-15"
 ---
 
 ![./border-layout-gap.png](./border-layout-gap.png)

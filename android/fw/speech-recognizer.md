@@ -1,6 +1,6 @@
 ---
 title: SpeechRecognizer で音声入力を実現する
-created: 2014-01-23
+date: "2014-01-23"
 ---
 
 SpeechRecognizer の基本

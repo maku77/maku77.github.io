@@ -1,6 +1,6 @@
 ---
 title: D-Bus Java をインストールする
-created: 2012-05-11
+date: "2012-05-11"
 ---
 
 （Ubuntu 12.04 で確認）

@@ -1,6 +1,6 @@
 ---
 title: SWT - いろいろなダイアログ (MessageBox) を表示する
-created: 2010-08-15
+date: "2010-08-15"
 ---
 
 SWT に用意されている MessageBox の種類

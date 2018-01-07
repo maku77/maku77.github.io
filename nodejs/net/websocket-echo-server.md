@@ -1,6 +1,6 @@
 ---
 title: Node.js で WebSocket サーバを作る（簡単な echo サーバ）
-created: 2014-03-05
+date: "2014-03-05"
 ---
 
 ここでは、Node.js で WebSocket サーバを作成するために、`websocket.io` モジュールを使用します。

@@ -1,6 +1,6 @@
 ---
 title: git diff や git status での日本語の文字化けを防ぐ
-created: 2017-08-19
+date: "2017-08-19"
 ---
 
 git diff での日本語の文字化け

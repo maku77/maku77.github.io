@@ -1,6 +1,6 @@
 ---
 title: 標準出力へ出力する (puts/print/printf)
-created: 2011-10-01
+date: "2011-10-01"
 ---
 
 単純な出力 (puts / print)

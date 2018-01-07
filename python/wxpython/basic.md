@@ -1,6 +1,6 @@
 ---
 title: wxPython によるウィンドウ表示の基本
-created: 2007-02-06
+date: "2007-02-06"
 ---
 
 wxPython の Hello World（シンプルなウィンドウを表示）

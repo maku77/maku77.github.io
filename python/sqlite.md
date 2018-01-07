@@ -1,6 +1,6 @@
 ---
 title: Python で SQLite データベースを使用する
-created: 2007-01-25
+date: "2007-01-25"
 ---
 
 python では標準で **sqlite3 モジュール**を使用することができます。

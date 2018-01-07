@@ -1,6 +1,6 @@
 ---
 title: Gradle デーモンを使って gradle コマンドを高速化する
-created: 2015-07-10
+date: "2015-07-10"
 ---
 
 Gradle デーモンの立ち上げ

@@ -1,6 +1,6 @@
 ---
 title: Windows の静的ライブラリと動的ライブラリ
-created: 2009-03-26
+date: "2009-03-26"
 ---
 
 Windows の lib ファイルと dll ファイルに関して

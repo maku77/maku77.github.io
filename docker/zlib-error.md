@@ -1,6 +1,6 @@
 ---
 title: Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき
-created: 2015-04-02
+date: "2015-04-02"
 ---
 
 ubuntu:14.04 などのベースイメージに対して、`zlib1g-dev:i386` などの i386 系のパッケージをインストールしようとしたときに下記のようなエラーがでることがあります。

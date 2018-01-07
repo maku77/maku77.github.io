@@ -1,6 +1,6 @@
 ---
 title: JNI (Java Native Interface) の基本
-created: 2010-06-01
+date: "2010-06-01"
 ---
 
 JNI によるネイティブコード呼び出しのステップ

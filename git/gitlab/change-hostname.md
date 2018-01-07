@@ -1,6 +1,6 @@
 ---
 title: GitLab リポジトリの Clone URL として表示されるホスト名を変更する
-created: 2014-05-19
+date: "2014-05-19"
 ---
 
 GitLab の Clone URL などに表示されているアドレス内のホスト名は、`gitlab.yml` の設定ファイルに記述されたものが使用されます。

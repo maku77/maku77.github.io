@@ -1,6 +1,6 @@
 ---
 title: Java で Linux の CPU 使用率を調べる
-created: 2012-09-21
+date: "2012-09-21"
 ---
 
 ここでは、Linux の `/proc/stat` の出力情報を使って、CPU 使用率を求めてみます（Linux ベースの Android でも同じコードで取得できます）。

@@ -1,6 +1,6 @@
 ---
 title: Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)
-created: 2016-07-13
+date: "2016-07-13"
 ---
 
 - [Android - Systrace](https://developer.android.com/studio/profile/systrace-commandline.html)

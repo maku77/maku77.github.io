@@ -1,6 +1,6 @@
 ---
 title: WebSocket サーバに接続してきたクライアントの情報を調べる
-created: 2014-03-27
+date: "2014-03-27"
 ---
 
 WebSocket で接続してきたクライアントの URL は `connection` イベントのハンドラに渡される `client` オブジェクトの `req.url` プロパティで参照することができます。

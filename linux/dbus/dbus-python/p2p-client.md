@@ -1,6 +1,6 @@
 ---
 title: dbus-python で D-Bus の P2P クライアントを実装する
-created: 2012-09-05
+date: "2012-09-05"
 ---
 
 python-dbus では、今のところ P2P 用のサーバを作成できないようです。

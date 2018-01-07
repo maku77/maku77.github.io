@@ -1,6 +1,6 @@
 ---
 title: NumPy 配列 (ndarray) で行列を扱う
-created: 2017-01-01
+date: "2017-01-01"
 ---
 
 

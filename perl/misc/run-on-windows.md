@@ -1,6 +1,6 @@
 ---
 title: Perl スクリプトが Windows で実行されているか調べる
-created: 2009-12-02
+date: "2009-12-02"
 ---
 
 『Code Reading』より。

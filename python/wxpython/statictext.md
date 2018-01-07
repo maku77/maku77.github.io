@@ -1,6 +1,6 @@
 ---
 title: wxPython - StaticText（変更不可のラベル）
-created: 2007-04-06
+date: "2007-04-06"
 ---
 
 wx.StaticText の基本

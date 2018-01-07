@@ -1,6 +1,6 @@
 ---
 title: JFace - JFace の TreeViewer を使用する
-created: 2010-10-11
+date: "2010-10-11"
 ---
 
 Tree (SWT) と TreeViewer (JFace) の違い

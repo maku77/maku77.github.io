@@ -1,6 +1,6 @@
 ---
 title: CodeIgniter - MySQL データベースの接続設定を行う
-created: 2012-07-14
+date: "2012-07-14"
 ---
 
 CodeIgniter の MySQL データベースの接続設定は、`application/config/database.php` ファイルの中で下記のように行います。

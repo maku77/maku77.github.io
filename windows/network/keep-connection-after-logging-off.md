@@ -1,6 +1,6 @@
 ---
 title: Windows のログオフ時にネットワーク接続を維持する
-created: 2012-12-13
+date: "2012-12-13"
 ---
 
 （下記は Windows 7/Vista で確認）

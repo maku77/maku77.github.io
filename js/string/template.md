@@ -1,6 +1,6 @@
 ---
 title: "テンプレートを使ってテキストを生成する (Underscore.js)"
-created: 2013-06-05
+date: "2013-06-05"
 ---
 
 Underscore.js の template 関数を使う方法

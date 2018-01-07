@@ -1,6 +1,6 @@
 ---
 title: CakePHP 入門 (4) Controller、View、Model を作成する
-created: 2012-05-04
+date: "2012-05-04"
 ---
 
 まずは Controller と View を作ってみる

@@ -1,6 +1,6 @@
 ---
 title: wxPython によるグラフィックス処理を理解する
-created: 2007-04-18
+date: "2007-04-18"
 ---
 
 wx.Image と wx.Bitmap

@@ -1,6 +1,6 @@
 ---
 title: "box-sizing プロパティで width の計算方法を制御する"
-created: 2017-12-29
+date: "2017-12-29"
 description: "CSS の width プロパティがどこまでの幅を示すかは、box-sizing プロパティの設定によって変化します。段組によるレイアウトを正しく行うには、box-sizing の考え方を理解しておく必要があります。"
 ---
 

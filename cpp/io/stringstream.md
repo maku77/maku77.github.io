@@ -1,6 +1,6 @@
 ---
 title: ストリームの入力によって文字列を構築する (stringstream)
-created: 2005-08-03
+date: "2005-08-03"
 ---
 
 `std::stringstream` の使用例です。
