@@ -40,6 +40,8 @@ hugo コマンド
 * [レイアウト用のテンプレートの種類を理解する](layout/template-types.html)
 * [独自のテーマを作成する](create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
+* [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
+* [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (baseof)](template/base-template.html)
 
 ### Hugo のテンプレート文法
 * [Hugo テンプレート内にコメントを記述する](template/comment.html)
@@ -56,22 +58,23 @@ hugo コマンド
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
 
 ### ページ一覧を表示するサンプル
-* [全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
-* [全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
+* [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
+* [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
 * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
 * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
+* [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
 * [タクソノミー関連のテンプレートを定義する](taxonomy/template.html)
-* [タクソノミーごとにターム一覧を表示する](taxonomy/list-all-taxonomies.html)
+* [サイト全体のターム一覧（タグ一覧）を表示する](taxonomy/list-all-taxonomies.html)
 * [記事ページに付けられたターム一覧（タグ一覧）を表示する](taxonomy/terms-in-page.html)
 * [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](taxonomy/too-many-terms.html)
 
 ### その他
-* [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
 * [パンくずリストを表示する](template/breadcrumbs.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
+* [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
 
 応用
 ----

@@ -1,5 +1,5 @@
 ---
-title: "全セクションの一覧を表示する (.Site.Sections)"
+title: "サイト内の全セクションの一覧を表示する (.Site.Sections)"
 date: "2017-12-22"
 ---
 

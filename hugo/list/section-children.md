@@ -44,7 +44,6 @@ date: "2017-12-22"
 #### layouts/partials/subpages.html
 
 ~~~ html
-{{ "{{" }}/* カレントセクション直下の記事ページ一覧を "pages" スクラッチに格納 */}}
 {{ "{{" }}- $sec := .CurrentSection }}
 {{ "{{" }}- if $sec }}
   {{ "{{" }}- if $sec.IsHome }}
