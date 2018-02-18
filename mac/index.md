@@ -21,3 +21,8 @@ AppleScript
 * [AppleScript でボタンによる選択肢を表示する](applescript/button.html)
 * [公式ドキュメント (Introduction to AppleScript Language Guide)](https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptLangGuide)
 
+
+その他
+----
+* [昔ながらの ftp コマンドを使用できるようにする](ftp.html)
+
