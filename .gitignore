@@ -1,6 +1,7 @@
 .DS_Store
 Gemfile.lock
 *.jekyll-metadata
+*~
 _site/
 (draft)*
 _memo_*
