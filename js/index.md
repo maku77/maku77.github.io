@@ -73,6 +73,7 @@ layout: category-index
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
 - [クラス定数／クラス変数／クラスメソッドを定義する](object/class-const.html)
 - [あるオブジェクトが特定のクラスのインスタンスであるかを調べる (instanceof, constructor)](object/instanceof.html)
+- [クラスに toString() メソッドを実装する](object/to-string.html)
 
 ### JavaScript 独自拡張
 - [JavaScript で定数を定義する (const)](syntax/const.html)
