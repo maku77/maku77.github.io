@@ -31,6 +31,7 @@ layout: category-index
 - [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列と数値を変換する](string/convert.html)
+- [文字列の小文字と大文字を変換する (toLowerCase, toUpperCase)](string/uppercase.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列をデリミタで分割する／１文字ずつに分割する (split)](string/split.html)
 - [文字列の先頭と末尾の空白を削除する ($.trim)](string/trim.html)
