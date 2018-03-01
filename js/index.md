@@ -48,6 +48,8 @@ layout: category-index
 - [配列をソートする](array/sort.html)
 - [配列をコピーする](array/copy.html)
 - [配列内にある要素が存在するか調べる](array/has.html)
+- [配列の長さを切り詰める (length, splice)](array/cut.html)
+- [連想配列の要素（キー）を削除する (delete)](array/delete.html)
 - [配列要素をランダムで取り出す](array/random.html)
 
 
