@@ -97,6 +97,12 @@ HTML/DOM 操作
 - [HTML 要素の class 属性の値を追加・削除・トグルする](dom/control-class-attribute.html)
 - [ページ内の h2 要素から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
 
+
+I/O（入出力）
+----
+- [キーボードからの入力を取得する](io/keyboard.html)
+
+
 jQuery
 ----
 - [jQuery 本体のロード方法いろいろ](jquery/load-jquery.html)

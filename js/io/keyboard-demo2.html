@@ -1,0 +1,65 @@
+<DOCTYPE! html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>JavaScript によるキーイベント処理のデモページ2</title>
+<style>
+#puppet {
+  position: fixed; /* これ重要 */
+  top: 100px;
+  left: 100px;
+  background: blue;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+}
+</style>
+<script>
+  window.onload = function() {
+    'use strict';
+    var MOVE_BY = 5;  // 移動量
+    var puppetElem = document.getElementById('puppet');
+
+    /** Handles a key down/up event. */
+    function onKeyDown(e) {
+      // Display key information
+      switch (e.code) {
+        case 'ArrowLeft':
+        case 'KeyA':
+          moveElem(puppetElem, -MOVE_BY, 0);
+          break;
+        case 'ArrowRight':
+        case 'KeyD':
+          moveElem(puppetElem, MOVE_BY, 0);
+          break;
+        case 'ArrowUp':
+        case 'KeyW':
+          moveElem(puppetElem, 0, -MOVE_BY);
+          break;
+        case 'ArrowDown':
+        case 'KeyS':
+          moveElem(puppetElem, 0, MOVE_BY);
+          break;
+      }
+      // Prevent the keyboard events from bubbling up to the broser itself
+      e.preventDefault();
+    };
+
+    /** Moves a specified HTML element. */
+    function moveElem(elem, offsetX, offsetY) {
+      var rect = elem.getBoundingClientRect();
+      elem.style.left = rect.left + offsetX + 'px';
+      elem.style.top = rect.top + offsetY + 'px';
+    }
+
+    // Set up key event handlers
+    window.addEventListener('keydown', onKeyDown);
+  };
+</script>
+</head>
+<body>
+  <p>ここを一度クリックしてから、カーソルキー（あるいはA/S/D/Wキー）を押してみてください。</p>
+  <div id="puppet"></div>
+</body>
+</html>
+
