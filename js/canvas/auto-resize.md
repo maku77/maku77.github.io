@@ -3,40 +3,54 @@ title: ウィンドウサイズに応じて HTML5 Canvas のサイズを変更�
 date: "2012-01-20"
 ---
 
-この例では、クライアントサイズの横幅に応じて HTML5 Canvas のサイズを設定しています。
-Canvas のサイズは、横:縦=2:1 の比になるように縦サイズを調節しています。
+下記のサンプルでは、クライアントサイズの変更（ブラウザウィンドウのサイズ変更）に応じて HTML5 Canvas のサイズを設定しています。
+Canvas のサイズをクライアントサイズほぼいっぱいに表示されるように調整し、その中にその半分の大きさで矩形を描画しています。
 
-- [デモページ](auto-resize-demo.html)
+### デモ
+
+<iframe class="maku-htmlDemo" src="auto-resize-demo.html"></iframe>
+<a target="_blank" href="auto-resize-demo.html">デモページを開く</a>
+
+### sample.html
 
 ~~~ html
-<DOCTYPE! html>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Canvas サイズの動的変更のデモページ</title>
+  <style>
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <canvas id="my_canvas" />
   <script>
-  function fitCanvasSize() {
-    // Canvas のサイズを変更
+  window.onload = function() {
     var canvas = document.getElementById("my_canvas");
-    canvas.width = document.body.clientWidth - 10;
-    canvas.height = canvas.width / 2;
+    var ctx = canvas.getContext("2d");
 
-    // 矩形のサイズを決定
-    var w = canvas.width - 30;
-    var h = w / 2;
+    function fitCanvasSize() {
+      // Canvas のサイズをクライアントサイズに合わせる
+      canvas.width = document.documentElement.clientWidth - 10;
+      canvas.height = document.documentElement.clientHeight - 10;
 
-    // 塗りつぶし＆枠線
-    var context = canvas.getContext("2d");
-    context.fillStyle = "rgb(191, 255, 191)";
-    context.fillRect(10, 10, w, h);
-    context.strokeStyle = "darkgreen";
-    context.strokeRect(10, 10, w, h);
+      // Canvas 全体を塗りつぶし
+      ctx.fillStyle = "rgb(191, 255, 191)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Canvas サイズに合わせて矩形を描画
+      var w = canvas.width / 2;
+      var h = canvas.height / 2;
+      ctx.fillStyle = "cyan";
+      ctx.fillRect(10, 10, w, h);
+    }
+
+    fitCanvasSize();
+    window.onresize = fitCanvasSize;
   }
-
-  window.onload = fitCanvasSize;
-  window.onresize = fitCanvasSize;
   </script>
-
-  <body>
-    <canvas id="my_canvas" />
-  </body>
+</body>
 </html>
 ~~~
 
