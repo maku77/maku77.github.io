@@ -53,9 +53,10 @@ layout: category-index
 - [配列要素をランダムで取り出す](array/random.html)
 
 
-時刻情報／タイマー
+時間／日付／タイマー
 ----
 - [タイマーで任意の関数を呼び出す](time/timer.html)
+- [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
 
 
 構文
