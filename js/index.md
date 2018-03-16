@@ -45,18 +45,20 @@ layout: category-index
 ----
 - [配列の基本](array/basic.html)
 - [配列をループで処理する](array/loop.html)
-- [配列をソートする](array/sort.html)
+- [配列をソートする (sort, reverse)](array/sort.html)
 - [配列をコピーする](array/copy.html)
 - [配列内にある要素が存在するか調べる](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
 - [連想配列の要素（キー）を削除する (delete)](array/delete.html)
 - [配列要素をランダムで取り出す](array/random.html)
+- [配列の各要素に対して同じ処理を行う (map)](array/map.html)
 
 
 時間／日付／タイマー
 ----
 - [タイマーで任意の関数を呼び出す](time/timer.html)
 - [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
+- [現在の日付を YYYY-MM-DD の文字列で取得する](time/yyyy-mm-dd.html)
 
 
 構文
@@ -102,7 +104,9 @@ HTML/DOM 操作
 I/O（入出力）
 ----
 - [キーボードからの入力を取得する](io/keyboard.html)
-
+- [テキストボックスでキー入力したときのイベントをハンドルする (onkeyup)](io/textbox-key-event.html)
+- [ボタンを押したときのイベントをハンドルする (onclick)](io/button-onclick.html)
+- [プルダウンリストから項目を選択したときのイベントをハンドルする (onchange)](io/pulldown-onchange.html)
 
 jQuery
 ----
