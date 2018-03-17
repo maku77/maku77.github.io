@@ -67,6 +67,17 @@ defaults:
       category_long_desc: "これからの構成管理は Ansible で！ DevOps の要！ Infrastructur as Code！"
   -
     scope:
+      path: "blender"
+      type: "pages"
+    values:
+      category_title: "Blender"
+      category_id: "blender"
+      category_logo: "logo-blender.svg"
+      category_og_image: "logo-blender.png"
+      category_desc: "天才星人まくの Blender ノート"
+      category_long_desc: "3DCG を描くなら Blender で！ アニメーションも作れるよ。"
+  -
+    scope:
       path: "cpp"
       type: "pages"
     values:
