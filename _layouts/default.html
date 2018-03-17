@@ -7,6 +7,9 @@
   {% if jekyll.environment != "development" %}
     {% include analytics.html %}
   {% endif %}
+
+  <!-- Ad (Google) -->
+  {% include ad-adsense-auto.html %}
 </head>
 <body>
   <div class="maku-pageHeader">
@@ -28,9 +31,6 @@
     <div id="maku-container">
 
       <div id="maku-container_main">
-        <!-- Ad (Google) -->
-        {% include ad-google-infeed.html %}
-
         <!-- 概要 -->
         {% if page.description %}
           <div class="maku-pageDescription">{{ page.description }}</div>
