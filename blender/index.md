@@ -12,9 +12,11 @@ layout: category-index
 基本操作
 ----
 - [視点を操作する (Navigation)](basic/navigation.html)
-- [オブジェクトを移動する (1) 基本](basic/move.html)
-- [オブジェクトを移動する (2) 正確な単位で移動する](basic/move-precisely.html)
-- [オブジェクトを追加する](basic/add.html)
+- [下絵を表示する](basic/underdrawing.html)
+- [オブジェクトを追加する (Add)](basic/add.html)
+- [オブジェクトを移動する (Move)](basic/move.html)
+- [オブジェクトを回転する (Rotate)](basic/rotate.html)
+- [オブジェクトを拡大／縮小する (Scale)](basic/scale.html)
 
 
 リファレンス
