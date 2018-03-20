@@ -157,6 +157,39 @@ img {
   }
 }
 
+/* 説明用画像 */
+figure {
+  display: block;
+  border: solid 1px lightgray;
+  margin: 1.5em auto;
+  background: #f3f3f3;
+
+  /* 横向き画面 */
+  @media screen and (orientation: landscape) {
+    max-width: 100vh;
+  }
+
+  /* 縦向きの画面 */
+  @media screen and (orientation: portrait) {
+    max-width: 100vw;
+  }
+
+  & > img {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  & > figcaption {
+    margin: 0;
+    padding: 0.5em;
+  }
+
+  & > figcaption ul, ol {
+    margin: 0;
+    padding: 0 0 0 2em;
+  }
+}
+
 code {
   color: $COLOR_CODE;
   background: $COLOR_CODE_BG;

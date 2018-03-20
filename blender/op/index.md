@@ -4,22 +4,22 @@ date: "2018-02-26"
 ---
 
 <style>
-    .blender-example {
-        min-width: 80%;
-    }
-    .blender-example img {
-        width: 100px;
-        height: 100px;
-    }
-    .blender-example th {
-        background: #333;
-        color: white;
-    }
+  .local-example {
+    min-width: 80%;
+  }
+  .local-example img {
+    width: 100px;
+    height: 100px;
+  }
+  .local-example th {
+    background: #333;
+    color: white;
+  }
 </style>
 
-（まとめ中）
+まとめ中
 
-<table class="blender-example">
+<table class="local-example">
   <tr><th colspan="2">選択</th></tr>
   <tr><td>全選択／解除</td><td><kbd>A</kbd></td></tr>
   <tr><td>カーソル位置を選択</td><td>右クリック</td></tr>
@@ -50,7 +50,7 @@ date: "2018-02-26"
 
 
 <h3>頂点の結合いろいろ</h3>
-<table class="blender-example">
+<table class="local-example">
 <tr>
   <th>操作方法</th>
   <th>元のメッシュ形状</th>
@@ -58,28 +58,28 @@ date: "2018-02-26"
 </tr>
 <tr>
   <td>頂点を選択 → <kbd>Alt+M</kbd> → 中心に</td>
-  <td><img src="merge.png"></td>
-  <td><img src="merge-center.png"></td>
+  <td><img src="merge.png" /></td>
+  <td><img src="merge-center.png" /></td>
 </tr>
 <tr>
   <td>頂点を選択 → <kbd>Alt+M</kbd> → 最初に選択した頂点に</td>
-  <td><img src="merge.png"></td>
-  <td><img src="merge-first.png"></td>
+  <td><img src="merge.png" /></td>
+  <td><img src="merge-first.png" /></td>
 </tr>
 <tr>
   <td>頂点を選択 → <kbd>Alt+M</kbd> → 最後に選択した頂点に</td>
-  <td><img src="merge.png"></td>
-  <td><img src="merge-last.png"></td>
+  <td><img src="merge.png" /></td>
+  <td><img src="merge-last.png" /></td>
 </tr>
 <tr>
   <td>頂点を選択 → <kbd>Alt+M</kbd> → カーソル位置に</td>
-  <td><img src="merge.png"></td>
-  <td><img src="merge-cursor.png"></td>
+  <td><img src="merge.png" /></td>
+  <td><img src="merge-cursor.png" /></td>
 </tr>
 <tr>
   <td>頂点を選択 → <kbd>Alt+M</kbd> → 束ねる</td>
-  <td><img src="merge.png"></td>
-  <td><img src="merge-center.png"></td>
+  <td><img src="merge.png" /></td>
+  <td><img src="merge-center.png" /></td>
 </tr>
 </table>
 
