@@ -6,9 +6,6 @@ title: "エディタを最大化する"
 エディタを最大化する
 ----
 
-<style>
-</style>
-
 <figure>
   <img src="expand-editor1.gif" />
   <figcaption><kbd>Shift-Space</kbd> or <kbd>Ctrl-Up</kbd> or <kbd>Ctrl-Down</kbd></figcaption>
