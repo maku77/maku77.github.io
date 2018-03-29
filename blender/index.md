@@ -1,5 +1,5 @@
 ---
-title: "Blender 操作リファレンス"
+title: "Blender"
 layout: category-index
 ---
 
@@ -26,9 +26,13 @@ layout: category-index
 - [3D エディタのシェルフの位置を変更する](ui/flip-regions.html)
 - [直前の編集操作を繰り返す（リピート実行）](ui/repeat.html)
 
+テクスチャ
+----
+- [UV マッピングの基本](texture/uv-mapping.html)
+
 リファレンス
 ----
-- [Blender の基本操作まとめ](op/)
+- [Blender のショートカットキーまとめ](shortcut/)
 - [Blender API Reference](https://docs.blender.org/api/blender_python_api_current/)
 - Python で Blender を操作する <!-- scripting/ -->
 
