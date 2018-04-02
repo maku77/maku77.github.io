@@ -24,6 +24,7 @@ Hugo
 * [独自のショートコードを作成する](shortcode/create-shortcode.html)
 * [ショートコードの中からフロントマターのパラメータを参照する ($.Page.Params)](shortcode/frontmatter-params.html)
 * [ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)](shortcode/site-params.html)
+* [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
 
 hugo コマンド
 ----
