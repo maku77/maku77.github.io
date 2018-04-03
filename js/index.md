@@ -58,8 +58,8 @@ layout: category-index
 ----
 - [タイマーで任意の関数を呼び出す](time/timer.html)
 - [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
-- [現在の日付を YYYY-MM-DD の文字列で取得する](time/yyyy-mm-dd.html)
-
+- [Date オブジェクトをいろいろな文字列表現に変換する](time/date-to-string.html)
+- [Date オブジェクトの日付を加算／減算する](time/date-calculation.html)
 
 構文
 ----
