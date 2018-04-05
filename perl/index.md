@@ -3,6 +3,11 @@ title: Perl
 layout: category-index
 ---
 
+Perl ドキュメントの参照方法
+----
+- `perldoc perl` **ドキュメントの一覧**
+- `perldoc XYZ`  **XYZ のドキュメント**
+
 配列とリスト
 ----
 - [配列とリストを定義する](list/define-array-list.html)
@@ -97,6 +102,7 @@ layout: category-index
 - [サンプル: 数値を３桁ごとにカンマを入れて表示する](string/number-with-comma.html)
 
 ### その他の文字列処理
+- [文字列リテラルの中で配列を展開する](string/expand-array.html)
 - [文字列をデリミタで分割する (split)](string/split.html)
 - [文字列を１文字ずつに分割する (split)](string/split-into-chars.html)
 - [リスト要素を結合して１つの文字列にする (join)](string/join.html)
