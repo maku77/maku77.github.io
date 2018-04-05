@@ -54,12 +54,18 @@ layout: category-index
 - [配列の各要素に対して同じ処理を行う (map)](array/map.html)
 
 
-時間／日付／タイマー
+日時／タイマー
 ----
-- [タイマーで任意の関数を呼び出す](time/timer.html)
-- [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
+
+### 日時
+- [Date オブジェクト（日時情報）の作成方法いろいろ](time/create-date.html)
 - [Date オブジェクトをいろいろな文字列表現に変換する](time/date-to-string.html)
 - [Date オブジェクトの日付を加算／減算する](time/date-calculation.html)
+- [Date オブジェクト同士の差分を取る](time/date-diff.html)
+
+### タイマー
+- [タイマーで任意の関数を呼び出す](time/timer.html)
+- [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
 
 構文
 ----
@@ -68,6 +74,7 @@ layout: category-index
 - [関数を定義する](syntax/define-function.html)
 - [デフォルト引数を扱う関数を定義する](syntax/default-param.html)
 - [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
+- [関数の仮引数の数を取得する](syntax/aug-length.html)
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
 
@@ -76,6 +83,8 @@ layout: category-index
 - [関数内からしか参照できないプライベート関数を定義する](syntax/private-scope-function.html)
 
 ### オブジェクト／クラス
+- [オブジェクトの基本](object/basic.html)
+- [オブジェクトのプロパティを列挙する (for-in)](object/enum-properties.html)
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
 - [クラス定数／クラス変数／クラスメソッドを定義する](object/class-const.html)
 - [あるオブジェクトが特定のクラスのインスタンスであるかを調べる (instanceof, constructor)](object/instanceof.html)
@@ -96,9 +105,20 @@ HTML/DOM 操作
 ----
 - [HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索](dom/get-element1.html)
 - [HTML の DOM 要素を取得する (2) 親要素、子要素、兄弟要素を検索](dom/get-element2.html)
+- [HTML の DOM ツリーに要素を追加する](dom/add-element.html)
 - [HTML 要素に独自の data 属性（カスタム属性）を設定する](dom/data-attribute.html)
 - [HTML 要素の class 属性の値を追加・削除・トグルする](dom/control-class-attribute.html)
 - [ページ内の h2 要素から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
+
+
+画像／イメージ
+----
+- [複数の画像ファイルが読み込まれるのを待機する](image/onload.html)
+
+
+音声/オーディオ
+----
+- [オーディオファイル (mp3) を再生する](audio/play.html)
 
 
 I/O（入出力）
