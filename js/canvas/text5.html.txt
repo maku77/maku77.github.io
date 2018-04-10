@@ -1,0 +1,36 @@
+<canvas id="canvas" width="720" height="100" style="border:solid gray 1px;"></canvas>
+<script>
+window.onload = function() {
+  var canvas = document.getElementById('canvas');  // HTMLCanvasElement
+  var ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
+  ctx.font = '20pt sans-serif';
+
+  var params = [
+    ['top', 20, 50],
+    ['middle', 80, 50],
+    ['bottom', 180, 50],
+    ['alphabetic', 290, 50],
+    ['ideographic', 440, 50],
+    ['hanging', 600, 50],
+  ];
+
+  for (var i = 0, n = params.length; i < n; ++i) {
+    var p = params[i];
+
+    // テキスト描画
+    ctx.fillStyle = '#06f';
+    ctx.textBaseline = p[0];
+    ctx.fillText(p[0], p[1], p[2]);
+
+    // ベースライン描画
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'red';
+    ctx.beginPath();
+    ctx.moveTo(p[1], p[2]);
+    ctx.lineTo(p[1] + ctx.measureText(p[0]).width, p[2]);
+    ctx.fillStyle = '#f00';
+    ctx.stroke();
+  }
+};
+</script>
+

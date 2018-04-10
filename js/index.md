@@ -143,7 +143,7 @@ jQuery
 HTML5 Canvas
 ----
 - [HTML5 Canvas のサイズ指定について](canvas/size.html)
-- [HTML5 Canvas によるテキストの描画サイズを調べる](canvas/measure-text.html)
+- [HTML5 Canvas でテキストを描画する](canvas/text.html)
 - [HTML5 Canvas に矩形や円を描画する](canvas/draw-rect-circle.html)
 - [HTML5 Canvas に画像ファイルを描画する](canvas/draw-image-file.html)
 - [HTML5 Canvas 内のマウスドラッグで、描画オブジェクト全体を移動させる](canvas/drag-object.html)
