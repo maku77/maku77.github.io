@@ -32,6 +32,12 @@ Mac の場合は、Homebrew で簡単にインストールできます。
 $ brew install hugo
 ~~~
 
+ちなみに最新バージョンに更新するときはこうすれば OK。
+
+~~~
+$ brew upgrade hugo
+~~~
+
 ### Windows の場合
 
 Windows の場合は、[Hugo の Releases ページ](https://github.com/gohugoio/hugo/releases)から zip アーカイブ（`hugo_0.26_Windows-64bit.zip` など）をダウンロードしてしまうのが手っ取り早いでしょう。

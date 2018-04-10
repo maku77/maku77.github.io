@@ -73,6 +73,9 @@ hugo コマンド
 * [記事ページに付けられたターム一覧（タグ一覧）を表示する](taxonomy/terms-in-page.html)
 * [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](taxonomy/too-many-terms.html)
 
+### data ディレクトリ
+* [全ページから参照できるデータを用意する（data ディレクトリ）](data/basic.html)
+
 ### その他
 * [パンくずリストを表示する](template/breadcrumbs.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
