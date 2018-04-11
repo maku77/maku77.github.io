@@ -42,6 +42,7 @@ Windows バッチファイル
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [doskey を使ってコマンドプロンプト用のマクロを登録する](settings/doskey.html)
 * [コマンドプロンプトから複数のコマンドを並列実行する (start)](cmd/parallel.html)
+* [コマンドプロンプトからインターネット上のファイルをダウンロードする (bitsadmin)](cmd/download.html)
 
 
 Windows の便利操作／ショートカット
