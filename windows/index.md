@@ -76,6 +76,11 @@ Windows の設定／管理／セキュリティ
 MS Office
 ----
 
+### Excel（VBAマクロなど）
+- [Excel のブック、ワークシート、セルの関係を理解する](excel/structure.html)
+- [Excel の VBA マクロで Hello World](excel/hello-macro.html)
+- [Excel のセルの内容が変更されたときのイベントをハンドルする](excel/change.html)
+
 ### PowerPoint
 - [PowerPoint で使いこなすとかっこいいショートカット](powerpoint/shortcut.html)
 - [SVG ファイルを EMF ファイルに変換して PowerPoint に貼り付ける](powerpoint/svg2emf.html)
