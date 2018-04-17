@@ -342,6 +342,17 @@ defaults:
       category_long_desc: "仮想環境の立ち上げ＆設定の自動化に関するメモ。"
   -
     scope:
+      path: "vba"
+      type: "pages"
+    values:
+      category_title: "VBA"
+      category_id: "vba"
+      category_logo: "logo-vba.svg"
+      category_og_image: "logo-vba.png"
+      category_desc: "天才星人まくの VBA ノート"
+      category_long_desc: "Excel や PowerPoint まだまだ現役な VBA マクロのメモ。"
+  -
+    scope:
       path: "vim"
       type: "pages"
     values:
