@@ -20,3 +20,8 @@ VB エディタの設定
 - [コードエディタで変数の宣言を強制する](settings/explicit.html)
 - [コードエディタで使用可能なショートカット](settings/shortcut.html)
 
+Excel VBA マクロ
+----
+- [Excel の VBA マクロで Hello World](excel/hello-macro.html)
+- [Excel のセルの内容が変更されたときのイベントをハンドルする](excel/change-event.html)
+
