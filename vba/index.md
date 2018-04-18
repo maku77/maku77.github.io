@@ -21,6 +21,7 @@ Excel VBA マクロ
 - [Excel の VBA マクロで Hello World](excel/hello-macro.html)
 - [Excel のセルの内容が変更されたときのイベントをハンドルする](excel/change-event.html)
 - [Excel のセルの参照方法いろいろ](excel/refer-cell.html)
+- [Excel のセルのサイズを変更する](excel/cell-size.html)
 
 ### 応用
 - [指定した範囲の日付を自動で入力する](advanced/list-dates.html)

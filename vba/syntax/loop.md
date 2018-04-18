@@ -6,6 +6,8 @@ date: "2018-04-17"
 数値による For ループ
 ----
 
+#### 1 から 5 までのループ
+
 ~~~ vb
 Sub Test()
     Dim i As Integer
@@ -28,6 +30,20 @@ Sub Test()
     Next
 End Sub
 ~~~
+
+Step キーワードと組み合わせることで、数値を減らしながらループ処理することもできます。
+
+#### 3, 2, 1, 0 とカウントダウン
+
+~~~ vb
+Sub CountDown()
+    Dim i As Long
+    For i = 3 To 0 Step -1
+        Debug.Print i
+    Next
+End Sub
+~~~
+
 
 Do While ループ
 ----
