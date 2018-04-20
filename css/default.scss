@@ -251,6 +251,16 @@ strong {
   }
 }
 
+kbd {
+  font-weight: bolder;
+  background: #f9feff;
+  color: black;
+  padding: 3px;
+  margin: 0px 0.2em;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
 /*
  * ワンポイントを示したいときに
  * <div class="note">...</div>

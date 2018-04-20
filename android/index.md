@@ -70,7 +70,7 @@ Tools
 * [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
 * [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
 * [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
-* [Android Studio の便利なショートカット (1) メソッド間のジャンプ](studio/shortcut-method-jump.html)
+* [Android Studio の便利なショートカット (1) コードの調査／メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
 Android デバイス開発者向け（ベンダ向け情報）
