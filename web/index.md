@@ -20,6 +20,7 @@ HTML 全般
 * [全要素に統一された上下マージンを設定する（ふくろうセレクタ）](layout/vertical-margin.html)
 * [画像の下に隙間が空くのを防ぐ](layout/remove-margin-of-image.html)
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
+* [ul や ol によるリスト要素のマージン設定を理解する](layout/list-margin.html)
 
 ### レスポンシブ
 * [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)
