@@ -22,9 +22,13 @@ Excel VBA マクロ
 - [Excel のセルの内容が変更されたときのイベントをハンドルする](excel/change-event.html)
 - [Excel のセルの参照方法いろいろ](excel/refer-cell.html)
 - [Excel のセルのサイズを変更する](excel/cell-size.html)
+- [Excel のオートシェイプ（図形）を操作する](excel/shape.html)
+- [Excel のオートシェイプ（図形）をすべて削除する](excel/clear-shapes.html)
 
 ### 応用
 - [指定した範囲の日付を自動で入力する](advanced/list-dates.html)
+- [指定した範囲のセルから最大／最小の日付を探す](advanced/min-max-date.html)
+- [名前のついたセルを起点にして空のセルまでループ処理する](advanced/offset-loop.html)
 
 
 VB エディタの設定
@@ -37,3 +41,6 @@ VB エディタの設定
 その他
 ----
 - [VBA マクロの雑多メモ](misc.html)
+- [VBA マクロ全体の実行を終了する (End)](other/end.html)
+- [VBA マクロの実行を強制終了する](other/abort-macro.html)
+

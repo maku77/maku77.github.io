@@ -3,6 +3,34 @@ title: "ループ処理"
 date: "2018-04-17"
 ---
 
+
+無限ループ (Do ~ Loop)
+----
+
+Do ~ Loop によるループは、無限ループになるので、何らかの条件を満たした時に `Exit Do` を明示的に呼び出してループを抜ける必要があります。
+
+~~~ vb
+Dim i As Long
+Do
+    If i >= 3 Then
+        Debug.Print "ループを抜けます"
+        Exit Do
+    End If
+    Debug.Print "Count = " & i
+    i = i + 1
+Loop
+~~~
+
+### 実行結果（イミディエイトウィンドウへ出力されます）
+
+~~~
+Count = 0
+Count = 1
+Count = 2
+ループを抜けます
+~~~
+
+
 数値による For ループ
 ----
 
