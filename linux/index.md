@@ -74,7 +74,8 @@ D-Bus
 * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](dbus/dbus-python/server-and-client-2.html)
 * [dbus-python で D-Bus の P2P クライアントを実装する](dbus/dbus-python/p2p-client.html)
 
-Linux 管理
+
+Linux システム／管理
 ----
 * [Linux カーネル／OS のバージョンを調べる](linux-version.html)
 * [bash のバージョンを調べる](bash-version.html)
@@ -83,6 +84,8 @@ Linux 管理
 * [Linux のメモリ情報を調べるコマンド](memory.html)
 * [NTP でシステム時刻を設定する](settings/ntp.html)
 * [ディレクトリ内のファイルを zip ファイルにバックアップする](manage/backup.html)
+* [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)](manage/cpulimit.html)
+
 
 Linux コマンド全般　
 ----
