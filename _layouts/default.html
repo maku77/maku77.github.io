@@ -9,7 +9,9 @@
   {% endif %}
 
   <!-- Ad (Google) -->
-  {% include ad-adsense-auto.html %}
+  {% comment %}
+    {% include ad-adsense-auto.html %}
+  {% endcomment %}
 </head>
 <body>
   <div class="maku-pageHeader">
@@ -32,6 +34,17 @@
 
       <div id="maku-container_main">
         {% include ad-adsense-infeed.html %}
+
+        {% comment %}
+        <!-- ページタグ -->
+        <div class="maku-pageTags">
+          {% for tag in page.tags %}
+            <span class="maku-pageTags_tag">
+              <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
+            </span>
+          {% endfor %}
+        </div>
+        {% endcomment %}
 
         <!-- 概要 -->
         {% if page.description %}
