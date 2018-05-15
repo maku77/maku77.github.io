@@ -4,6 +4,12 @@
   {% include head.html %}
   <meta property="og:title" content="{{ site.name }}" />
   <title>{{ page.title }}</title>
+
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
   <style>
     .siteHeader {
       margin: 12px 0px;
@@ -69,6 +75,7 @@
       background: #eee;
     }
   </style>
+
   {% if jekyll.environment != "development" %}
     {% include analytics.html %}
   {% endif %}

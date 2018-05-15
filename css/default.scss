@@ -5,8 +5,7 @@
 
 $COLOR_MAIN: #666;
 $COLOR_HEADER: black;
-$COLOR_EMPHASIS: #a00; /* #d68; */
-/* $COLOR_EMPHASIS_BG: #ff9; */
+$COLOR_EMPHASIS: #ff1166; /* #d68; */
 
 $COLOR_LINK: #36f;
 $COLOR_LINK_VISITED: #03c;
@@ -193,12 +192,31 @@ figure {
 code {
   color: $COLOR_CODE;
   background: $COLOR_CODE_BG;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  padding: 2px 4px;
+  font-size: 90%;
+  border-radius: 4px;
 }
 
 pre {
   tab-size: 5;
   -moz-tab-size: 5;
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
+
+  font-size: 1em;
+  padding: 0.5em 0.8em;
+  border-radius: 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid #ddd;
+  line-height: 1.3;
+
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
 
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin-left: $SIDE_MARGIN_MOBILE;
@@ -242,12 +260,11 @@ blockquote {
 
 strong {
   color: $COLOR_EMPHASIS;
-  /* background: $COLOR_EMPHASIS_BG; */
   font-weight: bold;
 
   code {
     color: $COLOR_EMPHASIS;
-    background: $COLOR_EMPHASIS + #eeeeee;
+    background: transparent;
   }
 }
 
@@ -332,6 +349,12 @@ iframe.maku-htmlDemo {
   background: $COLOR_PAGE_TITLE_BG;
   box-shadow: 0px 0px 10px #000;
   min-height: 80px;
+
+  &::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
 }
   .maku-pageHeader_logo {
     float: left;
