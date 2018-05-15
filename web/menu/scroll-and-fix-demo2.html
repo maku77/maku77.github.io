@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      padding: 2rem;
+    }
+
+    /* ヘッダー部分 */
+    #headerArea {
+      height: 100px;
+      background: gray;
+    }
+
+    /* フッター部分 */
+    #footerArea {
+      height: 300px;
+      background: gray;
+    }
+
+    /* floating レイアウトの解除用 */
+    #container::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+
+    /* 左側の本文領域 */
+    #mainArea {
+      float: left;
+      width: calc(100% - 150px);
+      background: lightgray;
+    }
+
+    /* 右側のサイドバー領域 */
+    #sidebarArea {
+      float: left;
+    }
+
+    /* サイドバー内のメニュー */
+    #sidebar {
+      /*
+       * position: fixed; にした瞬間に、親要素 (#sidebarArea) から
+       * 切り離されるので、親要素ではなく、この要素に width プロパティを
+       * 指定しておく必要がある。
+       */
+      width: 150px;
+      background: magenta;
+    }
+
+    /* ある位置までスクロールしたらサイドバーの位置指定を fixed にする */
+    .sidebar-fixed {
+      position: fixed;
+      top: 30px;
+    }
+  </style>
+  <title>ある位置までスクロールしたら固定されるメニューを作成する: デモページ2</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="headerArea"></div>
+<div id="container">
+  <div id="mainArea">
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+  </div>
+  <div id="sidebarArea">
+    <div id="sidebar">
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+    </div>
+  </div>
+</div>
+<div id="footerArea"></div>
+
+<script>
+$(function() {
+  var MARGIN_TOP = 30;  // どの位置で固定するか（閾値）
+  var sidebar = $('#sidebar');
+  var sidebar_top = sidebar.offset().top;  // サイドバーの初期位置
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() + MARGIN_TOP > sidebar_top) {
+      sidebar.addClass('sidebar-fixed');
+    } else {
+      sidebar.removeClass('sidebar-fixed');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

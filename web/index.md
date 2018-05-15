@@ -54,6 +54,7 @@ HTML 全般
 * [メニューの高さを画面の高さに合わせる](menu/full-height-menu.html)
 * [メニュー要素内でスクロールできるようにする](menu/scroll-menu.html)
 * [CSS だけで開閉できるアコーディオンメニューを作成する](menu/accordion.html)
+* [ある位置までスクロールしたら固定されるメニューを作成する](menu/scroll-and-fix.html)
 
 #### リンク
 * [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)

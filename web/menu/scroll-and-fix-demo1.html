@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      padding: 2rem;
+    }
+
+    /* ヘッダー部分 */
+    #headerArea {
+      height: 100px;
+      background: gray;
+    }
+
+    /* フッター部分 */
+    #footerArea {
+      height: 300px;
+      background: gray;
+    }
+
+    /* 本文領域とサイドバー領域を含むコンテナ */
+    #container {
+      /* フレキシブルボックスレイアウトによる段組 */
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      display: -moz-box;
+    }
+
+    /* 左側の本文領域 */
+    #mainArea {
+      background: lightgray;
+
+      /* 画面幅が広い時はこの要素の横幅を拡張する */
+      flex-grow: 1;
+      -webkit-flex-grow: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+    }
+
+    /* 右側のサイドバー領域 */
+    #sidebarArea {
+      width: 100px;
+      background: yellow;
+    }
+
+    /* サイドバー内のメニュー ★ここがポイント */
+    #sidebar {
+      background: magenta;
+
+      /* Sticky position の設定 */
+      position: -webkit-sticky;  /* for Safari */
+      position: sticky;
+      top: 30px;  /* 上端の閾値 */
+    }
+  </style>
+  <title>ある位置までスクロールしたら固定されるメニューを作成する: デモページ1</title>
+</head>
+<body>
+
+<div id="headerArea"></div>
+<div id="container">
+  <div id="mainArea">
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+  </div>
+  <div id="sidebarArea">
+    <div id="sidebar">
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+    </div>
+  </div>
+</div>
+<div id="footerArea"></div>
+
+</body>
+</html>
