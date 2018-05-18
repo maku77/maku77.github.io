@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      padding: 0.5rem;
+    }
+    #box {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      border: solid 10px red;
+      background: lightcyan;
+    }
+  </style>
+  <title>HTML 要素のサイズを取得する: デモページ</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="box">あああああいいいいい</div>
+<div id="msg"></div>
+
+<script>
+$(function() {
+  var $e = $('#box');
+  var $msg = $('#msg');
+  $msg.html('$e.width() = ' + $e.width() +
+      '<br>$e.height() = ' + $e.height() +
+      '<br>$e.innerWidth() = ' + $e.innerWidth() +
+      '<br>$e.innerHeight() = ' + $e.innerHeight() +
+      '<br>$e.outerWidth() = ' + $e.outerWidth() +
+      '<br>$e.outerHeight() = ' + $e.outerHeight());
+});
+</script>
+
+</body>
+</html>
