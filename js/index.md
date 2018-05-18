@@ -40,6 +40,9 @@ layout: category-index
 - [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
 - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 
+### 数値
+- [実数の小数点数以下を丸めて整数に変換する](numstr/real-to-int.html)
+
 
 配列
 ----
