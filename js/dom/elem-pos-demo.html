@@ -8,7 +8,7 @@
     }
     #header, #footer {
       background: lightgray;
-      height: 30px;
+      height: 50px;
     }
     #container {
       height: 500px;
@@ -25,13 +25,16 @@
       background: lightyellow;
     }
     #main {
+      position: relative;
       float: left;
       width: calc(100% - 50px);
       height: 100%;
       background: #eee;
     }
     #box {
-      margin: 10px 20px;
+      position: absolute;
+      top: 30px;
+      left: 30px;
       width: 70px;
       height: 30px;
       background: red;
@@ -45,7 +48,7 @@
       width: 150px;
       height: 100vh;
       color: red;
-      padding: 3em 1em;
+      padding: 60px 10px;
       font-weight: bolder;
     }
   </style>
@@ -77,10 +80,10 @@ $(function() {
   showPos();
 
   function showPos() {
-    $msg.html('$e.offset().top = ' + parseInt($e.offset().top) +
-        '<br>$e.offset().left = ' + parseInt($e.offset().left) +
-        '<br>$e.position().top = ' + parseInt($e.position().top) +
-        '<br>$e.position().left = ' + parseInt($e.position().left));
+    $msg.html('$e.offset().top = ' + Math.round($e.offset().top) +
+        '<br>$e.offset().left = ' + Math.round($e.offset().left) +
+        '<br>$e.position().top = ' + Math.round($e.position().top) +
+        '<br>$e.position().left = ' + Math.round($e.position().left));
   }
 
   $window.resize(showPos);
