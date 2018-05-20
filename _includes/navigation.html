@@ -1,5 +1,5 @@
-<nav class="maku-nav">
-  <div class="maku-nav_header">カテゴリ一覧</div>
+<nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
   <ul>
     {%- for category in site.defaults %}
       {%- assign category_id = category.values.category_id %}
@@ -9,7 +9,7 @@
       {%- assign category_title = category.values.category_title %}
       {%- capture path %}/{{ category_id }}/{% endcapture %}
       {%- if page.url contains path %}
-        <li class="maku-nav-focused"><a href="{{path}}">{{ category_title }}</a>
+        <li class="xNav-focused"><a href="{{path}}">{{ category_title }}</a>
       {%- else %}
         <li><a href="{{path}}">{{ category_title }}</a>
       {%- endif %}
