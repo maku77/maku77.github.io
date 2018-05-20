@@ -430,6 +430,18 @@ iframe.maku-htmlDemo {
   }
 }
 
+.xContent-categoryIndex {
+  ul, ol {
+    margin: 0 0 1.5em 0;
+    padding-left: 2em;
+  }
+
+  li > ul, li > ol {
+    /* 2階層目以降はインデントを小さく */
+    padding-left: 1em;
+  }
+}
+
 .maku-content-multi {
           column-width: 400px;
      -moz-column-width: 400px;

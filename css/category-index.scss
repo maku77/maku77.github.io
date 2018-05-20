@@ -36,11 +36,3 @@ h4 {
   color: black;
 }
 
-ul, ol {
-  margin: 0 0 1.5em 0 !important;
-  padding-left: 2em !important;
-}
-li > ul, li > ol {
-  /* 2階層目以降はインデントを小さく */
-  padding-left: 1em !important;
-}
