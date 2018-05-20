@@ -8,7 +8,7 @@ Canvas のサイズをクライアントサイズほぼいっぱいに表示さ�
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="auto-resize-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="auto-resize-demo.html"></iframe>
 <a target="_blank" href="auto-resize-demo.html">デモページを開く</a>
 
 ### sample.html

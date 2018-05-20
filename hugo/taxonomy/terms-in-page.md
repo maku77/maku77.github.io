@@ -54,6 +54,6 @@ description: "シングルページテンプレートにおいて、その記事
 
 実際に表示すると次のような感じになります。
 
-<iframe class="maku-htmlDemo" src="terms-in-page-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="terms-in-page-demo.html"></iframe>
 <a target="_blank" href="terms-in-page-demo.html">デモページを開く</a>
 

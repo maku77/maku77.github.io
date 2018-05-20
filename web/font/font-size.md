@@ -19,7 +19,7 @@ html {
 
 #### 表示デモ１（よくない例）
 
-<iframe class="maku-htmlDemo" src="font-size-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="font-size-demo1.html"></iframe>
 <a target="_blank" href="font-size-demo1.html">デモページ１を開く</a>
 
 例えば、Chrome の設定画面では、下記のようなフォントサイズ設定がありますが、上記のようなフォントサイズ指定を行ってしまうと、ここでユーザが設定した値が無視されてしまいます。
@@ -44,7 +44,7 @@ html {
 
 #### 表示デモ２（よい例）
 
-<iframe class="maku-htmlDemo" src="font-size-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="font-size-demo2.html"></iframe>
 <a target="_blank" href="font-size-demo2.html">デモページ２を開く</a>
 
 ブラウザのフォントサイズ設定を変更した時に、上記のデモページのフォントサイズが変更されることを確認してみてください。

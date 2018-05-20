@@ -14,7 +14,7 @@ position: sticky を使ってサイドバーのスクロールを抑制する方
 
 #### デモ（<a target="_blank" href="scroll-and-fix-demo1.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="scroll-and-fix-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo1.html"></iframe>
 
 CSS の [Sticky positioning](https://developer.mozilla.org/ja/docs/web/css/position#Sticky_positioning) に対応したブラウザであれば、次のようにして要素のスクロールを簡単に制限することができます。
 
@@ -106,7 +106,7 @@ JavaScript でスクロールイベントをハンドルして、メニュー要
 
 #### デモ（<a target="_blank" href="scroll-and-fix-demo2.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="scroll-and-fix-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo2.html"></iframe>
 
 この例では、メニューが指定した位置までスクロールしたら、`position: fixed` プロパティを設定して、位置を固定するようにしています。
 
@@ -253,7 +253,7 @@ $(function() {
 
 ### デモ（<a target="_blank" href="scroll-and-fix-demo3.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="scroll-and-fix-demo3.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo3.html"></iframe>
 
 
 ### 実装

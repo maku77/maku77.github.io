@@ -27,7 +27,7 @@ window.addEventListener('scroll', function(event) {
 
 #### デモ（<a target="_blank" href="scroll-pos-demo.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="scroll-pos-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-pos-demo.html"></iframe>
 
 上記のデモでは、ページをスクロールすると、スクロール後の表示位置がウィンドウ左上に表示されます。
 

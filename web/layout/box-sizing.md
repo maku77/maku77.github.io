@@ -37,7 +37,7 @@ content-box 指定と border-box 指定
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="box-sizing-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="box-sizing-demo.html"></iframe>
 <a target="_blank" href="box-sizing-demo.html">デモページを開く</a>
 
 どちらも、`width` は `300px` としていますが、`box-sizing: border-box;` と指定した場合は、ボーダー領域まで `width` に含めて計算するようになるため、実際の表示も若干小さくなります。
@@ -87,7 +87,7 @@ margin はあくまで<b>要素の外側</b>のマージンだと考えましょ
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="box-sizing-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="box-sizing-demo2.html"></iframe>
 <a target="_blank" href="box-sizing-demo2.html">デモページを開く</a>
 
 #### CSS

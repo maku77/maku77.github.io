@@ -24,6 +24,6 @@ description: "入力フォームの要素に、autofocus 属性を指定して�
 </div>
 
 ### デモ
-<iframe class="maku-htmlDemo" src="autofocus-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="autofocus-demo.html"></iframe>
 <a target="_blank" href="autofocus-demo.html">デモページを開く</a>
 

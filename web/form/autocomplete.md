@@ -25,5 +25,5 @@ description: "input 要素の autocomplete 属性を使用すると、テキス�
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="autocomplete-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="autocomplete-demo.html"></iframe>
 <a target="_blank" href="autocomplete-demo.html">デモページを開く</a>

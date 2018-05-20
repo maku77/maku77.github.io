@@ -32,7 +32,7 @@ SNS シェア用のボタンを設置するときは、ガイドラインにそ�
 テキストだけのボタンを配置する
 ----
 
-<iframe class="maku-htmlDemo" style="height:100px" src="sns-buttons-demo1.html"></iframe>
+<iframe class="xHtmlDemo" style="height:100px" src="sns-buttons-demo1.html"></iframe>
 <a target="_blank" href="sns-buttons-demo1.html">デモページを開く</a>
 
 まずは、テキスト表示だけの SNS ボタンを表示するサンプルです。
@@ -93,7 +93,7 @@ SNS シェア用のボタンを設置するときは、ガイドラインにそ�
 アイコン付きのボタンを配置する
 ----
 
-<iframe class="maku-htmlDemo" style="height:100px" src="sns-buttons-demo2.html"></iframe>
+<iframe class="xHtmlDemo" style="height:100px" src="sns-buttons-demo2.html"></iframe>
 <a target="_blank" href="sns-buttons-demo2.html">デモページを開く</a>
 
 [Font Awesome](http://fontawesome.io/) で提供されているフォントには、SNS ボタン用のグリフが含まれています。

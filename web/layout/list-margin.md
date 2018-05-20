@@ -29,7 +29,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 #### 表示デモ 1
 
-<iframe class="maku-htmlDemo" src="list-margin-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo1.html"></iframe>
 
 表示デモの中の外側の矩形は、`ul` 要素を配置する親要素の描画領域を示しています。
 `ul` 要素の描画領域はピンク背景、`li` 要素の描画領域は下線を引くことで、それぞれの要素の位置関係が分かるようにしています。
@@ -41,14 +41,14 @@ ul のインデント設定は padding-left で行うのが基本
 
 #### 表示デモ 2
 
-<iframe class="maku-htmlDemo" src="list-margin-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo2.html"></iframe>
 
 `ul` 要素の `padding-left` を 0 にしてしまうと、上記のように入れ子要素のインデントがなくなり、さらに、リストマーカーを表示する余裕もないので、親要素をはみ出してリストマーカーが表示されてしまいます。
 `ul` 要素の `padding-left` には、余裕を持ったサイズを指定しなければいけないということです。
 
 #### 表示デモ 3
 
-<iframe class="maku-htmlDemo" src="list-margin-demo3.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo3.html"></iframe>
 
 上記は、`padding-left` の代わりに `margin-left` を設定した場合の表示デモですが、この方法でもうまくインデントされているかのように見えます。
 ただし、`margin` プロパティの値は、他の要素と並べて配置した時に、それらの `margin` と相殺される性質を持っています。
@@ -58,7 +58,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 #### 表示デモ 4
 
-<iframe class="maku-htmlDemo" src="list-margin-demo4.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo4.html"></iframe>
 
 
 li の padding-left は 0 で OK
@@ -70,13 +70,13 @@ li の padding-left は 0 で OK
 
 #### 表示デモ 5
 
-<iframe class="maku-htmlDemo" src="list-margin-demo5.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo5.html"></iframe>
 
 入れ子になった `ul` 要素は `li` 要素の子要素として配置されるため、`li` 要素の `padding-left` を大きくすると、その下の `ul` 要素自体のインデント幅が大きくなったかのように見えます。
 
 #### 表示デモ 6
 
-<iframe class="maku-htmlDemo" src="list-margin-demo6.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo6.html"></iframe>
 
 <div class="note">
 間違えがちですが、<code>ul</code> 要素の直下に <code>ul</code> を配置することはできません。<code>ul</code> 要素の直下には、必ず <code>li</code> 要素を配置する必要があります。
@@ -102,7 +102,7 @@ li > ul, li > ol {
 
 #### 表示デモ 7
 
-<iframe class="maku-htmlDemo" src="list-margin-demo7.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo7.html"></iframe>
 
 
 応用：画面幅が狭い時にはインデント幅も小さくする
@@ -136,7 +136,7 @@ li > ul, li > ol {
 
 #### 表示デモ 8
 
-<iframe class="maku-htmlDemo" src="list-margin-demo8.html"></iframe>
+<iframe class="xHtmlDemo" src="list-margin-demo8.html"></iframe>
 
 
 

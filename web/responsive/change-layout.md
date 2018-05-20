@@ -18,7 +18,7 @@ description: "CSS3 のメディアクエリをうまく使うと、Web ブラウ
 
 #### デモ
 
-<iframe class="maku-htmlDemo" style="height: 450px" src="change-layout-demo.html"></iframe>
+<iframe class="xHtmlDemo" style="height: 450px" src="change-layout-demo.html"></iframe>
 <a target="_blank" href="change-layout-demo.html">デモページを表示</a>
 
 HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、フッタと、4 つの部分に分かれています。

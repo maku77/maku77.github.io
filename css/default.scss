@@ -324,17 +324,6 @@ kbd {
   }
 }
 
-iframe.maku-htmlDemo {
-  display: block;
-  margin: 30px auto;
-  width: 50vmax;
-  height: 300px;
-  max-height: 50%;
-  border: solid 2px #aaa;
-  resize: both;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
 
 //-------------------------------------------------------------------------
 // まくまくクラス
@@ -465,6 +454,17 @@ iframe.maku-htmlDemo {
   text-align: center;
   margin: 10px;
   padding-top: 10px;
+}
+
+iframe.xHtmlDemo {
+  display: block;
+  margin: 30px auto;
+  width: 50vmax;
+  height: 300px;
+  max-height: 50%;
+  border: solid 2px #aaa;
+  resize: both;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*

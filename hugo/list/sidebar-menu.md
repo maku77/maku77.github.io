@@ -73,7 +73,7 @@ Hugo 本家のマニュアルページでは、<code>.InSection</code> や <code
 次の表は、各ページの Page オブジェクト (`$p1`) の `.InSection`、`.IsAncestor`、`.IsDescendant` メソッドに、様々な Page オブジェクト (`$p2`) を渡したときにどう判定されるかの一覧です（この表を作成するために、[こちらのホームページテンプレート (/layouts/index.html)](sidebar-menu-index.txt) を使用しています）。
 
 ### デモ（<a target="_blank" href="sidebar-menu-demo.html">別ウィンドウで開く</a>）
-<iframe class="maku-htmlDemo" src="sidebar-menu-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="sidebar-menu-demo.html"></iframe>
 
 実際に動作を確認してみると、実際には下記のような振る舞いをするようですね（Hugo 0.32.3 で確認）。
 ホームページに関しては直感と異なる振る舞いをするようなので要注意です。

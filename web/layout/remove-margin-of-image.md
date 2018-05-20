@@ -17,7 +17,7 @@ img 要素の下にくっつけて別の要素を配置しようとしても、�
 
 #### 表示デモ
 
-<iframe class="maku-htmlDemo" src="remove-margin-of-image-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="remove-margin-of-image-demo1.html"></iframe>
 
 これは、img 要素はテキストと同様にベースラインを意識した配置が行われるからです。
 下記のように `vertical-align` プロパティを `bottom` に設定しておけば、隙間をなくすことができます。
@@ -32,7 +32,7 @@ img {
 
 #### 表示デモ２
 
-<iframe class="maku-htmlDemo" src="remove-margin-of-image-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="remove-margin-of-image-demo2.html"></iframe>
 
 この問題が発生しない場合は、プロジェクトで使用しているリセット系の CSS に、すでに上記のような定義が含まれている可能性が高いです。
 

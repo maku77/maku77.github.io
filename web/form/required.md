@@ -20,7 +20,7 @@ description: "入力フォームの要素に、required 属性を指定してお
 下記のデモで、入力フィールドにマウスカーソルを置いたり、何も入力せずに送信ボタンを押したりしてみてください。
 
 ### デモ
-<iframe class="maku-htmlDemo" src="required-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="required-demo.html"></iframe>
 <a target="_blank" href="required-demo.html">デモページを開く</a>
 
 
@@ -38,7 +38,7 @@ input:required {
 ~~~
 
 ### デモ
-<iframe class="maku-htmlDemo" src="required-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="required-demo2.html"></iframe>
 <a target="_blank" href="required-demo2.html">デモページを開く</a>
 
 <div class="note">

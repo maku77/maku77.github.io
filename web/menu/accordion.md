@@ -9,7 +9,7 @@ description: "チェックボックスの見た目を CSS でカスタマイズ�
 
 ### デモ（<a target="_blank" href="accordion-demo.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="accordion-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="accordion-demo.html"></iframe>
 
 
 ここでは、開閉用のボタンとして `input` 要素を配置し、その下に、開閉されるサブメニューとして `ul` 要素を配置しています。
@@ -108,7 +108,7 @@ CSS では、サブメニューを初期状態で非表示にするために、�
 
 ### デモ（<a target="_blank" href="accordion-demo2.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="accordion-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="accordion-demo2.html"></iframe>
 
 
 ~~~ css

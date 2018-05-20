@@ -33,7 +33,7 @@ var y2 = $e.position().left;
 
 #### デモ（<a target="_blank" href="elem-pos-demo.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="elem-pos-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="elem-pos-demo.html"></iframe>
 
 
 #### プレーンな JavaScript (Vanilla JavaScript) の例

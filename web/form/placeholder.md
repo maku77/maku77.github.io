@@ -17,7 +17,7 @@ description: "入力フォームに placeholder 属性を指定すると、入�
 ~~~
 
 ### デモ
-<iframe class="maku-htmlDemo" src="placeholder-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="placeholder-demo.html"></iframe>
 <a target="_blank" href="placeholder-demo.html">デモページを開く</a>
 
 

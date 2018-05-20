@@ -44,7 +44,7 @@ date: "2015-03-31"
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="keyboard-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="keyboard-demo.html"></iframe>
 <a target="_blank" href="keyboard-demo.html">デモページを開く</a>
 
 下記は、キーボードから a b c とタイプしたときの出力です。
@@ -153,7 +153,7 @@ window.onload = function() {
 
 ### デモ
 
-<iframe class="maku-htmlDemo" src="keyboard-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="keyboard-demo2.html"></iframe>
 <a target="_blank" href="keyboard-demo2.html">デモページを開く</a>
 
 

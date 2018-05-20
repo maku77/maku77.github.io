@@ -54,7 +54,7 @@ date: "2017-12-10"
 </div>
 
 ### デモ
-<iframe class="maku-htmlDemo" src="pattern-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="pattern-demo.html"></iframe>
 <a target="_blank" href="pattern-demo.html">デモページを開く</a>
 
 
@@ -82,5 +82,5 @@ input[type=text]:invalid, input[type=email]:invalid {
 入力が必須とされているフィールドに何も入力されていない場合は、invalid 状態とみなされます。
 
 ### デモ
-<iframe class="maku-htmlDemo" src="pattern-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="pattern-demo2.html"></iframe>
 <a target="_blank" href="pattern-demo2.html">デモページを開く</a>

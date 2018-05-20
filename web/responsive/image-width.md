@@ -18,7 +18,7 @@ img, embed, iframe, object {
 
 #### デモ
 
-<iframe class="maku-htmlDemo" src="image-width-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="image-width-demo1.html"></iframe>
 
 上記のフレームをブラウザだと思ってサイズを縮めてみてください。
 表示領域のサイズ変更に連動して画像サイズも縮小されて表示されるはずです。
@@ -54,5 +54,5 @@ img {
 
 #### デモ
 
-<iframe class="maku-htmlDemo" src="image-width-demo2.html"></iframe>
+<iframe class="xHtmlDemo" src="image-width-demo2.html"></iframe>
 

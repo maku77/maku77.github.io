@@ -79,7 +79,7 @@ var h3 = e.offsetHeight;
 
 #### デモ（<a target="_blank" href="elem-size-demo.html">別ウィンドウで開く</a>）
 
-<iframe class="maku-htmlDemo" src="elem-size-demo.html"></iframe>
+<iframe class="xHtmlDemo" src="elem-size-demo.html"></iframe>
 
 例えば、`$e.outerWidth()` は、コンテンツ分 (50px) + padding分 (10px) + border分 (20px) = 80px と計算されています。
 
