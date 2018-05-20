@@ -584,3 +584,50 @@ iframe.maku-htmlDemo {
   .xSnsButtons_google   { background: #dd4b39; }
 }
 
+/*
+ * xSearchbar
+ */
+.xSearchBar {
+  clear: both;
+  margin-bottom: 5px;
+  text-align: right;
+
+  .xSearchBar_text {
+    /* border: solid 1px lightgray; */
+    /* background: #f6f6f6; */
+    border: solid 1px #db7093;
+    color: #db7093;
+    background: #fff0fc;
+    width: 13em;
+  }
+
+  /* placeholder の文字色 */
+  .xSearchBar_text:placeholder-shown { color: #db7093; }
+  .xSearchBar_text::-webkit-input-placeholder { color: #db7093; }
+  .xSearchBar_text::-moz-placeholder { color: #db7093; opacity: 1; }
+  .xSearchBar_text:-ms-input-placeholder { color: #db7093; }
+  .xSearchBar_text:focus::placeholder { color: transparent; }
+  .xSearchBar_text:focus::-webkit-input-placeholder { color:transparent; }
+  .xSearchBar_text:focus:-moz-placeholder { color:transparent; }
+  .xSearchBar_text:focus::-moz-placeholder { color:transparent; }
+
+  .xSearchBar_button {
+    /* border: solid 1px lightgray; */
+    /* background: #ddd; */
+    border: solid 1px #db7093;
+    background: #db7093;
+    color: white;
+    border-radius: 5px;
+  }
+
+  input[type=search] {
+    padding: 2px;
+  }
+
+  input[type=search]:focus {
+    background: #f0f8ff;
+    font-weight: bolder;
+    color: #2040ff;
+  }
+}
+
