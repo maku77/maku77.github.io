@@ -339,10 +339,18 @@ iframe.maku-htmlDemo {
 //-------------------------------------------------------------------------
 // まくまくクラス
 //-------------------------------------------------------------------------
-.maku-breadCrumb {
+.xBreadCrumb {
   float: left;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.xPageDate {
+  color: $COLOR_PAGE_DATE;
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-style: italic;
 }
 
 .maku-pageHeader {
@@ -379,14 +387,6 @@ iframe.maku-htmlDemo {
     font-size: 12pt;
     padding-top: 10px;
   }
-
-.maku-pageDate {
-  color: $COLOR_PAGE_DATE;
-  float: right;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-style: italic;
-}
 
 .maku-pageDescription {
   font-size: 110%;
