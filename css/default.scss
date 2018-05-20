@@ -353,41 +353,6 @@ iframe.maku-htmlDemo {
   font-style: italic;
 }
 
-.maku-pageHeader {
-  background: $COLOR_PAGE_TITLE_BG;
-  box-shadow: 0px 0px 10px #000;
-  min-height: 80px;
-
-  &::after {
-    content: "";
-    clear: both;
-    display: block;
-  }
-}
-  .maku-pageHeader_logo {
-    float: left;
-    margin: 7px;
-    padding: 3px;
-    width: 65px;
-    height: 65px;
-    background: #ffeeee;
-    border-radius: 10px;
-  }
-  .maku-pageHeader_titleLarge {
-    color: $COLOR_PAGE_TITLE;
-    font-size: 28pt;
-    padding-top: 10px;
-  }
-  .maku-pageHeader_title {
-    color: $COLOR_PAGE_TITLE;
-    font-size: 18pt;
-  }
-  .maku-pageHeader_category {
-    color: $COLOR_PAGE_TITLE_CATEGORY;
-    font-size: 12pt;
-    padding-top: 10px;
-  }
-
 .maku-pageDescription {
   font-size: 110%;
   background-color: #f3d3d8;
@@ -519,10 +484,50 @@ iframe.maku-htmlDemo {
 }
 
 /*
- * xSnsButtons
+ * xPageHeader（ヘッダ領域
  */
+.xPageHeader {
+  background: $COLOR_PAGE_TITLE_BG;
+  box-shadow: 0px 0px 10px #000;
+  min-height: 80px;
 
-/* SNS ボタンのグループ */
+  &::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .xPageHeader_logo {
+    float: left;
+    margin: 7px;
+    padding: 3px;
+    width: 65px;
+    height: 65px;
+    background: #ffeeee;
+    border-radius: 10px;
+  }
+
+  .xPageHeader_titleLarge {
+    color: $COLOR_PAGE_TITLE;
+    font-size: 28pt;
+    padding-top: 10px;
+  }
+
+  .xPageHeader_title {
+    color: $COLOR_PAGE_TITLE;
+    font-size: 18pt;
+  }
+
+  .xPageHeader_category {
+    color: $COLOR_PAGE_TITLE_CATEGORY;
+    font-size: 12pt;
+    padding-top: 10px;
+  }
+}
+
+/*
+ * xSnsButtons（SNS ボタンのグループ）
+ */
 .xSnsButtons {
   margin: 5px;
   padding: 0px;
