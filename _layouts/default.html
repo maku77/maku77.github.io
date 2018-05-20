@@ -26,55 +26,53 @@
     <div class="maku-pageHeader_title">{{ page.title }}</div>
   </div>
 
-  <div>
-    {% include breadcrumb.html %}
-    {% include search-bar.html %}
+  {% include breadcrumb.html %}
+  {% include search-bar.html %}
 
-    <div id="maku-container">
+  <div id="maku-container">
 
-      <div id="maku-container_main">
-        {% include ad-adsense-infeed.html %}
+    <div id="maku-container_main">
+      {% include ad-adsense-infeed.html %}
 
-        {% comment %}
-        <!-- ページタグ -->
-        <div class="maku-pageTags">
-          {% for tag in page.tags %}
-            <span class="maku-pageTags_tag">
-              <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
-            </span>
-          {% endfor %}
-        </div>
-        {% endcomment %}
+      {% comment %}
+      <!-- ページタグ -->
+      <div class="maku-pageTags">
+        {% for tag in page.tags %}
+          <span class="maku-pageTags_tag">
+            <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
+          </span>
+        {% endfor %}
+      </div>
+      {% endcomment %}
 
-        <!-- 概要 -->
-        {% if page.description %}
-          <div class="maku-pageDescription">{{ page.description }}</div>
-        {% endif %}
+      <!-- 概要 -->
+      {% if page.description %}
+        <div class="maku-pageDescription">{{ page.description }}</div>
+      {% endif %}
 
-        <!-- SNS ボタン（上） -->
-        {% include widget-sns.html %}
+      <!-- SNS ボタン（上） -->
+      {% include widget-sns.html %}
 
-        <div class="maku-content">
-          <!-- 本文 -->
-          {{ content }}
-        </div>
-
-        <!-- Ad (楽天) -->
-        {% if jekyll.environment != "development" %}
-          <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
-        {% endif %}
-
-        <!-- SNS ボタン（下） -->
-        {% include widget-sns.html %}
+      <div class="maku-content">
+        <!-- 本文 -->
+        {{ content }}
       </div>
 
-      <div id="maku-container_sidebar">{% include sidebar.html %}</div>
+      <!-- Ad (楽天) -->
+      {% if jekyll.environment != "development" %}
+        <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
+      {% endif %}
+
+      <!-- SNS ボタン（下） -->
+      {% include widget-sns.html %}
     </div>
 
-    <!-- <div class="maku-pageFooter"> -->
-      {% include breadcrumb.html %}
-    <!-- </div> -->
+    <div id="maku-container_sidebar">{% include sidebar.html %}</div>
   </div>
+
+  <!-- <div class="maku-pageFooter"> -->
+    {% include breadcrumb.html %}
+  <!-- </div> -->
 
   {% include footer-javascript.html %}
 </body>

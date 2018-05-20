@@ -15,33 +15,31 @@
     <div class="maku-pageHeader_titleLarge">まくまく {{ page.category_title }} ノート</div>
   </div>
 
-  <div>
-    {% include breadcrumb-root.html %}
-    {% include search-bar.html %}
+  {% include breadcrumb-root.html %}
+  {% include search-bar.html %}
 
-    <div id="maku-container">
-      <div id="maku-container_main">
-        {% include widget-sns.html %}
+  <div id="maku-container">
+    <div id="maku-container_main">
+      {% include widget-sns.html %}
 
-        {% comment %}
-          <!-- カテゴリ説明文 -->
-          <div class="maku-intro">{{ page.intro }}</div>
-        {% endcomment %}
+      {% comment %}
+        <!-- カテゴリ説明文 -->
+        <div class="maku-intro">{{ page.intro }}</div>
+      {% endcomment %}
 
-        <div class="maku-content maku-content-multi maku-content-fullWidthLink">{{ content }}</div>
+      <div class="maku-content maku-content-multi maku-content-fullWidthLink">{{ content }}</div>
 
-        {% include widget-sns.html %}
-        {% if jekyll.environment != "development" %}
-          <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
-        {% endif %}
-      </div>
-      <div id="maku-container_sidebar">{% include sidebar.html %}</div>
+      {% include widget-sns.html %}
+      {% if jekyll.environment != "development" %}
+        <div class="maku-widget">{% include ad-rakuten-responsive-image.html %}</div>
+      {% endif %}
     </div>
-
-    <!-- <div class="maku-pageFooter"> -->
-      {% include breadcrumb-root.html %}
-    <!-- </div> -->
+    <div id="maku-container_sidebar">{% include sidebar.html %}</div>
   </div>
+
+  <!-- <div class="maku-pageFooter"> -->
+    {% include breadcrumb-root.html %}
+  <!-- </div> -->
 
   {% include footer-javascript.html %}
 </body>
