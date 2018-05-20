@@ -407,7 +407,7 @@ kbd {
   }
 */
 
-.maku-content {
+.xContent {
   clear: both;
 
   & > p {
@@ -420,6 +420,14 @@ kbd {
 }
 
 .xContent-categoryIndex {
+  /* マルチカラムレイアウト */
+  column-width:         400px;
+  -moz-column-width:    400px;
+  -webkit-column-width: 400px;
+  column-rule:         dotted 2px #ccc;
+  -moz-column-rule:    dotted 2px #ccc;
+  -webkit-column-rule: dotted 2px #ccc;
+
   ul, ol {
     margin: 0 0 1.5em 0;
     padding-left: 2em;
@@ -429,21 +437,12 @@ kbd {
     /* 2階層目以降はインデントを小さく */
     padding-left: 1em;
   }
-}
 
-.maku-content-multi {
-          column-width: 400px;
-     -moz-column-width: 400px;
-  -webkit-column-width: 400px;
-          column-rule: dotted 2px #ccc;
-     -moz-column-rule: dotted 2px #ccc;
-  -webkit-column-rule: dotted 2px #ccc;
-}
-
-.maku-content-fullWidthLink {
   p {
     margin: 0.5em 0.5em 1em 0.5em;
   }
+
+  /* Full width link */
   li a {
     display: block;
   }
