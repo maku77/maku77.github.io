@@ -406,14 +406,14 @@ iframe.maku-htmlDemo {
 }
 
 /* 段組 */
-#maku-container {
+#xContainer {
   /* フレキシブルボックスレイアウトによる段組 */
   display: box;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-box;
 
-  #maku-container_main {
+  #xContainer_main {
     /* 画面幅が広い時はこの要素の横幅を拡張する */
     box-flex: 1;
     -webkit-box-flex: 1;
@@ -421,11 +421,11 @@ iframe.maku-htmlDemo {
     -ms-box-flex: 1;
   }
 
-  #maku-container_sidebar {
+  #xContainer_sidebar {
     width: 250px;
     padding: 0px 0px 0px 10px;
 
-      .maku-container_sidebar_ad {
+      .xContainer_sidebar_ad {
         margin: 10px;
         max-width: 200px;
       }
@@ -435,7 +435,7 @@ iframe.maku-htmlDemo {
   @media screen and (max-width: $WIDTH_MOBILE) {
     display: block;
 
-    #maku-container_sidebar {
+    #xContainer_sidebar {
       display: none;
     }
   }
