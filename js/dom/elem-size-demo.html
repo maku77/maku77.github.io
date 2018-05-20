@@ -9,7 +9,8 @@
     #box {
       width: 50px;
       height: 50px;
-      padding: 10px;
+      padding: 5px;
+      margin: 10px;
       border: solid 10px red;
       background: lightcyan;
     }
@@ -33,7 +34,10 @@ $(function() {
       '<br>$e.innerWidth() = ' + $e.innerWidth() +
       '<br>$e.innerHeight() = ' + $e.innerHeight() +
       '<br>$e.outerWidth() = ' + $e.outerWidth() +
-      '<br>$e.outerHeight() = ' + $e.outerHeight());
+      '<br>$e.outerHeight() = ' + $e.outerHeight() +
+      '<br>$e.outerWidth(true) = ' + $e.outerWidth(true) +
+      '<br>$e.outerHeight(true) = ' + $e.outerHeight(true)
+  );
 });
 </script>
 

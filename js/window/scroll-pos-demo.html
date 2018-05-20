@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+    }
+    body {
+      height: 200vh;
+      width: 200vw;
+      background: linear-gradient(to bottom right, white 0%, blue 100%);
+    }
+    #msg {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: red;
+      font-size: larger;
+      font-weight: bolder;
+    }
+  </style>
+  <title>スクロール位置を取得する: デモページ</title>
+</head>
+<body>
+
+<div id="msg"></div>
+
+<script>
+window.onload = function() {
+  var msg = document.getElementById('msg');
+  showScrollPos();
+  function showScrollPos() {
+    msg.innerHTML = 'window.pageXOffset = ' + window.pageXOffset +
+      '<br>window.pageYOffset = ' + window.pageYOffset;
+  }
+  window.addEventListener('scroll', showScrollPos);
+};
+</script>
+
+</body>
+</html>

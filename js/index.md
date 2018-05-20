@@ -106,6 +106,9 @@ layout: category-index
 
 HTML/DOM 操作
 ----
+
+### 要素
+
 - [HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索](dom/get-element1.html)
 - [HTML の DOM 要素を取得する (2) 親要素、子要素、兄弟要素を検索](dom/get-element2.html)
 - [HTML の DOM ツリーに要素を追加する](dom/add-element.html)
@@ -114,6 +117,10 @@ HTML/DOM 操作
 - [ページ内の h2 要素から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
 - [HTML 要素のサイズを取得する](dom/elem-size.html)
 - [HTML 要素の位置を取得する](dom/elem-pos.html)
+
+### ウィンドウ
+
+- [Web ブラウザのページ表示位置を調べる（スクロール位置を取得する）](window/scroll-pos.html)
 
 
 画像／イメージ

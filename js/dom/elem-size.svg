@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="396" height="256.688" viewBox="0, 0, 396, 256.688">
+  <g id="レイヤー_1" transform="translate(-54, -59)">
+    <g>
+      <path d="M60.5,60.5 L444.5,60.5 L444.5,288.5 L60.5,288.5 L60.5,60.5 z" fill="#FFFFFF"/>
+      <path d="M60.5,60.5 L444.5,60.5 L444.5,288.5 L60.5,288.5 L60.5,60.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M96.5,84.5 L408.5,84.5 L408.5,252.5 L96.5,252.5 L96.5,84.5 z" fill="#D5D5D5"/>
+      <path d="M96.5,84.5 L408.5,84.5 L408.5,252.5 L96.5,252.5 L96.5,84.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M108.5,108.5 L396.5,108.5 L396.5,216.5 L108.5,216.5 L108.5,108.5 z" fill="#EAEAEA"/>
+      <path d="M108.5,108.5 L396.5,108.5 L396.5,216.5 L108.5,216.5 L108.5,108.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M144.5,132.5 L360.5,132.5 L360.5,180.5 L144.5,180.5 L144.5,132.5 z" fill="#FFFFFF"/>
+      <path d="M144.5,132.5 L360.5,132.5 L360.5,180.5 L144.5,180.5 L144.5,132.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 181.498, 142.5)">
+      <tspan x="-32.498" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">content</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 162.498, 123.5)">
+      <tspan x="-50.498" y="0.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">padding</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 150.498, 99.5)">
+      <tspan x="-50.498" y="0.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">border</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 100, 75.5)">
+      <tspan x="-36" y="0.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">margin</tspan>
+    </text>
+    <g>
+      <g>
+        <path d="M150.5,185.5 L354.5,185.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+        <path d="M152.5,182.5 L145.5,185.5 L152.5,188.5 M150.5,185.5 L145.5,185.5 M144.5,180.5 L144.5,190.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+        <path d="M352.5,188.5 L359.5,185.5 L352.5,182.5 M354.5,185.5 L359.5,185.5 M360.5,190.5 L360.5,180.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#2B2B2B" transform="matrix(1, 0, -0, 1, 252, 193.344)">
+        <tspan x="-32.396" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$e.width()</tspan>
+      </text>
+    </g>
+    <g>
+      <g>
+        <path d="M114.5,221.5 L390.5,221.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+        <path d="M116.5,218.5 L109.5,221.5 L116.5,224.5 M114.5,221.5 L109.5,221.5 M108.5,216.5 L108.5,226.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+        <path d="M388.5,224.5 L395.5,221.5 L388.5,218.5 M390.5,221.5 L395.5,221.5 M396.5,226.5 L396.5,216.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#2B2B2B" transform="matrix(1, 0, -0, 1, 252, 229.344)">
+        <tspan x="-50.155" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$e.innerWidth()</tspan>
+      </text>
+    </g>
+    <g>
+      <g>
+        <path d="M102.5,257.5 L402.5,257.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+        <path d="M104.5,254.5 L97.5,257.5 L104.5,260.5 M102.5,257.5 L97.5,257.5 M96.5,252.5 L96.5,262.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+        <path d="M400.5,260.5 L407.5,257.5 L400.5,254.5 M402.5,257.5 L407.5,257.5 M408.5,262.5 L408.5,252.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#2B2B2B" transform="matrix(1, 0, -0, 1, 252, 265.344)">
+        <tspan x="-50.939" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$e.outerWidth()</tspan>
+      </text>
+    </g>
+    <g>
+      <g>
+        <path d="M66.5,293.5 L438.5,293.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+        <path d="M68.5,290.5 L61.5,293.5 L68.5,296.5 M66.5,293.5 L61.5,293.5 M60.5,288.5 L60.5,298.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+        <path d="M436.5,296.5 L443.5,293.5 L436.5,290.5 M438.5,293.5 L443.5,293.5 M444.5,298.5 L444.5,288.5" fill-opacity="0" stroke="#2B2B2B" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#2B2B2B" transform="matrix(1, 0, -0, 1, 252, 301.344)">
+        <tspan x="-64.295" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$e.outerWidth(true)</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

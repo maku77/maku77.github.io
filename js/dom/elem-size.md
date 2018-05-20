@@ -3,6 +3,8 @@ title: "HTML 要素のサイズを取得する"
 date: "2018-05-18"
 ---
 
+![elem-size.svg](elem-size.svg){: .center }
+
 要素のサイズを取得する API
 ----
 
@@ -19,7 +21,7 @@ date: "2018-05-18"
 ~~~ javascript
 var $e = $('#box');
 
-// padding も border も含まないサイズ
+// コンテンツ領域のみのサイズ
 var w1 = $e.width();
 var h1 = $e.height();
 
@@ -30,6 +32,10 @@ var h2 = $e.innerHeight();
 // padding と border を含む幅
 var w3 = $e.outerWidth();
 var h3 = $e.outerHeight();
+
+// padding と border と margin を含む幅
+var w4 = $e.outerWidth(true);
+var h4 = $e.outerHeight(true);
 ~~~
 
 jQuery を使わずに、プレーンな JavaScript (Vanilla JavaScript) でやろうとすると、若干わかりにくいコードになります。
@@ -64,7 +70,8 @@ var h3 = e.offsetHeight;
 #box {
   width: 50px;
   height: 50px;
-  padding: 10px;
+  padding: 5px;
+  margin: 10px;
   border: solid 10px red;
   background: lightcyan;
 }
@@ -74,5 +81,5 @@ var h3 = e.offsetHeight;
 
 <iframe class="maku-htmlDemo" src="elem-size-demo.html"></iframe>
 
-例えば、`$e.outerWidth()` は、10px + 10px + 50px + 10px + 10px = 90px と計算されています。
+例えば、`$e.outerWidth()` は、コンテンツ分 (50px) + padding分 (10px) + border分 (20px) = 80px と計算されています。
 
