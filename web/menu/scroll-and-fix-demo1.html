@@ -4,18 +4,12 @@
   <meta charset="utf-8">
   <style>
     body {
-      padding: 2rem;
+      padding: 1rem;
     }
 
-    /* ヘッダー部分 */
-    #headerArea {
+    /* ヘッダー／フッター部分 */
+    #headerArea, #footerArea {
       height: 100px;
-      background: gray;
-    }
-
-    /* フッター部分 */
-    #footerArea {
-      height: 300px;
       background: gray;
     }
 
@@ -30,7 +24,7 @@
 
     /* 左側の本文領域 */
     #mainArea {
-      background: lightgray;
+      background: dodgerblue;
 
       /* 画面幅が広い時はこの要素の横幅を拡張する */
       flex-grow: 1;
@@ -52,7 +46,7 @@
       /* Sticky position の設定 */
       position: -webkit-sticky;  /* for Safari */
       position: sticky;
-      top: 30px;  /* 上端の閾値 */
+      top: 0px;  /* 画面上端オフセット */
     }
   </style>
   <title>ある位置までスクロールしたら固定されるメニューを作成する: デモページ1</title>
@@ -70,10 +64,11 @@
   </div>
   <div id="sidebarArea">
     <div id="sidebar">
-      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
-      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
-      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
-      メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>メニュー<br>
+      メニュー1<br>メニュー2<br>メニュー3<br>メニュー4<br>メニュー5<br>
+      メニュー6<br>メニュー7<br>メニュー8<br>メニュー9<br>メニュー10<br>
+      メニュー11<br>メニュー12<br>メニュー13<br>メニュー14<br>メニュー15<br>
+      メニュー16<br>メニュー17<br>メニュー18<br>メニュー19<br>メニュー20<br>
+      メニュー21<br>メニュー22<br>メニュー23<br>メニュー24<br>メニュー25<br>
     </div>
   </div>
 </div>

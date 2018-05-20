@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="638" height="218" viewBox="0, 0, 638, 218">
+  <defs>
+    <clipPath id="Clip_1">
+      <path d="M90,400 L246,400 L246,476 L90,476 z M240,408 L96,408 L96,468 L240,468 L240,408 z"/>
+    </clipPath>
+    <filter id="Shadow_2">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_3">
+      <path d="M426,400 L582,400 L582,476 L426,476 z M576,408 L432,408 L432,468 L576,468 L576,408 z"/>
+    </clipPath>
+    <filter id="Shadow_4">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+  </defs>
+  <g id="レイヤー_1" transform="translate(-23, -335)">
+    <text transform="matrix(1, 0, 0, 1, 168, 358.5)">
+      <tspan x="-114.016" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-72.004" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-67.003" y="5.5" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="-49.003" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-44.002" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+      <tspan x="21.986" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="26.987" y="5.5" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="44.987" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="49.988" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+    </text>
+    <g>
+      <path d="M120.5,396.5 L180.5,396.5 L180.5,480.5 L120.5,480.5 L120.5,396.5 z" fill="#3866FF"/>
+      <path d="M120.5,396.5 L180.5,396.5 L180.5,480.5 L120.5,480.5 L120.5,396.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M180.5,408.5 L216.5,408.5 L216.5,444.5 L180.5,444.5 L180.5,408.5 z" fill="#F42A79"/>
+      <path d="M180.5,408.5 L216.5,408.5 L216.5,444.5 L180.5,444.5 L180.5,408.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M240,408 L240,468 L96,468 L96,408 L240,408 z" clip-path="url(#Clip_1)" filter="url(#Shadow_2)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M96,408 L240,408 L240,468 L96,468 L96,408 z" fill="#00EE88"/>
+    </g>
+    <path d="M228,415.962 L222,411.971 L216,407.981 L222,403.99 L228,400 L228,407.981 z" fill="#FF862B"/>
+    <g>
+      <path d="M120.5,384.5 L216.5,384.5 L216.5,396.5 L120.5,396.5 L120.5,384.5 z" fill="#808080"/>
+      <path d="M120.5,384.5 L216.5,384.5 L216.5,396.5 L120.5,396.5 L120.5,384.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M120.5,480.5 L216.5,480.5 L216.5,492.5 L120.5,492.5 L120.5,480.5 z" fill="#808080"/>
+      <path d="M120.5,480.5 L216.5,480.5 L216.5,492.5 L120.5,492.5 L120.5,480.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 504, 358.5)">
+      <tspan x="-114.016" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-49.988" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-44.987" y="5.5" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="-26.987" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-21.986" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+      <tspan x="44.002" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="49.003" y="5.5" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="67.003" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="72.004" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+    </text>
+    <g>
+      <path d="M456.5,408.5 L516.5,408.5 L516.5,444.5 L456.5,444.5 L456.5,408.5 z" fill="#3866FF"/>
+      <path d="M456.5,408.5 L516.5,408.5 L516.5,444.5 L456.5,444.5 L456.5,408.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M516.5,384.5 L552.5,384.5 L552.5,492.5 L516.5,492.5 L516.5,384.5 z" fill="#F42A79"/>
+      <path d="M516.5,384.5 L552.5,384.5 L552.5,492.5 L516.5,492.5 L516.5,384.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M576,408 L576,468 L432,468 L432,408 L576,408 z" clip-path="url(#Clip_3)" filter="url(#Shadow_4)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M432,408 L576,408 L576,468 L432,468 L432,408 z" fill="#00EE88"/>
+    </g>
+    <path d="M444,415.962 L450,411.971 L456,407.981 L450,403.99 L444,400 L444,407.981 z" fill="#FF862B"/>
+    <g>
+      <path d="M456.5,384.5 L552.5,384.5 L552.5,396.5 L456.5,396.5 L456.5,384.5 z" fill="#808080"/>
+      <path d="M456.5,384.5 L552.5,384.5 L552.5,396.5 L456.5,396.5 L456.5,384.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M456.5,480.5 L552.5,480.5 L552.5,492.5 L456.5,492.5 L456.5,480.5 z" fill="#808080"/>
+      <path d="M456.5,480.5 L552.5,480.5 L552.5,492.5 L456.5,492.5 L456.5,480.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <path d="M24.5,336.5 L312.5,336.5 L312.5,552.5 L24.5,552.5 L24.5,336.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    <path d="M348.5,336.5 L660.5,336.5 L660.5,552.5 L348.5,552.5 L348.5,336.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    <text transform="matrix(1, 0, 0, 1, 504, 523)">
+      <tspan x="-98.517" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-56.505" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B"> → </tspan>
+      <tspan x="-28.503" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">position:</tspan>
+      <tspan x="47.479" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#EE6600">sticky</tspan>
+      <tspan x="-139.03" y="18.022" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-75.001" y="18.022" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B"> → position:static(sticky)</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 168, 523)">
+      <tspan x="-128.021" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-86.01" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B"> → </tspan>
+      <tspan x="-58.008" y="-2.978" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">position:static(sticky)</tspan>
+      <tspan x="-109.525" y="18.022" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-45.497" y="18.022" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B"> → position:</tspan>
+      <tspan x="58.487" y="18.022" font-family="Arial-BoldMT" font-size="18" fill="#EE6600">sticky</tspan>
+    </text>
+  </g>
+</svg>
