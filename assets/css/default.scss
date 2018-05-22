@@ -61,7 +61,7 @@ body {
 h1, h2, h3, h4 {
   color: $COLOR_HEADER;
   font-weight: bolder;
-  margin: 1.5em $SIDE_MARGIN_DESKTOP 1em 0;
+  margin: 1.5em 0.5em 1em 0.5em;
 
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin-left: $SIDE_MARGIN_MOBILE;
@@ -69,12 +69,22 @@ h1, h2, h3, h4 {
   }
 }
 
-h1 { font-size: 1.4rem; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
-h2 { font-size: 1.3rem; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
-h3 { font-size: 1.2rem; }
-
-h4 {
+h1 {
+  font-size: 1.4rem;
+  padding: 0.5em;
+  background: #333;
+  color: #eee;
+}
+h2 {
+  font-size: 1.3rem;
+  border-bottom: 1px solid $COLOR_HEADER;
+  padding: 0.3em;
+}
+h3 {
   font-size: 1.1rem;
+}
+h4 {
+  font-size: 1rem;
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;

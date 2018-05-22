@@ -9,12 +9,12 @@ h1, h2, h3, h4, h5 {
   margin: 0 0 0.5em 0;
 }
 h1 {
-  font-size: 17pt;
+  font-size: 1.3rem;
   background: #666;
   color: white;
 }
 h2 {
-  font-size: 15pt;
+  font-size: 1.2rem;
   background: #ddd;
   color: #300;
   background: -prefix-linear-gradient(top, #ddd, white);
@@ -22,16 +22,16 @@ h2 {
   border-radius: 10px 10px 0px 0px;
 }
 h3 {
+  font-size: 1.1rem;
   border-bottom: 1px #ddd solid;
   margin-left: 5px;
   margin-right: 5px;
-  font-size: 14pt;
   padding: 0.3em 0.1em;
   color: black;
   border-radius: 10px 10px 0px 0px;
 }
 h4 {
-  font-size: 13pt;
+  font-size: 1rem;
   padding: 0.3em 0.5em;
   color: black;
 }
