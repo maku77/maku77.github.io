@@ -649,12 +649,12 @@ iframe.xHtmlDemo {
   text-align: right;
 
   .xSearchBar_text {
-    /* border: solid 1px lightgray; */
-    /* background: #f6f6f6; */
+    font-size: 1rem;
     border: solid 1px #db7093;
     color: #db7093;
     background: #fff0fc;
-    width: 13em;
+    width: 200px;
+    padding: 5px;
   }
 
   /* placeholder の文字色 */
@@ -668,16 +668,14 @@ iframe.xHtmlDemo {
   .xSearchBar_text:focus::-moz-placeholder { color:transparent; }
 
   .xSearchBar_button {
-    /* border: solid 1px lightgray; */
-    /* background: #ddd; */
-    border: solid 1px #db7093;
+    font-size: 1rem;
     background: #db7093;
     color: white;
-    border-radius: 5px;
+    border: none;
+    padding: 2px 6px 3px;
   }
-
-  input[type=search] {
-    padding: 2px;
+  .xSearchBar_button:hover {
+    background: #9370db;
   }
 
   input[type=search]:focus {
