@@ -14,23 +14,24 @@
   {% endcomment %}
 </head>
 <body>
-  <div class="xPageHeader">
-    <a href="/{{ page.category_id }}/">
-      <img src="/img/{{ page.category_logo }}" class="xPageHeader_logo">
-    </a>
-    <a href="/{{ page.category_id }}/">
-      <div class="xPageHeader_category">
-      まくまく {{ page.category_title }} ノート
-      </div>
-    </a>
-    <div class="xPageHeader_title">{{ page.title }}</div>
-  </div>
 
+<div class="xPageHeader">
+  <a href="/{{ page.category_id }}/">
+    <img src="/img/{{ page.category_logo }}" class="xPageHeader_logo">
+  </a>
+  <a href="/{{ page.category_id }}/">
+    <div class="xPageHeader_category">
+    まくまく {{ page.category_title }} ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">{{ page.title }}</div>
+</div>
+
+<div id="xBody">
   {% include breadcrumb.html %}
   {% include search-bar.html %}
 
   <div id="xContainer">
-
     <div id="xContainer_main">
       {% include ad-adsense-infeed.html %}
 
@@ -73,6 +74,7 @@
   <!-- <div class="xPageFooter"> -->
     {% include breadcrumb.html %}
   <!-- </div> -->
+<div id="xBody">
 
   {% include footer-javascript.html %}
 </body>

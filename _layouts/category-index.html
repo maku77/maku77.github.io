@@ -10,11 +10,12 @@
   {% endif %}
 </head>
 <body>
-  <div class="xPageHeader">
-    <img src="/img/{{ page.category_logo }}" class="xPageHeader_logo">
-    <div class="xPageHeader_titleLarge">まくまく {{ page.category_title }} ノート</div>
-  </div>
+<div class="xPageHeader">
+  <img src="/img/{{ page.category_logo }}" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまく {{ page.category_title }} ノート</div>
+</div>
 
+<div id="xBody">
   {% include breadcrumb-root.html %}
   {% include search-bar.html %}
 
@@ -40,6 +41,7 @@
   <!-- <div class="xPageFooter"> -->
     {% include breadcrumb-root.html %}
   <!-- </div> -->
+</div>
 
   {% include footer-javascript.html %}
 </body>

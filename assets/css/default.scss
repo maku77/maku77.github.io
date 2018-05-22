@@ -31,12 +31,15 @@ $WIDTH_MOBILE: 800px;
 $SIDE_MARGIN_DESKTOP: 30px;  // 横幅が広い場合の左右のマージン
 $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
 $DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
+$BODY_MARGIN: 10px;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
+  padding: 0;
   color: $COLOR_MAIN;
   line-height: 1.5;
   letter-spacing: 0.12em;
@@ -50,6 +53,10 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+#xBody {
+  margin: $BODY_MARGIN;
+}
+
 // 外部リンクアイコン
 .externalLinkIcon::after {
   content: url("/assets/img/icon-external-link.png");
@@ -61,7 +68,7 @@ body {
 h1, h2, h3, h4 {
   color: $COLOR_HEADER;
   font-weight: bolder;
-  margin: 1.5em 0.5em 1em 0.5em;
+  margin: 1.5em 0em 1em 0em;
 
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin-left: $SIDE_MARGIN_MOBILE;
@@ -389,18 +396,18 @@ kbd {
   }
 
   #xContainer_sidebar {
-    width: 250px;
-    padding: 0px 0px 0px 10px;
+    margin-left: $BODY_MARGIN;
+    width: 200px;
+    padding: 0;
 
     .xContainer_sidebar_ad {
-      margin: 10px;
       max-width: 200px;
     }
 
     #xContainer_sidebar_fixed {
       position: -webkit-sticky;
       position: sticky;
-      top: 1em;
+      top: $BODY_MARGIN;
     }
   }
 
@@ -530,7 +537,7 @@ iframe.xHtmlDemo {
  * xNav（ナビゲーションメニュー）
  */
 .xNav {
-  margin: 10px 0px 10px 10px;
+  margin: $BODY_MARGIN 0;
 
   .xNav-focused {
     background: $COLOR_NAV_FOCUSED;
