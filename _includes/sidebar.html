@@ -25,15 +25,6 @@
 
 <div id="xContainer_sidebar_notFixed">
   <div data-sticky>{% include navigation.html %}</div>
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-  <div data-sticky>{% include search-bar.html %}</div>
 
   {% if jekyll.environment != "development" %}
     <div data-sticky class="xContainer_sidebar_ad">
@@ -46,6 +37,17 @@
       {% include ad-adsense-200x200.html %}
     </div>
   {% endif %}
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky>{% include search-bar.html %}</div>
 </div>
 <div id="xContainer_sidebar_fixed"></div>
 
