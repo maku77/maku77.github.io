@@ -12,9 +12,9 @@ position: sticky を使ってサイドバーのスクロールを抑制する方
 下記のデモページをスクロールすると、最初はメニュー（サイドバー部分）も一緒にスクロールしますが、ある位置を超えるとメニュー位置が固定されます。
 このやり方は、ページ上部のヘッダに大きなアイキャッチ画像などを入れているサイトなどでたまに見かけます。
 
-#### デモ（<a target="_blank" href="scroll-and-fix-demo1.html">別ウィンドウで開く</a>）
+#### デモ（<a target="_blank" href="scroll-and-fix-demo1-1.html">別ウィンドウで開く</a>）
 
-<iframe class="xHtmlDemo" src="scroll-and-fix-demo1.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo1-1.html"></iframe>
 
 CSS の [Sticky positioning](https://developer.mozilla.org/ja/docs/web/css/position#Sticky_positioning) に対応したブラウザであれば、次のようにして要素のスクロールを簡単に制限することができます。
 
@@ -36,12 +36,18 @@ CSS の [Sticky positioning](https://developer.mozilla.org/ja/docs/web/css/posit
 ~~~ html
 <div id="headerArea"></div>
 <div id="container">
-  <div id="mainArea">
-    本文<br>本文<br>本文<br>本文<br>本文 ...
+  <div id="main">
+    <div class="sample">本文</div>
+    <div class="sample">本文</div>
+    <div class="sample">本文</div>
+    ...
   </div>
-  <div id="sidebarArea">
-    <div id="sidebar">
-      メニュー<br>メニュー<br>メニュー<br>メニュー ...
+  <div id="sidebar">
+    <div class="sticky">
+      <div class="sample">メニュー</div>
+      <div class="sample">メニュー</div>
+      <div class="sample">メニュー</div>
+      ...
     </div>
   </div>
 </div>
@@ -67,8 +73,9 @@ CSS の [Sticky positioning](https://developer.mozilla.org/ja/docs/web/css/posit
 }
 
 /* 左側の本文領域 */
-#mainArea {
-  background: lightgray;
+#main {
+  background: dodgerblue;
+  padding: 10px;
 
   /* 画面幅が広い時はこの要素の横幅を拡張する */
   flex-grow: 1;
@@ -78,127 +85,141 @@ CSS の [Sticky positioning](https://developer.mozilla.org/ja/docs/web/css/posit
 }
 
 /* 右側のサイドバー領域 */
-#sidebarArea {
+#sidebar {
+  background: purple;
+  padding: 10px;
   width: 100px;
-  background: yellow;
 }
 
-/* サイドバー内のメニュー ★ここがポイント */
-#sidebar {
+/* Sticky ポジションで固定する部分 */
+.sticky {
   background: magenta;
-
-  /* Sticky positioning の設定 */
-  position: -webkit-sticky;  /* for Safari */
+  position: -webkit-sticky;
   position: sticky;
-  top: 0px;  /* 画面上端オフセット */
+  top: 0;
 }
 ~~~
 
 Sticky positioning は、主にアルファベット順や五十音順のリストの見出しに使用されます（<a target="_blank" href="https://developer.mozilla.org/ja/docs/web/css/position#Sticky_positioning">こちらの例</a>を見るとわかりやすいです）。
 サイドバーなどの上端を固定するような用途で使用すると、サイドバーが長くなった場合に、なかなかスクロールが始まらないという問題が発生します。
-**Sticky positioning によりサイドバーを上端固定する場合は、短いサイドバーに限る**ようにしましょう。
+**Sticky positioning によりサイドバー全体を画面上端に固定する場合は、短いサイドバーに限る**ようにしましょう。
 
 
-JavaScript を使ってサイドバーのスクロールを抑制する方法
-----
+### サイドバーの後半部分だけを固定する
 
-JavaScript でスクロールイベントをハンドルして、メニュー要素の位置をうまく制御するという方法もあります。
+長いサイドバー全体を Sticky positioning で画面上端に固定すると、サイドバーの末尾が見えなくなってしまいます（ページの末尾までスクロールしないと見えなくなる）。
+このような場合は、**サイドバーの下の方の要素だけを Sticky positioning で固定**してやると、そこそこうまい感じで見えるようになります（どの程度の要素を固定するかは、想定する画面の高さによります）。
 
-#### デモ（<a target="_blank" href="scroll-and-fix-demo2.html">別ウィンドウで開く</a>）
+#### デモ（<a target="_blank" href="scroll-and-fix-demo1-2.html">別ウィンドウで開く</a>）
 
-<iframe class="xHtmlDemo" src="scroll-and-fix-demo2.html"></iframe>
-
-この例では、メニューが指定した位置までスクロールしたら、`position: fixed` プロパティを設定して、位置を固定するようにしています。
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo1-2.html"></iframe>
 
 #### HTML 抜粋
 
 ~~~ html
-<div id="headerArea"></div>
 <div id="container">
-  <div id="mainArea">
-    本文<br>本文<br>本文<br>本文<br>本文 ...
-  </div>
-  <div id="sidebarArea">
-    <div id="sidebar">
-      メニュー<br>メニュー<br>メニュー<br>メニュー ...
+  ...
+  <div id="sidebar">
+    <div class="sample">メニュー</div>
+    <div class="sample">メニュー</div>
+    <div class="sample">メニュー</div>
+    <div class="sample">メニュー</div>
+    <div class="sticky">
+      <div class="sample">メニュー</div>
+      <div class="sample">メニュー</div>
+      <div class="sample">メニュー</div>
+      <div class="sample">メニュー</div>
     </div>
   </div>
 </div>
-<div id="footerArea"></div>
 ~~~
 
-#### CSS 抜粋
 
-~~~ css
-/* ヘッダー／フッター部分 */
-#headerArea, #footerArea {
-  height: 100px;
-  background: gray;
-}
+### ウィンドウに収まる範囲でサイドバーの要素を固定する
 
-/* floating レイアウトの解除用 */
-#container::after {
-  display: block;
-  content: "";
-  clear: both;
-}
+次はもう少し頑張った例です。
+JavaScript を利用して、ウィンドウの高さに収まる範囲内で、サイドバーの末尾の要素を固定 (`position: sticky`) しています。
 
-/* 左側の本文領域 */
-#mainArea {
-  float: left;
-  width: calc(100% - 150px);
-  background: lightgray;
-}
+#### デモ（<a target="_blank" href="scroll-and-fix-demo1-3.html">別ウィンドウで開く</a>）
 
-/* 右側のサイドバー領域 */
-#sidebarArea {
-  float: left;
-}
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo1-3.html"></iframe>
 
-/* サイドバー内のメニュー */
-#sidebar {
-  /*
-   * position: fixed; にした瞬間に、親要素 (#sidebarArea) から
-   * 切り離されるので、親要素ではなく、この要素に width プロパティを
-   * 指定しておく必要がある。
-   */
-  width: 150px;
-  background: magenta;
-}
+HTML ファイルでは、サイドバー要素の下に、固定しない部分の要素を格納するための (`#sidebar-notFixed`) と、固定する部分の要素を格納するための (`#sidebar-fixed`) を新たに追加しています。
+さらに、固定する候補となる要素には、カスタム属性の `data-sticky` を付加するようにしています。
 
-/* ある位置までスクロールしたらサイドバーの位置指定を fixed にする */
-.sidebar-fixed {
-  position: fixed;
-  top: 30px;
-}
+#### HTML 抜粋
+
+~~~ html
+<div id="container">
+  ...
+  <div id="sidebar">
+    <div id="sidebar-notFixed">
+      <div class="sample" data-sticky>メニュー1</div>
+      <div class="sample" data-sticky>メニュー2</div>
+      <div class="sample" data-sticky>メニュー3</div>
+      <div class="sample" data-sticky>メニュー4</div>
+      <div class="sample" data-sticky>メニュー5</div>
+      <div class="sample" data-sticky>メニュー6</div>
+      <div class="sample" data-sticky>メニュー7</div>
+      <div class="sample" data-sticky>メニュー8</div>
+    </div>
+    <div id="sidebar-fixed"></div>
+  </div>
+</div>
 ~~~
 
-#### JavaScript 抜粋（jQuery を使用）
+JavaScript では、サイドバー内の要素を末尾から見ていき、どの範囲までを Sticky positioning の対象とできるかを計算します。
+対象となった要素は、`position: sticky` 設定された `div` 要素に配置換えします。
+
+#### JavaScript 抜粋
 
 ~~~ javascript
 $(function() {
-  var MARGIN_TOP = 30;  // どの位置で固定するか（閾値）
-  var sidebar = $('#sidebar');
-  var sidebar_top = sidebar.offset().top;  // サイドバーの初期位置
+  $(window).on('resize', handleResize);
+  handleResize();
 
-  $(window).scroll(function() {
-    if ($(window).scrollTop() + MARGIN_TOP > sidebar_top) {
-      sidebar.addClass('sidebar-fixed');
-    } else {
-      sidebar.removeClass('sidebar-fixed');
-    }
-  });
+  function handleResize() {
+    var $sidebarNotFixed = $('#sidebar-notFixed');
+    var $sidebarFixed = $('#sidebar-fixed');
+    var $elems = $('#sidebar').find('[data-sticky]');
+    var winHeight = $(window).height();
+
+    // data-sticky 属性を持つ要素を後ろから見ていき、
+    // ウィンドウ内に収まる要素にフラグを立てる
+    //（data-sticky 属性の値を true にする）。
+    // $(...get().reverse()) は要素を逆順に処理するイディオム。
+    var sum = 0;
+    $($elems.get().reverse()).each(function() {
+      sum += $(this).outerHeight(true);
+      $(this).data('sticky', sum < winHeight);
+    });
+
+    // サイドバー内の要素を #sidebar-notFixed と、
+    // #sidebarFixed の子要素として振り分ける。
+    // 順番がおかしくならないようにループを分ける。
+    $elems.each(function() {
+      if ($(this).data('sticky')) {
+        $sidebarFixed.append($(this));
+      } else {
+        $sidebarNotFixed.append($(this));
+      }
+    });
+  }
 });
 ~~~
 
-サイドバーを画面上端に固定するためだけに JavaScript を使用するのは、パフォーマンスの観点などからあまりお勧めはできません。
-要素下端の処理も複雑なので（上記の例ではちゃんと処理していません）、できるだけ CSS の Sticky positioning を使う方法を採用した方がよいでしょう。
+### ここまでのまとめ
 
-ただし、Sticky positioning を使う方法にせよ、JavaScript を使う方法にせよ、サイドバーを単純に上端に固定してしまうと、長いメニューの末尾が表示できなくってしまうという問題を解決できません。
-いろいろな表示パターンでうまい感じにサイドバーの位置制御を行うには、次で説明するような場合分け処理が必要になります。
+Sticky positioning を利用して、サイドバー内の要素を固定する方法を見てきました。
+サイドバーが長くなる場合でも、JavaScript を組み合わせて使用することで、適切な範囲の要素だけを固定することができました。
+**下方向のスクロールに関しては、ほとんどのケースはこれでうまく制御できる**でしょう。
+
+ただし、Sticky positioning を使用して長いサイドバーを末尾部分で固定すると、ページを上方向にスクロールするときに、なかなかサイドバーのスクロールが始まらないという問題があります（空白が表示されているよりは全然よいのですが）。
+
+ページの末尾から上方向にスクロールするときに、サイドバーをうまいことスクロールできるようにするには、次で説明するような JavaScript を使用した場合分け処理が必要になります。
 
 
-すべてのパターンで空白領域が少なくなるように制御する
+全てのパターンでサイドバーのスクロールをうまく制御する
 ----
 
 本文領域の高さ (main) やサイドバーの高さ (sidebar)、ブラウザの表示領域（window）の高さの組み合わせは、次のように 6 パターンに分類できます。
@@ -210,18 +231,18 @@ $(function() {
 5. main の高さ ＞ sidebar の高さ ＞ window の高さ
 6. sidebar の高さ ＞ main の高さ ＞ window の高さ
 
-ページをスクロールさせたときに、できるだけページ末尾の空白を表示しないようにするには、それぞれのパターンで異なる処理を行う必要があります。
+ページをスクロールさせたときに、できるだけ本文領域やサイドバー末尾の空白を表示しないようにするには、それぞれのパターンで異なる処理を行う必要があります。
 以下、順番に詳しく見ていきます。
 
-### 本文領域とサイドバーが画面内にすべて収まる場合
+### 本文領域とサイドバーがウィンドウ内にすべて収まる場合
 
 ![scroll-and-fix1.svg](scroll-and-fix1.svg){: .center }
 
-画面内にすべてのコンテンツ（本文とサイドバー）が表示できる場合は、特にサイドバーの位置調整などを行う必要はありません。
+ウィンドウ内にすべてのコンテンツ（本文とサイドバー）が表示できる場合は、特にサイドバーの位置調整などを行う必要はありません。
 デフォルトのポジション指定である `position: static` のままで大丈夫です。
 ただし、フッターのサイズが大きい場合は、main と sidebar いずれか短い方に、`position: sticky` を指定しておくのが望ましいでしょう。
 
-### 本文領域、あるいはサイドバーのどちらかが画面内に収まる場合
+### 本文領域、あるいはサイドバーのどちらかがウィンドウ内に収まる場合
 
 ![scroll-and-fix2.svg](scroll-and-fix2.svg){: .center }
 
@@ -229,13 +250,13 @@ $(function() {
 こうしておけば、ページをスクロールしている最中に、小さい方のコンテンツはすべて表示しつづけることができます。
 
 
-### サイドバーが本文より小さいが、画面内に収まらない場合
+### サイドバーが本文より小さいが、ウィンドウに収まらない場合
 
 ![scroll-and-fix3.svg](scroll-and-fix3.svg){: .center }
 
 サイドバーが、ウィンドウ内に収まらない場合は、少し複雑な処理が必要になります。
-必要に応じて、下方向にスクロールしているときは画面下端にサイドバーを配置し、上方向にスクロールしているときは画面上端にサイドバーを配置するようにします。
-こうすれば、画面スクロール時に必ずサイドバーをスクロールさせることができ、しかも、無駄な空白領域が表示されてしまうのを防ぐことができます。
+必要に応じて、下方向にスクロールしているときはウィンドウ下端にサイドバーを配置し、上方向にスクロールしているときはウィンドウ上端にサイドバーを配置するようにします。
+こうすれば、スクロール時に必ずサイドバーをスクロールさせることができ、しかも、無駄な空白領域が表示されてしまうのを防ぐことができます。
 
 ### 本文がサイドバーより小さいが、画面内に収まらない場合
 
@@ -251,9 +272,9 @@ $(function() {
 他のパターンでは、本文領域は `position: static` の代わりに `position: sticky` を指定しておいても問題ありませんが、この場合だけは必ず `position: static` を指定しないといけないことに注意してください。
 そうしないと、スクロール時に本文領域の上端部分しか表示されなくなってしまいます。
 
-### デモ（<a target="_blank" href="scroll-and-fix-demo3.html">別ウィンドウで開く</a>）
+### デモ（<a target="_blank" href="scroll-and-fix-demo2.html">別ウィンドウで開く</a>）
 
-<iframe class="xHtmlDemo" src="scroll-and-fix-demo3.html"></iframe>
+<iframe class="xHtmlDemo" src="scroll-and-fix-demo2.html"></iframe>
 
 
 ### 実装
@@ -263,24 +284,25 @@ $(function() {
 #### HTML 抜粋
 
 ~~~ html
+<div id="headerArea"></div>
 <div id="container">
-  <div id="mainArea">
-    <div id="main">
-      <div class="sample">本文</div>
-      <div class="sample">本文</div>
-      <div class="sample">本文</div>
-      ...
-    </div>
+  <div id="main">
+    <div class="sample">本文</div>
+    <div class="sample">本文</div>
+    <div class="sample">本文</div>
+    ...
   </div>
-  <div id="sidebarArea">
-    <div id="sidebar">
-      <div class="sample">メニュー</div>
-      <div class="sample">メニュー</div>
-      <div class="sample">メニュー</div>
+  <div id="sidebar">
+    <div id="sidebar-notFixed">
+      <div class="sample" data-sticky>メニュー1</div>
+      <div class="sample" data-sticky>メニュー2</div>
+      <div class="sample" data-sticky>メニュー3</div>
       ...
     </div>
+    <div id="sidebar-fixed"></div>
   </div>
 </div>
+<div id="footerArea"></div>
 ~~~
 
 #### CSS 抜粋
@@ -307,7 +329,6 @@ $(function() {
   -moz-box-flex: 1;
 }
 
-/* 本文の実体 */
 #main {
   position: static;
   padding: 10px;

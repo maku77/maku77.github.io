@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       padding: 1rem;
     }
@@ -13,40 +19,59 @@
       background: gray;
     }
 
-    /* floating レイアウトの解除用 */
-    #container::after {
-      display: block;
-      content: "";
-      clear: both;
+    /* 本文領域とサイドバー領域を含むコンテナ */
+    #container {
+      /* フレキシブルボックスレイアウトによる段組 */
+      display: flex;
+      display: -webkit-flex;
+      display: -webkit-box;
+      display: -moz-box;
     }
 
     /* 左側の本文領域 */
     #mainArea {
-      float: left;
-      width: calc(100% - 150px);
+      position: relative;
       background: dodgerblue;
+
+      /* 画面幅が広い時はこの要素の横幅を拡張する */
+      flex-grow: 1;
+      -webkit-flex-grow: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+    }
+
+    #main {
+      position: static;
+      padding: 10px;
     }
 
     /* 右側のサイドバー領域 */
     #sidebarArea {
-      float: left;
-    }
-
-    /* サイドバー内のメニュー */
-    #sidebar {
-      /*
-       * position: fixed; にした瞬間に、親要素 (#sidebarArea) から
-       * 切り離されるので、親要素ではなく、この要素に width プロパティを
-       * 指定しておく必要がある。
-       */
-      width: 150px;
+      position: relative;
+      width: 100px;
       background: magenta;
     }
 
-    /* ある位置までスクロールしたらサイドバーの位置指定を fixed にする */
-    .sidebar-fixed {
-      position: fixed;
-      top: 30px;
+    /* サイドバーの実体 */
+    #sidebar {
+      padding: 10px;
+      width: 100%;
+      /* デフォルトで Sticky positioning */
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+    }
+
+    .sample {
+      color: rgba(255, 255, 255, 0.5);
+      border: solid 1px rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.2);
+      margin-top: -1px;
+      text-align: center;
+      height: 50px;
+      /* テキスト中央寄せ */
+      line-height: 50px;
+      vertical-align: middle;
     }
   </style>
   <title>ある位置までスクロールしたら固定されるメニューを作成する: デモページ2</title>
@@ -59,34 +84,101 @@
 <div id="headerArea"></div>
 <div id="container">
   <div id="mainArea">
-    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
-    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
-    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
-    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
-    本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>本文<br>
+    <div id="main">
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+    </div>
   </div>
   <div id="sidebarArea">
     <div id="sidebar">
-      メニュー1<br>メニュー2<br>メニュー3<br>メニュー4<br>メニュー5<br>
-      メニュー6<br>メニュー7<br>メニュー8<br>メニュー9<br>メニュー10<br>
+      <div class="sample">メニュー1</div>
+      <div class="sample">メニュー2</div>
+      <div class="sample">メニュー3</div>
+      <div class="sample">メニュー4</div>
+      <div class="sample">メニュー5</div>
+      <div class="sample">メニュー6</div>
+      <div class="sample">メニュー7</div>
+      <div class="sample">メニュー8</div>
+      <div class="sample">メニュー9</div>
+      <div class="sample">メニュー10</div>
     </div>
   </div>
 </div>
 <div id="footerArea"></div>
 
 <script>
-$(function() {
-  var MARGIN_TOP = 30;  // どの位置で固定するか（閾値）
-  var sidebar = $('#sidebar');
-  var sidebar_top = sidebar.offset().top;  // サイドバーの初期位置
+$(function () {
+  var $window = $(window);
+  var $container = $('#container');
+  var $main = $('#main');
+  var $sidebar = $('#sidebar');
+  var windowHeight, containerHeight, sidebarHeight;
 
-  $(window).scroll(function() {
-    if ($(window).scrollTop() + MARGIN_TOP > sidebar_top) {
-      sidebar.addClass('sidebar-fixed');
+  $window.on('resize', init);
+  init();
+
+  // 高さ情報の更新、イベントハンドラの登録・解除など
+  function init() {
+    var mainHeight = $main.outerHeight(true);
+    windowHeight = $window.height();
+    containerHeight = $container.outerHeight(true);
+    sidebarHeight = $sidebar.outerHeight(true);
+    $window.off('scroll', adjustSidebar); // スクロールハンドラを一旦解除
+
+    if ((mainHeight > sidebarHeight) && (sidebarHeight > windowHeight)) {
+      $window.on('scroll', adjustSidebar);  // 動的なサイドバー制御
+      adjustSidebar();  // すぐに一度位置調整
     } else {
-      sidebar.removeClass('sidebar-fixed');
+      posSticky();
     }
-  });
+  }
+
+  function posSticky() {
+    $sidebar.css({ 'position' : 'sticky', 'top' : 0 });
+  }
+
+  function posAbsolute(offset) {
+    $sidebar.css({ 'position' : 'absolute', 'top' : offset });
+  }
+
+  // サイドバーの位置を調整する処理
+  function adjustSidebar() {
+    var windowTop = window.pageYOffset;
+    var windowBottom = windowTop + windowHeight;
+    var containerTop = $container.offset().top;
+    var containerBottom = containerTop + containerHeight;
+    var sidebarTop = $sidebar.offset().top;
+    var sidebarBottom = sidebarTop + sidebarHeight;
+
+    if (windowTop < containerTop) { // 上への行き過ぎ防止
+      posAbsolute(0);
+    } else if (windowBottom > containerBottom) { // 下への行き過ぎ防止
+      posAbsolute(containerHeight - sidebarHeight);
+    } else if (windowTop < sidebarTop) { // 上スクロール時の上端固定
+      posAbsolute(windowTop - containerTop);
+    } else if (windowBottom > sidebarBottom) { // 下スクロール時の下端固定
+      posAbsolute(windowBottom - containerTop - sidebarHeight);
+    }
+    // それ以外は何もせず、自然にスクロールするのにまかせる
+  }
 });
 </script>
 
