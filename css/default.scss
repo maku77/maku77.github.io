@@ -32,6 +32,10 @@ $SIDE_MARGIN_DESKTOP: 30px;  // 横幅が広い場合の左右のマージン
 $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
 $DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: $COLOR_MAIN;
   line-height: 1.5;
@@ -379,10 +383,16 @@ kbd {
     width: 250px;
     padding: 0px 0px 0px 10px;
 
-      .xContainer_sidebar_ad {
-        margin: 10px;
-        max-width: 200px;
-      }
+    .xContainer_sidebar_ad {
+      margin: 10px;
+      max-width: 200px;
+    }
+
+    #xContainer_sidebar_fixed {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 1em;
+    }
   }
 
   /* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
