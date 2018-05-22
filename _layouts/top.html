@@ -6,9 +6,11 @@
   <title>{{ page.title }}</title>
   <style>
     #siteHeader {
-      margin: 0;
-      padding: 0;
+      margin: 0 0 5px 0;
+      padding: 10px 10px 20px;
       border: none;
+      background: white;
+      box-shadow: 0px -20px 20px 0px #eee inset;
     }
     #siteHeader_logo {
       height: 43px;
@@ -21,13 +23,24 @@
       color: #3366ff;
     }
 
-    .local-categoryBoxes div {
-      padding: 0px;
+    body {
+      background: #eee;
     }
+
+    .local-categoryBoxes {
+      margin: 15px 0;
+    }
+    .local-categoryBoxes::after {
+      /* Cleaf fix */
+      content: '';
+      display: block;
+      clear: both;
+    }
+
     .local-categoryBox {
       display: block;
       width: 100%;
-      height: 110px;
+      height: 100px;
     }
     /*
      * categoryBox_title と categoryBox_desc の height の合計が
@@ -38,7 +51,7 @@
       height: 90px;
       float: left;
       padding: 5px;
-      margin: 5px 5px 5px 10px;
+      margin: 5px;
       background: rgba(255, 255, 255, 0.7);
     }
     .local-categoryBox_title {
@@ -71,9 +84,6 @@
     a:active {
       color: white;
       background: #f9c;
-    }
-    body {
-      background: #eee;
     }
 
     /* From bootstrap */
@@ -108,6 +118,8 @@
     <img id="siteHeader_logo" src="/img/logo.jpg">
     <span id="siteHeader_title">天才まくまくノート</span>
   </h1>
+
+<div id="xBody">
   {% include search-bar.html %}
 
   <div class="local-widget">
@@ -159,11 +171,17 @@
     </div>
   </div>
 
-  <div style="text-align: center; margin-top: 30px">
-    <a target="_blank" href="http://english.memoja.net/">パックン英検</a>
-  </div>
+  <ul>
+    <li>お勉強
+      <ul>
+        <li><a target="_blank" href="http://english.memoja.net/">パックン英検</a>
+      </ul>
+    </li>
+  </ul>
 
   <div class="local-widget">{% include widget-sns.html %}</div>
   <div class="local-widget">{% include widget-adsense-responsive.html %}</div>
+</div>
+
 </body>
 </html>
