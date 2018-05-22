@@ -144,7 +144,7 @@ JavaScript を利用して、ウィンドウの高さに収まる範囲内で、
 
 <iframe class="xHtmlDemo" src="scroll-and-fix-demo1-3.html"></iframe>
 
-HTML ファイルでは、サイドバー要素の下に、固定しない部分の要素を格納するための (`#sidebar-notFixed`) と、固定する部分の要素を格納するための (`#sidebar-fixed`) を新たに追加しています。
+HTML ファイルでは、サイドバー要素の下に、固定しない部分の要素を格納するための (`#sidebar_notFixed`) と、固定する部分の要素を格納するための (`#sidebar_fixed`) を新たに追加しています。
 さらに、固定する候補となる要素には、カスタム属性の `data-sticky` を付加するようにしています。
 
 #### HTML 抜粋
@@ -153,7 +153,7 @@ HTML ファイルでは、サイドバー要素の下に、固定しない部分
 <div id="container">
   ...
   <div id="sidebar">
-    <div id="sidebar-notFixed">
+    <div id="sidebar_notFixed">
       <div class="sample" data-sticky>メニュー1</div>
       <div class="sample" data-sticky>メニュー2</div>
       <div class="sample" data-sticky>メニュー3</div>
@@ -163,9 +163,20 @@ HTML ファイルでは、サイドバー要素の下に、固定しない部分
       <div class="sample" data-sticky>メニュー7</div>
       <div class="sample" data-sticky>メニュー8</div>
     </div>
-    <div id="sidebar-fixed"></div>
+    <div id="sidebar_fixed"></div>
   </div>
 </div>
+~~~
+
+#### CSS 抜粋
+
+~~~
+#sidebar_fixed {
+  background: magenta;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
 ~~~
 
 JavaScript では、サイドバー内の要素を末尾から見ていき、どの範囲までを Sticky positioning の対象とできるかを計算します。
@@ -179,8 +190,8 @@ $(function() {
   handleResize();
 
   function handleResize() {
-    var $sidebarNotFixed = $('#sidebar-notFixed');
-    var $sidebarFixed = $('#sidebar-fixed');
+    var $sidebarNotFixed = $('#sidebar_notFixed');
+    var $sidebarFixed = $('#sidebar_fixed');
     var $elems = $('#sidebar').find('[data-sticky]');
     var winHeight = $(window).height();
 
@@ -194,8 +205,8 @@ $(function() {
       $(this).data('sticky', sum < winHeight);
     });
 
-    // サイドバー内の要素を #sidebar-notFixed と、
-    // #sidebarFixed の子要素として振り分ける。
+    // サイドバー内の要素を #sidebar_notFixed と、
+    // #sidebar-fixed の子要素として振り分ける。
     // 順番がおかしくならないようにループを分ける。
     $elems.each(function() {
       if ($(this).data('sticky')) {

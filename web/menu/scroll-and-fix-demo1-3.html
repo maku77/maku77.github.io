@@ -47,7 +47,7 @@
       width: 100px;
     }
 
-    #sidebar-fixed {
+    #sidebar_fixed {
       background: magenta;
       position: -webkit-sticky;
       position: sticky;
@@ -94,7 +94,7 @@
     <div class="sample">本文</div>
   </div>
   <div id="sidebar">
-    <div id="sidebar-notFixed">
+    <div id="sidebar_notFixed">
       <div class="sample" data-sticky>メニュー1</div>
       <div class="sample" data-sticky>メニュー2</div>
       <div class="sample" data-sticky>メニュー3</div>
@@ -104,7 +104,7 @@
       <div class="sample" data-sticky>メニュー7</div>
       <div class="sample" data-sticky>メニュー8</div>
     </div>
-    <div id="sidebar-fixed"></div>
+    <div id="sidebar_fixed"></div>
   </div>
 </div>
 <div id="footerArea"></div>
@@ -115,8 +115,8 @@ $(function() {
   handleResize();
 
   function handleResize() {
-    var $sidebarNotFixed = $('#sidebar-notFixed');
-    var $sidebarFixed = $('#sidebar-fixed');
+    var $sidebarNotFixed = $('#sidebar_notFixed');
+    var $sidebarFixed = $('#sidebar_fixed');
     var $elems = $('#sidebar').find('[data-sticky]');
     var winHeight = $(window).height();
 
@@ -130,8 +130,8 @@ $(function() {
       $(this).data('sticky', sum < winHeight);
     });
 
-    // サイドバー内の要素を #sidebar-notFixed と、
-    // #sidebarFixed の子要素として振り分ける。
+    // サイドバー内の要素を #sidebar_notFixed と、
+    // #sidebar_fixed の子要素として振り分ける。
     // 順番がおかしくならないようにループを分ける。
     $elems.each(function() {
       if ($(this).data('sticky')) {
