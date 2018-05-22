@@ -5,15 +5,22 @@
   <meta property="og:title" content="{{ site.name }}" />
   <title>{{ page.title }}</title>
   <style>
-    .siteHeader {
-      margin: 12px 0px;
+    #siteHeader {
+      margin: 0;
+      padding: 0;
       border: none;
     }
-    .siteHeader_title {
-      color: #3366ff;
-      font-size: 18pt;
-      vertical-align: middle;
+    #siteHeader_logo {
+      height: 43px;
+      width: 100px;
+      border-radius: 5px;
     }
+    #siteHeader_title {
+      font-size: 30px;
+      vertical-align: top;
+      color: #3366ff;
+    }
+
     .local-categoryBoxes div {
       padding: 0px;
     }
@@ -97,9 +104,9 @@
   {% endif %}
 </head>
 <body>
-  <h1 class="siteHeader">
-    <img src="/img/logo.jpg" width="100px">
-    <span class="siteHeader_title">天才まくまくノート</span>
+  <h1 id="siteHeader">
+    <img id="siteHeader_logo" src="/img/logo.jpg">
+    <span id="siteHeader_title">天才まくまくノート</span>
   </h1>
   {% include search-bar.html %}
 

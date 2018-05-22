@@ -44,7 +44,7 @@ body {
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
   */
   font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
-  font-size: 12pt;
+  font-size: 87.5%;
 
   /* Keep font size when lotating screen in Android devices */
   -webkit-text-size-adjust: 100%;
@@ -69,12 +69,12 @@ h1, h2, h3, h4 {
   }
 }
 
-h1 { font-size: 18pt; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
-h2 { font-size: 16pt; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
-h3 { font-size: 14pt; }
+h1 { font-size: 1.4rem; border-bottom: 2px solid $COLOR_HEADER; padding: 5px 0px; }
+h2 { font-size: 1.3rem; border-bottom: 1px solid $COLOR_HEADER; padding: 2px 0px; }
+h3 { font-size: 1.2rem; }
 
 h4 {
-  font-size: 12pt;
+  font-size: 1.1rem;
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
@@ -315,9 +315,9 @@ kbd {
 .htmlSample {
   * { all: unset; }
   p, div, ul, ol, li { display: block; }
-  h2 { font-size: 130%; }
-  h3 { font-size: 120%; }
-  h4 { font-size: 110%; }
+  h2 { font-size: 120%; }
+  h3 { font-size: 110%; }
+  h4 { font-size: 100%; }
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   padding: 10px;
   border: solid #ccc 1px;
@@ -347,7 +347,6 @@ kbd {
 }
 
 .xPageDescription {
-  font-size: 110%;
   background-color: #f3d3d8;
   background-image: radial-gradient(#f5e2e6 20%, transparent 0), radial-gradient(#f5e2e6 20%, transparent 0);
   background-position: 0 0, 10px 10px;
@@ -409,7 +408,6 @@ kbd {
 /*
   .xCategoryIntro {
     margin: 10px 0px 15px 0px;
-    font-size: 19px;
     padding: 10px 20px;
     background: #fafafa;
     border-radius: 5px;
@@ -502,18 +500,18 @@ iframe.xHtmlDemo {
 
   .xPageHeader_titleLarge {
     color: $COLOR_PAGE_TITLE;
-    font-size: 28pt;
-    padding-top: 10px;
+    font-size: 2rem;
+    padding-top: 16px;
   }
 
   .xPageHeader_title {
     color: $COLOR_PAGE_TITLE;
-    font-size: 18pt;
+    font-size: 1.5rem;
   }
 
   .xPageHeader_category {
     color: $COLOR_PAGE_TITLE_CATEGORY;
-    font-size: 12pt;
+    font-size: 1.1rem;
     padding-top: 10px;
   }
 }
@@ -532,7 +530,7 @@ iframe.xHtmlDemo {
     border-bottom: 1px gray solid;
     margin: 0px 0px 8px 0px;
     padding: 0 0 0.2em 0;
-    font-size: 14pt;
+    font-size: 1.2rem;
     font-weight: bolder;
     color: black;
   }
