@@ -40,6 +40,7 @@ Windows バッチファイル
 * [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
+* [コマンドプロンプトからウィンドウサイズを変更する](settings/change-window-size.html)
 * [doskey を使ってコマンドプロンプト用のマクロを登録する](settings/doskey.html)
 * [コマンドプロンプトから複数のコマンドを並列実行する (start)](cmd/parallel.html)
 * [コマンドプロンプトからインターネット上のファイルをダウンロードする (bitsadmin)](cmd/download.html)
