@@ -3,7 +3,7 @@
 
 /* vim: set et sts=2 ts=2 sw=2: */
 
-$COLOR_MAIN: #666;
+$COLOR_MAIN: #333;
 $COLOR_HEADER: black;
 $COLOR_EMPHASIS: #ff1166; /* #d68; */
 
@@ -38,19 +38,19 @@ $BODY_MARGIN: 10px;  // ヘッダを除く全体のマージン（本文とサ�
   margin: 0;
 }
 
-body {
-  padding: 0;
-  color: $COLOR_MAIN;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
-  /*
-  font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
-  */
-  font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
-  font-size: 87.5%;
+html {
+  /* font-family: "Helvetica", "Arial", YuGothic, "Yu Gothic", "Hiragino Sans", "ヒラギノ角ゴシック", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
+  font-size: 100%;
+  line-height: 1.75;
+  letter-spacing: 0.05em;
 
   /* Keep font size when lotating screen in Android devices */
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding: 0;
+  color: $COLOR_MAIN;
 }
 
 #xBody {
@@ -79,8 +79,8 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 1.4rem;
   padding: 0.5em;
-  background: #333;
-  color: #eee;
+  background: #666;
+  color: white;
 }
 h2 {
   font-size: 1.3rem;
@@ -88,6 +88,7 @@ h2 {
   padding: 0.3em;
 }
 h3 {
+  padding: 0.3em;
   font-size: 1.1rem;
 }
 h4 {
