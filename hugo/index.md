@@ -1,5 +1,5 @@
 ---
-title: Hugo
+title: "Hugo"
 layout: category-index
 ---
 
@@ -32,6 +32,7 @@ hugo コマンド
 * [カレントディレクトリを気にせずに hugo コマンドを実行する](command/source-dir.html)
 * [ポート番号を指定して Hugo サーバーを起動する](command/server-port.html)
 * [複数の Hugo サーバーを１つのコマンドプロンプト上で立ち上げる](command/multi-server.html)
+* [Hugo サーバーで記事の変更内容が反映されない場合](command/ignore-cache.html)
 
 設定
 ----
@@ -66,6 +67,7 @@ hugo コマンド
 * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
+* [最近更新された記事のリストを表示する](list/recents.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
