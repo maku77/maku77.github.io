@@ -29,7 +29,7 @@ Registry / Repository / Image / Tag の概念
 
 ※リポジトリ内のタグは、下記のサイトから調べることができます。
 
-- https://registry.hub.docker.com/
+- [https://registry.hub.docker.com/](https://registry.hub.docker.com/)
 
 
 コンテナ関連のコマンド

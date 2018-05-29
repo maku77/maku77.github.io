@@ -1,5 +1,5 @@
 ---
-title: Docker で apt-get install するときに TERM 系のエラーが出る
+title: "Docker で apt-get install するときに TERM 系のエラーが出る"
 date: "2015-04-02"
 ---
 
@@ -26,5 +26,5 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y ...
 
 `DEBIAN_FRONTEND` というのは、Debian Installer が使うフロントエンド (UI) を指定するもので、`noninteractive` にすることで、ユーザの入力を受け付けないインストールが可能になります。
 
-- 参考: http://www.debian.org/releases/sarge/s390/ch05s02.html.ja
+- 参考: [http://www.debian.org/releases/sarge/s390/ch05s02.html.ja](http://www.debian.org/releases/sarge/s390/ch05s02.html.ja)
 

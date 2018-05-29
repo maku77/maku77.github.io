@@ -6,7 +6,7 @@ date: "2015-03-12"
 作成した Docker イメージを Docker Hub リポジトリに登録すると、世界中のユーザがそのイメージを使えるようになります（プライベートにすることもできます）。
 まずは、下記のサイトで、Docker Hub リポジトリのアカウントを作成しておく必要があります。
 
-- https://hub.docker.com/
+- [https://hub.docker.com/](https://hub.docker.com/)
 
 アップロード予定の Docker イメージは、下記のように作成済みであるとします。
 

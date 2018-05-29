@@ -48,7 +48,7 @@ RUN apt-get install -y git gnupg flex bison gperf build-essential zip curl libc6
 
 やっていることは、ほぼ下記に記述されている通りです。
 
-- http://source.android.com/source/initializing.html
+- [http://source.android.com/source/initializing.html](http://source.android.com/source/initializing.html)
 
 ただ、いくつかポイントがあり、下記のような設定を行っています。
 
@@ -71,7 +71,7 @@ $ sudo docker run -it android_ubuntu14 /bin/bash
 
 この Docker イメージは、あくまでビルド環境の構築までしか行っていないため、実際にビルドをする前には、`repo` を使ったソースコードのダウンロードなどを行う必要があります。
 
-- http://source.android.com/source/downloading.html
+- [http://source.android.com/source/downloading.html](http://source.android.com/source/downloading.html)
 
 上記の Android 公式サイトでは、ホームディレクトリの `~/bin` に `repo` コマンドをインストールしていますが、Docker コンテナ上での実行時には、適宜 `/opt/bin` などに読み替えるとよいでしょう。
 
