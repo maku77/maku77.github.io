@@ -34,9 +34,11 @@ hugo コマンド
 * [複数の Hugo サーバーを１つのコマンドプロンプト上で立ち上げる](command/multi-server.html)
 * [Hugo サーバーで記事の変更内容が反映されない場合](command/ignore-cache.html)
 
-設定
+設定/config ファイル
 ----
 * [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ](settings/japanese.html)
+* [コンフィグファイルに設定した情報を参照する](settings/read-config.html)
+* [Google アナリティクス用のトラッキングコードを埋め込む](settings/google-analytics.html)
 
 テンプレート／テーマ
 ----
@@ -45,6 +47,7 @@ hugo コマンド
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
 * [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (baseof)](template/base-template.html)
+* [Hugo Themes](https://themes.gohugo.io/) （色々な Hugo 用テーマが公開されています）
 
 ### Hugo のテンプレート文法
 * [Hugo テンプレート内にコメントを記述する](template/comment.html)
@@ -89,10 +92,6 @@ hugo コマンド
 ----
 * [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
 
-Links
-----
-* [Hugo Themes](https://themes.gohugo.io/)
-  - たくさんの Hugo 用テーマが公開されています。
 
 Go 言語入門（Golang 入門）
 ====
