@@ -1,19 +1,19 @@
 ---
 title: "ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する"
 date: "2018-04-02"
+lastmod: "2018-06-02"
 description: "自分の作業用備忘録としてはメモとして残したいけれど、インターネット上には公開したくない内容に関しては、Hugo をローカルサーバとして動作させているときだけ出力するようなショートコードを作成しておくと便利です。"
 ---
 
 private ショートコードを作成する
 ----
 
-まず、そのショートコードが、Hugo のローカルサーバ上で使用されたかを判別する必要があります。
-ローカルサーバで Web ページをホスティングしているときは、`.Site.BaseURL` の値が `http://localhost` で始まるようになるので、これを利用します。
+そのショートコードが、Hugo のローカルサーバ上 (hugo server) で使用されたかを判別するには、[Site 変数](https://gohugo.io/variables/site/)の `.Site.IsServer` を参照します。
 
 #### layouts/shortcodes/private.html
 
 ~~~
-{{ "{{" }} if hasPrefix .Site.BaseURL "http://localhost" }}
+{{ "{{" }} if .Site.IsServer }}
   ローカルサーバで動作しています。
 {{ "{{" }} end }}
 ~~~
@@ -23,10 +23,8 @@ private ショートコードを作成する
 #### layouts/shortcodes/private.html
 
 ~~~
-{{ "{{" }} if hasPrefix .Site.BaseURL "http://localhost" }}
-  <div class="private">
-    {{ "{{" }} .Inner }}
-  </div>
+{{ "{{" }} if .Site.IsServer }}
+  <div class="private">{{ "{{" }} .Inner }}</div>
 {{ "{{" }} end }}
 ~~~
 
@@ -50,9 +48,10 @@ private ショートコードを作成する
 
 使用方法
 ----
-作成した private ショートコードは、次のように利用します。
 
-#### content/_index.md
+作成した private ショートコードは、記事ファイルの中で次のように利用します（ショートコードなので、テンプレートファイルの中では使えないことに注意してください）。
+
+#### content/sample.md
 
 ~~~
 ---
@@ -74,5 +73,20 @@ title: "サンプルタイトル"
 - Markdown の構文も使えるよ
 - Markdown の構文も使えるよ
 {{ "{{" }}% /private %}}
+~~~
+
+
+（おまけ）.Site.IsServer が使えなかった頃
+----
+
+`.Site.IsServer` 変数は [Hugo v.0.38 で追加](https://github.com/gohugoio/hugo/pull/4541)されました。
+v.0.37 以前のバージョンでは、ローカルサーバで Web ページをホスティングしているかどうかを、`.Site.BaseURL` の値が `http://localhost` で始まっているかどうかで判断していました。
+
+#### layouts/shortcodes/private.html
+
+~~~
+{{ "{{" }} if hasPrefix .Site.BaseURL "http://localhost" }}
+  ローカルサーバで動作しています。
+{{ "{{" }} end }}
 ~~~
 

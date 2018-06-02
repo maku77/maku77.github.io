@@ -50,7 +50,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 #### layouts/partials/analytics.html
 
 ~~~ html
-{{ "{{" }} if not (hasPrefix .Site.BaseURL "http://localhost") }}
+{{ "{{" }} if not .Site.IsServer }}
 {{ "{{" }} with .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ "{{" }} . }}"></script>

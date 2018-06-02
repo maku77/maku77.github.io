@@ -1,5 +1,5 @@
 ---
-title: ドラフトモードで Hugo サーバーを起動する
+title: "Hugo でドラフトページを作成する"
 date: "2017-08-24"
 ---
 
@@ -63,5 +63,56 @@ $ rm -Rf public && hugo
 
 ~~~
 C:\> rmdir /s /q public & hugo
+~~~
+
+
+ドラフト記事の一覧を表示する
+----
+
+### コマンドラインから
+
+コマンドラインで `hugo list draft` と実行すると、contents ディレクトリの中の記事のうち、ドラフトとしてマークされている（フロントマターに `draft: true` と記述されている）ファイルの一覧を確認することができます。
+
+~~~
+$ hugo list draft
+draft.md
+diaries/temp.md
+books/work-shift.md
+~~~
+
+- 参考: [hugo list drafts｜Hugo](https://gohugo.io/commands/hugo_list_drafts/)
+
+### テンプレートから
+
+テンプレートファイル内で、ドラフト記事のリンクを列挙するには以下のようにします。
+
+#### layouts/index.html の抜粋
+
+~~~
+<h2>ドラフト記事の一覧</h2>
+<ul>
+{{ "{{" }} range (where .Site.Pages ".Draft" true) }}
+  <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
+{{ "{{" }} end }}
+</ul>
+~~~
+
+<div class="note">
+<code>where .Site.Page ".Draft" true</code> という部分は、「サイト内のすべてのページ (<code>.Site.Pages</code>) の中から、ページ変数の .Draft が true である (<code>".Draft" true</code>) ものを列挙する」という命令です。
+</div>
+
+
+テンプレートの中でドラフト記事かどうかを判別する
+----
+
+[テンプレートファイル](../layout/template-types.html)の中で、今レンダリングしている記事がドラフトである（フロントマターに `draft: true` と記述されている） (`draft: true`) かどうかを調べるには、[Page 変数](https://gohugo.io/variables/page/)の `.Draft` を参照します。
+
+#### layouts/_default/single.html の抜粋
+
+~~~ html
+<h1>{{ "{{" }} .Title }}</h1>
+{{ "{{" }} if .Draft }}
+  <b>これはドラフト記事です。</b>
+{{ "{{" }} end }}
 ~~~
 

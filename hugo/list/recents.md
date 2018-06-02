@@ -1,5 +1,5 @@
 ---
-title: "最近更新された記事のリストを表示する"
+title: "最近更新された記事（新着記事）のリストを表示する"
 date: "2018-05-29"
 ---
 
@@ -11,7 +11,7 @@ date: "2018-05-29"
 #### 作成日 (date) 順に 5 件のリンクを表示する
 
 ~~~
-<h2>最新の記事</h2>
+<h2>新着記事</h2>
 <ul>
   {{ "{{" }} range first 5 .Site.RegularPages.ByDate.Reverse }}
     <li>
@@ -70,4 +70,45 @@ enableGitInfo = true
 Git を使用しているのであれば、この設定を入れておくとよいでしょう。
 
 - 参考: [Git Info Variables｜Hugo](https://gohugo.io/variables/git/#lastmod)
+
+
+新着記事のリストにドラフトページを含めない
+----
+
+`where` 関数を組み合わせて使用すると、新着記事の一覧から、ドラフトページ（ページのフロントマターに `draft: true` と書かれたもの）を除くことができます。
+
+~~~
+<h2>新着記事</h2>
+<ul>
+  {{ "{{" }} range first 5 (where .Site.RegularPages.ByDate.Reverse ".Draft" "!=" true }}
+    <li>
+      <b><a href="{{ "{{" }}.RelPermalink}}">{{ "{{" }}.Title}}</a></b>
+      <time>{{ "{{" }}.Date.Format "2006-01-02"}}</time>
+    </li>
+  {{ "{{" }} end }}
+</ul>
+~~~
+
+<div class="note">
+ドラフトページはデフォルトでは出力されないので、通常はこのようなフィルタリングは必要ありません。ドラフトページを出力するには、<code>hugo</code> コマンドを実行するときに、<code>-D</code> オプションを指定します。<code>hugo server</code> コマンドで Hugo サーバーのホスティングを行うときも同様です。
+</div>
+
+- 参考: [Hugo でドラフトページを作成する](../draft.html)
+
+独自のページ変数を用意して、新着記事への表示／非表示を制御するというのもありですね。
+例えば、ページのフロントマターに `working: true` と設定されていたら新着記事に列挙しないようにするには次のようにします。
+
+~~~
+<h2>新着記事</h2>
+<ul>
+  {{ "{{" }} range first 5 (where .Site.RegularPages.ByDate.Reverse ".Params.working" "!=" true }}
+    <li>
+      <b><a href="{{ "{{" }}.RelPermalink}}">{{ "{{" }}.Title}}</a></b>
+      <time>{{ "{{" }}.Date.Format "2006-01-02"}}</time>
+    </li>
+  {{ "{{" }} end }}
+</ul>
+~~~
+
+`where` 関数の条件式の `".Draft" "!=" true` というところが `".Params.working" "!=" true` に変わっただけです。
 

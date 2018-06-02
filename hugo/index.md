@@ -70,7 +70,7 @@ hugo コマンド
 * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
-* [最近更新された記事のリストを表示する](list/recents.html)
+* [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
