@@ -8,13 +8,30 @@ date: "2016-11-24"
 
 JDK 8 に付属している [jdeps コマンド](https://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/jdeps.html) を使用すると、JAR ファイル（.class ファイル）から、パッケージレベル、あるいは、クラスレベルの依存関係を調べることができます。
 
-#### パッケージレベルの依存関係を調べる
+### パッケージレベルの依存関係を調べる
 
 ```
+# すべての依存を表示（グルーピングして表示）
 $ jdeps sample.jar
+
+# 一行ごとに「依存元 -> 依存先」というフォーマットで出力
+$ jdeps -v app.jar
 ```
 
-#### クラスレベルの依存関係を調べる
+あるパッケージへの依存のみを抽出したい場合は、`-e` オプションで次のように指定します。
+
+```
+# com.example.util パッケージへの依存のみを表示
+$ jdeps -e com\.example\.util\..* sample.jar
+```
+
+<div class="note">
+特定のパッケージへの依存は、<code>-p</code> オプションでも検索することができますが、
+こちらの場合は、完全にパッケージ名が一致するもののみを抽出します。
+あるパッケージより下位のパッケージも含めて検索するには、上記のように <code>-e</code> オプションで正規表現の形でパッケージ名を指定する必要があります。
+</div>
+
+### クラスレベルの依存関係を調べる
 
 ```
 $ jdeps -verbose:class sample.jar
@@ -57,13 +74,13 @@ Exception in thread "main" java.io.FileNotFoundException: tools.jar does not exi
 
 下記は使用例です。
 
-#### メソッドレベルの依存関係を調べる（参照しているクラスやフィールドの情報も表示されます）
+### メソッドレベルの依存関係を調べる（参照しているクラスやフィールドの情報も表示されます）
 
 ```
 $ cfa sample.jar
 ```
 
-#### com.example.aaa と com.example.bbb を参照しているメソッドだけを対象とする
+### com.example.aaa と com.example.bbb を参照しているメソッドだけを対象とする
 
 ```
 $ cfa -c com.example.aaa,com.example.bbb sample.jar
