@@ -295,25 +295,24 @@ Sticky positioning を利用して、サイドバー内の要素を固定する�
 #### HTML 抜粋
 
 ~~~ html
-<div id="headerArea"></div>
 <div id="container">
-  <div id="main">
-    <div class="sample">本文</div>
-    <div class="sample">本文</div>
-    <div class="sample">本文</div>
-    ...
-  </div>
-  <div id="sidebar">
-    <div id="sidebar-notFixed">
-      <div class="sample" data-sticky>メニュー1</div>
-      <div class="sample" data-sticky>メニュー2</div>
-      <div class="sample" data-sticky>メニュー3</div>
+  <div id="mainArea">
+    <div id="main">
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
+      <div class="sample">本文</div>
       ...
     </div>
-    <div id="sidebar-fixed"></div>
+  </div>
+  <div id="sidebarArea">
+    <div id="sidebar">
+      <div class="sample">メニュー1</div>
+      <div class="sample">メニュー2</div>
+      <div class="sample">メニュー3</div>
+      ...
+    </div>
   </div>
 </div>
-<div id="footerArea"></div>
 ~~~
 
 #### CSS 抜粋
