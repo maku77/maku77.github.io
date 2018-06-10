@@ -82,11 +82,15 @@ hugo コマンド
 ### data ディレクトリ
 * [全ページから参照できるデータを用意する（data ディレクトリ）](data/basic.html)
 
+### ページャー（ページネーター）
+* [ページャー（ページネーター）で複数の記事を切り替えながら表示できるようにする](pager/basic.html)
+
 ### その他
 * [パンくずリストを表示する](template/breadcrumbs.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
 * [次のページ、前のページへのリンクを表示する](template/next-prev-page.html)
+* [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 
 応用
 ----
