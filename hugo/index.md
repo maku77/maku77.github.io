@@ -91,6 +91,7 @@ hugo コマンド
 * [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
 * [次のページ、前のページへのリンクを表示する](template/next-prev-page.html)
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
+* [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 
 応用
 ----
