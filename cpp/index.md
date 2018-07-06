@@ -21,6 +21,12 @@ STL
 - [文字列を逆順にする (reverse)](string/reverse.html)
 - [ビット演算で小文字と大文字を変換する](string/convert-case.html)
 
+数値
+----
+- [順列 (permutation) を作成する](number/permutation.html)
+- [組み合わせ (combination) を作成する](number/combination.html)
+
+
 入出力 (I/O)／ファイル／ディレクトリ
 ----
 - [ストリームの入力によって文字列を構築する (stringstream)](io/stringstream.html)

@@ -62,6 +62,11 @@ layout: category-index
 * [文字列の正規表現に一致した部分を置き換える (String.replaceAll)](numstr/string-replace-all.html)
 * [複数行のテキストを含んだ String を一行ずつ処理する](numstr/readline-in-string.html)
 
+### 組み合わせ
+
+* [順列 (permutation) を作成する](numstr/permutation.html)
+
+
 データベース/JDBC
 ----
 * [JDBC ドライバの一覧を取得する](jdbc-list-drivers.html)

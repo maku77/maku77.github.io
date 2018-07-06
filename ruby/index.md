@@ -91,6 +91,11 @@ Ruby の制御構文
 * [インデント用の文字列を作成する](string/create-indent.html)
 * [文字列をインクリメントする (succ/next)](string/succ.html)
 
+文字列⇔数値の変換
+----
+* [数値と文字列を変換する](number/num-string.html)
+* [ASCII コードと文字を変換する](number/ascii-char.html)
+
 正規表現
 ----
 * [文字列から正規表現にマッチする部分を取り出す](string/extract.html)
@@ -101,6 +106,11 @@ Ruby の制御構文
 * [配列内で最大値を持つ要素のインデックスを取得する](number/max-value-index.html)
 * [乱数を生成する](number/random.html)
 * [数値のインクリメントとデクリメント](number/increment.html)
+
+組み合わせ
+----
+* [順列 (permutation) を作成する](number/permutation.html)
+
 
 日時（Time オブジェクト）
 ----
