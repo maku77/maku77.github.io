@@ -4,7 +4,7 @@ date: "2011-05-09"
 ---
 
 クライアント側のコードをすっきりさせたい
-====
+----
 
 `IBinder` クラスの `transact()` インタフェースだけでサービスの機能にアクセスするのは分かりにくく、すべてのクライアントコードに本質的ではない `Parcel` オブジェクトの生成コードが表れてしまいます。
 
@@ -47,7 +47,7 @@ sp<ICalcService> calc = ICalcService::asInterface(binder);
 
 
 クライアントに公開するサービスインタフェースの実装
-====
+----
 
 サービスのインタフェースは、`IInterface` を継承して作成します。
 例えば、サービスクラス `CalcService` にアクセスするためのインタフェースは、`ICalcService` という名前で作成し、ここに `add()` や `subtract()` などの分かりやすいアクセスメソッドを用意してやります。
@@ -155,7 +155,7 @@ enum {
 
 
 クライアントの実装
-====
+----
 
 ```cpp
 int main() {
@@ -174,7 +174,7 @@ int main() {
 
 
 完全なコードと実行テスト
-====
+----
 
 - [CalcClient2.zip](files/20110509-CalcClient2.zip)
 - [CalcService2.zip](files/20110509-CalcService2.zip)

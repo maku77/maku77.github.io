@@ -1,10 +1,10 @@
 ---
-title: TCP/IP で adb 接続する
+title: "TCP/IP で adb 接続する"
 date: "2014-04-08"
 ---
 
 adb を TCP/IP 接続に切り替える
-====
+----
 
 adb 接続を USB 経由ではなく、LAN 接続 (TCP/IP プロトコル）で行うようにする手順です。
 
@@ -17,7 +17,7 @@ adb 接続を USB 経由ではなく、LAN 接続 (TCP/IP プロトコル）で�
 
 
 トラブルシューティング
-====
+----
 
 以下のように offline といわれて接続できない場合は、
 
@@ -35,5 +35,7 @@ List of devices attached
 
 
 参考
-====
-* http://developer.android.com/guide/topics/connectivity/usb/index.html
+----
+
+* [http://developer.android.com/guide/topics/connectivity/usb/index.html](http://developer.android.com/guide/topics/connectivity/usb/index.html)
+

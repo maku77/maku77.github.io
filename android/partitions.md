@@ -1,10 +1,10 @@
 ---
-title: Android デバイスのパーティション構成概要
+title: "Android デバイスのパーティション構成概要"
 date: "2013-11-07"
 ---
 
 パーティション構成
-====
+----
 
 Android のパーティション構成は、およそ下記のようになっています。
 
@@ -16,11 +16,11 @@ Android のパーティション構成は、およそ下記のようになって
 /cache -- アプリ用キャッシュ（リカバリイメージのダウンロードもここに入る）
 ```
 
-Nexus7 (2013) の情報を見てみる
-====
 
-マウント情報の表示
+Nexus7 (2013) の情報を見てみる
 ----
+
+### マウント情報の表示
 
 ```
 $ mount  （あるいは cat /proc/mounts）
@@ -43,9 +43,7 @@ none /dev/cpuctl cgroup rw,relatime,cpu 0 0
 /dev/fuse /mnt/shell/emulated fuse rw,nosuid,nodev,relatime,user_id=1023,group_id=1023,default_permissions,allow_other 0 0
 ```
 
-
-ファイルシステム情報の表示
-----
+### ファイルシステム情報の表示
 
 ```
 $ df

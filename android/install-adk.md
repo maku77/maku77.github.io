@@ -6,7 +6,7 @@ date: "2010-04-11"
 （Android SDK のインストールは済んでいるとします）
 
 Eclipse に Android Development Toolkit (ADK) をインストール
-====
+----
 
 Eclipse から Android SDK を使用するには、**ADK** というプラグインをインストールします。
 
@@ -17,8 +17,7 @@ Eclipse から Android SDK を使用するには、**ADK** というプラグイ
   - [Android] を選択し、SDK Location に SDK を展開したディレクトリのパスを入力。
     （これをやっておかないと、New Android Project のダイアログで Android SDK has not been setup. と出てプロジェクトを作成できません）
 
-プロキシ設定
-----
+### プロキシ設定
 
 プロキシ環境にいる場合は、Window => Preferences => General => Network Connections から設定します。
 
@@ -29,14 +28,14 @@ Eclipse から Android SDK を使用するには、**ADK** というプラグイ
 
 
 Android SDK の Package のアップデート
-====
+----
 
 1. Eclipse のメニューから [Window] => [Android SDK and ADV Manager]。
 2. [Available Packages] を選択し、URL を選択して、[Install Selected] をクリック。
 
 
-SDK のアップデート中に fetching... から進まない場合
-----
+### SDK のアップデート中に fetching... から進まない場合
+
 プロキシ設定を行う必要があります。Eclipse そのもののプロキシ設定ではなく、**Android SDK and AVD Manager** ウィンドウの [Settings] という項目で設定します。
 
 ```
@@ -48,7 +47,8 @@ HTTP Proxy Port: 10080
 
 
 Eclipse & Android SDK で Hello World
-====
+----
+
 1. Eclipse のメニューから [File] => [New] => [Android Project]。
 2. New Android Project ダイアログが出るので適当に入力。
   - Project name: HelloAndroid
@@ -57,8 +57,8 @@ Eclipse & Android SDK で Hello World
   - Create Activity: Hello
 3. [Run] => [Run] でエミュレータを起動できる。
 
-トラブルシューティング: An SDK Target must be specified.
-----
+### トラブルシューティング: An SDK Target must be specified.
+
 PC モニタの解像度が低いと、New Android Project の画面で Build Target の欄が選択できず、**An SDK Target must be specified.** と出て先に進めません。
 このような場合は、以下のようにフォントサイズを小さくすればいけるらしいです。
 

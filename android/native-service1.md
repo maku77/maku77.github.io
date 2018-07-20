@@ -4,11 +4,11 @@ date: "2011-04-27"
 ---
 
 Binder 関連クラス
-====
+----
+
 ネイティブレイヤのサービスを実装するには、以下のような Binder 関連クラスを使用します。
 
-継承構造
-----
+### 継承構造
 
 ```
 RefBase …… 各種オブジェクトの生存期間を参照カウンタ
@@ -21,9 +21,7 @@ RefBase …… 各種オブジェクトの生存期間を参照カウンタ
         +-- BpInterface …… クライアントに提供するサービスインタフェースの実装
 ```
 
-
-ポイント
-----
+### ポイント
 
 * (a) サービスクラスは BBinder をサブクラス化して作成する。
 * (b) サービスにアクセスするインタフェースは IInterface をサブクラス化して作成する。
@@ -33,33 +31,29 @@ RefBase …… 各種オブジェクトの生存期間を参照カウンタ
 (b)、(c) はまともなサービスインタフェースとしてクライアントに公開する場合に必要です。
 
 
-ファイルのパス
-----
+### ファイルのパス
 
-### クラス定義
-- frameworks/base/include/binder/Binder.h (BBinder, BpRefBase)
-- frameworks/base/include/binder/BpBinder.h (BpBinder)
-- frameworks/base/include/binder/IBinder.h (IBinder)
-- frameworks/base/include/binder/IInterface.h (IInterface, BnInterface, BpInterface)
-- frameworks/base/include/utils/RefBase.h (RefBase)
-- frameworks/base/include/utils/StrongPointer.h (sp)
-
-### 実装
-- frameworks/base/libs/binder/BpBinder.cpp
-- frameworks/base/libs/binder/IInterface.cpp
-- frameworks/base/libs/utils/RefBase.cpp
+- クラス定義
+    - frameworks/base/include/binder/Binder.h (BBinder, BpRefBase)
+    - frameworks/base/include/binder/BpBinder.h (BpBinder)
+    - frameworks/base/include/binder/IBinder.h (IBinder)
+    - frameworks/base/include/binder/IInterface.h (IInterface, BnInterface, BpInterface)
+    - frameworks/base/include/utils/RefBase.h (RefBase)
+    - frameworks/base/include/utils/StrongPointer.h (sp)
+- 実装
+    - frameworks/base/libs/binder/BpBinder.cpp
+    - frameworks/base/libs/binder/IInterface.cpp
+    - frameworks/base/libs/utils/RefBase.cpp
 
 
 Binder 関連クラスをざっと眺めてみる
-====
-
-RefBase
 ----
+
+### RefBase
 
 `RefBase` クラスは、すべての Binder 関連クラスの基底クラスで、インスタンスの生存期間をリファレンスカウンタで管理しています。
 
-IInteface
-----
+### IInteface
 
 ```cpp
 class IInterface : public virtual RefBase {
@@ -96,9 +90,7 @@ sp<const IBinder> IInterface::asBinder() const {
 
 `asBinder()` は、スマートポインタである `sp` クラスのインスタンスを返すため、`IBinder` オブジェクトは参照カウンタを使って自動的に生存期間が制御されます。
 
-
-IBinder
-----
+### IBinder
 
 ```cpp
 class IBinder : public virtual RefBase {
@@ -112,9 +104,7 @@ public:
 - queryLocalInterface を使用して、名前指定で IInterface オブジェクトを取得できる。
 - queryLocalInterface は、テンプレートクラス BnInterface を継承したサブクラスを作成することで容易に実装できる。
 
-
-BBinder
-----
+### BBinder
 
 `BBinder` クラスは `IBinder` を継承しており、`BBinder::transact()` の中で abstract method である `onTransact()` を呼び出すようになっています。
 この `onTransact()` を実装するようにすれば OK です。
@@ -140,9 +130,7 @@ protected:
 };
 ```
 
-
-BpInterface
-----
+### BpInterface
 
 ```cpp
 template<typename INTERFACE>
@@ -151,9 +139,7 @@ class BpInterface : public INTERFACE, public BpRefBase {
 };
 ```
 
-
-BnInterface
-----
+### BnInterface
 
 ```cpp
 template<typename INTERFACE>

@@ -4,7 +4,7 @@ date: "2010-09-09"
 ---
 
 ネットワークの情報を取得する
-====
+----
 
 ネットワーク関連の情報は、`android.net.ConnectivityManager` の `getActiveNetworkInfo()` メソッドで取得できる `NetworkInfo` オブジェクトから参照できます。
 `NetworkInfo` オブジェクトは以下のように取得します。
@@ -28,6 +28,7 @@ if (networkInfo == null) {
 `NetworkInfo` を取得するためには、`AndroidManifest.xml` に以下のように `uses-permission` の設定が必要です。
 
 #### AndroidManifest.xml
+
 ```xml
 <manifest ...>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -35,14 +36,11 @@ if (networkInfo == null) {
 </manifest>
 ```
 
-参考
-----
-
-- [ConnectivityManager | Android Developers](http://developer.android.com/reference/android/net/ConnectivityManager.html)
+- 参考: [ConnectivityManager｜Android Developers](http://developer.android.com/reference/android/net/ConnectivityManager.html)
 
 
 ネットワークの情報を一覧表示する
-====
+----
 
 `NetworkInfo` オブジェクトの `toString()` メソッドで、ネットワーク情報の文字列表現を取得できます。
 
@@ -66,7 +64,7 @@ NetworkInfo:
 
 
 ネットワークに接続しているか調べる
-====
+----
 
 ```java
 if (networkInfo.isConnected()) {
@@ -84,7 +82,7 @@ if (networkInfo.getState() == NetworkInfo.State.CONNECTED) {
 
 
 どのタイプのネットワークがアクティブになっているか調べる
-====
+----
 
 ```java
 NetworkInfo networkInfo = manager.getActiveNetworkInfo();
@@ -104,7 +102,7 @@ default:
 
 
 ネットワークのタイプ名を文字列で取得する
-====
+----
 
 ```java
 String typeName = networkInfo.getTypeName();
@@ -119,7 +117,7 @@ String typeName = networkInfo.getTypeName();
 
 
 IP アドレスを調べる
-====
+----
 
 ```java
 String ipAddr = networkInfo.getIpAddress();
