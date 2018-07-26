@@ -117,4 +117,6 @@ Windows API
 #### その他
 * [.NET - System.Data.SQLite で SQLite データベースを使用する](dotnet/system-data-sqlite.html)
 * [.NET - XML 形式の設定ファイルを XPath で操作するサンプル](dotnet/xpath.html)
+* [.NET - ツリーノードのドラッグ＆ドロップの流れ](dotnet/treenode-drag.html)
+* [.NET - ツリーノードを右クリックしたときにそのノードを選択状態にする](dotnet/treenode-right-click-select.html)
 
