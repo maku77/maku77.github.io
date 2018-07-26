@@ -64,6 +64,7 @@ Tools
 * [外部から提供された AAR ファイルを利用する](gradle/external-aar.html)
 * [APK ファイル名のサフィックスにバージョンを追加する](gradle/add-version-name-to-apk.html)
 * [Lint エラーが発生した場合もビルドを継続する](gradle/ignore-lint-errors.html)
+* [すべてのサブモジュール（ライブラリ）の依存関係をツリー構造で表示する](gradle/dependency-tree.html)
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
