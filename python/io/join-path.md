@@ -10,6 +10,8 @@ import os.path
 
 path = os.path.join('/foo', 'file.txt')        #=> /foo/file.txt
 path = os.path.join('foo', 'bar', 'file.txt')  #=> foo/bar/file.txt
+path = os.path.join('/aaa/bbb', 'ccc/ddd')     #=> /aaa/bbb/ccc/ddd
+path = os.path.join('/aaa/bbb', '/ccc')        #=> /ccc （要注意: 第2引数がフルパスの場合結合されない）
 ```
 
 #### 応用例: スクリプトと同じディレクトリにあるファイルの絶対パスを作成する
