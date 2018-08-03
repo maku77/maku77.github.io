@@ -270,6 +270,8 @@ $ ffmpeg -i data/video.mp4 -vf fps=25 data/photos-someone/%06d.png
 #### 例: data/photos-result ディレクトリ内の静止画から動画ファイルを生成する
 
 ~~~
-$ ffmpeg -i data/photos-result/%06d.png -c:v libx264 -vf "fps=25,format=yuv420p" out.mp4
+$ ffmpeg -r 25 -i data/photos-result/%06d.png -vcodec libx264 -pix_fmt yuv420p -r 60 result.mp4
 ~~~
+
+最初の `-r 25` は入力画像のフレームレート（何枚で1分になるか）を表しており、次の `-r 60` は出力される動画のフレームレートを表しています。
 
