@@ -12,8 +12,14 @@ layout: category-index
 * [文字の削除方法いろいろ](basic/delete.html)
 * [文字の置換方法いろいろ (:substitute)](basic/substitute.html)
 * [ウィンドウを分割する](basic/window.html)
-* [カーソル位置の単語を検索する](basic/search-current-word.html)
 * [アンドゥとリドゥ操作](basic/undo-and-redo.html)
+
+### 検索
+* [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
+* [ファイル内の文字列を検索する](basic/search.html)
+* [カーソル位置の単語を検索する](basic/search-current-word.html)
+* [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
+* [検索に関する設定](settings/search.html)
 
 ファイル
 ----
@@ -25,26 +31,30 @@ layout: category-index
 * [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
 * [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
 
+
 編集操作
 ----
-* [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
-* [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
-* [切り取り＆貼り付け操作、レジスタの扱いについて理解する](edit/register.html)
+
+* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
+* [補完機能を使用してテキストを入力する](edit/complete.html)
+* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
+
+### 整形
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
 * [選択した範囲を自動インデントする](edit/re-indent.html)
 * [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
-* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
-* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
-* [行をソートして重複行を削除する](edit/unique-lines.html)
-* [行を逆順にソートする](edit/reverse-sort.html)
-* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
-* [補完機能を使用してテキストを入力する](edit/complete.html)
 * [テキストを中央寄せ／左寄せ／右寄せする](edit/adjust.html)
 
-検索
-----
-* [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
-* [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
+### カット＆ペースト
+* [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
+* [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
+* [切り取り＆貼り付け操作、レジスタの扱いについて理解する](edit/register.html)
+
+### ソート
+* [行をソートして重複行を削除する](edit/unique-lines.html)
+* [行を逆順にソートする](edit/reverse-sort.html)
+
 
 応用操作
 ----
@@ -71,28 +81,35 @@ Vim の設定
 * [ショートカットキーでタブを切り替える](keymap/tab.html)
 * [map コマンドなどで指定できる特殊なキーの名前一覧](keymap/keycodes.html)
 
-### 設定関連の操作
+### ファイルに関する設定と操作
 * [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
 * [現在の環境で読み込まれる設定ファイルの一覧を確認する](settings/rc-files.html)
+* [モードラインでファイルごとに書式を設定する](settings/modeline.html)
+* [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
 
-### autocmd（自動コマンド）
+### autocmd（自動コマンド）による設定
 * [autocmd で自動コマンドを登録する](settings/autocmd.html)
 * [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](settings/autocmd-exec.html)
 
-### その他の設定
-* [モードラインでファイルごとに書式を設定する](settings/modeline.html)
-* [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
+### 見た目の設定
+* [行番号を表示する (number)](settings/number.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
-* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
-* [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
-* [自動インデントモードを有効にする](settings/auto-indent.html)
-* [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
-* [フォント設定ダイアログを開いてフォントを設定する](settings/font-dialog.html)
-* [タブ文字と行末のスペースを表示する](settings/show-space.html)
+* [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
+* [フォント設定ダイアログを開いてフォントを設定する (guifont)](settings/font-dialog.html)
+* [タブ文字と行末のスペースを表示する (list, listchars)](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
-* [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
 * [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
 * [GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)](settings/window-size.html)
+* [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
+
+### 入力に関する設定
+* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
+* [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
+* [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
+* [スペルチェックを有効にする (spell)](settings/spell.html)
+* [自動インデントモードを有効にする (autoindent, cindent, smartindent)](settings/auto-indent.html)
+* [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
+
 
 Vim プログラミング（マクロ）／特殊用途
 ----
