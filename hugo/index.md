@@ -96,6 +96,7 @@ hugo コマンド
 
 応用
 ----
+* [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
 
 
