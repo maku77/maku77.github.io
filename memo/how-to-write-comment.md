@@ -41,7 +41,7 @@ Cさん「うーん、これ何だったけ・・・忘れた！」
 Dさん「I'm not sure, E-san knows about it.」
 Eさん「这是什么？我不太记得」
 　　　・・・
-Aさん「しょうがない、コード分析するか・・・」
+Aさん「しょうがない、コード解析するか・・・」
 ```
 
 そもそも、そのメソッドの作成者が近くにいない場合、こういった確認すら行えません。結局、あるメソッドを使うために、そのメソッドの実装を時間をかけて分析することになるため、**複数人で開発していることが、逆に開発効率を悪化**させてしまいます。つまり、簡単に言うと、
@@ -240,7 +240,7 @@ Java のコアライブラリであれば、Javadoc の文法的にも正しく�
 /**
  * Description（概要説明 ＋詳細説明）
  *
- * block tags...（ブロックタグ）
+ * Block tags（ブロックタグ）
  */
 ```
 
@@ -248,9 +248,9 @@ Javadoc ドキュメンテーションコメント内では、ブロックタグ
 
 <dl>
   <dt>ブロックタグ</dt>
-  <dd>`@タグ名 ...` のように、行頭から記述します。メソッドのパラメータの説明、例外の説明、外部ドキュメントへのリンク、バージョン情報などを記述できます。</dd>
+  <dd><code>@タグ名 ...</code> のように、行頭から記述します。メソッドのパラメータの説明、例外の説明、外部ドキュメントへのリンク、バージョン情報などを記述できます。</dd>
   <dt>インラインタグ</dt>
-  <dd>各文章の中で `{@code Hoge}` のように中括弧（curly brace) で囲んで記述し、主に表示上の体裁を整えるために使用します。</dd>
+  <dd>各文章の中で <code>{@code Hoge}</code> のように中括弧（curly brace) で囲んで記述し、主に表示上の体裁を整えるために使用します。</dd>
 </dl>
 
 ## 概要説明＋詳細説明コメントの書き方
@@ -267,14 +267,14 @@ Javadoc ドキュメンテーションコメント内では、ブロックタグ
 
 上記の例では、一行目が「概要説明」、二行目以降が「詳細説明」として扱われます。「概要説明」の一文は、パッケージ一覧、クラス一覧、メソッド一覧のページにまとめて表示されるので、ひと目で使い方がわかるように、必要な情報を簡潔に記述する必要があります。「概要説明」は完全な文の形になっていることは少なく、簡潔に記述するため、通常は動詞句や名詞句の形で記述されます（主語は明らかなので冗長なことが多い）。
 
-* 概要説明が動詞句になるもの -- メソッド
-* 概要説明が名詞句になるもの -- クラス、インタフェース、フィールド、メソッドのパラメータ
+* <b>概要説明が動詞句になるもの</b>: メソッド
+* <b>概要説明が名詞句になるもの</b>: クラス、インタフェース、フィールド、メソッドのパラメータ
 
 メソッドがオーバライドされている場合は、どう使い分けるかが分かるように概要説明を記述するべきです。
 
-* `CopyOnWriteArrayList()` -- Creates an empty list.
-* `CopyOnWriteArrayList(E[] toCopyIn)` -- Creates a list holding a copy of the given array.
-* `CopyOnWriteArrayList(Collection<? extends E> c)` -- Creates a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+* <b>`CopyOnWriteArrayList()`</b>: Creates an empty list.
+* <b>`CopyOnWriteArrayList(E[] toCopyIn)`</b>: Creates a list holding a copy of the given array.
+* <b>`CopyOnWriteArrayList(Collection<? extends E> c)`</b>: Creates a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
 
 文章の中に現れるピリオドが、概要説明の終わりかどうかを判断する基準は、後ろにスペース、あるいは改行が続いていることです。この判断基準を無効にするためには、`{@literal}` インラインタグが使用できます（例: `{@literal 10 p.m.}`）。ピリオドの直後のスペースを `&nbsp;` に置き換えるという方法もありますが、`{@literal}` インラインタグを使ったほうが直感的です。
 
