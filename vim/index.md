@@ -21,15 +21,25 @@ layout: category-index
 * [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
 * [検索に関する設定](settings/search.html)
 
+
 ファイル
 ----
-* [ファイルへの保存方法いろいろ](file/save.html)
-* [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
-* [別ファイルの内容やコマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
-* [カーソル位置の単語をファイル名としてファイルを開く](file/open-file-at-cursor.html)
-* [ディレクトリエクスプローラー (Explore) を使用してファイルを開く](file/explore.html)
-* [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
+
+### ファイルを開く
+* [ファイル名を指定してファイルを開く](file/open-specified-file.html)
+* [カーソル位置の単語をファイル名としてファイルを開く (gf)](file/open-file-at-cursor.html)
+* [編集中のファイルと拡張子だけが異なるファイルを開く（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.htmL)
+* [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
 * [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
+
+### ファイルを保存する
+* [ファイルへの保存コマンド :w、:x の基本](file/save.html)
+* [指定した行範囲だけ別のファイルに保存する](file/save-lines.html)
+
+### その他
+* [別ファイルの内容やコマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
+* [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
+* [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
 
 
 編集操作
@@ -39,6 +49,7 @@ layout: category-index
 * [補完機能を使用してテキストを入力する](edit/complete.html)
 * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
 * [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
+* [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
 
 ### 整形
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
