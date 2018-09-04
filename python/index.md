@@ -64,6 +64,7 @@ python コマンド / 実行環境
 文字列
 ====
 * [Python の文字列リテラルいろいろ](numstr/string-literal.html)
+* [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
 * [文字列の長さを調べる (len)](numstr/string-length.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
 * [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
