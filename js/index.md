@@ -24,7 +24,7 @@ layout: category-index
 - [ある処理を 1 秒間に何回実行できるかプロファイリングする](debug/profile-function.html)
 
 
-文字列／数値
+数値／文字列 (Number/String)
 ----
 - [new String は避ける](string/dont-use-new-string.html)
 - [== と === による文字列比較の違い](string/compare.html)
@@ -44,12 +44,15 @@ layout: category-index
 - [実数の小数点数以下を丸めて整数に変換する](numstr/real-to-int.html)
 
 
-配列
+配列 (Array)
 ----
 - [配列の基本](array/basic.html)
+- [配列に要素を追加・挿入する (push, unshift, splice)](array/push.html)
+- [配列と配列を結合する (concat)](array/concat.html)
+- [配列から部分配列を取得する (slice, splice)](array/slice.html)
+- [配列をコピーする](array/copy.html)
 - [配列をループで処理する](array/loop.html)
 - [配列をソートする (sort, reverse)](array/sort.html)
-- [配列をコピーする](array/copy.html)
 - [配列内にある要素が存在するか調べる](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
 - [連想配列の要素（キー）を削除する (delete)](array/delete.html)
@@ -57,7 +60,7 @@ layout: category-index
 - [配列の各要素に対して同じ処理を行う (map)](array/map.html)
 
 
-日時／タイマー
+日時／タイマー (Date/Timer)
 ----
 
 ### 日時
