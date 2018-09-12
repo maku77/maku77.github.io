@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="{{ page.title }} | {{ site.name }}" />
+  <title>{{ page.title }} | {{ site.name }}</title>
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" href="/img/favicon/favicon-152.png" />
+  <style>
+  body {
+    background: #eee;
+    margin: 1em auto;
+    text-align: center;
+  }
+  .content {
+    width: 500px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 3rem;
+    margin: 1em 0;
+  }
+  a {
+    color: #36f;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+  a:hover {
+    color: white;
+    background: #36f;
+  }
+  img {
+    width: 100px;
+    vertical-align: bottom;
+  }
+  </style>
+  {% if jekyll.environment != "development" %}
+    {% include analytics.html %}
+  {% endif %}
+</head>
+<body>
+  <h1>{{ page.title }}</h1>
+  <div class="content">
+    <p>ページが見つかりませんでした。</p>
+    <p><a href="{{ site.url }}">{{ site.name }}のトップページ</a>へ移動するか、<br>
+       下記から検索してみてください。</p>
+    <p>{% include search-bar.html %}</p>
+    <p><a href="{{ site.url }}"><img src="{{ site.logo }}"></a></p>
+  </div>
+</body>
+</html>
+
