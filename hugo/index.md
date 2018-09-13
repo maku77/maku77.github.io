@@ -57,7 +57,7 @@ hugo コマンド
 * [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 * [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
-* [Hugo テンプレート内で define よる部分テンプレート定義を行う](template/define.html)
+* [Hugo テンプレート内で define よる部分テンプレート定義を行う（関数もどき）](template/define.html)
 
 ### セクション機能
 * [セクション機能を使って記事を階層化する](layout/section.html)
@@ -97,6 +97,7 @@ hugo コマンド
 応用
 ----
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
+* [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
 
 
