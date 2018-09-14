@@ -71,9 +71,11 @@ layout: category-index
 - [Date オブジェクトの日付を加算／減算する](time/date-calculation.html)
 - [Date オブジェクト同士の差分を取る](time/date-diff.html)
 
-### タイマー
+### タイマー／パフォーマンス
 - [タイマーで任意の関数を呼び出す](time/timer.html)
 - [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
+- [処理速度を計測する (performance)](time/measure-performance.html)
+
 
 構文
 ----
