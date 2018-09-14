@@ -6,12 +6,12 @@ layout: category-index
 
 GitHub
 ====
-* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](github-project-portal.html)
+* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](github/project-portal.html)
 * [GitHub Pages で独自の 404 ページを用意する](github/404-page.html)
-* [GitHub の Organization を構成したときのチームの権限について理解する](github-team-permission.html)
-* [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github-new-organization-permissions.html)
-* [GitHub のプランと GitHub ライクなツールの比較など](github-clones.html)
-* [GitHub の Markdown でメールアドレスへのリンクを記述する](email-address-in-markdown.html)
+* [GitHub の Organization を構成したときのチームの権限について理解する](github/team-permission.html)
+* [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github/new-organization-permissions.html)
+* [GitHub のプランと GitHub ライクなツールの比較など](github/clones.html)
+* [GitHub の Markdown でメールアドレスへのリンクを記述する](github/email-address-in-markdown.html)
 
 GitLab（GitHub クローン）
 ====
