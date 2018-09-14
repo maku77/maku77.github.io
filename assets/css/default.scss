@@ -59,7 +59,7 @@ body {
 
 // 外部リンクアイコン
 .externalLinkIcon::after {
-  content: url("/assets/img/icon-external-link.png");
+  content: url("../img/icon-external-link.png");
   padding-left: 3px;
   padding-right: 5px;
 }
@@ -311,7 +311,7 @@ kbd {
   border-top: 5px dashed #eee;
   border-bottom: 5px dashed #eee;
   &:before {
-    content: url(../img/onepoint.png);
+    content: url("../img/onepoint.png");
     float: left;
   }
   &:after {

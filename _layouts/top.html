@@ -116,7 +116,7 @@
 </head>
 <body>
   <h1 id="siteHeader">
-    <img id="siteHeader_logo" src="/img/logo.jpg">
+    <img id="siteHeader_logo" src="{{ site.img_dir }}/logo.jpg">
     <span id="siteHeader_title">天才まくまくノート</span>
   </h1>
 
@@ -140,7 +140,7 @@
       {% endif %}
       <div class="col-xs-12 col-sm-6 col-md-4">
         <a class="local-categoryBox" href="/{{ values.category_id }}/">
-          <img class="local-categoryBox_image" src="/img/{{ values.category_logo }}">
+          <img class="local-categoryBox_image" src="{{ site.img_dir }}/{{ values.category_logo }}">
           <div class="local-categoryBox_title">{{ values.category_title }}</div>
           <div class="local-categoryBox_desc">{{ values.category_long_desc }}</div>
         </a>
@@ -165,7 +165,7 @@
 
     <div class="col-xs-12 col-sm-6 col-md-4">
       <a class="local-categoryBox" href="http://memoja.net/">
-        <img class="local-categoryBox_image" src="/img/logo-invest.jpg">
+        <img class="local-categoryBox_image" src="{{ site.img_dir }}/logo-invest.jpg">
         <div class="local-categoryBox_title">投資で実現！不労所得生活</div>
         <div class="local-categoryBox_desc">好きなことをして楽しく暮らしたいなぁ。いっしょに投資の勉強をして不労所得生活を目指そうよ♪</div>
       </a>

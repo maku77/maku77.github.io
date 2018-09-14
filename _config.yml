@@ -1,8 +1,9 @@
 # Maku settings.
 name: 天才まくまくノート
 url: https://maku77.github.io
-logo: /img/logo.jpg
-keep_files: [img]
+img_dir: /assets/img
+logo: /assets/img/logo.jpg
+keep_files: [assets]
 
 # Prevent the following files from converting by Jekyll.
 exclude: ["*.jekyll-metadata", Gemfile, Gemfile.lock, README.md, run.bat, run.sh, remove_conflicts.bat]

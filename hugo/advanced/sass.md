@@ -61,8 +61,8 @@ head 要素を出力するテンプレート（ここでは baseof テンプレ�
 #### layouts/_default/baseof.html の抜粋
 
 ~~~
-{{ "{{" }} $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint {{ "}}" }}
-<link rel="stylesheet" href="{{ "{{" }} $style.Permalink {{ "}}" }}">
+{{ "{{" }} $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ "{{" }} $style.Permalink }}">
 ~~~
 
 `resources.Get` で読み込んだ SCSS をパイプでいくつかの関数に渡していますが、最低限必要なのは `toCSS` による変換です。
