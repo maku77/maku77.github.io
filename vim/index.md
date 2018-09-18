@@ -21,6 +21,10 @@ layout: category-index
 * [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
 * [検索に関する設定](settings/search.html)
 
+### コマンドライン
+* [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
+* [サイレントバッチモードで Ex スクリプトをファイルに適用する](file/silent-batch-mode.html)
+
 
 ファイル
 ----
@@ -30,7 +34,6 @@ layout: category-index
 * [カーソル位置の単語をファイル名としてファイルを開く (gf)](file/open-file-at-cursor.html)
 * [編集中のファイルと拡張子だけが異なるファイルを開く（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.htmL)
 * [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
-* [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
 
 ### ファイルを保存する
 * [ファイルへの保存コマンド :w、:x の基本](file/save.html)
@@ -50,6 +53,7 @@ layout: category-index
 * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
 * [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 * [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
+* [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
 
 ### 整形
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
@@ -119,6 +123,7 @@ Vim の設定
 * [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
 * [スペルチェックを有効にする (spell)](settings/spell.html)
 * [自動インデントモードを有効にする (autoindent, cindent, smartindent)](settings/auto-indent.html)
+* [Java や C/C++ のコメント記述に便利な formatoptions の設定](settings/formatoptions.html)
 * [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
 
 
