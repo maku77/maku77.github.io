@@ -54,6 +54,7 @@ layout: category-index
 * [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 * [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
 * [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
+* [挿入モード（インサートモード）のまま実行できる操作の一覧](edit/insert-mode.html)
 
 ### 整形
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
