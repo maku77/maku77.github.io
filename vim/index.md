@@ -50,6 +50,7 @@ layout: category-index
 
 * [大文字と小文字を変換する](edit/uppercase-lowercase.html)
 * [補完機能を使用してテキストを入力する](edit/complete.html)
+* [行を連結する](edit/join.html)
 * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
 * [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 * [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
