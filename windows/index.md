@@ -79,6 +79,7 @@ MS Office
 
 ### Excel
 - [Excel のブック、ワークシート、セルの関係を理解する](excel/structure.html)
+- [Excel の行・列の表示／非表示をショートカットキーで素早く切り替える](excel/show-hide.html)
 - [VBA マクロに関してはこちらを参照](../vba/)
 
 ### PowerPoint
