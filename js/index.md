@@ -58,6 +58,7 @@ layout: category-index
 - [配列内にある要素が存在するか調べる](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
 - [連想配列の要素（キー）を削除する (delete)](array/delete.html)
+- [連想配列の要素数を調べる](array/size-of-assoc-array.html)
 - [配列要素をランダムで取り出す](array/random.html)
 - [配列の各要素に対して同じ処理を行う (map)](array/map.html)
 
