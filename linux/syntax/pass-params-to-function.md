@@ -1,16 +1,18 @@
 ---
-title: 関数へパラメータを渡す
+title: "関数へパラメータを渡す"
 date: "2011-04-15"
 ---
 
 関数へ渡されたパラメータの数を調べる ($#)
-====
+----
+
+関数内で `$#` を参照すると、渡されたパラメータの数を調べることができます。
 
 #### サンプルコード
 
 ```bash
 function foo {
-    echo $#
+  echo $#
 }
 ```
 
@@ -27,31 +29,33 @@ $ foo "This is a pen"
 1
 ```
 
-応用例: 関数へ渡されたパラメータが少なくとも 1 つ以上あるか調べる
-----
+<div class="note">
+関数の外で <code>$#</code> を参照すると、シェルスクリプト実行時に渡されたコマンドラインパラメータの数を取得できます。
+</div>
+
+### 応用例: 関数へ渡されたパラメータが少なくとも 1 つ以上あるか調べる
 
 ```bash
 function foo {
-    if [ $# -lt 1 ]; then
-        echo "need at least one parameter"
-        return
-    fi
-    echo "OK"
+  if [ $# -lt 1 ]; then
+    echo "need at least one parameter"
+    return
+  fi
+  echo "OK"
 }
 ```
 
 関数へ渡されたパラメータを順番に処理する
-====
+----
 
 #### サンプルコード
 
 ```bash
 function enum_params {
-    while [ -n "$1" ]
-    do
-        echo $1
-        shift
-    done
+  while [ -n "$1" ]; do
+    echo $1
+    shift
+  done
 }
 ```
 

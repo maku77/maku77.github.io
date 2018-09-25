@@ -9,14 +9,14 @@ date: "2012-08-01"
 #!/bin/bash
 
 function remove_all {
-    echo -n 'Are you sure? (y/n): '
-    read line
-    if [ "$line" != 'y' ]; then
-        return
-    fi
+  echo -n 'Are you sure? (y/n): '
+  read line
+  if [ "$line" != 'y' ]; then
+    return
+  fi
 
-    # Process continues
-    echo 'All things have been removed!'
+  # Process continues
+  echo 'All things have been removed!'
 }
 
 remove_all

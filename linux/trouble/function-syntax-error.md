@@ -9,7 +9,7 @@ date: "2011-04-27"
 
 ```bash
 function hello {
-    echo 'Good morning!'
+  echo 'Good morning!'
 }
 ```
 

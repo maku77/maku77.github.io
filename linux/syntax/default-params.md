@@ -1,5 +1,5 @@
 ---
-title: 関数のデフォルト引数を定義する
+title: "関数のデフォルト引数を定義する"
 date: "2012-12-09"
 ---
 
@@ -10,8 +10,8 @@ date: "2012-12-09"
 
 ```bash
 function param-test() {
-    local par1=${1:-ABC};
-    echo "param = $par1"
+  local par1=${1:-ABC};
+  echo "param = $par1"
 }
 ```
 
@@ -25,3 +25,4 @@ param = ABC
 $ param-test 10000
 param = 10000
 ```
+

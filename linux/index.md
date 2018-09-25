@@ -8,12 +8,24 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 シェルスクリプト / Bash プログラミング
 ----
 
+* [シェルスクリプトのコーディングスタイル](basic/coding-style.html)
+
 ### 変数
 * [変数の基本](variables.html)
 * [シェル変数/環境変数がセットされているか調べる](check-if-var-is-set.html)
 
 ### 制御構文
 * [if-else による分岐処理](syntax/if.html)
+* [case による分岐処理](syntax/case.html)
+* [for/while によるループ処理](syntax/for.html)
+    * [ループ内での出力をまとめてファイル出力する](syntax/loop-output.html)
+
+### 関数
+* [関数を定義する (function)](syntax/function.html)
+* [関数へパラメータを渡す](syntax/pass-params-to-function.html)
+* [関数内でローカル変数を扱う](syntax/local-var-in-function.html)
+* [関数から戻り値を返す](syntax/return-value-from-function.html)
+* [関数のデフォルト引数を定義する](syntax/default-params.html)
 
 ### パス
 * [絶対パスと相対パスの変換](absolute-path-to-relative-path.html)
@@ -22,12 +34,6 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [シェルスクリプトのあるディレクトリの絶対パスを取得する](absolute-path-of-script-dir.html)
 * [シェルスクリプトのあるディレクトリに移動する](move-to-script-dir.html)
 * [指定したファイルの絶対パスを取得する](absolute-path-of-file.html)
-
-### 関数
-* [関数へパラメータを渡す](pass-params-to-function.html)
-* [関数内でローカル変数を扱う](local-var-in-function.html)
-* [関数から戻り値を返す](return-value-from-function.html)
-* [関数のデフォルト引数を定義する](default-params-in-function.html)
 
 ### 入出力 (I/O)
 * [ユーザ入力を取得する](obtain-user-input.html)
@@ -42,6 +48,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 ### トラブルシューティング
 * [改行コードが原因の関数定義の syntax error](trouble/function-syntax-error.html)
+
 
 D-Bus
 ----

@@ -10,7 +10,7 @@ find コマンドの結果を使用する方法
 
 ```bash
 find . -type f | while read x; do
-    echo $x
+  echo $x
 done
 ```
 

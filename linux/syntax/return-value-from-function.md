@@ -8,7 +8,7 @@ date: "2012-07-09"
 
 ```bash
 function myfunc {
-    return 1
+  return 1
 }
 
 myfunc
@@ -19,7 +19,7 @@ echo $?
 
 ```bash
 function myfunc {
-    echo 'Hello'
+  echo 'Hello'
 }
 
 val=`myfunc`
