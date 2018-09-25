@@ -10,7 +10,6 @@ HTML 全般
 * [IE 8 でも HTML5 の header や footer 要素を使えるようにする](html/ie8.html)
 * [Web サイトに favicon を設定する](html/favicon.html)
 
-
 全体のレイアウト
 ----
 
@@ -21,6 +20,7 @@ HTML 全般
 * [画像の下に隙間が空くのを防ぐ](layout/remove-margin-of-image.html)
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 * [ul や ol によるリスト要素のマージン設定を理解する](layout/list-margin.html)
+* [要素を中央寄せ／右寄せで表示する](layout/center.html)
 
 ### レスポンシブ
 * [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)
@@ -30,9 +30,10 @@ HTML 全般
 * [フレキシブルボックスによるレスポンシブレイアウト](flexible-box.html)
 * [（コラム）フレキシブルボックスの旧式の定義方法](flexible-box-old.html)
 
-#### フォント
+#### フォント／テキスト
 * [フォントサイズは 100% と指定する](font/font-size.html)
 * [rem や em を使用したサイズ指定を理解する](font/rem-and-em.html)
+* [pre 要素でもテキストがはみ出さないように折り返す](text/pre-wrap.html)
 
 
 要素
@@ -59,6 +60,7 @@ HTML 全般
 #### リンク
 * [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)
 * [外部リンクをクリックしたときに必ず新しいタブで開く](link/open-new-tab.html)
+* [リンク先ファイルの拡張子によって自動的にアイコンを付けて表示する](link/extension-icons.html)
 
 #### ボタン
 * [SNS ボタンをきれいに並べる](button/sns-buttons.html)
@@ -84,3 +86,7 @@ CSS セレクタ
 * [Web サイト作成に関するメモ: SEO 対策](seo.html)
 * [jQuery に関しては JavaScript のページを参照](../js/index.html)
 
+### 重要サイト
+* [HTML5の仕様 (W3C Recommendation)](https://www.w3.org/TR/html5/)
+* [HTML5の文法チェック (W3C Markup Varidation Service)](https://validator.w3.org/)
+* [ブラウザのHTML5適合度チェック (HTML5test)](https://html5test.com/)
