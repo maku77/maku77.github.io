@@ -21,6 +21,7 @@ HTML 全般
 * [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
 * [ul や ol によるリスト要素のマージン設定を理解する](layout/list-margin.html)
 * [要素を中央寄せ／右寄せで表示する](layout/center.html)
+* [画像や div 要素を両端に表示する](layout/images-at-both-ends.html)
 
 ### レスポンシブ
 * [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)
