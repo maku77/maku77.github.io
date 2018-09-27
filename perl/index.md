@@ -100,6 +100,7 @@ Perl ドキュメントの参照方法
 - [大文字と小文字を置換する](string/replace-case.html)
 - [インデックス指定で文字列を置換する (substr)](string/replace-by-index.html)
 - [サンプル: 数値を３桁ごとにカンマを入れて表示する](string/number-with-comma.html)
+- [サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する](string/remove-comments.html)
 
 ### その他の文字列処理
 - [文字列リテラルの中で配列を展開する](string/expand-array.html)
@@ -116,13 +117,27 @@ Perl ドキュメントの参照方法
 
 ファイル・ディレクトリ
 ----
-- [カレントディレクトリを変更する](file/chdir.html)
+- [ファイルのオープン・クローズと読み書きの基本](file/basic.html)
 - [グロブよってファイル名のリストを取得する](file/glob.html)
-- [ディレクトリハンドルによってファイル名のリストを取得する](file/readdir.html)
+- [ディレクトリハンドルによってファイル名のリストを取得する (readdir)](file/readdir.html)
+- [指定したディレクトリ以下のファイルを列挙する (find)](file/find.html)
 - [ディレクトリを作成する](file/mkdir.html)
-- [ディレクトリを削除する](file/rmdir.html)
-- [指定したディレクトリ以下のファイルを列挙する](file/find.html)
+- [ファイル・ディレクトリを削除する (unlink, rmdir)](file/unlink-rmdir.html)
+- [ファイル名を変更する (rename)](file/rename.html)
+- [ファイルを移動する (rename)](file/move.html)
+- [ファイルをコピーする (copy)](file/copy.html)
 - [ディレクトリ内のファイルの合計サイズを調べる](file/dir-size.html)
+- [書き戻し編集の仕組みで読み込んでいるファイルの内容を直接変更する](file/in-place-editing.html)
+- [スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）](file/embed-data.html)
+- [標準出力 (STDOUT) の出力先をファイルに切り替える](file/redirect-stdout.html)
+- ファイルテスト
+    - [ファイルが存在するかどうか調べる (if -e)](file/exist.html)
+    - [ファイルがしばらく更新されていないかどうか調べる (if -M)](file/last-mod.html)
+    - [ファイルサイズを調べる (-s)](file/size.html)
+- パス
+    - [カレントディレクトリのパスを取得する (cwd)](file/cwd.html)
+    - [カレントディレクトリを変更する (chdir)](file/chdir.html)
+    - [フルパス（絶対パス）からファイル名やディレクトリ名を抽出する (basename, dirname)](file/basename.html)
 
 その他
 ----
