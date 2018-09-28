@@ -3,10 +3,12 @@ title: Perl
 layout: category-index
 ---
 
-Perl ドキュメントの参照方法
+Perl ドキュメント
 ----
-- `perldoc perl` **ドキュメントの一覧**
+- [Perl のマニュアルページを表示する (perldoc)](misc/perldoc.html)
+- `perldoc perl` **ドキュメントのリストを表示**
 - `perldoc XYZ`  **XYZ のドキュメント**
+- `perldoc -f Func`  **組み込み関数のドキュメント**
 
 配列とリスト
 ----
@@ -28,7 +30,7 @@ Perl ドキュメントの参照方法
 - [配列へのリファレンスを取得する](list/reference.html)
 - [配列の配列（二次元配列）を作成する](list/two-dimensional-array.html)
 - [配列やリストをソートする](list/sort-array.html)
-- [配列あれこれ](list/misc.html)
+- [配列の添え字に小数を指定するとどうなるか？](list/misc.html)
 
 ハッシュ
 ----
@@ -107,18 +109,19 @@ Perl ドキュメントの参照方法
 - [文字列をデリミタで分割する (split)](string/split.html)
 - [文字列を１文字ずつに分割する (split)](string/split-into-chars.html)
 - [リスト要素を結合して１つの文字列にする (join)](string/join.html)
+- [文字列の末尾の改行を取り除く (chomp)](string/chomp.html)
 - [部分文字列の位置を検索する (index, rindex)](string/index-rindex.html)
 - [文字列リテラルを囲むクォート文字に任意の記号を使用する](string/quote-char.html)
 
 入出力
 ----
-- [標準入力を読み込む](io/read-from-stdio.html)
+- [標準入力を読み込む (STDIN)](io/read-from-stdio.html)
 - [ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する](io/diamond-operator.html)
 
 ファイル・ディレクトリ
 ----
 - [ファイルのオープン・クローズと読み書きの基本](file/basic.html)
-- [グロブよってファイル名のリストを取得する](file/glob.html)
+- [グロブよってファイル名のリストを取得する (glob)](file/glob.html)
 - [ディレクトリハンドルによってファイル名のリストを取得する (readdir)](file/readdir.html)
 - [指定したディレクトリ以下のファイルを列挙する (find)](file/find.html)
 - [ディレクトリを作成する](file/mkdir.html)
@@ -127,13 +130,14 @@ Perl ドキュメントの参照方法
 - [ファイルを移動する (rename)](file/move.html)
 - [ファイルをコピーする (copy)](file/copy.html)
 - [ディレクトリ内のファイルの合計サイズを調べる](file/dir-size.html)
-- [書き戻し編集の仕組みで読み込んでいるファイルの内容を直接変更する](file/in-place-editing.html)
+- [読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）](file/in-place-editing.html)
 - [スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）](file/embed-data.html)
 - [標準出力 (STDOUT) の出力先をファイルに切り替える](file/redirect-stdout.html)
 - ファイルテスト
     - [ファイルが存在するかどうか調べる (if -e)](file/exist.html)
     - [ファイルがしばらく更新されていないかどうか調べる (if -M)](file/last-mod.html)
     - [ファイルサイズを調べる (-s)](file/size.html)
+    - [ファイルがテキストファイルかどうか調べる (-T)](file/find-text-files.html)
 - パス
     - [カレントディレクトリのパスを取得する (cwd)](file/cwd.html)
     - [カレントディレクトリを変更する (chdir)](file/chdir.html)
@@ -141,7 +145,9 @@ Perl ドキュメントの参照方法
 
 その他
 ----
+- [プログラムの起動パラメータ (-t filename) などを処理する](misc/command-line-params.html)
+- [not と ! の結合度の違い](misc/not-and-exclamation.html)
 - [Perl スクリプトのエンコーディングを指定する](misc/script-encoding.html)
 - [Perl スクリプトが Windows で実行されているか調べる](misc/run-on-windows.html)
-
+- [Perl のスカラ変数と配列に $, @ というプレフィックスを付ける理由](misc/var-prefix.html)
 
