@@ -66,6 +66,7 @@ Windows の設定／管理／セキュリティ
 * [日本語キーボードのノート PC で英字配列の USB キーボードを使用する](usb-us-keyboard.html)
 * [Windows のユーザのパスワードの有効期限を無期限に設定する](settings/unlimited-password.html)
 * [xcopy でディレクトリ内のファイルをバックアップする](xcopy.html)
+* [NTP による時刻同期情報を取得する (w32tm)](admin/ntp.html)
 
 ### ネットワーク
 * [Windows ファイアウォールで特定のポートを開放する](open-firewall-port.html)
@@ -85,6 +86,7 @@ MS Office
 ### PowerPoint
 - [PowerPoint で使いこなすとかっこいいショートカット](powerpoint/shortcut.html)
 - [SVG ファイルを EMF ファイルに変換して PowerPoint に貼り付ける](powerpoint/svg2emf.html)
+- [PowerPoint プレゼン資料でおすすめのフォント設定](powerpoint/font.html)
 
 ### Word
 - [Word で章・節・項の見出しを作成する](word/create-chapter.html)
@@ -102,11 +104,12 @@ Windows API
 ----
 
 ### Legacy API
-* [プロセス・ハンドルについて](winapi/process-handle.html)
-* [Windows の静的ライブラリと動的ライブラリ](misc/windows-library.html)
-* [指定したウィンドウ (HWND) を確実にアクティブにする](winapi/activate-window-forcedly.html)
+- [プロセス・ハンドルについて](winapi/process-handle.html)
+- [Windows の静的ライブラリと動的ライブラリ](misc/windows-library.html)
+- [指定したウィンドウ (HWND) を確実にアクティブにする](winapi/activate-window-forcedly.html)
 - [現在使用中の Windows OS のバージョンを調べる](winapi/os-version.html)
 - [Windows API ですべてのウィンドウを列挙し、特定の条件にマッチするウィンドウを取得する](winapi/search-window.html)
+- [Windows API でスクリーンセーバーの起動時間を取得／設定する](winapi/screensave-timeout.html)
 
 ### .NET
 
