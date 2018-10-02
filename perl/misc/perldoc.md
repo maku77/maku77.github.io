@@ -115,7 +115,7 @@ $ perldoc perlmodlib
 $ perldoc perlvar
 ```
 
-#### 組み込み演算子、組み込み関数に関するマニュアル
+#### 組み込み演算子（結合と優先順位）、組み込み関数に関するマニュアル
 
 ```
 $ perldoc perlop

@@ -10,6 +10,19 @@ Perl ドキュメント
 - `perldoc XYZ`  **XYZ のドキュメント**
 - `perldoc -f Func`  **組み込み関数のドキュメント**
 
+構文／言語仕様
+----
+- [論理演算子（短絡演算子）を利用したデフォルト値のイディオム](syntax/logical-operator.html)
+- [整数リテラル](syntax/integer-literal.html)
+- [文字列リテラル](syntax/string-literal.html)
+- [ブール値（真偽値）](syntax/bool.html)
+- [数値比較と文字列比較](syntax/comparison.html)
+- 制御構造
+    - [if/unless による分岐処理](syntax/if.html)
+    - [while/until によるループ処理](syntax/while.html)
+    - [for/foreach によるループ処理](syntax/for.html)
+
+
 配列とリスト
 ----
 - [配列とリストを定義する](list/define-array-list.html)
@@ -87,6 +100,17 @@ Perl ドキュメント
 文字列／正規表現
 ----
 
+### 基本的な文字列処理
+- [文字列を結合する (.)](string/concat.html)
+- [ある文字列を繰り返した文字列を作成する (x)](string/repeat.html)
+- [文字列リテラルの中で配列を展開する](string/expand-array.html)
+- [文字列をデリミタで分割する (split)](string/split.html)
+- [文字列を１文字ずつに分割する (split)](string/split-into-chars.html)
+- [リスト要素を結合して１つの文字列にする (join)](string/join.html)
+- [文字列の末尾の改行を取り除く (chomp)](string/chomp.html)
+- [部分文字列の位置を検索する (index, rindex)](string/index-rindex.html)
+- [文字列リテラルを囲むクォート文字に任意の記号を使用する](string/quote-char.html)
+
 ### マッチングと抽出
 - [正規表現による文字列マッチングの基本](string/basics-of-regexp.html)
 - [欲張りな量指定子と欲張りでない量指定子による文字列マッチング](string/greedy-match.html)
@@ -104,17 +128,10 @@ Perl ドキュメント
 - [サンプル: 数値を３桁ごとにカンマを入れて表示する](string/number-with-comma.html)
 - [サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する](string/remove-comments.html)
 
-### その他の文字列処理
-- [文字列リテラルの中で配列を展開する](string/expand-array.html)
-- [文字列をデリミタで分割する (split)](string/split.html)
-- [文字列を１文字ずつに分割する (split)](string/split-into-chars.html)
-- [リスト要素を結合して１つの文字列にする (join)](string/join.html)
-- [文字列の末尾の改行を取り除く (chomp)](string/chomp.html)
-- [部分文字列の位置を検索する (index, rindex)](string/index-rindex.html)
-- [文字列リテラルを囲むクォート文字に任意の記号を使用する](string/quote-char.html)
 
-入出力
+入出力 (I/O)
 ----
+- [printf のフォーマット出力を使いこなす](io/printf.html)
 - [標準入力を読み込む (STDIN)](io/read-from-stdio.html)
 - [ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する](io/diamond-operator.html)
 
