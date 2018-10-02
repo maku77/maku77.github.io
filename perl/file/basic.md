@@ -133,3 +133,20 @@ if ($fh->opened) {
 close $fh;
 ~~~
 
+
+die によるファイル名と行番号の表示
+----
+
+`die` の引数の文字列の末尾に改行を付けない場合は、自動的に `die` が呼び出されたファイル名と行番号が表示されます。
+
+~~~ perl
+open LOG, '>>logfile'
+    or die "Cannot create logfile: $!";
+~~~
+
+逆に文字列の末尾に改行文字を付けた場合は、ファイル名と行番号は表示されません。
+
+~~~ perl
+die "too few parameters\n" if @ARGV < 2;
+~~~
+

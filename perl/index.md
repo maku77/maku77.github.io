@@ -16,12 +16,18 @@ Perl ドキュメント
 - [整数リテラル](syntax/integer-literal.html)
 - [文字列リテラル](syntax/string-literal.html)
 - [ブール値（真偽値）](syntax/bool.html)
+- [not と ! の結合度の違い](syntax/not-and-exclamation.html)
 - [数値比較と文字列比較](syntax/comparison.html)
 - 制御構造
     - [if/unless による分岐処理](syntax/if.html)
     - [while/until によるループ処理](syntax/while.html)
     - [for/foreach によるループ処理](syntax/for.html)
-
+- [エラー変数 $! について](syntax/error.html)
+- [undef と defined 演算子](syntax/undef-defined.html)
+- [require で別ファイル（ライブラリ）をインクルードする](syntax/require.html)
+- [パッケージによる名前空間の設定 (package, our)](syntax/namespace.html)
+- [一時的にカレントパッケージを変更する](syntax/change-current-package.html)
+- [定数を定義する（constant プラグマ）](syntax/constant.html)
 
 配列とリスト
 ----
@@ -128,16 +134,20 @@ Perl ドキュメント
 - [サンプル: 数値を３桁ごとにカンマを入れて表示する](string/number-with-comma.html)
 - [サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する](string/remove-comments.html)
 
+### 応用
+- [テキストの折り返し（改行）処理を自動で行う (Text::Wrap)](string/text-wrap.html)
 
 入出力 (I/O)
 ----
 - [printf のフォーマット出力を使いこなす](io/printf.html)
 - [標準入力を読み込む (STDIN)](io/read-from-stdio.html)
 - [ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する](io/diamond-operator.html)
+- [変数の内容をファイルに保存する／復元する](io/store.html)
 
 ファイル・ディレクトリ
 ----
 - [ファイルのオープン・クローズと読み書きの基本](file/basic.html)
+- [ファイルがオープンできないとき自動で終了する（autodie プラグマ）](file/autodie.html)
 - [グロブよってファイル名のリストを取得する (glob)](file/glob.html)
 - [ディレクトリハンドルによってファイル名のリストを取得する (readdir)](file/readdir.html)
 - [指定したディレクトリ以下のファイルを列挙する (find)](file/find.html)
@@ -150,6 +160,7 @@ Perl ドキュメント
 - [読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）](file/in-place-editing.html)
 - [スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）](file/embed-data.html)
 - [標準出力 (STDOUT) の出力先をファイルに切り替える](file/redirect-stdout.html)
+- [Config ファイル（key=value という行形式のファイル）を読み込むサンプル](file/config.html)
 - ファイルテスト
     - [ファイルが存在するかどうか調べる (if -e)](file/exist.html)
     - [ファイルがしばらく更新されていないかどうか調べる (if -M)](file/last-mod.html)
@@ -163,8 +174,11 @@ Perl ドキュメント
 その他
 ----
 - [プログラムの起動パラメータ (-t filename) などを処理する](misc/command-line-params.html)
-- [not と ! の結合度の違い](misc/not-and-exclamation.html)
 - [Perl スクリプトのエンコーディングを指定する](misc/script-encoding.html)
 - [Perl スクリプトが Windows で実行されているか調べる](misc/run-on-windows.html)
 - [Perl のスカラ変数と配列に $, @ というプレフィックスを付ける理由](misc/var-prefix.html)
+- デバッグ
+    - [Data::Dumper で複雑なデータをダンプする](misc/dumper.html)
+    - [Perl のデバッガを使用する](misc/debugger.html)
+    - [一時的にエラーメッセージを詳しくする（diagnostics プラグマ）](misc/diagnostics.html)
 
