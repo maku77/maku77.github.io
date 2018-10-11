@@ -12,6 +12,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 ### 変数
 * [変数の基本](var/basic.html)
+* [定数を定義する (readonly)](var/read-only.html)
 * [シェル変数/環境変数がセットされているか調べる](var/check-if-var-is-set.html)
 * 配列
     * [配列を作成する](var/create-array.html)
@@ -27,6 +28,12 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [case による分岐処理](syntax/case.html)
 * [for/while によるループ処理](syntax/for.html)
     * [ループ内での出力をまとめてファイル出力する](syntax/loop-output.html)
+
+### 起動時の処理
+* [コマンドライン引数を取得する](startup/command-line-params.html)
+* [コマンドライン引数の数が正しいかチェックする](startup/check-param-count.html)
+* [ある環境変数が定義されているかチェックする](startup/check-env.html)
+* [ある外部コマンドが使用できるかチェックする](startup/check-external-command.html)
 
 ### 関数
 * [関数を定義する (function)](syntax/function.html)
@@ -45,11 +52,10 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 ### 入出力 (I/O)
 * [echo で出力した文字列の中の連続するスペースが1つのスペースになってしまうのを防ぐ](io/echo-spaces.html)
-* [コマンドライン引数を取得する](io/command-line-params.html)
-* [ユーザ入力を取得する (read)](obtain-user-input.html)
-* [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input2.html)
+* [echo で出力する文字の色を変える](io/echo-color.html)
+* [ユーザ入力を取得する (read)](io/user-input.html)
 * [ディレクトリ内のファイルを順に処理する](io/loop-files.html)
-* [任意のコマンドの実行結果を一行ずつ処理する](io/external-command.html)
+* [外部コマンドの実行結果を一行ずつ処理する](io/external-command.html)
 * [テキストファイルを読み込む](io/read-file.html)
 
 ### 日時

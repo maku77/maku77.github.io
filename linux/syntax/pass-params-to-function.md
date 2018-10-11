@@ -3,6 +3,12 @@ title: "Bash の構文: 関数へパラメータを渡す"
 date: "2011-04-15"
 ---
 
+関数に渡されたパラメータの処理方法は、シェルスクリプト実行時に渡されたコマンドラインパラメータの処理方法と同じです。
+下記のコマンドラインパラメータの処理方法に関する記事も参考にしてください。
+
+* [コマンドライン引数を取得する](../startup/command-line-params.html)
+
+
 関数へ渡されたパラメータの数を調べる ($#)
 ----
 
@@ -38,12 +44,13 @@ $ foo "This is a pen"
 ```bash
 function foo {
   if [ $# -lt 1 ]; then
-    echo "need at least one parameter"
-    return
+    echo 'Function "foo" needs at least one parameter' >&2
+    exit -1
   fi
-  echo "OK"
+  echo 'OK'
 }
 ```
+
 
 関数へ渡されたパラメータを順番に処理する
 ----
@@ -71,7 +78,7 @@ $ enum_params 1 2 3
 パラメータをシングルクォーテーション、あるいはダブルクォーテーションで括ると、１つのパラメータとして処理されます。
 
 ```
-$ enum_params '1 2 3'
+$ enum_params "1 2 3"
 1 2 3
 ```
 
