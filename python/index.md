@@ -179,6 +179,7 @@ SQL
 
 Web
 ====
+* [Python で簡易的な HTTP サーバを立てる (SimpleHTTPServer)](web/simple-http-server.html)
 * [Python で HTTP を扱う方法いろいろ](http-in-python.html)
 * [urllib による HTTP リクエスト (1)](http-request.html)
 * [urllib による HTTP リクエスト (2) プロキシ経由でアクセス](http-request-with-proxy.html)
