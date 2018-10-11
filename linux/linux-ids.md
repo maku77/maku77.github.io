@@ -1,5 +1,5 @@
 ---
-title: Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ
+title: "Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ"
 date: "2014-01-02"
 ---
 

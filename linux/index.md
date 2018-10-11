@@ -11,8 +11,16 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [シェルスクリプトのコーディングスタイル](basic/coding-style.html)
 
 ### 変数
-* [変数の基本](variables.html)
-* [シェル変数/環境変数がセットされているか調べる](check-if-var-is-set.html)
+* [変数の基本](var/basic.html)
+* [シェル変数/環境変数がセットされているか調べる](var/check-if-var-is-set.html)
+* 配列
+    * [配列を作成する](var/create-array.html)
+    * [配列をループ処理する](var/loop-array.html)
+    * [配列のサイズ（要素数）を調べる](var/array-size.html)
+    * [配列に要素を追加する](var/add-elem-to-array.html)
+    * [配列と配列を結合する](var/concat-arrays.html)
+* 数値
+    * [数値変数を加算／減算する](var/add-and-sub.html)
 
 ### 制御構文
 * [if-else による分岐処理](syntax/if.html)
@@ -28,17 +36,21 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [関数のデフォルト引数を定義する](syntax/default-params.html)
 
 ### パス
-* [絶対パスと相対パスの変換](absolute-path-to-relative-path.html)
-* [カレントディレクトリの絶対パスを取得する](absolute-path-of-current-dir.html)
-* [シェルスクリプトのファイル名と絶対パスを取得する](path/path-of-script.html)
-* [シェルスクリプトのあるディレクトリの絶対パスを取得する](absolute-path-of-script-dir.html)
-* [シェルスクリプトのあるディレクトリに移動する](move-to-script-dir.html)
-* [指定したファイルの絶対パスを取得する](absolute-path-of-file.html)
+* [絶対パスと相対パスの変換 (basename, dirname)](path/absolute-path-to-relative-path.html)
+* [指定したファイルの絶対パスを取得する](path/absolute-path-of-file.html)
+* [カレントディレクトリの絶対パスを取得する](path/absolute-path-of-current-dir.html)
+* [実行中のシェルスクリプトのファイル名を取得する](path/path-of-script.html)
+* [実行中のシェルスクリプトがあるディレクトリの絶対パスを取得する](path/absolute-path-of-script-dir.html)
+* [実行中のシェルスクリプトがあるディレクトリに移動する](path/move-to-script-dir.html)
 
 ### 入出力 (I/O)
-* [ユーザ入力を取得する](obtain-user-input.html)
+* [echo で出力した文字列の中の連続するスペースが1つのスペースになってしまうのを防ぐ](io/echo-spaces.html)
+* [コマンドライン引数を取得する](io/command-line-params.html)
+* [ユーザ入力を取得する (read)](obtain-user-input.html)
 * [ユーザ入力を取得して "y" が入力された場合だけ処理を継続する](obtain-user-input2.html)
-* [ディレクトリ内のファイルを順に処理する](process-all-files.html)
+* [ディレクトリ内のファイルを順に処理する](io/loop-files.html)
+* [任意のコマンドの実行結果を一行ずつ処理する](io/external-command.html)
+* [テキストファイルを読み込む](io/read-file.html)
 
 ### 日時
 * [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
@@ -85,7 +97,7 @@ D-Bus
 Linux システム／管理
 ----
 * [Linux カーネル／OS のバージョンを調べる](linux-version.html)
-* [bash のバージョンを調べる](bash-version.html)
+* [bash のバージョンを調べる ($BASH_VERSION)](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
 * [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)

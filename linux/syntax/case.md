@@ -1,5 +1,5 @@
 ---
-title: "Bash の構文 ─ case による分岐処理"
+title: "Bash の構文: case による分岐処理"
 date: "2007-05-08"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: bash のバージョンを調べる
+title: "bash のバージョンを調べる ($BASH_VERSION)"
 date: "2010-07-20"
 ---
 

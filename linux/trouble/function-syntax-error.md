@@ -1,5 +1,5 @@
 ---
-title: 改行コードが原因の関数定義の syntax error
+title: "改行コードが原因の関数定義の syntax error"
 date: "2011-04-27"
 ---
 

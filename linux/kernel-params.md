@@ -1,5 +1,5 @@
 ---
-title: カーネルに渡されたパラメータを調べる (/proc/cmdline)
+title: "カーネルに渡されたパラメータを調べる (/proc/cmdline)"
 date: "2011-02-01"
 ---
 
