@@ -171,6 +171,7 @@ ZIP/JAR ファイル
 * [コマンドライン引数を取得する](command-line-params.html)
 * [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
 * [標準入力から読み込む](read-stdin.html)
+* [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
 * [print 関数の改行を抑制する](print-without-line-break.html)
 
 SQL
