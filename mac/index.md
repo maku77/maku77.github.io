@@ -24,5 +24,6 @@ AppleScript
 
 その他
 ----
+* [Mac のユーザ辞書をバックアップ、リストアする](user-dic.html)
 * [昔ながらの ftp コマンドを使用できるようにする](ftp.html)
 
