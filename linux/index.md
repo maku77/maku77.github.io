@@ -14,6 +14,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [変数の基本](var/basic.html)
 * [定数を定義する (readonly)](var/read-only.html)
 * [シェル変数/環境変数がセットされているか調べる](var/check-if-var-is-set.html)
+* [Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）](var/expansion.html)
 * 配列
     * [配列を作成する](var/create-array.html)
     * [配列をループ処理する](var/loop-array.html)
@@ -22,6 +23,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
     * [配列と配列を結合する](var/concat-arrays.html)
 * 数値
     * [数値変数を加算／減算する](var/add-and-sub.html)
+    * [ランダムな数値を取得する ($RANDOM)](number/random.html)
 
 ### 制御構文
 * [if-else による分岐処理](syntax/if.html)
@@ -60,9 +62,6 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 
 ### 日時
 * [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
-
-### 数値
-* [ランダムな数値を取得する ($RANDOM)](number/random.html)
 
 ### トラブルシューティング
 * [改行コードが原因の関数定義の syntax error](trouble/function-syntax-error.html)
@@ -119,7 +118,7 @@ Linux コマンド全般　
 * [rsync コマンドでディレクトリを同期する](basic/rsync.html)
 * [行番号付きでテキストファイルの内容を出力する](basic/cat-with-line-number.html)
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
-* [リダイレクトとパイプの役割](basic/redirect-and-pipe.html)
+* [リダイレクトとパイプ処理のまとめ](basic/redirect-and-pipe.html)
 * [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ](basic/avoid-overridden-by-redirect.html)
 * [ls コマンドが使えないときに echo コマンドで代用する](basic/echo-instead-of-ls.html)
 * [いずれかの文字列を含むファイルだけを列挙する](basic/ls-with-pattern-matching.html)
