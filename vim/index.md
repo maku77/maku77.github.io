@@ -34,6 +34,7 @@ layout: category-index
 * [カーソル位置の単語をファイル名としてファイルを開く (gf)](file/open-file-at-cursor.html)
 * [編集中のファイルと拡張子だけが異なるファイルを開く（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.htmL)
 * [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
+* [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
 
 ### ファイルを保存する
 * [ファイルへの保存コマンド :w、:x の基本](file/save.html)
