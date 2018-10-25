@@ -273,10 +273,18 @@ p {
 }
 
 blockquote {
-  margin-left: 1em;
+  border-left: solid #ccc 0.3em;
+  padding-left: 0.5em;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-left: $SIDE_MARGIN_DESKTOP;
 
   & > p {
     margin: 0;
+  }
+
+  @media screen and (max-width: $WIDTH_MOBILE) {
+    margin-left: $SIDE_MARGIN_MOBILE;
   }
 }
 
