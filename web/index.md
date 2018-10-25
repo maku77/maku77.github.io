@@ -57,6 +57,7 @@ HTML 全般
 * [メニュー要素内でスクロールできるようにする](menu/scroll-menu.html)
 * [CSS だけで開閉できるアコーディオンメニューを作成する](menu/accordion.html)
 * [ある位置までスクロールしたら固定されるメニューを作成する](menu/scroll-and-fix.html)
+* [印刷時に特定の要素（メニューなど）を非表示にする](menu/hide-in-print.html)
 
 #### リンク
 * [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)
