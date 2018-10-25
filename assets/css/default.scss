@@ -318,11 +318,11 @@ kbd {
   padding: 10px 0px 10px 0px;
   border-top: 5px dashed #eee;
   border-bottom: 5px dashed #eee;
-  &:before {
+  &::before {
     content: url("../img/onepoint.png");
     float: left;
   }
-  &:after {
+  &::after {
       content: "";
       clear: both;
       height: 0;
@@ -358,6 +358,12 @@ kbd {
 //-------------------------------------------------------------------------
 // まくまくクラス
 //-------------------------------------------------------------------------
+.xBreadCrumbContainer::after { /* clearfix */
+  content: '';
+  clear: both;
+  display: block;
+}
+
 .xBreadCrumb {
   float: left;
   margin-top: 10px;
@@ -418,6 +424,9 @@ kbd {
       position: sticky;
       top: $BODY_MARGIN;
     }
+
+    /* 印刷時非表示 */
+    @media print { display: none; }
   }
 
   /* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
@@ -442,8 +451,6 @@ kbd {
 */
 
 .xContent {
-  clear: both;
-
   & > p {
     margin: 10px $SIDE_MARGIN_DESKTOP $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
 
@@ -483,7 +490,6 @@ kbd {
 }
 
 .xWidget {
-  clear: both;
   text-align: center;
   margin: 10px;
   padding-top: 10px;
@@ -647,13 +653,15 @@ iframe.xHtmlDemo {
   .xSnsButtons_facebook { background: #3b5998; }
   .xSnsButtons_pocket   { background: #ee4056; }
   .xSnsButtons_google   { background: #dd4b39; }
+
+  /* 印刷時非表示 */
+  @media print { display: none; }
 }
 
 /*
  * xSearchbar
  */
 .xSearchBar {
-  clear: both;
   margin-bottom: 5px;
   text-align: right;
 
@@ -692,5 +700,8 @@ iframe.xHtmlDemo {
     font-weight: bolder;
     color: #2040ff;
   }
+
+  /* 印刷時非表示 */
+  @media print { display: none; }
 }
 
