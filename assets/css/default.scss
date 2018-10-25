@@ -489,10 +489,14 @@ kbd {
   }
 }
 
+/* 主に広告ボックス */
 .xWidget {
   text-align: center;
   margin: 10px;
   padding-top: 10px;
+
+  /* 印刷時は非表示 */
+  @media print { display: none; }
 }
 
 iframe.xHtmlDemo {
