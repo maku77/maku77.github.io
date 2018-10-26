@@ -14,6 +14,11 @@ layout: category-index
 * [ウィンドウを分割する](basic/window.html)
 * [アンドゥとリドゥ操作](basic/undo-and-redo.html)
 
+### コマンドモード
+* [コマンドモードでコマンド入力を補完する](basic/candidate.html)
+* [コマンドモードでのカーソル移動](basic/cursor-move-in-command.html)
+* [ex コマンドの行範囲指定方法いろいろ](basic/line-range.html)
+
 ### 検索
 * [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
 * [ファイル内の文字列を検索する](basic/search.html)
@@ -41,7 +46,7 @@ layout: category-index
 * [指定した行範囲だけ別のファイルに保存する](file/save-lines.html)
 
 ### その他
-* [別ファイルの内容やコマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
+* [別ファイルの内容や外部コマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
 * [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
 * [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
 
@@ -52,7 +57,10 @@ layout: category-index
 * [大文字と小文字を変換する](edit/uppercase-lowercase.html)
 * [補完機能を使用してテキストを入力する](edit/complete.html)
 * [行を連結する](edit/join.html)
-* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+* 削除
+    * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+    * [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
+    * [正規表現にマッチする行を削除する](edit/remove-by-regexp.html)
 * [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 * [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
 * [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
@@ -82,6 +90,9 @@ layout: category-index
 * [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
 * [キーボードマクロを記録して一連のキー入力を繰り返し実行する](advanced/macro.html)
 * [プリンタで印刷する (hardcopy)](advanced/hardcopy.html)
+* [行の情報を表示する](advanced/line-info.html)
+* [ファイルに保存した ex スクリプトを実行する](advanced/run-ex-script.html)
+
 
 インストール／環境
 ----
@@ -89,6 +100,7 @@ layout: category-index
 * [Vundle をインストールして Vim のプラグイン環境を作る](install/vundle.html)
 * [Windows の右クリックから Vim を開けるようにする](install/windows-right-click.html)
 * [Windows でファイルを開くときに既存の GVim 内のタブで開く](install/windows-open-tab.html)
+
 
 Vim の設定
 ----
@@ -108,13 +120,14 @@ Vim の設定
 ### autocmd（自動コマンド）による設定
 * [autocmd で自動コマンドを登録する](settings/autocmd.html)
 * [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](settings/autocmd-exec.html)
+* [開いたファイルがあるディレクトリをカレントディレクトリにする](settings/autocmd-cd.html)
 
 ### 見た目の設定
 * [行番号を表示する (number)](settings/number.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
 * [フォント設定ダイアログを開いてフォントを設定する (guifont)](settings/font-dialog.html)
-* [タブ文字と行末のスペースを表示する (list, listchars)](settings/show-space.html)
+* [改行、タブ文字、行末のスペースを表示する (list, listchars)](settings/show-space.html)
 * [全角スペースを表示する](settings/show-double-byte-space.html)
 * [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
 * [GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)](settings/window-size.html)
