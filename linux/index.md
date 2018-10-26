@@ -101,6 +101,7 @@ D-Bus
 
 Linux システム／管理
 ----
+### コマンド
 * [Linux カーネル／OS のバージョンを調べる](linux-version.html)
 * [bash のバージョンを調べる ($BASH_VERSION)](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
@@ -109,6 +110,9 @@ Linux システム／管理
 * [NTP でシステム時刻を設定する](settings/ntp.html)
 * [ディレクトリ内のファイルを zip ファイルにバックアップする](manage/backup.html)
 * [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)](manage/cpulimit.html)
+
+### プログラミング
+* [Linux システムコールを使用して core dump を吐かないようにする (setrlimit)](manage/setrlimit.html)
 
 
 Linux コマンド全般　
