@@ -29,7 +29,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [if-else による分岐処理](syntax/if.html)
 * [case による分岐処理](syntax/case.html)
 * [for/while によるループ処理](syntax/for.html)
-    * [ループ内での出力をまとめてファイル出力する](syntax/loop-output.html)
+    * [ループ内での複数の出力をまとめてリダイレクト、パイプ処理する](syntax/loop-output.html)
 
 ### 起動時の処理
 * [コマンドライン引数を取得する](startup/command-line-params.html)
@@ -114,9 +114,11 @@ Linux システム／管理
 Linux コマンド全般　
 ----
 * [Windows で Linux 系のコマンドを使用できるようにする (Gow)](basic/gow.html)
-* [find で見つけたファイルを grep 検索する](basic/find-and-grep.html)
+* find
+    * [find で見つけたファイルを grep 検索する](basic/find-and-grep.html)
+    * [ファイル名の大文字と小文字を区別せずに find 検索する](basic/find-iname.html)
 * [rsync コマンドでディレクトリを同期する](basic/rsync.html)
-* [行番号付きでテキストファイルの内容を出力する](basic/cat-with-line-number.html)
+* [行番号付きでテキストファイルの内容を出力する (cat -b)](basic/cat-with-line-number.html)
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
 * [リダイレクトとパイプ処理のまとめ](basic/redirect-and-pipe.html)
 * [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ](basic/avoid-overridden-by-redirect.html)
