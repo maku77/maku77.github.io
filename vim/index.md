@@ -106,10 +106,12 @@ Vim の設定
 ----
 
 ### キーマップ
-* [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
-* [ショートカットキーで日時を挿入する](insert-date.html)
-* [ショートカットキーでタブを切り替える](keymap/tab.html)
+* [現在のキーマップの一覧を表示する (map)](keymap/current-map.html)
 * [map コマンドなどで指定できる特殊なキーの名前一覧](keymap/keycodes.html)
+* キーマップの例
+    * [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
+    * [ショートカットキーで日時を挿入する](keymap/insert-date.html)
+    * [ショートカットキーでタブを切り替える](keymap/tab.html)
 
 ### ファイルに関する設定と操作
 * [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
