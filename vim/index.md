@@ -105,9 +105,10 @@ layout: category-index
 Vim の設定
 ----
 
-### キーマップ
+### キーマップ設定
+* [キーマップの基本 (map, noremap)](keymap/basic.html)
 * [現在のキーマップの一覧を表示する (map)](keymap/current-map.html)
-* [map コマンドなどで指定できる特殊なキーの名前一覧](keymap/keycodes.html)
+* [map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)](keymap/keycodes.html)
 * キーマップの例
     * [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
     * [ショートカットキーで日時を挿入する](keymap/insert-date.html)
@@ -124,8 +125,9 @@ Vim の設定
 * [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](settings/autocmd-exec.html)
 * [開いたファイルがあるディレクトリをカレントディレクトリにする](settings/autocmd-cd.html)
 
-### 見た目の設定
+### 表示の設定
 * [行番号を表示する (number)](settings/number.html)
+* [80文字目に縦線を表示する (colorcolumn)](settings/colorcolumn.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
 * [フォント設定ダイアログを開いてフォントを設定する (guifont)](settings/font-dialog.html)
