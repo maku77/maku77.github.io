@@ -54,32 +54,36 @@ layout: category-index
 編集操作
 ----
 
-* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
-* [補完機能を使用してテキストを入力する](edit/complete.html)
-* [行を連結する](edit/join.html)
-* 削除
-    * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
-    * [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
-    * [正規表現にマッチする行を削除する](edit/remove-by-regexp.html)
-* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
-* [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
-* [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
 * [挿入モード（インサートモード）のまま実行できる操作の一覧](edit/insert-mode.html)
+* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
 
-### 整形
+### 文字の追加
+* [補完機能を使用してテキストを入力する](edit/complete.html)
+* [同じテキストを指定した回数だけ繰り返し挿入する](edit/repeated-insert.html)
+* [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
+* [上の行の文字、下の行の文字をコピーする (CTRL-Y, CTRL-E)](edit/duplicate-chars.html)
+
+### 削除
+* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+* [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
+* [正規表現にマッチする行を削除する](edit/remove-by-regexp.html)
+
+### 整形／変換
+* [行を連結する](edit/join.html)
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
 * [選択した範囲を自動インデントする](edit/re-indent.html)
 * [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
 * [テキストを中央寄せ／左寄せ／右寄せする](edit/adjust.html)
+* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
+* [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
+* ソート
+    * [行をソートして重複行を削除する](edit/unique-lines.html)
+    * [行を逆順にソートする](edit/reverse-sort.html)
 
 ### カット＆ペースト
 * [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
 * [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
 * [切り取り＆貼り付け操作、レジスタの扱いについて理解する](edit/register.html)
-
-### ソート
-* [行をソートして重複行を削除する](edit/unique-lines.html)
-* [行を逆順にソートする](edit/reverse-sort.html)
 
 
 応用操作
@@ -92,7 +96,8 @@ layout: category-index
 * [プリンタで印刷する (hardcopy)](advanced/hardcopy.html)
 * [行の情報を表示する](advanced/line-info.html)
 * [ファイルに保存した ex スクリプトを実行する](advanced/run-ex-script.html)
-
+* プログラマ向け操作
+    * [プログラムの関数定義などにジャンプする（tags ファイルの利用）](advanced/tags.html)
 
 インストール／環境
 ----
