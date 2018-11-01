@@ -5,14 +5,17 @@ layout: category-index
 
 基本
 ----
-* [ヘルプコマンドの使い方 (:help)](basic/help.html)
-* [カーソル移動の方法いろいろ](basic/move-cursor.html)
-* [C/C++ の変数／マクロの定義位置にジャンプする](basic/cpp-jump.html)
-* [画面スクロールの方法いろいろ](basic/scroll.html)
+* [ヘルプコマンドの使い方 (:help, :helpgrep)](basic/help.html)
+* 移動
+    * [カーソル移動の方法いろいろ](basic/move-cursor.html)
+    * [C/C++ の変数／マクロの定義位置にジャンプする](basic/cpp-jump.html)
+    * [画面スクロールの方法いろいろ](basic/scroll.html)
+    * [カーソル位置にマーク（ブックマーク）してジャンプする](advanced/mark.html)
 * [文字の削除方法いろいろ](basic/delete.html)
 * [文字の置換方法いろいろ (:substitute)](basic/substitute.html)
 * [ウィンドウを分割する](basic/window.html)
 * [アンドゥとリドゥ操作](basic/undo-and-redo.html)
+* [ビジュアルモードの基本](basic/visual-mode.html)
 
 ### コマンドモード
 * [コマンドモードでコマンド入力を補完する](basic/candidate.html)
@@ -23,6 +26,7 @@ layout: category-index
 * [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
 * [ファイル内の文字列を検索する](basic/search.html)
 * [カーソル位置の単語を検索する](basic/search-current-word.html)
+* [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (keywordprg)](basic/keywordprg.html)
 * [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
 * [検索に関する設定](settings/search.html)
 
@@ -65,11 +69,13 @@ layout: category-index
 
 ### 削除
 * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
+* [行末の余分なスペースをまとめて削除する](edit/remove-trailing-spaces.html)
 * [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
 * [正規表現にマッチする行を削除する](edit/remove-by-regexp.html)
 
 ### 整形／変換
 * [行を連結する](edit/join.html)
+* [文字を入れ替える、行を入れ替える（スワップ操作）](edit/swap-chars.html)
 * [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
 * [選択した範囲を自動インデントする](edit/re-indent.html)
 * [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
