@@ -52,7 +52,7 @@ python コマンド / 実行環境
 数値
 ====
 * [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
-* [数値と文字列を変換する](numstr/convert-number-and-string.html)
+* [数値と文字（文字列）を変換する (chr, ord, int, hex, oct, bin)](numstr/convert-number-and-string.html)
 * [整数の割り算の結果を整数 or 少数点数で取得する](numstr/num-division.html)
 * [小数点以下を四捨五入する／切り捨てる／切り上げる](numstr/round-number.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
@@ -69,8 +69,10 @@ python コマンド / 実行環境
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
 * [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
 * [文字列を置換する](numstr/replace-string.html)
-* [文字列をデリミタで分割する (split)](numstr/split-string.html)
-* [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
+* 分割
+    * [文字列をデリミタで分割する (split)](numstr/split-string.html)
+    * [文字列を改行で分割して一行ずつのリストにする (splitlines)](numstr/split-lines.html)
+    * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
 * [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
 * [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
@@ -85,7 +87,7 @@ python コマンド / 実行環境
 * [リストに要素を追加する／リストを結合する (append, extend, +)](list/append.html)
 * [リスト／タプルをループで処理する](list/loop-list.html)
 * [リスト／タプルのサイズを取得する (len)](list/len.html)
-* [リスト／タプル内の要素をランダムで取得する (random.choice)](list/random-choice.html)
+* [リスト／タプル内の要素をランダムで取得する (random.choice, random.choices, random.sample)](list/random-choice.html)
 * [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
@@ -117,6 +119,16 @@ python コマンド / 実行環境
 入出力 (I/O)
 ====
 
+コマンドライン引数／標準入力／標準エラー出力
+----
+* [コマンドライン引数を取得する](command-line-params.html)
+* [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
+* print
+    * [print 関数の改行を抑制する](print-without-line-break.html)
+    * [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
+    * [標準入力から読み込む](read-stdin.html)
+    * [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
+
 パス
 ----
 * [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
@@ -136,6 +148,7 @@ python コマンド / 実行環境
 テキストファイルの読み書き
 ----
 * [テキストファイルを読み込む](io/read-text-file.html)
+* [CSV ファイルを読み込む (csv.reader)](io/csv.html)
 * [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
 
 ### 応用サンプル
@@ -166,13 +179,6 @@ ZIP/JAR ファイル
 ----
 * [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
 
-コマンドライン引数／標準入力／標準エラー出力
-----
-* [コマンドライン引数を取得する](command-line-params.html)
-* [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
-* [標準入力から読み込む](read-stdin.html)
-* [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
-* [print 関数の改行を抑制する](print-without-line-break.html)
 
 SQL
 ----
