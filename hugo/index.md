@@ -93,6 +93,7 @@ hugo コマンド
 * [次のページ、前のページへのリンクを表示する](template/next-prev-page.html)
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
+* [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
 
 応用
 ----
