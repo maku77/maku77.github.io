@@ -149,6 +149,7 @@ Vim の設定
 * [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
 
 ### 入力に関する設定
+* [インサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (backspace)](settings/backspace.html)
 * [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
 * [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
 * [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
