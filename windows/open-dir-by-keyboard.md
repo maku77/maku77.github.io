@@ -23,6 +23,7 @@ date: "2015-10-22"
 | %windir% | Windows ディレクトリ | C:\Windows |
 | %programfiles% | Program Files | C:\Program Files |
 | shell:sendto | SendTo ディレクトリ | C:\Users\maku\AppData\Roaming\Microsoft\Windows\SendTo |
+| shell:startup | スタートアップディレクトリ | C:\Users\maku\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup |
 
 ちなみに、開いたフォルダを素早く閉じるには、`Ctrl + W` です。
 
