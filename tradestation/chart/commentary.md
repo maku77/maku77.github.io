@@ -1,7 +1,7 @@
 ---
 title: "EasyLanguage: 各バーに注釈を付ける (Commentary, CommentaryCL)"
 date: "2017-09-17"
-description: "Commentary 機能を使用すると、各バー（足）に注釈テキストを設定することができます。"
+description: "Commentary 機能を使用すると、各バー（足）に注釈テキスト（分析コメント）を設定することができます。"
 ---
 
 ![commentary.png](./commentary.png){: .center}
@@ -54,4 +54,14 @@ if AtCommentaryBar then begin
     CommentaryCL("<font color='blue'>終値</font>=", Close:0:0);
 end;
 ~~~
+
+
+トラブルシューティング: コメントを作成する分析テクニックは適用されていません
+----
+
+`Commentary` 関数や `CommentaryCL` 関数でバーに対するコメントを設定したのに、「分析コメント」のウィンドウで、下記のように表示される場合は、その分析ストラテジーがデバッグモードで実行されている可能性があります（開発環境から <kbd>F5</kbd> などで実行している）。
+
+![commentary-2.png](commentary-2.png){: .center }
+
+分析コメントを正しく設定するには、チャート上で「分析テクニックの挿入」を使って分析テクニックをアタッチする必要があります。
 

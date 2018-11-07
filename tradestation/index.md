@@ -3,21 +3,25 @@ title: トレードステーション
 layout: category-index
 ---
 
-環境
+トレードステーション全般
 ====
 
+環境
+----
 * [トレードステーションをインストールする](env/install.html)
 * [トレードステーションの画面構成を理解する](env/structure.html)
 * [チャートのスクリーンキャプチャを取得する](env/capture.html)
 * [組み込みインジケーターのコードを読んで勉強する](env/builtin-indicator.html)
 
 チャート分析
-====
+----
 * [ポイントアンドフィギュア (P&F) を表示する](chart/point-and-figure.html)
 
 操作
-====
+----
+* [レーダースクリーンの操作をマスターする](ui/radar.html)
 * [ショートカットキーを使いこなす](env/shortcut-key.html)
+
 
 EasyLanguage
 ====
@@ -26,10 +30,13 @@ EasyLanguage
 ----
 * [インジケーター名の命名規則](naming.html)
 * [Print 関数によるデバッグ](io/print.html)
-* [インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)](basic/max-bars-back.html)
 * [各バーに注釈を付ける (Commentary, CommentaryCL)](chart/commentary.html)
 * [チャートのバータイプ、足種を取得する (BarType, BarInterval)](chart/bar-type.html)
-* [四本値（始値、高値、安値、終値）を取得する](ohlc.html)
+* [四本値（始値、高値、安値、終値）を取得する (O, H, L, C)](ohlc.html)
+
+### 特殊変数
+* [インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)](basic/max-bars-back.html)
+* [現在計算中のバーが何本目か調べる (CurrentBar, BarNumber)](basic/current-bar.html)
 
 構文
 ----
