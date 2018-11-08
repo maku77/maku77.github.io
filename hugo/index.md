@@ -90,7 +90,7 @@ hugo コマンド
 * [パンくずリストを表示する](template/breadcrumbs.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
-* [次のページ、前のページへのリンクを表示する](template/next-prev-page.html)
+* [次のページ、前のページへのリンクを表示する](template/prev-next-link.html)
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
