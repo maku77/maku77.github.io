@@ -81,6 +81,8 @@ MS Office
 ### Excel
 - [Excel のブック、ワークシート、セルの関係を理解する](excel/structure.html)
 - [Excel の行・列の表示／非表示をショートカットキーで素早く切り替える](excel/show-hide.html)
+- [Excel で点数などから順位を求める（RANK.EQ関数）](excel/rank.html)
+- [Excel で順位セルの値通りに並び替えて表示する](excel/rank-sort.html)
 - [VBA マクロに関してはこちらを参照](../vba/)
 
 ### PowerPoint
