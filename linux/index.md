@@ -59,6 +59,7 @@ Linux のシェルや、Bash プログラミングに関するノートです。
 * [ディレクトリ内のファイルを順に処理する](io/loop-files.html)
 * [外部コマンドの実行結果を一行ずつ処理する](io/external-command.html)
 * [テキストファイルを読み込む](io/read-file.html)
+* [expect で ssh や rsync のパスワード入力を自動化する](io/expect.html)
 
 ### 日時
 * [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
