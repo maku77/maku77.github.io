@@ -33,12 +33,14 @@ $ node server.js
 Server running at localhost:51200
 ```
 
-#### curl でレスポンス確認
+#### curl でレスポンス確認 (1) 基本
 
 ```
 $ curl localhost:51200
 Hello World
 ```
+
+#### curl でレスポンス確認 (2) ヘッダ付き
 
 ```
 $ curl -i localhost:51200

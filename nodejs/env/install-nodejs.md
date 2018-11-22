@@ -23,8 +23,8 @@ $ node sample.js
 
 Node.js は、内部的には下記のような構成要素で成り立っています。
 
-* V8 — JavaScript 実行エンジン。
-* libuv — 非同期イベントライブラリ。Node.js の作者の Ryan Dahl によって作成された。
+* [V8](https://v8.dev/) — Google 製の JavaScript 実行エンジン。
+* [libuv](https://github.com/libuv/libuv) — 非同期イベントライブラリ。Node.js の作者の Ryan Dahl によって作成された。
 
 Node.js では、libuv をベースとする非同期 I/O の仕組みによって、シングルスレッドながらも多くの接続を処理することができるようになっており、サーバサイドのプログラミング言語としても注目を集めています。
 

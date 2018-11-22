@@ -1,5 +1,5 @@
 ---
-title: package.json の雛形を生成する
+title: "npm で package.json ファイルの雛形を生成する (npm init)"
 date: "2014-03-18"
 ---
 

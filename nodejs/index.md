@@ -12,47 +12,32 @@ Node.js 実行環境など
 - [Node.js で環境変数を参照する](env/environment-variable.html)
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
 
-### モジュール
+### モジュール／パッケージ
 - [Node.js 用のモジュールを作成する](env/create-module.html)
 - [Node.js が require() で検索するパスのまとめ](require.html)
 
 ### npm (Node Package Manager)
-- [npm コマンドで Node.js のモジュールをインストールする](npm/install-module.html)
-- [npm の HTTP プロキシ設定](npm/proxy.html)
-- [npm でインストール可能なパッケージの最新バージョンを調べる](npm/package-version.html)
+- [npm コマンドで Node.js のパッケージをインストール／アンインストールする (npm install, uninstall)](npm/install-package.html)
+- [npm コマンドでインストールされている Node.js 用パッケージの一覧を表示する (npm list, ll)](npm/npm-list.html)
+- [npm コマンドでインストール可能なパッケージを検索する (npm search)](npm/npm-search.html)
+- [npm コマンド用に HTTP プロキシを設定する (npm config)](npm/proxy.html)
+- [npm でインストール可能なパッケージのバージョンを調べる](npm/package-version.html)
 
 ### package.json ファイル
 - [package.json の書式、説明を確認する](npm/package-json1.html)
-- [package.json の雛形を生成する](npm/package-json2.html)
+- [npm で package.json ファイルの雛形を生成する (npm init)](npm/npm-init.html)
 - [最小限の package.json を作成する](npm/package-json3.html)
 - [npm start でアプリを起動できるようにする](npm/package-json4.html)
 
-Express（Web サーバ）
-----
-- [Express の特徴](express/features.html)
-- [Express をインストールする](express/install.html)
-- [Express で Web サーバを作成する](express/web-server.html)
-- [GET/POST メソッドで送られてきたデータを取得する](express/handle-get-and-post-data.html)
-- [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](express/regexp-in-routing.html)
-- [next() により次のハンドラへ処理を委譲する](express/next.html)
-- [RESTful API として検索用の URL を定義する](express/url-for-search.html)
-- [jQuery クライアントと Express サーバで JSON データを送受信する](express/exchange-json.html)
-- [Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)](express/access-log.html)
-- [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](express/internal-server-error.html)
-- [Express の動作環境を切り替える（NODE_ENV 変数）](express/switch-env.html)
-- [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
-- [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
-- [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
-- [Express で Basic 認証を有効にする](express/basic-authentication.html)
-- [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
 
 入出力 (I/O)
 ----
-- [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io.html)
+- [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io/stdio.html)
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
 ### ファイル／ディレクトリ
-- [様々なディレクトリパスの取得やパスの結合方法](io/path.html)
+- [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (__filename, __dirname)](io/filename.html)
+- [パスを結合する (path.join)](io/path-join.html)
 - [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
 - [CSV ファイルを読み込む](io/csv.html)
@@ -72,6 +57,13 @@ Express（Web サーバ）
 - [mongoose (4-4) DB からドキュメントを削除する](io/mongoose4-4.html)
 - [mongojs で MongoDB を扱う](io/mongojs.html)
 
+
+デバッグ／テスト
+----
+- [プログラムの実行時間を計測する (console.time, console.timeEnd)](time/console-time.html)
+- [現在位置のスタックトレースを出力する (console.trace)](debug/console-trace.html)
+
+
 ネットワーク
 ----
 
@@ -89,6 +81,26 @@ Express（Web サーバ）
 
 ### リバースプロキシ
 - [Node.js でお手軽リバースプロキシを作る](net/reverse-proxy.html)
+
+
+Express（Web サーバ）
+----
+- [Express の特徴](express/features.html)
+- [Express をインストールする](express/install.html)
+- [Express で Web サーバを作成する](express/web-server.html)
+- [GET/POST メソッドで送られてきたデータを取得する](express/handle-get-and-post-data.html)
+- [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](express/regexp-in-routing.html)
+- [next() により次のハンドラへ処理を委譲する](express/next.html)
+- [RESTful API として検索用の URL を定義する](express/url-for-search.html)
+- [jQuery クライアントと Express サーバで JSON データを送受信する](express/exchange-json.html)
+- [Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)](express/access-log.html)
+- [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](express/internal-server-error.html)
+- [Express の動作環境を切り替える（NODE_ENV 変数）](express/switch-env.html)
+- [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
+- [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
+- [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
+- [Express で Basic 認証を有効にする](express/basic-authentication.html)
+- [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
 
 
 Node.js の制御構文

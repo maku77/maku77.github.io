@@ -1,42 +1,37 @@
 ---
-title: npm でインストール可能なパッケージの最新バージョンを調べる
+title: "npm でインストール可能なパッケージのバージョンを調べる"
 date: "2014-09-23"
 ---
 
 `npm info` コマンドを使用すると、NPM repository で管理されているパッケージの情報を調べることができます。
 
-#### 例: 最新の Express のバージョンを調べる
+#### 例: 最新の Express のバージョンを表示する
 
 ```
 $ npm info express version
 4.9.4
 ```
 
-実は最後のパラメータは、`npm info <pkg>` としてズラーッと表示される JSON データのプロパティを指定しているだけです。
-なので、他にもいろんな情報を表示することが可能です。
+#### 例: インストール可能な Express のバージョンのリストを表示する
 
-#### 例: ホームページの URL
 ```
-$ npm info <pkg> homepage
-```
-
-#### 例: ソースコードリポジトリの URL
-```
-$ npm info <pkg> repository
+$ npm info express versions
+[ '0.14.0',
+  '0.14.1',
+  ...
+  '4.9.3',
+  '4.9.4' ]
 ```
 
-#### 例: すべてのバージョンを表示する
-```
-$ npm info <pkg> versions
-```
+最後のパラメータを変更することで、パッケージに関するいろいろな情報を表示することができます。
 
-#### 例: 作者の表示
-```
-$ npm info <pkg> author
-```
-
-#### 例: コントリビュータの表示
-```
-$ npm info <pkg> contributors
-```
+| コマンド | 説明 |
+| ---- | ---- |
+| `npm info <pkg> version` | 最新のバージョン番号を表示する |
+| `npm info <pkg> versions` | 有効なバージョン番号の一覧を表示する |
+| `npm info <pkg> homepage` | ホームページの URL を表示する |
+| `npm info <pkg> repository` | ソースコードのリポジトリの URL を表示する |
+| `npm info <pkg> author` | 作者の情報を表示する |
+| `npm info <pkg> contributors` | コントリビューターの一覧を表示する |
+| `npm info <pkg>` | すべての情報を表示する |
 
