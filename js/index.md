@@ -88,6 +88,7 @@ layout: category-index
 - [関数の仮引数の数を取得する](syntax/aug-length.html)
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
+- [アロー関数で関数を定義する](syntax/arrow-function.html)
 
 ### 名前空間
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
