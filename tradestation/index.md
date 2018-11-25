@@ -21,6 +21,7 @@ layout: category-index
 ----
 * [レーダースクリーンの操作をマスターする](ui/radar.html)
 * [ショートカットキーを使いこなす](env/shortcut-key.html)
+* [TradeStation 開発環境（EasyLanguage 開発環境）をショートカットキーで開く](env/shortcut-dev.html)
 
 
 EasyLanguage
@@ -33,6 +34,9 @@ EasyLanguage
 * [各バーに注釈を付ける (Commentary, CommentaryCL)](chart/commentary.html)
 * [チャートのバータイプ、足種を取得する (BarType, BarInterval)](chart/bar-type.html)
 * [四本値（始値、高値、安値、終値）を取得する (O, H, L, C)](ohlc.html)
+
+### 情報取得
+* [銘柄のファンダメンタルデータを取得する (GetFundData)](info/get-fund-data.html)
 
 ### 特殊変数
 * [インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)](basic/max-bars-back.html)
