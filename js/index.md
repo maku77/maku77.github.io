@@ -113,6 +113,12 @@ layout: category-index
 - [外部スクリプトはなぜ (function(){})(); のような書き方をするのか？](misc/scope-of-library.html)
 
 
+非同期処理
+----
+- [Promise オブジェクトで連続するコールバック処理を簡潔に記述する](async/promise.html)
+- [Promise な非同期処理を async/await でさらに読みやすくする](async/async-await.html)
+
+
 HTML/DOM 操作
 ----
 
