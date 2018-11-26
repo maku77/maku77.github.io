@@ -92,6 +92,7 @@ layout: category-index
 * [Java7 の try with resources でストリームの close を自動的に行う](try-with-resources.html)
 * [コレクションクラスのまとめ](collection/summary.html)
 * [static ブロックが実行されるタイミング](static-block.html)
+* [シングルトンクラスの Lazy Loading イディオム](misc/lazy-loading.html)
 * [オブジェクトプールを実現するためのクラスを実装する](misc/object-pool.html)
 * [JNI (Java Native Interface) の基本](misc/jni.html)
 * [Java でランダムな UUID を生成する](misc/uuid.html)
