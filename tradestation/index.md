@@ -35,17 +35,19 @@ EasyLanguage
 * [チャートのバータイプ、足種を取得する (BarType, BarInterval)](chart/bar-type.html)
 * [四本値（始値、高値、安値、終値）を取得する (O, H, L, C)](ohlc.html)
 
-### 情報取得
-* [銘柄のファンダメンタルデータを取得する (GetFundData)](info/get-fund-data.html)
-
 ### 特殊変数
 * [インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)](basic/max-bars-back.html)
 * [現在計算中のバーが何本目か調べる (CurrentBar, BarNumber)](basic/current-bar.html)
 
-構文
+構文／文法
 ----
 * [変数を定義する (Vars, Variables)](syntax/vars.html)
 * [定義済み変数を使用する (Value0, Condition0)](syntax/pre-declared-vars.html)
+* [if-else による条件分岐](syntax/if-else.html)
+
+情報取得
+----
+* [銘柄のファンダメンタルデータを取得する (GetFundData)](info/get-fund-data.html)
 
 自動売買ストラテジ (Trading Strategy)
 ----
