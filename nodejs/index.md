@@ -22,12 +22,11 @@ Node.js 実行環境など
 - [npm コマンドでインストール可能なパッケージを検索する (npm search)](npm/npm-search.html)
 - [npm コマンド用に HTTP プロキシを設定する (npm config)](npm/proxy.html)
 - [npm でインストール可能なパッケージのバージョンを調べる](npm/package-version.html)
-
-### package.json ファイル
-- [package.json の書式、説明を確認する](npm/package-json1.html)
-- [npm で package.json ファイルの雛形を生成する (npm init)](npm/npm-init.html)
-- [最小限の package.json を作成する](npm/package-json3.html)
-- [npm start でアプリを起動できるようにする](npm/package-json4.html)
+- package.json
+    - [package.json ファイルを作成する (npm init)](npm/npm-init.html)
+    - [package.json ファイルで依存パッケージを管理する](npm/package-dependencies.html)
+    - [npm start でアプリを起動できるようにする (npm start)](npm/npm-start.html)
+    - [package.json の書式、説明を確認する (npm help json)](npm/npm-help-json.html)
 
 
 入出力 (I/O)
@@ -71,6 +70,7 @@ Node.js 実行環境など
 - [http 標準モジュールを使用して HTTP サーバを立てる](net/http-server.html)
 - [http 標準モジュールを使用して HTTP 通信を行う](net/http-module.html)
 - [request モジュールを使用して HTTP 通信を行う](net/request-module.html)
+- [request-promise モジュールを使用して HTTP 通信を行う](net/request-promise-module.html)
 - [プロキシ経由の HTTP 通信を行う](net/http-via-proxy.html)
 
 ### WebSocket 通信

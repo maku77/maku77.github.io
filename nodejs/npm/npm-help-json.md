@@ -1,5 +1,5 @@
 ---
-title: "package.json の書式、説明を確認する"
+title: "package.json の書式、説明を確認する (npm help json)"
 date: "2014-03-18"
 ---
 

@@ -70,3 +70,10 @@ http.get(options, function(res) {
 });
 ```
 
+
+参考
+----
+
+- [request モジュールを使用して HTTP 通信を行う](request-module.html)
+- [request-promise モジュールを使用して HTTP 通信を行う](request-promise-module.html)
+

@@ -1,5 +1,5 @@
 ---
-title: npm start でアプリを起動できるようにする
+title: "npm start でアプリを起動できるようにする (npm start)"
 date: "2013-12-28"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: request モジュールを使用して HTTP 通信を行う
+title: "request モジュールを使用して HTTP 通信を行う"
 date: "2013-12-14"
 ---
 
@@ -7,11 +7,19 @@ request モジュールのインストール
 ----
 
 オープンソースとして公開されている [request モジュール](https://github.com/mikeal/request)を使用すると、標準の `http` モジュールをそのまま使うより手軽に HTTP リクエストを発行することができます。
-`request` モジュールは下記のようにインストールできます。
+最新バージョンの `request` モジュールは下記のようにインストールできます。
 
 ```
 $ npm install request
 ```
+
+ついでに `package.json` の `dependencies` 情報を更新するには、下記のように `--save` オプションを付けてインストールします。
+
+```
+$ npm install --save request
+```
+
+- 参考: [package.json で依存パッケージを管理する](../npm/package-dependencies.html)
 
 
 request モジュールの使い方の基本
@@ -111,3 +119,13 @@ request.get('http://example.com/', function(err, res, body) {
   }
 });
 ```
+
+
+参考
+----
+
+`request` パッケージを、Promise (ECMAScript 2015) 対応させた `request-promise` というパッケージも提供されています。
+機能的には `request` パッケージと同等ですが、こちらを利用するとコードを簡潔に記述できるかもしれません。
+
+- [request-promise モジュールを使用して HTTP 通信を行う](request-promise-module.html)
+
