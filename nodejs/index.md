@@ -9,11 +9,11 @@ Node.js 実行環境など
 - [Node.js とは／Node.js をインストールする](env/install-nodejs.html)
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
-- [Node.js で環境変数を参照する](env/environment-variable.html)
+- [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
 
 ### モジュール／パッケージ
-- [Node.js 用のモジュールを作成する](env/create-module.html)
+- [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](env/create-module.html)
 - [Node.js が require() で検索するパスのまとめ](require.html)
 
 ### npm (Node Package Manager)
