@@ -1,5 +1,5 @@
 ---
-title: タイマーで任意の関数を呼び出す
+title: "タイマーで任意の関数を呼び出す (setTimeout, setInterval)"
 date: "2012-12-08"
 ---
 

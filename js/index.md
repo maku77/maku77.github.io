@@ -73,7 +73,7 @@ layout: category-index
 - [Date オブジェクト同士の差分を取る](time/date-diff.html)
 
 ### タイマー／パフォーマンス
-- [タイマーで任意の関数を呼び出す](time/timer.html)
+- [タイマーで任意の関数を呼び出す (setTimeout, setInterval)](time/timer.html)
 - [精度の高いタイムスタンプを取得する (performance.now())](time/performance-now.html)
 - [処理速度を計測する (performance)](time/measure-performance.html)
 
@@ -88,7 +88,7 @@ layout: category-index
 - [関数の仮引数の数を取得する](syntax/aug-length.html)
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
-- [アロー関数で関数を定義する](syntax/arrow-function.html)
+- [アロー関数で関数を定義する](syntax/arrow-function.html) (ECMAScript 2015)
 
 ### 名前空間
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
@@ -115,8 +115,8 @@ layout: category-index
 
 非同期処理
 ----
-- [Promise オブジェクトで連続するコールバック処理を簡潔に記述する](async/promise.html)
-- [Promise な非同期処理を async/await でさらに読みやすくする](async/async-await.html)
+- [Promise オブジェクトで連続するコールバック処理を簡潔に記述する](async/promise.html) (ECMAScript 2015)
+- [Promise な非同期処理を async/await でさらに読みやすくする](async/async-await.html) (ECMAScript 2017)
 
 
 HTML/DOM 操作
@@ -179,9 +179,6 @@ HTML5 Canvas
 - [HTML5 Canvas の描画領域全体をクリアする](canvas/clear.html)
 - [IE 8 以下でも canvas タグを使用できるようにする](canvas/ie8.html)
 
-Node.js
-----
-- [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](node/create-node-module.html)
 
 Web サイト
 ----
@@ -192,4 +189,9 @@ Web サイト
 ----
 - [CORS - Cross-Origin Resource Sharing とは？](env/cors.html)
 - [Chrome で Ajax (XMLHttpRequest) によるクロスドメイン通信の制約をなくす](env/disable-web-security-of-chrome.html)
+
+
+Node.js
+----
+- [⇒ まくまく Node.js ノート](/nodejs/)
 
