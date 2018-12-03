@@ -38,7 +38,7 @@ app.get('/api', function(req, res) {
 #### Express サーバ（送信側）
 
 ```javascript
-app.get(‘/api', function(req, res) {
+app.get('/api', function(req, res) {
     var obj = {aaa:100, bbb:200};
     res.json(obj);
 });
@@ -55,7 +55,7 @@ Content-Type: application/json; charset=utf-8
 `res.send()` のパラメータにテキストデータを渡すと、デフォルトで `Content-Type` が `text/html` に設定されてしまうからです。
 
 ```javascript
-app.get(‘/api', function(req, res) {
+app.get('/api', function(req, res) {
     var str = '{"aaa":100, "bbb":200}';
     res.json(str);  // res.send(str) はダメ！
 });
@@ -64,7 +64,7 @@ app.get(‘/api', function(req, res) {
 `Content-Type` を明示的に指定するのであれば、`res.send()` でも JSON 形式の文字列を送信することができます。
 
 ```javascript
-app.get(‘/api', function(req, res) {
+app.get('/api', function(req, res) {
     var str = '{"aaa":100, "bbb":200}';
     res.contentType('json');
     res.send(str);
