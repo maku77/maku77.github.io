@@ -182,6 +182,7 @@ HTML5 Canvas
 
 Web サイト
 ----
+- [URL エンコード／デコードを行う (encodeURI, encodeURIComponent)](web/encode-uri.html)
 - [URL 内のハッシュフラグメントの変化を検出する (hashchange)](web/detect-fragment-change.html)
 
 
