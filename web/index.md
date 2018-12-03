@@ -10,6 +10,7 @@ HTML 全般
 * [IE 8 でも HTML5 の header や footer 要素を使えるようにする](html/ie8.html)
 * [Web サイトに favicon を設定する](html/favicon.html)
 
+
 全体のレイアウト
 ----
 
@@ -45,7 +46,7 @@ HTML 全般
 * [プレースホルダーで入力フォームに補足説明を表示する（placeholder 属性）](form/placeholder.html)
 * [入力必須の入力フォームを指定する（required 属性）](form/required.html)
 * [独自の入力フォーマットを指定する（pattern 属性）](form/pattern.html)
-* [入力エリアの入力候補を表示する（autocomplete 属性）](form/autocomplete.html)
+* [入力エリアの入力候補を表示する（autocomplete 属性、datalist 要素）](form/autocomplete.html)
 
 #### ヘッダ
 * [ヘッダ要素に連番を振る](number-header.html)
@@ -88,7 +89,9 @@ CSS セレクタ
 * [Web サイト作成に関するメモ: SEO 対策](seo.html)
 * [jQuery に関しては JavaScript のページを参照](../js/index.html)
 
-### 重要サイト
+
+### 外部サイトリンク
 * [HTML5の仕様 (W3C Recommendation)](https://www.w3.org/TR/html5/)
 * [HTML5の文法チェック (W3C Markup Varidation Service)](https://validator.w3.org/)
 * [ブラウザのHTML5適合度チェック (HTML5test)](https://html5test.com/)
+
