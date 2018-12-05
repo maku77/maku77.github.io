@@ -13,8 +13,8 @@ Node.js 実行環境など
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
 
 ### モジュール／パッケージ
-- [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](env/create-module.html)
-- [Node.js が require() で検索するパスのまとめ](require.html)
+- [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](module/create-module.html)
+- [Node.js が require() で検索するパスのまとめ](module/require.html)
 
 ### npm (Node Package Manager)
 - [npm コマンドで Node.js のパッケージをインストール／アンインストールする (npm install, uninstall)](npm/install-package.html)
