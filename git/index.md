@@ -68,12 +68,16 @@ Git
 * [コミットログの書き方](log/commit-log-rules.html)
 * [コミットログを絞り込んで表示する](log/filter-logs.html)
 * [コミットログにファイル名や変更行数を表示する](log/modified-lines.html)
-* [コミットログの出力形式をカスタマイズする](log/log-format.html)
-* [コミットログを grep する](log/grep-log.html)
+* [コミットログの出力形式をカスタマイズする (git log --pretty, --date)](log/log-format.html)
+* [コミットログを grep する (git log --grep)](log/grep-log.html)
 * [指定したディレクトリ以下の変更に関連するコミットログのみ表示する](log/dir-log.html)
 * [ブランチ間の差分を調べる](log/diff-between-branches.html)
 * [リモートブランチとローカルブランチの差分を調べる](log/diff-remote-and-local.html)
 * [コミットログを標準出力へ出力する](log/output-to-stdout.html)
+
+### 統計情報
+* [ユーザーごとのコミット統計を出力する (git shortlog)](stats/shortlog.html)
+* [あるバージョン間の変更行数（追加＆削除）を集計する (git diff --stat, git log --numstat)](stats/count-changes.html)
 
 ブランチ (git branch)
 ----

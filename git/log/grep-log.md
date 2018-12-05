@@ -1,5 +1,5 @@
 ---
-title: Git でコミットログを grep する
+title: "Git でコミットログを grep する (git log --grep)"
 date: "2010-12-09"
 ---
 
