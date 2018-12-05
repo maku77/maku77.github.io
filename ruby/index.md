@@ -128,6 +128,7 @@ Ruby の制御構文
 * [外部プログラムを呼び出してその出力を取得する](io/execute-external-command.html)
 * [外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する](io/is_executable.html)
 * [ソースコード内にテキストデータを埋め込む](embed-data.html)
+* [Ruby でワンライナープログラミング](io/oneliner.html)
 
 ファイル／ディレクトリ
 ----
