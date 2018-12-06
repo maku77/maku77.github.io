@@ -1,5 +1,5 @@
 ---
-title: "ASCII コードと文字を変換する"
+title: "ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)"
 date: "2011-12-05"
 ---
 

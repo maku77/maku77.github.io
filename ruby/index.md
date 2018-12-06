@@ -1,5 +1,5 @@
 ---
-title: Ruby
+title: "Ruby"
 layout: category-index
 ---
 
@@ -11,6 +11,7 @@ layout: category-index
 * [require で他のライブラリを読み込む](require.html)
 * [グローバルスコープな実行コードを記述しない](global-main.html)
 
+
 Ruby の制御構文
 ====
 * [Ruby の真偽値](syntax/true-and-false.html)
@@ -19,6 +20,7 @@ Ruby の制御構文
 * [条件指定によるループ (while と until)](syntax/while.html)
 * [範囲指定によるループ (for, each, step)](syntax/for.html)
 * [複数の値を同時に代入する（多重代入）](syntax/multiple-assignment.html)
+
 
 クラス
 ====
@@ -31,6 +33,7 @@ Ruby の制御構文
 * [メソッドの可視性を設定する（メソッドのアクセス制御）](method-visibility.html)
 * [クラスを継承する](inherit-class.html)
 
+
 関数／メソッド
 ====
 * [関数定義の基本](method.html)
@@ -39,6 +42,7 @@ Ruby の制御構文
 * [複数の戻り値を返す関数を定義する](multiple-value-function.html)
 * [関数にコードブロックを渡す（yield による呼び出し）](yield.html)
 * [関数を一行で定義する](oneline-method.html)
+
 
 配列
 ====
@@ -69,36 +73,45 @@ Ruby の制御構文
 * [文字列配列から正規表現に一致する要素を検索する (grep)](array/grep.html)
 * [先頭から条件を満たす範囲の配列を取得する (take_while)](array/take-while.html)
 
+
 ハッシュ
 ====
 * [ハッシュの基本](hash/basic.html)
 * [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
 * [ハッシュをループで処理する](hash/loop-hash.html)
 
+
 文字列／数値
 ====
 
 文字列
 ----
+### 生成
+* [文字列をコピーする (dup)](string/dup.html)
+* [インデント用の文字列を作成する](string/create-indent.html)
+
+### 分割／結合
 * [文字列を結合する](string/concat.html)
 * [文字列をデリミタで分割する](string/split.html)
 * [文字列を１文字ずつに分割する](string/each-char.html)
-* [文字列をコピーする (dup)](string/dup.html)
+
+### チェック
+* [文字列内にある文字列が含まれているか調べる (String#include, =~)](string/include.html)
+
+### 抽出
+* [文字列から正規表現にマッチする部分を取り出す (String#slice, Regexp#match, String#scan)](string/extract.html)
+
+### 置換／削除／変更
 * [文字列を置換する (sub/gsub)](string/replace.html)
 * [文字列内のある文字を指定した文字に置換する (tr)](string/tr.html)
-* [文字列を逆順にする (reverse)](string/reverse.html)
 * [文字列からある文字を取り除く (delete/gsub)](string/delete.html)
-* [インデント用の文字列を作成する](string/create-indent.html)
+* [文字列を逆順にする (reverse)](string/reverse.html)
 * [文字列をインクリメントする (succ/next)](string/succ.html)
 
-文字列⇔数値の変換
-----
-* [数値と文字列を変換する](number/num-string.html)
-* [ASCII コードと文字を変換する](number/ascii-char.html)
+### 変換（文字列⇔数値）
+* [数値と文字列を変換する (to_i, to_f, to_s)](number/num-string.html)
+* [ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)](number/ascii-char.html)
 
-正規表現
-----
-* [文字列から正規表現にマッチする部分を取り出す](string/extract.html)
 
 数値
 ----
@@ -106,6 +119,7 @@ Ruby の制御構文
 * [配列内で最大値を持つ要素のインデックスを取得する](number/max-value-index.html)
 * [乱数を生成する](number/random.html)
 * [数値のインクリメントとデクリメント](number/increment.html)
+
 
 組み合わせ
 ----
@@ -115,6 +129,7 @@ Ruby の制御構文
 日時（Time オブジェクト）
 ----
 * [文字列から時刻オブジェクト (Time) に変換する](time/parse.html)
+
 
 入出力 (I/O)
 ====
@@ -130,6 +145,7 @@ Ruby の制御構文
 * [ソースコード内にテキストデータを埋め込む](embed-data.html)
 * [Ruby でワンライナープログラミング](io/oneliner.html)
 
+
 ファイル／ディレクトリ
 ----
 * [テキストファイルを読み込む](read-text-file.html)
@@ -141,27 +157,33 @@ Ruby の制御構文
 * [ディレクトリを作成／削除する](create-dir.html)
 * [一時ディレクトリ／一時ファイルを使用する](temporary-file.html)
 
+
 XML
 ----
 * [REXML とは](rexml.html)
 * [REXML で XML ファイルを作成する](rexml-create-xml.html)
 * [REXML で XML ファイルを読み込む](rexml-read-xml.html)
 
+
 YAML
 ----
 * [Ruby で YAML ファイルを扱う](file/yaml.html)
+
 
 mp3
 ----
 * [ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する](ruby-mp3info.html)
 
+
 制御構文
 ====
 * [2 つの変数の値をスワップする](swap-values.html)
 
+
 ユニットテスト
 ====
 * [test-unit によるユニットテスト](test-unit.html)
+
 
 RubyGems
 ====
@@ -174,12 +196,14 @@ RubyGems
 * [勉強用に Gem パッケージをダウンロードする](gem/fetch-gem.html)
 * [Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ](gem/add-files-to-gemspec.html)
 
+
 その他
 ====
 * [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
 * [ユーザライブラリの検索パスを調べる](load-path.html)
 * [環境変数を扱う](environment-variable.html)
 * [プロファイラを使用してボトルネックを探る](other/profiler.html)
+
 
 トラブルシューティング
 ----
