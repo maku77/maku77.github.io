@@ -111,3 +111,7 @@ MyLibrary2 constructor
 
 `MyLibrary` の場合とは異なり、`MyLibrary2` のインスタンス生成は、`getInstance()` メソッドが呼び出されたときに行われていることが分かります。
 
+このやり方は、**Initialization on demand holder idiom** って名前がついているっぽいですね。
+
+- [Wikipedia: Initialization-on-demand holder idiom](https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom)
+
