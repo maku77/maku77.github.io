@@ -15,6 +15,8 @@ Node.js 実行環境など
 ### モジュール／パッケージ
 - [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](module/create-module.html)
 - [Node.js が require() で検索するパスのまとめ](module/require.html)
+- [外部の JSON ファイルを読み込む (require)](module/load-json.html)
+- [モジュール自身のコードにテストコードを記述する (require.main)](module/require-main.html)
 
 ### npm (Node Package Manager)
 - [npm コマンドで Node.js のパッケージをインストール／アンインストールする (npm install, uninstall)](npm/install-package.html)
