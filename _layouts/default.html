@@ -2,8 +2,8 @@
 <html lang="ja">
 <head>
   {% include head.html %}
-  <meta property="og:title" content="{{page.title}} | まくまく {{ page.category_title }} ノート" />
-  <title>{{page.title}} | まくまく {{ page.category_title }} ノート</title>
+  <meta property="og:title" content="{{page.title}} | まくまく{{ page.category_title }}ノート" />
+  <title>{{page.title}} | まくまく{{ page.category_title }}ノート</title>
   {% if jekyll.environment != "development" %}
     {% include analytics.html %}
   {% endif %}
@@ -21,7 +21,7 @@
   </a>
   <a href="/{{ page.category_id }}/">
     <div class="xPageHeader_category">
-    まくまく {{ page.category_title }} ノート
+    まくまく{{ page.category_title }}ノート
     </div>
   </a>
   <div class="xPageHeader_title">{{ page.title }}</div>
