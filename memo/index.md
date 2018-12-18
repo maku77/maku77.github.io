@@ -30,19 +30,6 @@ layout: category-index
 * [単体テスト、結合テスト、システムテスト、受入テストの関係を理解する](test-relation.html)
 
 
-ブックレビュー／読書メモ
-====
-* [『シンプルに生きれば、すべてがうまくいく！』西村豪庸](book/simple-living.html)
-* [『僕らが毎日やっている最強の読み方』佐藤優／池上彰](book/saikyo-no-yomikata.html)
-* [『99％の会社はいらない』堀江貴文](book/99percent.html)
-* [『ゼロ』堀江貴文](book/zero.html)
-* [『仕事は楽しいかね』デイル・ドーテン](book/shigo-tano1.html)
-* [『仕事は楽しいかね２』デイル・ドーテン](book/shigo-tano2.html)
-* [『ピープルウェア』トム・デマルコ](book/peopleware.html)
-* [『レバレッジ・シンキング』本田直之](book/reverage-thinking.html)
-* [『ピーター流外国語習得術』ピーター・フランクル](book/peter.html)
-* [『わたしの外国語学習法』ロンブ・カトー](book/kato-lomb.html)
-
 Jenkins
 ====
 * [Jenkins CLI を使ってコマンドラインから Jenkins を操作する](jenkins/cli.html)
