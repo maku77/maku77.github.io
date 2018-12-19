@@ -1,7 +1,7 @@
 ---
 ---
-
 /* vim: set et sts=2 ts=2 sw=2: */
+@import "mixin";
 
 $COLOR_MAIN: #333;
 $COLOR_HEADER: black;
@@ -314,6 +314,8 @@ kbd {
  * みたいに使う。この中でマークダウンは書けないことに注意。
  */
 .note {
+  @include clearfix;
+
   margin: $SIDE_MARGIN_DESKTOP;
   padding: 10px 0px 10px 0px;
   border-top: 5px dashed #eee;
@@ -321,13 +323,6 @@ kbd {
   &::before {
     content: url("../img/onepoint.png");
     float: left;
-  }
-  &::after {
-      content: "";
-      clear: both;
-      height: 0;
-      display: block;
-      visibility: hidden;
   }
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin: 30px $SIDE_MARGIN_MOBILE;
@@ -358,10 +353,8 @@ kbd {
 //-------------------------------------------------------------------------
 // まくまくクラス
 //-------------------------------------------------------------------------
-.xBreadCrumbContainer::after { /* clearfix */
-  content: '';
-  clear: both;
-  display: block;
+.xBreadCrumbContainer {
+  @include clearfix;
 }
 
 .xBreadCrumb {
@@ -514,6 +507,8 @@ iframe.xHtmlDemo {
  * xPageHeader（ヘッダ領域）
  */
 .xPageHeader {
+  @include clearfix;
+
   background: $COLOR_PAGE_TITLE_BG;
   min-height: 70px;
   padding-top: 15px;
@@ -522,12 +517,6 @@ iframe.xHtmlDemo {
   /* グラデーション */
   background: $COLOR_PAGE_TITLE_BG;
   box-shadow: 0px 0px 20px 20px $COLOR_PAGE_TITLE_BG;
-
-  &::after {
-    content: "";
-    clear: both;
-    display: block;
-  }
 
   .xPageHeader_logo {
     float: left;
