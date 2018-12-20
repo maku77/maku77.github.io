@@ -395,7 +395,7 @@ kbd {
   display: -moz-box;
   display: -ms-box;
 
-  #xContainer_main {
+  &_main {
     /* 画面幅が広い時はこの要素の横幅を拡張する */
     box-flex: 1;
     -webkit-box-flex: 1;
@@ -403,23 +403,22 @@ kbd {
     -ms-box-flex: 1;
   }
 
-  #xContainer_sidebar {
+  &_sidebar {
+    @media print { display: none; }  // 印刷時非表示
+
     margin-left: $BODY_MARGIN;
     width: 200px;
     padding: 0;
 
-    .xContainer_sidebar_ad {
+    &_ad {
       max-width: 200px;
     }
 
-    #xContainer_sidebar_fixed {
+    &_fixed {
       position: -webkit-sticky;
       position: sticky;
       top: $BODY_MARGIN;
     }
-
-    /* 印刷時非表示 */
-    @media print { display: none; }
   }
 
   /* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
@@ -484,12 +483,11 @@ kbd {
 
 /* 主に広告ボックス */
 .xWidget {
+  @media print { display: none; }  // 印刷時非表示
+
   text-align: center;
   margin: 10px;
   padding-top: 10px;
-
-  /* 印刷時は非表示 */
-  @media print { display: none; }
 }
 
 iframe.xHtmlDemo {
@@ -518,7 +516,7 @@ iframe.xHtmlDemo {
   background: $COLOR_PAGE_TITLE_BG;
   box-shadow: 0px 0px 20px 20px $COLOR_PAGE_TITLE_BG;
 
-  .xPageHeader_logo {
+  &_logo {
     float: left;
     margin: 7px;
     padding: 3px;
@@ -530,19 +528,19 @@ iframe.xHtmlDemo {
     border-radius: 10px;
   }
 
-  .xPageHeader_titleLarge {
+  &_titleLarge {
     color: $COLOR_PAGE_TITLE;
     font-size: 2rem;
     padding-top: 16px;
   }
 
-  .xPageHeader_title {
+  &_title {
     color: $COLOR_PAGE_TITLE;
     font-size: 1.5rem;
     padding: 0 0.2em 0 0.2em;
   }
 
-  .xPageHeader_category {
+  &_category {
     color: $COLOR_PAGE_TITLE_CATEGORY;
     font-size: 1.1rem;
     padding-top: 10px;
@@ -555,11 +553,11 @@ iframe.xHtmlDemo {
 .xNav {
   margin: $BODY_MARGIN 0;
 
-  .xNav-focused {
+  &-focused {
     background: $COLOR_NAV_FOCUSED;
   }
 
-  .xNav_header {
+  &_header {
     border-bottom: 1px gray solid;
     margin: 0px 0px 8px 0px;
     padding: 0 0 0.2em 0;
@@ -588,6 +586,8 @@ iframe.xHtmlDemo {
  * xSnsButtons（SNS ボタンのグループ）
  */
 .xSnsButtons {
+  @media print { display: none; }  // 印刷時非表示
+
   margin: 5px;
   padding: 0px;
   text-align: center;
@@ -633,7 +633,7 @@ iframe.xHtmlDemo {
   }
 
   /* テキスト部分 */
-  .xSnsButtons_label {
+  &_label {
     min-width: 80px;
     display: inline-block;
     padding: 0px 8px 0px 0px;
@@ -642,23 +642,22 @@ iframe.xHtmlDemo {
   }
 
   /* 各 SNS のブランドカラー */
-  .xSnsButtons_twitter  { background: #1da1f2; }
-  .xSnsButtons_facebook { background: #3b5998; }
-  .xSnsButtons_pocket   { background: #ee4056; }
-  .xSnsButtons_google   { background: #dd4b39; }
-
-  /* 印刷時非表示 */
-  @media print { display: none; }
+  &_twitter  { background: #1da1f2; }
+  &_facebook { background: #3b5998; }
+  &_pocket   { background: #ee4056; }
+  &_google   { background: #dd4b39; }
 }
 
 /*
  * xSearchbar
  */
 .xSearchBar {
+  @media print { display: none; }  // 印刷時非表示
+
   margin-bottom: 5px;
   text-align: right;
 
-  .xSearchBar_text {
+  &_text {
     font-size: 1rem;
     border: solid 1px #db7093;
     color: #db7093;
@@ -668,24 +667,23 @@ iframe.xHtmlDemo {
   }
 
   /* placeholder の文字色 */
-  .xSearchBar_text:placeholder-shown { color: #db7093; }
-  .xSearchBar_text::-webkit-input-placeholder { color: #db7093; }
-  .xSearchBar_text::-moz-placeholder { color: #db7093; opacity: 1; }
-  .xSearchBar_text:-ms-input-placeholder { color: #db7093; }
-  .xSearchBar_text:focus::placeholder { color: transparent; }
-  .xSearchBar_text:focus::-webkit-input-placeholder { color:transparent; }
-  .xSearchBar_text:focus:-moz-placeholder { color:transparent; }
-  .xSearchBar_text:focus::-moz-placeholder { color:transparent; }
+  &_text:placeholder-shown { color: #db7093; }
+  &_text::-webkit-input-placeholder { color: #db7093; }
+  &_text::-moz-placeholder { color: #db7093; opacity: 1; }
+  &_text:-ms-input-placeholder { color: #db7093; }
+  &_text:focus::placeholder { color: transparent; }
+  &_text:focus::-webkit-input-placeholder { color:transparent; }
+  &_text:focus:-moz-placeholder { color:transparent; }
+  &_text:focus::-moz-placeholder { color:transparent; }
 
-  .xSearchBar_button {
+  &_button {
     font-size: 1rem;
     background: #db7093;
     color: white;
     border: none;
     padding: 2px 6px 3px;
-  }
-  .xSearchBar_button:hover {
-    background: #9370db;
+
+    &:hover { background: #9370db; }
   }
 
   input[type=search]:focus {
@@ -693,8 +691,5 @@ iframe.xHtmlDemo {
     font-weight: bolder;
     color: #2040ff;
   }
-
-  /* 印刷時非表示 */
-  @media print { display: none; }
 }
 
