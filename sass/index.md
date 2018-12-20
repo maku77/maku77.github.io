@@ -28,5 +28,5 @@ layout: category-index
 * [SCSS ファイルから別の SCSS ファイルをインポートする (@import)](import.html)
 * [エクステンドでスタイルを継承する (@extend)](extend.html)
 * [Mixin でスタイルを組み合わせる (@mixin)](mixin.html)
-* 関数を定義する (@function)
+* [関数を定義する (@function)](function.html)
 

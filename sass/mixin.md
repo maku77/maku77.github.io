@@ -381,6 +381,18 @@ main {
 }
 ~~~
 
+スクリーンサイズのブレイクポイントとする横幅などは、下記のように変数に定義しておくとメンテナンスしやすいかもしれません。
+
+~~~ scss
+$LARGE_SCREEN_WIDTH: 800px;
+
+@mixin media-large {
+  @media screen and (min-width: $LARGE_SCREEN_WIDTH) {
+    @content;
+  }
+}
+~~~
+
 ちなみに、Mixin の中で `content-exists()` 関数を使用すると、コンテントブロックが Mixin に渡されたかどうかを調べることができます。
 
 
