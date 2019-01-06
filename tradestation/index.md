@@ -44,6 +44,7 @@ EasyLanguage
 * [変数を定義する (Vars, Variables)](syntax/vars.html)
 * [定義済み変数を使用する (Value0, Condition0)](syntax/pre-declared-vars.html)
 * [if-else による条件分岐](syntax/if-else.html)
+* [スキップ語の一覧](syntax/skip-words.html)
 
 情報取得
 ----

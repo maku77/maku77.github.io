@@ -211,14 +211,23 @@ figure {
   }
 }
 
+strong {
+  color: $COLOR_EMPHASIS;
+  font-weight: bold;
+}
+
 code {
   color: $COLOR_CODE;
   background: $COLOR_CODE_BG;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 
   padding: 2px 4px;
-  font-size: 90%;
   border-radius: 4px;
+
+  strong & {
+    color: $COLOR_EMPHASIS;
+    background: mix($COLOR_EMPHASIS, white, 10%);
+  }
 }
 
 pre {
@@ -226,7 +235,7 @@ pre {
   -moz-tab-size: 5;
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
 
-  font-size: 1em;
+  font-size: 90%;
   padding: 0.5em 0.8em;
   border-radius: 0.5rem;
   white-space: pre-wrap;
@@ -285,16 +294,6 @@ blockquote {
 
   @media screen and (max-width: $WIDTH_MOBILE) {
     margin-left: $SIDE_MARGIN_MOBILE;
-  }
-}
-
-strong {
-  color: $COLOR_EMPHASIS;
-  font-weight: bold;
-
-  code {
-    color: $COLOR_EMPHASIS;
-    background: transparent;
   }
 }
 

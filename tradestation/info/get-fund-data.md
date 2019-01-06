@@ -79,9 +79,9 @@ end;
 
 | 基本バージョン | 多値関数バージョン |
 | ---- | ---- |
-| `GetFundData` | `FundValue` |
-| `GetFundDataAsString` | `FundString` |
-| `GetFundDataAsBoolean` | `FundBoolean` |
+| `GetFundData` | **`FundValue`** |
+| `GetFundDataAsString` | **`FundString`** |
+| `GetFundDataAsBoolean` | **`FundBoolean`** |
 
 多値関数バージョンでは、第3パラメータが出力用パラメータとなっており、そこでエラーコードを受け取ることができます。
 
