@@ -27,6 +27,7 @@ layout: category-index
 数値／文字列 (Number/String)
 ----
 - [new String は避ける](string/dont-use-new-string.html)
+- [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal)](string/template-literal.html) (ECMAScript 2015)
 - [== と === による文字列比較の違い](string/compare.html)
 - [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
@@ -90,9 +91,13 @@ layout: category-index
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
 - [アロー関数で関数を定義する](syntax/arrow-function.html) (ECMAScript 2015)
 
-### 名前空間
+### 変数／定数／名前空間
+- [変数定義には var ではなく let や const を使用する](syntax/let-const.html) (ECMAScript 2015)
+- [JavaScript で定数を定義する (const)](syntax/const.html)
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
 - [関数内からしか参照できないプライベート関数を定義する](syntax/private-scope-function.html)
+- 分割代入 (Destructuring assignment)
+    - [分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)](syntax/object-destructuring.html) (ECMAScript 2015)
 
 ### オブジェクト／クラス
 - [オブジェクトの基本](object/basic.html)
@@ -103,7 +108,6 @@ layout: category-index
 - [クラスに toString() メソッドを実装する](object/to-string.html)
 
 ### JavaScript 独自拡張
-- [JavaScript で定数を定義する (const)](syntax/const.html)
 - [式クロージャ (Expression Closure)](syntax/expression-closure.html)
 
 ### その他
