@@ -27,7 +27,7 @@ hasCJKLanguage: true
 ~~~
 ---
 title: "記事のタイトル"
-date: 2017-08-29
+date: "2017-08-29"
 isCJKLanguage: true
 ---
 
