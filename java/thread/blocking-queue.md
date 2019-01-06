@@ -1,5 +1,5 @@
 ---
-title: BlockingQueue を使ってスレッド間の通信を行う
+title: "BlockingQueue を使ってスレッド間の通信を行う"
 date: "2014-06-29"
 ---
 

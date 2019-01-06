@@ -1,5 +1,5 @@
 ---
-title: TFTP の使い方（TFTP によるファイル転送）
+title: "TFTP の使い方（TFTP によるファイル転送）"
 date: "2009-05-25"
 ---
 

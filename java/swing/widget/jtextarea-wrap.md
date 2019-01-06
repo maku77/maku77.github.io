@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextArea のテキストを画面端で折り返す
+title: "Swing - JTextArea のテキストを画面端で折り返す"
 date: "2011-01-23"
 ---
 

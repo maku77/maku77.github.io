@@ -1,5 +1,5 @@
 ---
-title: Vagrant
+title: "Vagrant"
 layout: category-index
 ---
 

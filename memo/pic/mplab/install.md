@@ -1,5 +1,5 @@
 ---
-title: MPLAB のインストール ─ PIC めもめも
+title: "MPLAB のインストール ─ PIC めもめも"
 date: "2002-08-01"
 ---
 

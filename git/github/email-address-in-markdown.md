@@ -1,5 +1,5 @@
 ---
-title: GitHub の Markdown でメールアドレスへのリンクを記述する
+title: "GitHub の Markdown でメールアドレスへのリンクを記述する"
 date: "2016-02-04"
 ---
 

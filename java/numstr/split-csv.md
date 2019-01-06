@@ -1,5 +1,5 @@
 ---
-title: CSV 形式の文字列を配列に分割する (String.split)
+title: "CSV 形式の文字列を配列に分割する (String.split)"
 date: "2005-05-25"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: CakePHP 入門 (1) セットアップ
+title: "CakePHP 入門 (1) セットアップ"
 date: "2012-04-29"
 ---
 

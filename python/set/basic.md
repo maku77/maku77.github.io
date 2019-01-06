@@ -1,5 +1,5 @@
 ---
-title: Python の set オブジェクトの基本
+title: "Python の set オブジェクトの基本"
 date: "2014-04-21"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Middleman による Web サイトの雛形の作成
+title: "Middleman による Web サイトの雛形の作成"
 date: "2015-11-03"
 ---
 

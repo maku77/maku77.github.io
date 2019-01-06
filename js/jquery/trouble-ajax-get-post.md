@@ -1,5 +1,5 @@
 ---
-title: jQuery の ajax/get/post メソッドが動作しない
+title: "jQuery の ajax/get/post メソッドが動作しない"
 date: "2013-10-29"
 ---
 

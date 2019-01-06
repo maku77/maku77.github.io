@@ -1,5 +1,5 @@
 ---
-title: Activity の情報を表示する (dumpsys)
+title: "Activity の情報を表示する (dumpsys)"
 date: "2011-06-08"
 ---
 

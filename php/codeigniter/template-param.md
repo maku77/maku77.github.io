@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - ビューに動的引数（テンプレート引数）を渡す
+title: "CodeIgniter - ビューに動的引数（テンプレート引数）を渡す"
 date: "2012-05-31"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: git-svn を使って Git と Subversion を連携する
+title: "git-svn を使って Git と Subversion を連携する"
 date: "2010-12-07"
 ---
 

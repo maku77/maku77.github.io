@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - ユーザのログイン状態を管理する
+title: "CodeIgniter - ユーザのログイン状態を管理する"
 date: "2012-08-14"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: リストを昇順ソート／降順ソートする (list.sort/sorted)
+title: "リストを昇順ソート／降順ソートする (list.sort/sorted)"
 date: "2013-04-25"
 ---
 

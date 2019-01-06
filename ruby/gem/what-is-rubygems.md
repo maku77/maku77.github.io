@@ -1,5 +1,5 @@
 ---
-title: RubyGems とは
+title: "RubyGems とは"
 date: "2015-11-22"
 ---
 

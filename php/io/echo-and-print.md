@@ -1,5 +1,5 @@
 ---
-title: echo と print で迷ったら echo を使おう
+title: "echo と print で迷ったら echo を使おう"
 date: "2012-09-30"
 ---
 

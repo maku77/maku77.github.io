@@ -115,7 +115,7 @@ title: "単語集"
 #### data/books/title1.yml
 
 ~~~ yaml
-title: ライザップ式 2週間ダイエットレシピ
+title: "ライザップ式 2週間ダイエットレシピ"
 author: RIZAP 株式会社
 isbn13: 978-4537215489
 ~~~
@@ -123,7 +123,7 @@ isbn13: 978-4537215489
 #### data/books/title2.yml
 
 ~~~ yaml
-title: 大人女子の体にライザップ
+title: "大人女子の体にライザップ"
 author: RIZAP 株式会社
 isbn13: 978-4537215618
 ~~~

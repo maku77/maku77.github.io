@@ -1,5 +1,5 @@
 ---
-title: 文字列を結合する (implode)
+title: "文字列を結合する (implode)"
 date: "2012-01-15"
 ---
 

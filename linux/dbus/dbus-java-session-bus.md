@@ -1,5 +1,5 @@
 ---
-title: D-Bus Java で Session bus に接続してメソッドを呼び出す
+title: "D-Bus Java で Session bus に接続してメソッドを呼び出す"
 date: "2012-05-15"
 ---
 

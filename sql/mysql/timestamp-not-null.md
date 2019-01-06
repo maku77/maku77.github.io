@@ -1,5 +1,5 @@
 ---
-title: MySQL の TIMESTAMP NOT NULL な時刻データの振る舞い
+title: "MySQL の TIMESTAMP NOT NULL な時刻データの振る舞い"
 date: "2012-07-18"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: signed が使える場所では signed を使え
+title: "signed が使える場所では signed を使え"
 date: "2008-04-22"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SQLite でテーブルの内容をダンプする (.dump)
+title: "SQLite でテーブルの内容をダンプする (.dump)"
 date: "2010-10-25"
 ---
 

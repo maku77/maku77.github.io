@@ -1,5 +1,5 @@
 ---
-title: dictionary の要素をソートして出力する
+title: "dictionary の要素をソートして出力する"
 date: "2013-04-21"
 ---
 

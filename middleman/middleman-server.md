@@ -1,5 +1,5 @@
 ---
-title: Middleman サーバを立ち上げて Web サイトを開発する
+title: "Middleman サーバを立ち上げて Web サイトを開発する"
 date: "2015-11-03"
 ---
 
@@ -32,7 +32,7 @@ Markdown フォーマットで記事を作成するときは、拡張子を `.md
 #### source/hello.md
 ```
 ---
-title: Hello
+title: "Hello"
 ---
 
 Hello

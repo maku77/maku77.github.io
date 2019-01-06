@@ -1,5 +1,5 @@
 ---
-title: HTML の特殊文字をエスケープする (htmlspecialchars)
+title: "HTML の特殊文字をエスケープする (htmlspecialchars)"
 date: "2012-10-06"
 ---
 

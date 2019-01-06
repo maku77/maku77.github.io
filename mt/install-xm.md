@@ -1,5 +1,5 @@
 ---
-title: MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）
+title: "MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）"
 date: "2014-11-15"
 ---
 

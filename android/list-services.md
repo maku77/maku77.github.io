@@ -1,5 +1,5 @@
 ---
-title: ServiceManager に登録されたサービスを列挙する
+title: "ServiceManager に登録されたサービスを列挙する"
 date: "2011-05-09"
 ---
 

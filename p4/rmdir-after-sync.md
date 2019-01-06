@@ -1,5 +1,5 @@
 ---
-title: p4 sync 時に空のディレクトリを削除する ([no]rmdir)
+title: "p4 sync 時に空のディレクトリを削除する ([no]rmdir)"
 date: "2006-06-16"
 ---
 

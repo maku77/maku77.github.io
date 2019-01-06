@@ -1,5 +1,5 @@
 ---
-title: CppUnit で private メソッドをテストできるようにする
+title: "CppUnit で private メソッドをテストできるようにする"
 date: "2009-03-26"
 ---
 

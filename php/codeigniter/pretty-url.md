@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - index.php を省略した URL でアクセスできるようにする
+title: "CodeIgniter - index.php を省略した URL でアクセスできるようにする"
 date: "2012-05-30"
 ---
 

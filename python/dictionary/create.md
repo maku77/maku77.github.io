@@ -1,5 +1,5 @@
 ---
-title: dictionary オブジェクトを生成する ({})
+title: "dictionary オブジェクトを生成する ({})"
 date: "2005-10-20"
 ---
 

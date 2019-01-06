@@ -1,5 +1,5 @@
 ---
-title: Java のビルドツールのまとめ (Ant, Maven, Gradle)
+title: "Java のビルドツールのまとめ (Ant, Maven, Gradle)"
 date: "2014-06-02"
 ---
 

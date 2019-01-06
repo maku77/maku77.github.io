@@ -1,5 +1,5 @@
 ---
-title: Git / git diff でファイルの差分を調べる
+title: "Git / git diff でファイルの差分を調べる"
 date: "2010-07-14"
 ---
 

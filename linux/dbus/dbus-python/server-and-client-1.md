@@ -1,5 +1,5 @@
 ---
-title: dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）
+title: "dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）"
 date: "2012-09-05"
 ---
 

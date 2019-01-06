@@ -1,5 +1,5 @@
 ---
-title: Python で YAML ファイルを扱う
+title: "Python で YAML ファイルを扱う"
 date: "2017-02-17"
 ---
 

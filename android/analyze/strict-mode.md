@@ -1,5 +1,5 @@
 ---
-title: StrictMode を有効にして望ましくない実装を検出する
+title: "StrictMode を有効にして望ましくない実装を検出する"
 date: "2011-08-10"
 ---
 

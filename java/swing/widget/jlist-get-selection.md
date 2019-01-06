@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で選択されている項目を取得する
+title: "Swing - JList で選択されている項目を取得する"
 date: "2011-02-19"
 ---
 

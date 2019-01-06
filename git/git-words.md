@@ -1,5 +1,5 @@
 ---
-title: Git 関連用語
+title: "Git 関連用語"
 date: "2010-07-17"
 ---
 

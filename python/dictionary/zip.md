@@ -1,5 +1,5 @@
 ---
-title: キーのリストと値のリストから dictionary を生成する (zip)
+title: "キーのリストと値のリストから dictionary を生成する (zip)"
 date: "2005-10-20"
 ---
 

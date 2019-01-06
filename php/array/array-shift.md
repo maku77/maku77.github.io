@@ -1,5 +1,5 @@
 ---
-title: 配列の先頭要素を取り出す (array_shift)
+title: "配列の先頭要素を取り出す (array_shift)"
 date: "2012-10-08"
 ---
 

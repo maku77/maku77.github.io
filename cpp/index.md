@@ -1,5 +1,5 @@
 ---
-title: C/C++
+title: "C/C++"
 layout: category-index
 ---
 

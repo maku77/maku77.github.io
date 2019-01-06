@@ -1,5 +1,5 @@
 ---
-title: HTML/CSS サンプル
+title: "HTML/CSS サンプル"
 date: "2015-10-08"
 layout: category-index
 ---

@@ -1,5 +1,5 @@
 ---
-title: wxPython - HtmlWindow（HTML ウィンドウ）
+title: "wxPython - HtmlWindow（HTML ウィンドウ）"
 date: "2007-04-26"
 ---
 

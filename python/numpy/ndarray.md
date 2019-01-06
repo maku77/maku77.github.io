@@ -1,5 +1,5 @@
 ---
-title: NumPy 配列 (ndarray) で行列を扱う
+title: "NumPy 配列 (ndarray) で行列を扱う"
 date: "2017-01-01"
 ---
 

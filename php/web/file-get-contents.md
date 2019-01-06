@@ -1,5 +1,5 @@
 ---
-title: Web サーバ上のコンテンツを HTTP で取得する (file_get_contents)
+title: "Web サーバ上のコンテンツを HTTP で取得する (file_get_contents)"
 date: "2013-06-11"
 ---
 

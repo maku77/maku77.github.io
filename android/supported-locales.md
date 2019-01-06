@@ -1,5 +1,5 @@
 ---
-title: サポートされている Locale の一覧 (Android 4.0)
+title: "サポートされている Locale の一覧 (Android 4.0)"
 date: "2012-09-18"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: PHP ファイルからの相対パスで require_once する
+title: "PHP ファイルからの相対パスで require_once する"
 date: "2012-09-25"
 ---
 

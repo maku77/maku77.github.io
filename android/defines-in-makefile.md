@@ -1,5 +1,5 @@
 ---
-title: android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト
+title: "android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト"
 date: "2011-04-08"
 ---
 

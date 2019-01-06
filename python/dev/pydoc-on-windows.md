@@ -1,5 +1,5 @@
 ---
-title: Windows で pydoc コマンドを使用できるようにする
+title: "Windows で pydoc コマンドを使用できるようにする"
 date: "2016-12-08"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 要素を削除する (remove)
+title: "要素を削除する (remove)"
 date: "2013-06-20"
 ---
 

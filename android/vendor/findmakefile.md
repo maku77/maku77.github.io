@@ -1,5 +1,5 @@
 ---
-title: findmakefile コマンドで Android.mk のあるディレクトリを調べる
+title: "findmakefile コマンドで Android.mk のあるディレクトリを調べる"
 date: "2011-08-09"
 ---
 

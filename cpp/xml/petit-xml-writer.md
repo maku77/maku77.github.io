@@ -1,5 +1,5 @@
 ---
-title: stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)
+title: "stdio を使ったシンプルな XmlWriter クラス (PetitXmlWriter)"
 date: "2007-06-06"
 ---
 

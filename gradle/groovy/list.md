@@ -1,5 +1,5 @@
 ---
-title: Groovy でリストを扱う
+title: "Groovy でリストを扱う"
 date: "2015-07-08"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: プリンタで印刷する (hardcopy)
+title: "プリンタで印刷する (hardcopy)"
 date: "2014-01-27"
 ---
 

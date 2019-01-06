@@ -1,5 +1,5 @@
 ---
-title: Swing - JSpinner を使って上下矢印で値を入力できるようにする
+title: "Swing - JSpinner を使って上下矢印で値を入力できるようにする"
 date: "2011-02-02"
 ---
 

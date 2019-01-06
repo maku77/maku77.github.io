@@ -1,5 +1,5 @@
 ---
-title: 文字列を分割する (explode)
+title: "文字列を分割する (explode)"
 date: "2012-01-25"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 要素を追加、移動、コピーする (append, prepend)
+title: "要素を追加、移動、コピーする (append, prepend)"
 date: "2013-01-06"
 ---
 

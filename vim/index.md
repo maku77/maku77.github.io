@@ -1,5 +1,5 @@
 ---
-title: Vim メモ
+title: "Vim メモ"
 layout: category-index
 ---
 

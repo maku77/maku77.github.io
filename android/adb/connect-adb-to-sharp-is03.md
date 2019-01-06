@@ -1,5 +1,5 @@
 ---
-title: SHARP IS03 に adb 接続する
+title: "SHARP IS03 に adb 接続する"
 date: "2012-10-09"
 ---
 

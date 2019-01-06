@@ -1,5 +1,5 @@
 ---
-title: libhardware.so が hardware サポートライブラリをロードする仕組み
+title: "libhardware.so が hardware サポートライブラリをロードする仕組み"
 date: "2014-01-29"
 ---
 

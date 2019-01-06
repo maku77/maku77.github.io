@@ -1,5 +1,5 @@
 ---
-title: MySQL で新しいデータベースを作成する (CREATE DATABASE)
+title: "MySQL で新しいデータベースを作成する (CREATE DATABASE)"
 date: "2012-07-14"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: PYTHONSTARTUP で Python のインタラクティブシェルを便利にする
+title: "PYTHONSTARTUP で Python のインタラクティブシェルを便利にする"
 date: "2016-12-05"
 ---
 

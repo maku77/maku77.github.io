@@ -1,5 +1,5 @@
 ---
-title: RefBase によるスマートポインタ
+title: "RefBase によるスマートポインタ"
 date: "2011-02-03"
 ---
 

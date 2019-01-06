@@ -1,5 +1,5 @@
 ---
-title: Gradle を Windows にインストールする
+title: "Gradle を Windows にインストールする"
 date: "2014-06-16"
 ---
 

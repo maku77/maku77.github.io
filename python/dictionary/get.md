@@ -1,5 +1,5 @@
 ---
-title: dictionary の要素を参照する ([], get)
+title: "dictionary の要素を参照する ([], get)"
 date: "2005-10-20"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: git-daemon による読み取り専用リポジトリの公開
+title: "git-daemon による読み取り専用リポジトリの公開"
 date: "2014-05-14"
 ---
 

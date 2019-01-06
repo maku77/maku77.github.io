@@ -1,5 +1,5 @@
 ---
-title: pthread でスレッドを生成する
+title: "pthread でスレッドを生成する"
 date: "2010-11-07"
 ---
 

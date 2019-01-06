@@ -1,5 +1,5 @@
 ---
-title: Python の switch-case 構文
+title: "Python の switch-case 構文"
 date: "2014-11-28"
 ---
 

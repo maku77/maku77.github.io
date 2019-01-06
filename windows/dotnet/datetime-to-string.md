@@ -1,5 +1,5 @@
 ---
-title: .NET - DateTime インスタンスと文字列を相互に変換する
+title: ".NET - DateTime インスタンスと文字列を相互に変換する"
 date: "2009-03-07"
 ---
 

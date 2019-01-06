@@ -1,5 +1,5 @@
 ---
-title: 別プロセスのサービスへバインドする (Remote Bind)
+title: "別プロセスのサービスへバインドする (Remote Bind)"
 date: "2011-04-21"
 ---
 

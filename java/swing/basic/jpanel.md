@@ -1,5 +1,5 @@
 ---
-title: Swing - JPanel に GUI コンポーネントを配置する
+title: "Swing - JPanel に GUI コンポーネントを配置する"
 date: "2011-01-09"
 ---
 

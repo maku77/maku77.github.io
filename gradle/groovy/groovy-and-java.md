@@ -1,5 +1,5 @@
 ---
-title: Groovy と Java の違い
+title: "Groovy と Java の違い"
 date: "2015-07-07"
 ---
 

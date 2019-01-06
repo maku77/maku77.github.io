@@ -1,5 +1,5 @@
 ---
-title: Sony Tablet S に adb 接続する
+title: "Sony Tablet S に adb 接続する"
 date: "2011-09-24"
 ---
 

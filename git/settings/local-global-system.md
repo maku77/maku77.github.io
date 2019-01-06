@@ -1,5 +1,5 @@
 ---
-title: Git の local 設定と global 設定と system 設定の違い
+title: "Git の local 設定と global 設定と system 設定の違い"
 date: "2014-05-25"
 ---
 

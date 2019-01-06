@@ -1,5 +1,5 @@
 ---
-title: Python メモ
+title: "Python メモ"
 layout: category-index
 ---
 

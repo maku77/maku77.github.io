@@ -1,5 +1,5 @@
 ---
-title: GitLab をインストールする
+title: "GitLab をインストールする"
 date: "2014-05-14"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Go 言語で Hello World をコンパイル、実行する
+title: "Go 言語で Hello World をコンパイル、実行する"
 date: "2017-08-30"
 description: "ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル、実行してみます。"
 ---

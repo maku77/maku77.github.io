@@ -1,5 +1,5 @@
 ---
-title: Hugo とは／Hugo をインストールする
+title: "Hugo とは／Hugo をインストールする"
 date: "2017-08-23"
 ---
 

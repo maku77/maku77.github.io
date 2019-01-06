@@ -1,5 +1,5 @@
 ---
-title: MANIFEST.MF ファイルの内容を取得する
+title: "MANIFEST.MF ファイルの内容を取得する"
 date: "2011-05-05"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Visitor パターン
+title: "Visitor パターン"
 date: "2011-04-10"
 ---
 

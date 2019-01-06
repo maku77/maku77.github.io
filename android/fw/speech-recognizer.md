@@ -1,5 +1,5 @@
 ---
-title: SpeechRecognizer で音声入力を実現する
+title: "SpeechRecognizer で音声入力を実現する"
 date: "2014-01-23"
 ---
 

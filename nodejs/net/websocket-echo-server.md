@@ -1,5 +1,5 @@
 ---
-title: Node.js で WebSocket サーバを作る（簡単な echo サーバ）
+title: "Node.js で WebSocket サーバを作る（簡単な echo サーバ）"
 date: "2014-03-05"
 ---
 

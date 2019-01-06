@@ -1,5 +1,5 @@
 ---
-title: SWT - Cannot load 32-bit SWT libraries エラーが発生する場合
+title: "SWT - Cannot load 32-bit SWT libraries エラーが発生する場合"
 date: "2010-11-23"
 ---
 

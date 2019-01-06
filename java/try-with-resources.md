@@ -1,5 +1,5 @@
 ---
-title: Java7 の try with resources でストリームの close を自動的に行う
+title: "Java7 の try with resources でストリームの close を自動的に行う"
 date: "2014-10-07"
 ---
 

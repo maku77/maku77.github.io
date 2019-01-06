@@ -1,5 +1,5 @@
 ---
-title: pthread 関数のエラー処理を行う
+title: "pthread 関数のエラー処理を行う"
 date: "2010-11-08"
 ---
 

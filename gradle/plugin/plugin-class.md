@@ -1,5 +1,5 @@
 ---
-title: Gradle プラグインを作成する (1) Plugin クラスの基本
+title: "Gradle プラグインを作成する (1) Plugin クラスの基本"
 date: "2016-08-16"
 ---
 

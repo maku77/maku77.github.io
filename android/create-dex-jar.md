@@ -1,5 +1,5 @@
 ---
-title: Dex 形式の Shared library (JAR) を作成する (dx)
+title: "Dex 形式の Shared library (JAR) を作成する (dx)"
 date: "2014-10-30"
 ---
 

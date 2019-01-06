@@ -1,5 +1,5 @@
 ---
-title: Usage の出力例
+title: "Usage の出力例"
 date: "2009-07-08"
 ---
 

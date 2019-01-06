@@ -1,5 +1,5 @@
 ---
-title: 日時指定で p4 sync する
+title: "日時指定で p4 sync する"
 date: "2007-08-01"
 ---
 

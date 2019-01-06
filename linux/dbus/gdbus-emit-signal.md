@@ -1,5 +1,5 @@
 ---
-title: GDBus サーバから signal を発行する
+title: "GDBus サーバから signal を発行する"
 date: "2012-06-25"
 ---
 

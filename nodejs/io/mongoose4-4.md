@@ -1,5 +1,5 @@
 ---
-title: mongoose で MongoDB (4-4) DB からドキュメントを削除する
+title: "mongoose で MongoDB (4-4) DB からドキュメントを削除する"
 date: "2014-02-11"
 ---
 

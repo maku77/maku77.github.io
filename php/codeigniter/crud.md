@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - Active Record でデータベースの CRUD 操作を行う
+title: "CodeIgniter - Active Record でデータベースの CRUD 操作を行う"
 date: "2012-07-24"
 ---
 

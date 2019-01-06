@@ -1,5 +1,5 @@
 ---
-title: pthread のスレッドを終了する
+title: "pthread のスレッドを終了する"
 date: "2010-11-08"
 ---
 

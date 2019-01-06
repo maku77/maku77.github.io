@@ -1,5 +1,5 @@
 ---
-title: Swing - JButton（ボタン）にショートカットキーを割り当てる
+title: "Swing - JButton（ボタン）にショートカットキーを割り当てる"
 date: "2011-02-12"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: サーバ上のディポ (depot) の一覧を表示する (p4 depots)
+title: "サーバ上のディポ (depot) の一覧を表示する (p4 depots)"
 date: "2013-03-04"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)
+title: "Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)"
 date: "2007-04-10"
 ---
 

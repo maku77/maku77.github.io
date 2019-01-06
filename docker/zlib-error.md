@@ -1,5 +1,5 @@
 ---
-title: Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき
+title: "Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき"
 date: "2015-04-02"
 ---
 

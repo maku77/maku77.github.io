@@ -1,5 +1,5 @@
 ---
-title: RESTful API として検索用の URL を定義する
+title: "RESTful API として検索用の URL を定義する"
 date: "2014-03-23"
 ---
 

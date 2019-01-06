@@ -1,5 +1,5 @@
 ---
-title: Jenkins CLI を使ってコマンドラインから Jenkins を操作する
+title: "Jenkins CLI を使ってコマンドラインから Jenkins を操作する"
 date: "2016-08-23"
 ---
 

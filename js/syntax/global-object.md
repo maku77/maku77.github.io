@@ -1,5 +1,5 @@
 ---
-title: JavaScript ではグローバル変数も関数も全てプロパティ
+title: "JavaScript ではグローバル変数も関数も全てプロパティ"
 date: "2012-11-09"
 ---
 

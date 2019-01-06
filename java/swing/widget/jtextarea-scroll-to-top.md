@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextArea でテキストの先頭部分を表示する
+title: "Swing - JTextArea でテキストの先頭部分を表示する"
 date: "2011-05-05"
 ---
 

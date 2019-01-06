@@ -1,5 +1,5 @@
 ---
-title: ドメインユーザーにローカル PC の Administrator 権限を与える
+title: "ドメインユーザーにローカル PC の Administrator 権限を与える"
 date: "2011-02-24"
 ---
 

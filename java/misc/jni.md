@@ -1,5 +1,5 @@
 ---
-title: JNI (Java Native Interface) の基本
+title: "JNI (Java Native Interface) の基本"
 date: "2010-06-01"
 ---
 

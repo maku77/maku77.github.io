@@ -1,5 +1,5 @@
 ---
-title: 文字列をデリミタで分割する (split)
+title: "文字列をデリミタで分割する (split)"
 date: "2017-03-17"
 description: "Python で文字列をあるデリミタ（区切り文字列）で区切るには split を使用します。"
 ---

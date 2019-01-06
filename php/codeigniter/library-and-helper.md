@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - ライブラリ、ヘルパーの基礎
+title: "CodeIgniter - ライブラリ、ヘルパーの基礎"
 date: "2012-07-22"
 ---
 

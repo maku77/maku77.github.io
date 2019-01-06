@@ -1,5 +1,5 @@
 ---
-title: Swing - JTree でツリービューを作成する
+title: "Swing - JTree でツリービューを作成する"
 date: "2011-02-11"
 ---
 

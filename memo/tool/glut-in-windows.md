@@ -1,5 +1,5 @@
 ---
-title: Windows (MinGW) で GLUT を使用する
+title: "Windows (MinGW) で GLUT を使用する"
 date: "2012-12-21"
 ---
 

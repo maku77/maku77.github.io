@@ -1,5 +1,5 @@
 ---
-title: Git / git diff の出力で相対パスを使うようにする
+title: "Git / git diff の出力で相対パスを使うようにする"
 date: "2011-02-09"
 ---
 

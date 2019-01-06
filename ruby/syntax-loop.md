@@ -1,5 +1,5 @@
 ---
-title: Ruby のループ構文
+title: "Ruby のループ構文"
 date: "2011-12-01"
 ---
 

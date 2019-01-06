@@ -1,5 +1,5 @@
 ---
-title: 関数を定義する (function)
+title: "関数を定義する (function)"
 date: "2017-03-29"
 ---
 

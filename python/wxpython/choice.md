@@ -1,5 +1,5 @@
 ---
-title: wxPython - Choice（プルダウンボックス）
+title: "wxPython - Choice（プルダウンボックス）"
 date: "2007-04-10"
 ---
 

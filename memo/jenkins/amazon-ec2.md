@@ -1,5 +1,5 @@
 ---
-title: Amazon EC2 に Jenkins をインストールする
+title: "Amazon EC2 に Jenkins をインストールする"
 date: "2016-10-14"
 ---
 

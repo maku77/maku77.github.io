@@ -1,5 +1,5 @@
 ---
-title: jQuery で Hello World
+title: "jQuery で Hello World"
 date: "2012-11-28"
 ---
 

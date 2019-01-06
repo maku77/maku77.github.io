@@ -1,5 +1,5 @@
 ---
-title: Swt - AWT と Swing と SWT と JFace の違い
+title: "Swt - AWT と Swing と SWT と JFace の違い"
 date: "2010-08-10"
 ---
 

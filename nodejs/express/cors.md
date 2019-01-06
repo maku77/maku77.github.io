@@ -1,5 +1,5 @@
 ---
-title: Express で CORS の設定を行う（クロスドメインでの Ajax を許可）
+title: "Express で CORS の設定を行う（クロスドメインでの Ajax を許可）"
 date: "2013-12-01"
 ---
 

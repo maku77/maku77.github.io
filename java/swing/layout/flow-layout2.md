@@ -1,5 +1,5 @@
 ---
-title: Swing - FlowLayout でコンポーネントが複数行表示されるときに左寄せ／右寄せする
+title: "Swing - FlowLayout でコンポーネントが複数行表示されるときに左寄せ／右寄せする"
 date: "2011-01-15"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SWT - いろいろなダイアログ (MessageBox) を表示する
+title: "SWT - いろいろなダイアログ (MessageBox) を表示する"
 date: "2010-08-15"
 ---
 

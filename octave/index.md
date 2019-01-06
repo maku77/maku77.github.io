@@ -1,5 +1,5 @@
 ---
-title: Octave
+title: "Octave"
 layout: category-index
 ---
 

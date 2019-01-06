@@ -1,5 +1,5 @@
 ---
-title: wxPython - Frame（フレーム）
+title: "wxPython - Frame（フレーム）"
 date: "2007-04-11"
 ---
 

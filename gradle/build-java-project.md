@@ -1,5 +1,5 @@
 ---
-title: Gradle で Java プロジェクトをビルドする
+title: "Gradle で Java プロジェクトをビルドする"
 date: "2014-06-08"
 ---
 

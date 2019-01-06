@@ -1,5 +1,5 @@
 ---
-title: Swing - JEditorPane で HTML コンテンツを表示する
+title: "Swing - JEditorPane で HTML コンテンツを表示する"
 date: "2011-02-06"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: テーブルからカラムを削除する (ALTER TABLE ～ DROP COLUMN)
+title: "テーブルからカラムを削除する (ALTER TABLE ～ DROP COLUMN)"
 date: "2013-01-06"
 ---
 

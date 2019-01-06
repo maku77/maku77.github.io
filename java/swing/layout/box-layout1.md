@@ -1,5 +1,5 @@
 ---
-title: Swing - BoxLayout でコンポーネントを縦方向、横方向に並べる
+title: "Swing - BoxLayout でコンポーネントを縦方向、横方向に並べる"
 date: "2011-01-09"
 ---
 

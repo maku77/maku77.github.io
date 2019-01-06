@@ -1,5 +1,5 @@
 ---
-title: Vagrant の仮想マシンに SSH で接続する
+title: "Vagrant の仮想マシンに SSH で接続する"
 date: "2016-10-19"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SQLite のロックによる SQLITE_BUSY に備える
+title: "SQLite のロックによる SQLITE_BUSY に備える"
 date: "2012-01-15"
 ---
 

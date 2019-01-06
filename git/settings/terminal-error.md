@@ -1,5 +1,5 @@
 ---
-title: msysGit で "terminal is not fully functional" と怒られる場合の対策
+title: "msysGit で terminal is not fully functional と怒られる場合の対策"
 date: "2014-08-19"
 ---
 

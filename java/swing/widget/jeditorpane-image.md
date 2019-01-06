@@ -1,5 +1,5 @@
 ---
-title: Swing - JEditorPane で画像ファイルを表示する
+title: "Swing - JEditorPane で画像ファイルを表示する"
 date: "2011-03-28"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Python のクラス構文
+title: "Python のクラス構文"
 date: "2012-06-07"
 ---
 

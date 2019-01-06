@@ -1,5 +1,5 @@
 ---
-title: Java から SQLite を扱えるようにする
+title: "Java から SQLite を扱えるようにする"
 date: "2010-08-08"
 ---
 

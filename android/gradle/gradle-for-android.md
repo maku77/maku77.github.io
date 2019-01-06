@@ -1,5 +1,5 @@
 ---
-title: Android アプリ用の Gradle スクリプトの基本
+title: "Android アプリ用の Gradle スクリプトの基本"
 date: "2016-08-01"
 ---
 

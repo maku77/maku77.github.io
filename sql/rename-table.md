@@ -1,5 +1,5 @@
 ---
-title: テーブル名を変更する (ALTER TABLE ～ RENAME TO)
+title: "テーブル名を変更する (ALTER TABLE ～ RENAME TO)"
 date: "2013-01-06"
 ---
 

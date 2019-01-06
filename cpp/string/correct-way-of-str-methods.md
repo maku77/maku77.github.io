@@ -1,5 +1,5 @@
 ---
-title: strncpy／strncat／snprintf の安全な使い方
+title: "strncpy／strncat／snprintf の安全な使い方"
 date: "2007-11-16"
 ---
 

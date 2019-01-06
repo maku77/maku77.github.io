@@ -1,5 +1,5 @@
 ---
-title: CakePHP - クライアントからのリクエストデータを取得する (Controller::request)
+title: "CakePHP - クライアントからのリクエストデータを取得する (Controller::request)"
 date: "2012-05-27"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: ストリームの入力によって文字列を構築する (stringstream)
+title: "ストリームの入力によって文字列を構築する (stringstream)"
 date: "2005-08-03"
 ---
 

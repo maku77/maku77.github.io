@@ -1,5 +1,5 @@
 ---
-title: 標準出力 (stdout)、標準エラー出力 (stderr) への出力
+title: "標準出力 (stdout)、標準エラー出力 (stderr) への出力"
 date: "2014-07-13"
 ---
 

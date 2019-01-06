@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextField のテキストを右寄せで表示する
+title: "Swing - JTextField のテキストを右寄せで表示する"
 date: "2011-02-06"
 ---
 

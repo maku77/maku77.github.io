@@ -1,5 +1,5 @@
 ---
-title: wxPython によるウィンドウ表示の基本
+title: "wxPython によるウィンドウ表示の基本"
 date: "2007-02-06"
 ---
 

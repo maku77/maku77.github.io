@@ -1,5 +1,5 @@
 ---
-title: Gradle で JUnit によるユニットテストを実行する
+title: "Gradle で JUnit によるユニットテストを実行する"
 date: "2015-09-24"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: root ユーザで adb 接続する
+title: "root ユーザで adb 接続する"
 date: "2011-12-14"
 ---
 

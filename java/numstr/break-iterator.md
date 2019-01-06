@@ -1,5 +1,5 @@
 ---
-title: 文字列を単語単位で分割する (BreakIterator)
+title: "文字列を単語単位で分割する (BreakIterator)"
 date: "2014-11-21"
 ---
 

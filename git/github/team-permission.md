@@ -1,5 +1,5 @@
 ---
-title: GitHub の Organization を構成したときのチームの権限について理解する
+title: "GitHub の Organization を構成したときのチームの権限について理解する"
 date: "2015-05-07"
 ---
 

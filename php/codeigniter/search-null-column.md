@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - ActiveRecord でカラムが NULL のもの、NULL でないものを検索する
+title: "CodeIgniter - ActiveRecord でカラムが NULL のもの、NULL でないものを検索する"
 date: "2013-01-07"
 ---
 

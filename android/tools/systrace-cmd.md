@@ -1,5 +1,5 @@
 ---
-title: Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)
+title: "Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)"
 date: "2016-07-13"
 ---
 

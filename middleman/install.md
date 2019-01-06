@@ -1,5 +1,5 @@
 ---
-title: Middleman とは／Middleman のインストール
+title: "Middleman とは／Middleman のインストール"
 date: "2015-11-03"
 ---
 

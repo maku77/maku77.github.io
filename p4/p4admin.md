@@ -1,5 +1,5 @@
 ---
-title: p4admin で Perforce サーバを設定する
+title: "p4admin で Perforce サーバを設定する"
 date: "2014-07-30"
 ---
 

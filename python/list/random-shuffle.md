@@ -1,5 +1,5 @@
 ---
-title: リストをシャッフルする (random.shuffle)
+title: "リストをシャッフルする (random.shuffle)"
 date: "2014-04-19"
 ---
 

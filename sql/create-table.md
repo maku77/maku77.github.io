@@ -1,5 +1,5 @@
 ---
-title: テーブルを作成する (CREATE TABLE)
+title: "テーブルを作成する (CREATE TABLE)"
 date: "2012-08-04"
 ---
 

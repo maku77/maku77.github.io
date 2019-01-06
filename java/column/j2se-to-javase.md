@@ -1,5 +1,5 @@
 ---
-title: Java コラム ー J2SE から Java SE へ
+title: "Java コラム ー J2SE から Java SE へ"
 date: "2005-09-05"
 ---
 

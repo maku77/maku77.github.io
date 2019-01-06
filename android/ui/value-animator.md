@@ -1,5 +1,5 @@
 ---
-title: ValueAnimator でアニメーションに使用する値を計算する
+title: "ValueAnimator でアニメーションに使用する値を計算する"
 date: "2014-08-13"
 ---
 

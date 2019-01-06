@@ -1,5 +1,5 @@
 ---
-title: Vagrant プラグインを vagrant up で自動的にインストールする
+title: "Vagrant プラグインを vagrant up で自動的にインストールする"
 date: "2016-10-21"
 ---
 

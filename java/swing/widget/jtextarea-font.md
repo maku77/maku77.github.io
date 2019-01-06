@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextArea に表示するフォントを設定する
+title: "Swing - JTextArea に表示するフォントを設定する"
 date: "2011-03-21"
 ---
 

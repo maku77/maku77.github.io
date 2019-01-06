@@ -1,5 +1,5 @@
 ---
-title: wxPython - ComboBox（コンボボックス）
+title: "wxPython - ComboBox（コンボボックス）"
 date: "2007-04-10"
 ---
 

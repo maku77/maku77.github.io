@@ -1,5 +1,5 @@
 ---
-title: Nexus7 (2013) に adb 接続する
+title: "Nexus7 (2013) に adb 接続する"
 date: "2013-11-06"
 ---
 

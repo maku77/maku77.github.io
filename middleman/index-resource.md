@@ -1,5 +1,5 @@
 ---
-title: 同じ階層にある index.html ページの Resource オブジェクトを取得する
+title: "同じ階層にある index.html ページの Resource オブジェクトを取得する"
 date: "2017-08-20"
 ---
 

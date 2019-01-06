@@ -1,5 +1,5 @@
 ---
-title: Swing - BorderLayout でコンポーネントを上下左右中央に並べる
+title: "Swing - BorderLayout でコンポーネントを上下左右中央に並べる"
 date: "2011-01-15"
 ---
 

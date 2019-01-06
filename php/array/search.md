@@ -1,5 +1,5 @@
 ---
-title: 配列要素を検索する (array_search)
+title: "配列要素を検索する (array_search)"
 date: "2012-01-25"
 ---
 

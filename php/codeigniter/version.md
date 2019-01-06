@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - 使用中の CodeIgniter のバージョンを調べる
+title: "CodeIgniter - 使用中の CodeIgniter のバージョンを調べる"
 date: "2012-10-04"
 ---
 

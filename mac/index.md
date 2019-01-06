@@ -1,5 +1,5 @@
 ---
-title: Mac メモ
+title: "Mac メモ"
 layout: category-index
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: p4 sync 時のファイル上書き設定 ([no]clobber)
+title: "p4 sync 時のファイル上書き設定 ([no]clobber)"
 date: "2006-06-16"
 ---
 

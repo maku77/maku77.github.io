@@ -1,5 +1,5 @@
 ---
-title: AsyncTask による非同期処理と UI 更新処理
+title: "AsyncTask による非同期処理と UI 更新処理"
 date: "2011-08-22"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Docker イメージを作成する - GitHub 上の Dockerfile からイメージを作成する
+title: "Docker イメージを作成する - GitHub 上の Dockerfile からイメージを作成する"
 date: "2015-04-02"
 ---
 

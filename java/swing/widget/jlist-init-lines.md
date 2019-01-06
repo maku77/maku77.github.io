@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で最初に表示される行数を指定する
+title: "Swing - JList で最初に表示される行数を指定する"
 date: "2011-01-23"
 ---
 

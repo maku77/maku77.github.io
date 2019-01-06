@@ -1,5 +1,5 @@
 ---
-title: Gradle で Javadoc API Document を出力する
+title: "Gradle で Javadoc API Document を出力する"
 date: "2015-08-03"
 ---
 

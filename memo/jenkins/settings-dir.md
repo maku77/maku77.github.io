@@ -1,5 +1,5 @@
 ---
-title: Jenkins サーバの設定ファイルの場所
+title: "Jenkins サーバの設定ファイルの場所"
 date: "2014-07-08"
 ---
 

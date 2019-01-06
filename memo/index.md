@@ -1,5 +1,5 @@
 ---
-title: Best Practices メモ
+title: "Best Practices メモ"
 layout: category-index
 ---
 

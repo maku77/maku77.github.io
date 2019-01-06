@@ -1,5 +1,5 @@
 ---
-title: SWT - FillLayout でウィジェットを縦／横に等間隔に並べる
+title: "SWT - FillLayout でウィジェットを縦／横に等間隔に並べる"
 date: "2010-08-21"
 ---
 

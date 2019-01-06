@@ -1,5 +1,5 @@
 ---
-title: HTML5 Canvas に矩形や円を描画する
+title: "HTML5 Canvas に矩形や円を描画する"
 date: "2012-01-20"
 ---
 

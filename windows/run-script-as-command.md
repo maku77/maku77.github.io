@@ -1,5 +1,5 @@
 ---
-title: Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する
+title: "Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する"
 date: "2010-05-07"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: System.out.println() でオブジェクトを出力するときは toString() しない
+title: "System.out.println() でオブジェクトを出力するときは toString() しない"
 date: "2005-06-27"
 ---
 

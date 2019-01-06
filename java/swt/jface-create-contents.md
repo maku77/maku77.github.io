@@ -1,5 +1,5 @@
 ---
-title: JFace - JFace のウィンドウにウィジェットを配置する
+title: "JFace - JFace のウィンドウにウィジェットを配置する"
 date: "2010-08-21"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: タブ文字の設定 (tabstop, expandtab)
+title: "タブ文字の設定 (tabstop, expandtab)"
 date: "2007-04-11"
 ---
 

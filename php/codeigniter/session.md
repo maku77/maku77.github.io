@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - Session クラスでセッションデータを保持する
+title: "CodeIgniter - Session クラスでセッションデータを保持する"
 date: "2012-08-13"
 ---
 

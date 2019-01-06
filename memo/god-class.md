@@ -1,5 +1,5 @@
 ---
-title: ゴッドクラス (God Class) とは
+title: "ゴッドクラス (God Class) とは"
 date: "2015-12-18"
 ---
 

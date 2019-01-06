@@ -1,5 +1,5 @@
 ---
-title: Gradle で Checkstyle による静的解析を実行する
+title: "Gradle で Checkstyle による静的解析を実行する"
 date: "2015-08-10"
 ---
 

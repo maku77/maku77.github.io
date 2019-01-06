@@ -1,5 +1,5 @@
 ---
-title: foreach でループ処理できるクラスを作成する（Iterator の実装）
+title: "foreach でループ処理できるクラスを作成する（Iterator の実装）"
 date: "2012-10-01"
 ---
 

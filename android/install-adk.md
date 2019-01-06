@@ -1,5 +1,5 @@
 ---
-title: Eclipse から Android SDK を使えるようにする (ADK)
+title: "Eclipse から Android SDK を使えるようにする (ADK)"
 date: "2010-04-11"
 ---
 

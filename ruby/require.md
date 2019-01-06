@@ -1,5 +1,5 @@
 ---
-title: require で他のライブラリを読み込む
+title: "require で他のライブラリを読み込む"
 date: "2015-11-21"
 ---
 

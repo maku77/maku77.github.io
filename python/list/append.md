@@ -1,5 +1,5 @@
 ---
-title: リストに要素を追加する／リストを結合する (append, extend, +)
+title: "リストに要素を追加する／リストを結合する (append, extend, +)"
 date: "2009-11-26"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: CakePHP 入門 (3) CakePHP アプリの URL の仕組み
+title: "CakePHP 入門 (3) CakePHP アプリの URL の仕組み"
 date: "2012-05-03"
 ---
 

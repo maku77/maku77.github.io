@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - データベースのテーブルを作成する
+title: "CodeIgniter - データベースのテーブルを作成する"
 date: "2012-07-14"
 ---
 

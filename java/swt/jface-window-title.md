@@ -1,5 +1,5 @@
 ---
-title: JFace - JFace のウィンドウのタイトルを設定する
+title: "JFace - JFace のウィンドウのタイトルを設定する"
 date: "2010-08-21"
 ---
 

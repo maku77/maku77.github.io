@@ -1,5 +1,5 @@
 ---
-title: 2 つの dictionary をマージする (update)
+title: "2 つの dictionary をマージする (update)"
 date: "2005-10-20"
 ---
 

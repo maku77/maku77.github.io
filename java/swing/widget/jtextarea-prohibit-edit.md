@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextArea のテキストを編集不可にする
+title: "Swing - JTextArea のテキストを編集不可にする"
 date: "2011-01-23"
 ---
 

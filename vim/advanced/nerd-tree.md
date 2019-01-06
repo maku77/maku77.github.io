@@ -1,5 +1,5 @@
 ---
-title: Vim 上でディレクトリツリーを表示する (NERD Tree)
+title: "Vim 上でディレクトリツリーを表示する (NERD Tree)"
 date: "2012-07-22"
 ---
 

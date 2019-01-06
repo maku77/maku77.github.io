@@ -1,5 +1,5 @@
 ---
-title: Xperia Tablet Z に adb 接続する
+title: "Xperia Tablet Z に adb 接続する"
 date: "2014-05-30"
 ---
 

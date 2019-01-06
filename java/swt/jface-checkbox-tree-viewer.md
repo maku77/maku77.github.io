@@ -1,5 +1,5 @@
 ---
-title: JFace の CheckboxTreeViewer を使用する
+title: "JFace の CheckboxTreeViewer を使用する"
 date: "2005-07-27"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Python から外部プログラムを起動する (subprocess.run)
+title: "Python から外部プログラムを起動する (subprocess.run)"
 date: "2012-09-28"
 ---
 

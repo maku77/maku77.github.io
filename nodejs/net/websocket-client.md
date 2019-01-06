@@ -1,5 +1,5 @@
 ---
-title: WebSocket クライアントを作成する
+title: "WebSocket クライアントを作成する"
 date: "2014-03-05"
 ---
 

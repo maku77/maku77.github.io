@@ -1,5 +1,5 @@
 ---
-title: Android の Locale を切り替える
+title: "Android の Locale を切り替える"
 date: "2011-05-19"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 文字列を大文字、小文字に変換する (strtolower, strtoupper)
+title: "文字列を大文字、小文字に変換する (strtolower, strtoupper)"
 date: "2012-01-15"
 ---
 

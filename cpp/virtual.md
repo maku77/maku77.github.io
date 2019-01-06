@@ -1,5 +1,5 @@
 ---
-title: C++ の virtual の効果まとめ
+title: "C++ の virtual の効果まとめ"
 date: "2006-07-14"
 ---
 

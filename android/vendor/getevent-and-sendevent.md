@@ -1,5 +1,5 @@
 ---
-title: getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う
+title: "getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う"
 date: "2010-11-15"
 ---
 

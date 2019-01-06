@@ -1,5 +1,5 @@
 ---
-title: Python で XML を構築する (minidom)
+title: "Python で XML を構築する (minidom)"
 date: "2012-06-08"
 ---
 

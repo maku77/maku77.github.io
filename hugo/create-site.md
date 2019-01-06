@@ -1,5 +1,5 @@
 ---
-title: Hugo で新規の Web サイトを作成する
+title: "Hugo で新規の Web サイトを作成する"
 date: "2017-08-23"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 配列を逆順にする (array_reverse)
+title: "配列を逆順にする (array_reverse)"
 date: "2012-12-24"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Windows でファイルを開くときに既存の GVim 内のタブで開く
+title: "Windows でファイルを開くときに既存の GVim 内のタブで開く"
 date: "2013-10-25"
 ---
 

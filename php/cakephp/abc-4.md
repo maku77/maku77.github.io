@@ -1,5 +1,5 @@
 ---
-title: CakePHP 入門 (4) Controller、View、Model を作成する
+title: "CakePHP 入門 (4) Controller、View、Model を作成する"
 date: "2012-05-04"
 ---
 

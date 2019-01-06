@@ -1,5 +1,5 @@
 ---
-title: wxPytnon - StatusBar（ステータスバー）
+title: "wxPytnon - StatusBar（ステータスバー）"
 date: "2007-02-06"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 文字列を比較する (strcmp, strcasecmp)
+title: "文字列を比較する (strcmp, strcasecmp)"
 date: "2012-01-15"
 ---
 

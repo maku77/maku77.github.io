@@ -1,5 +1,5 @@
 ---
-title: Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)
+title: "Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)"
 date: "2015-09-25"
 ---
 

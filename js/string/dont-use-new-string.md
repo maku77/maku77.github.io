@@ -1,5 +1,5 @@
 ---
-title: new String は避ける
+title: "new String は避ける"
 date: "2012-10-20"
 ---
 

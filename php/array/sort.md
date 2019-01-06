@@ -1,5 +1,5 @@
 ---
-title: 配列をソートする (sort, ksort, asort)
+title: "配列をソートする (sort, ksort, asort)"
 date: "2012-01-30"
 ---
 

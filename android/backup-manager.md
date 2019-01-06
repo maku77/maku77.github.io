@@ -1,5 +1,5 @@
 ---
-title: adb から Backup Manager を走らせる (bmgr)
+title: "adb から Backup Manager を走らせる (bmgr)"
 date: "2012-01-26"
 ---
 

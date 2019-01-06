@@ -1,5 +1,5 @@
 ---
-title: mongoose で MongoDB (1) mongoose をインストールする
+title: "mongoose で MongoDB (1) mongoose をインストールする"
 date: "2014-02-10"
 ---
 

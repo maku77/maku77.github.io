@@ -1,5 +1,5 @@
 ---
-title: dbus-glib で method call を実装する（ヘッダファイルの生成）
+title: "dbus-glib で method call を実装する（ヘッダファイルの生成）"
 date: "2012-05-08"
 ---
 

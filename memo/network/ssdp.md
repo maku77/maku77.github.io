@@ -1,5 +1,5 @@
 ---
-title: GENA と SSDP プロトコルを理解する
+title: "GENA と SSDP プロトコルを理解する"
 date: "2012-12-25"
 ---
 

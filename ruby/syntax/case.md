@@ -1,5 +1,5 @@
 ---
-title: Ruby の制御構文 -- case による分岐
+title: "Ruby の制御構文 -- case による分岐"
 date: "2002-08-22"
 ---
 

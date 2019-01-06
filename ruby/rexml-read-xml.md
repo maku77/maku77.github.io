@@ -1,5 +1,5 @@
 ---
-title: REXML で XML ファイルを読み込む
+title: "REXML で XML ファイルを読み込む"
 date: "2011-06-22"
 ---
 

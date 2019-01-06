@@ -1,5 +1,5 @@
 ---
-title: Swing - JList に動的に要素を追加／削除する
+title: "Swing - JList に動的に要素を追加／削除する"
 date: "2011-01-29"
 ---
 

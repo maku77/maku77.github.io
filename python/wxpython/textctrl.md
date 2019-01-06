@@ -1,5 +1,5 @@
 ---
-title: wxPython - TextCtrl（テキスト入力用）
+title: "wxPython - TextCtrl（テキスト入力用）"
 date: "2007-02-06"
 ---
 

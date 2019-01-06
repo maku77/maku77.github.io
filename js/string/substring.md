@@ -1,5 +1,5 @@
 ---
-title: 部分文字列を取得する (substring, slice)
+title: "部分文字列を取得する (substring, slice)"
 date: "2012-01-20"
 ---
 

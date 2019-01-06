@@ -1,5 +1,5 @@
 ---
-title: リスト／タプル内の要素をランダムで取得する (random.choice, random.choices, random.sample)
+title: "リスト／タプル内の要素をランダムで取得する (random.choice, random.choices, random.sample)"
 date: "2018-11-02"
 ---
 

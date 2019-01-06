@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で単一の項目のみ選択できるようにする
+title: "Swing - JList で単一の項目のみ選択できるようにする"
 date: "2011-01-23"
 ---
 

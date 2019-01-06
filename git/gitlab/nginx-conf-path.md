@@ -1,5 +1,5 @@
 ---
-title: GitLab 用 nginx サーバの設定ファイルの場所
+title: "GitLab 用 nginx サーバの設定ファイルの場所"
 date: "2014-05-16"
 ---
 

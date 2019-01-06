@@ -1,5 +1,5 @@
 ---
-title: Sleep モードに遷移する
+title: "Sleep モードに遷移する"
 date: "2010-11-01"
 ---
 

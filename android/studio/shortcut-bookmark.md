@@ -1,5 +1,5 @@
 ---
-title: Android Studio の便利なショートカット (2) ブックマーク
+title: "Android Studio の便利なショートカット (2) ブックマーク"
 date: "2016-06-20"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Swing - JEditorPane でハイパーリンク関連のイベントをハンドルする
+title: "Swing - JEditorPane でハイパーリンク関連のイベントをハンドルする"
 date: "2011-02-06"
 ---
 

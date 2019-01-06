@@ -1,5 +1,5 @@
 ---
-title: GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する
+title: "GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する"
 date: "2015-10-01"
 ---
 

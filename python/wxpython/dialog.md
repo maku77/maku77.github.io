@@ -1,5 +1,5 @@
 ---
-title: wxPython - Dialog（ダイアログ）
+title: "wxPython - Dialog（ダイアログ）"
 date: "2007-11-05"
 ---
 

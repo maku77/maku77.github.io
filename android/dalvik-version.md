@@ -1,5 +1,5 @@
 ---
-title: ART/Dalvik VM のバージョンを調べる
+title: "ART/Dalvik VM のバージョンを調べる"
 date: "2010-06-01"
 ---
 

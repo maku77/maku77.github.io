@@ -1,5 +1,5 @@
 ---
-title: Swing - BorderLayout でコンポーネント間のスペースを設定する
+title: "Swing - BorderLayout でコンポーネント間のスペースを設定する"
 date: "2011-01-15"
 ---
 

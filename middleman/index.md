@@ -1,5 +1,5 @@
 ---
-title: Middleman
+title: "Middleman"
 layout: category-index
 ---
 

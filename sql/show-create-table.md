@@ -1,5 +1,5 @@
 ---
-title: テーブルを作成したときのコマンドを表示する (SHOW CREATE TABLE)
+title: "テーブルを作成したときのコマンドを表示する (SHOW CREATE TABLE)"
 date: "2012-08-17"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Gradle のプロキシを設定する
+title: "Gradle のプロキシを設定する"
 date: "2014-06-01"
 ---
 

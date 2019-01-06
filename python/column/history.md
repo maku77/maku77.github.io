@@ -1,5 +1,5 @@
 ---
-title: Python 開発の歴史
+title: "Python 開発の歴史"
 date: "2013-04-07"
 ---
 

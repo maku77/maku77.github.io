@@ -1,5 +1,5 @@
 ---
-title: pthread で mutex による排他制御を行う
+title: "pthread で mutex による排他制御を行う"
 date: "2010-11-08"
 ---
 

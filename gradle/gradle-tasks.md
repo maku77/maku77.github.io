@@ -1,5 +1,5 @@
 ---
-title: Gradle タスクの一覧を表示する (tasks)
+title: "Gradle タスクの一覧を表示する (tasks)"
 date: "2014-06-17"
 ---
 

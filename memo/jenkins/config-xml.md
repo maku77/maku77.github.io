@@ -1,5 +1,5 @@
 ---
-title: Jenkins ジョブの設定 (config.xml) を確認する
+title: "Jenkins ジョブの設定 (config.xml) を確認する"
 date: "2016-10-20"
 ---
 

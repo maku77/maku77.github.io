@@ -1,5 +1,5 @@
 ---
-title: MySQL でデータベースのユーザを作成／削除する (CREATE USER, DROP USER)
+title: "MySQL でデータベースのユーザを作成／削除する (CREATE USER, DROP USER)"
 date: "2005-04-03"
 ---
 

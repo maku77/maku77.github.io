@@ -1,5 +1,5 @@
 ---
-title: Gradle
+title: "Gradle"
 date: "2015-07-01"
 layout: category-index
 ---

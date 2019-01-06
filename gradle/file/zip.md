@@ -1,5 +1,5 @@
 ---
-title: Gradle でディレクトリ内のファイルを ZIP 圧縮する
+title: "Gradle でディレクトリ内のファイルを ZIP 圧縮する"
 date: "2016-09-09"
 ---
 

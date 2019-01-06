@@ -1,5 +1,5 @@
 ---
-title: ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)
+title: "ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)"
 date: "2016-07-15"
 ---
 

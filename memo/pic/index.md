@@ -1,5 +1,5 @@
 ---
-title: PIC めもめも（PIC アセンブラ）
+title: "PIC めもめも（PIC アセンブラ）"
 date: "2002-08-01"
 ---
 

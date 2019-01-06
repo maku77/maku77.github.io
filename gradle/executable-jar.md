@@ -1,5 +1,5 @@
 ---
-title: Gradle で実行可能な JAR ファイルを作成する
+title: "Gradle で実行可能な JAR ファイルを作成する"
 date: "2015-07-10"
 ---
 

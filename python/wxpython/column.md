@@ -1,5 +1,5 @@
 ---
-title: wxPython 関連コラム
+title: "wxPython 関連コラム"
 date: "2007-03-23"
 ---
 

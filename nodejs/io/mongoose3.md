@@ -1,5 +1,5 @@
 ---
-title: mongoose で MongoDB (3) モデルクラスを作成する
+title: "mongoose で MongoDB (3) モデルクラスを作成する"
 date: "2014-02-10"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 階乗を求める (math.factorial)
+title: "階乗を求める (math.factorial)"
 date: "2013-05-04"
 ---
 

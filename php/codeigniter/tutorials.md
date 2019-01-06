@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - 参考になるチュートリアル動画集
+title: "CodeIgniter - 参考になるチュートリアル動画集"
 date: "2012-08-13"
 ---
 

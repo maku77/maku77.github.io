@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextField で Enter キーを押したときにテキストを取得する
+title: "Swing - JTextField で Enter キーを押したときにテキストを取得する"
 date: "2011-05-05"
 ---
 

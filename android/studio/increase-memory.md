@@ -1,5 +1,5 @@
 ---
-title: Android Studio に割り当てるメモリを増やす
+title: "Android Studio に割り当てるメモリを増やす"
 date: "2016-03-22"
 ---
 

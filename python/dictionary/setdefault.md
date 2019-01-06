@@ -1,5 +1,5 @@
 ---
-title: dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)
+title: "dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)"
 date: "2013-06-15"
 ---
 

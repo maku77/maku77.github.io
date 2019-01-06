@@ -1,5 +1,5 @@
 ---
-title: CORS - Cross-Origin Resource Sharing とは？
+title: "CORS - Cross-Origin Resource Sharing とは？"
 date: "2012-10-23"
 ---
 

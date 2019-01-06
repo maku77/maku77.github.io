@@ -1,5 +1,5 @@
 ---
-title: dictionary の要素数を取得する (len)
+title: "dictionary の要素数を取得する (len)"
 date: "2005-10-20"
 ---
 

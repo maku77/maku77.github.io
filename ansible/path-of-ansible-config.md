@@ -1,5 +1,5 @@
 ---
-title: ansible.cfg ファイルの検索パス
+title: "ansible.cfg ファイルの検索パス"
 date: "2016-10-23"
 ---
 

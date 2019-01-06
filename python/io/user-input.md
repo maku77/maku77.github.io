@@ -1,5 +1,5 @@
 ---
-title: キーボードからのユーザ入力を取得する (input, getpass)
+title: "キーボードからのユーザ入力を取得する (input, getpass)"
 date: "2009-11-18"
 ---
 

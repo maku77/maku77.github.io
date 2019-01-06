@@ -1,5 +1,5 @@
 ---
-title: Middleman で Sassy CSS (SCSS) を使用する
+title: "Middleman で Sassy CSS (SCSS) を使用する"
 date: "2015-11-04"
 ---
 

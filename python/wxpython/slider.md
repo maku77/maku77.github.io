@@ -1,5 +1,5 @@
 ---
-title: wxPython - Slider（スライダー）
+title: "wxPython - Slider（スライダー）"
 date: "2007-04-09"
 ---
 

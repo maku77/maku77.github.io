@@ -1,5 +1,5 @@
 ---
-title: Android Studio を使っているときの Gradle 関連ファイル
+title: "Android Studio を使っているときの Gradle 関連ファイル"
 date: "2015-11-12"
 ---
 

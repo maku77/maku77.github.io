@@ -1,5 +1,5 @@
 ---
-title: SuprressWarnings アノテーションで Checkstyle の警告を抑制する
+title: "SuprressWarnings アノテーションで Checkstyle の警告を抑制する"
 date: "2015-12-21"
 ---
 

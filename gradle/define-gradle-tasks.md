@@ -1,5 +1,5 @@
 ---
-title: Gradle のタスクを定義する
+title: "Gradle のタスクを定義する"
 date: "2014-06-17"
 ---
 

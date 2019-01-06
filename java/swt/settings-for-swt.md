@@ -1,5 +1,5 @@
 ---
-title: SWT - SWT を使用するための設定
+title: "SWT - SWT を使用するための設定"
 date: "2010-08-08"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Mac で javac の出力が文字化けする
+title: "Mac で javac の出力が文字化けする"
 date: "2011-03-24"
 ---
 

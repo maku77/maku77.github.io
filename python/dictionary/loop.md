@@ -1,5 +1,5 @@
 ---
-title: dictionary の要素をループで処理する
+title: "dictionary の要素をループで処理する"
 date: "2005-10-20"
 ---
 

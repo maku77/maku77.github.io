@@ -1,5 +1,5 @@
 ---
-title: Java アプリケーションの国際化 (i18n) と Locale クラス
+title: "Java アプリケーションの国際化 (i18n) と Locale クラス"
 date: "2010-05-16"
 ---
 

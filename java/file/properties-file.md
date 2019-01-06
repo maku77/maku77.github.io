@@ -1,5 +1,5 @@
 ---
-title: Propertiesファイルから設定値を読み込む
+title: "Propertiesファイルから設定値を読み込む"
 date: "2011-04-07"
 ---
 

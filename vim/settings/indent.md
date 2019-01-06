@@ -1,5 +1,5 @@
 ---
-title: インデント（シフトコマンド）の設定 (shiftwidth, shiftround)
+title: "インデント（シフトコマンド）の設定 (shiftwidth, shiftround)"
 date: "2007-02-20"
 ---
 

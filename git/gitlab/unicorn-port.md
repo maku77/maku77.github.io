@@ -1,5 +1,5 @@
 ---
-title: GitLab が使用する Unicorn 用のポート番号を変更する
+title: "GitLab が使用する Unicorn 用のポート番号を変更する"
 date: "2014-05-16"
 ---
 

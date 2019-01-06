@@ -1,5 +1,5 @@
 ---
-title: dbus-glib で method call を実装する（クライアント側の実装）
+title: "dbus-glib で method call を実装する（クライアント側の実装）"
 date: "2012-05-10"
 ---
 

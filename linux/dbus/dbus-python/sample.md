@@ -1,5 +1,5 @@
 ---
-title: dbus-python の公式サンプルコード
+title: "dbus-python の公式サンプルコード"
 date: "2012-09-04"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 文字列の結合には StringBuffer ではなく StringBuilder を使用する
+title: "文字列の結合には StringBuffer ではなく StringBuilder を使用する"
 date: "2014-07-02"
 ---
 

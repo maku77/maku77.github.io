@@ -1,5 +1,5 @@
 ---
-title: MySQL データベースの一覧を表示する (SHOW DATABASES)
+title: "MySQL データベースの一覧を表示する (SHOW DATABASES)"
 date: "2012-07-14"
 ---
 

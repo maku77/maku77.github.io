@@ -1,5 +1,5 @@
 ---
-title: Python スクリプトの中で Python のバージョンを確認する (sys.version)
+title: "Python スクリプトの中で Python のバージョンを確認する (sys.version)"
 date: "2011-01-28"
 ---
 

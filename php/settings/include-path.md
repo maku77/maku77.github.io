@@ -1,5 +1,5 @@
 ---
-title: 現在の include_path 設定を調べる
+title: "現在の include_path 設定を調べる"
 date: "2012-09-23"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: .NET - System.Data.SQLite で SQLite データベースを使用する
+title: ".NET - System.Data.SQLite で SQLite データベースを使用する"
 date: "2009-03-01"
 ---
 

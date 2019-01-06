@@ -1,5 +1,5 @@
 ---
-title: wxPython - SplitterWindow（スプリッターウィンドウ）
+title: "wxPython - SplitterWindow（スプリッターウィンドウ）"
 date: "2007-04-06"
 ---
 

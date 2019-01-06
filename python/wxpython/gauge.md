@@ -1,5 +1,5 @@
 ---
-title: wxPython - Gauge（プログレスバー）
+title: "wxPython - Gauge（プログレスバー）"
 date: "2007-04-09"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: wxPython - Grid（グリッド）
+title: "wxPython - Grid（グリッド）"
 date: "2007-04-02"
 ---
 

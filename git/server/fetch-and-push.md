@@ -1,5 +1,5 @@
 ---
-title: 共有リポジトリからの fetch と push
+title: "共有リポジトリからの fetch と push"
 date: "2010-07-22"
 ---
 

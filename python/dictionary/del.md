@@ -1,5 +1,5 @@
 ---
-title: dictionary の要素を削除する (del)
+title: "dictionary の要素を削除する (del)"
 date: "2005-10-20"
 ---
 

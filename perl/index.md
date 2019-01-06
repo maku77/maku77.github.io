@@ -1,5 +1,5 @@
 ---
-title: Perl
+title: "Perl"
 layout: category-index
 ---
 

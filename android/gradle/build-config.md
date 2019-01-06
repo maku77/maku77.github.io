@@ -1,5 +1,5 @@
 ---
-title: BuildConfig クラスでアプリの動作を切り替える
+title: "BuildConfig クラスでアプリの動作を切り替える"
 date: "2016-08-01"
 ---
 

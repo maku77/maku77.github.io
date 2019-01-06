@@ -1,5 +1,5 @@
 ---
-title: HTML5 Canvas の描画領域全体をクリアする
+title: "HTML5 Canvas の描画領域全体をクリアする"
 date: "2015-04-09"
 ---
 

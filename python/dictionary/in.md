@@ -1,5 +1,5 @@
 ---
-title: dictionary に指定したキーが存在するか調べる (in)
+title: "dictionary に指定したキーが存在するか調べる (in)"
 date: "2005-10-20"
 ---
 

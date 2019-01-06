@@ -1,5 +1,5 @@
 ---
-title: JavaScript
+title: "JavaScript"
 layout: category-index
 ---
 

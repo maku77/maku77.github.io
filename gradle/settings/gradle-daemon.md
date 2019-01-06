@@ -1,5 +1,5 @@
 ---
-title: Gradle デーモンを使って gradle コマンドを高速化する
+title: "Gradle デーモンを使って gradle コマンドを高速化する"
 date: "2015-07-10"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Groovy で assert を使用する
+title: "Groovy で assert を使用する"
 date: "2015-07-07"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Python でヒアドキュメント
+title: "Python でヒアドキュメント"
 date: "2012-01-14"
 ---
 

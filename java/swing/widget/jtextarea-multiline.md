@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextArea で複数行のテキストを表示する
+title: "Swing - JTextArea で複数行のテキストを表示する"
 date: "2011-01-23"
 ---
 

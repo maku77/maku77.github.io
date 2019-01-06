@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で項目のリストを表示する
+title: "Swing - JList で項目のリストを表示する"
 date: "2011-01-23"
 ---
 

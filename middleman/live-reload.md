@@ -1,5 +1,5 @@
 ---
-title: LiveReload 機能を使って Web ブラウザを自動でリロードする
+title: "LiveReload 機能を使って Web ブラウザを自動でリロードする"
 date: "2015-11-04"
 ---
 

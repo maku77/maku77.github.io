@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter- SQLite3 データベースの接続設定を行う
+title: "CodeIgniter- SQLite3 データベースの接続設定を行う"
 date: "2012-07-07"
 ---
 

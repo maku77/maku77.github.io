@@ -1,5 +1,5 @@
 ---
-title: Java で Linux の CPU 使用率を調べる
+title: "Java で Linux の CPU 使用率を調べる"
 date: "2012-09-21"
 ---
 

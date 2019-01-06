@@ -1,5 +1,5 @@
 ---
-title: .NET - XML 形式の設定ファイルを XPath で操作するサンプル
+title: ".NET - XML 形式の設定ファイルを XPath で操作するサンプル"
 date: "2006-03-09"
 ---
 

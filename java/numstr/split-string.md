@@ -1,5 +1,5 @@
 ---
-title: 文字列をデリミタで分割する (String.split, Pattern.split)
+title: "文字列をデリミタで分割する (String.split, Pattern.split)"
 date: "2012-09-18"
 ---
 

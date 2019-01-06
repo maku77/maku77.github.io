@@ -1,5 +1,5 @@
 ---
-title: 配列をスタックとして扱う (array_push, array_pop)
+title: "配列をスタックとして扱う (array_push, array_pop)"
 date: "2012-01-30"
 ---
 

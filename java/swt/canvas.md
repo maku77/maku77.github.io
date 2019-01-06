@@ -1,5 +1,5 @@
 ---
-title: SWT - Canvas を使って自由に描画する
+title: "SWT - Canvas を使って自由に描画する"
 date: "2010-09-18"
 ---
 

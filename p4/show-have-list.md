@@ -1,5 +1,5 @@
 ---
-title: クライアントの have list を表示する (p4 have)
+title: "クライアントの have list を表示する (p4 have)"
 date: "2008-06-06"
 ---
 

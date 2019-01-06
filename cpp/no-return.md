@@ -1,5 +1,5 @@
 ---
-title: C11 で定義された _Noreteurn の使い方
+title: "C11 で定義された _Noreteurn の使い方"
 date: "2014-03-26"
 ---
 

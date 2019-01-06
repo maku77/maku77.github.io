@@ -1,5 +1,5 @@
 ---
-title: ADB で WakeLock を強制的に外す
+title: "ADB で WakeLock を強制的に外す"
 date: "2016-07-07"
 ---
 

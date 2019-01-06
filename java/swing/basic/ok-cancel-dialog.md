@@ -1,5 +1,5 @@
 ---
-title: Swing - OK ボタンと Cancel ボタンのあるダイアログを作る
+title: "Swing - OK ボタンと Cancel ボタンのあるダイアログを作る"
 date: "2011-01-29"
 ---
 

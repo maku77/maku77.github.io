@@ -1,5 +1,5 @@
 ---
-title: Groovy でメソッドを定義する
+title: "Groovy でメソッドを定義する"
 date: "2015-07-08"
 ---
 

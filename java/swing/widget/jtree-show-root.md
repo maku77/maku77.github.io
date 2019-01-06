@@ -1,5 +1,5 @@
 ---
-title: Swing - JTree でルートノードを表示する
+title: "Swing - JTree でルートノードを表示する"
 date: "2011-02-11"
 ---
 

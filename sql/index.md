@@ -1,5 +1,5 @@
 ---
-title: SQL
+title: "SQL"
 layout: category-index
 ---
 

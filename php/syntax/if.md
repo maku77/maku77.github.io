@@ -1,5 +1,5 @@
 ---
-title: PHP の if-else 構文
+title: "PHP の if-else 構文"
 date: "2012-01-15"
 ---
 

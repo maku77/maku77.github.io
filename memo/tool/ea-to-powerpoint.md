@@ -1,5 +1,5 @@
 ---
-title: Enterprise Architect の図をシンプルにして Power Point に貼り付ける
+title: "Enterprise Architect の図をシンプルにして Power Point に貼り付ける"
 date: "2016-06-21"
 ---
 

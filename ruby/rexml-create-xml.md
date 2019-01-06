@@ -1,5 +1,5 @@
 ---
-title: REXML で XML ファイルを作成する
+title: "REXML で XML ファイルを作成する"
 date: "2010-06-13"
 ---
 

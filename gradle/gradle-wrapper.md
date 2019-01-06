@@ -1,5 +1,5 @@
 ---
-title: Gradle Wrapper スクリプト (gradlew) を作成する
+title: "Gradle Wrapper スクリプト (gradlew) を作成する"
 date: "2015-07-10"
 ---
 

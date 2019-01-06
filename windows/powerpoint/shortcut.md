@@ -1,5 +1,5 @@
 ---
-title: PowerPoint で使いこなすとかっこいいショートカット
+title: "PowerPoint で使いこなすとかっこいいショートカット"
 date: "2013-06-13"
 ---
 

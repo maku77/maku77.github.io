@@ -1,5 +1,5 @@
 ---
-title: 文字列を逆順にする (reverse)
+title: "文字列を逆順にする (reverse)"
 date: "2011-12-05"
 ---
 

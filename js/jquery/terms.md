@@ -1,5 +1,5 @@
 ---
-title: jQuery 関連用語
+title: "jQuery 関連用語"
 date: "2013-01-04"
 ---
 

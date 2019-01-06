@@ -1,5 +1,5 @@
 ---
-title: 配列の内容を再帰的にダンプする (print_r, var_dump)
+title: "配列の内容を再帰的にダンプする (print_r, var_dump)"
 date: "2012-01-30"
 ---
 

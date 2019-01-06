@@ -1,5 +1,5 @@
 ---
-title: 階層構想を表現した RDB のデータを JFace の TreeViewer でツリー表示する
+title: "階層構想を表現した RDB のデータを JFace の TreeViewer でツリー表示する"
 date: "2005-07-26"
 ---
 

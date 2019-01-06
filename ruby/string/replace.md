@@ -1,5 +1,5 @@
 ---
-title: 文字列を置換する (sub/gsub)
+title: "文字列を置換する (sub/gsub)"
 date: "2011-10-07"
 ---
 

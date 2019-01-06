@@ -1,5 +1,5 @@
 ---
-title: ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する
+title: "ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する"
 date: "2015-10-28"
 ---
 

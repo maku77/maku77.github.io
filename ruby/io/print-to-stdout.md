@@ -1,5 +1,5 @@
 ---
-title: 標準出力へ出力する (puts/print/printf)
+title: "標準出力へ出力する (puts/print/printf)"
 date: "2011-10-01"
 ---
 

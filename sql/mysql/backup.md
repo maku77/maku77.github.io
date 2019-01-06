@@ -1,5 +1,5 @@
 ---
-title: MySQL でデータベースをバックアップ／リストアする (mysqldump)
+title: "MySQL でデータベースをバックアップ／リストアする (mysqldump)"
 date: "2005-04-03"
 ---
 

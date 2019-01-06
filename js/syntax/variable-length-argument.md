@@ -1,5 +1,5 @@
 ---
-title: 可変長引数を扱う関数を定義する (arguments)
+title: "可変長引数を扱う関数を定義する (arguments)"
 date: "2012-11-14"
 ---
 

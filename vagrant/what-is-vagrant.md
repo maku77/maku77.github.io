@@ -1,5 +1,5 @@
 ---
-title: Vagrant とは？ Vagrant をインストールする
+title: "Vagrant とは？ Vagrant をインストールする"
 date: "2016-10-18"
 ---
 

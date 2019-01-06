@@ -1,5 +1,5 @@
 ---
-title: SWT - SWT の Layout は Composite の入れ子で構成する
+title: "SWT - SWT の Layout は Composite の入れ子で構成する"
 date: "2010-08-28"
 ---
 

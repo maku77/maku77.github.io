@@ -1,5 +1,5 @@
 ---
-title: wxPython - Menu（メニュー）
+title: "wxPython - Menu（メニュー）"
 date: "2007-04-13"
 ---
 

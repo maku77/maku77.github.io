@@ -1,5 +1,5 @@
 ---
-title: Android ビルド環境を構築するための Dockerfile
+title: "Android ビルド環境を構築するための Dockerfile"
 date: "2015-04-02"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: switch の中の case の順序について
+title: "switch の中の case の順序について"
 date: "2005-07-27"
 ---
 

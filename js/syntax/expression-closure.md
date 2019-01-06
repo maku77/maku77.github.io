@@ -1,5 +1,5 @@
 ---
-title: 式クロージャ (Expression Closure)
+title: "式クロージャ (Expression Closure)"
 date: "2012-11-09"
 ---
 

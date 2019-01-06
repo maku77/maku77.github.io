@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で最後の項目を選択する
+title: "Swing - JList で最後の項目を選択する"
 date: "2011-03-17"
 ---
 

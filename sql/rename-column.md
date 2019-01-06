@@ -1,5 +1,5 @@
 ---
-title: テーブル内のカラム名を変更する (ALTER TABLE ～ RENAME COLUMN)
+title: "テーブル内のカラム名を変更する (ALTER TABLE ～ RENAME COLUMN)"
 date: "2013-01-06"
 ---
 

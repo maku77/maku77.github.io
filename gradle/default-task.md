@@ -1,5 +1,5 @@
 ---
-title: Gradle でデフォルトタスクを指定する (defaultTasks)
+title: "Gradle でデフォルトタスクを指定する (defaultTasks)"
 date: "2014-06-08"
 ---
 

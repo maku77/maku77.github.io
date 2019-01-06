@@ -1,5 +1,5 @@
 ---
-title: テーブルにカラムを追加する (ALTER TABLE ～ ADD COLUMN)
+title: "テーブルにカラムを追加する (ALTER TABLE ～ ADD COLUMN)"
 date: "2013-01-06"
 ---
 

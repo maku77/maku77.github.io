@@ -1,5 +1,5 @@
 ---
-title: Swing - JDialog のウィンドウサイズを変更できるようにする
+title: "Swing - JDialog のウィンドウサイズを変更できるようにする"
 date: "2011-02-02"
 ---
 

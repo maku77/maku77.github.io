@@ -1,5 +1,5 @@
 ---
-title: sed/awk メモ
+title: "sed/awk メモ"
 layout: category-index
 ---
 

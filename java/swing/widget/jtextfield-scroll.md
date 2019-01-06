@@ -1,5 +1,5 @@
 ---
-title: Swing - JTextField でテキストの先頭／末尾部分を強制的に表示する
+title: "Swing - JTextField でテキストの先頭／末尾部分を強制的に表示する"
 date: "2011-02-06"
 ---
 

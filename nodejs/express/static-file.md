@@ -1,5 +1,5 @@
 ---
-title: Express で静的ファイル（static ファイル）をホスティングする
+title: "Express で静的ファイル（static ファイル）をホスティングする"
 date: "2013-10-28"
 ---
 

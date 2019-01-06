@@ -1,5 +1,5 @@
 ---
-title: D-Bus Java をインストールする
+title: "D-Bus Java をインストールする"
 date: "2012-05-11"
 ---
 

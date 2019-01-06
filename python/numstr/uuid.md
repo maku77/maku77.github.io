@@ -1,5 +1,5 @@
 ---
-title: Python で UUID を生成する (uuid.uuid4)
+title: "Python で UUID を生成する (uuid.uuid4)"
 date: "2013-05-29"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: git config で設定すべき一般的な設定項目まとめ
+title: "git config で設定すべき一般的な設定項目まとめ"
 date: "2014-06-04"
 ---
 

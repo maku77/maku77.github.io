@@ -1,5 +1,5 @@
 ---
-title: Python のパッケージ管理ツール (pip)
+title: "Python のパッケージ管理ツール (pip)"
 date: "2015-05-17"
 ---
 

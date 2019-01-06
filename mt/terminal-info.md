@@ -1,5 +1,5 @@
 ---
-title: MetaTrader のターミナル情報を取得する
+title: "MetaTrader のターミナル情報を取得する"
 date: "2014-12-06"
 ---
 

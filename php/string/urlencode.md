@@ -1,5 +1,5 @@
 ---
-title: 文字列を URL エンコードする (urlencode)
+title: "文字列を URL エンコードする (urlencode)"
 date: "2012-10-14"
 ---
 

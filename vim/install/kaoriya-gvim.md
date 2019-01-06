@@ -1,5 +1,5 @@
 ---
-title: MacOSX に香り屋版の GVim をインストールする
+title: "MacOSX に香り屋版の GVim をインストールする"
 date: "2011-03-23"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: DateTime クラスで時刻を扱う
+title: "DateTime クラスで時刻を扱う"
 date: "2012-07-31"
 ---
 

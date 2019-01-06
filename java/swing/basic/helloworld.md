@@ -1,5 +1,5 @@
 ---
-title: Swing で Hello World
+title: "Swing で Hello World"
 date: "2011-01-05"
 ---
 

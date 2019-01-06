@@ -1,5 +1,5 @@
 ---
-title: Groovy で文字列リテラルを扱う
+title: "Groovy で文字列リテラルを扱う"
 date: "2015-07-08"
 ---
 

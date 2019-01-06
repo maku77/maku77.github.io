@@ -1,5 +1,5 @@
 ---
-title: Groovy のクロージャ
+title: "Groovy のクロージャ"
 date: "2016-10-13"
 ---
 

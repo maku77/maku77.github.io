@@ -1,5 +1,5 @@
 ---
-title: Swing - BoxLayout で左寄せ／中央寄せ／右寄せ表示する
+title: "Swing - BoxLayout で左寄せ／中央寄せ／右寄せ表示する"
 date: "2011-01-09"
 ---
 

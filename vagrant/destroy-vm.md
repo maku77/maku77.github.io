@@ -1,5 +1,5 @@
 ---
-title: 不要な Vagrant 仮想マシンを削除する (vagrant destroy)
+title: "不要な Vagrant 仮想マシンを削除する (vagrant destroy)"
 date: "2016-10-27"
 ---
 

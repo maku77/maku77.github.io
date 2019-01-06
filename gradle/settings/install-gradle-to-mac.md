@@ -1,5 +1,5 @@
 ---
-title: Gradle を Mac OSX にインストールする
+title: "Gradle を Mac OSX にインストールする"
 date: "2014-06-01"
 ---
 

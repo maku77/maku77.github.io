@@ -1,5 +1,5 @@
 ---
-title: XML/HTML の編集に便利なコマンド
+title: "XML/HTML の編集に便利なコマンド"
 date: "2014-03-31"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: JFace の TreeViewer を使ってディレクトリツリーを表示する
+title: "JFace の TreeViewer を使ってディレクトリツリーを表示する"
 date: "2005-07-24"
 ---
 

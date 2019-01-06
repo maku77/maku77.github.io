@@ -1,5 +1,5 @@
 ---
-title: wxPython - SpinCtrl（スピンコントロール）
+title: "wxPython - SpinCtrl（スピンコントロール）"
 date: "2007-04-09"
 ---
 

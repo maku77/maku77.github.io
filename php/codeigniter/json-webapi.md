@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - JSON テキストを返す Web API をサクッと作成する
+title: "CodeIgniter - JSON テキストを返す Web API をサクッと作成する"
 date: "2013-03-02"
 ---
 

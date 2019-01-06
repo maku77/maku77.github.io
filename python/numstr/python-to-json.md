@@ -1,5 +1,5 @@
 ---
-title: Python のオブジェクトを JSON 形式のテキストに変換する
+title: "Python のオブジェクトを JSON 形式のテキストに変換する"
 date: "2013-05-09"
 ---
 

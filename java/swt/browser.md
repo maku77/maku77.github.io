@@ -1,5 +1,5 @@
 ---
-title: SWT - ブラウザウィジェット (Browser) で HTML を表示する
+title: "SWT - ブラウザウィジェット (Browser) で HTML を表示する"
 date: "2010-11-24"
 ---
 

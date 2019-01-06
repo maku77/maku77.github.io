@@ -1,5 +1,5 @@
 ---
-title: スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする
+title: "スレッドで発生した Uncaught Exception（未捕捉例外）をハンドルする"
 date: "2014-06-25"
 ---
 

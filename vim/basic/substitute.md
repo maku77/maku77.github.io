@@ -1,5 +1,5 @@
 ---
-title: 文字の置換方法いろいろ (:substitute)
+title: "文字の置換方法いろいろ (:substitute)"
 date: "2007-01-08"
 ---
 

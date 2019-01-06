@@ -1,5 +1,5 @@
 ---
-title: wxPython - StaticText（変更不可のラベル）
+title: "wxPython - StaticText（変更不可のラベル）"
 date: "2007-04-06"
 ---
 

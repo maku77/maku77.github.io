@@ -1,5 +1,5 @@
 ---
-title: SharedPreference でアプリの設定値を保存する
+title: "SharedPreference でアプリの設定値を保存する"
 date: "2010-05-29"
 ---
 

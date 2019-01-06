@@ -1,5 +1,5 @@
 ---
-title: Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する
+title: "Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する"
 date: "2016-10-13"
 ---
 

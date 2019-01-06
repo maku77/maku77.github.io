@@ -1,5 +1,5 @@
 ---
-title: カスタムインジケータの OnCalculate 関数を最適化する
+title: "カスタムインジケータの OnCalculate 関数を最適化する"
 date: "2015-02-01"
 ---
 

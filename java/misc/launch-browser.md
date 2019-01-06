@@ -1,5 +1,5 @@
 ---
-title: 既定の Web ブラウザで URL を開く
+title: "既定の Web ブラウザで URL を開く"
 date: "2011-05-05"
 ---
 

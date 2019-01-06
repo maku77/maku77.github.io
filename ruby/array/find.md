@@ -1,5 +1,5 @@
 ---
-title: 条件に一致する要素を検索する (find/find_all)
+title: "条件に一致する要素を検索する (find/find_all)"
 date: "2011-10-10"
 ---
 

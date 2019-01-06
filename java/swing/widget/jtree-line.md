@@ -1,5 +1,5 @@
 ---
-title: Swing - JTree で一階層目のノード間に水平線を表示する
+title: "Swing - JTree で一階層目のノード間に水平線を表示する"
 date: "2011-02-11"
 ---
 

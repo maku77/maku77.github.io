@@ -1,5 +1,5 @@
 ---
-title: JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)
+title: "JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)"
 date: "2015-04-07"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 文字列が正規表現に完全に一致するか調べる (String.matches)
+title: "文字列が正規表現に完全に一致するか調べる (String.matches)"
 date: "2005-05-25"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: wxPython のイベントハンドラを理解する
+title: "wxPython のイベントハンドラを理解する"
 date: "2007-03-29"
 ---
 

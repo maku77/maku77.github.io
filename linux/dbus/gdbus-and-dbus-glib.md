@@ -1,5 +1,5 @@
 ---
-title: GDBus と dbus-glib
+title: "GDBus と dbus-glib"
 date: "2012-05-09"
 ---
 

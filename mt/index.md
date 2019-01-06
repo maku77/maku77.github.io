@@ -1,5 +1,5 @@
 ---
-title: MetaTrader メモ
+title: "MetaTrader メモ"
 layout: category-index
 ---
 

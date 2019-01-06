@@ -1,5 +1,5 @@
 ---
-title: Swing - BorderLayout で中央に配置するコンポーネントのデフォルトサイズを設定する
+title: "Swing - BorderLayout で中央に配置するコンポーネントのデフォルトサイズを設定する"
 date: "2011-01-15"
 ---
 

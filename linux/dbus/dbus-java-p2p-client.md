@@ -1,5 +1,5 @@
 ---
-title: D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル
+title: "D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル"
 date: "2012-06-22"
 ---
 

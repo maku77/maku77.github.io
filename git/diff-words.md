@@ -1,5 +1,5 @@
 ---
-title: git diff で単語単位で差分を表示する
+title: "git diff で単語単位で差分を表示する"
 date: "2015-12-16"
 ---
 

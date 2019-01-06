@@ -1,5 +1,5 @@
 ---
-title: Executor によるタスク処理 (1) Executor インタフェースを使用する
+title: "Executor によるタスク処理 (1) Executor インタフェースを使用する"
 date: "2014-07-11"
 ---
 

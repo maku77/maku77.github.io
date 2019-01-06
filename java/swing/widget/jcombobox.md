@@ -1,5 +1,5 @@
 ---
-title: Swing - JComboBox でルック＆フィールの選択肢を表示する
+title: "Swing - JComboBox でルック＆フィールの選択肢を表示する"
 date: "2011-01-05"
 ---
 

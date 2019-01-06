@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - コントローラーを作成する
+title: "CodeIgniter - コントローラーを作成する"
 date: "2012-05-29"
 ---
 

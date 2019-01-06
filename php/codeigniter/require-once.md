@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - コントローラやライブラリの中から通常のクラスを require_once する
+title: "CodeIgniter - コントローラやライブラリの中から通常のクラスを require_once する"
 date: "2012-09-19"
 ---
 

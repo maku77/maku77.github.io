@@ -1,5 +1,5 @@
 ---
-title: Groovy でクラスを定義する
+title: "Groovy でクラスを定義する"
 date: "2015-07-08"
 ---
 

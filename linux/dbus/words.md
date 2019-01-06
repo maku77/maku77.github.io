@@ -1,5 +1,5 @@
 ---
-title: D-Bus 関連用語
+title: "D-Bus 関連用語"
 date: "2012-05-14"
 ---
 

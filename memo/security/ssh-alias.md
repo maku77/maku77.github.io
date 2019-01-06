@@ -1,5 +1,5 @@
 ---
-title: SSH 接続用のエイリアスを設定する (~/.ssh/config)
+title: "SSH 接続用のエイリアスを設定する (~/.ssh/config)"
 date: "2014-05-31"
 ---
 

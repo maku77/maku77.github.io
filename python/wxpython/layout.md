@@ -1,5 +1,5 @@
 ---
-title: wxPython - Layout（レイアウト）
+title: "wxPython - Layout（レイアウト）"
 date: "2007-03-15"
 ---
 

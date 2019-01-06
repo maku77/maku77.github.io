@@ -1,5 +1,5 @@
 ---
-title: Python で HTML をパースする (Beautiful Soup)
+title: "Python で HTML をパースする (Beautiful Soup)"
 date: "2015-05-17"
 ---
 

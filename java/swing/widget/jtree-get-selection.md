@@ -1,5 +1,5 @@
 ---
-title: Swing - JTree で選択されているノードを取得する
+title: "Swing - JTree で選択されているノードを取得する"
 date: "2011-02-12"
 ---
 

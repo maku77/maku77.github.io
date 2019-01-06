@@ -1,5 +1,5 @@
 ---
-title: NIC に割り当てられた MAC アドレスを調べる (getmac)
+title: "NIC に割り当てられた MAC アドレスを調べる (getmac)"
 date: "2015-04-13"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 文字列からある文字を取り除く (delete/gsub)
+title: "文字列からある文字を取り除く (delete/gsub)"
 date: "2011-11-02"
 ---
 

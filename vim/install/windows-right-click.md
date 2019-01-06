@@ -1,5 +1,5 @@
 ---
-title: Windows の右クリックから Vim を開けるようにする
+title: "Windows の右クリックから Vim を開けるようにする"
 date: "2013-06-10"
 ---
 

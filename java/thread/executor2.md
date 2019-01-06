@@ -1,5 +1,5 @@
 ---
-title: Executor によるタスク処理 (2) ExecutorService インタフェースで Executor を停止する
+title: "Executor によるタスク処理 (2) ExecutorService インタフェースで Executor を停止する"
 date: "2014-07-11"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 現在の Configuration を変更する
+title: "現在の Configuration を変更する"
 date: "2011-09-14"
 ---
 

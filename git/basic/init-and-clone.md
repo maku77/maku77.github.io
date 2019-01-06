@@ -1,5 +1,5 @@
 ---
-title: Git の作業ツリーを作成する (git init, git clone)
+title: "Git の作業ツリーを作成する (git init, git clone)"
 date: "2010-07-17"
 ---
 

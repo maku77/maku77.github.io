@@ -1,5 +1,5 @@
 ---
-title: Ruby の制御構文 -- Ruby の真偽値
+title: "Ruby の制御構文 -- Ruby の真偽値"
 date: "2002-08-21"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: glib の GVariant を使ってみる
+title: "glib の GVariant を使ってみる"
 date: "2012-06-20"
 ---
 

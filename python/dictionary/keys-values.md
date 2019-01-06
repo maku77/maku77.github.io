@@ -1,5 +1,5 @@
 ---
-title: dictionary からキー、値のリストを作成する (keys, values, items)
+title: "dictionary からキー、値のリストを作成する (keys, values, items)"
 date: "2005-10-20"
 ---
 

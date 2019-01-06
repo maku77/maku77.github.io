@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - MySQL データベースの接続設定を行う
+title: "CodeIgniter - MySQL データベースの接続設定を行う"
 date: "2012-07-14"
 ---
 

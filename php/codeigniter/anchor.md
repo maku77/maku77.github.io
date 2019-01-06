@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - URL ヘルパーでコントローラへのリンクを挿入する
+title: "CodeIgniter - URL ヘルパーでコントローラへのリンクを挿入する"
 date: "2012-08-11"
 ---
 

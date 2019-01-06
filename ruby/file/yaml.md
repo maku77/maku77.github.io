@@ -1,5 +1,5 @@
 ---
-title: Ruby で YAML ファイルを扱う
+title: "Ruby で YAML ファイルを扱う"
 date: "2016-10-20"
 ---
 

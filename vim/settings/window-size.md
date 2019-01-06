@@ -1,5 +1,5 @@
 ---
-title: GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)
+title: "GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)"
 date: "2007-11-14"
 ---
 

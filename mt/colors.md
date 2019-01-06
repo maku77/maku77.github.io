@@ -1,5 +1,5 @@
 ---
-title: MetaTrader (MQL) における色の表現方法
+title: "MetaTrader (MQL) における色の表現方法"
 date: "2015-10-10"
 ---
 

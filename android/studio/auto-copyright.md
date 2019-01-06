@@ -1,5 +1,5 @@
 ---
-title: Android Studio で新規ファイル作成時に Copyright を自動挿入する
+title: "Android Studio で新規ファイル作成時に Copyright を自動挿入する"
 date: "2016-03-22"
 ---
 

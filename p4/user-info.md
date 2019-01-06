@@ -1,5 +1,5 @@
 ---
-title: Perforce ユーザ ID から本名やメールアドレスを調べる (p4 users)
+title: "Perforce ユーザ ID から本名やメールアドレスを調べる (p4 users)"
 date: "2008-04-04"
 ---
 

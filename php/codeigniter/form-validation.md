@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - Form Validation クラスでフォームに入力された値を検査する
+title: "CodeIgniter - Form Validation クラスでフォームに入力された値を検査する"
 date: "2012-08-14"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: dbus-python で D-Bus の P2P クライアントを実装する
+title: "dbus-python で D-Bus の P2P クライアントを実装する"
 date: "2012-09-05"
 ---
 

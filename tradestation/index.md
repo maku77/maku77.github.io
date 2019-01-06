@@ -1,5 +1,5 @@
 ---
-title: トレードステーション
+title: "トレードステーション"
 layout: category-index
 ---
 

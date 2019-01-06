@@ -1,5 +1,5 @@
 ---
-title: Executor によるタスク処理 (4) 既存の Thread から Future オブジェクトを取得する
+title: "Executor によるタスク処理 (4) 既存の Thread から Future オブジェクトを取得する"
 date: "2014-07-12"
 ---
 

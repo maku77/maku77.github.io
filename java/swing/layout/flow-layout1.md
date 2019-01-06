@@ -1,5 +1,5 @@
 ---
-title: Swing - FlowLayout でコンポーネントを左上から並べる
+title: "Swing - FlowLayout でコンポーネントを左上から並べる"
 date: "2011-01-15"
 ---
 

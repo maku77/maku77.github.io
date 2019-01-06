@@ -1,5 +1,5 @@
 ---
-title: リソースは finally ブロックで閉じる
+title: "リソースは finally ブロックで閉じる"
 date: "2010-08-28"
 ---
 

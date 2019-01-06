@@ -1,5 +1,5 @@
 ---
-title: Docker イメージを作成する - docker commit アプローチ
+title: "Docker イメージを作成する - docker commit アプローチ"
 date: "2015-03-12"
 ---
 

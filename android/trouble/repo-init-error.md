@@ -1,5 +1,5 @@
 ---
-title: repo init でエラーが出る場合
+title: "repo init でエラーが出る場合"
 date: "2012-02-21"
 ---
 

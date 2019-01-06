@@ -1,5 +1,5 @@
 ---
-title: Python のコーディングスタイル
+title: "Python のコーディングスタイル"
 date: "2007-02-06"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SWT - SashForm でウィンドウを分割して配置する
+title: "SWT - SashForm でウィンドウを分割して配置する"
 date: "2010-10-17"
 ---
 

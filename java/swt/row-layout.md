@@ -1,5 +1,5 @@
 ---
-title: SWT - RowLayout でウィジェットを縦／横方向に並べる
+title: "SWT - RowLayout でウィジェットを縦／横方向に並べる"
 date: "2010-08-21"
 ---
 

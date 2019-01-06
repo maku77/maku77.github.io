@@ -1,5 +1,5 @@
 ---
-title: Python の文字列リテラル
+title: "Python の文字列リテラル"
 date: "2009-11-19"
 ---
 

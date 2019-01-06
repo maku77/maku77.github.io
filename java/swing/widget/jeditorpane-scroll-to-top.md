@@ -1,5 +1,5 @@
 ---
-title: Swing - JEditorPane で先頭部分を表示する
+title: "Swing - JEditorPane で先頭部分を表示する"
 date: "2011-03-21"
 ---
 

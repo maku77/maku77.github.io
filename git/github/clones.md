@@ -1,5 +1,5 @@
 ---
-title: GitHub のプランと GitHub ライクなツールの比較など（GitHub と GitLab の比較）
+title: "GitHub のプランと GitHub ライクなツールの比較など（GitHub と GitLab の比較）"
 date: "2014-05-14"
 ---
 

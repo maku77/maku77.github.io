@@ -1,5 +1,5 @@
 ---
-title: Groovy スクリプトで Jenkins サーバを制御する
+title: "Groovy スクリプトで Jenkins サーバを制御する"
 date: "2016-08-23"
 ---
 

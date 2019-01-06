@@ -1,5 +1,5 @@
 ---
-title: Swing - Container と JComponent と JFrame の関係
+title: "Swing - Container と JComponent と JFrame の関係"
 date: "2011-01-09"
 ---
 

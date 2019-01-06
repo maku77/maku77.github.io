@@ -1,5 +1,5 @@
 ---
-title: JavaScript の型の基本
+title: "JavaScript の型の基本"
 date: "2012-10-28"
 ---
 

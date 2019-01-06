@@ -1,4 +1,4 @@
 ---
-title: 天才まくまくノート
+title: "天才まくまくノート"
 layout: top
 ---

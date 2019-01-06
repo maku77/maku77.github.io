@@ -1,5 +1,5 @@
 ---
-title: まくまくSassノート
+title: "まくまくSassノート"
 layout: category-index
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SWT - JFace アプリケーションの雛形コード
+title: "SWT - JFace アプリケーションの雛形コード"
 date: "2010-10-11"
 ---
 

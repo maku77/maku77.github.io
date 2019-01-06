@@ -1,5 +1,5 @@
 ---
-title: バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)
+title: "バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)"
 date: "2008-04-02"
 ---
 

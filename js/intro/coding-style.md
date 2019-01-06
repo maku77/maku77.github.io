@@ -1,5 +1,5 @@
 ---
-title: JavaScript のコーディングスタイル
+title: "JavaScript のコーディングスタイル"
 date: "2012-11-19"
 ---
 

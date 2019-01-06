@@ -1,5 +1,5 @@
 ---
-title: git pull の引数省略の仕組み
+title: "git pull の引数省略の仕組み"
 date: "2010-08-23"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Boolean 型で synchronized するのは NG
+title: "Boolean 型で synchronized するのは NG"
 date: "2014-06-16"
 ---
 

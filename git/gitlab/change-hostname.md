@@ -1,5 +1,5 @@
 ---
-title: GitLab リポジトリの Clone URL として表示されるホスト名を変更する
+title: "GitLab リポジトリの Clone URL として表示されるホスト名を変更する"
 date: "2014-05-19"
 ---
 

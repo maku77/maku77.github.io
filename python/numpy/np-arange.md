@@ -1,5 +1,5 @@
 ---
-title: 連番からなる NumPy 配列を作成する (np.arange)
+title: "連番からなる NumPy 配列を作成する (np.arange)"
 date: "2017-02-27"
 ---
 

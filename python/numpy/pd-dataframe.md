@@ -1,5 +1,5 @@
 ---
-title: pandas.DataFrame - Pandas でラベル付き二次元データを扱う
+title: "pandas.DataFrame - Pandas でラベル付き二次元データを扱う"
 date: "2017-01-23"
 ---
 

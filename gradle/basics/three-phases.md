@@ -1,5 +1,5 @@
 ---
-title: Gradle 実行時の 3 つのフェーズ
+title: "Gradle 実行時の 3 つのフェーズ"
 date: "2014-06-08"
 ---
 

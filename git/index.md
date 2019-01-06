@@ -1,5 +1,5 @@
 ---
-title: Git と GitHub の記事
+title: "Git と GitHub の記事"
 date: "2015-05-17"
 layout: category-index
 ---

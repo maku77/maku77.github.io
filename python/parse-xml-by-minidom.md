@@ -1,5 +1,5 @@
 ---
-title: Python で XML をパースする (minidom)
+title: "Python で XML をパースする (minidom)"
 date: "2012-06-04"
 ---
 

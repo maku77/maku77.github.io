@@ -1,5 +1,5 @@
 ---
-title: wxPython - CheckListBox（チェック付きリストボックス）
+title: "wxPython - CheckListBox（チェック付きリストボックス）"
 date: "2007-04-10"
 ---
 

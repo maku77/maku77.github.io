@@ -1,5 +1,5 @@
 ---
-title: Swing - JList で扱えるモデルクラスを作成する
+title: "Swing - JList で扱えるモデルクラスを作成する"
 date: "2011-01-23"
 ---
 

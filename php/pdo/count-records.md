@@ -1,5 +1,5 @@
 ---
-title: PDO - SELECT で取得したレコードの数を調べる
+title: "PDO - SELECT で取得したレコードの数を調べる"
 date: "2012-08-31"
 ---
 

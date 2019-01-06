@@ -1,5 +1,5 @@
 ---
-title: CodeIgniter - Form タグの出力には Form ヘルパーの form_open を使う
+title: "CodeIgniter - Form タグの出力には Form ヘルパーの form_open を使う"
 date: "2012-08-30"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: 不要な box を削除する (vagrant remove box)
+title: "不要な box を削除する (vagrant remove box)"
 date: "2016-11-01"
 ---
 

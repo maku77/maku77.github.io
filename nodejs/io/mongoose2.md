@@ -1,5 +1,5 @@
 ---
-title: mongoose で MongoDB (2) データベースへ接続する
+title: "mongoose で MongoDB (2) データベースへ接続する"
 date: "2014-02-10"
 ---
 

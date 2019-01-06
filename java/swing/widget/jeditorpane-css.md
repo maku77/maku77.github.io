@@ -1,5 +1,5 @@
 ---
-title: Swing - JEditorPane にスタイルシート (CSS) を設定する
+title: "Swing - JEditorPane にスタイルシート (CSS) を設定する"
 date: "2011-03-19"
 ---
 

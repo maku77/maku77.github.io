@@ -1,5 +1,5 @@
 ---
-title: Gradle で PMD による静的解析を実行する
+title: "Gradle で PMD による静的解析を実行する"
 date: "2015-09-14"
 ---
 

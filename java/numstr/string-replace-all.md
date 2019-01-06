@@ -1,5 +1,5 @@
 ---
-title: 文字列の正規表現に一致した部分を置き換える (String.replaceAll)
+title: "文字列の正規表現に一致した部分を置き換える (String.replaceAll)"
 date: "2005-05-25"
 ---
 

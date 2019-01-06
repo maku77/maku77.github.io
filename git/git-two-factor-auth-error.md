@@ -1,5 +1,5 @@
 ---
-title: 二要素認証を設定した後に git コマンドが Authentication failed になる場合
+title: "二要素認証を設定した後に git コマンドが Authentication failed になる場合"
 date: "2015-06-24"
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Docker イメージを Docker Hub に登録する
+title: "Docker イメージを Docker Hub に登録する"
 date: "2015-03-12"
 ---
 

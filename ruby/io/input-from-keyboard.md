@@ -1,5 +1,5 @@
 ---
-title: キーボードからの入力を取得する (STDIN.gets/readline)
+title: "キーボードからの入力を取得する (STDIN.gets/readline)"
 date: "2015-10-15"
 ---
 

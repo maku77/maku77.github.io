@@ -1,5 +1,5 @@
 ---
-title: ADB でアプリを起動する intent を投げる (am start/broadcast)
+title: "ADB でアプリを起動する intent を投げる (am start/broadcast)"
 date: "2016-10-03"
 ---
 

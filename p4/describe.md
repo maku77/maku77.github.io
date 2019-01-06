@@ -1,5 +1,5 @@
 ---
-title: チェンジリストの内容を確認する (p4 describe)
+title: "チェンジリストの内容を確認する (p4 describe)"
 date: "2006-08-22"
 ---
 

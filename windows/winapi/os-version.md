@@ -1,5 +1,5 @@
 ---
-title: 現在使用中の Windows OS のバージョンを調べる
+title: "現在使用中の Windows OS のバージョンを調べる"
 date: "2005-08-22"
 ---
 

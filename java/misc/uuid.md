@@ -1,5 +1,5 @@
 ---
-title: Java でランダムな UUID を生成する
+title: "Java でランダムな UUID を生成する"
 date: "2010-08-29"
 ---
 

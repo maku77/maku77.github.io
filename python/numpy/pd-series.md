@@ -1,5 +1,5 @@
 ---
-title: pandas.Series - Pandas でラベル付き一次元データを扱う
+title: "pandas.Series - Pandas でラベル付き一次元データを扱う"
 date: "2017-01-23"
 ---
 

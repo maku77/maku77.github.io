@@ -1,5 +1,5 @@
 ---
-title: git diff や git status での日本語の文字化けを防ぐ
+title: "git diff や git status での日本語の文字化けを防ぐ"
 date: "2017-08-19"
 ---
 

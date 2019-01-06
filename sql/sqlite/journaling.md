@@ -1,5 +1,5 @@
 ---
-title: SQLite で瞬断などによるロールバック処理に備える (journaling)
+title: "SQLite で瞬断などによるロールバック処理に備える (journaling)"
 date: "2012-01-16"
 ---
 

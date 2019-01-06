@@ -1,5 +1,5 @@
 ---
-title: テーブルの構成を確認する (DESCRIBE)
+title: "テーブルの構成を確認する (DESCRIBE)"
 date: "2012-08-17"
 ---
 

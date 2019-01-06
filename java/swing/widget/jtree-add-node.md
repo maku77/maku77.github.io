@@ -1,5 +1,5 @@
 ---
-title: Swing - JTree に動的にノードを追加する
+title: "Swing - JTree に動的にノードを追加する"
 date: "2011-02-12"
 ---
 
