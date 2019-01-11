@@ -12,18 +12,21 @@ layout: category-index
 * [グローバルスコープな実行コードを記述しない](global-main.html)
 
 
-Ruby の制御構文
+Ruby の構文
 ====
+
+制御構文
+----
 * [Ruby の真偽値](syntax/true-and-false.html)
 * [if と unless による分岐](syntax/if.html)
 * [case による分岐](syntax/case.html)
 * [条件指定によるループ (while と until)](syntax/while.html)
 * [範囲指定によるループ (for, each, step)](syntax/for.html)
 * [複数の値を同時に代入する（多重代入）](syntax/multiple-assignment.html)
-
+* [2 つの変数の値をスワップする](swap-values.html)
 
 クラス
-====
+----
 * [クラスとメソッドを定義する](define-class.html)
 * [コンストラクタを定義する](constructor.html)
 * [擬似コンストラクタを定義する](pseudo-constructor.html)
@@ -33,9 +36,8 @@ Ruby の制御構文
 * [メソッドの可視性を設定する（メソッドのアクセス制御）](method-visibility.html)
 * [クラスを継承する](inherit-class.html)
 
-
 関数／メソッド
-====
+----
 * [関数定義の基本](method.html)
 * [配列を展開して関数に渡す](expand-array-parameter.html)
 * [可変長引数を扱う関数を定義する](variable-parameters.html)
@@ -44,8 +46,11 @@ Ruby の制御構文
 * [関数を一行で定義する](oneline-method.html)
 
 
-配列
+コレクション
 ====
+
+配列
+----
 * [配列を作成する](array/create-array.html)
 * [配列要素の追加/配列に要素を追加する](array/add-element.html)
 * [配列要素の追加/配列を結合する](array/combine-arrays.html)
@@ -73,13 +78,15 @@ Ruby の制御構文
 * [文字列配列から正規表現に一致する要素を検索する (grep)](array/grep.html)
 * [先頭から条件を満たす範囲の配列を取得する (take_while)](array/take-while.html)
 
-
 ハッシュ
-====
+----
 * [ハッシュの基本](hash/basic.html)
 * [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
 * [ハッシュをループで処理する](hash/loop-hash.html)
 
+セット
+----
+* [セットを使用する（Set クラス）](set/basic.html)
 
 文字列／数値
 ====
@@ -175,18 +182,16 @@ mp3
 * [ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する](ruby-mp3info.html)
 
 
-制御構文
+
+その他
 ====
-* [2 つの変数の値をスワップする](swap-values.html)
-
-
-ユニットテスト
-====
-* [test-unit によるユニットテスト](test-unit.html)
-
+* [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
+* [ユーザライブラリの検索パスを調べる](load-path.html)
+* [環境変数を扱う](environment-variable.html)
+* [プロファイラを使用してボトルネックを探る](other/profiler.html)
 
 RubyGems
-====
+----
 * [RubyGems とは](gem/what-is-rubygems.html)
 * [プロキシ経由で gem コマンドを使用する](gem/gem-with-proxy.html)
 * [Gem パッケージのインストール先を調べる](gem/gem-environment-gemdir.html)
@@ -196,14 +201,9 @@ RubyGems
 * [勉強用に Gem パッケージをダウンロードする](gem/fetch-gem.html)
 * [Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ](gem/add-files-to-gemspec.html)
 
-
-その他
-====
-* [複数バージョンの Ruby をインストールする (RVM)](rvm.html)
-* [ユーザライブラリの検索パスを調べる](load-path.html)
-* [環境変数を扱う](environment-variable.html)
-* [プロファイラを使用してボトルネックを探る](other/profiler.html)
-
+ユニットテスト
+----
+* [test-unit によるユニットテスト](test-unit.html)
 
 トラブルシューティング
 ----
