@@ -5,11 +5,11 @@ layout: category-index
 
 はじめに
 ====
-* [Ruby のコーディングスタイル](coding-style.html)
-* [知っておくべき Ruby 関連ツール](ruby-tools.html)
-* [Ruby の対話型プログラムを起動する](interactive-ruby.html)
-* [require で他のライブラリを読み込む](require.html)
-* [グローバルスコープな実行コードを記述しない](global-main.html)
+* [Ruby のコーディングスタイル](basic/coding-style.html)
+* [知っておくべき Ruby 関連ツール (bundler, rake, rvm, rdoc, yard, rspec, test-unit)](basic/ruby-tools.html)
+* [Ruby の対話型プログラムを起動する (irb, pry)](basic/interactive-ruby.html)
+* [require で他のライブラリを読み込む](basic/require.html)
+* [グローバルスコープな実行コードを記述しない](basic/global-main.html)
 
 
 Ruby の構文

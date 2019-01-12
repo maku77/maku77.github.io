@@ -7,6 +7,7 @@ date: "2015-11-21"
 
 システムにインストールされたライブラリを読み込む (require)
 ----
+
 下記は、システムにインストールされたライブラリを読み込む例です。
 この構文では、組み込み変数の `$LOAD_PATH` に設定されたディレクトリ以下にインストールされたライブラリをロードできます。
 読み込むファイルの拡張子 `.rb` は省略することができます
@@ -15,14 +16,16 @@ date: "2015-11-21"
 require 'sample'
 ```
 
-参考: [ユーザライブラリの検索パスを調べる](load-path.html)
+参考: [ユーザライブラリの検索パスを調べる](/ruby/load-path.html)
 
 
 相対パスでライブラリを読み込む (require_relative)
 ----
+
 例えば、下記のような `greet` メソッドを提供するライブラリがあるとします。
 
 #### mylib.rb
+
 ```ruby
 def greet
   puts 'Hello!'
@@ -33,12 +36,14 @@ end
 
 
 #### sample.rb
+
 ```ruby
 require_relative 'mylib'   # 同じディレクトリ内の mylib.rb を読み込む
 greet  # 上記のライブラリが提供する関数の呼び出し
 ```
 
 #### 実行結果
+
 ```
 $ ruby sample.rb
 Hello!
