@@ -78,11 +78,12 @@ Ruby の構文
 * [文字列配列から正規表現に一致する要素を検索する (grep)](array/grep.html)
 * [先頭から条件を満たす範囲の配列を取得する (take_while)](array/take-while.html)
 
-ハッシュ
+ハッシュ (Hash)
 ----
 * [ハッシュの基本](hash/basic.html)
 * [ハッシュのデフォルト値を設定する](hash/default-hash-value.html)
 * [ハッシュをループで処理する](hash/loop-hash.html)
+* [ハッシュのキー、値のリストを取得する (keys, values)](hash/keys-values.html)
 
 セット
 ----
