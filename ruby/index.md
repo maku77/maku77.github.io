@@ -10,7 +10,7 @@ layout: category-index
 * [Ruby の対話型プログラムを起動する (irb, pry)](basic/interactive-ruby.html)
 * [require で他のライブラリを読み込む](basic/require.html)
 * [グローバルスコープな実行コードを記述しない](basic/global-main.html)
-
+* [Ruby の HelloWorld テンプレート](basic/hello.html)
 
 Ruby の構文
 ====
