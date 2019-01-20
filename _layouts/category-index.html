@@ -21,16 +21,17 @@
 
   <div id="xContainer">
     <div id="xContainer_main">
-      {% include widget-sns.html %}
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        {{ page.category_long_desc }}
+      </div>
 
-      {% comment %}
-        <!-- カテゴリ説明文 -->
-        <div class="xCategoryIntro">{{ page.intro }}</div>
-      {% endcomment %}
+      {% include widget-sns.html %}
 
       <div class="xContent xContent-categoryIndex">{{ content }}</div>
 
       {% include widget-sns.html %}
+
       {% if jekyll.environment != "development" %}
         <div class="xWidget">{% include ad-rakuten-responsive-image.html %}</div>
       {% endif %}
