@@ -1,5 +1,5 @@
 ---
-title: R
+title: "R"
 layout: category-index
 ---
 
