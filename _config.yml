@@ -170,6 +170,17 @@ defaults:
       category_long_desc: "Web プログラマにとって必須の言語。"
   -
     scope:
+      path: "kotlin"
+      type: "pages"
+    values:
+      category_title: "Kotlin"
+      category_id: "kotlin"
+      category_logo: "logo-kotlin.svg"
+      category_og_image: "logo-kotlin.png"
+      category_desc: "天才星人まくのKotlinノート"
+      category_long_desc: "Androidの公式サポートによって一気にメジャーになったKotlin。Javaでコーディングしたくなったときは、先にKotlinの採用を検討しましょう。"
+  -
+    scope:
       path: "linux"
       type: "pages"
     values:
