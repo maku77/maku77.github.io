@@ -12,6 +12,11 @@ layout: category-index
 * [デフォルトのエディタでファイルを開く (open -t)](open-editor.html)
 
 
+macOS の操作
+---
+* [macOS でスクリーンショットや画面の動画を撮る](screenshot.html)
+
+
 AppleScript
 ----
 * [AppleScript を実行する](applescript/run.html)
