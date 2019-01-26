@@ -8,8 +8,15 @@ date: "2018-03-13"
 
 下記のように設定しておくと、キーボード上方の数字キーを、テンキーの代わり（視点切り替えショートカット）として使用できるようになります。
 
-1. メニューから [ファイル] → [ユーザ設定] を選択（あるいは <kbd>Cmd + ,</kbd>）
-2. [入力] タブを選択
-3. [テンキーを模倣] にチェックを入れる
-4. [ユーザ設定の保存] ボタンをクリック
+<figure>
+  <img src="emulate-tenkeys.png">
+  <figcaption>
+    <ol>
+      <li>メニューから <kbd><samp>ファイル</samp></kbd> → <kbd><samp>ユーザ設定</samp></kbd> を選択（あるいは <kbd>Cmd + ,</kbd>）</li>
+      <li><kbd><samp>入力</samp></kbd> タブを選択</li>
+      <li><kbd><samp>テンキーを模倣</samp></kbd> にチェックを入れる</li>
+      <li><kbd><samp>ユーザ設定の保存</samp></kbd> ボタンをクリック</li>
+    </ol>
+  </figcaption>
+</figure>
 

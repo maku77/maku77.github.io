@@ -14,7 +14,7 @@ Blender アプリケーション内の表示は、デフォルトではすべて
       <li><kbd><samp>System</samp></kbd> タブを選択</li>
       <li><kbd><samp>International Fonts</samp></kbd> にチェック</li>
       <li><samp>Language</samp> の項目で <kbd><samp>Japanese（日本語）</samp></kbd> を選択</li>
-      <li><samp>Translate</samp> の項目で <kbd><samp>Interface</samp></kbd>、<kbd><samp>Tooltip</samp></kbd>、<kbd><samp>New Data</samp></kbd> を ON</li>
+      <li><samp>Translate</samp> の項目で翻訳したい項目（<kbd><samp>Interface</samp></kbd>、<kbd><samp>Tooltip</samp></kbd>、<kbd><samp>New Data</samp></kbd>）を ON</li>
     </ol>
   </figcaption>
 </figure>

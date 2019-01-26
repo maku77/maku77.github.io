@@ -3,33 +3,44 @@ title: "Blender"
 layout: category-index
 ---
 
-設定
+Blender の設定
 ----
 - [メニューなどを日本語表示にする](settings/japanese.html)
-- [テンキーなしキーボードでテンキーをエミュレートする](settings/tenkeys.html)
+- [テンキーなしキーボードでテンキーをエミュレートする](settings/emulate-tenkeys.html)
 - [常に選択したオブジェクトを中心に視点を回転する](settings/rotate-around-selection.html)
 
 
-基本操作
+Blendar の画面
 ----
+### 構成要素
+- [画面の構成要素を理解する](ui/window.html)
+
+### 各種エディタ共通の操作
+- [エディタを最大化する](ui/expand-editor.html)
+- [エディタの表示領域をスワップする](ui/swap-editors.html)
+- [エディタを新規ウィンドウとして複製する](ui/duplicate-window.html)
+- [3D ビューエディタのツールシェルフの位置を変更する](ui/flip-regions.html)
+
+
+モデリング
+----
+
+### 「3Dビュー」エディタ
 - [視点を操作する (Navigation)](basic/navigation.html)
 - [下絵を表示する](basic/underdrawing.html)
 - [オブジェクトを追加する (Add)](basic/add.html)
 - [オブジェクトを移動する (Move)](basic/move.html)
 - [オブジェクトを回転する (Rotate)](basic/rotate.html)
 - [オブジェクトを拡大／縮小する (Scale)](basic/scale.html)
-
-エディタの操作
-----
-- [エディタを最大化する](ui/expand-editor.html)
-- [エディタの表示領域をスワップする](ui/swap-editors.html)
-- [エディタを新規ウィンドウとして複製する](ui/duplicate-window.html)
-- [3D エディタのシェルフの位置を変更する](ui/flip-regions.html)
 - [直前の編集操作を繰り返す（リピート実行）](ui/repeat.html)
+
 
 テクスチャ
 ----
+
+### 「UV/画像」エディタ
 - [UV マッピングの基本](texture/uv-mapping.html)
+
 
 リファレンス
 ----
@@ -39,6 +50,7 @@ layout: category-index
 
 
 {% if jekyll.environment == "development" %}
+（プライベートメモ）
 <h3>記述ポリシー</h3>
 編集操作の画面キャプチャは LICEcap などで **400x225 (16:9) (MaxFPS:8)** で作成。
 ウィンドウ全体の画面キャプチャは **800x450 や 640x360 (16:9)** で作成（クライアント領域がそこにちょうど収まるようにしてレコーディング）。

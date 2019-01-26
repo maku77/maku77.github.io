@@ -178,12 +178,6 @@ date: "2018-02-26"
 ### オブジェクト編集
 <table class="local-example">
   <tr>
-    <td></td>
-    <td></td>
-    <td><kbd>U</kbd></td>
-    <td>UV マッピングメニューを表示 (UV Mapping)</td>
-  </tr>
-  <tr>
     <td><kbd>G</kbd></td>
     <td>移動 (Grab/Move)</td>
   </tr>
@@ -202,6 +196,10 @@ date: "2018-02-26"
   <tr>
     <td><kbd>Shift</kbd>+<kbd>D</kbd></td>
     <td>複製 (Duplicate)</td>
+  </tr>
+  <tr>
+    <td><kbd>U</kbd></td>
+    <td>UV マッピングメニューを表示 (UV Mapping)</td>
   </tr>
 </table>
 
