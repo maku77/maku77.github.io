@@ -12,6 +12,7 @@ GitHub
 * [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github/new-organization-permissions.html)
 * [GitHub のプランと GitHub ライクなツールの比較など](github/clones.html)
 * [GitHub の Markdown でメールアドレスへのリンクを記述する](github/email-address-in-markdown.html)
+* [GitHub REST API を使用する](github/github-rest-api.html)
 
 GitLab（GitHub クローン）
 ====
