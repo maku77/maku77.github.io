@@ -165,6 +165,7 @@ Ruby の構文
 * [ディレクトリ内のファイルを検索する](find-files.html)
 * [ディレクトリを作成／削除する](create-dir.html)
 * [一時ディレクトリ／一時ファイルを使用する](temporary-file.html)
+* [ファイルやディレクトリが存在するか調べる (File.exist?, Dir.exist?)](io/file-exist.html)
 
 
 XML
