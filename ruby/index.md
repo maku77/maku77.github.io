@@ -111,6 +111,7 @@ Ruby の構文
 
 ### 置換／削除／変更
 * [文字列を置換する (sub/gsub)](string/replace.html)
+* [テンプレート機能（プレースホルダ）で文字列の一部を置換する (%)](string/template.html)
 * [文字列内のある文字を指定した文字に置換する (tr)](string/tr.html)
 * [文字列からある文字を取り除く (delete/gsub)](string/delete.html)
 * [文字列を逆順にする (reverse)](string/reverse.html)
