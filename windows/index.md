@@ -37,6 +37,7 @@ Windows バッチファイル
 
 コマンドプロンプト
 ----
+* [コマンドプロンプトを管理者権限 (Administorator) で起動する](cmd/admin.html)
 * [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
@@ -57,6 +58,7 @@ Windows の設定／管理／セキュリティ
 * タスク管理
     * [Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist)](admin/tasklist.html)
     * [Windows で実行中のプロセス（タスク）を終了 (kill) する (taskkill)](admin/taskkill.html)
+    * [Windows で任意のコマンド（タスク）を自動実行する (schtasks)](admin/schtasks.html)
 * [Windows OS のバージョン情報をコマンドラインから調べる](admin/os-version.html)
 * [NIC に割り当てられた MAC アドレスを調べる (getmac)](admin/getmac.html)
 * [コマンドラインから Windows サービスを管理する](manage-services-from-command-line.html)
