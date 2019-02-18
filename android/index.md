@@ -95,11 +95,12 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
 * [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
 
-Android Framework
+Android Framework/SDK
 ----
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SharedPreference でアプリの設定値を保存する](fw/shared-preference.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
+* [リソース ID を示す変数やパラメータ用のアノテーションを使用する](fw/res-annotation.html)
 
 Java レイヤ
 ----
