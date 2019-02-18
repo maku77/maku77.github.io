@@ -100,7 +100,7 @@ Android Framework/SDK
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SharedPreference でアプリの設定値を保存する](fw/shared-preference.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
-* [リソース ID を示す変数やパラメータ用のアノテーションを使用する](fw/res-annotation.html)
+* [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
 
 Java レイヤ
 ----
