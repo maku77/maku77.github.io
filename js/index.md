@@ -70,6 +70,7 @@ layout: category-index
 ### 日時
 - [Date オブジェクト（日時情報）の作成方法いろいろ](time/create-date.html)
 - [Date オブジェクトをいろいろな文字列表現に変換する](time/date-to-string.html)
+- [他の国のローカルタイム（現地時刻）を文字列形式で取得する](time/other-country-time.html)
 - [Date オブジェクトの日付を加算／減算する](time/date-calculation.html)
 - [Date オブジェクト同士の差分を取る](time/date-diff.html)
 

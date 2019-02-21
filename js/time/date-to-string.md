@@ -49,24 +49,21 @@ toXxxString() 系のメソッド
 var d = new Date(2018, 3, 3, 21, 30, 55);
 
 // 日付＋時刻
-console.log(d.toString());
-console.log(d.toISOString());
-console.log(d.toUTCString());
-console.log(d.toLocaleString());
-console.log(d.toLocaleString('en-US'));
-console.log();
+console.log(d.toString());  // Tue Apr 03 2018 21:30:55 GMT+0900 (日本標準時)
+console.log(d.toISOString());  // 2018-04-03T12:30:55.000Z
+console.log(d.toUTCString());  // Tue, 03 Apr 2018 12:30:55 GMT
+console.log(d.toLocaleString());  // 2018/4/3 21:30:55
+console.log(d.toLocaleString('en-US'));  // 4/3/2018, 9:30:55 PM
 
 // 日付のみ
-console.log(d.toDateString());
-console.log(d.toLocaleDateString());
-console.log(d.toLocaleDateString('en-US'));
-console.log();
+console.log(d.toDateString());  // Tue Apr 03 2018
+console.log(d.toLocaleDateString());  // 2018/4/3
+console.log(d.toLocaleDateString('en-US'));  // 4/3/2018
 
 // 時刻のみ
-console.log(d.toTimeString());
-console.log(d.toLocaleTimeString());
-console.log(d.toLocaleTimeString('en-US'));
-console.log();
+console.log(d.toTimeString());  // 21:30:55 GMT+0900 (日本標準時)
+console.log(d.toLocaleTimeString());  // 21:30:55
+console.log(d.toLocaleTimeString('en-US'));  // 9:30:55 PM
 ~~~
 
 
