@@ -40,6 +40,7 @@ hugo コマンド
 * [コンフィグファイルに設定した情報を参照する](settings/read-config.html)
 * [Google アナリティクス用のトラッキングコードを埋め込む](settings/google-analytics.html)
 * [ページ内に Tex 形式の数式を埋め込めるようにする (MathJax)](settings/math-jax.html)
+* [リンクをページからの相対パスで出力するようにする (relativeurls)](settings/relativeurls.html)
 
 テンプレート／テーマ
 ----
