@@ -34,6 +34,8 @@ Node.js 実行環境など
 入出力 (I/O)
 ----
 - [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io/stdio.html)
+- [コマンドライン引数（パラメータ）を取得する (process.argv)](io/cmdline-args.html)
+- [キーボードからの入力を取得する (reaqline.question)](io/readline-from-keyboard.html)
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
 ### ファイル／ディレクトリ
