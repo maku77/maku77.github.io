@@ -17,3 +17,7 @@ layout: category-index
 * [when 式による条件分岐](basic/when.html)
 * for ループと while ループ
 
+その他
+----
+* [ドキュメンテーションコメントを記述する (KDoc)](kdoc.html)
+
