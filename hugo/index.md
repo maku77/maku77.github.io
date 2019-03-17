@@ -8,7 +8,6 @@ Hugo
 
 はじめに
 ----
-
 * [Hugo とは／Hugo をインストールする](install.html)
 * [Hugo で新規の Web サイトを作成する](create-site.html)
 
@@ -26,6 +25,7 @@ Hugo
 * [ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)](shortcode/site-params.html)
 * [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
 * [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
+* [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
 
 hugo コマンド
 ----
