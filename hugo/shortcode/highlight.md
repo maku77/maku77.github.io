@@ -125,6 +125,34 @@ public class Main {
 ```
 
 
+ハイライトのカラーテーマを変更する
+----
+
+Hugo の `highlight` ショートコード、あるいは `highlight` 関数で使用されるカラーテーマは、CSS ファイルを用意することで変更することができます。
+
+まず、`highlight` 機能によって出力される HTML コードが、CSS クラスを使用したものになるように、Hugo の設定ファイル `config.toml` に下記のような行を追加します。
+
+#### config.toml
+
+```toml
+pygmentsUseClasses = true
+```
+
+次に、使用したいカラーテーマの CSS ファイルを生成します。
+下記のようなサイトからダウンロードしてしまうのが手っ取り早いです。
+
+- [Pygments Syntax Highlighter CSS Theme Files](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html)
+
+hugo にはシンタックスハイライト用の CSS ファイルを生成する機能がついているので、下記のようにコマンド実行して生成することもできます。
+スタイル名は [Pygments style gallery のサイト](https://help.farbox.com/pygments.html)で探してください。
+
+```
+$ hugo gen chromastyles --style=manni > highlight-manni.css
+```
+
+あとは、この CSS をすべてのページで読み込むようにすれば OK です。
+
+
 参考: Hugo の highlight ショートコードの実装
 ----
 
