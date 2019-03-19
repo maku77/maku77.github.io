@@ -100,10 +100,13 @@ layout: category-index
 - 分割代入 (Destructuring assignment)
     - [分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)](syntax/object-destructuring.html) (ECMAScript 2015)
 
-### オブジェクト／クラス
+### オブジェクト
 - [オブジェクトの基本](object/basic.html)
 - [オブジェクトのプロパティを列挙する (for-in)](object/enum-properties.html)
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
+
+### クラス
+- [クラスを定義する (class)](class/class.html) (ECMAScript 2015)
 - [クラス定数／クラス変数／クラスメソッドを定義する](object/class-const.html)
 - [あるオブジェクトが特定のクラスのインスタンスであるかを調べる (instanceof, constructor)](object/instanceof.html)
 - [クラスに toString() メソッドを実装する](object/to-string.html)
