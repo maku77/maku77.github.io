@@ -326,6 +326,69 @@ console.log(Person.name);  //=> Foo
 上記のように、名前付きのクラス式（上記の場合は `Foo` という名前）でクラス定義を行った場合、クラスオブジェクトの `.name` プロパティの値はその名前と同じ文字列になります（上記の場合は `Foo`）。
 
 
+Node.js の require で読み込めるクラスライブラリを作成する
+----
+
+Node.js でプログラミングしている場合は、定義したクラスを **`exports`** オブジェクトのプロパティとして設定することで、別の JavaScript ファイルから **`require`** で参照できるようになります。
+
+#### mylib.js（クラスライブラリ側）
+
+```js
+class MyClass {
+  constructor(name) {
+    this._name = name;
+  }
+  greet() {
+    console.log(`Hello, I am ${this._name}`);
+  }
+}
+
+exports.MyClass = MyClass;  // MyClass を公開
+```
+
+#### main.js（エントリポイント）
+
+```js
+const mylib = require('./mylib.js');
+const obj = new mylib.MyClass('Maku');
+obj.greet();  // Hello, I am Maku
+```
+
+ECMAScript 2015 で導入された [オブジェクトの分割代入 (Object destructuring)](../syntax/object-destructuring.html) の構文を使用すると、上記のコードは下記のように簡潔に記述することができます。
+
+#### main.js（シンプルな書き方）
+
+```js
+const { MyClass } = require('./mylib.js');
+const obj = new MyClass('Maku');
+```
+
+1 つの JavaScript ファイル（モジュール）で複数のクラスを公開することもできます。
+下記の `mylib.js` モジュールは、3 つのクラスを公開しています。
+
+#### mylib.js
+
+```js
+class ClassA { }
+class ClassB { }
+class ClassC { }
+exports.ClassA = ClassA;
+exports.ClassB = ClassB;
+exports.ClassC = ClassC;
+```
+
+このモジュールを利用する側は、自分の興味のあるクラスだけを参照することができます。
+下記の例では、`ClassA` と `ClassC` だけを参照しています。
+
+#### main.js
+
+```js
+const { ClassA, ClassC } = require('./mylib.js');
+const a = new ClassA();
+const c = new ClassC();
+```
+
+
 その他 class に関する注意点
 ----
 
