@@ -3,7 +3,7 @@ title: "Node.js で環境変数を参照する (process.env)"
 date: "2012-12-07"
 ---
 
-Node.js で環境変数を扱いときは、`process.env` オブジェクトを参照します。
+Node.js で環境変数を扱いたいときは、**`process.env`** オブジェクトを参照します。
 `process` モジュールはデフォルトで使用可能になっているので、`require` する必要はありません。
 
 
@@ -67,4 +67,10 @@ if (typeof port === 'undefined') port = 50000;
 ```
 
 まぁ、ポート番号としては 0 という値はそもそも不正な値なので、ここまで厳密に `undefined` かどうかの判断をする必要はないと思いますが。
+
+
+関連記事
+----
+
+- [環境変数の代わりに .env ファイルを使用する (dotenv)](./dotenv.html)
 

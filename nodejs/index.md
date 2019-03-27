@@ -10,6 +10,7 @@ Node.js 実行環境など
 - [node アプリをシェバングで起動するようにする](shebang.html)
 - [Node.js で assert を使用する](assert.html)
 - [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
+- [環境変数の代わりに .env ファイルを使用する (dotenv)](env/dotenv.html)
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
 
 ### モジュール／パッケージ
@@ -40,6 +41,7 @@ Node.js 実行環境など
 
 ### ファイル／ディレクトリ
 - [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (__filename, __dirname)](io/filename.html)
+- [エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (require.main.filename)](io/main-filename.html)
 - [パスを結合する (path.join)](io/path-join.html)
 - [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
