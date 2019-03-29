@@ -2,6 +2,7 @@
 ---
 /* vim: set et sts=2 ts=2 sw=2: */
 @import "mixin";
+@import "maku-common";
 
 $COLOR_MAIN: #333;
 $COLOR_HEADER: black;
@@ -55,13 +56,6 @@ body {
 
 #xBody {
   margin: $BODY_MARGIN;
-}
-
-// 外部リンクアイコン
-.externalLinkIcon::after {
-  content: url("../img/icon-external-link.png");
-  padding-left: 3px;
-  padding-right: 5px;
 }
 
 // ヘッダー
