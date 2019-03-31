@@ -137,7 +137,7 @@ HTML/DOM 操作
 - [HTML の DOM ツリーに要素を追加する](dom/add-element.html)
 - [HTML 要素に独自の data 属性（カスタム属性）を設定する](dom/data-attribute.html)
 - [HTML 要素の class 属性の値を追加・削除・トグルする](dom/control-class-attribute.html)
-- [ページ内の h2 要素から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
+- [ページ内のヘッダ要素 (h2/h3/h4) から自動的にメニュー (TOC) を生成する](dom/table-of-contents.html)
 - [HTML 要素のサイズを取得する](dom/elem-size.html)
 - [HTML 要素の位置を取得する](dom/elem-pos.html)
 
