@@ -28,11 +28,20 @@ $COLOR_TR_EVEN_BG: #eeeeee;
 
 $COLOR_NAV_FOCUSED: #eaeaea;
 
-$WIDTH_MOBILE: 800px;
 $SIDE_MARGIN_DESKTOP: 30px;  // 横幅が広い場合の左右のマージン
 $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
 $DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
-$BODY_MARGIN: 10px;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
+$BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
+
+// スクリーン横幅がモバイルよりは大きい場合
+@mixin m-larger-than-small {
+  @media (min-width: 35rem) { @content; }
+}
+
+// スクリーン横幅がかなり大きい場合
+@mixin m-larger-than-medium {
+  @media (min-width: 55rem) { @content; }
+}
 
 * {
   box-sizing: border-box;
@@ -56,51 +65,48 @@ body {
 
 #xBody {
   margin: $BODY_MARGIN;
-}
-
-// ヘッダー
-h1, h2, h3, h4 {
-  color: $COLOR_HEADER;
-  font-weight: bolder;
-  margin: 1.5em 0em 1em 0em;
-
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-left: $SIDE_MARGIN_MOBILE;
-    margin-right: $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $BODY_MARGIN * 2;
+    margin-right: $BODY_MARGIN * 2;
   }
 }
 
+// ヘッダー
+* + h1, * + h2, * + h3, * + h4 {
+  margin-top: 2em;
+}
+h1, h2, h3, h4 {
+  margin-bottom: 1em;
+  padding: 0 0.2em;
+  color: $COLOR_HEADER;
+  font-weight: bolder;
+}
 h1 {
   font-size: 1.4rem;
-  padding: 0.5em;
   background: #666;
   color: white;
 }
 h2 {
   font-size: 1.3rem;
   border-bottom: 1px solid $COLOR_HEADER;
-  padding: 0.3em;
 }
 h3 {
-  padding: 0.3em;
   font-size: 1.1rem;
 }
 h4 {
   font-size: 1rem;
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
   }
 }
 
 // 定義リスト
 dl {
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   color: black;
 
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-left: $SIDE_MARGIN_MOBILE;
-    margin-right: $SIDE_MARGIN_MOBILE;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
   dt {
@@ -116,11 +122,9 @@ dl {
 
 // リスト
 ul, ol {
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
-
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-left: $SIDE_MARGIN_MOBILE;
-    margin-right: $SIDE_MARGIN_MOBILE;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
   // リストの二階層目以降はマージンを減らす
@@ -225,9 +229,13 @@ code {
 }
 
 pre {
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
+  }
+
   tab-size: 5;
   -moz-tab-size: 5;
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
 
   font-size: 90%;
   padding: 0.5em 0.8em;
@@ -241,11 +249,6 @@ pre {
   code {
     padding: 0;
     background-color: transparent;
-  }
-
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-left: $SIDE_MARGIN_MOBILE;
-    margin-right: $SIDE_MARGIN_MOBILE;
   }
 }
 
@@ -276,18 +279,18 @@ p {
 }
 
 blockquote {
+  margin-left: $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
+  }
+
   border-left: solid #ccc 0.3em;
   padding-left: 0.5em;
   font-size: 0.9em;
   font-style: italic;
-  margin-left: $SIDE_MARGIN_DESKTOP;
 
   & > p {
     margin: 0;
-  }
-
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-left: $SIDE_MARGIN_MOBILE;
   }
 }
 
@@ -309,16 +312,17 @@ kbd {
 .note {
   @include clearfix;
 
-  margin: $SIDE_MARGIN_DESKTOP;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
+  }
+
   padding: 10px 0px 10px 0px;
   border-top: 5px dashed #eee;
   border-bottom: 5px dashed #eee;
   &::before {
     content: url("../img/onepoint.png");
     float: left;
-  }
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: 30px $SIDE_MARGIN_MOBILE;
   }
 }
 
@@ -332,13 +336,13 @@ kbd {
   h2 { font-size: 120%; }
   h3 { font-size: 110%; }
   h4 { font-size: 100%; }
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
   padding: 10px;
   border: solid #ccc 1px;
   background: #ffd;
 
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  @include m-larger-than-small {
+    margin-left: $SIDE_MARGIN_DESKTOP;
   }
 }
 
@@ -370,56 +374,55 @@ kbd {
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
   color: #590c11;
-  padding: 20px;
-  margin: $DEFAULT_MARGIN;
-  margin-left: 0;
 
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    margin-right: 0;
-    padding: 10px;
+  padding: 10px;
+
+  @include m-larger-than-small {
+    padding: 20px;
   }
 }
 
 /* 段組 */
 #xContainer {
-  /* フレキシブルボックスレイアウトによる段組 */
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
+  // デフォルトはコンテンツを単純に表示
+  display: block;
 
-  &_main {
-    /* 画面幅が広い時はこの要素の横幅を拡張する */
-    box-flex: 1;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -ms-box-flex: 1;
-  }
-
+  // デフォルトはサイドバー非表示
   &_sidebar {
-    @media print { display: none; }  // 印刷時非表示
-
-    margin-left: $BODY_MARGIN;
-    width: 200px;
-    padding: 0;
-
-    &_ad {
-      max-width: 200px;
-    }
-
-    &_fixed {
-      position: -webkit-sticky;
-      position: sticky;
-      top: $BODY_MARGIN;
-    }
+    display: none;
+    @media print { display: none; }  // 印刷時は常に非表示
   }
 
-  /* レスポンシブデザイン対応。幅が狭い場合は sidebar は非表示 */
-  @media screen and (max-width: $WIDTH_MOBILE) {
-    display: block;
+  // 幅が広いとき
+  @include m-larger-than-medium {
+    // 幅が広い場合、フレキシブルボックスレイアウトによる段組
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
 
-    #xContainer_sidebar {
-      display: none;
+    &_main {
+      // 幅が広い時はメイン領域を伸縮させる
+      box-flex: 1;
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -ms-box-flex: 1;
+    }
+
+    // 幅が広い時は sidebar を表示
+    &_sidebar {
+      display: block;
+      margin-left: $BODY_MARGIN;
+      width: 200px;
+      padding: 0;
+      &_ad {
+        max-width: 200px;
+      }
+      &_fixed {
+        position: -webkit-sticky;
+        position: sticky;
+        top: $BODY_MARGIN;
+      }
     }
   }
 }
@@ -437,10 +440,9 @@ kbd {
 
 .xContent {
   & > p {
-    margin: 10px $SIDE_MARGIN_DESKTOP $DEFAULT_MARGIN $SIDE_MARGIN_DESKTOP;
-
-    @media screen and (max-width: $WIDTH_MOBILE) {
-      margin: 10px $SIDE_MARGIN_MOBILE;
+    margin: 1rem $SIDE_MARGIN_MOBILE;
+    @include m-larger-than-small {
+      margin-left: $SIDE_MARGIN_DESKTOP;
     }
   }
 }
