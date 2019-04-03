@@ -18,7 +18,7 @@ Windows バッチファイル
 * [長いコマンドを複数行に分けて記述する](syntax/separate-long-line.html)
 
 ### 入出力 (I/O)
-* [echo の出力を標準エラー (stderr) に出力する](echo-to-stderr.html)
+* [標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する](io/redirect-stdout-and-stderr.html)
 * [echo で改行だけ出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
 
