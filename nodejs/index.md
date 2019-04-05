@@ -45,7 +45,12 @@ Node.js 実行環境など
 - [パスを結合する (path.join)](io/path-join.html)
 - [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
+
+#### CSV
 - [CSV ファイルを読み込む](io/csv.html)
+
+#### Yaml
+- [Yaml ファイルを読み書きする (js-yaml)](io/yaml.html)
 
 ### SQLite データベース
 - [SQLite を使用する (1) node-sqlite3 のインストール](io/sqlite1.html)
