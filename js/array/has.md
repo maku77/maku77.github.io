@@ -1,15 +1,17 @@
 ---
-title: "配列内にある要素が存在するか調べる"
+title: "配列内にある要素が存在するか調べる (indexOf)"
 date: "2017-10-22"
 ---
 
-`Array#indexOf` を使用すると、指定した要素が配列内のどのインデックス位置に存在するかを調べることができます。
+**`Array#indexOf`** を使用すると、指定した要素が配列内のどのインデックス位置に存在するかを調べることができます。
 要素が存在しない場合は `-1` を返すので、これを利用してある要素が配列内に存在するかを調べることができます。
+
+#### 通常の JavaScript の場合
 
 ~~~ javascript
 var arr = ['aaa', 'bbb', 'ccc', 'ddd'];
 if (arr.indexOf('ccc') != -1) {
-    alert('要素が見つかりました');
+    console.log('ccc が見つかりました');
 }
 ~~~
 
@@ -18,7 +20,7 @@ if (arr.indexOf('ccc') != -1) {
 ~~~ javascript
 var arr = ['aaa', 'bbb', 'ccc', 'ddd'];
 if ($.inArray('ccc', arr)) {
-    alert('要素が見つかりました');
+    alert('ccc が見つかりました');
 }
 ~~~
 

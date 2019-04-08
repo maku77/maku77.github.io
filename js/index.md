@@ -47,7 +47,7 @@ layout: category-index
 - [実数の小数点数以下を丸めて整数に変換する](numstr/real-to-int.html)
 
 
-配列 (Array)
+配列／連想配列 (Array)
 ----
 - [配列の基本](array/basic.html)
 - [配列に要素を追加・挿入する (push, unshift, splice)](array/push.html)
@@ -56,8 +56,9 @@ layout: category-index
 - [配列をコピーする](array/copy.html)
 - [配列をループで処理する](array/loop.html)
 - [配列をソートする (sort, reverse)](array/sort.html)
-- [配列内にある要素が存在するか調べる](array/has.html)
+- [配列にある要素が存在するか調べる (indexOf)](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
+- [連想配列にキーが存在するか調べる (in)](array/in.html)
 - [連想配列の要素（キー）を削除する (delete)](array/delete.html)
 - [連想配列の要素数を調べる](array/size-of-assoc-array.html)
 - [配列要素をランダムで取り出す](array/random.html)
