@@ -22,7 +22,7 @@ js-yaml で Yaml ファイルを読み込む
 
 例えば、ここでは下記のような Yaml ファイルを読み込んでみます（出典は[こちら](https://en.wikipedia.org/wiki/YAML)）。
 
-#### data.yml
+#### data.yaml
 
 ```yaml
 ---
@@ -67,7 +67,7 @@ if (require.main === module) {
   const path = require('path');
 
   try {
-    const data = loadYamlFile(path.join(__dirname, 'data.yml'));
+    const data = loadYamlFile(path.join(__dirname, 'data.yaml'));
     console.log(data);
     console.log(data.items[1].price);
   } catch (err) {
@@ -105,7 +105,7 @@ js-yaml で Yaml ファイルを書き出す
 `js-yaml` モジュールの、**`dump`** 関数を利用すると、任意の JavaScript オブジェクトを Yaml 形式のテキストに変換することができます。
 変換したテキストをそのままテキストファイルとして出力すれば、Yaml ファイルができあがります。
 
-下記の例では、`books` オブジェクトの内容を Yaml 形式のテキストに変換し、`books.yml` ファイルに保存しています。
+下記の例では、`books` オブジェクトの内容を Yaml 形式のテキストに変換し、`books.yaml` ファイルに保存しています。
 
 #### main.js （Yaml ファイルへの保存）
 
@@ -118,7 +118,7 @@ const books = [
 ];
 
 const yamlText = yaml.dump(books);
-fs.writeFile('books.yml', yamlText, 'utf8', (err) => {
+fs.writeFile('books.yaml', yamlText, 'utf8', (err) => {
   if (err) {
     console.error(err.message);
     process.exit(1);
@@ -129,14 +129,14 @@ fs.writeFile('books.yml', yamlText, 'utf8', (err) => {
 // 同期書き込みなら
 // const yamlText = yaml.dump(books);
 // try {
-//   fs.writeFileSync('books.yml', yamlText, 'utf8');
+//   fs.writeFileSync('books.yaml', yamlText, 'utf8');
 // } catch (err) {
 //   console.error(err.message);
 //   process.exit(1);
 // }
 ```
 
-#### books.yml （作成された Yaml ファイル）
+#### books.yaml （作成された Yaml ファイル）
 
 ```yaml
 - name: タイトル1

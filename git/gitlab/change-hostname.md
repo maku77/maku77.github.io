@@ -10,7 +10,7 @@ GitLab の Clone URL などに表示されているアドレス内のホスト�
 
 #### gitlab.yml（抜粋）
 
-```yml
+```yaml
 ...
 host: YourHostName  # これを変更
 ```

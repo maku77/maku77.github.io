@@ -14,10 +14,10 @@ description: "data ディレクトリに YAML、JSON、TOML、CSV などの形�
 - [TOML フォーマット](https://github.com/toml-lang/toml)
 - [CSV フォーマット](https://tools.ietf.org/html/rfc4180)
 
-ここでは英単語の辞書データを YAML 形式のファイル `data/words.yml` として作成してみましょう（拡張子は .yml でも .yaml でも構いません）。
+ここでは英単語の辞書データを YAML 形式のファイル `data/words.yaml` として作成してみましょう（拡張子は .yaml でも .yml でも構いません）。
 `data` ディレクトリは、サイトのルートディレクトリに作成します（`content` ディレクトリや `layouts` ディレクトリと同じ階層に `data` ディレクトリを置きます）。
 
-#### data/words.yml
+#### data/words.yaml
 
 ~~~ yaml
 -
@@ -112,7 +112,7 @@ title: "単語集"
 1 つの YAML ファイルに、1 つの書籍の情報を記述します。
 ディレクトリ内のファイルをすべてループ処理するので、YAML ファイルの名前は何でも構いません。
 
-#### data/books/title1.yml
+#### data/books/title1.yaml
 
 ~~~ yaml
 title: ライザップ式 2週間ダイエットレシピ
@@ -120,7 +120,7 @@ author: RIZAP 株式会社
 isbn13: 978-4537215489
 ~~~
 
-#### data/books/title2.yml
+#### data/books/title2.yaml
 
 ~~~ yaml
 title: 大人女子の体にライザップ

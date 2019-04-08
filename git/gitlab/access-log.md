@@ -45,7 +45,7 @@ GitLab を deb パッケージでインストールした場合は、GitLab ウ�
 
 #### /opt/gitlab/embedded/service/gitlab-shell/config.yml
 
-```yml
+```yaml
 # Log file.
 # Default is gitlab-shell.log in the root directory.
 log_file: "/var/log/gitlab/gitlab-shell/gitlab-shell.log"

@@ -98,7 +98,7 @@ Google Analytics を使用していないのであれば外してください。
 
 #### _config.yml
 
-~~~ yml
+~~~ yaml
 name: 天才まくまくノート
 url: https://maku77.github.io
 logo: /assets/img/logo.jpg

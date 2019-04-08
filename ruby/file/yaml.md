@@ -41,7 +41,7 @@ YAML ファイルを読み込む
 
 `YAML.load_file` メソッドを使用すると、YAML 形式のテキストファイルを読み込んで Ruby のオブジェクトに変換してくれます。
 
-#### books.yml
+#### books.yaml
 
 ```yaml
 - name: The Ruby Programming Language
@@ -55,7 +55,7 @@ YAML ファイルを読み込む
 ```ruby
 require 'yaml'
 
-ym = YAML.load_file('input.yml')
+ym = YAML.load_file('input.yaml')
 p ym
 ```
 
