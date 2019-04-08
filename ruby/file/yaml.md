@@ -5,6 +5,10 @@ date: "2016-10-20"
 
 Ruby には [YAML ファイル](https://ja.wikipedia.org/wiki/YAML)を扱うためのモジュール `yaml` が標準で搭載されています。
 
+<div class="note">
+YAML ファイルの拡張子は、<code>.yaml</code> が使われていたり、<code>.yml</code> が使われていたりしますが、<a target="_blank" href="https://yaml.org/faq.html">YAML 公式サイト</a>では <code>.yaml</code> を使うことを推奨しているようです。
+</div>
+
 YAML 形式の文字列をパースする
 ----
 

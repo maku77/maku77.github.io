@@ -22,6 +22,10 @@ js-yaml で Yaml ファイルを読み込む
 
 例えば、ここでは下記のような Yaml ファイルを読み込んでみます（出典は[こちら](https://en.wikipedia.org/wiki/YAML)）。
 
+<div class="note">
+YAML ファイルの拡張子は、<code>.yaml</code> が使われていたり、<code>.yml</code> が使われていたりしますが、<a target="_blank" href="https://yaml.org/faq.html">YAML 公式サイト</a>では <code>.yaml</code> を使うことを推奨しているようです。
+</div>
+
 #### data.yaml
 
 ```yaml
