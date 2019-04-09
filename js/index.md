@@ -42,6 +42,7 @@ layout: category-index
 - [部分文字列を取得する (substring, slice)](string/substring.html)
 - [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
 - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
+- [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize)](string/normalize.html) ECMAScript2015
 
 ### 数値
 - [実数の小数点数以下を丸めて整数に変換する](numstr/real-to-int.html)
