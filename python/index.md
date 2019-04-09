@@ -148,7 +148,7 @@ python コマンド / 実行環境
 テキストファイルの読み書き
 ----
 * [テキストファイルを読み込む](io/read-text-file.html)
-* [CSV ファイルを読み込む (csv.reader)](io/csv.html)
+* [CSV ファイルや TSV ファイルを読み込む (csv.reader)](io/csv.html)
 * [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
 
 ### 応用サンプル
