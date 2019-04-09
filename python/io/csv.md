@@ -17,7 +17,7 @@ Python には、CSV を処理するためのモジュール **`csv.reader`** が
 #!/usr/bin/env python
 import csv
 
-with open('input.csv', newline='') as f:
+with open('input.csv', encoding='utf-8', newline='') as f:
     for cols in csv.reader(f):
         print(cols)
 ~~~
@@ -46,7 +46,7 @@ CCC, 300
 もちろん、以下のように普通のテキストファイルとして処理する方法もあります。
 
 ~~~ python
-with open('input.csv') as f:
+with open('input.csv', encoding='utf-8') as f:
     for line in f:
         cols = [x.strip() for x in line.split(',')]  # カンマで分割＆前後の空白削除
         print(cols)
@@ -61,7 +61,7 @@ CSV ファイルの代わりに TSV ファイル（タブで区切られたテ�
 ~~~ python
 import csv
 
-with open('input.tsv', newline='') as f:
+with open('input.tsv', encoding='utf-8', newline='') as f:
     for cols in csv.reader(f, delimiter='\t'):
         print(cols)
 ~~~
@@ -76,7 +76,7 @@ with open('input.tsv', newline='') as f:
 ~~~ python
 import csv
 
-with open('input.csv', newline='') as f:
+with open('input.csv', encoding='utf-8', newline='') as f:
     reader = csv.reader(f)
 
     # ヘッダ行だけを読み込んで、スペース区切りで表示
