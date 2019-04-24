@@ -1,0 +1,15 @@
+@startuml base-001
+hide circle
+hide empty fields
+hide empty methods
+package read-only <<Rectangle>> {
+  interface List
+  interface Set
+  interface Map
+}
+package mutable <<Rectangle>> {
+  List <|-- MutableList
+  Set <|-- MutableSet
+  Map <|-- MutableMap
+}
+@enduml
