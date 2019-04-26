@@ -7,6 +7,9 @@ layout: category-index
 ----
 
 * [Kotlin とは？ Kotlin をインストールする](basic/install.html)
+
+### 構文
+
 * [変数を定義する (val, var)](basic/var.html)
 * [基本的な型の一覧](basic/types.html)
 * lateinit による変数宣言
@@ -16,6 +19,7 @@ layout: category-index
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
 * [例外処理を記述する (try, catch, finally)](basic/exception.html)
+* [あるインスタンスがどのクラスのオブジェクトなのか調べる (javaClass)](basic/java-class.html)
 
 ### 配列
 * 配列を扱う (arrayOf)
@@ -29,6 +33,11 @@ layout: category-index
 * [when 式による条件分岐](basic/when.html)
 * [for ループと while ループ](basic/loop.html)
 
+### パッケージ
+* [Kotlin のパッケージの考え方を理解する](package/basic.html)
+* [パッケージのトップレベルに関数、プロパティ、定数を定義する](package/top-level.html)
+
+
 コレクション
 ----
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
@@ -37,9 +46,16 @@ layout: category-index
 * Map と MutableMap の使い方
 * [配列やリストから null 以外の要素のみを抽出する (filterNotNull)](collection/filter-not-null.html)
 * [ある値がコレクションに含まれているか調べる (in)](collection/in.html)
+* [コレクションの最初・最後の要素を取得する (first, last)](collection/first-last.html)
+* [コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)](collection/min-max.html)
+
+
+拡張関数／拡張プロパティ
+----
+* 既存のクラスに関数を追加する（拡張関数）
 
 
 その他
 ----
-* [ドキュメンテーションコメントを記述する (KDoc)](kdoc.html)
+* [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
 
