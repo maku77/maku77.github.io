@@ -1,6 +1,6 @@
 ---
 title: "Gradle Wrapper スクリプト (gradlew) を作成する"
-update: "2019-04-25"
+lastmod: "2019-04-25"
 date: "2015-07-10"
 ---
 

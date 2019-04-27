@@ -1,6 +1,6 @@
 ---
 title: "CSV ファイルや TSV ファイルを読み込む (csv.reader)"
-update: "2019-04-09"
+lastmod: "2019-04-09"
 date: "2013-05-09"
 ---
 
