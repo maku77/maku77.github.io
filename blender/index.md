@@ -8,7 +8,7 @@ Blender の設定
 - [メニューなどを日本語表示にする](settings/japanese.html)
 - [テンキーなしキーボードでテンキーをエミュレートする](settings/emulate-tenkeys.html)
 - [常に選択したオブジェクトを中心に視点を回転する](settings/rotate-around-selection.html)
-
+- [自動バックアップとリストア](settings/backup.html)
 
 Blendar の画面
 ----
