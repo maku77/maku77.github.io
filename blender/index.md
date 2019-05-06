@@ -31,13 +31,17 @@ Blendar の画面
 ### 「3Dビュー」エディタ
 - [3D カーソルを原点（中心）に移動する (Shift + S)](3dview/snap-cursor-to-center.html)
 - [視点を操作する (Navigation)](basic/navigation.html)
-- [下絵を表示する](basic/underdrawing.html)
 - [オブジェクトを追加する (Add) (Shift + A)](3dview/add.html)
 - [オブジェクトを移動する (Move) (G)](3dview/move.html)
 - [オブジェクトを回転する (Rotate) (R)](3dview/rotate.html)
 - [オブジェクトを拡大／縮小する (Scale) (S)](3dview/scale.html)
 - [直前の編集操作を繰り返す（リピート実行）(Shift + R)](3dview/repeat.html)
-- [ループカットとスライドで辺を追加する (Ctrl + R)](3dview/loopcut.html)
+- 面・辺の追加
+    - [押し出しで凹凸を作る (Extrude Region) (E)](3dview/extrude.html)
+    - [面を差し込む (Insert Face) (I)](3dview/insert-face.html)
+    - [ループカットとスライドで辺を追加する (Ctrl + R)](3dview/loopcut.html)
+- [下絵を表示する](basic/underdrawing.html)
+
 
 テクスチャ
 ----

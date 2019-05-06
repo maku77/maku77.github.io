@@ -65,8 +65,8 @@ date: "2019-05-06"
       <li><kbd>Ctrl + R</kbd> を押して起点となる辺にマウスカーソルを合わせる</li>
       <li><kbd>マウスホイール</kbd> でループカット数を調整</li>
       <li><kbd>左クリック</kbd> でループカットを実行</li>
-      <li><kbd>G</kbd> キーでループカットした部分を移動</li>
       <li><kbd>S</kbd> キーでループカットした部分を伸縮</li>
+      <li><kbd>G</kbd> キーでループカットした部分を移動</li>
     </ol>
   </figcaption>
 </figure>

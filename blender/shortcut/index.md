@@ -108,6 +108,7 @@ date: "2018-02-26"
 </table>
 
 ### 選択
+
 <table class="local-example">
   <tr>
     <td><img src="select-all.svg"></td>
@@ -121,39 +122,44 @@ date: "2018-02-26"
   </tr>
   <tr>
     <td rowspan="2"><img src="select-click.svg"></td>
-    <td>右クリック</td>
+    <td><kbd>右クリック</kbd></td>
     <td>カーソル下の要素を選択</td>
   </tr>
   <tr>
-    <td><kbd>Shift</kbd> + 右クリック</td>
+    <td><kbd>Shift + 右クリック</kbd></td>
     <td>連続選択</td>
   </tr>
   <tr>
     <td rowspan="2"><img src="select-circle.svg"></td>
-    <td><kbd>C</kbd> → クリック</td>
+    <td><kbd>C</kbd> → <kbd>左クリック</kbd></td>
     <td>円内の要素を選択 (Circle Select)<br>（ホイールで円サイズ変更）</td>
   </tr>
   <tr>
-    <td><kbd>C</kbd> → <kbd>Shift</kbd> + クリック</td>
+    <td><kbd>C</kbd> → <kbd>Shift + 左クリック</kbd></td>
     <td>〃解除</td>
   </tr>
   <tr>
     <td rowspan="2"><img src="select-border.svg"></td>
-    <td><kbd>B</kbd> → ドラッグ</td>
+    <td><kbd>B</kbd> → <kbd>ドラッグ</kbd></td>
     <td>矩形で囲んで選択 (Border Select)</td>
   </tr>
   <tr>
-    <td><kbd>B</kbd> → <kbd>Shift</kbd> + ドラッグ</td>
+    <td><kbd>B</kbd> → <kbd>Shift + ドラッグ</kbd></td>
     <td>〃解除</td>
   </tr>
   <tr>
     <td rowspan="2"><img src="select-region.svg"></td>
-    <td><kbd>Ctrl</kbd> + ドラッグ</td>
+    <td><kbd>Ctrl + ドラッグ</kbd></td>
     <td>自由領域で囲んで選択</td>
   </tr>
   <tr>
-    <td><kbd>Ctrl + Shift</kbd> + ドラッグ</td>
+    <td><kbd>Ctrl + Shift + ドラッグ</kbd></td>
     <td>〃解除</td>
+  </tr>
+  <tr>
+    <td><img src="select-mode.png"></td>
+    <td><kbd>Ctrl + Tab</kbd>（編集モードのみ）</td>
+    <td>メッシュ選択モードの切り替え（頂点／辺／面）</td>
   </tr>
 </table>
 
@@ -174,7 +180,7 @@ date: "2018-02-26"
   <tr>
     <td></td>
     <td></td>
-    <td><kbd>Ctrl + Tab</kbd></td>
+    <td><kbd>Ctrl + Tab</kbd>（編集モード以外の時）</td>
     <td>オブジェクトモード ⇔ ウェイトペイントモードの切り替え</td>
   </tr>
 </table>
@@ -237,60 +243,32 @@ date: "2018-02-26"
   <tr>
     <td><img src="mesh-insert-faces.svg"></td>
     <td><kbd>I</kbd></td>
-    <td>面を差し込む (Insert Faces)</td>
+    <td><a href="../3dview/insert-face.html">面を差し込む (Insert Faces)</a></td>
   </tr>
   <tr>
     <td><img src="mesh-extrude-region.svg"></td>
     <td><kbd>E</kbd></td>
-    <td>面の押し出し (Extrude Region)</td>
+    <td><a href="../3dview/extrude.html">面の押し出し (Extrude Region)</a></td>
   </tr>
   <tr>
     <td><img src="mesh-loopcut.svg"></td>
     <td><kbd>Ctrl + R</kbd></td>
-    <td>ループカットとスライド (Loopcut and Slide)</td>
+    <td><a href="../3dview/loopcut.html">ループカットとスライド (Loopcut and Slide)</a></td>
   </tr>
   <tr>
     <td><img src="mesh-knife.svg"></td>
     <td><kbd>K</kbd> → クリック繰り返し</td>
     <td>ナイフ (Knife)</td>
   </tr>
-</table>
-
-#### 頂点の結合いろいろ
-<table class="local-example">
-<tr>
-  <th>操作方法</th>
-  <th>元のメッシュ形状</th>
-  <th>操作後のメッシュ形状</th>
-</tr>
-<tr>
-  <td>頂点を選択 → <kbd>Alt + M</kbd> → 中心に</td>
-  <td><img src="merge.png" /></td>
-  <td><img src="merge-center.png" /></td>
-</tr>
-<tr>
-  <td>頂点を選択 → <kbd>Alt + M</kbd> → 最初に選択した頂点に</td>
-  <td><img src="merge.png" /></td>
-  <td><img src="merge-first.png" /></td>
-</tr>
-<tr>
-  <td>頂点を選択 → <kbd>Alt + M</kbd> → 最後に選択した頂点に</td>
-  <td><img src="merge.png" /></td>
-  <td><img src="merge-last.png" /></td>
-</tr>
-<tr>
-  <td>頂点を選択 → <kbd>Alt + M</kbd> → カーソル位置に</td>
-  <td><img src="merge.png" /></td>
-  <td><img src="merge-cursor.png" /></td>
-</tr>
-<tr>
-  <td>頂点を選択 → <kbd>Alt + M</kbd> → 束ねる</td>
-  <td><img src="merge.png" /></td>
-  <td><img src="merge-center.png" /></td>
-</tr>
+  <tr>
+    <td><img src="mesh-merge.svg"></td>
+    <td><kbd>Alt + M</kbd></td>
+    <td>選択した頂点を結合 (Merge)</td>
+  </tr>
 </table>
 
 #### プレビューモード (Viewport Shading) の切り替え
+
 <table class="local-example">
   <tr>
     <td><img src="preview-solid.png"></td>
