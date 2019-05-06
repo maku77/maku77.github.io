@@ -1,5 +1,5 @@
 ---
-title: "オブジェクトを拡大／縮小する"
+title: "オブジェクトを拡大／縮小する (S)"
 date: "2018-03-18"
 ---
 
@@ -7,7 +7,7 @@ date: "2018-03-18"
 ----
 
 <figure>
-  <img src="scale.png" />
+  <img src="scale-001.png" />
   <figcaption>
     <ol>
       <li>オブジェクトを選択（オブジェクトモードで右クリック）</li>
