@@ -27,6 +27,7 @@ layout: category-index
 ### 文字列／数値
 * [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
 * [文字列と数値を変換する (toIntOrNull, toInt)](numstr/convert.html)
+* [文字列をデリミタ文字で分割する (split)](numstr/split.html)
 
 ### 制御構文
 * [if による分岐処理と if 式](basic/if.html)
@@ -44,6 +45,7 @@ layout: category-index
 * List と MutableList の使い方
 * Set と MutableSet の使い方
 * Map と MutableMap の使い方
+* [配列やコレクションの要素をループ処理する](collection/loop-collection.html)
 * [配列やリストから null 以外の要素のみを抽出する (filterNotNull)](collection/filter-not-null.html)
 * [ある値がコレクションに含まれているか調べる (in)](collection/in.html)
 * [コレクションの最初・最後の要素を取得する (first, last)](collection/first-last.html)
@@ -52,7 +54,7 @@ layout: category-index
 
 拡張関数／拡張プロパティ
 ----
-* 既存のクラスに関数を追加する（拡張関数）
+* [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
 
 
 その他
