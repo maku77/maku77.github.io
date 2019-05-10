@@ -14,7 +14,10 @@ layout: category-index
 * [基本的な型の一覧](basic/types.html)
 * lateinit による変数宣言
 * [関数を定義する (fun)](basic/fun.html)
-* [クラスを定義する (class)](basic/class.html)
+* クラス
+    * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
+    * [継承可能なクラスを作成する](basic/extend.html)
+    * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
 * [インタフェースを定義する (interface)](basic/interface.html)
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)

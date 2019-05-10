@@ -39,6 +39,27 @@ import com.example.*
 ```
 
 
+トップレベル関数を private にする
+----
+
+パッケージのトップレベルに定義した関数（やプロパティ）は、デフォルトでは public になり、他の `.kt` ファイルから参照できるようになっています。
+可視性を自分のファイル内に限定したい場合は、**`private`** を付けて関数を定義します。
+
+```kotlin
+package com.example.util
+
+// これは他のファイルからも参照できる
+fun greet(name: String) {
+    println(getMessage(name))
+}
+
+// これはこのファイルからしか参照できない
+private fun getMessage(name: String) : String {
+    return "Hello, $name!"
+}
+```
+
+
 Java からどう見えるか？
 ----
 
