@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="94" height="42" viewBox="0, 0, 94, 42">
+  <defs>
+    <linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="192" y1="228.778" x2="200" y2="228.778">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <g id="レイヤー_1" transform="translate(-151, -207)">
+    <g>
+      <path d="M184.5,216.5 L168.5,208.5 L152.5,216.5 L168.5,224.5 L184.5,216.5" fill="#EEEEEE"/>
+      <path d="M184.5,216.5 L168.5,208.5 L152.5,216.5 L168.5,224.5 L184.5,216.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <path d="M168.5,228.833 L184.5,236.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <g>
+      <path d="M168.5,244.5 L152.5,236.5 L152.5,216.5 L168.5,224.5 L168.5,244.5" fill="#DDDDDD"/>
+      <path d="M168.5,244.5 L152.5,236.5 L152.5,216.5 L168.5,224.5 L168.5,244.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <path d="M192,220.778 L200,228.778 L192,236.778 z" fill="url(#Gradient_1)"/>
+    <path d="M168.5,244.5 L184.5,236.5 L184.5,216.5 L168.5,224.5 L168.5,244.5" fill-opacity="0" stroke="#EE6600" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel"/>
+    <g>
+      <path d="M240.5,216.5 L224.5,208.5 L208.5,216.5 L224.5,224.5 L240.5,216.5" fill="#EEEEEE"/>
+      <path d="M240.5,216.5 L224.5,208.5 L208.5,216.5 L224.5,224.5 L240.5,216.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <g>
+      <path d="M224.5,244.5 L208.5,236.5 L208.5,216.5 L224.5,224.5 L224.5,244.5" fill="#DDDDDD"/>
+      <path d="M224.5,244.5 L208.5,236.5 L208.5,216.5 L224.5,224.5 L224.5,244.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <g>
+      <path d="M224.5,244.5 L240.5,236.5 L240.5,216.5 L224.5,224.5 L224.5,244.5" fill="#FFB680"/>
+      <path d="M224.5,244.5 L240.5,236.5 L240.5,216.5 L224.5,224.5 L224.5,244.5" fill-opacity="0" stroke="#EE6600" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel"/>
+    </g>
+    <path d="M224.5,244.5 L240.5,216.5" fill-opacity="0" stroke="#EE6600" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

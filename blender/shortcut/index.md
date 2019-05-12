@@ -241,6 +241,11 @@ date: "2018-02-26"
     <td>面／辺の作成 (Make Face) ... 選択した辺・頂点を繋ぐように面・辺を作成</td>
   </tr>
   <tr>
+    <td><img src="mesh-fill.svg"></td>
+    <td><kbd>Alt + F</kbd></td>
+    <td>面を張る ... 選択した頂点を閉じるように三角形の面を作成</td>
+  </tr>
+  <tr>
     <td><img src="mesh-insert-faces.svg"></td>
     <td><kbd>I</kbd></td>
     <td><a href="../3dview/insert-face.html">面を差し込む (Insert Faces)</a></td>
@@ -259,6 +264,11 @@ date: "2018-02-26"
     <td><img src="mesh-knife.svg"></td>
     <td><kbd>K</kbd> → クリック繰り返し</td>
     <td>ナイフ (Knife)</td>
+  </tr>
+  <tr>
+    <td><img src="mesh-connect-path.svg"></td>
+    <td><kbd>J</kbd></td>
+    <td>頂点の経路を連結 (Connect Vertext Path)<br><small>複数の頂点を選択した場合、選択した順番に繋ぐ。2 つの頂点を繋ぐだけであれば <kbd>F</kbd> キーでも可。</small></td>
   </tr>
   <tr>
     <td><img src="mesh-merge.svg"></td>
