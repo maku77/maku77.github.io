@@ -17,7 +17,10 @@ layout: category-index
 * クラス
     * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
     * [継承可能なクラスを作成する](basic/extend.html)
+    * [シールクラスで継承可能なクラスを制限する (sealed class)](basic/sealed-class.html)
     * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
+    * [データクラスを定義する (data class)](basic/data-class.html)
+    * [by を使ったメソッド呼び出しの委譲](basic/class-delegation.html)
 * [インタフェースを定義する (interface)](basic/interface.html)
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
