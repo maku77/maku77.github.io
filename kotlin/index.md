@@ -10,13 +10,14 @@ layout: category-index
 
 ### 構文
 
-* [変数を定義する (val, var)](basic/var.html)
-* [基本的な型の一覧](basic/types.html)
-* lateinit による変数宣言
-* [関数を定義する (fun)](basic/fun.html)
+* 変数／関数
+    * [変数を定義する (val, var)](basic/var.html)
+    * [基本的な型の一覧](basic/types.html)
+    * lateinit による変数宣言
+    * [関数を定義する (fun)](basic/fun.html)
 * クラス
     * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
-    * [継承可能なクラスを作成する](basic/extend.html)
+    * [継承可能なクラスを作成する (open, abstract, override)](basic/extend.html)
     * [シールクラスで継承可能なクラスを制限する (sealed class)](basic/sealed-class.html)
     * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
     * [データクラスを定義する (data class)](basic/data-class.html)
@@ -26,9 +27,11 @@ layout: category-index
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
 * [例外処理を記述する (try, catch, finally)](basic/exception.html)
 * [あるインスタンスがどのクラスのオブジェクトなのか調べる (javaClass)](basic/java-class.html)
-
-### 配列
-* 配列を扱う (arrayOf)
+* [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
+* object キーワード
+    * [オブジェクト宣言でシングルトンを作成する (object declaration)](basic/object-declarations.html)
+    * [オブジェクト式で無名オブジェクトを生成する (object expression)](basic/object-expression.html)
+    * [コンパニオンオブジェクトでクラスに静的メソッドを追加する (companion object)](basic/companion-object.html)
 
 ### 文字列／数値
 * [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
@@ -45,7 +48,7 @@ layout: category-index
 * [パッケージのトップレベルに関数、プロパティ、定数を定義する](package/top-level.html)
 
 
-コレクション
+配列／コレクション
 ----
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
 * List と MutableList の使い方
@@ -58,12 +61,7 @@ layout: category-index
 * [コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)](collection/min-max.html)
 
 
-拡張関数／拡張プロパティ
-----
-* [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
-
-
 その他
 ----
 * [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
-
+* [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)

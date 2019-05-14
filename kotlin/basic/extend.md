@@ -1,5 +1,5 @@
 ---
-title: "継承可能なクラスを作成する"
+title: "継承可能なクラスを作成する (open, abstract, override)"
 date: "2019-05-10"
 ---
 
