@@ -32,6 +32,10 @@ layout: category-index
     * [オブジェクト宣言でシングルトンを作成する (object declaration)](basic/object-declarations.html)
     * [オブジェクト式で無名オブジェクトを生成する (object expression)](basic/object-expression.html)
     * [コンパニオンオブジェクトでクラスに静的メソッドを追加する (companion object)](basic/companion-object.html)
+* ラムダ式 (lambda expression)
+    * [ラムダ式の基本 (lambda expression)](basic/lambda.html)
+    * メンバ参照 (member reference)
+    * レシーバー付きラムダ (with)
 
 ### 文字列／数値
 * [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
