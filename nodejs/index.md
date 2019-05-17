@@ -65,6 +65,7 @@ Node.js 実行環境など
 - [mongoose (4-2) DB からドキュメントを検索する](io/mongoose4-2.html)
 - [mongoose (4-3) DB のドキュメントを更新する](io/mongoose4-3.html)
 - [mongoose (4-4) DB からドキュメントを削除する](io/mongoose4-4.html)
+- [mongoose と Express で RESTful Web API を作成する](io/mongoose-rest.html)
 - [mongojs で MongoDB を扱う](io/mongojs.html)
 
 
