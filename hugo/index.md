@@ -64,6 +64,7 @@ hugo コマンド
 * [セクション機能を使って記事を階層化する](layout/section.html)
 * [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
+* [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
 
 ### ページ一覧を表示するサンプル
 * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)

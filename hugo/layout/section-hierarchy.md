@@ -64,7 +64,7 @@ contents/
 ~~~
 
 `.CurrentSections` は通常ページ、ホームページ、セクションページ以外のテンプレートから参照すると `nil` になります。
-つまり、`layout/_default/taxonomy.html` の中で参照すると必ず `nil` になるので、タクソノミーリストテンプレートの中では参照しないでださい。
+つまり、`layout/_default/taxonomy.html` の中で参照すると必ず `nil` になるので、タクソノミーリストテンプレートの中では参照してはいけません。
 また、`layouts/_default/list.html` の中で参照した場合は、それがタクソノミーリストテンプレートとして使用されたときに `.CurrentSections` は `nil` になります。
 `layouts/_default/list.html` の中で `.CurrentSection` の値を使用するときは、上記のように `with` ブロックや `if` ブロックで `nil` チェックしてから参照するようにしましょう。
 
