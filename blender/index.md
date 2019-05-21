@@ -40,6 +40,7 @@ Blendar の画面
     - [押し出しで凹凸を作る (Extrude Region) (E)](3dview/extrude.html)
     - [面を差し込む (Insert Face) (I)](3dview/insert-face.html)
     - [ループカットとスライドで辺を追加する (Ctrl + R)](3dview/loopcut.html)
+- [頂点・辺・面の削除、融解を理解する (X)](3dview/delete.html)
 - [下絵を表示する](basic/underdrawing.html)
 
 
