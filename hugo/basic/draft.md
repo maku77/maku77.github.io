@@ -71,10 +71,10 @@ C:\> rmdir /s /q public & hugo
 
 ### コマンドラインから
 
-コマンドラインで `hugo list draft` と実行すると、contents ディレクトリの中の記事のうち、ドラフトとしてマークされている（フロントマターに `draft: true` と記述されている）ファイルの一覧を確認することができます。
+コマンドラインで `hugo list drafts` と実行すると、contents ディレクトリの中の記事のうち、ドラフトとしてマークされている（フロントマターに `draft: true` と記述されている）ファイルの一覧を確認することができます。
 
 ~~~
-$ hugo list draft
+$ hugo list drafts
 draft.md
 diaries/temp.md
 books/work-shift.md

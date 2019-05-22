@@ -8,14 +8,15 @@ Hugo
 
 はじめに
 ----
-* [Hugo とは／Hugo をインストールする](install.html)
-* [Hugo で新規の Web サイトを作成する](create-site.html)
+* [Hugo とは／Hugo をインストールする](basic/install.html)
+* [Hugo で新規の Web サイトを作成する](basic/create-site.html)
 
 記事の作成
 ----
-* [Hugo で記事を作成する](create-page.html)
-* [Hugo でドラフトページを作成する](draft.html)
-* [Hugo のテーマを設定する](theme.html)
+* [Hugo で記事を作成する](basic/create-page.html)
+* [Hugo でドラフトページを作成する](basic/draft.html)
+* [Hugo でドラフトページの一覧を簡単に確認できるようにする](basic/draft-list.html)
+* [Hugo のテーマを設定する](basic/theme.html)
 
 ショートコード (Shortcode)
 ----
@@ -103,7 +104,7 @@ hugo コマンド
 ----
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
-* [特定の記事を常にリスト上方に表示する（weight 変数）](weight.html)
+* [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
 
 
 Go 言語入門（Golang 入門）
