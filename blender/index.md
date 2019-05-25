@@ -42,7 +42,9 @@ Blendar の画面
     - [ループカットとスライドで辺を追加する (Ctrl + R)](3dview/loopcut.html)
 - [頂点・辺・面の削除、融解を理解する (X)](3dview/delete.html)
 - [下絵を表示する](basic/underdrawing.html)
-
+- 応用
+    - [頂点の連打や線の押し出しで面を作成するテクニック](3dview/extrude-vertex.html)
+    - [ぽっかり空いた穴を四角形ポリゴンで素早く埋める](3dview/fill-in-a-hole.html)
 
 テクスチャ
 ----
