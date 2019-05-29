@@ -24,13 +24,16 @@ layout: category-index
 構文
 ----
 
+### 型 / 変数
+* [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
+* [Python で定数を定義する](syntax/const.html)
+
 ### 制御構文
 * [Python の if 構文](syntax/if.html)
 * [Python の switch 構文](syntax/switch.html)
 * [range による数値のループ処理いろいろ](loop-with-range.html)
 * [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
 * [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
-* [Python で定数を定義する](syntax/const.html)
 
 ### メソッド / 関数
 * [可変長引数を扱う](syntax/variable-length-args.html)
@@ -40,6 +43,7 @@ layout: category-index
 * [オブジェクトを print で出力できるようにする](print-object.html)
 * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
+
 python コマンド / 実行環境
 ====
 * [Python でワンライナーを実行する](one-liner.html)
@@ -48,6 +52,7 @@ python コマンド / 実行環境
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 * [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
+
 
 数値
 ====
@@ -78,8 +83,7 @@ python コマンド / 実行環境
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
 
 ### JSON
-* [Python のオブジェクトを JSON 形式のテキストに変換する](numstr/python-to-json.html)
-* [JSON 形式のテキストを Python のオブジェクトに変換する](numstr/json-to-python.html)
+* [JSON テキスト ⇔ Python オブジェクトの変換 (json.loads, json.dumps)](numstr/json-to-python.html)
 
 シーケンス (Lists and Tuples)
 ====
@@ -158,8 +162,8 @@ python コマンド / 実行環境
 YAML ファイル / JSON ファイル
 ----
 * [Python で YAML ファイルを扱う](io/yaml.html)
-* [JSON 形式のテキストファイルを整形して出力する](json-pretty-print.html)
-* [JSON 形式のテキストを Python オブジェクトに変換する](json-to-object.html)
+* [JSON 形式のテキストファイルを Python オブジェクトとして読み込む (json.load)](io/json-load.html)
+* [コマンドラインで JSON 形式のテキストファイルを整形する (json.tool)](io/json-tool.html)
 
 HTML/XML ファイル
 ----
@@ -179,20 +183,27 @@ ZIP/JAR ファイル
 ----
 * [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
 
-
 SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
 
+
 Web
 ====
+
+HTTP リクエスト
+----
+* [Python で HTTP を扱う方法いろいろ](web/http-in-python.html)
+* [urllib による HTTP リクエスト (1) 基本 (urlopen)](web/http-request.html)
+* [urllib による HTTP リクエスト (2) プロキシ経由でアクセスする (ProxyHandler)](web/http-request-with-proxy.html)
+* [ulrlib による HTTP リクエスト (3) ファイルをダウンロードする (urlretrieve)](web/download-file.html)
+* [urllib による HTTP リクエスト (4) Basic 認証 (HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
+* [requests パッケージによる HTTP リクエスト](web/http-request-with-requests-package.html)
+
+HTTP サーバー
+----
 * [Python で簡易的な HTTP サーバを立てる (SimpleHTTPServer)](web/simple-http-server.html)
-* [Python で HTTP を扱う方法いろいろ](http-in-python.html)
-* [urllib による HTTP リクエスト (1)](http-request.html)
-* [urllib による HTTP リクエスト (2) プロキシ経由でアクセス](http-request-with-proxy.html)
-* [urllib による HTTP リクエスト (3) Basic 認証](http-request-with-basic-auth.html)
-* [requests パッケージによる HTTP リクエスト](http-request-with-requests-package.html)
-* [HTTP でファイルをダウンロードする](download-file.html)
+
 
 NumPy / Matplotlib
 ====
