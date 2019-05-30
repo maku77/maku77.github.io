@@ -127,7 +127,7 @@ UV 配置画像は、下記のようにして出力できます。
   <figcaption>テクスチャタイプを <kbd><samp>画像または動画</samp></kbd> に設定</figcaption>
 </figure>
 
-画像の●●●●● で、開くボタンを押して、テクスチャ画像を読み込みます。
+<samp>画像</samp> パネルで、<samp>開く</samp> ボタンを押して、テクスチャ画像を読み込みます。
 
 <figure>
   <img src="uv-mapping-texture5.png" />
