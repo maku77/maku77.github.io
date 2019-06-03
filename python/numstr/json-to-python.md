@@ -80,3 +80,34 @@ print(json.dumps(obj, indent=4, sort_keys=True))
 }
 ```
 
+
+JSON テキストをきれいに整形して出力する
+----
+
+下記の `pretty_json()` 関数は、JSON 形式の文字列データを、きれいにインデントや改行を入れた形に整形します。
+まず、`json.loads` で Python オブジェクトに変換してから、`json.dumps` で整形されたテキスト形式に戻しています。
+
+```python
+import json
+
+def pretty_json(json_text):
+    return json.dumps(json.loads(json_text), indent=4)
+
+s = '{"aaa":100, "bbb":200, "ccc":300}'
+print(pretty_json(s))
+```
+
+JSON 形式の文字列と、通常のオブジェクトのどちらでも処理できるようにするには、`isinstance` で `str` 型オブジェクトどうかを判別して処理すればよいでしょう。
+下記の `print_json()` 関数は、渡された JSON テキスト、あるいはオブジェクトをきれいに整形して出力します。
+
+```python
+import json
+
+def print_json(obj):
+    s = json.loads(obj) if isinstance(obj, str) else obj
+    print(json.dumps(s, indent=4))
+
+print_json('{"aaa":100, "bbb":200, "ccc":300}')  # JSON テキストでも
+print_json({"aaa":100, "bbb":200, "ccc":300})    # オブジェクトでもOK
+```
+

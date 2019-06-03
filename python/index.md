@@ -198,6 +198,7 @@ HTTP リクエスト
 * [urllib による HTTP リクエスト (2) プロキシ経由でアクセスする (ProxyHandler)](web/http-request-with-proxy.html)
 * [ulrlib による HTTP リクエスト (3) ファイルをダウンロードする (urlretrieve)](web/download-file.html)
 * [urllib による HTTP リクエスト (4) Basic 認証 (HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
+* [urllib による HTTP リクエスト (5) ヘッダを付けてリクエストする](web/http-request-with-header.html)
 * [requests パッケージによる HTTP リクエスト](web/http-request-with-requests-package.html)
 
 HTTP サーバー
