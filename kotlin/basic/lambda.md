@@ -177,6 +177,7 @@ val mostExpensiveBook = list.maxBy(Book::price)
 ```
 
 `Book::price` は、`{ b: Book -> b.price }` というラムダ式の省略記法です。
+[メンバ参照に関しての説明はこちら](./member-reference.html) を参照してください。
 
 `maxBy` 関数の実装は次のようになっています。
 

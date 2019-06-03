@@ -34,7 +34,7 @@ layout: category-index
     * [コンパニオンオブジェクトでクラスに静的メソッドを追加する (companion object)](basic/companion-object.html)
 * ラムダ式 (lambda expression)
     * [ラムダ式の基本 (lambda expression)](basic/lambda.html)
-    * メンバ参照 (member reference)
+    * [メンバ参照、結合メンバ参照を理解する (member reference)](basic/member-reference.html)
     * レシーバー付きラムダ (with)
 
 ### 文字列／数値
@@ -54,15 +54,22 @@ layout: category-index
 
 配列／コレクション
 ----
+### 共通
+
+* [コレクションの基本的な使い方 (List, Set, Map)](collection/basic.html)
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
-* List と MutableList の使い方
-* Set と MutableSet の使い方
-* Map と MutableMap の使い方
 * [配列やコレクションの要素をループ処理する](collection/loop-collection.html)
-* [配列やリストから null 以外の要素のみを抽出する (filterNotNull)](collection/filter-not-null.html)
+* [コレクションの要素をもとに別のコレクションを作成する (map)](collection/map.html)
+* [コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)](collection/filter.html)
+* [配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)](collection/filter-not-null.html)
 * [ある値がコレクションに含まれているか調べる (in)](collection/in.html)
 * [コレクションの最初・最後の要素を取得する (first, last)](collection/first-last.html)
 * [コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)](collection/min-max.html)
+
+### マップ
+* [マップからキーのリスト、値のリストを作成する (keys, values)](collection/keys-values.html)
+* [マップのキー／値をまとめて変更する (mapKeys, mapValues)](collection/map-keys.html)
+* [マップをソートしてループ処理する (toSortedMap)](collection/sorted-map.html)
 
 
 その他
