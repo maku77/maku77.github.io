@@ -14,12 +14,15 @@ layout: category-index
 ----
 * [Python のパッケージ管理ツール (pip)](pip.html)
 * [Python の実行環境を切り替えて使用する (virtualenv)](env/virtualenv.html)
-* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
 * [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
 * [Python でユニットテストを記述する](unittest.html)
 * [Python コードの実行時間を計測する](misc/measure-time.html)
 * [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
 * [Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)](dev/py2exe.html)
+
+### ドキュメンテーション・コメント
+* [Docstring でドキュメンテーションコメントを記述する](env/docstring.html)
+* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
 
 構文
 ----
@@ -66,9 +69,11 @@ python コマンド / 実行環境
 * [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
 * [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
 
+
 文字列
 ====
 * [Python の文字列リテラルいろいろ](numstr/string-literal.html)
+* [文字列の中で変数を展開する (str#format, %演算子)](numstr/str-format.html)
 * [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
 * [文字列の長さを調べる (len)](numstr/string-length.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
