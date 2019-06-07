@@ -12,6 +12,7 @@ Node.js 実行環境など
 - [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
 - [環境変数の代わりに .env ファイルを使用する (dotenv)](env/dotenv.html)
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
+- [nodemon で Node.js サーバの再起動を自動化する](env/nodemon.html)
 
 ### モジュール／パッケージ
 - [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](module/create-module.html)
@@ -91,12 +92,7 @@ Node.js 実行環境など
 - [Node.js で WebSocket サーバを作る（chat サーバ）](net/websocket-chat-server.html)
 - [WebSocket サーバに接続してきたクライアントの情報を調べる](net/websocket-client-info.html)
 
-### リバースプロキシ
-- [Node.js でお手軽リバースプロキシを作る](net/reverse-proxy.html)
-
-
-Express（Web サーバ）
-----
+### Web サーバ (Express)
 - [Express の特徴](express/features.html)
 - [Express をインストールする](express/install.html)
 - [Express で Web サーバを作成する](express/web-server.html)
@@ -113,6 +109,9 @@ Express（Web サーバ）
 - [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
 - [Express で Basic 認証を有効にする](express/basic-authentication.html)
 - [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
+
+### リバースプロキシ
+- [Node.js でお手軽リバースプロキシを作る](net/reverse-proxy.html)
 
 
 Node.js の制御構文
