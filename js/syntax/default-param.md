@@ -1,15 +1,28 @@
 ---
-title: "デフォルト引数を扱う関数を定義する"
+title: "デフォルト引数を扱う関数を定義する (Default parameters)"
 date: "2013-05-29"
+lastmod: "2019-06-18"
 ---
 
-JavaScript でデフォルト引数を実現するには、実引数が渡されなかったときに、仮引数の値が `undefined` になることを利用します。
-
-
-正しい書き方
+ECMAScript 2015 (ES6) の場合
 ----
 
-#### これが基本
+ECMAScript 2015 (ES6) で、デフォルトパラメータの構文がサポートされました。
+C++ や Python のように、仮引数の宣言部でデフォルト引数を定義することができます。
+
+```javascript
+function myfunc(a, b, c=100) {
+  ...
+}
+```
+
+古い JavaScript の場合
+----
+
+ECMAScript 2015 (ES6) より前の JavaScript でデフォルト引数を実現するには、実引数が渡されなかったときに、仮引数の値が `undefined` になることを利用します。
+
+
+#### 正しい書き方
 
 ```javascript
 function myfunc(a, b, c) {
@@ -22,12 +35,10 @@ function myfunc(a, b, c) {
 上記のように、`typeof` でパラメータの型を取得し、それが `undefined` という文字列と一致するのを確認するのが一番安全な方法です。
 
 
-お勧めできない書き方
-----
-
 下記のように直接パラメータを `undefined` と比較する方法の方がシンプルに記述できますが、`undefined` の値は書き換えられる可能性があるため完璧ではありません。
 
 #### シンプルだが完璧ではない方法
+
 ```javascript
 function myfunc(a, b, c) {
   if (c === undefined) {
@@ -46,18 +57,4 @@ function myfunc(a, b, c) {
   c = c || 100;
 }
 ```
-
-完全に間違った書き方
-----
-
-JavaScript では、C++ や Python のように、仮引数の宣言部でデフォルト引数を定義することは**できません**。
-
-#### 間違った方法（構文エラー）
-```javascript
-function myfunc(a, b, c=100) {  // NG!
-  ...
-}
-```
-
-上記のような書き方をすると、環境によって動作したり、エラーになって動かなくなったりします。
 

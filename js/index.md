@@ -64,6 +64,7 @@ layout: category-index
 - [連想配列の要素数を調べる](array/size-of-assoc-array.html)
 - [配列要素をランダムで取り出す](array/random.html)
 - [配列の各要素に対して同じ処理を行う (map)](array/map.html)
+- [配列の分割代入で複数の値を同時に代入する (Array destructuring)](array/destructuring.html)
 
 
 日時／タイマー (Date/Timer)
@@ -87,7 +88,7 @@ layout: category-index
 
 ### 関数
 - [関数を定義する](syntax/define-function.html)
-- [デフォルト引数を扱う関数を定義する](syntax/default-param.html)
+- [デフォルト引数を扱う関数を定義する (Default parameters)](syntax/default-param.html) (ECMAScript 2015)
 - [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
 - [関数の仮引数の数を取得する](syntax/aug-length.html)
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
@@ -106,6 +107,7 @@ layout: category-index
 - [オブジェクトの基本](object/basic.html)
 - [オブジェクトのプロパティを列挙する (for-in)](object/enum-properties.html)
 - [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
+- [Property Shorthand の記法で複数の変数をひとつのオブジェクトにまとめる](object/property-shorthand.html) (ECMAScript 2015)
 
 ### クラス
 - [クラスを定義する (class)](class/class.html) (ECMAScript 2015)
