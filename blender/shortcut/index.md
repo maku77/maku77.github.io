@@ -22,6 +22,14 @@ Blender 全般
 
 <table class="local-example">
   <tr>
+    <td><kbd>Ctrl + Up</kbd> / <kbd>Ctrl + Down</kbd> / <kbd>Shift + Space</kbd></td>
+    <td>カーソル下のエディタを最大化</td>
+  </tr>
+  <tr>
+    <td><kbd>Alt + F10</kbd></td>
+    <td>エディタのメイン領域をフルスクリーン表示</td>
+  </tr>
+  <tr>
     <td><kbd>Ctrl + Alt + U</kbd> / <kbd>Cmd + [,]</kbd></td>
     <td>User Preference（ユーザ設定）を開く</td>
   </tr>

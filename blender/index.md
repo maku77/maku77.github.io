@@ -35,6 +35,7 @@ Blendar の画面
 - [オブジェクトを移動する (Move) (G)](3dview/move.html)
 - [オブジェクトを回転する (Rotate) (R)](3dview/rotate.html)
 - [オブジェクトを拡大／縮小する (Scale) (S)](3dview/scale.html)
+- [オブジェクトの原点 (Object Origin) を移動する](3dview/origin.html)
 - [直前の編集操作を繰り返す（リピート実行）(Shift + R)](3dview/repeat.html)
 - 面・辺の追加
     - [押し出しで凹凸を作る (Extrude Region) (E)](3dview/extrude.html)
@@ -45,6 +46,12 @@ Blendar の画面
 - 応用
     - [頂点の連打や線の押し出しで面を作成するテクニック](3dview/extrude-vertex.html)
     - [ぽっかり空いた穴を四角形ポリゴンで素早く埋める](3dview/fill-in-a-hole.html)
+
+### モディファイア (Modifier)
+- [モディファイアとは](modifier/about.html)
+- [ミラー・モディファイアで左右対称のオブジェクトを作成する (Mirror Modifier)](modifier/mirror.html)
+- [細分割曲面モディファイアで角を丸める (Subdivision Surface Modifier)](modifier/subsurf.html)
+
 
 テクスチャ
 ----
