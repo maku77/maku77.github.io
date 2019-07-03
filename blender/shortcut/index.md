@@ -70,7 +70,7 @@ Blender 全般
   </tr>
   <tr>
     <td><kbd>B</kbd> → <kbd>Shift + ドラッグ</kbd></td>
-    <td>〃解除</td>
+    <td>〃解除（中央ボタンのドラッグでも可）</td>
   </tr>
   <tr>
     <td rowspan="2"><img src="select-circle.svg"></td>
@@ -79,7 +79,7 @@ Blender 全般
   </tr>
   <tr>
     <td><kbd>C</kbd> → <kbd>Shift + 左クリック</kbd></td>
-    <td>〃解除</td>
+    <td>〃解除（中央ボタンのドラッグでも可）</td>
   </tr>
   <tr>
     <td rowspan="2"><img src="select-region.svg"></td>
