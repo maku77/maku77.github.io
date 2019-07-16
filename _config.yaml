@@ -13,6 +13,8 @@ plugins:
 # Prevent the following files from converting by Jekyll.
 exclude:
   - "*.jekyll-metadata"
+  - "*.bat"
+  - .git/
   - .jekyll-cache/
   - .sass-cache/
   - gemfiles/
