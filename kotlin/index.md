@@ -22,6 +22,7 @@ layout: category-index
     * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
     * [データクラスを定義する (data class)](basic/data-class.html)
     * [by を使ったメソッド呼び出しの委譲](basic/class-delegation.html)
+    * [演算子をオーバーロードする](basic/overload-operator.html)
 * [インタフェースを定義する (interface)](basic/interface.html)
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)

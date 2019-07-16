@@ -112,6 +112,7 @@ Java レイヤ
 * [タッチイベントをハンドルする](io/handle-touch-events.html)
 
 ### UI（描画）
+* [常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)](ui/always-top.html)
 * [任意の View をフォーカスする](ui/focus-view.html)
 * [ソフトウェアキーボードを常に表示する](ui/show-keyboard-all-the-time.html)
 * [カスタムビューを作成する](ui/create-custom-view.html)
