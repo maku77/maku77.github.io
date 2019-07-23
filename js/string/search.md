@@ -3,7 +3,6 @@ title: "文字列の中から文字列を検索する (String#search, RegExp#tes
 date: "2018-09-11"
 ---
 
-
 String#search による文字列検索
 ----
 
@@ -80,6 +79,8 @@ console.log(re.test('Ruby is fantastic'));       //=> false
 
 ~~~ javascript
 // ユーザの入力したテキストが input 変数に格納されていると仮定
+// var input = 'Java';
+
 var re = new RegExp(input, 'i');
 if (re.test('Javascript is not Java')) {
   // 見つけたっ

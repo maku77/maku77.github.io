@@ -34,6 +34,7 @@ layout: category-index
 - [文字列と数値を変換する](string/convert.html)
 - [文字列の小文字と大文字を変換する (toLowerCase, toUpperCase)](string/uppercase.html)
 - [文字列の中から文字列を検索する (String#search, RegExp#test)](string/search.html)
+- [文字列内に NG ワード（禁止語句）が含まれていないか調べる (RegExp#test)](string/ng-word.html)
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列をデリミタで分割する／１文字ずつに分割する (split)](string/split.html)
 - [文字列から正規表現パターンに一致する部分を取り出す (String#match, RegExp#exec)](string/match.html)
