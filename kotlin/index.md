@@ -66,6 +66,7 @@ layout: category-index
 * [ある値がコレクションに含まれているか調べる (in)](collection/in.html)
 * [コレクションの最初・最後の要素を取得する (first, last)](collection/first-last.html)
 * [コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)](collection/min-max.html)
+* [配列やリストの先頭・末尾の n 要素を取り出す・削除する (take, drop)](collection/take-drop.html)
 
 ### マップ
 * [マップからキーのリスト、値のリストを作成する (keys, values)](collection/keys-values.html)
