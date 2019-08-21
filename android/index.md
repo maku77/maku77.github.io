@@ -98,7 +98,8 @@ Android デバイス開発者向け（ベンダ向け情報）
 Android Framework/SDK
 ----
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
-* [SharedPreference でアプリの設定値を保存する](fw/shared-preference.html)
+* [SharedPreferences でアプリの設定値を保存する](fw/shared-preference.html)
+* [Preference フレームワークを使って設定画面を簡単に作成する](fw/preference-fw.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
 * [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
 

@@ -1,5 +1,5 @@
 ---
-title: "SharedPreference でアプリの設定値を保存する"
+title: "SharedPreferences でアプリの設定値を保存する"
 date: "2010-05-29"
 lastmod: "2019-08-07"
 ---
@@ -137,18 +137,34 @@ getSharedPreferences("my_settings", Context.MODE_PRIVATE).edit().apply {
 アプリ全体、Activity 単位で使用する SharedPreferences
 ----
 
-上記では、`Context#getSharedPreferences()` メソッドを使って `SharedPreferences` オブジェクトを作成していましたが、他にも、`Activity` 用、アプリ全体用に `SharedPreferences` オブジェクトを作成するメソッドが用意されています。
+上記では、`Context#getSharedPreferences()` メソッドを使って `SharedPreferences` オブジェクトを作成していましたが、他にも、アプリ全体用、Activity 用に `SharedPreferences` オブジェクトを作成するメソッドが用意されています。
 それぞれ、作成される XML ファイルのパスが変わってきます。
 
-- **`Context#getSharedPreferences("sample", Context.MODE_PRIVATE)`**
-    - ファイルパス: `/data/data/<package名>/shared_prefs/sample.xml`
-    - 説明: 指定したファイル名で単位で `SharedPreferences` を作成する。
-- **`Activity#getPreferences(Context.MODE_PRIVATE)`**
+- <b>アプリ用（デフォルト SharedPreferences）</b>
+    - API: **`PreferenceManager.getDefaultSharedPreferences(context)`**
+    - ファイルパス: `/data/data/<package名>/shared_prefs/<pacakge名>_preferences.xml`
+    - アプリ全体で使用する `SharedPreferences` を作成します。アプリ全体で、下記のような 1 つのファイルが使用されます。
+- <b>Activity 用</b>
+    - API: **`Activity#getPreferences(Context.MODE_PRIVATE)`**
     - ファイルパス: `/data/data/<package名>/shared_prefs/<Activity名>.xml`
-    - 説明: `Activity` ごとに専用の `SharedPreferences` を作成する。その `Activity` の設定のために使用する。
-- **`PreferenceManager.getDefaultSharedPreferences(context)`**
-    - ファイルパス: `/data/data/<package名>/shared_prefs/<pacakge名>.xml`
-    - 説明: アプリ全体で使用する `SharedPreferences` を作成する。パッケージで 1 つ。
+    - `Activity` ごとに専用の `SharedPreferences` を作成します。その `Activity` の設定のために使用します。
+- <b>ファイル名指定</b>
+    - API: **`Context#getSharedPreferences("sample", Context.MODE_PRIVATE)`**
+    - ファイルパス: `/data/data/<package名>/shared_prefs/sample.xml`
+    - 指定したファイル名の単位で `SharedPreferences` を作成します。用途別に設定ファイルを分けて管理することができます。
+
+### （コラム）デフォルトの SharedPreferences ファイルだけで十分？
+
+SharedPreferences の保存先 XML は、ファイル名を指定できる `Context#getSharedPreferences(String, int)` のバージョンを使用すれば切り替えることができますが、多くのアプリケーションでは `PreferenceManager.getDefaultSharedPreferences(Context)` によるデフォルトの SharedPreferences ファイルを使えば十分だったりします。
+というのも、設定項目のキー名を工夫すればある程度の数の設定項目はうまく階層化して管理できるからです。
+例えば、デバッグ用の設定項目を `debug.notification` のようなキー名にしておけば、他の重要な設定項目と混ざってしまうことはありません。
+
+Google の [Settings Design Guidelines](https://source.android.com/devices/tech/settings/settings-guidelines) では、同一の設定項目を、異なる設定画面で表示するというデザインパターンが提示されています。
+
+> In some cases, it may be helpful to duplicate an individual setting on two different screens. Different situations can trigger users to change a setting, so including the setting in multiple places will help users find this item.
+
+このようなケースにおいても、設定ファイルが分かれていない方が都合がよいです。
+また、Android は [設定画面を作成する](./preference-fw.html) ために `PreferenceFragmentCompat` クラスを提供していますが、このクラスも内部では、デフォルトの SharedPreferences ファイルを使用することを前提にした作りになっています。
 
 
 SharedPreferences オブジェクトの変更を監視する
