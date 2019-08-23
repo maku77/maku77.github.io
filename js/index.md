@@ -26,6 +26,12 @@ layout: category-index
 
 数値／文字列 (Number/String)
 ----
+
+### 数値
+- [実数の小数点数以下を丸めて整数に変換する (floor, ceil, round)](numstr/real-to-int.html)
+- [数値の小数点以下 N 桁までに丸めて表示する (toFixed)](numstr/tofixed.html)
+
+### 文字列
 - [new String は避ける](string/dont-use-new-string.html)
 - [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal)](string/template-literal.html) (ECMAScript 2015)
 - [== と === による文字列比較の違い](string/compare.html)
@@ -44,9 +50,6 @@ layout: category-index
 - [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
 - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 - [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize)](string/normalize.html) ECMAScript2015
-
-### 数値
-- [実数の小数点数以下を丸めて整数に変換する](numstr/real-to-int.html)
 
 
 配列／連想配列 (Array)

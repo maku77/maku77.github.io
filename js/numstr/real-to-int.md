@@ -1,5 +1,5 @@
 ---
-title: "実数の小数点数以下を丸めて整数に変換する"
+title: "実数の小数点数以下を丸めて整数に変換する (floor, ceil, round)"
 date: "2018-05-17"
 ---
 
@@ -11,7 +11,7 @@ date: "2018-05-17"
 ~~~ javascript
 Math.floor(3)     //=> 3
 Math.floor(3.1)   //=> 3
-Math.fllor(-3)    //=> -3
+Math.floor(-3)    //=> -3
 Math.floor(-3.1)  //=> -4
 ~~~
 
@@ -63,4 +63,10 @@ parseInt(3.6)   //=> 3
 parseInt(-3.1)  //=> -3
 parseInt(-3.6)  //=> -3
 ~~~
+
+
+小数点以下 n 桁までの文字列表現を取得する (toFixed)
+----
+
+こちらの記事を参照: [数値の小数点以下 N 桁までに丸めて表示する (toFixed)](./tofixed.html)
 
