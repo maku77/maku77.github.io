@@ -32,3 +32,19 @@ macOS にはデフォルトでスクリーンキャプチャを撮るための�
 ウィンドウのキャプチャは、デフォルトでは影のついたものになります。
 影を付けないようにするには、<kbd>Option</kbd> キーを押した状態でキャプチャを実行します（カメラアイコンが表示されているときに押します）。
 
+### デフォルトで影なしにする
+
+ウィンドウのキャプチャを行うときに、デフォルトで影なしにするには、ターミナルから次のように設定します。
+
+```
+$ defaults write com.apple.screencapture disable-shadow -boolean true
+$ killall SystemUIServer
+```
+
+影付きに戻すには、次のように実行してください。
+
+```
+$ defaults delete com.apple.screencapture disable-shadow
+$ killall SystemUIServer
+```
+

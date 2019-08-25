@@ -15,6 +15,7 @@ layout: category-index
 macOS の操作
 ---
 * [macOS でスクリーンショットや画面の動画を撮る](screenshot.html)
+* [macOS でシェルスクリプトをアイコンのダブルクリックで起動する](command-file.html)
 
 
 AppleScript
