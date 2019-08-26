@@ -208,6 +208,31 @@ class MainActivity : AppCompatActivity() {
 ```
 
 
+SharedPreferences のデフォルト値
+----
+
+Preference XML ファイルの `defaultValue` 属性で設定したデフォルト値は、設定画面を開いたときに初めて使用されます。
+でもこれでは、先に `SharedPreferences` オブジェクトの getter 系メソッドを呼び出したときにデフォルト値として取得できません。
+
+**`PreferenceManager.setDefaultValues`** 関数を呼び出すと、Preference XML の `defaultValue` 属性の値を読み込んで、`SharedPreferences` オブジェクトの初期値として先回りして設定しておくことができます。
+このメソッドは、アプリの `MainActivity` となるクラスで呼び出すべきとされているので、下記のように `Application` クラスや `MainActivity` の `onCreate` で呼んでおけばよいでしょう（I/O アクセスが若干気になりますが）。
+
+```kotlin
+class App : Application() {
+    lateinit var prefs: SharedPreferences
+
+    override fun onCreate() {
+        super.onCreate()
+
+        // Start loading preferences as early as possible to avoid ANR when
+        // referring the configuration for the first time.
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
+        prefs = PreferenceManager.getDefaultSharedPreferences(this)
+    }
+}
+```
+
+
 いろいろな Preference 要素
 ----
 
