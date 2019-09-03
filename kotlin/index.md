@@ -79,4 +79,5 @@ layout: category-index
 * [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
 * [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
 * [クラス名を文字列で取得する](misc/class-name.html)
+* [ある処理にかかった時間を計測する (measureTimeMillis/Micros)](misc/measure-time.html)
 
