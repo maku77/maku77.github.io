@@ -17,7 +17,7 @@ CLI の実体は、Jenkins サーバからダウンロードできる `jenkins-c
 
 ローカルホストで Jenkins サーバを稼働しているのであれば、下記のアドレスからダウンロードできます。
 
-* [http://localhost:8080/jnlpJars/jenkins-cli.jar](http://localhost:8080/jnlpJars/jenkins-cli.jar)
+* `http://localhost:8080/jnlpJars/jenkins-cli.jar`
 
 
 Jenkins CLI を使ってみる

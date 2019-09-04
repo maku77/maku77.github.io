@@ -46,7 +46,7 @@ hugo コマンド
 テンプレート／テーマ
 ----
 * [レイアウト用のテンプレートの種類を理解する](layout/template-types.html)
-* [独自のテーマを作成する](create-theme.html)
+* [独自のテーマを作成する](basic/create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
 * [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (baseof)](template/base-template.html)
