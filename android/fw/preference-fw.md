@@ -269,13 +269,16 @@ class App : Application() {
         <item>バナナ</item>
         <item>オレンジ</item>
     </string-array>
-    <array name="fruit_values">
+    <string-array name="fruit_values">
         <item>apple</item>
         <item>banana</item>
         <item>orange</item>
-    </array>
+    </string-array>
 </resources>
 ```
+
+ちなみに、数値の配列だとしても、タグは `string-array` を使用する必要があるみたいです（`integer-array` などにすると `ListPreference` が `NullPointerException` で落ちます）。
+
 
 ### 他の Activity を起動する
 
@@ -314,7 +317,7 @@ class App : Application() {
 </androidx.preference.PreferenceScreen>
 ```
 
-### EditTextPreference の summary 領域に入力したテキストを自動で表示する
+### EditTextPreference や ListPreference の summary 領域に入力したテキストを自動で表示する
 
 ![preference-fw-005.png](./preference-fw-005.png)
 ![preference-fw-006.png](./preference-fw-006.png)

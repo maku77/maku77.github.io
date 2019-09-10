@@ -143,7 +143,7 @@ getSharedPreferences("my_settings", Context.MODE_PRIVATE).edit().apply {
 - <b>アプリ用（デフォルト SharedPreferences）</b>
     - API: **`PreferenceManager.getDefaultSharedPreferences(context)`**
     - ファイルパス: `/data/data/<package名>/shared_prefs/<pacakge名>_preferences.xml`
-    - アプリ全体で使用する `SharedPreferences` を作成します。アプリ全体で、下記のような 1 つのファイルが使用されます。
+    - アプリ全体で使用する `SharedPreferences` を作成します。アプリ全体で 1 つのファイルが使用されます。[Preference フレームワークを使って設定画面](./preference-fw.html) を作成した場合も、このデフォルトの SharedPreferences ファイルが使用されます。
 - <b>Activity 用</b>
     - API: **`Activity#getPreferences(Context.MODE_PRIVATE)`**
     - ファイルパス: `/data/data/<package名>/shared_prefs/<Activity名>.xml`
