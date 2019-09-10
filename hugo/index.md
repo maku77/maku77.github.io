@@ -99,6 +99,7 @@ hugo コマンド
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
+* [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 
 応用
 ----
