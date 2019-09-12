@@ -214,6 +214,8 @@ SharedPreferences のデフォルト値
 Preference XML ファイルの `defaultValue` 属性で設定したデフォルト値は、設定画面を開いたときに初めて使用されます。
 でもこれでは、先に `SharedPreferences` オブジェクトの getter 系メソッドを呼び出したときにデフォルト値として取得できません。
 
+### setDefaultValues を使う方法
+
 **`PreferenceManager.setDefaultValues`** 関数を呼び出すと、Preference XML の `defaultValue` 属性の値を読み込んで、`SharedPreferences` オブジェクトの初期値として先回りして設定しておくことができます。
 このメソッドは、アプリの `MainActivity` となるクラスで呼び出すべきとされているので、下記のように `Application` クラスや `MainActivity` の `onCreate` で呼んでおけばよいでしょう（I/O アクセスが若干気になりますが）。
 
@@ -231,6 +233,63 @@ class App : Application() {
     }
 }
 ```
+
+このやり方のイケてないところは、`setDefaultValues` 自体の処理が重く、それにもかかわらずメインスレッドから実行することを前提とした実装になっているところです。
+コルーチンの中から呼び出していると、`android.view.InflateException` 例外で落ちたりします（少なくとも Android 10 時点では NG）。
+なので、デフォルト値を扱うときは下記の方法をオススメします。
+
+### リソースにデフォルト値をまとめる方法（オススメ）
+
+SharedPreferences のデフォルト値を扱うときのオススメの方法は、リソースファイルでデフォルト値を定義し、その値を Preference XML ファイルと、`SharedPreferences#getString()` の両方のデフォルト値として参照する方法です。
+
+例えば、下記のような感じで、リソースファイルに設定画面用の表示ラベルと一緒にデフォルト値を定義しておきます。
+
+#### res/values/settings.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_fps_key">settings.fps</string>
+    <string name="settings_fps_title">FPS</string>
+    <string name="settings_fps_summary_on">Show</string>
+    <string name="settings_fps_summary_off">Hide</string>
+    <bool name="settings_fps_default">false</bool>
+</resource>
+```
+
+設定画面を構成するための Preference XML ファイルからは、下記のように参照します。
+
+#### res/xml/preferences.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="MyApp Settings">
+
+    <SwitchPreference
+        app:key="@string/settings_fps_key"
+        app:title="@string/settings_fps_title"
+        app:summaryOn="@string/settings_fps_summary_on"
+        app:summaryOff="@string/settings_fps_summary_off"
+        app:defaultValue="@bool/settings_fps_default" />
+</androidx.preference.PreferenceScreen>
+```
+
+プログラムの中からは、下記のようにデフォルト値を参照します。
+
+```kotlin
+val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+val isFpsOn = prefs.getBoolean(
+    context.resources.getString(R.string.settings_fps_key),
+    context.resources.getBoolean(R.bool.settings_fps_default))
+```
+
+これで、重い `SharedPreferences.setDefaultValues()` を使わずに、初回起動時のデフォルト設定値をうまく扱うことができます。
+
+ちなみに、`res/values` ディレクトリ以下に配置するリソースファイルの名前は何でもよいって知ってました？
+ここでは `strings.xml` ではなく、`settings.xml` という名前で作成してみました。
+このルールを知っていれば、特定の機能で使うリソースを複数ファイルにバラバラに定義しなくて済みます。
 
 
 いろいろな Preference 要素
