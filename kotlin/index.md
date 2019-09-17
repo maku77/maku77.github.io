@@ -22,7 +22,11 @@ layout: category-index
     * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
     * [データクラスを定義する (data class)](basic/data-class.html)
     * [by を使ったメソッド呼び出しの委譲](basic/class-delegation.html)
-    * [演算子をオーバーロードする](basic/overload-operator.html)
+    * [演算子をオーバーロードする (operator)](basic/overload-operator.html)
+    * 応用
+        * [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
+        * [クラス名を文字列で取得する](misc/class-name.html)
+        * [クラス内の MutableList を immutable な List にして公開する](misc/return-as-immutable.html)
 * [インタフェースを定義する (interface)](basic/interface.html)
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
@@ -59,6 +63,7 @@ layout: category-index
 
 * [コレクションの基本的な使い方 (List, Set, Map)](collection/basic.html)
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
+* [immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](collection/to-mutable.html)
 * [配列やコレクションの要素をループ処理する](collection/loop-collection.html)
 * [コレクションの要素をもとに別のコレクションを作成する (map)](collection/map.html)
 * [コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)](collection/filter.html)
@@ -77,7 +82,5 @@ layout: category-index
 その他
 ----
 * [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
-* [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
-* [クラス名を文字列で取得する](misc/class-name.html)
 * [ある処理にかかった時間を計測する (measureTimeMillis/Micros)](misc/measure-time.html)
 
