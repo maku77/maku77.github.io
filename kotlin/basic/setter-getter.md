@@ -111,3 +111,48 @@ val isExpensive: Boolean
     get() = price > 1000
 ```
 
+
+実体の存在しない getter/setter
+----
+
+プロパティの getter メソッドは、実際に値を保持する変数が存在していなくても定義することができます。
+下記の読み取り専用の `fullName` プロパティは、実際に `fullName` 変数で値を保持しているわけではなく、別のプロパティ（`firstName` と `lastName`）を組み合わせた値を返すように実装しています。
+getter のみを提供するプロパティは `val` で定義します。
+
+```kotlin
+class People(val firstName: String, val lastName: String) {
+    val fullName: String
+        get() = "$firstName $lastName"
+}
+
+fun main() {
+    val p = People("Taro", "Yamada")
+    println(p.fullName)  //=> Taro Yamada
+}
+```
+
+下記の `MyTime` クラスは、実体としてはタイムスタンプを保持する `timeStamp` 変数しか持っていませんが、`Date` 型による getter および setter を提供しています。
+
+```kotlin
+import java.util.Date
+
+class MyTime(var timeStamp: Long) {
+    var date: Date
+        get() = Date(timeStamp)
+        set(value) {
+            timeStamp = value.time
+        }
+}
+
+fun main() {
+    val time = MyTime(System.currentTimeMillis())
+    println(time.timeStamp)  //=> 1569419191165
+    println(time.date)  //=> Wed Sep 25 13:46:31 UTC 2019
+}
+```
+
+このように、自分自身の値を保持しないプロパティのことを **派生プロパティ (derived property)** と呼びます。
+Kotlin の プロパティは Java のようなフィールドではなく、アクセッサーであり、もっと簡単に言えばただのメソッドです。
+とはいえ、本質的にはプロパティの用途はオブジェクトの状態を示すものであり、複雑な処理を伴うものは通常のメソッドとして定義すべきです。
+メソッドとして定義したときに `setXxx()`、`getXxx()` と命名できるようなもののみプロパティとして定義する資格があると考えましょう。
+

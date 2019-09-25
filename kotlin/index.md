@@ -13,7 +13,8 @@ layout: category-index
 * 変数／関数
     * [変数を定義する (val, var)](basic/var.html)
     * [基本的な型の一覧](basic/types.html)
-    * lateinit による変数宣言
+    * [lateinit による変数の初期化](basic/lateinit.html)
+        * [lateinit 変数が初期化されているかどうかを調べる (isInitialized)](basic/lateinit-isinitialized.html)
     * [関数を定義する (fun)](basic/fun.html)
 * クラス
     * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
@@ -31,6 +32,7 @@ layout: category-index
 * [列挙型を定義する (enum)](basic/enum.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
 * [例外処理を記述する (try, catch, finally)](basic/exception.html)
+* [safe call (?.) や elvis operator (?:)、let で null をうまく扱う](basic/handle-null.html)
 * [あるインスタンスがどのクラスのオブジェクトなのか調べる (javaClass)](basic/java-class.html)
 * [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
 * object キーワード
