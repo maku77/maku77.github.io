@@ -13,11 +13,12 @@ Windows バッチファイル
 ### 構文
 * [バッチファイルの FOR ループ (1) 数値、ファイル集合、ディレクトリ集合のループ処理](for-loop.html)
 * [バッチファイルの FOR ループ (2) テキストファイル、コマンド出力を 1 行ずつループ処理](for-loop2.html)
-* [バッチファイルを途中で終了する](exit-batch.html)
+* [バッチファイルを途中で終了する (exit /b)](exit-batch.html)
 * [バッチファイルで関数もどき（サブルーチン）を実現する](subroutine.html)
 * [長いコマンドを複数行に分けて記述する](syntax/separate-long-line.html)
 
 ### 入出力 (I/O)
+* [バッチファイルでコマンドライン引数を扱う](io/command-line-params.html)
 * [標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する](io/redirect-stdout-and-stderr.html)
 * [echo で改行だけ出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
