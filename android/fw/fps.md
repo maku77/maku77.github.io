@@ -111,3 +111,97 @@ Fps().startObserving { fps ->
 }
 ```
 
+
+（応用） 1 秒おきに FPS を求める
+----
+
+上記のサンプルコードでは、毎フレーム FPS を求めてコールバック関数を呼び出していましたが、これでは高頻度すぎるという場合は、下記のようにすれば約 1 秒ごとに呼び出すように軽量化できます。
+`FrameCallback.doFrame()` が呼び出されたときに、前回のコールバックから 1 秒以上経過している場合だけ、コールバックするようにしています。
+FPS は約 1 秒間の平均値を求めています。
+
+```kotlin
+import android.view.Choreographer
+import java.util.concurrent.TimeUnit
+
+/**
+ * Utility class for obtaining FPS (frames per second).
+ */
+class Fps : Choreographer.FrameCallback {
+    companion object {
+        /** Callbacks are invoked at intervals of this time. */
+        private val CALLBACK_INTERVAL_NANOS = TimeUnit.SECONDS.toNanos(1)
+    }
+
+    interface FpsCallback {
+        /** Called when the latest FPS is calculated. */
+        fun onFpsUpdated(fps: Double)
+    }
+
+    private val choreographer = Choreographer.getInstance()
+    private var fpsCallback: FpsCallback? = null
+    private var prevCallbackTimeNanos: Long = 0
+
+    /** How many times doFrame is called since the last onFpsUpdated. */
+    private var frames = 0
+
+    /**
+     * Starts observing the FPS.
+     * [fpsCallback] is invoked continuously after calling this method.
+     */
+    fun startObserving(fpsCallback: FpsCallback) {
+        this.fpsCallback = fpsCallback
+        prevCallbackTimeNanos = 0
+        frames = 0
+
+        // Add a frame callback but prevents duplicate registration
+        choreographer.removeFrameCallback(this)
+        choreographer.postFrameCallback(this)
+    }
+
+    /**
+     * Starts observing the FPS.
+     * [fpsCallback] is invoked continuously after calling this method.
+     */
+    fun startObserving(fpsCallback: (Double) -> Unit) {
+        startObserving(object : FpsCallback {
+            override fun onFpsUpdated(fps: Double) = fpsCallback(fps)
+        })
+    }
+
+    /**
+     * Stops observing the FPS.
+     */
+    fun stopObserving() {
+        choreographer.removeFrameCallback(this)
+    }
+
+    /**
+     * Implementation for [Choreographer.FrameCallback].
+     */
+    override fun doFrame(frameTimeNanos: Long) {
+        // Register the same callback again to be called continuously
+        choreographer.postFrameCallback(this)
+
+        // At first, just store the frame time for later calculation
+        if (prevCallbackTimeNanos == 0L) {
+            prevCallbackTimeNanos = frameTimeNanos
+            return
+        }
+
+        frames++
+
+        // Callback at the intervals of CALLBACK_INTERVAL_NANOS
+        val elapsed = frameTimeNanos - prevCallbackTimeNanos
+        if (elapsed >= CALLBACK_INTERVAL_NANOS) {
+            // Calculate FPS and pass it to the callback function
+            val fps = frames.toDouble() * TimeUnit.SECONDS.toNanos(1) / elapsed
+            checkNotNull(fpsCallback).onFpsUpdated(fps)
+
+            // Reset counters
+            prevCallbackTimeNanos = frameTimeNanos
+            frames = 0
+        }
+    }
+}
+```
+
