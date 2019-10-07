@@ -26,10 +26,13 @@ Node.js 実行環境など
 - [npm コマンドでインストール可能なパッケージを検索する (npm search)](npm/npm-search.html)
 - [npm コマンド用に HTTP プロキシを設定する (npm config)](npm/proxy.html)
 - [npm でインストール可能なパッケージのバージョンを調べる](npm/package-version.html)
+- [npm run で任意のコマンドを実行する (npm run, npm start)](npm/npm-run.html)
+- [npm run のスクリプトの中でファイルのコピーを行う (cpx)](npm/npm-run-copy-file.html)
+- [npm run のスクリプトの中でディレクトリの削除を行う (rimraf)](npm/npm-run-rimraf.html)
+- [npm run のスクリプトを連続実行・並列実行する (npm-run-all)](npm/npm-run-all.html)
 - package.json
     - [package.json ファイルを作成する (npm init)](npm/npm-init.html)
     - [package.json ファイルで依存パッケージを管理する](npm/package-dependencies.html)
-    - [npm start でアプリを起動できるようにする (npm start)](npm/npm-start.html)
     - [package.json の書式、説明を確認する (npm help json)](npm/npm-help-json.html)
 
 
