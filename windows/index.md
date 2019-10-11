@@ -39,12 +39,15 @@ Windows バッチファイル
 コマンドプロンプト
 ----
 * [コマンドプロンプトを管理者権限 (Administorator) で起動する](cmd/admin.html)
-* [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
 * [コマンドプロンプトの文字色と背景色を変更する](settings/change-color-of-cmd.html)
 * [コマンドプロンプトのプロンプト表示を変更する](settings/change-prompt.html)
 * [コマンドプロンプトからウィンドウサイズを変更する](settings/change-window-size.html)
 * [doskey を使ってコマンドプロンプト用のマクロを登録する](settings/doskey.html)
 * [コマンドプロンプトから複数のコマンドを並列実行する (start)](cmd/parallel.html)
+
+### ファイル／ディレクトリ／パス
+* [カレントディレクトリのパスを取得する](cmd/get-current-dir.html)
+* [コマンドプロンプトでディレクトリ内のファイルをすべて削除する (del, rmdir)](cmd/delete-all-files.html)
 * [コマンドプロンプトからインターネット上のファイルをダウンロードする (bitsadmin)](cmd/download.html)
 
 
