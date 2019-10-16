@@ -41,6 +41,7 @@ Tools
 * [ANR の原因を突き止める](analyze-anr.html)
 * [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
 * [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
+* [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
 
 ### Logcat
 * [Logcat のログ出力をフィルタする](filter-logcat.html)

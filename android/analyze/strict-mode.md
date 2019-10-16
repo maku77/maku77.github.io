@@ -44,3 +44,9 @@ Logcat のログを、StrictMode タグで絞り込んで、さらにパッケ�
 # logcat -s StrictMode:* | grep -e 'violation' -e 'com.yourcompany' &
 ~~~
 
+
+応用
+----
+
+- [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](./strict-mode-toaster.html)
+
