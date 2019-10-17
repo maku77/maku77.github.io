@@ -44,17 +44,25 @@ import java.util.concurrent.Executors
 
 /**
  * StrictMode utility to show a violation message as a toast.
- * Just call [setup] method at the beginning of the application.
+ * To enable the StrictMode, just call [setup] at the beginning of the application.
  */
 object StrictModeToaster {
     // To show a toast
-    private val mainThreadHandler = Handler(Looper.getMainLooper())
+    private val mainThreadHandler by lazy {
+        Handler(Looper.getMainLooper())
+    }
     private lateinit var appContext: Context
 
     // To handle violation messages
-    private val workerThreadExecutor: ExecutorService = Executors.newSingleThreadExecutor()
-    private val vmViolationListener = StrictMode.OnVmViolationListener(::showViolationName)
-    private val threadViolationListener = StrictMode.OnThreadViolationListener(::showViolationName)
+    private val workerThreadExecutor: ExecutorService by lazy {
+        Executors.newSingleThreadExecutor()
+    }
+    private val vmViolationListener by lazy {
+        StrictMode.OnVmViolationListener(::showViolationName)
+    }
+    private val threadViolationListener by lazy {
+        StrictMode.OnThreadViolationListener(::showViolationName)
+    }
 
     /**
      * Starts handling strict mode violation messages.
