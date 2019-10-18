@@ -1,6 +1,7 @@
 ---
 title: "git diff や git status での日本語の文字化けを防ぐ"
 date: "2017-08-19"
+lastmod: "2019-10-18"
 ---
 
 git diff での日本語の文字化け
@@ -45,6 +46,12 @@ index 0005c4e..5d6ea9c 100644
 @@ -1 +1 @@
 -あいうえお
 +かきくけこ
+~~~
+
+Windows の場合は、環境変数 **LANG** を設定しておくとよいようです。
+
+~~~
+C:\> set LANG=ja_JP.UTF-8
 ~~~
 
 
