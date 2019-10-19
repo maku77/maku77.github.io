@@ -75,14 +75,13 @@ date: "2019-05-17"
 Google などの検索エンジンは、`title` 要素に指定したページタイトルを表示します。
 
 
-{% if jekyll.environment == "development" %}
-<h3 style="color:red">下記は難しいので要検討</h3>
-
-### セクションプレフィックス用のプロパティを用意する
+（応用）セクションプレフィックス用のプロパティを用意する
+----
 
 上記の例では、セクションプレフィックスとして、自分が所属するセクションのセクションページに設定された `title` プロパティの値を使用していました。
 ここでは、セクションプレフィックス用に、独自のプロパティ **`sectionPrefix`** を参照するようにしてみます。
 
+このようなケースでは、Hugo の [Front Matter Cascade](https://gohugo.io/content-management/front-matter/#front-matter-cascade) という機能を使用すると便利です。
 例えば、セクションページのフロントマターが下記のようになっているとすると、
 
 #### contents/section1/_index.md
@@ -90,12 +89,28 @@ Google などの検索エンジンは、`title` 要素に指定したページ�
 ```
 ---
 title: "セクションタイトル1"
-sectionPrefix: "セクション1"
+cascade:
+  sectionPrefix: "セクション1"
 ---
 ```
 
-セクションプレフィックスとして、`セクションタイトル1` ではなく、`セクション1` の方を表示するようにします。
+そのセクションの記事内では、`.Params.sectionPrefix` 変数で `セクション1` という値を参照できるようになります。
 
-自分が所属するセクションのセクションページに、`sectionPrefix` が設定されていない場合は、さらに親セクションを上って `sectionPrefix` を探していきます。
+下記はテンプレートの実装例です。
 
-{% endif %}
+#### テンプレート抜粋
+
+```
+{{ "{{" }} if ne .Kind "section" }}
+  {{ "{{" }} with .Params.sectionPrefix }}
+    {{ "{{" }} $.Scratch.Set "title" (printf "%s: " .) }}
+  {{ "{{" }} end }}
+{{ "{{" }} end }}
+{{ "{{" }} $.Scratch.Add "title" .Title }}
+{{ "{{" }} $pageTitle := $.Scratch.Get "title" }}
+
+<h1>{{ "{{" }} $pageTitle }}</h1>
+```
+
+現在のページがセクションページでなければ、`sectionPrefix` プロパティの値をタイトルの前に連結する、という処理になっています。
+
