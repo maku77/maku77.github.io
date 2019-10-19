@@ -92,6 +92,8 @@ hugo コマンド
 
 ### その他
 * [パンくずリストを表示する](template/breadcrumbs.html)
+* [画像ファイルを Markdown ファイルと同じディレクトリに置く](misc/image-by-md.html)
+* [サイト構造を変えてもページの URL が変わらないようにする](misc/permalink.html)
 * [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
@@ -100,7 +102,6 @@ hugo コマンド
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
-* [画像ファイルを Markdown ファイルと同じディレクトリに置く](misc/image-by-md.html)
 
 応用
 ----
