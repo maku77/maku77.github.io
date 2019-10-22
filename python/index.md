@@ -85,6 +85,7 @@ python コマンド / 実行環境
     * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
 * [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
 * [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
+* [ランダムな文字列を生成する (random.choice)](numstr/random-string.html)
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
 
 ### JSON
