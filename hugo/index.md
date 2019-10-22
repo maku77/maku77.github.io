@@ -108,6 +108,7 @@ hugo コマンド
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
+* [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 
 
 Go 言語入門（Golang 入門）
