@@ -187,11 +187,17 @@ Excel ファイル
 
 ZIP/JAR ファイル
 ----
+* [ZIP ファイルを作成する (zipfile, shutil)](io/create-zip.html)
 * [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
 
 SQL
 ----
 * [Python で SQLite データベースを使用する](sqlite.html)
+
+
+日時（日付／時刻）
+====
+* [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
 Web
