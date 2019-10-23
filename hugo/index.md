@@ -92,8 +92,6 @@ hugo コマンド
 
 ### その他
 * [パンくずリストを表示する](template/breadcrumbs.html)
-* [画像ファイルを Markdown ファイルと同じディレクトリに置く](misc/image-by-md.html)
-* [サイト構造を変えてもページの URL が変わらないようにする](misc/permalink.html)
 * [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧](template/page-types.html)
@@ -101,14 +99,16 @@ hugo コマンド
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
-* [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 
 応用
 ----
+* [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
+* [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](misc/permalink.html)
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
+* [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 
 
 Go 言語入門（Golang 入門）
