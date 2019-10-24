@@ -75,10 +75,11 @@ layout: category-index
 * [コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)](collection/min-max.html)
 * [配列やリストの先頭・末尾の n 要素を取り出す・削除する (take, drop)](collection/take-drop.html)
 
-### マップ
+### マップ (Map)
 * [マップからキーのリスト、値のリストを作成する (keys, values)](collection/keys-values.html)
 * [マップのキー／値をまとめて変更する (mapKeys, mapValues)](collection/map-keys.html)
 * [マップをソートしてループ処理する (toSortedMap)](collection/sorted-map.html)
+* [マップの値を始めて取得しようとしたときに初期化する（Map の遅延初期化）(getOrPut)](collection/map-get-or-put.html)
 
 
 その他
