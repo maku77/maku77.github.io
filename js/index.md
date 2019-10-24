@@ -59,7 +59,7 @@ layout: category-index
 - [配列と配列を結合する (concat)](array/concat.html)
 - [配列から部分配列を取得する (slice, splice)](array/slice.html)
 - [配列をコピーする](array/copy.html)
-- [配列をループで処理する](array/loop.html)
+- [配列をループで処理する (for, forEach, for-of)](array/loop.html)
 - [配列をソートする (sort, reverse)](array/sort.html)
 - [配列にある要素が存在するか調べる (indexOf)](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
@@ -124,7 +124,7 @@ layout: category-index
 
 ### その他
 - [JavaScript において偽 (false) と評価される値](syntax/false-values.html)
-- [入れ子になったループを一度に抜ける](syntax/break-nested-loop.html)
+- [入れ子になったループを一度に抜ける（多重ループからの break）](syntax/break-nested-loop.html)
 - [ある変数が初期化済みかどうか確認する](misc/check-if-undefined.html)
 - [外部スクリプトはなぜ (function(){})(); のような書き方をするのか？](misc/scope-of-library.html)
 
