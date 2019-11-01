@@ -85,5 +85,6 @@ layout: category-index
 その他
 ----
 * [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
+* [Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）](misc/readability.html)
 * [ある処理にかかった時間を計測する (measureTimeMillis/Micros)](misc/measure-time.html)
 
