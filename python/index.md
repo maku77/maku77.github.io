@@ -78,7 +78,7 @@ python コマンド / 実行環境
 * [文字列の長さを調べる (len)](numstr/string-length.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
 * [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
-* [文字列を置換する](numstr/replace-string.html)
+* [文字列を置換する (str.replace, re.sub, re.subn)](numstr/replace-string.html)
 * 分割
     * [文字列をデリミタで分割する (split)](numstr/split-string.html)
     * [文字列を改行で分割して一行ずつのリストにする (splitlines)](numstr/split-lines.html)
@@ -147,7 +147,7 @@ python コマンド / 実行環境
 
 ファイル／ディレクトリ
 ----
-* [ディレクトリ内のファイルを列挙する](enum-files.html)
+* [ディレクトリ内のファイルを列挙する (os.listdir, os.walk, glob)](io/enum-files.html)
 * [指定した拡張子、名前のファイルを列挙する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [ファイル／ディレクトリの名前を変更する](change-filename.html)
