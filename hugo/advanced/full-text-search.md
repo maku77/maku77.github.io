@@ -203,3 +203,9 @@ function showResultCount(count, total) {
 
 これで、http://localhost:1313/search/ といった URL にアクセスすれば、全文検索のページが表示されるようになります。
 
+
+参考
+---
+
+- [Google カスタム検索を設置して記事を検索できるようにする](google-custom-search.html)
+

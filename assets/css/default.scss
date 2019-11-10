@@ -299,6 +299,13 @@ blockquote {
   }
 }
 
+samp {
+  font-family: arial;
+  background: #ddd;
+  border-radius: 0.3em;
+  padding: 0.2em 0.5em;
+}
+
 kbd {
   font-weight: bolder;
   background: #f9feff;
