@@ -52,7 +52,7 @@ layout: category-index
 ### 制御構文
 * [if による分岐処理と if 式](basic/if.html)
 * [when 式による条件分岐](basic/when.html)
-* [for ループと while ループ](basic/loop.html)
+* [for ループと while ループ（そして forEach）](basic/loop.html)
 
 ### パッケージ
 * [Kotlin のパッケージの考え方を理解する](package/basic.html)

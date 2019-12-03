@@ -1,5 +1,5 @@
 ---
-title: "for ループと while ループ"
+title: "for ループと while ループ（そして forEach）"
 date: "2019-04-24"
 ---
 
@@ -86,8 +86,10 @@ for (ch in 'A'..'E') {
 }
 ```
 
-コレクション要素のループ処理
+配列やコレクション要素のループ処理
 ----
+
+### for ループで要素を列挙する
 
 `for` は配列やコレクションの要素をループ処理するときにも使用できます。
 下記の例ではリストの要素を順番にループ処理しています。
@@ -109,6 +111,7 @@ for ((index, elem) in arr.withIndex()) {
 ```
 
 #### 実行結果
+
 ```
 arr[0] = AAA
 arr[1] = BBB
@@ -121,6 +124,91 @@ arr[2] = CCC
 val map = mapOf("foo" to 100, "bar" to 200)
 for ((key, value) in map) {
     println("$key => $value")
+}
+```
+
+### forEach 関数で要素を列挙する
+
+ここまでは、主に `for` を使ったループ処理について説明してきましたが、配列やコレクションのループ処理は **`forEach`** を使うことで簡潔に記述することができます。
+
+```kotlin
+val arr = arrayOf("AAA", "BBB", "CCC")
+arr.forEach {
+    println(it)
+}
+
+val map = mapOf("foo" to 100, "bar" to 200)
+map.forEach { key, value ->
+    println("$key => $value")
+}
+```
+
+
+for ループか forEach か
+----
+
+Kotlin にはループ構文として `for` ループが用意されていますが、Iterable なオブジェクトでは **`forEach`** という関数を使用することができます。
+たとえば、数値のループは次のどちらの方法でも記述できます。
+
+```kotlin
+for (i in 0..5) { print(i) }  //=> 012345
+(0..5).forEach { print(it) }  //=> 012345
+```
+
+大きな違いは、`for` ループが構文として後ろのブロックを繰り返し実行しているのに対し、`forEach` 関数は渡したラムダ式を繰り返し呼び出しているということです。
+この違いは、次のように `{ }` の内部で `break` したいときに顕著になります。
+
+```kotlin
+for (i in 0..10) {
+    print(i)
+    if (i == 3) break
+}  //=> 0123
+
+(0..10).forEach {
+    print(it)
+    if (it == 3) return@forEach
+}  //=> 012345678910
+```
+
+`for` ループの場合は、直感的に `break` でループ処理を中断できますが、`forEach` 関数の方は、そもそもループ構文ではないので `break` が使えません。
+苦肉の策で、上記のように `return@forEach` としてもループ処理は止まりません。
+なので、このように**ループ内でループ制御を行いたい場合は、`for` ループ構文の方を使うべき**です。
+
+コレクション（リストなど）のループ処理も、`for` と `forEach` どちらでも記述できます。
+
+```kotlin
+var list = listOf("AAA", "BBB", "CCC")
+
+for (elem in list) {
+    println(elem)
+}
+
+list.forEach {
+    println(it)
+}
+```
+
+あまり違いがないように見えますが、次のような理由により、**コレクションのループは `forEach` を使った方がよさそう**です。
+
+* 新しい変数を定義しなくてよい（上記の例では `elem`）
+* タイプ数が少ない
+* 速度的に有利っぽい（Sequence を扱う場合も同様に高速）
+* Iterable なオブジェクトを受け取ってチェイン記述できる
+
+最後のチェインというのは、例えば次のようにリストの要素をフィルタして取り出したい場合に、ドット (`.`) でつなげて簡潔に書けるということです。
+
+```kotlin
+var nums = 1..10
+nums.filter { it % 2 == 0 }.forEach { println(it) }
+```
+
+こういったことをやりたいときに `for` ループを使おうとすると、構文上、分断された形の記述になってしまいます。
+
+```kotlin
+var nums = 1..10
+var filtered = nums.filter { it % 2 == 0 }
+for (x in nums) {
+    print(x)
 }
 ```
 
