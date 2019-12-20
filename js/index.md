@@ -44,7 +44,7 @@ layout: category-index
 - [文字列を置換する (replace)](string/replace.html)
 - [文字列をデリミタで分割する／１文字ずつに分割する (split)](string/split.html)
 - [文字列から正規表現パターンに一致する部分を取り出す (String#match, RegExp#exec)](string/match.html)
-- [文字列の先頭と末尾の空白を削除する ($.trim)](string/trim.html)
+- [文字列の先頭と末尾の空白を削除する (String#trim)](string/trim.html) (ECMAScript 2015)
 - [文字列の長さを取得する (length)](string/length.html)
 - [部分文字列を取得する (substring, slice)](string/substring.html)
 - [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
