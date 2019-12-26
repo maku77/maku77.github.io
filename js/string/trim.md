@@ -1,15 +1,24 @@
 ---
-title: "文字列の先頭と末尾の空白を削除する ($.trim)"
+title: "文字列の先頭と末尾の空白を削除する (String#trim)"
 date: "2013-07-12"
+lastmod: "2019-12-20"
 ---
 
-JavaScript には、標準では文字列の前後の空白を削除する `trim()` メソッドのようなものは用意されていないため、何らかのライブラリで提供されているものを使用するか、自分で作成する必要があります。
+ECMAScript 2015 以降では、`String` クラスの `trim()` メソッドを使って、文字列の先頭と末尾にある余計なスペース（空白やタブ、改行など）をすべて取り除くことができます。
+
+
+JavaScript (ECMAScript 2015) の trim() を使う方法
+----
+
+```javascript
+'   ABC '.trim();  //=> 'ABC'
+```
 
 
 jQuery の trim() を使う方法
 ----
 
-jQuery には、ユーティリティ関数 `jQuery.trim()` が用意されています。
+jQuery には、ユーティリティ関数 `jQuery.trim()` が用意されていますが、ECMAScript 2015 で `String` クラスに `trim()` が標準装備されたので、もう出番はないでしょう。
 
 ```javascript
 $.trim('   ABC ');  //=> 'ABC'

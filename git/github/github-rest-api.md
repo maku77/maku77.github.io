@@ -1,6 +1,7 @@
 ---
 title: "GitHub REST API を使用する"
 date: "2019-01-30"
+lastmod: "2019-12-04"
 ---
 
 GitHub の REST API でできること
@@ -93,6 +94,13 @@ $ export https_proxy=https://proxy.example.com:10080
 $ ./github-api.sh
 ```
 
+プロキシは、`curl` コマンドの `--proxy (-x)` オプションで指定する方法もあります。
+
+```
+$ curl --proxy http://proxy.example.com:10080 https://www.google.com/
+```
+
+
 ### すべての結果が得られない場合
 
 REST API の結果は、デフォルトでは[ページネーション](https://developer.github.com/v3/#pagination)によって **30件ずつ** しか返されません。
@@ -115,4 +123,46 @@ for i in `seq 1 5`; do
   curl -k -s -u :$GITHUB_TOKEN $GITHUB_BASEURL$GITHUB_API\&page=$i
 done
 ```
+
+
+（おまけ）Windows のバッチファイルで GitHub REST API
+----
+
+Window 10 version 1803 (2018年4月) 以降には、デフォルトで `curl` コマンドがインストールされるようになったみたいです。
+これで、Windows のバッチファイルからも気兼ねなく `curl` コマンドを使えます。
+次の例では、バッチファイルから `curl` を使って、GitHub の REST API を呼び出すサンプルコードです。
+
+#### 例: members.bat（YourOrganization のメンバー一覧を取得する）
+
+```bat
+@echo off
+setlocal
+
+REM ---------------
+REM  User settings
+REM ---------------
+set GITHUB_TOKEN=b72209e0b0ed0ad32d7b8cc38b36cf71b416d0a0
+set GITHUB_API=/orgs/YourOrganization/members
+REM set GITHUB_API=/orgs/YourOrganization/repos
+REM set GITHUB_API=/user/repos
+REM set PROXY=-x http://proxy.example.com:10080
+
+REM -----------------
+REM  Call GitHub API
+REM -----------------
+set GITHUB_BASEURL=https://api.github.com
+
+FOR /L %%A IN (1, 1, 5) DO (
+    curl -k -s %PROXY% -u :%GITHUB_TOKEN% "%GITHUB_BASEURL%%GITHUB_API%?per_page=100&page=%%A"
+)
+```
+
+FOR ループでページネーションを切り替えながら 100 件ずつ取得することで、1～500 件目までの情報を表示しています。
+プロキシ環境下で実行したい場合は、`PROXY` 変数の `REM` コメントアウトを外してください。
+
+`GITHUB_API` 変数の部分を置き換えることで、取得する情報を切り替えることができます。
+
+- `set GITHUB_API=/orgs/YourOrganization/members` ... 組織のメンバーリスト
+- `set GITHUB_API=/orgs/YourOrganization/repos` ... 組織のリポジトリリスト
+- `set GITHUB_API=/user/repos` ... 自分のリポジトリリスト
 

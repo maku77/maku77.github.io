@@ -3,7 +3,6 @@ title: "Python メモ"
 layout: category-index
 ---
 
-
 はじめに／基本
 ====
 * [Python のコーディングスタイル](coding-style.html)
@@ -65,6 +64,7 @@ python コマンド / 実行環境
 * [小数点以下を四捨五入する／切り捨てる／切り上げる](numstr/round-number.html)
 * [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
 * [リスト要素の合計値を求める (sum)](numstr/sum.html)
+* [ランダムな数値（乱数）を生成する (randrange, randint, random, uniform)](numstr/random.html)
 * [階乗を求める (math.factorial)](numstr/factorial.html)
 * [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
 * [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
@@ -73,7 +73,7 @@ python コマンド / 実行環境
 文字列
 ====
 * [Python の文字列リテラルいろいろ](numstr/string-literal.html)
-* [文字列の中で変数を展開する (str#format, %演算子)](numstr/str-format.html)
+* [文字列の中で変数を展開する（書式文字列によるフォーマット） (str#format, %演算子)](numstr/str-format.html)
 * [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
 * [文字列の長さを調べる (len)](numstr/string-length.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
@@ -83,7 +83,7 @@ python コマンド / 実行環境
     * [文字列をデリミタで分割する (split)](numstr/split-string.html)
     * [文字列を改行で分割して一行ずつのリストにする (splitlines)](numstr/split-lines.html)
     * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
-* [リスト内の要素を結合して文字列にする](numstr/concat-into-string.html)
+* [リスト内の要素を結合して文字列にする (join)](numstr/concat-into-string.html)
 * [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
 * [ランダムな文字列を生成する (random.choice)](numstr/random-string.html)
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
@@ -94,6 +94,9 @@ python コマンド / 実行環境
 シーケンス (Lists and Tuples)
 ====
 * [リストとタプルの違い](list/list-and-tuple.html)
+* リストとタプルの生成
+    * [リストやタプルをサイズを指定して作成する (［］＊ N)](list/create-with-size.html)
+    * [連番からなるリストを生成する (range)](list/create-by-range.html)
 * [リストに要素を追加する／リストを結合する (append, extend, +)](list/append.html)
 * [リスト／タプルをループで処理する](list/loop-list.html)
 * [リスト／タプルのサイズを取得する (len)](list/len.html)
@@ -106,6 +109,7 @@ python コマンド / 実行環境
 * [リスト内の要素をまとめて変更する (map)](list/map.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
+* [2 つのリストに重複する要素を抽出する (set と＆)](list/overlapped.html)
 
 ディクショナリ (Dictionary)
 ====

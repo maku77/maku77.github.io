@@ -52,7 +52,7 @@ layout: category-index
 ### 制御構文
 * [if による分岐処理と if 式](basic/if.html)
 * [when 式による条件分岐](basic/when.html)
-* [for ループと while ループ](basic/loop.html)
+* [for ループと while ループ（そして forEach）](basic/loop.html)
 
 ### パッケージ
 * [Kotlin のパッケージの考え方を理解する](package/basic.html)
@@ -87,4 +87,5 @@ layout: category-index
 * [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
 * [Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）](misc/readability.html)
 * [ある処理にかかった時間を計測する (measureTimeMillis/Micros)](misc/measure-time.html)
+* [演算子の前後で改行したいときは必ず後ろで改行する](misc/break-after-operator.html)
 
