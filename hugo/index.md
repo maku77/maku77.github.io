@@ -67,7 +67,7 @@ hugo コマンド
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
 * [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
 
-### ページ一覧を表示するサンプル
+### ページ一覧／セクション一覧を表示するサンプル
 * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
 * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
 * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
@@ -75,6 +75,7 @@ hugo コマンド
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
+* [（トラブルシュート）ドラフトセクションが公開されてしまう](list/exclude-draft-section.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
