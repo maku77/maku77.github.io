@@ -75,7 +75,6 @@ hugo コマンド
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
-* [（トラブルシュート）ドラフトセクションが公開されてしまう](list/exclude-draft-section.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
@@ -112,6 +111,10 @@ hugo コマンド
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 
+トラブルシューティング
+----
+* [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
+* [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
 
 Go 言語入門（Golang 入門）
 ====
