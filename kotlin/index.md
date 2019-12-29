@@ -43,6 +43,10 @@ layout: category-index
     * [ラムダ式の基本 (lambda expression)](basic/lambda.html)
     * [メンバ参照、結合メンバ参照を理解する (member reference)](basic/member-reference.html)
     * レシーバー付きラムダ (with)
+* ジェネリクス (Generics)
+    * [ジェネリクス: ジェネリクスの基本](generics/basic.html)
+    * [ジェネリクス: reified でジェネリクスの型情報を維持する](generics/reified.html)
+    * [ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する](generics/variant.html)
 
 ### 文字列／数値
 * [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
