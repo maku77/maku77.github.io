@@ -98,7 +98,7 @@ nice
 ```
 
 
-パターンに一致する部分を繰り返し抽出する
+パターンに一致する部分を繰り返し抽出する (re.findall)
 ----
 
 `re.search()` の代わりに `re.findall()` を使用すると、正規表現パターンに一致する部分文字列を繰り返し抽出することができます。
@@ -110,8 +110,42 @@ import re
 arr = re.findall(r'\d+', 'aaa100xxx200eee300')  #=> ['100', '200', '300']
 ```
 
+検索パターン内で括弧 `()` を使ったグルーピングが行われていると、戻り値がタプルのリストになります。
+各タプルの中には、グルーピング位置に対応する文字列が含まれています。
+次の例では、Markdown 形式のテキストの中から、リンクと思われる文字列（例: `[Title](url)`）をすべて抽出します。
 
-正規表現パターンをコンパイルして検索を高速化する
+```python
+import re
+
+pattern = r'\[(.+?)\]\((.+?)\)'
+markdown_text = 'See also [Title1](url1) and [Title2](url2)'
+
+links = re.findall(pattern, markdown_text)
+for group in links:
+    print(group)
+```
+
+この場合、`re.findall()` の戻り値（上記では `links`）は文字列タプルのリストになるので、実行結果は次のようになります。
+
+```
+('Title1', 'url1')
+('Title2', 'url2')
+```
+
+次のようにすれば、タプルの要素を分解しながら取り出せるので便利です。
+
+```python
+for title, url in links:
+    print('{} -> {}'.format(title, url))
+```
+
+```
+Title1 -> url1
+Title2 -> url2
+```
+
+
+正規表現パターンをコンパイルして検索を高速化する (re.compile)
 ----
 
 `re.match()`、`re.search()` などで、正規表現パターンを毎回指定してマッチングを行うことはできますが、同じ正規表現パターンを繰り返し使用する場合は、あらかじめ正規表現オブジェクトにコンパイルしておくと高速に処理できます。
