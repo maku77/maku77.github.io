@@ -117,7 +117,7 @@ Hugo 本家のマニュアルページでは、<code>.InSection</code> や <code
     {{ "{{" }}- end }}
 
     {{ "{{" }}- /* セクション直下の通常ページをループ表示 */}}
-    {{ "{{" }}- range cond $section.IsHome (where $section.Site.RegularPages "Section" "") $section.Pages }}
+    {{ "{{" }}- range $section.RegularPages }}
       <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a> {{ "{{" }} if (eq . $current) }}★{{ "{{" }} end }}
     {{ "{{" }}- end }}
   </ul>

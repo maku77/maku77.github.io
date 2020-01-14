@@ -19,9 +19,9 @@ description: "下記のテンプレートコードを使用すると、サイト
         {{ "{{" }}- template "hierarchy" . }}
       {{ "{{" }}- end }}
 
-      {{ "{{" }}- /* カレントセクション直下のページリスト（ホームだけ特殊処理） */}}
+      {{ "{{" }}- /* カレントセクション直下の記事ページ */}}
       <ul>
-        {{ "{{" }}- range (cond .IsHome (where $.Site.RegularPages "Section" "") .Pages) }}
+        {{ "{{" }}- range .RegularPages }}
           <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
         {{ "{{" }}- end }}
       </ul>
@@ -88,8 +88,8 @@ description: "下記のテンプレートコードを使用すると、サイト
       </li>
     {{ "{{" }}- end }}
 
-    {{ "{{" }}- /* カレントセクション直下のページリスト（ホームだけ特殊処理） */}}
-    {{ "{{" }}- range (cond .IsHome (where $.Site.RegularPages "Section" "") .Pages) }}
+    {{ "{{" }}- /* カレントセクション直下の記事ページ */}}
+    {{ "{{" }}- range .RegularPages }}
       <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
     {{ "{{" }}- end }}
   </ul>
@@ -147,8 +147,8 @@ description: "下記のテンプレートコードを使用すると、サイト
       {{ "{{" }}- end }}
     {{ "{{" }}- end -}}
 
-    {{ "{{" }}- /* カレントセクション直下のページ（ホームだけ特殊処理） */}}
-    {{ "{{" }}- range (cond $section.IsHome (where $section.Site.RegularPages "Section" "") $section.Pages) }}
+    {{ "{{" }}- /* カレントセクション直下の記事ページ */}}
+    {{ "{{" }}- range $section.RegularPages }}
       <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a></li>
     {{ "{{" }}- end }}
   </ul>

@@ -46,8 +46,8 @@ date: "2018-11-02"
       <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a> /</li>
     {{ "{{" }}- end -}}
 
-    {{ "{{" }}/* カレントセクション直下のページ（ホームだけ特殊処理） */}}
-    {{ "{{" }}- range (cond .IsHome (where $.Site.RegularPages "Section" "") .Pages) }}
+    {{ "{{" }}/* カレントセクション直下の記事ページ */}}
+    {{ "{{" }}- range .RegularPages }}
       <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a></li>
     {{ "{{" }}- end }}
   </ul>

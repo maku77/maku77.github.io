@@ -71,7 +71,7 @@ hugo コマンド
 * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
 * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
 * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
-* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
+* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (.Site.Home.RegularPages)](list/root-pages.html)
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
