@@ -103,6 +103,7 @@ hugo コマンド
 応用
 ----
 * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
+* [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
 * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](misc/permalink.html)
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
