@@ -17,6 +17,8 @@ layout: category-index
         * [lateinit 変数が初期化されているかどうかを調べる (isInitialized)](basic/lateinit-isinitialized.html)
     * [関数を定義する (fun)](basic/fun.html)
     * [可変長引数をとる関数を定義する (vararg)](basic/vararg.html)
+    * [infix 記法で関数呼び出し時の記述を簡略化する (to)](basic/infix.html)
+    * [分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解](basic/dest-decl.html)
 * クラス
     * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
     * [継承可能なクラスを作成する (open, abstract, override)](basic/extend.html)
