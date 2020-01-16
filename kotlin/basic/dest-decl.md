@@ -163,3 +163,13 @@ inline operator fun <K, V> Map.Entry<K, V>.component1(): K = key
 inline operator fun <K, V> Map.Entry<K, V>.component2(): V = value
 ```
 
+つまり、上述のループ処理は、次のようなコードと等価になります。
+
+```kotlin
+for (entry in map.entries) {
+    val key = entry.component1()
+    val value = entry.component2()
+    println("$key -> $value")
+}
+```
+
