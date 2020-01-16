@@ -16,6 +16,7 @@ layout: category-index
     * [lateinit による変数の初期化](basic/lateinit.html)
         * [lateinit 変数が初期化されているかどうかを調べる (isInitialized)](basic/lateinit-isinitialized.html)
     * [関数を定義する (fun)](basic/fun.html)
+    * [可変長引数をとる関数を定義する (vararg)](basic/vararg.html)
 * クラス
     * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
     * [継承可能なクラスを作成する (open, abstract, override)](basic/extend.html)
