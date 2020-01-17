@@ -102,7 +102,7 @@ object キーワード
 * [コレクションの基本的な使い方 (List, Set, Map)](collection/basic.html)
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
 * [immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](collection/to-mutable.html)
-* [配列やコレクションの要素をループ処理する](collection/loop-collection.html)
+* [配列やコレクションの要素をループ処理する (for-in, forEach, withIndex)](collection/loop-collection.html)
 * [コレクションの要素をもとに別のコレクションを作成する (map)](collection/map.html)
 * [コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)](collection/filter.html)
 * [配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)](collection/filter-not-null.html)
@@ -117,6 +117,8 @@ object キーワード
 * [マップをソートしてループ処理する (toSortedMap)](collection/sorted-map.html)
 * [マップの値を始めて取得しようとしたときに初期化する（Map の遅延初期化）(getOrPut)](collection/map-get-or-put.html)
 
+### セット (Set)
+* [セットの集合演算を行う](collection/set-operation.html)
 
 その他
 ----
