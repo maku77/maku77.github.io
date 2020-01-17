@@ -31,11 +31,13 @@ layout: category-index
 * [by を使ったメソッド呼び出しの委譲](basic/class-delegation.html)
 * [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
 
-### 演算子
-* [数値演算用の演算子（+ や - など）をオーバーロードする (operator)](basic/overload-operator.html)
-* [インデックス演算子を定義して配列のようにアクセス可能なクラスを作る (index operator)](collection/index-operator.html)
-* in 演算子を定義して要素の包含チェックを行えるようにする (contains)
-* iterator を定義して for-in ループで要素を処理できるようにする
+### 演算子 (Operator)
+* [算術演算子を定義してオブジェクトに + や += を適用できるようにする](operator/operator-arithmetic.html)
+* [比較演算子を定義してオブジェクト同士の比較やソートを行えるようにする (equals, compareTo)](operator/operator-compare.html)
+* [インデックス演算子を定義して配列のようにアクセス可能なクラスを作る (index operator)](operator/operator-index.html)
+* in 演算子を定義して要素の包含チェックを行えるようにする (contains) <!-- (operator/operator-contains.html) -->
+* iterator を定義して for-in ループで要素を処理できるようにする (iterator) <!-- (operator/operator-iterator.html) -->
+* 範囲演算子を定義して .. で指定した範囲の要素を取得できるようにする (rangeTo) <!-- (operator/operator-range.html) -->
 
 ### 応用
 * [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
