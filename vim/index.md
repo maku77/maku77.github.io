@@ -53,6 +53,7 @@ layout: category-index
 * [別ファイルの内容や外部コマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
 * [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
 * [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
+* [2 つのファイルの差分を取る・マージする (vimdiff, vim -d)](file/vimdiff.html)
 
 
 編集操作
