@@ -54,6 +54,7 @@ python コマンド / 実行環境
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 * [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
+* [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
 
 
 数値
