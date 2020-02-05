@@ -54,6 +54,8 @@ arr.forEach(elem => console.log(elem));
 
 参考: [Array.prototype.forEach() - JavaScript MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
+（ちなみに、Kotlin では `Array#forEach()` に渡したラムダ式がインライン展開されるため、呼び出し元のスコープから `return` することができます。このあたりの言語ごとの違いは若干混乱しますね。。。）
+
 
 for ループを使う方法（旧来のやり方）
 ----
