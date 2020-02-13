@@ -115,6 +115,7 @@ Java レイヤ
 ### I/O（入出力）
 * [キーイベント (KeyEvent) を見やすく出力する](io/print-keyevents.html)
 * [タッチイベントをハンドルする](io/handle-touch-events.html)
+* [Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する](io/keyboard-long-press.html)
 
 ### UI（描画）
 * [常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)](ui/always-top.html)
