@@ -3,7 +3,7 @@ title: "Emulator での開発時にキーボードによるキー入力が長押
 date: "2020-02-13"
 ---
 
-Android の実機上では、決定キー (`KEYCODE_DPAD_ENTER`) を長押しすると、`KeyEvent.isLongPress` が `true` になるので、このフラグを見て長押し時の処理を記述することができます。
+Android TV の実機上では、リモコンの決定キー (`KEYCODE_DPAD_ENTER`) を長押しすると、`KeyEvent.isLongPress` が `true` になるので、このフラグを見て長押し時の処理を記述することができます。
 
 一方、Android アプリの開発をエミュレーターで行っているとき、キーボードの Enter キー (`KEYCODE_ENTER`) を、`KEYCODE_DPAD_ENTER` の代わりにしようとしても、**`KeyEvent.isLongPress` が `true` になってくれません**。
 なぜなら、キーボードのハードウェア的なキーリピート（正確には OS によるキーリピート）が働いてしまい、長押しではなくキー連打だと判定されてしまうからです。
