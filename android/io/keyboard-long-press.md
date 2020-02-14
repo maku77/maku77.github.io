@@ -42,6 +42,11 @@ class LongKeyPressChecker {
             return false
         }
 
+        // KeyEvent.repeatCount 対応のキーでは KeyEvent.isLongPress を信用する
+        if (event.repeatCount > 0) {
+            return event.isLongPress
+        }
+
         val key: Int = event.keyCode
         val time: Long = event.downTime
         val timeAndCount = timeAndCount.getOrDefault(key, Pair(time, 0))
