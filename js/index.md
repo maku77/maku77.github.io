@@ -50,6 +50,7 @@ layout: category-index
 - [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
 - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 - [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize)](string/normalize.html) ECMAScript2015
+- [文字列内のひらがなとカタカナを変換する](string/convert-kana.html)
 
 
 配列／連想配列 (Array)
