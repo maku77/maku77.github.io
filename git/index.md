@@ -103,6 +103,7 @@ Git
 * [マージ作業に失敗したときにやり直す](merge/cancel-merge.html)
 * [マージで競合解決が必要なファイルを調べる](merge/list-conflicted-files.html)
 * [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）](merge/find-fast-forward.html)
+* [別の Git リポジトリの内容を強引にマージする](merge/merge-repo.html)
 
 差分・パッチファイル (git diff / patch)
 ----
