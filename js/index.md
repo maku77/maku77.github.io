@@ -207,6 +207,7 @@ Web サイト
 ----
 - [CORS - Cross-Origin Resource Sharing とは？](env/cors.html)
 - [Chrome で Ajax (XMLHttpRequest) によるクロスドメイン通信の制約をなくす](env/disable-web-security-of-chrome.html)
+- [使用している Web ブラウザが IE (Internet Explorer) かどうか判別する](env/is-ie.html)
 
 
 Node.js
