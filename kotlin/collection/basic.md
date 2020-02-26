@@ -11,7 +11,7 @@ Kotlin の `List` は、Java の `List` をベースにしたコレクション�
 不変 (immutable) なリストは、Kotlin 組み込みの **`listOf`** 関数で作成することができます。
 
 ```kotlin
-val list = listOf(1, 2, 3)
+val list: List<Int> = listOf(1, 2, 3)
 for (x in list) {
     println(x)
 }
@@ -20,7 +20,7 @@ for (x in list) {
 リスト生成後に要素を追加・削除したい場合は、**`mutableListOf`** 関数でリストを作成しておく必要があります。
 
 ```kotlin
-val list = mutableListOf(1, 2, 3)
+val list: MutableList<Int> = mutableListOf(1, 2, 3)
 list.add(4)
 list.add(5)
 list.removeAt(0)
@@ -37,7 +37,7 @@ Kotlin の `Set` は、Java の `Set` をベースにしたコレクションで
 不変 (immutable) なセットは、Kotlin 組み込みの **`setOf`** 関数で作成することができます。
 
 ```kotlin
-val set = setOf(1, 2, 3, 1, 2)
+val set: Set<Int> = setOf(1, 2, 3, 1, 2)
 println(set)  //=> [1, 2, 3]
 ```
 
@@ -46,7 +46,7 @@ println(set)  //=> [1, 2, 3]
 セット生成後に要素を追加・削除したい場合は、**`mutableSetOf`** 関数でセットを作成しておく必要があります。
 
 ```kotlin
-val set = mutableSetOf(1, 2, 3)
+val set: MutableSet<Int> = mutableSetOf(1, 2, 3)
 set.add(1)
 set.add(4)
 println(set)  //=> [1, 2, 3, 4]
@@ -60,7 +60,7 @@ Kotlin の `Map` は、Java の `Map` をベースにしたコレクションで
 不変 (immutable) なマップは、Kotlin 組み込みの **`mapOf`** 関数で作成することができます。
 
 ```kotlin
-val map = mapOf("AAA" to 1, "BBB" to 2, "CCC" to 3)
+val map: Map<String, Int> = mapOf("AAA" to 1, "BBB" to 2, "CCC" to 3)
 println(map["AAA"])  //=> 1
 
 // ループ処理（forEach メソッドでも可）
@@ -72,7 +72,7 @@ for ((k, v) in map) {
 セット生成後に要素を追加・削除したい場合は、**`mutableMapOf`** 関数でセットを作成しておく必要があります。
 
 ```kotlin
-val map = mutableMapOf("AAA" to 1, "BBB" to 2, "CCC" to 3)
+val map: MutableMap<String, Int> = mutableMapOf("AAA" to 1, "BBB" to 2, "CCC" to 3)
 map["AAA"] = 5
 map["DDD"] = 10
 for ((k, v) in map) {

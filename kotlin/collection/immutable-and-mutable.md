@@ -33,8 +33,8 @@ fun <T> addAll(src: Collection<T>, dst: MutableCollection<T>) {
 }
 
 fun main() {
-    val src = listOf(100, 200, 300)  // List（リードオンリー）
-    val dst = mutableListOf(400, 500, 600)  // MutableList（編集可能）
+    val src: List<Int> = listOf(100, 200, 300)  // リードオンリー
+    val dst: MutableList<Int> = mutableListOf(400, 500, 600)  // 編集可能
     addAll(src, dst)
     println(src)  //=> [100, 200, 300]
     println(dst)  //=> [400, 500, 600, 100, 200, 300]
@@ -44,8 +44,8 @@ fun main() {
 リードオンリーな `Collection` オブジェクトを `MutableCollection` として渡そうとすると、Type mismatch のビルドエラーになります。
 
 ```kotlin
-val src = listOf(100, 200, 300)
-val dst = listOf(400, 500, 600)
+val src: List<Int> = listOf(100, 200, 300)
+val dst: List<Int> = listOf(400, 500, 600)
 
 // 下記はエラーになる
 // Type mismatch: inferred type is List<Int> but MutableCollection<Int> was expected
@@ -92,8 +92,8 @@ Kotlin の `Collection` インタフェースは read-only を示すインタフ
 これは、Kotlin の `Collection` オブジェクトが、実質的には immutable（不変）ではないということを示しています。
 
 ```kotlin
-val list = listOf(1, 2, 3, 4, 5)  // immutable な List を作成しているつもり
-java.util.Collections.reverse(list)  // mutable な java.util.List として渡せる
+val list: List<Int> = listOf(1, 2, 3, 4, 5)  // immutable な List を作成しているつもり
+java.util.Collections.reverse(list)  // mutable な java.util.List として渡せてしまう
 println(list)  //=> [5, 4, 3, 2, 1]
 ```
 
@@ -101,11 +101,10 @@ println(list)  //=> [5, 4, 3, 2, 1]
 Kotlin では下記のように書くのが正解です。
 
 ```kotlin
-val list = mutableListOf(1, 2, 3, 4, 5)
+val list: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5)
 list.reverse()
 println(list)  //=> [5, 4, 3, 2, 1]
 ```
 
 この場合は、もちろん mutable な `MutableList` に対してしか実行できないようになっています。
-
 

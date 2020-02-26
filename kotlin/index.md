@@ -102,6 +102,8 @@ object キーワード
 * [コレクションの基本的な使い方 (List, Set, Map)](collection/basic.html)
 * [immutable なコレクションと mutable なコレクション (List, Set, Map)](collection/immutable-and-mutable.html)
 * [immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](collection/to-mutable.html)
+* [配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）](collection/create-sequence.html)
+* [プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する](collection/primitive-array.html)
 * [配列やコレクションの要素をループ処理する (for-in, forEach, withIndex)](collection/loop-collection.html)
 * [コレクションの要素をもとに別のコレクションを作成する (map)](collection/map.html)
 * [コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)](collection/filter.html)
