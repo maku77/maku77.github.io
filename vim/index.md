@@ -125,6 +125,7 @@ Vim の設定
     * [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
     * [ショートカットキーで日時を挿入する](keymap/insert-date.html)
     * [ショートカットキーでタブを切り替える](keymap/tab.html)
+    * [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](keymap/open-folder.html)
 
 ### ファイルに関する設定と操作
 * [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
