@@ -1,5 +1,5 @@
 ---
-title: "git diff や git status での日本語の文字化けを防ぐ"
+title: "git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)"
 date: "2017-08-19"
 lastmod: "2019-10-18"
 ---

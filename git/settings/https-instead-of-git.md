@@ -1,5 +1,5 @@
 ---
-title: "git プロトコルではなく強制的に https プロトコルで git clone するようにする"
+title: "git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)"
 date: "2017-08-22"
 ---
 

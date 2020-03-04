@@ -1,5 +1,5 @@
 ---
-title: "Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ"
+title: "Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)"
 date: "2014-04-22"
 ---
 
