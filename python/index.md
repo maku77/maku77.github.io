@@ -54,6 +54,7 @@ python コマンド / 実行環境
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 * [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
+* [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
 
 
 数値
@@ -77,7 +78,8 @@ python コマンド / 実行環境
 * [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
 * [文字列の長さを調べる (len)](numstr/string-length.html)
 * [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
-* [文字列内の部分文字列を検索する／抽出する](numstr/search-string.html)
+* [文字列が正規表現に完全一致するか調べる (re.fullmatch)](numstr/re-fullmatch.html)
+* [文字列内の部分文字列を検索する／抽出する（正規表現）](numstr/search-string.html)
 * [文字列を置換する (str.replace, re.sub, re.subn)](numstr/replace-string.html)
 * 分割
     * [文字列をデリミタで分割する (split)](numstr/split-string.html)
@@ -140,8 +142,9 @@ python コマンド / 実行環境
 * print
     * [print 関数の改行を抑制する](print-without-line-break.html)
     * [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
-    * [標準入力から読み込む](read-stdin.html)
+    * [標準入力から読み込む (sys.stdin, fileinput)](io/stdin.html)
     * [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
+    * [任意のオブジェクトを見やすく整形して出力する (pprint)](io/pprint.html)
 
 パス
 ----

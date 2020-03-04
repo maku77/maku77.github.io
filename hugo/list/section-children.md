@@ -1,17 +1,18 @@
 ---
 title: "同一セクション内のページ／セクションの一覧を表示する"
 date: "2017-12-22"
+lastmod: "2020-01-14"
 ---
 
-同一セクション内の記事ページ一覧 (.Pages)
+そのセクション内のページ一覧を取得する (.Pages、.RegularPages)
 ----
 
-リストテンプレートやセクションテンプレートの中で、`.Pages` を参照すると、そのセクション（やタクソノミー）に含まれるページの一覧を `Page` オブジェクトの配列として取得することができます（`.Data` は `.Data.Pages` のエイリアスです）。
+リストテンプレートやセクションテンプレートの中で、**`.Pages`** を参照すると、そのセクション（やタクソノミー）直下の記事ページ (regular page) とセクションページ (list page) の一覧を `Page` オブジェクトの配列として取得することができます。
 
 #### layouts/_default/section.html
 
 ~~~ html
-<h3>セクションに含まれるページの一覧</h3>
+<h3>セクションに含まれる記事ページ（あるいはセクションページ）の一覧</h3>
 <ul>
   {{ "{{" }} range .Pages }}
     <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
@@ -19,15 +20,76 @@ date: "2017-12-22"
 </ul>
 ~~~
 
+記事ページ (regular page) のみを列挙したい場合は、`.Pages` の部分を **`.RegularPages`** に変更してください。
+セクションページ (list page) のみを列挙したい場合は、`.Pages` の部分を **`Sections`** に変更してください。
+
+- `.Pages` -- セクションページと記事ページの一覧
+- `.RegularPages` -- 記事ページの一覧
+- `.Sections` -- セクションページの一覧
+
 上記のようなテンプレートは、タクソノミーテンプレート（タグの一覧ページ）でも同様に使用することができます。
 
-`.Pages` は、リスト系のページから参照することが想定されているため、シングルページテンプレート内で参照すると、サイズ 0 の配列が返されます。
-シングルページテンプレートからも、同一セクション内のページの一覧を取得したい場合は、まず `.CurrentSection` でカレントセクションの `Page` オブジェクトを取得するとよいでしょう（`.CurrentSection.Pages` のようにする)。
+ただし、`.Pages` や `.RegularPages` は、リスト系のページから参照することが想定されているため、シングルページテンプレート内で参照すると、サイズ 0 の配列が返されることに注意してください。
+そのため、基本的には上記のコードはリスト系のテンプレートでのみ使用することができます。
+
+シングルページテンプレートからも、同一セクション内のページの一覧を取得したい場合は、まず `.CurrentSection` でカレントセクションを示す `Page` オブジェクトを取得するとよいでしょう（下記参照)。
 
 
-### 注意点（ホームページテンプレートとセクションテンプレートでの .Pages の振る舞いの違い）
+同一セクション内のページ一覧を取得する (.CurrentSection.Pages)
+----
 
-ホームページテンプレート (`layouts/index.html`) 内で `.Pages` を参照すると、**サイト内のすべてのページ**の `Page` 配列が返されるのですが、セクションテンプレート (`layouts/_default/section.html`) 内で `.Pages` を参照すると、その**セクション直下にある記事ページ**のみの `Page` 配列が返されるという違いがあるようです。
+下記のテンプレートコードは、現在の記事ページ（あるいはセクションページ）が所属するセクションの直下のページ（記事ページおよびセクションページ）の一覧を表示します。
+
+例えば、ホームページを含むトップレベルの階層に置いた記事で実行された場合は、第一階層にあるセクションおよび記事ページの一覧が表示されます。
+何らかのセクション内の記事で実行された場合は、その記事が所属するセクション内のサブセクションおよび記事ページの一覧が表示されます。
+
+#### layouts/_default/single.html など
+
+~~~ html
+<h3>同じセクション内のページ一覧（セクションページを含む）</h3>
+{{ "{{" }} with .CurrentSection }}
+  <ul>
+    {{ "{{" }} range .Pages }}
+      <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
+    {{ "{{" }} end }}
+  </ul>
+{{ "{{" }} end }}
+~~~
+
+`.Pages` 変数はリスト系ページ（セクションページなど）の `Page` オブジェクトにしか要素が格納されない（記事ページでは空配列）になってしまうので、まずは自分自身の記事ページが所属するセクションに対応する `Page` オブジェクトを、`.CurrentSection` で取得してから処理を行うようにしています。
+
+先に説明したのと同様、記事ページのみを列挙したい場合は `.Pages` の代わりに `.RegularPages` を、セクションページのみを列挙したい場合は `.Pages` の代わりに `.Sections` を参照してください。
+
+このコードは、シングルページテンプレートからも、リストテンプレートからも使用できます。
+
+
+参考
+----
+
+- [Hugo | Page Variables](https://gohugo.io/variables/page/)
+> a collection of associated pages. This value will be nil for regular content pages. .Pages is an alias for .Data.Pages.
+
+- [hugo/page.go at master · gohugoio/hugo · GitHub](https://github.com/gohugoio/hugo/blob/master/hugolib/page.go#L101)
+> Since Hugo 0.18 we got rid of the Node type. So now all pages are pages (regular pages, home page, sections etc.).
+> Sections etc. will have child pages. These were earlier placed in .Data.Pages, but can now be more intuitively also be fetched directly from .Pages.
+> This collection will be nil for regular pages.
+
+
+コラム: ホームページでの .Pages 変数の振る舞いについて
+----
+
+**（これは Hugo v0.58.0 より前のバージョンの記事です）**
+
+Hugo v0.58.0 で、ホームページにおける `.Pages` 変数、`.RegularPages` 変数の振る舞いが、他のセクションページと同じになりました（そのセクション直下のページだけ返す）。
+なので、**v0.58.0 以降を使用する場合は、下記の対応は必要ありません**。
+
+- 参考: [Hugo v0.58.0 Release Note](https://github.com/gohugoio/hugo/releases/tag/v0.58.0)
+
+> home.Pages now behaves like all the other sections, see #6240. If you want to list all the regular pages, use .Site.RegularPages.
+
+### ホームページテンプレートとセクションテンプレートでの .Pages の振る舞いの違い
+
+ホームページテンプレート (`layouts/index.html`) 内で `.Pages` を参照すると、**サイト内のすべてのページ**の `Page` 配列が返されるのですが、セクションテンプレート (`layouts/_default/section.html`) 内で `.Pages` を参照すると、その**セクション直下にあるページ**のみの `Page` 配列が返されるという違いがあるようです。
 
 テンプレート内で `.Pages` 変数を参照するときは、そのテンプレートがホームページテンプレートと、セクションテンプレートのどちらのコンテキストで使用されるかを意識して扱い方を変える必要があります。
 特に、`layouts/_default/list.html` のような、ホームページテンプレートとしても、セクションテンプレートとしても使用されるファイルを作成する場合には注意してください。
@@ -35,8 +97,7 @@ date: "2017-12-22"
 次の節では、この点を考慮して、カレントセクション直下に配置されたページのみのリストを取得する方法を示します。
 
 
-同一セクションの直下の記事ページのリストを表示する
-----
+### 同一セクションの直下の記事ページのリストを表示する
 
 下記のテンプレートコードは、現在のページが所属するセクションの直下に配置された記事ページのリストを表示します。
 
@@ -131,7 +192,7 @@ Hugo v0.27 で、３項演算子のようなことが実現できる `cond` 関�
 ~~~ html
 <h3>同じセクション内の記事ページ一覧</h3>
 <ul>
-  {{ "{{" }}- $pages := (cond (eq .Section "") (where $.Site.RegularPages "Section" "") .CurrentSection.Pages) }}
+  {{ "{{" }}- $pages := (cond (eq .Section "") (where $.Site.RegularPages "Section" "") .CurrentSection.RegularPages) }}
   {{ "{{" }}- range $pages }}
     <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
   {{ "{{" }}- end }}
@@ -142,35 +203,4 @@ Hugo v0.27 で、３項演算子のようなことが実現できる `cond` 関�
 `cond` 関数を使用して上記のように記述すると、条件式が真と判定される場合も、後ろの `.CurrentSection.Pages` の部分が評価されてしまうようです（値が実際に使われなくても実行される）。
 `.CurrentSection` は `nil` になるケースがあるので、そのようなコンテキストで実行された場合にエラーになってしまいます。
 Go の並列実行の都合なのだと思いますが、惜しい！
-
-
-同一セクションの直下のセクションのリストを表示する
-----
-
-下記のテンプレートコードは、現在のページが所属するセクションのサブセクション一覧を表示します。
-例えば、ホームページを含むトップレベルの階層に置いた記事で実行された場合は、第一階層にあるセクションの一覧が表示されます。
-何らかのセクション内の記事で実行された場合は、そのセクションのサブセクションの一覧が表示されます。
-
-~~~ html
-<h3>同じセクション内のサブセクション一覧</h3>
-{{ "{{" }} with .CurrentSection }}
-  <ul>
-    {{ "{{" }} range .Sections }}
-      <li><a href="{{ "{{" }} .RelPermalink }}">{{ "{{" }} .Title }}</a>
-    {{ "{{" }} end }}
-  </ul>
-{{ "{{" }} end }}
-~~~
-
-
-参考
-----
-
-- [Hugo | Page Variables](https://gohugo.io/variables/page/)
-> a collection of associated pages. This value will be nil for regular content pages. .Pages is an alias for .Data.Pages.
-
-- [hugo/page.go at master · gohugoio/hugo · GitHub](https://github.com/gohugoio/hugo/blob/master/hugolib/page.go#L101)
-> Since Hugo 0.18 we got rid of the Node type. So now all pages are pages (regular pages, home page, sections etc.).
-> Sections etc. will have child pages. These were earlier placed in .Data.Pages, but can now be more intuitively also be fetched directly from .Pages.
-> This collection will be nil for regular pages.
 

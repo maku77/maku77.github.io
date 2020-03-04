@@ -40,20 +40,22 @@ Git
 設定
 ---
 * [git config で設定すべき一般的な設定項目まとめ](settings/common.html)
-* [コミット時に使用するユーザ名とメールアドレスを設定する](settings/user.html)
-* [コミット、チェックアウト時に改行コードを自動変換する](settings/autocrlf.html)
-* [コミット時にコメント記述に使用するエディタを設定する](settings/editor.html)
-* [Git コマンドの出力をカラフルにする](settings/color.html)
-* [Git コマンドのエイリアスを作成する](settings/alias.html)
 * [Git の local 設定と global 設定と system 設定の違い](settings/local-global-system.html)
-* [git config による設定を削除する](settings/unset.html)
-* [Windows の git diff で改行コードが "^M" で表示される問題を解決する](settings/cr-at-eol.html)
-* [git diff や git status での日本語の文字化けを防ぐ](settings/garbling.html)
-* [Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ](settings/permission-diff.html)
-* [gitignore ファイルで Git にバージョン管理させないファイルを指定する](settings/gitignore.html)
-* [bash のプロンプトにカレントブランチ名を表示する](settings/branch-name-on-prompt.html)
+* [git config による設定を削除する (config --unset)](settings/unset.html)
+* [コミット時に使用するユーザ名とメールアドレスを設定する (user.name, user.email)](settings/user.html)
+* [コミット、チェックアウト時に改行コードを自動変換する (core.autocrlf, core.safecrlf)](settings/autocrlf.html)
+* [コミット時にコメント記述に使用するエディタを設定する (core.editor)](settings/editor.html)
+* [Git コマンドの出力をカラフルにする (color.ui)](settings/color.html)
+* [Git コマンドのエイリアスを作成する (alias.xxx)](settings/alias.html)
+* [Git コマンドで使用するプロキシを設定する (http.proxy)](settings/proxy.html)
+* [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](settings/show-origin.html)
+* [Windows の git diff で改行コードが "^M" で表示される問題を解決する (core.whitespace)](settings/cr-at-eol.html)
+* [git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)](settings/garbling.html)
+* [Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)](settings/permission-diff.html)
+* [.gitignore ファイルで Git にバージョン管理させないファイルを指定する](settings/gitignore.html)
+* [bash のプロンプトにカレントブランチ名を表示する (PS1)](settings/branch-name-on-prompt.html)
 * [msysGit で "terminal is not fully functional" と怒られる場合の対策](settings/terminal-error.html)
-* [git プロトコルではなく強制的に https プロトコルで git clone するようにする](settings/https-instead-of-git.html)
+* [git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)](settings/https-instead-of-git.html)
 
 コミット／履歴の書き換え
 ---
@@ -103,6 +105,7 @@ Git
 * [マージ作業に失敗したときにやり直す](merge/cancel-merge.html)
 * [マージで競合解決が必要なファイルを調べる](merge/list-conflicted-files.html)
 * [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）](merge/find-fast-forward.html)
+* [別の Git リポジトリの内容を強引にマージする](merge/merge-repo.html)
 
 差分・パッチファイル (git diff / patch)
 ----

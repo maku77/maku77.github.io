@@ -1,5 +1,5 @@
 ---
-title: "git config による設定を削除する"
+title: "git config による設定を削除する (config --unset)"
 date: "2010-07-17"
 ---
 

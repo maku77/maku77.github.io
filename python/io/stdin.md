@@ -1,10 +1,10 @@
 ---
-title: "標準入力から読み込む"
+title: "標準入力から読み込む (sys.stdin, fileinput)"
 date: "2012-09-18"
 ---
 
 sys.stdin をイテレータで処理する方法
-====
+----
 
 ```python
 #!/usr/bin/env python
@@ -27,7 +27,8 @@ for line in sys.stdin:
 
 
 sys.stdin.readline() を使う方法
-====
+----
+
 `sys.stdin` からは、明示的に `sys.stdin.readline()` で一行ずつ読み込むこともできます。
 これを利用して以下のように while ループで一行ずつ処理することもできますが、通常は上記のように `for ~ in` によるイテレータでループした方がスッキリ書けます。
 
@@ -50,7 +51,8 @@ while line = sys.stdin.readline():
 
 
 fileinput モジュールを使う方法
-====
+----
+
 `fileinput` モジュールを使用すると、ファイル名が指定されたらファイルから、指定されなかったら標準入力から入力を読み取るプログラムを簡単に記述することができます。
 
 ```python

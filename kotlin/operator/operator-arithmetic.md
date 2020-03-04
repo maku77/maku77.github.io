@@ -1,5 +1,5 @@
 ---
-title: "演算子をオーバーロードする (operator)"
+title: "算術演算子を定義してオブジェクトに + や += を適用できるようにする"
 date: "2019-07-16"
 ---
 
@@ -165,80 +165,5 @@ fun main() {
     println(c++) // => Complex(re=1, im=2)
     println(++c) // => Complex(re=3, im=4)
 }
-```
-
-
-比較演算子のオーバーロード (Comparison operators)
-----
-
-`==`、`!=`、`>`、`<`、`>=`、`<=` などの比較演算子を使用したい場合は、これまでの例とは異なり、Java の頃から存在する **`equals`** メソッドや、**`compareTo`** メソッドを定義することで使用できるようになります。
-
-### 同値の比較（==、!=）
-
-すべてのオブジェクトに存在する `equals` メソッドをオーバーライドしておくと、`==` 演算子と `!=` 演算子を使用できるようになります。
-
-```kotlin
-class Complex(val re: Int, val im: Int) {
-    override fun equals(other: Any?): Boolean {
-        if (other === this) return true
-        if (other !is Complex) return false
-        return other.re == re && other.im == im
-    }
-}
-
-fun main() {
-    val c1 = Complex(1, 2)
-    val c2 = Complex(1, 2)
-    println(c1 == c2) // => true
-    println(c1 != c2) // => false
-}
-```
-
-ここでは、参考のために `equals` メソッドの実装例を示しましたが、Kotlin では **`data`** プレフィックスを付けてデータクラスを定義すると、自動的に `equals` メソッドも実装されるため、下記のように `equals` メソッドの定義を省略できます。
-
-```kotlin
-data class Complex(val re: Int, val im: Int)
-```
-
-### 大小の比較（＞、＜、≧、≦）
-
-同様に、`Comparable` インタフェース（の `compareTo` メソッド）を実装しておくと、オブジェクト同士を `>` や `<` 演算子で比較できるようになります。
-
-※複素数同士の大小比較はナンセンスですが、ここでは、実数部→虚数部の順で比較することにします。
-
-```kotlin
-data class Pos(val x: Int, val y: Int) : Comparable<Pos> {
-    override fun compareTo(other: Pos): Int {
-        return if (x == other.x) {
-            y - other.y
-        } else {
-            x - other.x
-        }
-    }
-}
-
-fun main() {
-    val c1 = Complex(1, 2)
-    val c2 = Complex(2, 1)
-    val c3 = Complex(1, 3)
-    println(c1 < c2) // => true
-    println(c1 > c2) // => false
-    println(c1 <= c3) // => true
-}
-```
-
-ちなみに、上記の比較関数では `re` → `im` プロパティの順に値を比較していますが、このような定型処理は下記のように、Kotlin の **`compareValuesBy`** 関数を使って簡単に記述することができます。
-
-```kotlin
-override fun compareTo(other: Complex): Int {
-    return compareValuesBy(this, other, Complex::re, Complex::im)
-}
-```
-
-Kotlin の `Char` クラスや `String` クラスも `Comparable` インタフェースを実装しているので、下記のような大小比較が可能になっています。
-
-```kotlin
-println('A' < 'B') // => true
-println("AAA" < "BBB") // => true
 ```
 

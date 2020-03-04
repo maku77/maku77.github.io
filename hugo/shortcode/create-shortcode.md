@@ -67,10 +67,13 @@ This is my first short code.
 {{ "{{" }} with .Get "class"}} class="{{ "{{" }}.}}"{{ "{{" }} end }}
 ~~~
 
-`default` 関数を使って、パラメータが指定されなかった場合のデフォルト値を用意しておくのもよいでしょう。
+`default` 関数を組み合わせて使うと、パラメータが指定されなかった場合のデフォルト値を用意しておくことができます。
+次の書き方いずれでもいけますが、たぶん 1 つ目の書き方が一番直感的。
 
 ~~~
+{{ "{{" }} $width := .Get "width" | default "auto" }}
 {{ "{{" }} $width := default "auto" (.Get "width") }}
+{{ "{{" }} $width := or (.Get "width") "auto" }}
 ~~~
 
 

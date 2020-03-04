@@ -67,11 +67,11 @@ hugo コマンド
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
 * [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
 
-### ページ一覧を表示するサンプル
+### ページ一覧／セクション一覧を表示するサンプル
 * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
 * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
 * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
-* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する](list/root-pages.html)
+* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (.Site.Home.RegularPages)](list/root-pages.html)
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
@@ -103,6 +103,7 @@ hugo コマンド
 応用
 ----
 * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
+* [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
 * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](misc/permalink.html)
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
@@ -111,6 +112,10 @@ hugo コマンド
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 
+トラブルシューティング
+----
+* [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
+* [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
 
 Go 言語入門（Golang 入門）
 ====

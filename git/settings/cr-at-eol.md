@@ -1,5 +1,5 @@
 ---
-title: "Windows の git diff で改行コードが ^M で表示される問題を解決する"
+title: "Windows の git diff で改行コードが ^M で表示される問題を解決する (core.whitespace)"
 date: "2014-06-04"
 ---
 
