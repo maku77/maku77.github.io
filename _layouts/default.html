@@ -68,6 +68,12 @@
 
       <!-- SNS ボタン（下） -->
       {% include widget-sns.html %}
+
+      {% comment %} 下記はまくろぐと共通の SCSS を使用 {% endcomment %}
+      <div class="xArticle_up">
+        <a href="/{{ page.category_id }}/"><span class="xArticle_up_label">まくまく{{ page.category_title }}ノート</span><br>へ戻る</a>
+      </div>
+
     </div>
 
     <div id="xContainer_sidebar">{% include sidebar.html %}</div>
