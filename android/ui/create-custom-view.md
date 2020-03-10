@@ -1,22 +1,18 @@
 ---
 title: "カスタムビューを作成する"
 date: "2014-08-11"
+lastmod: "2020-03-10"
 ---
 
-自力で描画するカスタムビューを作る
+onDraw で自力で描画するカスタムビューを作る
 ----
 
-`android.view.View` を継承することで、簡単にカスタムビューを作成することができます。
+Android では、`android.view.View` を継承したビュークラスを作成することで、簡単にカスタムビューを作成することができます。
+ここでは、`com.example.myapp.MyCustomView` という、丸を描画するだけのカスタムビューを作成します。
 
-下記の例では `com.example.myapp.MyCustomView` というクラスを作成しており、`layout.xml` の中から以下のように配置できます。
+![create-custom-view-001.png](create-custom-view-001.png){: .center }
 
-#### activity_main.xml（抜粋）
-
-~~~ xml
-<com.example.myapp.MyCustomView
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
-~~~
+描画処理は `onDraw()` メソッドをオーバーライドして記述します。
 
 #### MyCustomView.java
 
@@ -33,7 +29,7 @@ import android.view.View;
 public class MyCustomView extends View {
     private final Paint mBackgroundPaint = new Paint() {
         {
-            setColor(Color.BLUE);
+            setColor(Color.YELLOW);
             setAntiAlias(true);
         }
     };
@@ -60,8 +56,50 @@ public class MyCustomView extends View {
 }
 ~~~
 
-カスタムビューの実装では、少なくともビューの描画方法を実装するための `View#onDraw()` をオーバライドする必要があります。
-上記では、親ビューのサイズいっぱいに広がる円を描画しています。
+ちなみに、Kotlin では次のように少しだけシンプルに記述できます。
+
+#### MyCustomView.kt
+
+~~~ kotlin
+package com.example.myapp
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
+
+class MyCustomView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
+
+    private val backgroundPaint = Paint().apply {
+        color = Color.YELLOW
+        isAntiAlias = true
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        val w = canvas.width.toFloat()
+        val h = canvas.height.toFloat()
+        val radius = if (w < h) w / 2 else h / 2
+        canvas.drawCircle(w / 2, h / 2, radius, backgroundPaint)
+    }
+}
+~~~
+
+作成したカスタムビューは、任意のレイアウト XML ファイルから次のように使用することができます。
+
+#### activity_main.xml（抜粋）
+
+~~~ xml
+<com.example.myapp.MyCustomView
+    android:layout_width="200dp"
+    android:layout_height="100dp"
+    android:layout_marginVertical="20dp" />
+~~~
 
 
 既存のビューを組み合わせてカスタムビューを作る
@@ -69,6 +107,8 @@ public class MyCustomView extends View {
 
 既存のボタンウィジェットなどを組み合わせて、ひとつのカスタムビューを作成することができます。
 意味のある単位でカスタムビューの形でカプセル化しておくと、コードの見通しがよくなります。
+
+![create-custom-view-002.png](create-custom-view-002.png){: .center }
 
 ここでは、ボタンを横方向に２つ並べただけの、`MyButtonsView` クラスを作成します。
 まずは、カスタムビュー用のレイアウトファイルを作成します（もちろん、XML ファイルを使わずに、Java コードの中で動的に配置することもできます）。
@@ -86,12 +126,13 @@ public class MyCustomView extends View {
         android:id="@+id/button1"
         android:text="1"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"/>
+        android:layout_height="match_parent"/>
+
     <Button
         android:id="@+id/button2"
         android:text="2"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
 ~~~
@@ -102,6 +143,8 @@ public class MyCustomView extends View {
 #### MyButtonsView.java
 
 ~~~ java
+package com.example.myapp;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -143,11 +186,46 @@ public class MyButtonsView extends LinearLayout {
 }
 ~~~
 
-このカスタムビューを使用するときは、他の `View` クラスと同様に以下のように使用できます。
+ちなみに、Kotlin だと次のようにもう少し簡潔に書けます。
+
+#### MyButtonsView.kt
+
+~~~ kotlin
+package com.example.myapp
+
+import android.content.Context
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import kotlinx.android.synthetic.main.my_buttons_view.view.*
+
+class MyButtonsView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr) {
+
+    private val clickListener = OnClickListener { view ->
+        val btn = view as Button
+        Toast.makeText(context, btn.text, Toast.LENGTH_LONG).show()
+    }
+
+    init {
+        LayoutInflater.from(context).inflate(R.layout.my_buttons_view, this)
+        button1.setOnClickListener(clickListener)
+        button2.setOnClickListener(clickListener)
+    }
+}
+~~~
+
+このカスタムビューを使用するときは、他の `View` クラスと同様に、任意のレイアウト XML ファイル内で以下のように使用できます。
+もちろん、コード内から動的に `View` を生成することもできます。
 
 ~~~ xml
 <com.example.myapp.MyButtonsView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ~~~
 
