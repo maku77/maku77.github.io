@@ -78,6 +78,8 @@ image: "sample.png"
 2. ページ本文があれば、`.Page.Summary` で求められる要約テキスト（本文の先頭部分）
 3. サイトの設定ファイル `config.toml` の独自プロパティ `params.description` に記述されたテキスト
 
+これは 1 番だけにしておいた方がいいかもしれません。。。
+
 ### fb:app_id
 
 Facebook の公式ドキュメントによると、Facebook のアプリ ID も指定しておく必要があるとされています。
@@ -92,7 +94,7 @@ Facebook のアプリ ID は、サイトの設定ファイル `config.toml` の�
 head 要素に Open Graph メタ情報を埋め込む
 ----
 
-上記のように作成したパーシャルテンプレートは、各ページの `head` 要素内に出力されるようにします。
+上記のように作成したパーシャルテンプレートは、各ページの `head` 要素内に展開されるようにします。
 ここでは、全てのページに適用するために、[ベーステンプレート](../template/base-template.html) 内から読み込むようにしてみます。
 
 #### layouts/_default/baseof.html の抜粋
@@ -107,5 +109,32 @@ head 要素に Open Graph メタ情報を埋め込む
   ...
 ```
 
+`html` 要素か `head` 要素で、メタ情報用のプレフィックス定義が必要なことに注意してください。
+
 これで、Facebook や Twitter といった SNS アプリでサイトの URL が共有されたときに、アイキャッチ画像や説明文が表示されるようになります。
+
+
+（おまけ）親セクションの image プロパティを採用する
+----
+
+細かいページをたくさん作っている場合は、各ページごとにアイキャッチ画像を用意するのは大変です。
+そこで、各ページが所属するセクションや、親セクションのフロントマターに設定された `image` プロパティを見て `og:image` 情報を設定するようにしてみます。
+もちろん、自分自身のページのフロントマターに `image` プロパティが指定されていれば、そちらを優先的に使用します。
+
+#### layouts/partials/head/ogp.html の og:image 出力部分抜粋
+
+```
+{{ "{{" }}- define "og_image" }}
+  {{ "{{" }}- if .Params.image }}
+    {{ "{{" }}- $imageRes := .Resources.GetMatch .Params.image -}}
+    <meta property="og:image" content="{{ "{{" }} $imageRes.Permalink }}" />
+  {{ "{{" }}- else if .Parent }}
+    {{ "{{" }}- template "og_image" .Parent }}
+  {{ "{{" }}- else if .Site.Params.image }}
+    <meta property="og:image" content="{{ "{{" }} .Site.Params.image | absURL }}" />
+  {{ "{{" }}- end }}
+{{ "{{" }}- end }}
+
+{{ "{{" }}- template "og_image" . }}
+```
 
