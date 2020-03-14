@@ -111,6 +111,7 @@ hugo コマンド
 * [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
+* [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
 
 トラブルシューティング
 ----
