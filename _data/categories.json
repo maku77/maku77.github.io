@@ -53,6 +53,12 @@
     "logo": "logo-js.svg",
     "desc": "Web プログラマにとって必須の言語。"
   },
+  "kotlin": {
+    "label": "Kotlin",
+    "path": "kotlin",
+    "logo": "logo-kotlin.svg",
+    "desc": "Android で採用された Kotlin 言語のメモ。"
+  },
   "linux": {
     "label": "Linux/Shell",
     "path": "linux",
