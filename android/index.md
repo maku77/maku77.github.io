@@ -124,6 +124,7 @@ Java レイヤ
 * [任意の View をフォーカスする](ui/focus-view.html)
 * [ソフトウェアキーボードを常に表示する](ui/show-keyboard-all-the-time.html)
 * [カスタムビューを作成する](ui/create-custom-view.html)
+* [カスタムビューの子ビューがフォーカスを得たことを検出する](ui/custom-view-focus.html)
 * [カスタムビューでソフトウェア D-Pad を表示する](ui/software-dpad.html)
 * [ValueAnimator でアニメーションに使用する値を計算する](ui/value-animator.html)
 * [ScrollView を一番下までスクロールさせる](ui/scroll-to-bottom.html)

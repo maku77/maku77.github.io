@@ -1,7 +1,37 @@
+@charset "UTF-8";
+
 // 外部リンクアイコン
 .xExternalLinkIcon::after {
   content: url("../img/maku-common/external-icon.png");
   padding-left: 3px;
   padding-right: 5px;
+}
+
+// 上のフォルダへ戻る
+.xArticle_up {
+  margin-top: 1.5em;
+  text-align: center;
+  a {
+    &:not(:hover) {
+      color: $COLOR_SITE;
+      background: $COLOR_SITE_LIGHT;
+    }
+    &:hover {
+      color: $COLOR_SITE_LIGHT;
+      background: $COLOR_SITE;
+    }
+    display: inline-block;
+    width: 100%;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    //border: solid 1px $COLOR_SITE;
+  }
+
+  &_label {
+    font-size: larger;
+    &::before {
+      content: '\1f4c1';
+    }
+  }
 }
 
