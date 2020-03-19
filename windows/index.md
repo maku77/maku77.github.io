@@ -33,7 +33,8 @@ Windows バッチファイル
 * [複数のファイルを連結する](file/concat-file.html)
 
 ### 日時
-* [バッチファイル内で日時を出力する](batch/display-time.html)
+* [バッチファイル内で日時を出力する (%DATE%, %TIME%)](batch/display-time.html)
+* [バッチファイル内で1日後の日時を取得する（時刻の演算）](batch/next-day.html)
 
 
 コマンドプロンプト
