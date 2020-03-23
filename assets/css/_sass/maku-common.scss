@@ -1,5 +1,22 @@
 @charset "UTF-8";
 
+// Reset
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  // font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Hiragino Kaku Gothic ProN, "ヒラギノ角ゴ ProN W3", Arial, "メイリオ", Meiryo, sans-serif;
+  line-height: 1.7;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: 100%;  // Keep font size when lotating screen in Android devices
+  -webkit-font-smoothing: antialiased;
+  // letter-spacing: 0.05em;
+}
+
 // 外部リンクアイコン
 .xExternalLinkIcon::after {
   content: url("../img/maku-common/external-icon.png");

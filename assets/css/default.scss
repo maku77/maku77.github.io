@@ -49,21 +49,6 @@ $BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサ
   @media (min-width: 65rem) { @content; }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-html {
-  /* font-family: "Helvetica", "Arial", YuGothic, "Yu Gothic", "Hiragino Sans", "ヒラギノ角ゴシック", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
-  font-size: 100%;
-  line-height: 1.75;
-  letter-spacing: 0.05em;
-
-  /* Keep font size when lotating screen in Android devices */
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
   padding: 0;
   color: $COLOR_MAIN;
