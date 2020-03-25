@@ -112,6 +112,7 @@ hugo コマンド
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 * [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
+* [hugo deploy コマンドで Azure などのクラウドサービス上にデプロイする](advanced/deploy.html)
 
 トラブルシューティング
 ----
