@@ -1,0 +1,28 @@
+// Color definitions
+$COLOR_SITE: black;
+$COLOR_SITE_LIGHT: mix(white, $COLOR_SITE, 90%);
+$COLOR_TEXT: #222;
+$COLOR_TEXT_STRONG: #e48;
+$COLOR_BG: white;
+//$COLOR_BG_STRONG: #ffefdf;
+//$COLOR_HEADER_TEXT: #ddd;
+//$COLOR_PRIVATE: #f03;
+//$COLOR_LINK_HIGHLIGHT: #36f;
+//$COLOR_LINK_HIGHLIGHT_TEXT: white;
+//
+//// Layout definitions
+//$BASE_PADDING: 1rem;
+//$CODE_FONT: "Courier New", Consolas, monospace;
+//$MAIN_PADDING: 1rem;
+//$MAIN_PADDING_SMALL: 0.5rem;
+//
+//// スクリーンサイズ中
+//@mixin screen-size-1 {
+//  @media (min-width: 35rem) { @content; }
+//}
+//
+//// スクリーンサイズ大
+//@mixin screen-size-2 {
+//  @media (min-width: 50rem) { @content; }
+//}
+

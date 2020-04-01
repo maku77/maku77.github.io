@@ -1,12 +1,11 @@
 ---
 ---
 /* vim: set et sts=2 ts=2 sw=2: */
-@import "_custom.scss";
-@import "maku-common";
+@import "_defines";
+@import "_defines-custom";
+@import "_common";
 
-$COLOR_MAIN: #333;
 $COLOR_HEADER: black;
-$COLOR_EMPHASIS: #ff1166; /* #d68; */
 
 $COLOR_LINK: #36f;
 $COLOR_LINK_VISITED: #03c;
@@ -50,7 +49,6 @@ $BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサ
 
 body {
   padding: 0;
-  color: $COLOR_MAIN;
 }
 
 #xBody {
@@ -150,8 +148,6 @@ a {
 }
 
 img {
-  max-width: 100%;
-
   /*
    * 画像の中央寄せ表示するときは、
    * ![Description](filename.svg){: .center }
@@ -199,11 +195,6 @@ figure {
   }
 }
 
-strong {
-  color: $COLOR_EMPHASIS;
-  font-weight: bold;
-}
-
 code {
   color: $COLOR_CODE;
   background: $COLOR_CODE_BG;
@@ -213,8 +204,8 @@ code {
   border-radius: 4px;
 
   strong & {
-    color: $COLOR_EMPHASIS;
-    background: mix($COLOR_EMPHASIS, white, 10%);
+    color: $COLOR_TEXT_STRONG;
+    background: mix($COLOR_TEXT_STRONG, white, 10%);
   }
 }
 
@@ -734,7 +725,7 @@ iframe.xHtmlDemo {
   &_label {
     min-width: 80px;
     display: inline-block;
-    padding: 0px 8px 0px 0px;
+    padding: 0px 8px 4px 0px;
     text-align: center;
     font-size: 12pt;
   }

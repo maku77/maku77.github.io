@@ -17,6 +17,21 @@ html {
   // letter-spacing: 0.05em;
 }
 
+body {
+  color: $COLOR_TEXT;
+  background: $COLOR_BG;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+strong {
+  font-weight: bolder;
+  color: $COLOR_TEXT_STRONG;
+}
+
 // 外部リンクアイコン
 .xExternalLinkIcon::after {
   content: url("../img/maku-common/external-icon.png");
