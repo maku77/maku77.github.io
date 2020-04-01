@@ -40,7 +40,7 @@ title = "私のウェブサイト"
 ```
 {{ "{{" }} if $.Site.Params.editBaseURL }}
   {{ "{{" }}- $filepath := replace .File.Path "\\" "/" -}}
-  {{ "{{" }}- $url := path.Join $.Site.Params.editBaseURL $filepath -}}
+  {{ "{{" }}- $url := printf "%s/%s" $.Site.Params.editBaseURL $filepath -}}
   <a href="{{ "{{" }} $url }}">Edit this page</a>
 {{ "{{" }}- end }}
 ```
@@ -49,7 +49,7 @@ title = "私のウェブサイト"
 
 1. 設定ファイルに `editBaseURL` が定義されている場合のみ処理を継続
 2. `.File.Path` で、Markdown ファイルの `content` ディレクトリからの相対パスを取得（さらに、Windows を考慮してバックスラッシュをスラッシュに変換しておく）
-3. `editBaseURL` の値と Markdown ファイルのパスを組み合わせて、編集ページの URL を構築
+3. `editBaseURL` の値と Markdown ファイルのパスを組み合わせて、編集ページの URL を構築（URL の結合に `path.Join` が使えるかと思ったけど、`https://` のスラッシュが一個削除されてしまってうまくいかないので、ここでは `printf` で結合してます）
 4. HTML のアンカータグ (`a`) を出力
 
 あとは、このパーシャルテンプレートを、任意のレイアウトファイルから呼び出せば OK です。
