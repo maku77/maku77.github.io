@@ -2,7 +2,6 @@
 ---
 /* vim: set et sts=2 ts=2 sw=2: */
 @import "_custom.scss";
-@import "mixin";
 @import "maku-common";
 
 $COLOR_MAIN: #333;
@@ -308,7 +307,7 @@ kbd {
  * みたいに使う。この中でマークダウンは書けないことに注意。
  */
 .note {
-  @include clearfix;
+  @include m-clearfix;
 
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
   @include m-larger-than-small {
@@ -349,7 +348,7 @@ kbd {
 // まくまくクラス
 //-------------------------------------------------------------------------
 .xBreadCrumbContainer {
-  @include clearfix;
+  @include m-clearfix;
 }
 
 .xBreadCrumb {
@@ -604,7 +603,7 @@ iframe.xHtmlDemo {
  * xPageHeader（ヘッダ領域）
  */
 .xPageHeader {
-  @include clearfix;
+  @include m-clearfix;
 
   background: $COLOR_PAGE_TITLE_BG;
   min-height: 70px;
