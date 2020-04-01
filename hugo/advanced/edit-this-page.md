@@ -38,7 +38,7 @@ title = "私のウェブサイト"
 #### layouts/partials/edit-this-page.html
 
 ```
-{{ "{{" }} if and .IsPage $.Site.Params.editBaseURL }}
+{{ "{{" }} if $.Site.Params.editBaseURL }}
   {{ "{{" }}- $filepath := replace .File.Path "\\" "/" -}}
   {{ "{{" }}- $url := path.Join $.Site.Params.editBaseURL $filepath -}}
   <a href="{{ "{{" }} $url }}">Edit this page</a>
@@ -47,7 +47,7 @@ title = "私のウェブサイト"
 
 このテンプレートでは次のようなことを行っています。
 
-1. 現在のページが通常の記事ページであり、設定ファイルに `editBaseURL` が定義されている場合のみ処理
+1. 設定ファイルに `editBaseURL` が定義されている場合のみ処理を継続
 2. `.File.Path` で、Markdown ファイルの `content` ディレクトリからの相対パスを取得（さらに、Windows を考慮してバックスラッシュをスラッシュに変換しておく）
 3. `editBaseURL` の値と Markdown ファイルのパスを組み合わせて、編集ページの URL を構築
 4. HTML のアンカータグ (`a`) を出力
