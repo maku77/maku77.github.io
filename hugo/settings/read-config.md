@@ -86,6 +86,5 @@ title = "まく日記"
 <meta name="description" content="{{ "{{" }}if .IsHome}}{{ "{{" }} $.Site.Params.description }}{{ "{{" }}else}}{{ "{{" }}.Description}}{{ "{{" }}end}}" />
 ~~~
 
-ちなみに、このサンプルでは、ホームページではサイトのコンフィグ設定 (`$.Site.Params.`Description`) を参照し、それ以外のページでは、各ページのフロントマターに設定した `description` パラメータの値を参照するようにしています。
-
+ちなみに、このサンプルでは、ホームページではサイトのコンフィグ設定 (`$.Site.Params.Description`) を参照し、それ以外のページでは、各ページのフロントマターに設定した `description` パラメータの値を参照するようにしています。
 

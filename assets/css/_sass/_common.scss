@@ -17,6 +17,21 @@ html {
   // letter-spacing: 0.05em;
 }
 
+body {
+  color: $COLOR_TEXT;
+  background: $COLOR_BG;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+strong {
+  font-weight: bolder;
+  color: $COLOR_TEXT_STRONG;
+}
+
 // 外部リンクアイコン
 .xExternalLinkIcon::after {
   content: url("../img/maku-common/external-icon.png");
@@ -50,5 +65,27 @@ html {
       content: '\1f4c1';
     }
   }
+}
+
+// Google AdSense を印刷時に非表示にする
+.adsbygoogle {
+  @media print { display: none !important; }
+}
+
+//
+// Maku's Sass library (Mixins)
+//
+@mixin m-clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin m-box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow: $shadows;
+  box-shadow: $shadows;
 }
 
