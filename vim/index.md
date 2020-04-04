@@ -95,7 +95,7 @@ layout: category-index
 
 応用操作
 ----
-* [Vim 上でディレクトリツリーを表示する (NERD Tree)](advanced/nerd-tree.html)
+* [Vim 上でディレクトリツリーを表示する (NERDTree)](advanced/nerd-tree.html)
 * [折りたたみ機能 (folding) を使用する](advanced/folding.html)
 * [指定した行範囲を一時的に表示する](advanced/show-lines.html)
 * [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
@@ -121,6 +121,7 @@ Vim の設定
 * [キーマップの基本 (map, noremap)](keymap/basic.html)
 * [現在のキーマップの一覧を表示する (map)](keymap/current-map.html)
 * [map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)](keymap/keycodes.html)
+* [Leader キーを使ったキーコンビネーションを定義する (mapleader)](keymap/mapleader.html)
 * キーマップの例
     * [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
     * [ショートカットキーで日時を挿入する](keymap/insert-date.html)

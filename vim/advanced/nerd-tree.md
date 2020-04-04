@@ -1,17 +1,17 @@
 ---
-title: "Vim 上でディレクトリツリーを表示する (NERD Tree)"
+title: "Vim 上でディレクトリツリーを表示する (NERDTree)"
 date: "2012-07-22"
 ---
 
-NERD Tree とは
+NERDTree とは
 ----
 
-NERD Tree を使うと、Vim の左端にエクスプローラバーのようなものを表示できます。
+NERDTree を使うと、Vim の左端にエクスプローラバーのようなものを表示できます。
 
 - [https://github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
 
-NERD Tree のインストール
+NERDTree のインストール
 ----
 
 GitHub のサイトでは `pathogen.vim` を使ったインストール方法が書いてありますが、ここではより簡単な [Vundle](../install/vundle.html) を使ってインストールします。
@@ -22,7 +22,7 @@ GitHub のサイトでは `pathogen.vim` を使ったインストール方法が
 Bundle 'scrooloose/nerdtree'
 ~~~
 
-上記のように `.vimrc` などに記述しておけば、以下のように実行するだけで簡単に NERD Tree をインストールできます。
+上記のように `.vimrc` などに記述しておけば、以下のように実行するだけで簡単に NERDTree をインストールできます。
 
 ~~~
 :BundleInstall
@@ -32,17 +32,17 @@ Bundle 'scrooloose/nerdtree'
 NERDTree tabs のインストール
 ----
 
-NERD Tree プラグインである NERDTree tabs をインストールしておくと、NERD Tree とタブを組み合わせた操作がより直感的になります。
+NERDTree プラグインである NERDTree tabs をインストールしておくと、NERDTree とタブを組み合わせた操作がより直感的になります。
 
 - [https://github.com/jistr/vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
 
-このプラグインをインストールすると、NERD Tree が以下のような振る舞いをするようになります。
+このプラグインをインストールすると、NERDTree が以下のような振る舞いをするようになります。
 
-* Vim 起動時に NERD Tree を自動的に開く
-* タブでファイルを開いたときに (`t`)、NERD Tree のウィンドウを開いたままにする
+* Vim 起動時に NERDTree を自動的に開く
+* タブでファイルを開いたときに (`t`)、NERDTree のウィンドウを開いたままにする
 
 
-NERDTree tabs プラグインも、NERD Tree 本体と同様に、Vundle を使って簡単にインストールすることができます。
+NERDTree tabs プラグインも、NERDTree 本体と同様に、Vundle を使って簡単にインストールすることができます。
 
 #### ~/.vimrc
 
@@ -57,7 +57,7 @@ Bundle 'jistr/vim-nerdtree-tabs'
 ~~~
 
 
-NERD Tree の使い方の基本
+NERDTree の使い方の基本
 ----
 
 まずは、以下のコマンドでツリーを開きます。
@@ -65,6 +65,12 @@ NERD Tree の使い方の基本
 ~~~
 :NERDTree
 ~~~
+
+次のコマンドを使うと、ツリーをトグル開閉できます。
+
+```
+:NERDTreeToggle
+```
 
 ツリーにカーソルがある状態で以下のような操作を行うことができます。
 
@@ -89,10 +95,10 @@ C: 表示上のルートをカーソルのあるディレクトリに移動
 ~~~
 
 
-NERD Tree を使用したファイル操作
+NERDTree を使用したファイル操作
 ----
 
-NERD Tree のウィンドウ上で、`m` を入力すると、ファイルやディレクトリを操作するためのメニューが表示されます。
+NERDTree のウィンドウ上で、`m` を入力すると、ファイルやディレクトリを操作するためのメニューが表示されます。
 
 ~~~
 NERDTree menu. Use j/k/enter and the shortcuts indicated
@@ -116,11 +122,32 @@ d: ファイル/ディレクトリを削除
 ~~~
 
 
-NERD Tree のブックマーク機能を使用する
+現在編集中のファイルを NERDTree でフォーカスする (NERDTreeFind)
 ----
 
-NERD Tree のブックマーク機能を使用すると、よく使用するディレクトリやファイルをすぐに開けるようになります。
-NERD Tree 上で `B` と入力すると、ブックマークの一覧を表示／非表示できます。
+Vim で何らかのファイルを編集しているときに、新しく別のファイルを開くと、NERDTree で表示しているツリー階層とファイルの位置が一致しなくなることがあります。
+そのような場合は、次のコマンドを実行することで、NERDTree 上で現在編集中のファイルをフォーカスできます。
+
+```
+:NERDTreeFind
+```
+
+この `NERDTreeFind` コマンドはよく使うので、`NERDTreeToggle` コマンドと合わせて、キーマッピング定義しておくと便利です。
+
+#### ~/.vimrc
+
+```vimrc
+" NERDTree 用のキーマップ
+nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
+nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
+```
+
+
+NERDTree のブックマーク機能を使用する
+----
+
+NERDTree のブックマーク機能を使用すると、よく使用するディレクトリやファイルをすぐに開けるようになります。
+NERDTree 上で `B` と入力すると、ブックマークの一覧を表示／非表示できます。
 
 ~~~
 ----------Bookmarks----------
