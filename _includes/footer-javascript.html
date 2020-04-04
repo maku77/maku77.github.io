@@ -7,7 +7,7 @@
 <script>
 $(function() {
   // 外部リンクを必ず新しいタブで開く
-  $('a[href^=http]').attr('target', '_blank');
+  $('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
 
   // 外部リンクにクラス属性を付加する
   var $content = $('.xContent');
