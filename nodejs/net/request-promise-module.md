@@ -35,6 +35,12 @@ $ npm install --save request
 $ npm install --save request-promise
 ~~~
 
+TypeScript で開発している方は、DefinitelyTyped プロジェクトで提供されている型情報 [@types/request-promise](https://www.npmjs.com/package/@types/request-promise) をインストールしましょう。
+
+~~~
+$ npm install --save-dev @types/request-promise
+~~~
+
 
 request-promise の基本的な使い方
 ----
@@ -42,7 +48,7 @@ request-promise の基本的な使い方
 `request-promise` による HTTP リクエストは、下記のように `Promise.then`、`Promise.catch` を使用してハンドルすることができます。
 
 ~~~ javascript
-var rp = require('request-promise');
+const rp = require('request-promise');
 
 rp('https://www.yahoo.co.jp')
   .then(function (htmlString) {
@@ -56,7 +62,7 @@ rp('https://www.yahoo.co.jp')
 さらに、ECMAScript 2017 の async/await を使用すると、同期的な記述を行うことができます。
 
 ~~~ javascript
-var rp = require('request-promise');
+const rp = require('request-promise');
 
 async function getHtml(url) {
   try {
@@ -69,4 +75,32 @@ async function getHtml(url) {
 
 getHtml('https://www.yahoo.co.jp');
 ~~~
+
+### TypeScript の @types/request-promise モジュールを使う場合
+
+TypeScript で型安全なコードを書きたいのであれば、次のような感じでインポートして使用します。
+
+```ts
+import * as rp from 'request-promise';
+
+async function getUserName(userId: string): Promise<string | undefined> {
+  const options = {
+    url: "https://api.example.com/users/",
+    method: 'GET',
+    qs: { id: userId },
+  };
+
+  try {
+    return await rp.get(options);
+  } catch (err) {
+    console.error(`ERROR: ${err.message}`);
+    return undefined;
+  }
+}
+
+const name = await getUserName('Maku');
+if (name) {
+  console.log(name);
+}
+```
 
