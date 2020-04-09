@@ -1,9 +1,9 @@
 ---
 title: "SNS ボタンをきれいに並べる"
 date: "2017-11-02"
+lastmod: "2020-04-05"
 description: "Facebook のいいねボタンや、Twitter のツイートボタンなどの SNS 系のボタンは、デフォルトで用意されているボタンのサイズが異なるため、そのまま並べると見た目が悪くなってしまいます。ここでは、同じサイズで SNS 系のボタンをきれいに並べる方法を紹介します。"
 ---
-
 
 各 SNS ボタンのガイドライン
 ----
@@ -15,7 +15,7 @@ SNS シェア用のボタンを設置するときは、ガイドラインにそ�
   - カラー: `#1da1f2`<span style="background:#1da1f2">　</span>
 - [Facebook のガイドライン](https://en.facebookbrand.com/)
   - カラー: `#3b5998`<span style="background:#3b5998">　</span>
-- [Google のガイドライン](https://developers.google.com/identity/branding-guidelines?hl=ja)
+- [Google のガイドライン](https://developers.google.com/identity/branding-guidelines?hl=ja) （Google＋ は2019年4月にサービスを終了しました）
   - カラー: `#dd4b39`<span style="background:#dd4b39">　</span>
 - Pocket のガイドライン
   - カラー: `#ee4056`<span style="background:#ee4056">　</span>
@@ -263,6 +263,8 @@ Pocket ボタン用のコードは [https://getpocket.com/publisher/button](http
 
 
 ### Google＋ の共有ボタン
+
+（Google＋ は2019年4月にサービスを終了しました）
 
 Google＋ ボタン用のコードは、[Google+ Platform for Web](https://developers.google.com/+/web/share/?hl=ja) から取得することができます。
 自分で用意したボタンを使用するには、下記のようなコードを使用します。

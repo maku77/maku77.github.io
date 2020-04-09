@@ -15,6 +15,7 @@ date: "2012-07-27"
 例えば、特殊キーを表すために次のような表記が使えることがわかります。
 
 - `<BS>`: Back Space キー
+- `<Bslash>`: Back Slash キー
 - `<CR>`: Enter キー（`<Enter>` でもOKだけど `<CR>` がよく使われている）
 - `<Esc>`: Esc キー
 - `<Space>`: スペースキー

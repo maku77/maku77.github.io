@@ -60,6 +60,7 @@ hugo コマンド
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 * [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
 * [Hugo テンプレート内で define よる部分テンプレート定義を行う（関数もどき）](template/define.html)
+* [Hugo のパーシャルテンプレートから値を返す（関数化）](template/return-from-partial.html)
 
 ### セクション機能
 * [セクション機能を使って記事を階層化する](layout/section.html)
@@ -114,6 +115,7 @@ hugo コマンド
 * [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
 * [hugo deploy コマンドで Azure などのクラウドサービス上にデプロイする](advanced/deploy.html)
 * [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
+* [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 
 トラブルシューティング
 ----
