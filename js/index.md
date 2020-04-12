@@ -62,7 +62,7 @@ layout: category-index
 - [配列をコピーする](array/copy.html)
 - [配列をループで処理する (for, forEach, for-of)](array/loop.html)
 - [配列をソートする (sort, reverse)](array/sort.html)
-- [配列にある要素が存在するか調べる (indexOf)](array/has.html)
+- [配列にある要素が存在するか調べる (includes, indexOf)](array/has.html)
 - [配列の長さを切り詰める (length, splice)](array/cut.html)
 - [連想配列にキーが存在するか調べる (in)](array/in.html)
 - [連想配列の要素（キー）を削除する (delete)](array/delete.html)
