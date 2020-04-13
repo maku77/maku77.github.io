@@ -100,6 +100,7 @@ hugo コマンド
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
+* [テンプレートの中で絵文字を使用する (emojify)](template/emojify.html)
 
 応用
 ----
