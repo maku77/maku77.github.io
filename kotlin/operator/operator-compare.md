@@ -63,8 +63,8 @@ println(c1 === c2)  // => false（参照は異なる）
 
 Kotlin では、`==` と `===` による等価性の違いの概念を、次のような用語で呼び分けています。
 
-- Structural equality ... `equals()` メソッドによる比較で true が返されることを示す
-- Referential equality ... 参照が等しいことを示す（2 つの変数が同じオブジェクトを示す）
+- Structural equality ... 内容が等しいことを示す（`equals()` メソッドによる比較で true を返すかどうか）
+- Referential equality ... 参照が等しいことを示す（2 つの変数が単一のオブジェクトを指し示すかどうか）
 
 `Int` などのプリミティブ型の場合、`==` と `===` の意味は同じになります。
 

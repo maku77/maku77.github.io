@@ -90,15 +90,13 @@ h4 {
 
 // 定義リスト
 dl {
-  color: black;
-
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
   @include m-larger-than-small {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
   dt {
-    font-size: 110%;
+    font-weight: bolder;
     margin: 20px 0px 10px;
   }
 

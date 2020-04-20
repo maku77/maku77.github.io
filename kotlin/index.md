@@ -21,6 +21,14 @@ layout: category-index
 * [分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解](basic/dest-decl.html)
 
 
+制御構文
+----
+* [if による分岐処理と if 式](basic/if.html)
+* [when 式による条件分岐](basic/when.html)
+* [for ループと while ループ（そして forEach）](basic/loop.html)
+* [例外処理を記述する (try, catch, finally)](basic/exception.html)
+
+
 クラス
 ----
 * [クラスを定義する／コンストラクタを定義する (class)](basic/class.html)
@@ -28,10 +36,10 @@ layout: category-index
 * [シールクラスで継承可能なクラスを制限する (sealed class)](basic/sealed-class.html)
 * [クラスにプロパティのアクセサメソッドを定義する (set, get)](basic/setter-getter.html)
 * [データクラスを定義する (data class)](basic/data-class.html)
-* [by を使ったメソッド呼び出しの委譲](basic/class-delegation.html)
+* [by を使ったメソッド呼び出しの委譲 (class delegation)](basic/class-delegation.html)
 * [既存のクラスに関数やプロパティを追加する（拡張関数）](basic/ext-func.html)
 
-### 演算子 (Operator)
+### 演算子 (Operator) の定義
 * [算術演算子を定義してオブジェクトに + や += を適用できるようにする](operator/operator-arithmetic.html)
 * [比較演算子を定義してオブジェクト同士の比較やソートを行えるようにする (equals, compareTo)](operator/operator-compare.html)
 * [インデックス演算子を定義して配列のようにアクセス可能なクラスを作る (index operator)](operator/operator-index.html)
@@ -62,14 +70,6 @@ object キーワード
 * [あるインスタンスがどのクラスのオブジェクトなのか調べる (javaClass)](basic/java-class.html)
 
 
-制御構文
-----
-* [if による分岐処理と if 式](basic/if.html)
-* [when 式による条件分岐](basic/when.html)
-* [for ループと while ループ（そして forEach）](basic/loop.html)
-* [例外処理を記述する (try, catch, finally)](basic/exception.html)
-
-
 ラムダ式 (lambda expression)
 ----
 * [ラムダ式の基本 (lambda expression)](basic/lambda.html)
@@ -89,12 +89,6 @@ object キーワード
 * [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
 * [文字列と数値を変換する (toIntOrNull, toInt)](numstr/convert.html)
 * [文字列をデリミタ文字で分割する (split)](numstr/split.html)
-
-
-パッケージ
-----
-* [Kotlin のパッケージの考え方を理解する](package/basic.html)
-* [パッケージのトップレベルに関数、プロパティ、定数を定義する](package/top-level.html)
 
 
 配列／コレクション
@@ -123,6 +117,13 @@ object キーワード
 
 ### セット (Set)
 * [セットの集合演算を行う](collection/set-operation.html)
+
+
+パッケージ
+----
+* [Kotlin のパッケージの考え方を理解する](package/basic.html)
+* [パッケージのトップレベルに関数、プロパティ、定数を定義する](package/top-level.html)
+
 
 その他
 ----

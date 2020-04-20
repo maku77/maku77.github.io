@@ -47,7 +47,6 @@ for (i in 1..5) {
 ```
 
 `i in 1..n` というループは、`n` で指定した数字まで処理されることに注意してください。
-
 `..` 演算子を使用する代わりに、**`until`** を使用して同様のループ処理を行うこともできます。
 この場合、`until` で指定した数値の 1 つ前の数値まで処理されます。
 
@@ -59,6 +58,8 @@ for (i in 1 until 5) {
 }
 ```
 
+つまり、こうです。
+
 - `i in 1..n` ... **1～n** の範囲でループ処理
 - `i in 1 until n` ... **1～n-1** の範囲でループ処理
 
@@ -66,7 +67,7 @@ for (i in 1 until 5) {
 ### 逆向きのループ、ステップごとの増加量（減少量）を指定 (downTo, step)
 
 `until` の代わりに **`downTo`** を使用すると、数値を減少させるループ処理を行うことができます。
-さらに、`step` を指定することで、1 ループごとの増加量（減少量）を設定することができます。
+さらに、 **`step`** を指定することで、1 ループごとの増加量（減少量）を設定することができます。
 
 #### 例: 10 から 0 まで -2 しながらループ処理
 
@@ -126,6 +127,8 @@ for ((key, value) in map) {
     println("$key => $value")
 }
 ```
+
+ちなみに、上記のように、ループ中に 2 つの変数 (`key`、`value`) に代入しながら処理できるのは、Kotlin の [分解宣言 (destructuring declarations)](../basic/dest-decl.html) の仕組みのおかげです。
 
 ### forEach 関数で要素を列挙する
 
@@ -207,8 +210,8 @@ nums.filter { it % 2 == 0 }.forEach { println(it) }
 ```kotlin
 var nums = 1..10
 var filtered = nums.filter { it % 2 == 0 }
-for (x in nums) {
-    print(x)
+for (x in filtered) {
+    println(x)
 }
 ```
 
