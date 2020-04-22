@@ -1,5 +1,5 @@
 ---
-title: "RESTful API として検索用の URL を定義する"
+title: "RESTful API として検索用の URL を定義する (req.query)"
 date: "2014-03-23"
 ---
 
@@ -18,6 +18,8 @@ app.get('/memos', function(req, res) {
 ```
 
 ハンドラの第３パラメータとして渡される `next` 関数を使用すれば、それぞれの処理を分離して記述することも可能です。
+
+- 参考: [Express で next() により次のハンドラへ処理を委譲する](next.html)
 
 ```javascript
 function searchMemo(req, res, next) {
