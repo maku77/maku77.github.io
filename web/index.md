@@ -65,7 +65,8 @@ HTML 全般
 * [外部リンクをクリックしたときに必ず新しいタブで開く](link/open-new-tab.html)
 * [リンク先ファイルの拡張子によって自動的にアイコンを付けて表示する](link/extension-icons.html)
 
-#### ボタン
+#### 画像／ボタン
+* [SVG アイコンの色をまわりの文字の色に合わせる](image/svg-color.html)
 * [SNS ボタンをきれいに並べる](button/sns-buttons.html)
 
 
