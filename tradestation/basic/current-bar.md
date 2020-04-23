@@ -66,3 +66,40 @@ CurrentBar=42, BarNumber[0]=42, BarNumber[1]=41
 `BarNumber[1]` は 1 本前のバーの番号なので、`CurrentBar` や `BarNumber[0]` と比べて値が 1 つ小さいことがわかると思います。
 まぁ、`CurrentBar - 1` としても同じ値が得られるんですけどね。。。
 
+
+（おまけ）バー番号をログのプレフィックスとして表示する
+----
+
+`Print` 関数でインジケーターのデバッグを行っているとき、`CurrentBar` によるバー番号をプレフィックスと表示したいことはよくあります。
+そのようなときは、`CurrentBar:4:0` のように整数の位を 4 桁に固定して表示すると、ログ表示のガタつきを抑えられます。
+
+次の例では、各足の終値を表示しています。
+
+~~~
+// インジケーター適用時にログをクリア
+once ClearPrintLog;
+
+// 各足の番号と終値をログ出力
+Print(CurrentBar:4:0, ": Close = ", Close:0:0);
+~~~
+
+実行結果:
+
+~~~
+   1: Close = 774
+   2: Close = 850
+   3: Close = 905
+   4: Close = 901
+   5: Close = 930
+   6: Close = 890
+   7: Close = 884
+   8: Close = 860
+   9: Close = 850
+  10: Close = 852
+  11: Close = 892
+  12: Close = 913
+  13: Close = 910
+  14: Close = 900
+  15: Close = 917
+~~~
+
