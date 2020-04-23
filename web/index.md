@@ -61,7 +61,7 @@ HTML 全般
 * [印刷時に特定の要素（メニューなど）を非表示にする](menu/hide-in-print.html)
 
 #### リンク
-* [外部リンクに自動的にアイコンを付けて表示する](selector/add-icon-to-link.html)
+* [外部リンクに自動的にアイコンを付けて表示する (External link icons)](selector/add-icon-to-link.html)
 * [外部リンクをクリックしたときに必ず新しいタブで開く](link/open-new-tab.html)
 * [リンク先ファイルの拡張子によって自動的にアイコンを付けて表示する](link/extension-icons.html)
 
