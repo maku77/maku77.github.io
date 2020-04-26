@@ -117,6 +117,7 @@ hugo コマンド
 * [hugo deploy コマンドで Azure などのクラウドサービス上にデプロイする](advanced/deploy.html)
 * [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
+* [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
 
 トラブルシューティング
 ----
