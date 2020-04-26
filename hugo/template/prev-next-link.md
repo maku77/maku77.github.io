@@ -126,11 +126,8 @@ Page 変数の `.PrevInSection` や `.NextInSection` には、同じセクショ
 
 ~~~
 {{ "{{" }} if .Parent }}
-  {{ "{{" }}/* まずは同じ階層のセクションとページから prev と next を決める */}}
-  {{ "{{" }} $p := .Parent }}
-  {{ "{{" }} $sections := $p.Sections }}
-  {{ "{{" }} $pages := (cond $p.IsHome (where $.Site.RegularPages "Section" "") $p.Pages) }}
-  {{ "{{" }} range (union $sections $pages) }}
+  {{ "{{" }}- /* まずは同じ階層のセクションとページから prev と next を決める */}}
+  {{ "{{" }}- range .Parent.Pages }}
     {{ "{{" }} if eq . $ }}
       {{ "{{" }} $.Scratch.Set "found" true }}
     {{ "{{" }} else }}
