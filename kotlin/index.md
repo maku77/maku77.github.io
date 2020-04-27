@@ -65,6 +65,7 @@ object キーワード
 * [インタフェースを定義する (interface)](basic/interface.html)
 * [列挙型を定義する (enum)](basic/enum.html)
     * [列挙型 (enum) の値をインデックスで取得する](basic/enum-from-ordinal.html)
+    * [列挙型 (enum) の値をループ処理する (values)](basic/enum-loop.html)
 * [スマートキャストでキャストを自動化する](basic/smart-cast.html)
 * [safe call (?.) や elvis operator (?:)、let で null をうまく扱う](basic/handle-null.html)
 * [あるインスタンスがどのクラスのオブジェクトなのか調べる (javaClass)](basic/java-class.html)
