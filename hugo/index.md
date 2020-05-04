@@ -50,6 +50,7 @@ hugo コマンド
 * [複数の Hugo サイトで同じテーマディレクトリを参照する](layout/same-theme-dir.html)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
 * [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (baseof)](template/base-template.html)
+* [フロントマターの type、layout プロパティでレイアウトを指定する](layout/type-layout.html)
 * [Hugo Themes](https://themes.gohugo.io/) （色々な Hugo 用テーマが公開されています）
 
 ### Hugo のテンプレート文法
