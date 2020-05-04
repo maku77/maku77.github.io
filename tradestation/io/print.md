@@ -42,7 +42,7 @@ BarNumber=2449
 デバッグ用に、インジケーター中で一度だけ処理したい部分は、`Once begin ～ end` で囲みます。
 
 ~~~
-Once begin
+once begin
     Print("BarNumber=", BarNumber:0:0);
 end;
 ~~~

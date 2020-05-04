@@ -8,8 +8,8 @@ description: "EasyLanguage の if-else 分岐処理は、条件分岐後に実�
 ----
 
 ~~~
-If 条件式 then ステートメント;
-If 条件式 then ステートメント1 else ステートメント2;
+if 条件式 then ステートメント;
+if 条件式 then ステートメント1 else ステートメント2;
 ~~~
 
 条件分岐は、この if-then-else の構成が基本となります。
@@ -19,17 +19,17 @@ If 条件式 then ステートメント1 else ステートメント2;
 #### 使用例
 
 ~~~
-If FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
+if FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
 ~~~
 
 ステートメント部分が長い場合は、下記のように複数行に分けて記述することもできます。
 この場合も、セミコロンは最後の 1 つだけ記述することに注意してください。
 
 ~~~
-If 条件式 then
+if 条件式 then
     ステートメント;
 
-If 条件式 then
+if 条件式 then
     ステートメント1
 else
     ステートメント2;
@@ -42,12 +42,12 @@ if-else 分岐を複数行に分けて記述する場合は、下記に説明す
 ----
 
 ~~~
-If 条件式 then begin
+if 条件式 then begin
     ステートメント1;
     ステートメント2;
 end;
 
-If 条件式 then begin
+if 条件式 then begin
     ステートメント1;
     ステートメント2;
 end else begin
@@ -63,9 +63,9 @@ end;
 #### 使用例
 
 ~~~
-If BarType = 2 then begin
-    If FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
-    If FastAvg crosses under SlowAvg then Sellshort 500 shares next bar at market;
+if BarType = 2 then begin
+    if FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
+    if FastAvg crosses under SlowAvg then Sellshort 500 shares next bar at market;
 end;
 ~~~
 
@@ -76,7 +76,7 @@ else if な条件分岐
 ここまでを踏まえて、else if な条件分岐を記述する場合は、次のように記述することになります。
 
 ~~~
-If 条件式1 then begin
+if 条件式1 then begin
     ステートメント1;
     ステートメント2;
 end else if 条件式2 then begin
@@ -110,8 +110,8 @@ if-else の条件式部分では、以下のような関係演算子を使って
 #### 使用例
 
 ~~~
-If Close > Open then ...;
-If (High + L) /2 > Close then ...;
-If CurrentBar > 1 and Close > HighestFC(High,Length)[1] then Buy on Close;
+if Close > Open then ...;
+if (High + L) /2 > Close then ...;
+if CurrentBar > 1 and Close > HighestFC(High,Length)[1] then Buy on Close;
 ~~~
 

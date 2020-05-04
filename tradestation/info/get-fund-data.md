@@ -29,33 +29,37 @@ GetFundDataAsBoolean(sFieldName, nDataPointsBack) → 真偽値
 下記の例では、個別銘柄の売上高や各種利益を取得しています。
 
 ~~~
-vars:
+var:
     double sales(0),
     double op(0),
     double rp(0),
     double np(0);
 
-sales = GetFundData("CE_SALES", 0);  // 売上高
-op = GetFundData("CR_OP", 0);  // 営業利益
-rp = GetFundData("CR_RP", 0);  // 経常利益
-np = GetFundData("CR_NP", 0);  // 純利益
+once begin
+    sales = GetFundData("CR_SALES", 0);  // 売上高
+    op = GetFundData("CR_OP", 0);  // 営業利益
+    rp = GetFundData("CR_RP", 0);  // 経常利益
+    np = GetFundData("CR_NP", 0);  // 純利益
 
-Once begin
-    Print("CE_SALES(売上高)=", sales:0:0, " (100万円)");
-    Print("CE_OP(営業利益)=", op:0:0, " (100万円)");
-    Print("CE_RP(経常利益)=", rp:0:0, " (100万円)");
-    Print("CE_NP(純利益)=", np:0:0, " (100万円)");
+    Print("CR_SALES(売上高)=", sales:0:0, " (100万円)");
+    Print("CR_OP(営業利益)=", op:0:0, " (100万円)");
+    Print("CR_RP(経常利益)=", rp:0:0, " (100万円)");
+    Print("CR_NP(純利益)=", np:0:0, " (100万円)");
 end;
 ~~~
 
 #### 出力例（印刷ログ）
 
 ~~~
-CE_SALES(売上高)=1650000 (100万円)
-CE_OP(営業利益)=33259 (100万円)
-CE_RP(経常利益)=34047 (100万円)
-CE_NP(純利益)=24779 (100万円)
+CR_SALES(売上高)=1650000 (100万円)
+CR_OP(営業利益)=33259 (100万円)
+CR_RP(経常利益)=34047 (100万円)
+CR_NP(純利益)=24779 (100万円)
 ~~~
+
+`CR_SALES` に似たようなものに `CE_SALES` などがありますが、こちらは実績売上高ではなく、予想売上高を示すものっぽいです（Real と Estimated の略でしょうか）。
+ドキュメントにはどちらも「売上高 (Sales volume)」としか記述されていないので分かりにくいですね。。。
+
 
 エラー処理を追加する
 ----
@@ -66,12 +70,12 @@ CE_NP(純利益)=24779 (100万円)
 - [GetLastFundDataError 予約語](http://help.tradestation.com/09_05/Monex/jpn/tsdevhelp//Subsystems/elword/word/getlastfunddataerror_reserved_word_.htm)
 
 ~~~
-vars: op(0);
+var: op(0);
 
-Once begin
+once begin
     op = GetFundData("CR_OP", 0);  // 営業利益(100万円)
     If GetLastFundDataError <> fdrOk then Print("Cannot get CR_OP");
-    Print("CE_OP(営業利益)=", op:0:0, " (100万円)");
+    Print("CR_OP(営業利益)=", op:0:0, " (100万円)");
 end;
 ~~~
 
@@ -86,12 +90,12 @@ end;
 多値関数バージョンでは、第3パラメータが出力用パラメータとなっており、そこでエラーコードを受け取ることができます。
 
 ~~~
-vars: op(0), error(-1);
+var: op(0), error(-1);
 
-Once begin
+once begin
     op = FundValue("CR_OP", 0, error);  // 営業利益(100万円)
     If error <> fdrOk then Print("Error=", error:0:0);
-    Print("CE_OP(営業利益)=", op:0:0, " (100万円)");
+    Print("CR_OP(営業利益)=", op:0:0, " (100万円)");
 end;
 ~~~
 

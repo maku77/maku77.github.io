@@ -27,9 +27,9 @@ Condition1 = Close crosses above Value1;
 ただ、For ループなどのカウンタ用変数になら使用してもいいかもしれません。
 
 ~~~
-For Value1 = 0 to 5 Begin
+for Value1 = 0 to 5 begin
     //...
-End;
+end;
 ~~~
 
 定義済み変数の値は次のバーへ引き継がれる

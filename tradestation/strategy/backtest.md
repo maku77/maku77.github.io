@@ -18,8 +18,7 @@ myMidMa = Average(Close, 25);   // 中期移動平均
 myLongMa = Average(Close, 50);  // 長期移動平均
 
 // ロングでのエントリーは、長期の上昇トレンド時に限定する
-if myLongMa >= myLongMa[1] then
-begin
+if myLongMa >= myLongMa[1] then begin
     // 短期と中期の移動平均線のゴールデンクロスで買い
     if myShortMa crosses above myMidMa then Buy("Entry") next bar 100 shares at market;
 end;

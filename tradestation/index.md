@@ -29,7 +29,7 @@ EasyLanguage
 
 はじめに
 ----
-* [インジケーター名の命名規則](naming.html)
+* [インジケーター名やストラテジー名のプレフィックス](naming.html)
 * [Print 関数によるデバッグ](io/print.html)
 * [各バーに注釈を付ける (Commentary, CommentaryCL)](chart/commentary.html)
 * [チャートのバータイプ、足種を取得する (BarType, BarInterval)](chart/bar-type.html)
@@ -41,7 +41,7 @@ EasyLanguage
 
 構文／文法
 ----
-* [変数を定義する (Vars, Variables)](syntax/vars.html)
+* [変数を定義する (var, variables)](syntax/vars.html)
 * [定義済み変数を使用する (Value0, Condition0)](syntax/pre-declared-vars.html)
 * [if-else による条件分岐](syntax/if-else.html)
 * [スキップ語の一覧](syntax/skip-words.html)
