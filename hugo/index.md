@@ -27,6 +27,7 @@ Hugo
 * [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
 * [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
 * [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
+* [ショートコードをエスケープ処理してそのまま表示する](shortcode/escape.html)
 
 hugo コマンド
 ----
