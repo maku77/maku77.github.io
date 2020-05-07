@@ -27,9 +27,24 @@ img {
   vertical-align: bottom;
 }
 
+// 強調／コード／コードブロック
 strong {
   font-weight: bolder;
   color: $COLOR_TEXT_STRONG;
+  /* background: linear-gradient(transparent 70%, #fe3 50%); */
+}
+
+code {
+  font-family: $CODE_FONT;
+  color: $COLOR_CODE;
+  background: $COLOR_CODE_BG;
+  padding: 0.2em 0.3em;
+  border-radius: 0.2em;
+
+  > strong, strong & {
+    color: $COLOR_TEXT_STRONG;
+    background: mix($COLOR_TEXT_STRONG, white, 15%);
+  }
 }
 
 // 外部リンクアイコン

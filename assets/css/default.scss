@@ -12,9 +12,6 @@ $COLOR_LINK_VISITED: #03c;
 $COLOR_LINK_HOVER_BG: #def;
 $COLOR_LINK_FOCUS_BG: #fdd;
 
-$COLOR_CODE: #333;
-$COLOR_CODE_BG: #f6f6f6;
-
 $COLOR_PAGE_TITLE: #fdd;
 $COLOR_PAGE_TITLE_BG: darkred;
 $COLOR_PAGE_TITLE_CATEGORY: #faa;
@@ -190,20 +187,6 @@ figure {
   & > figcaption ul, ol {
     margin: 0;
     padding: 0 0 0 2em;
-  }
-}
-
-code {
-  color: $COLOR_CODE;
-  background: $COLOR_CODE_BG;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-
-  padding: 2px 4px;
-  border-radius: 4px;
-
-  strong & {
-    color: $COLOR_TEXT_STRONG;
-    background: mix($COLOR_TEXT_STRONG, white, 10%);
   }
 }
 
