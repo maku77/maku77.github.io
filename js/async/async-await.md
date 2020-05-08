@@ -112,18 +112,21 @@ async function fetchFiles() {
 ただし、`await` はあくまでシーケンシャルに実行を待機することになるため、本当の意味ですべての非同期処理の完了を待ちたいのであれば、[Promise.all メソッド](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) を使用して非同期処理を並列実行すべきです。
 
 ~~~ javascript
-var p1 = fetchFile('file1.png');
-var p2 = fetchFile('file2.png');
-var p3 = fetchFile('file3.jpg');
-var promises = [p1, p2, p3];
+const p1 = fetchFile('file1.png');
+const p2 = fetchFile('file2.png');
+const p3 = fetchFile('file3.jpg');
+const promises = [p1, p2, p3];
 
 Promise.all(promises).then(values => {
-  console.log(values);
+  for (let x of values) {
+    console.log(x.filename);
+  }
 }).catch(err => {
   console.error(err);
 });
 ~~~
 
+`then` のブロックに渡されるパラメータ `values` には、各 `Promise` からの結果が格納されるのですが、この順番は `Promise.all` で渡した `Promise` と同じ順番になります（どの非同期処理が先に終わるかは関係ありません）。
 `Promise.all` で非同期処理の完了をまとめて待機する場合、いずれかの非同期処理が失敗した時点で `catch` によりエラー捕捉されます（すべての非同期処理が成功しないと `then` のコールバックは呼び出されません）。
 
 
@@ -143,7 +146,7 @@ async function foo() {
 
 async function bar() {
   // ...
-  var result = await foo();
+  const result = await foo();
   // ...
 }
 
