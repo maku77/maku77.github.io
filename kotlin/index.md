@@ -3,14 +3,14 @@ title: "Kotlin"
 layout: category-index
 ---
 
-はじめに
+はじめに／環境
 ----
-* [Kotlin とは？ Kotlin をインストールする](basic/install.html)
+* [Kotlin とは？ Kotlin をインストールする](intro/install.html)
+* [VSCode で Kotlin の開発環境を構築する](intro/vscode.html)
 
 
 変数／関数
 ----
-
 * [変数を定義する (val, var)](basic/var.html)
 * [基本的な型の一覧](basic/types.html)
 * [lateinit による変数の初期化](basic/lateinit.html)

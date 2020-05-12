@@ -44,36 +44,34 @@ Kotlin の開発環境のインストールと HelloWorld
 エディタ部分には、任意のコードを入力することができるため、簡単な文法テストだけであれば、このサイト上だけで済ませてしまうことができます。
 
 
-### IDE (IntelliJ IDEA) を使用する
-
-JetBrains 社が提供している IntelliJ IDEA という統合開発環境 (IDE) は、ネイティブで Kotlin による開発をサポートしています。
-Community Edition であれば無料で使用することができますので、Kotlin で本格的に開発を行いたい場合はインストールしておくとよいでしょう。
-Kotlin の生みの親である JetBrains 社が作成している IDE ですので、今後も長期的にリリースが続くと思われます。
-
-- [IntelliJ IDEA - JetBrains](https://www.jetbrains.com/idea/)
-
-IntelliJ IDEA でプロジェクトを作成するときに、Kotlin を選択すれば開発準備 OK です。
-
-![install-idea.png](install-idea.png){: .center }
-
-
-### IDE (Android Studio) を使用する
-
-Kotlin で Android アプリを作成するときは、[Android Studio](https://developer.android.com/studio/) に Kotlin サポートを追加して使用します。
-プロジェクトの作成時に下記のように **Include Kotlin support** にチェックを入れてやれば、スケルトンコードも Kotlin ファイルとして生成されます（`MainActivity.kt` などが生成されます）。
-
-![install-studio.png](install-studio.png){: .center }
-
-
-### Kotlin のスタンドアロン・コンパイラ (kotlinc) を使用する
+### Kotlin のスタンドアロン・コンパイラ (kotlinc) を使用する {#kotlinc}
 
 Kotlin のスタンドアロン・コンパイラをインストールしておけば、**`kotlinc`** コマンドを使用して Kotlin のソースコード (.kt) をコンパイルすることができます。
 下記のサイトに各環境でのインストール方法が説明されています。
 
 - [Kotlin - Command Line Compiler](https://kotlinlang.org/docs/tutorials/command-line.html)
 
-macos であれば、上記サイトに記載されている通り、Homebrew（`brew` コマンド）などを使ってインストールしてしまうのが簡単です。
-Windows であれば、GitHub 上 [Kotlin リリースページ](https://github.com/JetBrains/kotlin/releases/) からアーカイブをダウンロードして、`bin` ディレクトリに PATH を通してやれば OK です。
+#### macOS の場合 (Homebrew)
+
+```
+$ brew update
+$ brew install kotlin
+```
+
+macOS であれば、Homebrew（`brew` コマンド）などを使ってインストールしてしまうのが簡単です。
+
+
+#### Windows の場合
+
+```
+C:\> choco install kotlinc
+```
+
+Windows であれば、[Chocolately](https://chocolatey.org/install) を使ってインストールしてしまうのが簡単です。
+コマンドプロンプトを「管理者として実行」で起動して、上記のようにタイプするだけでインストールできます。
+
+GitHub 上 [Kotlin リリースページ](https://github.com/JetBrains/kotlin/releases/) から、実行バイナリを直接ダウンロードして使う方法もあります。
+ダウンロードした zip アーカイブを展開し、`bin` ディレクトリに PATH を通してやれば OK です。
 
 `kotlinc` コマンドが実行できるようになったら、下記のようなサンプルコードをコンパイルして実行してみましょう。
 ビルド後のアプリケーションは、Java アプリケーションと同様に `java` コマンドを使用して実行することができます。
@@ -102,4 +100,25 @@ Hello, world!
 `kotlinc` でコンパイルしたアプリケーションの実行には、Kotlin ランタイムが必要です。
 `kotlinc` の **`-include-runtime`** オプションは、生成する JAR ファイル内にこの Kotlin ランタイムを含めてしまう指定です。
 このようにして作成した JAR ファイルは、上記のように単独で実行することができます。
+
+
+### IDE (IntelliJ IDEA) を使用する
+
+JetBrains 社が提供している IntelliJ IDEA という統合開発環境 (IDE) は、ネイティブで Kotlin による開発をサポートしています。
+Community Edition であれば無料で使用することができますので、Kotlin で本格的に開発を行いたい場合はインストールしておくとよいでしょう。
+Kotlin の生みの親である JetBrains 社が作成している IDE ですので、今後も長期的にリリースが続くと思われます。
+
+- [IntelliJ IDEA - JetBrains](https://www.jetbrains.com/idea/)
+
+IntelliJ IDEA でプロジェクトを作成するときに、Kotlin を選択すれば開発準備 OK です。
+
+![install-idea.png](install-idea.png){: .center }
+
+
+### IDE (Android Studio) を使用する
+
+Kotlin で Android アプリを作成するときは、[Android Studio](https://developer.android.com/studio/) に Kotlin サポートを追加して使用します。
+プロジェクトの作成時に下記のように **Include Kotlin support** にチェックを入れてやれば、スケルトンコードも Kotlin ファイルとして生成されます（`MainActivity.kt` などが生成されます）。
+
+![install-studio.png](install-studio.png){: .center }
 
