@@ -45,7 +45,7 @@ Image Processing の機能を使って画像の変換を行うには、[Page Res
 {{ "{{" }}- $imageRes := $imageRes.Fill "150x150" }}
 {{ "{{" }}- $imageUrl := $imageRes.RelPermalink }}
 
-<img src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $imageUrl }}" />
+<img src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $src }}" />
 ```
 
 ショートコードから `.Resources` オブジェクトを参照するときは、上記のように `.Page.Resources` としなければいけないことに注意してください。
@@ -109,8 +109,8 @@ Facebook などで Web ページをシェアする場合は、画像ファイル
 {{ "{{" }}- $imageUrl := $image.RelPermalink }}
 
 <figure>
-  <a href="{{ "{{" }} $res.RelPermalink }}" target="_blank">
-    <img src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $imageUrl }}" />
+  <a href="{{ "{{" }} $src }}" target="_blank">
+    <img src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $src }}" />
   </a>
   {{ "{{" }}- with $title }}
     <figcaption>図: {{ "{{" }} . }}</figcaption>
@@ -129,4 +129,79 @@ Markdown ファイルの中からは次のように呼び出します。
 ここでは、`figure` タグと `figcaption` を使って、画像のタイトルも表示できるようにしています（ショートコードのパラメータで `title="タイトル"` のように指定します）。
 
 また、アスペクト比を保ったまま画像を縮小表示することを想定しているため、サイズ指定は横幅だけを指定できるようにしています（ショートコードのパラメータで `w="200"` のように単位なしで指定します）。
+
+### 応用1: w パラメータをオプショナルにしたバージョン
+
+下記はもう少し改良したバージョンの `image` ショートコードで、`w` パラメータが省略された場合に、`src` で指定した画像ファイルをそのまま使用するようにしています。
+
+#### layouts/shortcodes/image.html
+
+```
+{{ "{{" }}- $src := .Get "src" }}
+{{ "{{" }}- $title := .Get "title" }}
+{{ "{{" }}- $width := .Get "w" }}
+{{ "{{" }}- $imageUrl := $src }}
+{{ "{{" }}- $res := .Page.Resources.GetMatch $src }}
+
+{{ "{{" }}- /* ページまたぎでリンク切れを防ぐおまじない */}}
+{{ "{{" }}- if $res }}
+  {{ "{{" }}- $src = $res.RelPermalink }}
+  {{ "{{" }}- $imageUrl = $res.RelPermalink }}
+{{ "{{" }}- end }}
+
+{{ "{{" }}- if $width }}
+  {{ "{{" }}- $size := printf "%sx" $width }}
+  {{ "{{" }}- $image := $res.Resize $size }}
+  {{ "{{" }}- $imageUrl = $image.RelPermalink }}
+{{ "{{" }}- end }}
+
+<figure>
+  <a href="{{ "{{" }} $src }}" target="_blank">
+    <img src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $src }}" />
+  </a>
+  {{ "{{" }}- with $title }}
+    <figcaption>図: {{ "{{" }} . }}</figcaption>
+  {{ "{{" }}- end }}
+</figure>
+```
+
+### 応用2: SVG ファイルに対応する
+
+SVG ファイルは Image Processing 機能に対応していないので、同じコードで width 調整しようとすると、次のようなエラーになってしまいます。
+
+```
+error calling Resize: *resources.genericResource is not an image
+```
+
+下記の `image` ショートコードは、`src` パラメータで指定されたファイルの拡張子が `svg` だった場合に、Image Processing 機能を使わず、`style` 属性を使って横幅を指定するようにしています。
+
+```
+{{ "{{" }}- $src := .Get "src" }}
+{{ "{{" }}- $title := .Get "title" }}
+{{ "{{" }}- $width := .Get "w" }}
+{{ "{{" }}- $imageUrl := $src }}
+{{ "{{" }}- $res := .Page.Resources.GetMatch $src }}
+
+{{ "{{" }}- /* ページまたぎでリンク切れを防ぐおまじない */}}
+{{ "{{" }}- if $res }}
+  {{ "{{" }}- $src = $res.RelPermalink }}
+  {{ "{{" }}- $imageUrl = $res.RelPermalink }}
+{{ "{{" }}- end }}
+
+{{ "{{" }}- $isSvg := strings.HasSuffix $src "svg" }}
+{{ "{{" }}- if and $width (not $isSvg) }}
+  {{ "{{" }}- $size := printf "%sx" $width }}
+  {{ "{{" }}- $image := $res.Resize $size }}
+  {{ "{{" }}- $imageUrl = $image.RelPermalink }}
+{{ "{{" }}- end }}
+
+<figure>
+  <a href="{{ "{{" }} $src }}" target="_blank">
+    <img {{ "{{" }} if $isSvg }}style="width:{{ "{{" }} $width }}px;"{{ "{{" }} end }} src="{{ "{{" }} $imageUrl }}" alt="{{ "{{" }} $src }}" />
+  </a>
+  {{ "{{" }}- with $title }}
+    <figcaption>図: {{ "{{" }} . }}</figcaption>
+  {{ "{{" }}- end }}
+</figure>
+```
 
