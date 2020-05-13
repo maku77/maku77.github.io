@@ -39,17 +39,6 @@
 
   <div id="xContainer">
     <div id="xContainer_main">
-      <!-- ページタグ -->
-      {% comment %}
-      <div class="xPageTags">
-        {% for tag in page.tags %}
-          <span class="xPageTags_tag">
-            <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
-          </span>
-        {% endfor %}
-      </div>
-      {% endcomment %}
-
       <!-- SNS ボタン（上） -->
       {% include widget-sns.html %}
 
