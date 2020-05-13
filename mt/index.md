@@ -3,10 +3,12 @@ title: "MetaTrader メモ"
 layout: category-index
 ---
 
+__MT 関連の記事は別サイトへ移転を始めています。レイアウトの異なるページにジャンプしても驚かないでください(^^;__
+
 インストール
 ====
-* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）](install-play-on-mac.html)
-* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）](install-xm.html)
+* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）](https://memoja.net/p/bu7hs3d)
+* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）](https://memoja.net/p/a2hwcq5)
 
 
 MQL
