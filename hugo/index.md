@@ -69,6 +69,7 @@ hugo コマンド
 * [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
 * [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
+* [ページの階層構造を取得する関数を作成する (get-hierarchy)](layout/get-hierarchy.html)
 
 ### ページ一覧／セクション一覧を表示するサンプル
 * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
@@ -78,6 +79,7 @@ hugo コマンド
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
+* [ページリスト（記事一覧）に列挙されないページを作る (_build.list)](list/exclude-from-list.html)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
@@ -95,6 +97,7 @@ hugo コマンド
 
 ### その他
 * [パンくずリストを表示する](template/breadcrumbs.html)
+* [JSON-LD のパンくずリストを出力する](template/breadcrumbs-json.html)
 * [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsSection、.IsNode の値がどうなるかの一覧](template/page-types.html)
