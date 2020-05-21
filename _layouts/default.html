@@ -10,9 +10,6 @@
   {% include head.html %}
   <meta property="og:title" content="{{page.title}} | まくまく{{ page.category_title }}ノート" />
   <title>{{page.title}} | まくまく{{ page.category_title }}ノート</title>
-  {% if jekyll.environment != "development" %}
-    {% include analytics.html %}
-  {% endif %}
 
   <!-- Ad (Google) -->
   {% comment %}

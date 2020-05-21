@@ -40,7 +40,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 <script src="/assets/js/jquery-3.2.1.min.js"></script>
 
-<!-- Google Ad Manager -->
 {% if jekyll.environment != "development" %}
+  <!-- Google Ad Manager -->
   {% include ad-manager-maku77-sidebar-head.html %}
+
+  <!-- Google Analytics -->
+  {% include analytics.html %}
 {% endif %}
