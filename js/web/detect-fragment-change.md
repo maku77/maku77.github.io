@@ -1,36 +1,85 @@
 ---
-title: "URL 内のハッシュフラグメントの変化を検出する (hashchange)"
+title: "URL 内のハッシュフラグメントの値を扱う (hashchange, location.hash)"
 date: "2015-09-23"
+lastmod: "2020-05-23"
 ---
 
-```
-http://example.com/#aaa
-```
+ハッシュフラグメントの値を取得・設定する
+----
 
-という URL でサイトにアクセスした場合に、後ろの `#aaa` の部分が変化した場合のイベント通知を受けるには以下のようにします。
+`https://example.com/#aaa` という URL でサイトにアクセスした場合に、後ろの `#aaa` の部分を取得するには、 __`location.hash`__ を参照します。
+この値には、先頭の `#` が含まれるため、`#` を除いた文字列を取得したい場合は `substring` を合わせて使用します。
 
-```javascript
-window.addEventListener('hashchange', function() {
-  var hash = location.hash;  // '#aaa'
-  alert(hash.substring(1));  // 'aaa'
-}, false);
+```js
+const a = location.hash;               // '#aaa'
+const b = location.hash.substring(1);  // 'aaa'
 ```
 
-jQuery を使用する場合は、下記のように記述できます。
+逆に、ハッシュフラグメントの部分を `#bbb` に変更するには次のようにします。
 
+```js
+location.hash = 'bbb';  // 先頭の # は省略可
 ```
-$(function() {
-  $(window).on('hashchange', function() {
-    var hash = location.hash;  // '#aaa'
-    alert(hash.substring(1));  // 'aaa'
-  });
+
+ブラウザの URL 表示は、`https://example.com/#bbb` に変化します。
+
+
+ハッシュフラグメントに日本語が含まれる場合
+----
+
+`https://example.com/#あ` のように、ハッシュフラグメントに日本語が含まれている場合、`location.hash.substring(1)` で取得される値は、`%E3%81%82` といった URI エンコードされた値になってしまいます。
+正しく `あ` という日本語を取得するには、次のように __`decodeURI`__ を使って  URI デコードします。
+
+```js
+const hash = decodeURI(location.hash.substring(1));
+```
+
+
+ハッシュフラグメントの変化イベントをハンドルする
+----
+
+URL の後ろの `#aaa` の部分（ハッシュフラグメント）が変化した場合に何か処理をしたい場合は、次のように __`hashchange`__ イベントをハンドルします。
+
+#### バニラ JavaScript の場合
+
+```js
+window.addEventListener('hashchange', () => {
+  alert('hash = ' + location.hash);
 });
 ```
 
-このタイミングでページ内のコンテンツを差し替えるようにすれば、画面リロードのないシングルページアプリケーションを作成できます。
-逆に、ハッシュフラグメントの部分を `#bbb` に変更するには以下のようにします。
+#### jQuery の場合
 
-```javascript
-location.hash = 'bbb';
+```js
+$(window).on('hashchange', () => {
+  alert('hash = ' + location.hash);
+});
 ```
+
+このタイミングでページ内のコンテンツを差し替えるようにすれば、画面リロードのない __シングルページアプリケーション (SPA)__ などを作成できます。
+
+
+ページ表示時にハッシュフラグメントの値を使って何かやる
+----
+
+ハッシュフラグメントを含む URL をブラウザで開いたときに、その値を使って HTML 要素を操作したい場合は、 __`DOMContentLoaded`__ イベントをハンドルして処理するとよいです。
+
+次の例では、ページを表示したタイミングでハッシュフラグメントの値を div 要素内に表示します。
+
+```html
+<div id="msg">メッセージ表示領域</div>
+
+<script>
+function handleHashFragment() {
+  const hash = location.hash.substring(1);
+  const elem = document.getElementById('msg');
+  elem.innerText = 'ハッシュフラグメントの値: ' + hash;
+}
+
+window.addEventListener('DOMContentLoaded', handleHashFragment);
+window.addEventListener('hashchange', handleHashFragment);
+</script>
+```
+
+上記では、ついでにページ表示後にハッシュフラグメントが変化した場合 (`hashchange`) も追従するようにしています。
 

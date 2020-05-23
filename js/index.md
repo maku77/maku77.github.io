@@ -200,7 +200,7 @@ HTML5 Canvas
 Web サイト
 ----
 - [URL エンコード／デコードを行う (encodeURI, encodeURIComponent)](web/encode-uri.html)
-- [URL 内のハッシュフラグメントの変化を検出する (hashchange)](web/detect-fragment-change.html)
+- [URL 内のハッシュフラグメントの値を扱う (hashchange, location.hash)](web/detect-fragment-change.html)
 
 
 実行環境

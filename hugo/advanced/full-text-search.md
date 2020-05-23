@@ -204,8 +204,96 @@ function showResultCount(count, total) {
 これで、http://localhost:1313/search/ といった URL にアクセスすれば、全文検索のページが表示されるようになります。
 
 
+応用：URLのハッシュフラグメントに検索ワードを入れる
+----
+
+### やりたいこと
+
+ハッシュフラグメントとは、次のような、URL の末尾についた `#` 以降の文字列のことです。
+
+```
+http://localhost:1313/search/#検索ワード
+```
+
+ここでは、ハッシュフラグメントに設定された検索ワードを使って全文検索を実行するようにしてみます。
+コードは複雑になりますが、このような仕組みにすることで、
+
+- 検索結果のページにリンクを張れるようになる
+- 検索結果のページをブックマークできるようになる
+
+といった利点があります（正確には検索結果のページにリンクを張るわけではなく、ページを開いてから検索を実行します）。
+
+### 全文検索のページのコードを修正
+
+元のコードでは、`input` 要素の `onkeyup` 属性を使って `search()` 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメント (`location.hash`) にセットするように変更します。
+
+```html
+<input id="query" onkeyup="location.hash=this.value"
+  size="15" autocomplete="off" autofocus placeholder="検索ワード" />
+```
+
+これにより、ユーザーが検索ワードを入力するたびに、ブラウザの URL 欄のハッシュフラグメントにその値が反映されるようになります。
+
+次に、ページの表示時 (`DOMContentLoaded`) と、ハッシュフラグメントの変更時 (`hashchange`) に、ハッシュフラグメントの値を使って `search()` 関数を呼び出すようにします。
+
+```js
+// ハッシュフラグメントの値で検索を実行
+function searchWithHash() {
+  const hash = decodeURI(location.hash.substring(1));
+  search(hash);
+
+  // 必要があれば input 要素の値を更新
+  const queryElem = document.getElementById('query');
+  if (queryElem.value !== hash) {
+    queryElem.value = hash;
+  }
+}
+
+// ハッシュフラグメント付きの URL でページを開いたときに検索
+window.addEventListener('DOMContentLoaded', searchWithHash);
+
+// ページ表示後にハッシュフラグメントが変化したら検索
+window.addEventListener('hashchange', searchWithHash);
+```
+
+これで、ハッシュフラグメント経由での全文検索を実行できるようになります。
+検索ワード付きの URL をブラウザで開いたときには、その検索ワードを使って即全文検索が実行されるようになり、その検索ワードが `input` 要素に表示されます。
+ページ表示後にユーザーが `input` 要素のテキストを変更すれば、URL のハッシュフラグメントに反映され、その値で再度検索が実行されます。
+
+### 他のページに検索ボックスを配置する
+
+次のような検索フォームを任意のページに配置しておけば、そこから検索ワードを入力して全文検索のページにジャンプできるようになります。
+
+```html
+<form>
+  <input id="searchKeyword" type="search" size="20">
+  <input id="searchButton" type="submit" value="検索">
+</form>
+
+<script>
+const SEARCH_URL = '/search/';
+
+window.addEventListener('DOMContentLoaded', () => {
+  const searchButton = document.getElementById('searchButton');
+  const searchKeyword = document.getElementById('searchKeyword');
+
+  // 検索ボタンのクリックで検索ページへジャンプ
+  searchButton.addEventListener('click', e => {
+    e.preventDefault();  // Prevent default form's behavior
+    const query = searchKeyword.value;
+    const url = query ? SEARCH_URL + '#' + query : SEARCH_URL;
+    location.href = url;
+  });
+});
+</script>
+```
+
+`form` 要素のデフォルトアクションではハッシュフラグメントに検索ワードを付加できないので、検索ボタンの `click` イベントをハンドルし、自力でハッシュフラグメントをセットした上でページ遷移を行うようにしています。
+
+
 参考
 ---
 
+- [URL 内のハッシュフラグメントの値を扱う (hashchange, location.hash) ｜ まくまくJavaScriptノート](/js/web/detect-fragment-change.html)
 - [Google カスタム検索を設置して記事を検索できるようにする](google-custom-search.html)
 
