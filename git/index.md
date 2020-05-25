@@ -13,6 +13,7 @@ GitHub
 * [GitHub のプランと GitHub ライクなツールの比較など](github/clones.html)
 * [GitHub の Markdown でメールアドレスへのリンクを記述する](github/email-address-in-markdown.html)
 * [GitHub REST API を使用する](github/github-rest-api.html)
+    * [GitHub REST API で Issue 情報を取得する方法いろいろ](github/github-rest-api-issues.html)
 
 GitLab（GitHub クローン）
 ====
