@@ -1,8 +1,13 @@
 ---
-title: "Python の実行環境を切り替えて使用する (virtualenv)"
+title: "Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで"
 date: "2018-04-28"
 description: "virtualenv コマンドを使用すると、仮想的な Python の実行環境を作成することができます。"
 ---
+
+（追記）Python 3.3 以降は、virtualenv と同様の機能を提供する __venv__ モジュールが標準搭載されたので、そちらを使うようにしましょう。
+
+- [Python の実行環境を切り替えて使用する (venv)](./venv.html)
+
 
 virtualenv とは
 ----
