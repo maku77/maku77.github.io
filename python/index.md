@@ -213,12 +213,12 @@ Web
 HTTP リクエスト
 ----
 * [Python で HTTP を扱う方法いろいろ](web/http-in-python.html)
-* [urllib による HTTP リクエスト (1) 基本 (urlopen)](web/http-request.html)
-* [urllib による HTTP リクエスト (2) プロキシ経由でアクセスする (ProxyHandler)](web/http-request-with-proxy.html)
-* [ulrlib による HTTP リクエスト (3) ファイルをダウンロードする (urlretrieve)](web/download-file.html)
-* [urllib による HTTP リクエスト (4) Basic 認証 (HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
-* [urllib による HTTP リクエスト (5) ヘッダを付けてリクエストする](web/http-request-with-header.html)
-* [requests パッケージによる HTTP リクエスト](web/http-request-with-requests-package.html)
+* [urllib による HTTP 通信 (1) GET/POST リクエスト (urllib.request.urlopen)](web/http-request.html)
+* [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](web/http-request-with-proxy.html)
+* [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)](web/download-file.html)
+* [urllib による HTTP 通信 (4) Basic 認証 (urllib.request.HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
+* [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](web/http-request-with-header.html)
+* [requests パッケージによる HTTP 通信](web/http-request-with-requests-package.html)
 
 HTTP サーバー
 ----

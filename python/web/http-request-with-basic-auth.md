@@ -1,5 +1,5 @@
 ---
-title: "urllib による HTTP リクエスト (4) Basic 認証 (HTTPBasicAuthHandler)"
+title: "urllib による HTTP 通信 (4) Basic 認証 (urllib.request.HTTPBasicAuthHandler)"
 date: "2015-11-19"
 ---
 

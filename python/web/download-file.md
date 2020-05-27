@@ -1,5 +1,5 @@
 ---
-title: "ulrlib による HTTP リクエスト (3) ファイルをダウンロードする (urlretrieve)"
+title: "ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)"
 date: "2015-11-19"
 ---
 

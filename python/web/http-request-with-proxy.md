@@ -1,5 +1,5 @@
 ---
-title: "urllib による HTTP リクエスト (2) プロキシ経由でアクセスする (ProxyHandler)"
+title: "urllib による HTTP リクエスト (2) プロキシ経由でアクセスする"
 date: "2014-11-28"
 ---
 
