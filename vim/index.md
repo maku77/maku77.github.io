@@ -128,11 +128,12 @@ Vim の設定
     * [ショートカットキーでタブを切り替える](keymap/tab.html)
     * [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](keymap/open-folder.html)
 
-### ファイルに関する設定と操作
+### ファイル・ディレクトリに関する設定と操作
 * [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
 * [現在の環境で読み込まれる設定ファイルの一覧を確認する](settings/rc-files.html)
 * [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 * [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
+* [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
 
 ### autocmd（自動コマンド）による設定
 * [autocmd で自動コマンドを登録する](settings/autocmd.html)
