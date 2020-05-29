@@ -212,6 +212,11 @@ SQL
 Web
 ====
 
+基本
+----
+
+- [文字列を URL エンコード／デコードする (urllib.parse.quote, unquote, urlencode)](web/url-encode.html)
+
 HTTP リクエスト
 ----
 * [Python で HTTP を扱う方法いろいろ](web/http-in-python.html)
