@@ -54,7 +54,6 @@ print(env)
 ちなみに、`os.environ.get()` という関数もありますが、これは `os.getenv()` 関数のエイリアスです。
 
 
-
 すべての環境変数を列挙する
 ----
 
@@ -77,5 +76,62 @@ import os
 
 for key, val in os.environ.items():
     print('{}: {}'.format(key, val))
+```
+
+
+より実践的なサンプル
+----
+
+### ある環境変数が設定されていない場合にプログラムを終了する
+
+次の `config.py` モジュールは、環境変数 `MYAPP_USER` と `MYAPP_PASS` の値を参照し、同じ名前の変数にセットします。
+環境変数が見つからない場合は、対応方法を出力してプログラムを終了します。
+
+#### config.py
+
+```python
+import os
+import sys
+
+# 環境変数の値を取得します。
+# 見つからなければエラーメッセージを表示してプログラムを終了します。
+def load_env_or_exit(env_name):
+    val = os.getenv(env_name)
+    if val is None:
+        print('Error: %s not found. Please consider adding a .env file with %s.'
+            % (env_name, env_name), file=sys.stderr)
+        sys.exit(1)
+    return val
+
+# 環境変数を参照
+MYAPP_USER = load_env_or_exit('MYAPP_USER')
+MYAPP_PASS = load_env_or_exit('MYAPP_PASS')
+```
+
+さらに、[.env ファイルを使って環境変数を設定できるようにしておく](./dotenv.html) と、よりユーザーにとって扱いやすいプログラムになります。
+
+上記の `config.py` モジュールは、別のモジュールから次のように使用することを想定しています。
+
+```python
+import config
+
+print(config.MYAPP_USER)
+print(config.MYAPP_PASS)
+```
+
+### あるプログラム専用のプロキシ環境変数を用意する
+
+プロキシの設定を行う場合、一般的に `http_proxy` 環境変数が使用されますが、この環境変数を参照するのが適切ではないケースがあります。
+例えば、`http_proxy` 環境変数を設定することにより、依存する別のプログラムが動作しなくなってしまうようなケースです。
+
+このような場合は、次のようにアプリ特有の環境変数でプロキシを設定できるようにすることで対処できます。
+
+#### config.py
+
+```python
+import os
+
+# MYAPP_PROXY 環境変数が設定されていたら http_proxy よりも優先的に使う
+PROXY = os.getenv('MYAPP_PROXY') or os.getenv('http_proxy')
 ```
 

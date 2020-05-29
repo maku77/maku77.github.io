@@ -13,7 +13,7 @@ layout: category-index
 ----
 * [Python のパッケージ管理ツール (pip)](pip.html)
 * [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](env/virtualenv.html)
-* [Python の実行環境を切り替えて使用する (venv)](./venv.html)
+* [Python の実行環境を切り替えて使用する (venv)](env/venv.html)
 * [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
 * [Python でユニットテストを記述する](unittest.html)
 * [Python コードの実行時間を計測する](misc/measure-time.html)
@@ -56,6 +56,7 @@ python コマンド / 実行環境
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
 * [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
 * [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
+* [.env ファイルで環境変数を設定する (python-dotenv)](env/dotenv.html)
 
 
 数値

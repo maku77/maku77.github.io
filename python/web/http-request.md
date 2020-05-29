@@ -143,7 +143,7 @@ Could not access: http://MY-FAKE-DOMAIN.com/
 [Errno 8] nodename nor servname provided, or not known
 ```
 
-`HTTPError` が提供する HTTP ステータスコードなどが必要なければ、親クラスの `URLError` だけでまとめてエラーハンドルしてしまうことができます。
+`HTTPError#code` などで HTTP ステータスコードを個別に取得する必要がないのであれば、親クラスの `URLError` だけでまとめてエラーハンドルしてしまっても OK です。
 
 ```python
 try:
@@ -152,14 +152,12 @@ try:
         print(text)
 except urllib.error.URLError as err:
     print('Could not access: %s' % req.full_url, file=sys.stderr)
-    print(err.reason, file=sys.stderr)
+    print(err, file=sys.stderr)
     sys.exit(1)
 ```
 
-ただし、この場合は 404 などの具体的なエラーコードは取得できないので、次のようなシンプルなエラーメッセージになります。
-
 ```
 Could not access: http://example.com/DUMMY
-Not Found
+HTTP Error 404: Not Found
 ```
 
