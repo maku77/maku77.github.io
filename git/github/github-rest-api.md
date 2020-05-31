@@ -17,14 +17,16 @@ Linux の `curl` コマンドや、スクリプト（Python や Ruby など）�
 * [Users](https://developer.github.com/v3/users/)
     * 指定したユーザの詳細情報を取得する
     * 二要素認証が設定できていないユーザのリストを取得する
-* [Projects](https://developer.github.com/v3/projects/)
-    * プロジェクトのリストを取得する
-    * プロジェクトの詳細情報を取得する
-    * プロジェクトを作成・変更・削除する
+* [Repositories](https://developer.github.com/v3/repos/)
+    * 指定したオーナー（ユーザー or 組織）のリポジトリのリストを取得する
 * [Organizations/Members](https://developer.github.com/v3/orgs/members/)
-    * Organization 内のユーザリストを取得する
+    * 指定した組織のユーザーリストを取得する
 * [Pull Requests](https://developer.github.com/v3/pulls/)
-    * Open 状態の Pull リクエストのリストを取得する
+    * Pull Request のリストを取得する
+* [Issues](https://developer.github.com/v3/issues/)
+    * 指定したリポジトリの Issue のリストを取得する
+* [Projects](https://developer.github.com/v3/projects/)
+    * 指定したリポジトリのプロジェクト（かんばん）のリストを取得する
 
 
 API トークンを発行する
