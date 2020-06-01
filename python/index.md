@@ -225,6 +225,7 @@ HTTP リクエスト
 * [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)](web/download-file.html)
 * [urllib による HTTP 通信 (4) Basic 認証 (urllib.request.HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
 * [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](web/http-request-with-header.html)
+* [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](web/http-request-response-header.html)
 * [requests パッケージによる HTTP 通信](web/http-request-with-requests-package.html)
 
 HTTP サーバー

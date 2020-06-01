@@ -42,7 +42,15 @@ with urllib.request.urlopen(req) as res:
     print(html)
 ```
 
+`Request#set_proxy()` でプロキシサーバーを指定するときは、`http://` や `https://` といったスキーム名は省略することに注意してください。
+スキーム名を記述してしまうと、プロキシがうまく認識されず、次のような DNS エラーになったりします。
+
+```
+urlopen error [Errno 11001] getaddrinfo failed
+```
+
 `Request` オブジェクトは生成時に URL を指定する必要があるため、アクセス先が変わるごとに生成する必要があることに注意してください。
+
 
 
 すべてのリクエストに共通のプロキシを設定する (OpenerDirector + ProxyHandler)
