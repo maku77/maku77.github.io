@@ -43,7 +43,7 @@ layout: category-index
 
 ### クラス
 * [Python のクラス構文](syntax/class.html)
-* [オブジェクトを print で出力できるようにする](print-object.html)
+* [オブジェクトを print で出力できるようにする (str)](print-object.html)
 * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 
@@ -108,6 +108,7 @@ python コマンド / 実行環境
 * [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
+* [リストをフィルタして条件に一致する要素を抽出する (filter)](list/filter.html)
 * [リスト内の特定の値を持つ要素の数を数える (list.count)](list/count.html)
 * [リスト内の条件に一致する要素の数を数える](list/count-if.html)
 * [リスト内の要素をまとめて変更する (map)](list/map.html)
