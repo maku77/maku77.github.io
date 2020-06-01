@@ -7,7 +7,11 @@ date: "2020-05-30"
 ----
 
 Python で GitHub API を利用するアプリケーションを作るときは、GitHub API を実行して情報取得する部分を、1 つのモジュールとして切り出しておくと全体のコードがすっきりします。
-ここでは、サンプルとして `GitHubApi` というクラスを作ってみます。
+ここでは、サンプルとして `GitHubApi` というクラスを作り、次のようなことを行えるようにします。
+
+- `get_members()` や `get_issues()` といった直感的な API で GitHub の情報を取得できるようにする
+- オプションでプロキシや Personal Access Token を指定できるようにする
+- ページネーションによる連続アクセスで、多くの情報を一度に取得できるようにする
 
 GitHub の REST API 自体の説明は、下記の記事を参照してください。
 
@@ -15,11 +19,10 @@ GitHub の REST API 自体の説明は、下記の記事を参照してくださ
 - [GitHub REST API で Issue 情報を取得する方法いろいろ](./github-rest-api-issues.html)
 
 
-GitHubApi クラスの実装
+GitHubApi クラスを実装する
 ----
 
-ここで紹介する `GitHubApi` クラスを使うと、GitHub API を簡単に呼び出して、その結果を Python のオブジェクトとして取得することができます。
-使用イメージは次のような感じです。
+ここで紹介する `GitHubApi` クラスを使うと、次のようなシンプルなコードで GitHub API を呼び出して、その結果を Python のオブジェクトとして取得することができます。
 
 ```python
 # ユーザー情報を取得する
@@ -27,12 +30,13 @@ user = api.get_user('maku77')
 print(user['login'])
 ```
 
-下記は `GitHubApi` クラスの実装です。
+### GitHubApi クラス
 
 ### github.py
 
 ```python
 import json
+import re
 import sys
 from urllib.parse import quote, urlencode
 import urllib.request
@@ -50,55 +54,98 @@ class GitHubApi:
         import ssl
         ssl._create_default_https_context = ssl._create_unverified_context
 
-    def __get_json(self, url):
+    def __get_json(self, url, paginate=False):
         req = self.__create_request(url)
         try:
             with urllib.request.urlopen(req) as res:
                 json_text = res.read().decode('utf-8')
-                return json.loads(json_text)
+                json_obj = json.loads(json_text)
+                # ページネーションによる繰り返し取得
+                if paginate:
+                    next_link = self.__get_next_link(res.info())
+                    if next_link:
+                        json_obj.extend(self.__get_json(next_link))
+                return json_obj
         except urllib.error.URLError as err:
             print('Could not access: %s' % req.full_url, file=sys.stderr)
             print(err, file=sys.stderr)
             sys.exit(1)
 
+    # ページネーションによる連続取得が必要な場合は、
+    # 次のアドレスを返す。必要ない場合は None を返す。
+    def __get_next_link(self, response_headers):
+        link = response_headers['Link']
+        if not link:
+            return None
+        match = re.search(r'<(\S+)>; rel="next"', link)
+        if match:
+            return match.group(1)
+        return None
+
     def __create_request(self, url):
-        req = urllib.request.Request(self.BASE_URL + url)
+        req = urllib.request.Request(url)
         if 'token' in self.option:
             req.add_header('Authorization', 'token %s' % self.option['token'])
         if 'proxy' in self.option:
             req.set_proxy(self.option['proxy'], 'http')
+            req.set_proxy(self.option['proxy'], 'https')
         return req
 
     # 指定したユーザーの情報を取得します
     def get_user(self, username):
-        url = '/users/%s' % quote(username)
+        url = self.BASE_URL + '/users/%s' % quote(username)
         return self.__get_json(url)
 
     # 指定した組織のメンバーリストを取得します
     def get_members(self, org):
-        url = '/orgs/%s/members' % quote(org)
-        return self.__get_json(url)
+        url = self.BASE_URL + '/orgs/%s/members?per_page=100' % quote(org)
+        return self.__get_json(url, paginate=True)
 
-    # 指定したオーナー（ユーザー／組織）のリポジトリ一覧を取得します
-    def get_repos(self, owner):
-        url = '/users/%s/repos' % quote(owner)
-        return self.__get_json(url)
+    # 指定した組織のリポジトリ一覧を取得します
+    def get_org_repos(self, org):
+        url = self.BASE_URL + '/orgs/%s/repos?per_page=100' % quote(org)
+        return self.__get_json(url, paginate=True)
+
+    # 指定したユーザーのリポジトリ一覧を取得します
+    def get_user_repos(self, user):
+        url = self.BASE_URL + '/users/%s/repos?per_page=100' % quote(user)
+        return self.__get_json(url, paginate=True)
 
     # 指定したリポジトリの Issue 一覧を取得します
     def get_issues(self, owner, repo, params={}):
-        url = '/repos/%s/%s/issues' % (quote(owner), quote(repo))
+        url = self.BASE_URL + '/repos/%s/%s/issues?per_page=100' % (quote(owner), quote(repo))
         if params:
-            url = '%s?%s' % (url, urlencode(params))
-        return self.__get_json(url)
+            url = '%s&%s' % (url, urlencode(params))
+        return self.__get_json(url, paginate=True)
 ```
 
 最後の方にある `get_xxx` 系のメソッドが、GitHub API を呼び出すための public メソッドです。
 同じようにメソッドを追加していけば、いろいろな GitHub API に対応することができます。
 どのような API があるかは、[GitHub REST API v3 のサイト](https://developer.github.com/v3/) を参照してください。
 
-下記は、上記の `GitHubApi` クラスを使って、いろいろな情報を取得するサンプルコードです。
+### ページネーションですべての情報を取得する
 
-### 使用例いろいろ
+GitHub API v3 でリポジトリの一覧などを取得すると、デフォルトでは 30 件ずつしか結果を返してくれません。
+クエリ文字列で `per_page=100` と指定すれば 100 件までは一度に取得できるのですが、100 件を超えるすべての情報を取得したいときは、[ページネーションの仕組み](https://developer.github.com/v3/guides/traversing-with-pagination/) を使って何度かに分けて取得する必要があります。
+
+次ページの情報を取得するときは、`page=2` のようにクエリ指定していけばよいのですが、次ページが存在する場合は HTTP レスポンスの `Link` ヘッダーに次ページのアドレスをセットしてくれるので、このアドレスを使って繰り返しアクセスするのがよいでしょう。
+
+上記のサンプルプログラムでは、`__get_json` メソッドの中で次のようにページネーションを処理しています。
+次のページがある場合は、再帰的に `__get_json` を呼び出し、その結果を `json_obj` 配列に結合しています。
+
+```python
+# ページネーションによる繰り返し取得
+if paginate:
+    next_link = self.__get_next_link(res.info())
+    if next_link:
+        json_obj.extend(self.__get_json(next_link))
+```
+
+
+GitHubApi クラスの使用例いろいろ
+----
+
+下記は、上で実装した `GitHubApi` クラスを使って、いろいろな情報を取得するサンプルコードです。
 
 ```python
 from github import GitHubApi
@@ -111,8 +158,8 @@ print(user['login'])
 print(user['blog'])
 print(user['company'])
 
-# 指定したオーナー（ユーザー／組織）のリポジトリ一覧を取得します
-repos = api.get_repos('sony')
+# 指定した組織のリポジトリ一覧を取得します
+repos = api.get_org_repos('sony')
 for repo in repos:
     print(repo['name'])
     print(repo['full_name'])
@@ -134,6 +181,16 @@ for issue in issues:
 issues = api.get_issues('sony', 'nnabla', params={'state': 'all'})
 for issue in issues:
     print(issue['title'])
+```
+
+プロキシや Personal Access Token を指定してアクセスする必要がある場合は、`GitHubApi` コンストラクタのオプションで次のように指定します。
+
+```python
+options = {
+    'proxy': 'proxy.example.com:80',
+    'token': 'a0709c8d0ac21812d9c4b8511298b33ec0fd2813'
+}
+api = GitHubApi(options)
 ```
 
 ここでは、取得した情報のうち、ごく一部のプロパティだけを参照していますが、GitHub API が返す値にはもっといろいろな情報が含まれています。
