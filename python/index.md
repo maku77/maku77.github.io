@@ -161,13 +161,14 @@ python コマンド / 実行環境
 * [指定した拡張子、名前のファイルを列挙する](find-files.html)
 * [ファイル／ディレクトリの存在を確認する](check-file-existence.html)
 * [ファイル／ディレクトリの名前を変更する](change-filename.html)
-* [ディレクトリを作成する](create-directory.html)
-* [ディレクトリを削除する](remove-directory.html)
+* [ディレクトリを作成する (os.mkdir, os.makedirs)](create-directory.html)
+* [ディレクトリを削除する (os.rmdir)](remove-directory.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 
 テキストファイルの読み書き
 ----
-* [テキストファイルを読み込む](io/read-text-file.html)
+* [テキストファイルを読み込む (open, read, readline, readlines)](io/read-text-file.html)
+* [テキストファイルを書き込む (open, write, writelines)](io/write-text-file.html)
 * [CSV ファイルや TSV ファイルを読み込む (csv.reader)](io/csv.html)
 * [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
 

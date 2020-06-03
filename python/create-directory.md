@@ -1,5 +1,5 @@
 ---
-title: "ディレクトリを作成する"
+title: "ディレクトリを作成する (os.mkdir, os.makedirs)"
 date: "2013-05-08"
 ---
 
