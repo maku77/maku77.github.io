@@ -2,6 +2,7 @@
 title: "MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）"
 date: "2014-11-15"
 redirect: https://memoja.net/p/bu7hs3d
+sitemap: false
 ---
 
 MetaTrader4 や MetaTrader5 は Windows 用のソフトウェアしか開発されていません。
