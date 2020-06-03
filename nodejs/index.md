@@ -125,8 +125,10 @@ Node.js の制御構文
 1. [Uncaught Exception（未捕捉例外）をハンドルする](exception/uncaught-exception.html)
 1. [ドメインごとに Uncaught Exception（未捕捉例外）をハンドルする](exception/domain-for-exception.html)
 
-### async.js による非同期処理
-1. [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
-1. [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
-1. [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
+### 非同期処理
+- [util.promisify でコールバックベースの関数を Promise 化する](async/promisify.html)
+- async.js による非同期処理
+    1. [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
+    1. [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
+    1. [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
 
