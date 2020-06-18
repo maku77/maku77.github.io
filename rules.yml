@@ -1,0 +1,14 @@
+version: 1
+rules:
+  - expected: JavaScript
+    pattern: /java ?script/i
+  - expected: VS Code
+    pattern: /vs ?code/i
+    specs:
+      - from: vscode
+        to: VS Code
+      - from: vs code
+        to: VS Code
+      - from: VS Code
+        to: VS Code
+

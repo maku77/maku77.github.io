@@ -1,6 +1,11 @@
 {
   "rules": {
     "no-dropping-the-ra": true,
-    "no-mix-dearu-desumasu": true
+    "no-mix-dearu-desumasu": true,
+    "prh": {
+      "rulePaths": [
+        "./rules.yml"
+      ]
+    }
   }
 }
