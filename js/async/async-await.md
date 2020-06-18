@@ -43,7 +43,7 @@ function fetchFile(url) {
     if (url.endsWith('.png')) {
       resolve('success: ' + url);
     } else {
-      reject('failure: ' + url + ' not found');
+      reject(new Error(url + ' not found'));
     }
   });
 }
@@ -171,7 +171,7 @@ function div(num1: number, num2: number): Promise<number> {
   return new Promise(async (resolve, reject) => {
     await sleep(3000);
     if (num2 == 0) {
-      reject('ERROR: Zero division');
+      reject(new Error('Zero division'));
     } else {
       resolve(num1 / num2);
     }
@@ -183,8 +183,8 @@ function div(num1: number, num2: number): Promise<number> {
 そのような場合は、`async` キーワードを付けて関数を定義すると、その関数内での `new Promise ...` といった記述を省略できるようになります。
 その代わりに、`return` や `throw` を呼び出すだけで、次のように振る舞ってくれます。
 
-- `return 'Hoge'` ... Promise で `resolve('Hoge')` したように振舞う
-- `throw 'Hoge'` ... Promise で `reject('Hoge')` したように振舞う
+- `return 'success'` ... Promise で `resolve('success')` したように振舞う
+- `throw new Error('fail')` ... Promise で `reject(new Error('fail'))` したように振舞う
 
 つまり、`async` 関数からの戻り値や例外は、自動的に `Promise` オブジェクトでラップされるということです（`Promise.then` や `Promise.catch` の戻り値の仕組みと同じです）。
 この仕組みを利用すると、前述の `div` 関数は次のようにシンプルに記述できます。
@@ -193,7 +193,7 @@ function div(num1: number, num2: number): Promise<number> {
 async function div(num1: number, num2: number): Promise<number> {
   await sleep(3000);
   if (num2 == 0) {
-    throw 'ERROR: Zero division';
+    throw new Error('Zero division');
   } else {
     return num1 / num2;
   }
@@ -230,7 +230,7 @@ async function fetchUserName(id: number): Promise<string> {
   if (Math.random() > 0.5) {
     return 'まく';
   } else {
-    throw 'ERROR: User not found'
+    throw new Error('User not found');
   }
 }
 

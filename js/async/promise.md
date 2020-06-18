@@ -155,7 +155,7 @@ function fetchFile(url) {
     if (url.endsWith('.png')) {
       resolve('success: ' + url);
     } else {
-      reject('failure: ' + url + ' not found');
+      reject(new Error(url + ' not found'));
     }
   });
 }
