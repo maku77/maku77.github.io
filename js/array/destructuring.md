@@ -1,6 +1,7 @@
 ---
 title: "配列の分割代入で複数の値を同時に代入する (Array destructuring)"
 date: "2019-06-18"
+lastmod: "2020-07-18"
 ---
 
 配列の分割代入の基本
@@ -90,4 +91,10 @@ console.log(fibonacci(3));  //=> 2
 console.log(fibonacci(4));  //=> 3
 console.log(fibonacci(5));  //=> 5
 ```
+
+
+参考
+----
+
+- [分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)](../syntax/object-destructuring.html)
 
