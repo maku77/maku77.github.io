@@ -87,7 +87,8 @@ Node.js 実行環境など
 - [http 標準モジュールを使用して HTTP 通信を行う](net/http-module.html)
 - [request モジュールを使用して HTTP 通信を行う](net/request-module.html)
 - [request-promise モジュールを使用して HTTP 通信を行う](net/request-promise-module.html)
-- [プロキシ経由の HTTP 通信を行う](net/http-via-proxy.html)
+- [プロキシ経由の HTTP 通信を行う（global-agent モジュール）](net/global-agent.html)
+- [プロキシ経由の HTTP 通信を行う（request モジュール）](net/proxy-in-request.html)
 
 ### WebSocket 通信
 - [WebSocket のクライアントを作成する](net/websocket-client.html)
