@@ -85,8 +85,9 @@ Node.js 実行環境など
 ### HTTP 通信 / HTTP サーバ
 - [http 標準モジュールを使用して HTTP サーバを立てる](net/http-server.html)
 - [http 標準モジュールを使用して HTTP 通信を行う](net/http-module.html)
-- [request モジュールを使用して HTTP 通信を行う](net/request-module.html)
-- [request-promise モジュールを使用して HTTP 通信を行う](net/request-promise-module.html)
+- [node-fetch モジュールを使用して HTTP 通信を行う](net/node-fetch.html)
+- [request モジュールを使用して HTTP 通信を行う (deprecated)](net/request-module.html)
+- [request-promise モジュールを使用して HTTP 通信を行う (deprecated)](net/request-promise-module.html)
 - [プロキシ経由の HTTP 通信を行う（global-agent モジュール）](net/global-agent.html)
 - [プロキシ経由の HTTP 通信を行う（request モジュール）](net/proxy-in-request.html)
 
