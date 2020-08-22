@@ -201,6 +201,7 @@ Web サイト
 ----
 - [URL エンコード／デコードを行う (encodeURI, encodeURIComponent)](web/encode-uri.html)
 - [URL 内のハッシュフラグメントの値を扱う (hashchange, location.hash)](web/detect-fragment-change.html)
+- [URL からクエリ文字列を取り出す (window.location.search, URLSearchParams)](web/search-params.html)
 
 
 実行環境
