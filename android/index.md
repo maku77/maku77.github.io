@@ -131,6 +131,9 @@ Java レイヤ
 * [Canvas に複数行のテキストを描画する](ui/draw-multiline-text-on-canvas.html)
 * [Canvas への描画時にアンチエイリアスを有効にする](ui/antialias-on-canvas.html)
 
+### 数値／文字列
+* [数値をある範囲内［min, max］に丸める (MathUtils.clamp)](numstr/clamp.html)
+
 ### Service（サービス）
 * [同じプロセス内のサービスへバインドする (Local Bind)](service/local-bind.html)
 * [別プロセスのサービスへバインドする (Remote Bind)](service/remote-bind.html)
