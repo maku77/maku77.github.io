@@ -83,7 +83,7 @@ URI を構成する際に、パーセントエンコーディングが必要に�
 例えば、ユーザが Web サイトのフォーム上で `Nuts&Milk` のような値を入力した場合、その値を query 部分の値として扱うには、`&` を `%26` にエスケープしなければいけません。
 
 ~~~ javascript
-var userInput = 'Nuts&Milk';
+const userInput = 'Nuts&Milk';
 console.log(encodeURIComponent(userInput));  //=> 'Nuts%26Milk'
 ~~~
 
@@ -95,7 +95,7 @@ JavaScript でユーザ入力を含む query 文字列を構成する場合、�
 ~~~ javascript
 // キー＆バリューのオブジェクトから query 文字列を作成する
 function buildQuery(params) {
-  var esc = encodeURIComponent;
+  const esc = encodeURIComponent;
   return Object.keys(params).map(k => {
     return esc(k) + '=' + esc(params[k]);
   }).join('&');
@@ -116,12 +116,12 @@ function buildQuery(params) {
 #### 使用例
 
 ~~~ javascript
-var params = {
+const params = {
   key1: 'a&b',  // ユーザー入力で構成されていると仮定
   key2: 'c&d'
 };
 
-var query = buildQuery(params);
+const query = buildQuery(params);
 console.log(query);  //=> 'key1=a%26b&key2=c%26d'
 ~~~
 
@@ -134,7 +134,7 @@ Node.js では、組み込みの [querystring モジュール](https://nodejs.or
 ~~~ javascript
 const querystring = require('querystring');
 
-var query = querystring.stringify({ key1: 'a&b', key2: 'c&d' });
+const query = querystring.stringify({ key1: 'a&b', key2: 'c&d' });
 console.log(query);  //=> 'key1=a%26b&key2=c%26d'
 ~~~
 
