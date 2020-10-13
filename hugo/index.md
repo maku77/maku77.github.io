@@ -28,6 +28,7 @@ Hugo
 * [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
 * [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
 * [ショートコードをエスケープ処理してそのまま表示する](shortcode/escape.html)
+* [あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)](shortcode/has-shortcode.html)
 
 hugo コマンド
 ----
