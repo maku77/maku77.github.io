@@ -80,7 +80,7 @@ Hugo のベーステンプレートなどに次のようなコードを入れて
 
 ```html
   ...
-  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({startOnLoad: false});
     mermaid.init(undefined, '.language-mermaid');
