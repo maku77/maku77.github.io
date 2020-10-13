@@ -118,7 +118,7 @@ sequenceDiagram
   const JS_FILE = 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js';
 
   // JSファイルの多重ロードを防止
-  const jsSet = window.LOADED_JS_SET = window.LOADED_JS_SET || new Set();
+  const jsSet = window.loadedJsSet = window.loadedJsSet || new Set();
   if (jsSet.has(JS_FILE)) return;
   jsSet.add(JS_FILE);
 
@@ -134,10 +134,12 @@ sequenceDiagram
 </script>
 ```
 
-すでにロードした JavaScript の情報は、グローバルな `window.LOADED_JS_SET` 変数に格納しておくことで重複ロードを防いでいます。
+すでにロードした JavaScript の情報は、グローバルな `window.loadedJsSet` 変数に格納しておくことで重複ロードを防いでいます。
 この方法であれば、`baseof.html` などのベーステンプレートで `script` 要素を出力する必要もなく、ショートコード用のファイルだけで完結できます。
 ある意味 `.HasShortcode` を使う方法よりもすっきりするかもしれません。
 
 この方法の欠点としては、このショートコードを使うたびに同じ JavaScript コードが出力されてしまうという点でしょうか。
 とはいえ、ページ内でのショートコードの呼び出し回数が高々数回程度であるのであれば、それほど気にしなくてもいいと思います。
+
+- 参考: [mermaid.js で Markdown 中に UML 図を埋め込む](../advanced/mermaid.html)
 

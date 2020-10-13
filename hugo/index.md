@@ -124,6 +124,7 @@ hugo コマンド
 * [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
+* [mermaid.js で Markdown 中に UML 図を埋め込む](advanced/mermaid.html)
 
 トラブルシューティング
 ----
