@@ -6,6 +6,8 @@ layout: category-index
 
 GitHub
 ====
+
+* [Pull Request のコードレビューワーを自動でアサインする](github/auto-assign.html)
 * [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](github/project-portal.html)
 * [GitHub Pages で独自の 404 ページを用意する](github/404-page.html)
 * [GitHub の Organization を構成したときのチームの権限について理解する](github/team-permission.html)
