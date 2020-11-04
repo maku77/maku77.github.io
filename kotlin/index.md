@@ -52,6 +52,7 @@ layout: category-index
 * [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
 * [クラス名を文字列で取得する](misc/class-name.html)
 * [クラス内の MutableList を immutable な List にして公開する](misc/return-as-immutable.html)
+* [インラインクラスでプリミティブ型の型安全性を確保する (inline class)](misc/inline-class.html)
 
 
 object キーワード
