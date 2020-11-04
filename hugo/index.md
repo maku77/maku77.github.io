@@ -29,6 +29,7 @@ Hugo
 * [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
 * [ショートコードをエスケープ処理してそのまま表示する](shortcode/escape.html)
 * [あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)](shortcode/has-shortcode.html)
+* [SVGファイルをインラインで埋め込むショートコードを作成する](shortcode/inline-svg.html)
 
 hugo コマンド
 ----
