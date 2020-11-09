@@ -17,16 +17,14 @@ description: "チェックボックスの見た目を CSS でカスタマイズ�
 
 ~~~ html
 <div class="menu">
-  <label for="item1">項目１</label>
-  <input type="checkbox" id="item1">
+  <label>項目１<input type="checkbox"></label>
   <ul>
     <li>項目１－１
     <li>項目１－２
     <li>項目１－３
   </ul>
 
-  <label for="item2">項目２</label>
-  <input type="checkbox" id="item2">
+  <label>項目２<input type="checkbox"></label>
   <ul>
     <li>項目２－１
     <li>項目２－２
@@ -144,6 +142,6 @@ CSS では、サブメニューを初期状態で非表示にするために、�
 最初からメニューが開かれている状態にしたいのであれば、チェックボックス要素のグローバル属性 `checked` を設定しておきます。
 
 ~~~ html
-<input type="checkbox" id="item1" checked>
+<input type="checkbox" checked>
 ~~~
 
