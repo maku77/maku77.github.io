@@ -234,3 +234,76 @@ fun main() {
 
 このような場面で型安全性を確保するには、`typealias` で別名を付けるのではなく、インラインクラス（によるラッパークラス）で新しい型を定義する必要があります。
 
+
+コンパイル時の警告について
+----
+
+### Experimental feature 警告
+
+インラインクラスは現状 Experimental feature として提供されているので、使用しようとすると、
+
+```
+The feature "inline classes" is experimental
+```
+
+といった警告がでることがあります。
+インラインクラスが正式リリースされれば、この警告は消えるのでそのままにしておいてもよいのですが、気になる場合は次のように警告を抑制することができます。
+
+#### 方法1: ファイルの先頭にアノテーションを記述する方法
+
+```kotlin
+@file:Suppress("EXPERIMENTAL_FEATURE_WARNING")
+```
+
+#### 方法2: 対象コードの直前にアノテーションを記述する方法
+
+```kotlin
+@Suppress("EXPERIMENTAL_FEATURE_WARNING")
+inline class CategoryId(val id: Int)
+```
+
+#### 方法3: build.gradle (.kts) にコンパイラオプションを指定する方法
+
+```groovy
+# build.gradle
+compileKotlin {
+    kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
+}
+
+# build.gradle.kts
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.freeCompilerArgs += "-Xinline-classes"
+}
+```
+
+いずれも、Android Studio を使用している場合は、`inline` にカーソルを合わせて `Alt + Enter` で自動入力できます。
+
+### 1 ファイルでたくさん inline class 定義するとき
+
+次のように 1 ファイル内でたくさんインラインクラスを定義している場合、detekt などの静的解析で警告が発生することがあります。
+
+#### types.kt
+
+```kotlin
+package com.example.myapp
+
+inline class GenreId(val id: Int)
+inline class EventId(val id: Int)
+```
+
+```
+class GenreId should be declared in a file named GenreId.kt
+```
+
+例えば、[detekt であれば、@Suppress アノテーションを使ってこの警告を抑制](https://arturbosch.github.io/detekt/suppressing-rules.html) することができます。
+
+```kotlin
+@file:Suppress(
+    "MatchingDeclarationName",  // 「ファイル名＝公開クラス名」のチェックを抑制
+    "EXPERIMENTAL_FEATURE_WARNING"  // inline class の experimental 警告を抑制
+)
+package com.example.myapp
+
+// ...
+```
+
