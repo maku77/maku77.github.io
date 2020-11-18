@@ -235,6 +235,38 @@ fun main() {
 このような場面で型安全性を確保するには、`typealias` で別名を付けるのではなく、インラインクラス（によるラッパークラス）で新しい型を定義する必要があります。
 
 
+toString はオーバーライドした方がいいかもしれない
+----
+
+既存の `Int` 変数などをインラインクラスに置き換える場合は、`toString()` の戻り値が変化することに注意してください。
+例えば、下記のように `Int` 変数の `toString()` を呼び出している部分があるとします。
+
+```kotlin
+val n = 100
+val s: String = n.toString()  //=> "100"
+```
+
+これを、インラインクラスに置き換えると、`toString()` の値が次のように変わります。
+
+```kotlin
+inline class GenreId(val value: Int)
+
+val n = GenreId(100)
+val s: String = n.toString()  //=> "GenreId(value=100)"
+```
+
+このような振舞いの変化を防ぎたい場合は、次のように `toString()` をオーバーライドしておくと安心です。
+
+```kotlin
+inline class GenreId(val value: Int) {
+    override fun toString(): String = value.toString()
+}
+
+val n = GenreId(100)
+val s: String = n.toString()  //=> "100"
+```
+
+
 コンパイル時の警告について
 ----
 
