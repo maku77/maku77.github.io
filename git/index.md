@@ -17,7 +17,8 @@ GitHub
 * [GitHub REST API を使用する](github/github-rest-api.html)
     * [GitHub REST API で Issue 情報を取得する方法いろいろ](github/github-rest-api-issues.html)
     * [GitHub REST API を Python から使用する](github/github-rest-with-python.html)
-* [GitHub で管理している社内リポジトリをトピックで分類する](github/topics.html)
+* [GitHub で管理している社内リポジトリをトピックで分類する (topics)](github/topics.html)
+* [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](github/autolink.html)
 
 GitLab（GitHub クローン）
 ====
