@@ -121,6 +121,10 @@ object キーワード
 ### セット (Set)
 * [セットの集合演算を行う](collection/set-operation.html)
 
+日時（日付／時刻）
+----
+
+* [Kotlin で日時（日付／時刻）を扱う方法いろいろ](misc/time.html)
 
 パッケージ
 ----
