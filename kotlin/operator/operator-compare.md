@@ -129,19 +129,34 @@ override fun compareTo(other: Complex): Int {
 }
 ```
 
-### コレクション系クラスのソート
 
-コレクション（`List`、`Set`、`Array` など）に格納された要素が `Compare` インタフェースを実装していれば、`sorted()` メソッドや `sortedAscending()` メソッドを使ってソートすることができます。
+コレクション系クラスのソート
+----
+
+### sort と sorted
+
+コレクション（`List`、`Set`、`Array` など）に格納された要素が `Comparable` インタフェースを実装していれば、`sort()` メソッドや `sorted()` メソッドを使ってソートすることができます。
+
 
 ```kotlin
-val list = listOf(
-    Complex(4, 2),
-    Complex(1, 3),
-    Complex(2, 5)
-)
+data class Complex(val re: Int, val im: Int) : Comparable<Complex> {
+    override fun compareTo(other: Complex): Int {
+        return compareValuesBy(this, other, Complex::re, Complex::im)
+    }
+}
 
-println(list.sorted())  // 昇順ソート
-println(list.sortedDescending())  // 降順ソート
+
+fun main() {
+    val list = listOf(
+        Complex(4, 2),
+        Complex(1, 3),
+        Complex(2, 5)
+    )
+    val sorted1 = list.sorted()  // 昇順ソート
+    val sorted2 = list.sortedDescending()  // 降順ソート
+    println(sorted1)
+    println(sorted2)
+}
 ```
 
 #### 実行結果
@@ -149,5 +164,88 @@ println(list.sortedDescending())  // 降順ソート
 ```
 [Complex(re=1, im=3), Complex(re=2, im=5), Complex(re=4, im=2)]
 [Complex(re=4, im=2), Complex(re=2, im=5), Complex(re=1, im=3)]
+```
+
+`sorted` 系メソッドが上記のように、ソート結果を戻り値で返すのに対し、`sort` 系メソッドは自分自身のリストを書き換えます（リスト生成に `listOf` ではなく `mutableListOf` を使う必要があります）。
+
+```kotlin
+fun main() {
+    val list = mutableListOf(
+        Complex(4, 2),
+        Complex(1, 3),
+        Complex(2, 5)
+    )
+    list.sort()  // 昇順ソート（自分自身を書き換え）
+    println(list)
+    list.sortDescending()  // 降順ソート（自分自身を書き換え）
+    println(list)
+}
+```
+
+### いろんな条件でソートする (sortBy, sortWith)
+
+状況によって異なるルールでソートしたいときは、`sortBy (sortedBy)`、`sortWith (sortedWith)` などのメソッドを使い、パラメータでソートルールを指定します。
+
+特定のフィールドの値でソートしたいときは、`sortBy (sortedBy)` を使うのが簡単です。
+フィールドは、[メンバー参照](../basic/member-reference.html) の形で指定できます。
+
+```kotlin
+data class Book(val title: String, val price: Int)
+
+fun main() {
+    val books = listOf(
+        Book("Title3", 1500),
+        Book("Title1", 2000),
+        Book("Title2", 1000)
+    )
+    val booksInTitleOrder = books.sortedBy(Book::title)  // title 順にソート
+    val booksInPriceOrder = books.sortedBy { it.price }  // price 順にソート
+    println(booksInTitleOrder)
+    println(booksInPriceOrder)
+}
+```
+
+複数のフィールドの値を使った、もう少し複雑なソートを行いたい場合は、`sortWith (sortedWith)` メソッドに `Comparator` オブジェクトを渡します。
+
+```kotlin
+data class Book(val title: String, val price: Int) {
+    companion object {
+        /** 価格、タイトルの順でソートするための比較関数 */
+        val PRICE_ORDER = Comparator<Book> { b1, b2 ->
+            if (b1.price != b2.price) {
+                b1.price - b2.price
+            } else {
+                b1.title.compareTo(b2.title)
+            }
+        }
+    }
+}
+
+fun main() {
+    val books = listOf(
+        Book("Title3", 1500),
+        Book("Title1", 2000),
+        Book("Title2", 1000)
+    )
+    val booksInPriceOrder = books.sortedWith(Book.PRICE_ORDER)
+    println(booksInPriceOrder)
+}
+```
+
+Kotlin は、`Comparator` オブジェクトを生成するためのユーティリティメソッド [compareBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.comparisons/compare-by.html) を提供しているので、上記の `PRICE_ORDER` オブジェクトは次のように簡単に生成できます。
+
+```kotlin
+data class Book(val title: String, val price: Int) {
+    companion object {
+        /** 価格、タイトルの順でソートするための比較関数 */
+        val PRICE_ORDER: Comparator<Book> = compareBy(Book::price, Book::title)
+    }
+}
+```
+
+もちろん、`sortWith (sortedWith)` メソッドを呼び出すときに、動的に `Comparator` オブジェクトを生成することもできます。
+
+```kotlin
+val booksInPriceOrder = books.sortedWith(compareBy(Book::price, Book::title))
 ```
 
