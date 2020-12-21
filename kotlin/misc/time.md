@@ -1,6 +1,7 @@
 ---
 title: "Kotlin で日時（日付／時刻）を扱う方法いろいろ"
 date: "2020-12-04"
+lastmod: "2020-12-21"
 ---
 
 日時を表すクラス
@@ -148,6 +149,29 @@ val dt2 = dt1.plusYears(10)  //=> 2030-02-15T21:30:50
 | `dt.withHour(18)` | `2020-02-15T18:30:50` | 18時に書き換え |
 | `dt.withMinute(45)` | `2020-02-15T21:45:50` | 45分に書き換え |
 | `dt.withSecond(0)` | `2020-02-15T21:30:00` | 0秒に書き換え |
+
+あるフィールド以下の値をすべて 0 にしたいときは、次のように `LocalDateTime#truncatedTo()` や `ZonedDateTime#truncatedTo()` を使用します。
+
+```kotlin
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
+
+fun main() {
+    val dt = LocalDateTime.parse("2020-02-15T21:30:50")
+
+    // 「日」以下のフィールドを切り捨て（その日の 0 時 0 分にする）
+    val truncated1: LocalDateTime = dt.truncatedTo(ChronoUnit.DAYS)
+    println(truncated1)  //=> 2020-02-15T00:00
+
+    // 「時」以下のフィールドを切り捨て
+    val truncated2: LocalDateTime = dt.truncatedTo(ChronoUnit.HOURS)
+    println(truncated2)  //=> 2020-02-15T21:00
+
+    // 「分」以下のフィールドを切り捨て
+    val truncated3: LocalDateTime = dt.truncatedTo(ChronoUnit.MINUTES)
+    println(truncated3)  //=> 2020-02-15T21:30
+}
+```
 
 
 日時オブジェクトを文字列にフォーマットする
