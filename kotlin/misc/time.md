@@ -258,3 +258,56 @@ fun strTimeToMillis(timeStr: String): Long {
 val millis: Long = strTimeToMillis("2020-12-04T22:49:30Z")
 ```
 
+### エポックタイム（ミリ秒）を 0 時 0 分の値に切り詰める
+
+次のユーティリティクラス `TimeUtil` の `startTimeOfDay()` は、渡されたタイムスタンプを、その日の 0 時 0 分になるように切り詰めます。
+
+```kotlin
+import java.time.ZonedDateTime
+import java.time.ZoneId
+import java.time.Instant
+import java.time.temporal.ChronoUnit
+import java.time.format.DateTimeFormatter
+
+object TimeUtil {
+    /**
+     * エポックタイム（ミリ秒）を切り詰めて「00時00分00秒」の値にします。
+     */
+    fun startTimeOfDay(epochMillis: Long): Long {
+        val zoned = Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault())
+        return zoned.truncatedTo(ChronoUnit.DAYS).toInstant().toEpochMilli()
+    }
+
+    /**
+     * エポックタイム（ミリ秒）を切り詰めて「24時00分00秒」の値にします。
+     */
+    fun endTimeOfDay(epochMillis: Long): Long {
+        val zoned = Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault())
+        return zoned.plusDays(1).truncatedTo(ChronoUnit.DAYS).toInstant().toEpochMilli()
+    }
+
+    /**
+     * タイムスタンプを分かりやすい形式で表示します（デバッグ用）。
+     */
+    fun prettyPrintTimeStamp(epochMillis: Long) {
+        val zoned = Instant.ofEpochMilli(epochMillis).atZone(ZoneId.systemDefault())
+        println(zoned.format(DateTimeFormatter.ISO_DATE_TIME))
+    }
+}
+
+// 使用例
+fun main() {
+    val currentTime = System.currentTimeMillis()
+    val startTimeOfDay = TimeUtil.startTimeOfDay(currentTime)
+    val endTimeOfDay = TimeUtil.endTimeOfDay(currentTime)
+
+    // 結果の確認
+    println(currentTime)     //=> 1608624565893
+    println(startTimeOfDay)  //=> 1608595200000
+    println(endTimeOfDay)    //=> 1608681600000
+    TimeUtil.prettyPrintTimeStamp(currentTime)     //=> 2020-12-22T08:09:25.893Z[UTC]
+    TimeUtil.prettyPrintTimeStamp(startTimeOfDay)  //=> 2020-12-22T00:00:00Z[UTC]
+    TimeUtil.prettyPrintTimeStamp(endTimeOfDay)    //=> 2020-12-23T00:00:00Z[UTC]
+}
+```
+
