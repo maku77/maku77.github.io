@@ -1,6 +1,8 @@
 ---
 title: "モメンタム (Momentum) のインジケータを作成する"
 date: "2015-06-14"
+redirect: https://memoja.net/p/3emsz6c
+sitemap: false
 ---
 
 モメンタムは下記の計算式で求められます。

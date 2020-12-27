@@ -1,6 +1,8 @@
 ---
 title: "組み込み関数の実行に失敗したときにエラー情報を表示する"
 date: "2016-03-20"
+redirect: https://memoja.net/p/av9kv7g
+sitemap: false
 ---
 
 MQL の組み込み関数の実行に失敗した時には、`GetLastError` によってそのエラーコードを取得できます。

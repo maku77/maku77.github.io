@@ -1,6 +1,8 @@
 ---
 title: "カスタムインジケータの OnCalculate 関数を最適化する"
 date: "2015-02-01"
+redirect: https://memoja.net/p/5q5gs5g
+sitemap: false
 ---
 
 カスタムインジケータの計算部分を担う `OnCalculate` は、価格の変化 (Tick) ごとに呼び出されますが、`prev_calculated` パラメータの値をうまく使うことで、すでに計算済みの値を再計算しないでも済むように処理を最適化ことができます。

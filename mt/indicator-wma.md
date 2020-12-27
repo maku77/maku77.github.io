@@ -1,6 +1,8 @@
 ---
 title: "加重移動平均線のカスタムインジケータを作成する"
 date: "2015-06-10"
+redirect: https://memoja.net/p/f2eq2dp
+sitemap: false
 ---
 
 WMA: Weighted Moving Average（加重移動平均線）は、直前の価格ほど重みをおいた移動平均線です。考え方は EMA（指数平滑移動平均線）に近いのですが、WMA の方が計算はシンプルです。

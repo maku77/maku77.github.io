@@ -7,8 +7,8 @@ __MT 関連の記事は別サイトへ移転を始めています。レイアウ
 
 インストール
 ====
-* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）](https://memoja.net/p/bu7hs3d)
-* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）](https://memoja.net/p/a2hwcq5)
+* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）&#x2197;](https://memoja.net/p/bu7hs3d)
+* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）&#x2197;](https://memoja.net/p/a2hwcq5)
 
 
 MQL
@@ -18,22 +18,16 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 
 はじめに
 ----
-* [組み込み関数の実行に失敗したときにエラー情報を表示する](basic/show-error.html)
+* [組み込み関数の実行に失敗したときにエラー情報を表示する &#x2197;](https://memoja.net/p/av9kv7g)
 
 カスタムインジケータ (Custom Indicator)
 ----
-* [カスタムインジケータを作成する](create-indicator.html)
-* [カスタムインジケータの OnCalculate 関数を最適化する](optimize-on-calculate.html)
-* [カスタムインジケータで使用できるイベント](event-for-indicator.html)
-* [カスタムインジケータに水平線を表示する](indicator-level-line.html)
-
-### カスタムインジケータのサンプル
-* 単純移動平均線 (SMA: Simple Moving Average)
-  * [移動平均線のカスタムインジケータを作成する (1)](moving-average1.html)
-  * [移動平均線のカスタムインジケータを作成する (2) 移動平均計算の最適化](moving-average2.html)
-  * [移動平均線のカスタムインジケータを作成する (3) 3 本の移動平均線を表示する](moving-average3.html)
-* [加重移動平均線 (WMA: Weighted Moving Average) のカスタムインジケータを作成する](indicator-wma.html)
-* [モメンタム (Momentum) のインジケータを作成する](indicator-momentum.html)
+* [カスタムインジケータを作成する &#x2197;](https://memoja.net/p/5q5gs5g)
+* [カスタムインジケータで使用できるイベント &#x2197;](https://memoja.net/p/ugs5fq2)
+* [カスタムインジケータに水平線を表示する &#x2197;](https://memoja.net/p/fsy7djp)
+* [単純移動平均線 (SMA: Simple Moving Average) のカスタムインジケータを作成する &#x2197;](https://memoja.net/p/h3fr3do)
+* [加重移動平均線 (WMA: Weighted Moving Average) のカスタムインジケータを作成する &#x2197;](https://memoja.net/p/f2eq2dp)
+* [モメンタム (Momentum) のインジケータを作成する &#x2197;](https://memoja.net/p/3emsz6c)
 
 エキスパートアドバイザ (EA: Expert Advisor)
 ----

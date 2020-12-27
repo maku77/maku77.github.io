@@ -1,6 +1,8 @@
 ---
 title: "カスタムインジケータに水平線を表示する"
 date: "2015-06-14"
+redirect: https://memoja.net/p/fsy7djp
+sitemap: false
 ---
 
 `IndicatorSetXxx()` 系の関数を使用して、インジケータに水平線を表示することができます。
