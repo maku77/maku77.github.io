@@ -9,6 +9,7 @@ Windows バッチファイル
 ### 環境
 * [Windows で Ruby や Python のスクリプトを組み込みコマンドのように使用する](run-script-as-command.html)
 * [環境変数が設定されているかどうか調べる](batch/check-env-var.html)
+* [バッチファイルが管理者として実行されているか調べる](batch/run-as-admin.html)
 
 ### 構文
 * [バッチファイルの FOR ループ (1) 数値、ファイル集合、ディレクトリ集合のループ処理](for-loop.html)
@@ -24,12 +25,12 @@ Windows バッチファイル
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
 
 ### ファイル／ディレクトリ／パス
+* [バッチファイルのファイル名やディレクトリ名を取得する](file/batch-dir.html)
 * [DIR コマンドでファイルやディレクトリを再帰的に検索する](find-files.html)
 * [DIR コマンドでファイルやディレクトリを OR 検索する](or-dir.html)
 * [カレントディレクトリ以下のファイルやディレクトリを順に処理する](for-each-file.html)
 * [findstr でファイル内の文字列を検索する](file/findstr.html)
 * [既にディレクトリが存在している場合の mkdir のエラーを抑制する](file/avoid-mkdir-error.html)
-* [バッチファイルが格納されているディレクトリのパスを取得する](file/batch-dir.html)
 * [複数のファイルを連結する](file/concat-file.html)
 
 ### 日時

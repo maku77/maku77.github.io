@@ -249,14 +249,16 @@ echo I am Maku.
 
 exit /b
 :USAGE
-    echo Usage: sample YOUR_NAME
+    echo Usage: %~n0 YOUR_NAME
 ```
+
+`%~n0` はディレクトリ名を除いたバッチファイル名に変換されます。
 
 #### 実行例
 
 ```
 C:\> hello
-Usage: sample YOUR_NAME
+Usage: hello YOUR_NAME
 
 C:\> hello Jack
 Hello, Jack.
