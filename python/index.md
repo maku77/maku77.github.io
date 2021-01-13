@@ -208,6 +208,7 @@ SQL
 
 日時（日付／時刻）
 ====
+* [Python で日時（日付／時刻）の情報を扱う (datetime, date, time, timedelta)](datetime/basic.html)
 * [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
