@@ -19,6 +19,7 @@ Tools
 ### パフォーマンス
 * [Choreographer で FPS を計測する（Fps クラスの実装）](fw/fps.html)
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
+* [ADB で描画パフォーマンス計測のデバッグ機能を有効にする](tools/adb-debug-options.html)
 * [Traceview でプロファイル情報を表示する](tools/traceview.html)
 * [Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](tools/systrace-cmd.html)
 * [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
