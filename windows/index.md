@@ -23,6 +23,7 @@ Windows バッチファイル
 * [標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する](io/redirect-stdout-and-stderr.html)
 * [echo で改行だけ出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
+* [バッチファイルでコマンドの実行結果を変数に格納する](io/set-command-result.html)
 
 ### ファイル／ディレクトリ／パス
 * [バッチファイルのファイル名やディレクトリ名を取得する](file/batch-dir.html)
