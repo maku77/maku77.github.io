@@ -3,14 +3,16 @@ title: "Gradle 実行時の 3 つのフェーズ"
 date: "2014-06-08"
 ---
 
+3 つのフェーズ
+----
+
 Gradle によるビルドを実行するとき、内部では下記のような 3 つのフェーズに分けてビルドが実行されていきます。
 
 1. Initialization フェーズ
 2. Configuration フェーズ
 3. Execution フェーズ
 
-(1) Initialization フェーズ
----
+### (1) Initialization フェーズ
 
 マルチプロジェクトにおけるプロジェクトの依存関係が解決され、プロジェクトのビルド順序が決められるフェーズです。
 サブプロジェクトの構成は、トップレベルのディレクトリに置かれる `settings.gradle` ファイルで定義されます（Gradle の内部では、このファイルを基に [Settings](https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html) オブジェクトが生成されています）。
@@ -31,8 +33,7 @@ dependencies {
 }
 ```
 
-(2) Configuration フェーズ
----
+### (2) Configuration フェーズ
 
 すべてのプロジェクトの `build.gradle` が処理され、すべてのタスクの依存関係を認識するフェーズです。
 タスクの依存関係は、下記のように `dependsOn` プロパティで指定されます。
@@ -49,9 +50,64 @@ Configuration フェーズでは、すべてのタスク定義を走査するた
 
 Gradle の処理系内部では、依存グラフ (dependency graph) が生成されています。
 
-(3) Execution フェーズ
----
+### (3) Execution フェーズ
 
 実際にどのタスクを実行すべきかを判断し、タスクの実行を行うフェーズです。
 `gradle` コマンドに渡したタスク名や、実行時のカレントディレクトによってどのタスクを実行するかが変化します。
+
+
+振る舞いを調べてみる
+----
+
+次のようなビルドファイルを作成すると、3 つのフェーズがどのような順番で実行されていくかを確認することができます。
+
+### settings.gradle
+
+```
+println 'Initialization'
+```
+
+### build.gradle
+
+```
+println 'Configuration 1'
+
+task hello1 {
+    println 'Configuration 2'
+    doLast {
+        println 'Execution (hello1)'
+    }
+    println 'Configuration 3'
+}
+
+println 'Configuration 4'
+
+task hello2 {
+    println 'Configuration 5'
+    doLast {
+        println 'Execution (hello2)'
+    }
+    println 'Configuration 6'
+}
+
+println 'Configuration 7'
+```
+
+### 実行結果
+
+```sh
+$ gradle -q hello2
+
+Initialization
+Configuration 1
+Configuration 2
+Configuration 3
+Configuration 4
+Configuration 5
+Configuration 6
+Configuration 7
+Execution (hello2)
+```
+
+Configuration フェーズの実行は、単純に上から実行されていくことが分かります。
 

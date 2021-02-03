@@ -20,7 +20,7 @@ Gradle の基本
 * [Gradle でデフォルトタスクを指定する (defaultTasks)](default-task.html)
 * [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
 * [Gradle のタスクに説明を付け、グルーピングする (description, group)](group-tasks.html)
-* [既存の Gradle タスクにアクションを追加する](add-action-to-task.html)
+* [既存の Gradle タスクにアクションを追加する (doLast, doFirst)](add-action-to-task.html)
 * [Gradle Wrapper スクリプト (gradlew) を作成する](gradle-wrapper.html)
 * [Gradle Wrapper スクリプト (gradlew) をサブプロジェクトから簡単に呼び出せるようにする](gradle-wrapper-wrapper.html)
 
@@ -32,7 +32,7 @@ Gradle で Java プロジェクトを扱う (java プラグイン)
 * [Gradle で Java プロジェクトをビルドする](build-java-project.html)
 * [Gradle で Javadoc API Document を出力する](javadoc.html)
 * [Gradle で実行可能な JAR ファイルを作成する](executable-jar.html)
-* [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する](java-project-structure.html)
+* [Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する (sourceSets, buildDir)](java-project-structure.html)
 
 Gradle でユニットテスト
 ----
