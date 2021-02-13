@@ -31,20 +31,20 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 
 エキスパートアドバイザ (EA: Expert Advisor)
 ----
-* [Expert Advisor を作成する](create-advisor.html)
+* [Expert Advisor を作成する &#x2197;](https://memoja.net/p/3it4ckt)
 
 チャートの情報
 ----
-* [現在のチャートの通貨ペア（シンボル）を取得する](chartinfo/get-current-symbol.html)
-* [現在のチャートのタイムフレーム（H1 など）を取得する](chartinfo/get-current-timeframe.html)
-* [チャートのローソク足の数を取得する](chartinfo/get-bar-count.html)
+* [現在のチャートの通貨ペア（シンボル）を取得する &#x2197;](https://memoja.net/p/8xwyrnf)
+* [現在のチャートのタイムフレーム（H1 や M15）を取得する &#x2197;](https://memoja.net/p/p7gpx7f)
+* [チャートのローソク足の数を取得する (Bars) &#x2197;](https://memoja.net/p/6nw7gpx)
 
 チャートの操作
 ----
-* [任意の通貨ペア、時間足のチャートを開く](chart-open.html)
-* [MetaTrader (MQL) における色の表現方法](colors.html)
-* [チャートの描画スタイルを設定する](drawing-style.html)
-* [表示中のすべてのチャートに対して処理する](for-each-chart.html)
+* [任意の通貨ペア、時間足のチャートを開く &#x2197;](https://memoja.net/p/hx7enu3)
+* [MetaTrader (MQL) における色の表現方法 &#x2197;](https://memoja.net/p/rn6kw8j)
+* [チャートの描画スタイルを設定する &#x2197;](https://memoja.net/p/dzcoybn)
+* [表示中のすべてのチャートに対して処理する &#x2197;](https://memoja.net/p/244ung6)
 
 描画オブジェクトの表示
 ----

@@ -1,6 +1,8 @@
 ---
 title: "表示中のすべてのチャートに対して処理する"
 date: "2015-10-11"
+redirect: https://memoja.net/p/244ung6
+sitemap: false
 ---
 
 すべてのチャートをループ処理

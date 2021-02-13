@@ -1,8 +1,9 @@
 ---
 title: "チャートの描画スタイルを設定する"
 date: "2015-10-10"
+redirect: https://memoja.net/p/dzcoybn
+sitemap: false
 ---
-
 
 表示項目の設定
 ====

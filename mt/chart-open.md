@@ -1,8 +1,9 @@
 ---
 title: "任意の通貨ペア、時間足のチャートを開く"
 date: "2015-10-10"
+redirect: https://memoja.net/p/hx7enu3
+sitemap: false
 ---
-
 
 [ChartOpen 関数](https://www.mql5.com/en/docs/chart_operations/chartopen) を使うと、指定した通貨ペア、時間足のチャートを開くことができます。
 下記は、ドル円の月足チャートを開く例です。

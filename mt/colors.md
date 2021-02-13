@@ -1,6 +1,8 @@
 ---
 title: "MetaTrader (MQL) における色の表現方法"
 date: "2015-10-10"
+redirect: https://memoja.net/p/rn6kw8j
+sitemap: false
 ---
 
 MQL 内で色情報を表現する場合、`color` 型の変数を使います。

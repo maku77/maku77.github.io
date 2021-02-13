@@ -1,6 +1,8 @@
 ---
 title: "現在のチャートの通貨ペア（シンボル）を取得する"
 date: "2015-10-25"
+redirect: https://memoja.net/p/8xwyrnf
+sitemap: false
 ---
 
 現在のチャートで表示している通貨ペア（シンボル）の名前を取得するには下記のようにします。
