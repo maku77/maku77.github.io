@@ -14,15 +14,17 @@ date: "2021-02-22"
 #### Markdown 内での使用例
 
 ```
-{{ "{{" }}< accordion title="もっと詳しく" >}}
+{{ "{{" }}% accordion title="もっと詳しく" %}}
 この本文はデフォルトでは隠されていて、クリックで見えるようになります。
 
 - サンプルコード
 - 補足説明
 
 などに使うと便利です。
-{{ "{{" }}< /accordion >}}
+{{ "{{" }}% /accordion %}}
 ```
+
+__注:__ 本文のテキストを Markdown コードとして処理するためには、ショートコード名を `<` と `>` ではなく、上記のように `%` で囲む必要があります。
 
 下記は、`accordion` ショートコードの実装例です。
 クリックによる HTML 要素の表示／非表示の切り替えは、[input 要素の状態による CSS の切り替えテクニック](https://maku77.github.io/web/menu/accordion.html) を利用しています。
@@ -36,7 +38,9 @@ date: "2021-02-22"
 <div class="xAccordion">
   <label class="xAccordion_title" for="id-{{ "{{" }} $rand }}">{{ $title }}</label>
   <input id="id-{{ "{{" }} $rand }}" type="checkbox">
-  <div class="xAccordion_body">{{ "{{" }} .Inner | markdownify }}</div>
+  <div class="xAccordion_body">
+    {{ "{{" }} .Inner }}
+  </div>
 </div>
 ```
 
