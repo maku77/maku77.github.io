@@ -126,6 +126,7 @@ hugo コマンド
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
 * [mermaid.js で Markdown 中に UML 図を埋め込む](advanced/mermaid.html)
+* [Hugo のテンプレートやショートコードでランダムな文字列を生成する](misc/random.html)
 
 トラブルシューティング
 ----
