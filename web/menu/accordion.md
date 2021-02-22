@@ -17,14 +17,16 @@ description: "チェックボックスの見た目を CSS でカスタマイズ�
 
 ~~~ html
 <div class="menu">
-  <label>項目１<input type="checkbox"></label>
+  <label for="item1">項目１</label>
+  <input type="checkbox" id="item1">
   <ul>
     <li>項目１－１
     <li>項目１－２
     <li>項目１－３
   </ul>
 
-  <label>項目２<input type="checkbox"></label>
+  <label for="item2">項目２</label>
+  <input type="checkbox" id="item2">
   <ul>
     <li>項目２－１
     <li>項目２－２
