@@ -24,12 +24,15 @@ Hugo
 * [独自のショートコードを作成する](shortcode/create-shortcode.html)
 * [ショートコードの中からフロントマターのパラメータを参照する ($.Page.Params)](shortcode/frontmatter-params.html)
 * [ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)](shortcode/site-params.html)
-* [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
-* [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
 * [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
 * [ショートコードをエスケープ処理してそのまま表示する](shortcode/escape.html)
 * [あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)](shortcode/has-shortcode.html)
+
+### ショートコードの例
+* [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
+* [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
 * [SVGファイルをインラインで埋め込むショートコードを作成する](shortcode/inline-svg.html)
+* [クリックで開閉するアコーディオン・ショートコードを作成する](shortcode/accordion.html)
 
 hugo コマンド
 ----
