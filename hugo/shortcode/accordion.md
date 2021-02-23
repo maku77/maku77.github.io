@@ -36,7 +36,7 @@ __注:__ 本文のテキストを Markdown コードとして処理するため�
 {{ "{{" }}- $title := .Get "title" | default "例" }}
 {{ "{{" }}- $rand := delimit (seq 9 | shuffle) "" }}
 <div class="xAccordion">
-  <label class="xAccordion_title" for="id-{{ "{{" }} $rand }}">{{ $title }}</label>
+  <label class="xAccordion_title" for="id-{{ "{{" }} $rand }}">{{ "{{" }} $title }}</label>
   <input id="id-{{ "{{" }} $rand }}" type="checkbox">
   <div class="xAccordion_body">
     {{ "{{" }} .Inner }}
