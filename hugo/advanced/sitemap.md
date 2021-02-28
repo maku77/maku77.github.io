@@ -176,7 +176,7 @@ Sitemap: {{ "{{" }} .Site.BaseURL }}sitemap.xml
 特に、JavaScript や CSS、画像ファイルなどは、検索エンジンがページ内容を正しく処理するために必要なので、`Disallow` 指定してクロール対象から外してはいけません。
 
 
-meta 要素での nofollow 設定
+meta 要素での noindex 設定
 ----
 
 特定のページを Google の検索結果に表示されないようにするには、HTML の `head` 要素内に下記のような `meta` 要素を記述するのが正解みたいです。
@@ -196,7 +196,7 @@ Disallow: /search/
 
 よって、検索エンジンに特定のページがインデックスされることを防ぐには、
 
-1. `meta` 要素で `nofollow` を指定する
+1. `meta` 要素で `noindex` を指定する
 2. `robots.txt` の `Disallow` は指定しない
 
 とするのがよいようです。
