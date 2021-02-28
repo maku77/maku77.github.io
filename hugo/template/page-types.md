@@ -9,12 +9,14 @@ description: "ページの種類によって条件分岐するテンプレート
 | ホームページ | `/` | nil | `page` | `home` | **true** | **true** | false | false |
 | セクションページ（第１階層） | `/sec1/` | `sec1` | `sec1` | `section` | false | **true** | false | **true** |
 | セクションページ（第２階層） | `/sec1/sec2/` | `sec1` | `sec1` | `section` | false | **true** | false | **true** |
-| タクソノミーターム | `/tags/` | `tags` | `tags` | `taxonomyTerm` | false | **true** | false | false |
-| タクソノミーリスト | `/tags/xxx/` | `tags` | `tags` | `taxonomy` | false | **true** | false | false |
+| タクソノミーターム | `/tags/` | `tags` | `tags` | `taxonomy` ※ | false | **true** | false | false |
+| タクソノミーリスト | `/tags/xxx/` | `tags` | `tags` | `term` ※ | false | **true** | false | false |
 | 404 ページ | nil | nil | `page` | `404` | false | **true** | false | false |
 | 記事ページ（第１階層）| `/mypage/` | nil | `page` | `page` | false | false | **true** | false |
 | 記事ページ（第２階層）| `/sec1/mypage/` | `sec1` | `sec1` | `page` | false | false | **true** | false |
 | 記事ページ（第３階層）| `/sec1/sec2/mypage/` | `sec1` | `sec1` | `page` | false | false | **true** | false |
+
+※[Hugo v0.73](https://github.com/gohugoio/hugo/issues/6911) において `taxonomyTerm → taxonomy`、`taxonomy → term` という `.Kind` 値の変更が入っているので、バージョンアップ時はご注意ください。
 
 上記の値は、次のようなテンプレートコードを、ベーステンプレート (`layouts/_default/baseof.html`) に記述して調べています（__2020-04-27: `.IsSection` を追記、`.URL` (deprecated) を `.RelPermalink` に変更__）。
 

@@ -67,7 +67,7 @@ Hugo はデフォルトですべてのページを `sitemap.xml` にリスト化
 ```
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{ "{{" }}- range .Data.Pages }}
-  {{ "{{" }}- if ne .Kind "taxonomy" }}
+  {{ "{{" }}- if ne .Kind "term" }}
   {{ "{{" }}- if not (hasPrefix .RelPermalink "/search/") }}
   {{ "{{" }}- if ne .Params.noindex true }}
   <url>
