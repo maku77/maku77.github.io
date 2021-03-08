@@ -29,16 +29,6 @@ $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
 $DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
 $BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
 
-// スクリーン横幅がタブレットよりは大きい場合
-@mixin m-larger-than-medium {
-  @media (min-width: 55rem) { @content; }
-}
-
-// スクリーン横幅がかなり大きい場合
-@mixin m-larger-than-large {
-  @media (min-width: 65rem) { @content; }
-}
-
 body {
   padding: 0;
 }
@@ -346,7 +336,7 @@ kbd {
   }
 }
 
-/* 段組 */
+/* 段組（本文＋サイドバー） */
 #xContainer {
   // デフォルトはコンテンツを単純に表示
   display: block;
@@ -358,7 +348,7 @@ kbd {
   }
 
   // 幅が広いとき
-  @include m-larger-than-medium {
+  @include screen-size-2 {
     // 幅が広い場合、フレキシブルボックスレイアウトによる段組
     display: box;
     display: -webkit-box;
@@ -455,7 +445,7 @@ kbd {
   }
 }
 
-@include m-larger-than-large {
+@include screen-size-3 {
   .xCategoryContent {
     display: flex;
     display: -webkit-flex;

@@ -24,8 +24,13 @@ $CODE_FONT: Menlo, Monaco, Consolas, "Courier New", monospace !default;
   @media (min-width: 35rem) { @content; }
 }
 
-//// スクリーンサイズ大
-//@mixin screen-size-2 {
-//  @media (min-width: 50rem) { @content; }
-//}
+// スクリーンサイズ大
+@mixin screen-size-2 {
+  @media (min-width: 50rem) { @content; }
+}
+
+// スクリーンサイズ極大
+@mixin screen-size-3 {
+  @media (min-width: 65rem) { @content; }
+}
 
