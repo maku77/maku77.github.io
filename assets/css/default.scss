@@ -29,11 +29,6 @@ $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
 $DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
 $BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
 
-// スクリーン横幅がモバイルよりは大きい場合
-@mixin m-larger-than-small {
-  @media (min-width: 35rem) { @content; }
-}
-
 // スクリーン横幅がタブレットよりは大きい場合
 @mixin m-larger-than-medium {
   @media (min-width: 55rem) { @content; }
@@ -50,7 +45,7 @@ body {
 
 #xBody {
   margin: $BODY_MARGIN;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $BODY_MARGIN * 2;
     margin-right: $BODY_MARGIN * 2;
   }
@@ -80,7 +75,7 @@ h3 {
 }
 h4 {
   font-size: 1rem;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 }
@@ -88,7 +83,7 @@ h4 {
 // 定義リスト
 dl {
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
@@ -106,7 +101,7 @@ dl {
 // リスト
 ul, ol {
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
@@ -192,7 +187,7 @@ figure {
 
 pre {
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
@@ -242,7 +237,7 @@ p {
 
 blockquote {
   margin-left: $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
@@ -282,7 +277,7 @@ kbd {
   @include m-clearfix;
 
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 
@@ -310,7 +305,7 @@ kbd {
   background: #ffd;
 
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include m-larger-than-small {
+  @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 }
@@ -346,7 +341,7 @@ kbd {
 
   padding: 10px;
 
-  @include m-larger-than-small {
+  @include screen-size-1 {
     padding: 20px;
   }
 }
@@ -545,7 +540,7 @@ kbd {
 
   & > p {
     margin: 1rem $SIDE_MARGIN_MOBILE;
-    @include m-larger-than-small {
+    @include screen-size-1 {
       margin-left: $SIDE_MARGIN_DESKTOP;
     }
   }

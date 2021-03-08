@@ -18,12 +18,12 @@ $COLOR_CODE_BG: #f6f6f6;
 $CODE_FONT: Menlo, Monaco, Consolas, "Courier New", monospace !default;
 //$MAIN_PADDING: 1rem;
 //$MAIN_PADDING_SMALL: 0.5rem;
-//
-//// スクリーンサイズ中
-//@mixin screen-size-1 {
-//  @media (min-width: 35rem) { @content; }
-//}
-//
+
+// スクリーンサイズ中
+@mixin screen-size-1 {
+  @media (min-width: 35rem) { @content; }
+}
+
 //// スクリーンサイズ大
 //@mixin screen-size-2 {
 //  @media (min-width: 50rem) { @content; }
