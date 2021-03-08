@@ -24,6 +24,8 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
   vertical-align: bottom;
 }
 
@@ -35,11 +37,15 @@ strong {
 }
 
 code {
-  font-family: $CODE_FONT;
-  color: $COLOR_CODE;
-  background: $COLOR_CODE_BG;
-  padding: 0.2em 0.3em;
-  border-radius: 0.2em;
+  font-family: $FONT_CODE;
+
+  // pre の子要素として使う場合は、背景色やパディングを入れない
+  :not(pre) > & {
+    color: $COLOR_CODE;
+    background: $COLOR_CODE_BG;
+    padding: 0.2em 0.3em;
+    border-radius: 0.2em;
+  }
 
   > strong, strong & {
     color: $COLOR_TEXT_STRONG;

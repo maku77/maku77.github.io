@@ -176,6 +176,7 @@ figure {
 }
 
 pre {
+  font-family: $FONT_CODE;
   margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
@@ -187,16 +188,13 @@ pre {
   font-size: 90%;
   padding: 0.5em 0.8em;
   border-radius: 0.5rem;
-  white-space: pre-wrap;
+  overflow-x: auto;
+  //white-space: pre-wrap;
+  //white-space: break-spaces;
   word-break: break-all;
   word-wrap: break-word;
   border: 1px solid #ddd;
   line-height: 1.3;
-
-  code {
-    padding: 0;
-    background-color: transparent;
-  }
 }
 
 table {
