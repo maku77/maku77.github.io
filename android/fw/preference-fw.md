@@ -9,31 +9,31 @@ Preferences フレームワーク
 ----
 
 Android が提供する Preferences フレームワークを使用すると、`SharedPreferences` による設定リソースをベースにした設定画面を簡単に作成することができます。
-設定画面の表示は Android が用意している **`PreferenceFragmentCompat`** クラスにより行われるため、ユーザーが使い慣れた UI で設定画面を表示することができます。
-設定画面に表示する項目は、**`PreferenceScreen`** 要素をルートにした XML ファイルを作成することで定義できます（コード内で動的に `PreferenceScreen` オブジェクトを構築することもできます）。
+設定画面の表示は Android が用意している __`PreferenceFragmentCompat`__ クラスにより行われるため、ユーザーが使い慣れた UI で設定画面を表示することができます。
+設定画面に表示する項目は、__`PreferenceScreen`__ 要素をルートにした XML ファイルを作成することで定義できます（コード内で動的に `PreferenceScreen` オブジェクトを構築することもできます）。
 
-- [PreferenceFragmentCompat](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html) クラス
+- [PreferenceFragmentCompat クラス](https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html)
     - 設定画面を表示するためのベースとなる Fragment クラスです。
+    - （コラム）API level 28 以前は、設定画面用のクラスとして `PreferenceActivity` が使われていましたが、今は `PreferenceFragmentCompat` クラスを使用します。
 - `PreferenceScreen` レイアウトファイル
     - `PreferenceActivity` で表示する設定項目の階層構造を定義した XML ファイルです。ユーザーが選択できる項目のリストを管理したり、`SharedPreferences` のキーを関連付けたりすることができます。
-
-コラム: API level 28 以前は、設定画面用のクラスとして `PreferenceActivity` が使われていましたが、今は `PreferenceFragmentCompat` クラスを使用します。
 
 
 ライブラリの依存関係の追加
 ----
 
 `PreferenceFragmentCompat` クラスを使用するには、`androidx.preference:preference` ライブラリへの依存を追加しておく必要があります。
+ライブラリのバージョン番号は [こちらのリリースページ](https://developer.android.com/jetpack/androidx/releases/preference?hl=ja) で確認できます（2020年4月15日のリリースは `1.1.1`）。
 
 #### app/build.gradle
 
 ```groovy
 dependencies {
-    implementation 'androidx.preference:preference:1.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
 }
 ```
 
-コラム: Preferences 系のクラスは、以前は support ライブラリとして提供されており、名前空間は `android.preference` でした。現在は `androidx.preference` という名前空間で提供されている AndroidX ライブラリの方を使用する必要があります。
+（コラム）Preferences 系のクラスは、以前は support ライブラリとして提供されており、名前空間は `android.preference` でした。現在は `androidx.preference` という名前空間で提供されている Jetpack ライブラリ (AndroidX) の方を使用する必要があります。
 
 
 設定項目を定義する
