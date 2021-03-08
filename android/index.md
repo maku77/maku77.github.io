@@ -17,6 +17,7 @@ Tools
 * [APK ファイルの署名を確認する](tools/verify-certs.html)
 
 ### パフォーマンス
+* [Android アプリのパフォーマンス改善のためのチェックリスト](tools/performance-checklist.html)
 * [Choreographer で FPS を計測する（Fps クラスの実装）](fw/fps.html)
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
 * [ADB で描画パフォーマンス計測のデバッグ機能を有効にする](tools/adb-debug-options.html)
