@@ -24,9 +24,9 @@ $COLOR_TR_EVEN_BG: #eeeeee;
 
 $COLOR_NAV_FOCUSED: #eaeaea;
 
-$SIDE_MARGIN_DESKTOP: 30px;  // 横幅が広い場合の左右のマージン
+$VERTICAL_MARGIN: 1em;  // 各要素の上下マージン
+$SIDE_MARGIN_DESKTOP: 1.5rem;  // 横幅が広い場合の左右のマージン
 $SIDE_MARGIN_MOBILE: 0px;    // 横幅が狭い場合の左右のマージン
-$DEFAULT_MARGIN: 20px;  // 代表的要素のマージン
 $BODY_MARGIN: 0.5rem;  // ヘッダを除く全体のマージン（本文とサイドバー間も）
 
 body {
@@ -72,7 +72,7 @@ h4 {
 
 // 定義リスト
 dl {
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  margin: $VERTICAL_MARGIN $SIDE_MARGIN_MOBILE;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
@@ -85,24 +85,6 @@ dl {
   dd {
     margin-left: 1em;
     margin-bottom: 20px;
-  }
-}
-
-// リスト
-ul, ol {
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
-  @include screen-size-1 {
-    margin-left: $SIDE_MARGIN_DESKTOP;
-  }
-
-  // リストの二階層目以降はマージンを減らす
-  ul, ol {
-    margin: 0px;
-  }
-
-  li {
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
   }
 }
 
@@ -177,7 +159,7 @@ figure {
 
 pre {
   font-family: $FONT_CODE;
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  margin: $VERTICAL_MARGIN $SIDE_MARGIN_MOBILE;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
@@ -264,7 +246,7 @@ kbd {
 .note {
   @include m-clearfix;
 
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  margin: $VERTICAL_MARGIN $SIDE_MARGIN_MOBILE;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
@@ -292,7 +274,7 @@ kbd {
   border: solid #ccc 1px;
   background: #ffd;
 
-  margin: $DEFAULT_MARGIN $SIDE_MARGIN_MOBILE;
+  margin: $VERTICAL_MARGIN $SIDE_MARGIN_MOBILE;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
@@ -530,6 +512,23 @@ kbd {
     margin: 1rem $SIDE_MARGIN_MOBILE;
     @include screen-size-1 {
       margin-left: $SIDE_MARGIN_DESKTOP;
+    }
+  }
+
+  ul, ol {
+    padding-left: 1.5em;
+    @include screen-size-1 { padding-left: 3em; }
+  }
+
+  li {
+    // 改行時の行間は狭めつつ、
+    line-height: 1.5;
+    // 項目間の行間は通常と同じぐらいになるよう調整
+    &:nth-child(n+2), li { padding-top: 0.3em; }
+
+    > ul, > ol {
+      padding-left: 1.5em;
+      @include screen-size-1 { padding-left: 2em; }
     }
   }
 }
