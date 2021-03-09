@@ -26,7 +26,7 @@ date: "2021-03-08"
         - 何らかの操作をしているときに、__赤や緑の矩形が表示されることがないか__ を調べる
 1. レイアウトの確認
     - アプリ動作中に [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector?hl=ja) を起動してレイアウトが __深いネスト構造になっていないか__ を調べる（Hierarchy Viewer はサポート終了）
-    - Layout Inspector は 3D 表示にして角度ずらして見ると、どれだけ重なっているかがよく分かる
+    - Layout Inspector は 3D 表示にして角度をずらして、Layer spacing スライダーを調整すると、どれだけ重なっているかがよく分かる
 1. 全般的なボトルネックの確認
     - [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler?hl=ja) でアプリ内のボトルネックを調査（Traceview はサポート終了）
         - 各スレッドのビジー状態や、__どのメソッドに時間がかかっているか__ を調べる → メソッド単位の最適化
