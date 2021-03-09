@@ -21,9 +21,10 @@ Tools
 * [Choreographer で FPS を計測する（Fps クラスの実装）](fw/fps.html)
 * [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
 * [ADB で描画パフォーマンス計測のデバッグ機能を有効にする](tools/adb-debug-options.html)
+* [Perfetto でシステム全体のパフォーマンスを計測する](tools/perfetto.html)
 * [Traceview でプロファイル情報を表示する](tools/traceview.html)
 * [Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](tools/systrace-cmd.html)
-* [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
+    * [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
 
 ### 外部ツールとの連携
 * [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)

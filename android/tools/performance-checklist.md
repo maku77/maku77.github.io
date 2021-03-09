@@ -29,10 +29,11 @@ date: "2021-03-08"
 1. 全般的なボトルネックの確認
     - [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler?hl=ja) でアプリ内のボトルネックを調査（Traceview はサポート終了）
         - 各スレッドのビジー状態や、__どのメソッドに時間がかかっているか__ を調べる → メソッド単位の最適化
-        - __GC (Garbage Collection) が頻繁に発生していないか__ を調べる (Memory Churn) → Allocation Tracker で分析
-    - [systrace](https://developer.android.com/topic/performance/tracing) でシステム全体のボトルネックを調査
+        - __GC (Garbage Collection) が頻繁に発生していないか__ を調べる (Perfeto/SystraceAllocation Tracker)。
+    - [Perfetto でシステム全体のボトルネックを調査](../tools/perfetto.html)
         - 他のプロセスとの Binder 通信などがボトルネックになっていなかを調べる
-        - Web ベースの [Perfetto](https://ui.perfetto.dev/) がかっこいい（Web ブラウザから USB 接続で端末のプロファイルが可能）
+        - `adb shell perfetto` で計測開始するか、Perfetto の Web アプリから直接データ取得可能（要 Bluetooth/USB 接続）
+        - 昔は [Systrace](https://developer.android.com/topic/performance/tracing/command-line?hl=ja) だったけど、Android 10 以降は Perfetto で。
 
 
 改善ポイント
@@ -71,3 +72,6 @@ date: "2021-03-08"
     - 関数呼び出し結果のキャッシュ（メモ化）
     - シーケンシャルサーチ (`indexOf`) 処理をマップ処理に置き換え（`O(n) → O(1)`）
     - ログ出力用のオブジェクト生成（主にテキスト構築）を削除
+    - 画像ファイルに PNG ではなく WebP フォーマットを使用する
+    - レイアウトの Inflate 処理を遅らせる
+
