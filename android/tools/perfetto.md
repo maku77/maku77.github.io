@@ -7,7 +7,7 @@ Perfetto とは
 ----
 
 Android 端末のシステム全体のプロファイリングを行うには、__Perfetto__ というツールを使用します。
-システム全体の動作を調査する場合、従来は Systrace を使っていましたが、Android 9 (P) 以降は、より洗練された Perfetto で分析を行うことができます。
+システム全体の動作を調査する場合、従来は Systrace を使っていましたが、Android 10 (Q) 以降は、より洗練された Perfetto で分析を行うことができます。
 
 - [Perfetto - System profiling, app tracing and trace analysis - Perfetto Tracing Docs](https://perfetto.dev/)
 
@@ -20,7 +20,7 @@ Android には Perfetto 用のトレースデーモンと、トレースデー�
 Perfetto デーモンの有効化
 ----
 
-（この設定は、Android 9 (P) あるいは Android 10 (Q) の端末でのみ必要です。Android 11 (R) 以降は必要ありません）
+（この設定は、Android 10 (Q) の端末でのみ必要です。Android 11 (R) 以降は必要ありません）
 
 `perfetto` コマンドでトレースを開始するには、Android 端末上で Perfetto デーモンを起動しておく必要があります。
 次のようにシステムプロパティを設定すれば、Perfetto デーモンが起動します。

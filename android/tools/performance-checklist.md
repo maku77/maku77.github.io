@@ -18,6 +18,7 @@ date: "2021-03-08"
         - 何らかの操作をしているときに、__赤色のライン (16.6ms) を上回ることがないか__ を調べる
     - [Choreographer を使ってプログラム内で FPS を確認する](../fw/fps.html) 方法もあり
     - [Window.OnFrameMetricsAvailableListener](https://developer.android.com/reference/kotlin/android/view/Window.OnFrameMetricsAvailableListener?hl=ja) でフレームごとの詳細情報を取得できる
+    - `adb shell dumpsys gfxinfo PKG名 | grep frames` で [ジャンクフレーム発生率を調べる](../tools/janky-frames.html)
 1. オーバードローの確認（何度も重ねて描画している部分がないか）
     - 開発者オプションから Debug GPU overdraw（GPU オーバードローをデバッグ）を ON にして確認
         - [GPU オーバードローの視覚化](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja#debug_overdraw)
@@ -73,5 +74,9 @@ date: "2021-03-08"
     - シーケンシャルサーチ (`indexOf`) 処理をマップ処理に置き換え（`O(n) → O(1)`）
     - ログ出力用のオブジェクト生成（主にテキスト構築）を削除
     - 画像ファイルに PNG ではなく WebP フォーマットを使用する
-    - レイアウトの Inflate 処理を遅らせる
+    - 起動時 (`onCreate`) での初期化コードは最低限にする（各種処理の遅延化）
+        - `onResume` へ遅らせる
+        - スレッド起動するだけにする
+        - レイアウトの Inflate 処理を遅らせる ([ViewStub](https://developer.android.com/reference/android/view/ViewStub) で次のフレームへ遅らせる）
+        - DI による依存注入処理を Dagger/Hilt で遅延させる
 
