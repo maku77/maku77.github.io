@@ -25,6 +25,23 @@ $ adb shell input keyevent TV_TERRESTRIAL_DIGITAL  # 地デジキー（Android T
 
 - [KeyEvent クラスの定数一覧](https://developer.android.com/reference/android/view/KeyEvent.html#constants)
 
+### 長押し
+
+`input keyevent` に __`--longpress`__ オプションを指定すると、キーの長押しをエミュレートできます。
+次の例では、ENTER キーの長押しを再現しています（ちょっとだけ長押しして、すぐ離す、という操作と同じ振る舞いになります）。
+
+```
+$ adb shell input keyevent --longpress ENTER
+```
+
+### （応用）sendevent を使う方法
+
+よりローレベルなキー入力を再現したい場合は、`sendevent` コマンドを使った方法があります。
+
+- [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](../vendor/getevent-and-sendevent.html)
+
+例えば、「キーを 5 秒間押しっぱなしにする」といった細かい動きを再現したいケースでは `input keyevent` は使えないので、`sendevent` を使ったシェルスクリプトなどを作ることになります。
+
 
 テキスト入力の例 (input text)
 ----
