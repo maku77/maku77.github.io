@@ -27,13 +27,13 @@ Janky frames の発生率を確認したいのであれば、これが手っ取�
 ----
 
 `Total frames rendered` は、アプリを起動してからの総フレーム数です。
-60FPS 出ているのであれば、1秒間に 60 ずつ増えていきそうですが、実際には 1 秒間に 2 ずつ増えていきます。
-これは、開発者オプションの [Profile HWUI rendering](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja) を有効にしたときに、画面上にバーが増えていく速度と同じです（このバーも 1 秒で 2 本ずつ増えます）。
+ただし、この数はフレームメトリクスとして計測されたフレームのみが対象で、アニメーションが発生していないときは増加しません。
+これは、開発者オプションの [Profile HWUI rendering](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja) を有効にしたときに、画面上にバーが増えていく速度と同じです。
 
 ![janky-frames-001.png](janky-frames-001.png){: .center }
 
 Janky frames としてカウントされているのは、このバーが緑色のライン（16.6ミリ秒）を超えているもののようです（太くて濃いバーになっているもの）。
-上の図の場合は、最初の30％くらいが緑色のラインを超えているので、Janky frames は約30％ということです。
+上の図の場合は、最初の30％くらいが緑色の水平ラインを超えているので、Janky frames は約30％ということです。
 
 
 フレームの統計情報をリセットする
