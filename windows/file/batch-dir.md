@@ -26,10 +26,10 @@ C:\Users> maku\sample.bat
 | 参照方法 | 意味 | 実行結果 |
 | ---- | ---- | ---- |
 | `%~0` | 指定したファイル名 | `maku\sample.bat` |
-| `%~f0` (`%~dpnx`) | フルパス | `C:\Users\maku\sample.bat` |
+| `%~f0` (`%~dpnx0`) | フルパス | `C:\Users\maku\sample.bat` |
 | `%~d0` | ドライブ名 | `C:` |
 | `%~p0` | ディレクトリ名 | `\Users\maku\` |
-| `%~dp` | ドライブ名 + ディレクトリ名 | `C:\Users\maku\` |
+| `%~dp0` | ドライブ名 + ディレクトリ名 | `C:\Users\maku\` |
 | `%~n0` | ベースネーム | `sample` |
 | `%~x0` | 拡張子 | `.bat` |
 | `%~nx0` | ベースネーム + 拡張子 | `sample.bat` |
