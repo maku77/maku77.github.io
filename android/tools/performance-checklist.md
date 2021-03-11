@@ -51,7 +51,7 @@ date: "2021-03-08"
     - Layout XML の Inflate 処理時間が短縮したいなら、__レイアウト情報をハードコード__ する手もあり
     - カスタムビューにして `onDraw` を実装
 1. スレッド戦略
-    - 各種処理をどのようなスレッド上で実行するか設計する
+    - 各種処理をどのようなスレッド上で実行するか設計する。各メソッドに [スレッドアノテーション](https://developer.android.com/studio/write/annotations?hl=ja#thread-annotations) を付けてみる（Main/UI、Worker スレッド間の呼び出しで警告してくれる）
     - Kotlin のコルーチンで実行スレッドを分ける。
         - `Dispatcher.Main` ... メインスレッド（ここの処理は最小限に）
         - __`Dispatcher.Default`__ ... ワーカースレッド（__ほとんどの処理はここで実行する__）
