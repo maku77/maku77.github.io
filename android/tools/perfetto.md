@@ -1,6 +1,7 @@
 ---
 title: "Perfetto でシステム全体のパフォーマンスを計測する"
 date: "2021-03-09"
+lastmod: "2021-03-15"
 ---
 
 Perfetto とは
@@ -47,7 +48,7 @@ Perfetto トレースデータの取得
 ----
 
 次のように Android 端末上の __`perfetto`__ コマンドを実行すると、トレース結果が `/data/misc/perfetto-traces/trace` ファイルとして出力されます。
-SELinux のセキュリティ制限のため、出力先は `/data/misc/perfetto-traces` ディレクトリしか指定できません（`errno: 13, Permission denied` が発生します）。
+SELinux のセキュリティ制限のため、出力先 (`-o/--out`) は `/data/misc/perfetto-traces` ディレクトリしか指定できません（`errno: 13, Permission denied` が発生します）。
 
 ```
 $ adb shell perfetto --config :test --out /data/misc/perfetto-traces/trace
@@ -74,12 +75,106 @@ $ adb pull /data/misc/perfetto-traces
 取得したトレースファイルを [Perfetto UI のサイト](https://ui.perfetto.dev/) で開けば、グラフィカルに分析を行うことができます。
 
 
+Perfetto のトレース設定
+----
+
+`perfetto` コマンドを実行するときにパラメーターを指定することで、計測時間や取得するデータのカスタマイズを行えます。
+設定方法は大きく分けて、下記の 2 通りの方法があります。
+
+(1) lightweight mode
+: `-t/--time` などの個々のパラメーターを 1 つずつ設定する方法。従来の `systrace` と同様の指定 (atrace、ftrace) を行うだけでよければこの方法が使えます。
+
+(2) normal mode
+: `-c/--config` オプションでコンフィグファイルを指定する方法。lightweight mode より詳細なトレース設定を行うことができます。
+
+参考: [perfetto コマンドのコマンドラインオプション](https://perfetto.dev/docs/reference/perfetto-cli)。
+
+### lightweight mode（個別パラメーターで指定する方法）
+
+`perfetto` コマンドを実行するときに、次のようなオプションを使って、トレース方法を設定する方法です。
+
+```
+adb shell perfetto [--time TIMESPEC] [--buffer SIZE] [--size SIZE]
+                   [ATRACE_CAT | FTRACE_GROUP/FTRACE_NAME]...
+```
+
+- `-t/--time TIMESPEC` ... トレース時間。使える単位は `s`、`m`、`h`（デフォルト: `10s`）。
+- `-b/--buffer SIZE` ... リングバッファサイズ。使える単位は `mb`、`gb`（デフォルト: `32mb`)。
+- `-s/--size SIZE` ... 最大ファイルサイズ。使える単位は `mb`、`gb`（デフォルトはリングバッファサイズ？）。
+- `ATRACE_CAT` ... トレースする atrace カテゴリ（例: `am wm gfx view` など）を指定。参考: [Tracing categories（実装）](https://android.googlesource.com/platform/frameworks/native/+/master/cmds/atrace/atrace.cpp#100)
+- `FTRACE_GROUP/FTRACE_NAME` ... トレースする ftrace グループ（カーネル系のトレース）（例: `sched/sched_switch`、`sched/*`）
+
+#### 実行例（3秒間、gfx、input、view、sched のトレース）
+
+```
+$ adb shell perfetto -o /data/misc/perfetto-traces/trace -t 3s gfx input view sched
+```
+
+### normal mode（コンフィグファイルで指定する方法）
+
+`perfetto` 用の設定をコンフィグファイルの形で保存しておけば、`--config` オプションでそのファイル名を指定するだけで毎回同じ設定でトレースできます。
+`perfetto` コマンドはデバイス上で実行する都合上、コンフィグファイルはデバイス上に作成しなければいけないことに注意してください。
+ただ、ファイル名として `-` を指定すると標準入力から設定テキストを流し込むことができるので、これを使えばローカル PC 上のコンフィグファイルの内容をそのまま渡せます。
+
+```
+$ cat config.pbtx | adb shell perfetto -o /data/misc/perfetto-traces/trace --txt -c -
+```
+
+Windows の場合は `cat` を `type` に置き換えてください。
+下記はコンフィグファイルの記述例です。
+このようなテキスト形式のコンフィグファイルを指定する場合は、`-c/--config` オプションに加えて、__`--txt`__ オプションも同時に指定する必要があります。
+
+#### コンフィグファイルの例 (perfetto-config.pbtx)
+
+```
+duration_ms: 5000
+
+buffers: {
+    size_kb: 8960
+    fill_policy: DISCARD
+}
+buffers: {
+    size_kb: 1280
+    fill_policy: DISCARD
+}
+data_sources: {
+    config {
+        name: "linux.ftrace"
+        ftrace_config {
+            ftrace_events: "sched/sched_switch"
+            ftrace_events: "power/suspend_resume"
+            ftrace_events: "sched/sched_process_exit"
+            ftrace_events: "sched/sched_process_free"
+            ftrace_events: "task/task_newtask"
+            ftrace_events: "task/task_rename"
+            ftrace_events: "ftrace/print"
+            atrace_categories: "gfx"
+            atrace_categories: "view"
+            atrace_categories: "webview"
+            atrace_categories: "camera"
+            atrace_categories: "dalvik"
+            atrace_categories: "power"
+        }
+    }
+}
+data_sources: {
+    config {
+        name: "linux.process_stats"
+        target_buffer: 1
+        process_stats_config {
+            scan_all_processes_on_start: true
+        }
+    }
+}
+```
+
+
 （応用）簡単にトレース取得できるようスクリプト化
 ----
 
-下記のバッチファイルを実行すると、`perfetto-20210309-213055.pb` のようなタイムスタンプ入りのトレースファイルを作成し、ローカル PC にダウンロードします。
-
-`persist.traced.enable` プロパティが正しく設定されていない場合は、設定方法を出力して終了します。
+下記のバッチファイルを実行すると、__`perfetto-20210309-213055.pb`__ のようなタイムスタンプ入りのトレースファイルを作成し、ローカル PC にダウンロードします。
+トレースの設定は、先頭部分の __`DURATION`__ 変数や __`ATRACE`__ 変数である程度柔軟にカスタマイズできます。
+perfetto デーモンが起動していない場合は、設定のヒントを表示して終了するようにしています。
 
 #### get-perfetto.cmd（Windows用）
 
@@ -87,12 +182,17 @@ $ adb pull /data/misc/perfetto-traces
 @echo off
 setlocal
 
-REM Check the current perfetto daemon settings
+REM Perfetto configuration
+set DURATION=3s
+set ATRACE=gfx view input sched
+set FTRACE=
+
+REM Check if the perfetto daemon is enabled
 for /f "usebackq delims=" %%A in (
   `adb shell getprop persist.traced.enable`
-) do set perfet_enabled=%%A
+) do set PERFET_ENABLED=%%A
 
-if not "%perfet_enabled%"=="1" (
+if not "%PERFET_ENABLED%"=="1" (
   echo Trace daemon is not started. Try the following command.
   echo adb shell setprop persist.traced.enable 1
   exit /b
@@ -110,7 +210,7 @@ set second=%mytime:~6,2%
 set filename=perfetto-%year%%month%%day%-%hour%%minute%%second%.pb
 
 REM Start tracing
-adb shell perfetto --config :test --out /data/misc/perfetto-traces/%filename%
+adb shell perfetto --out /data/misc/perfetto-traces/%filename% -t %DURATION% %ATRACE% %FTRACE%
 
 REM Download the trace file
 adb pull /data/misc/perfetto-traces/%filename%
