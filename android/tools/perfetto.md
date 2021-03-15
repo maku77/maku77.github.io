@@ -133,38 +133,32 @@ buffers: {
     size_kb: 8960
     fill_policy: DISCARD
 }
-buffers: {
-    size_kb: 1280
-    fill_policy: DISCARD
-}
-data_sources: {
-    config {
-        name: "linux.ftrace"
-        ftrace_config {
-            ftrace_events: "sched/sched_switch"
-            ftrace_events: "power/suspend_resume"
-            ftrace_events: "sched/sched_process_exit"
-            ftrace_events: "sched/sched_process_free"
-            ftrace_events: "task/task_newtask"
-            ftrace_events: "task/task_rename"
-            ftrace_events: "ftrace/print"
-            atrace_categories: "gfx"
-            atrace_categories: "view"
-            atrace_categories: "webview"
-            atrace_categories: "camera"
-            atrace_categories: "dalvik"
-            atrace_categories: "power"
-        }
+
+data_sources {
+  config {
+    name: "linux.ftrace"
+    ftrace_config {
+      # Enables events for a specific app.
+      atrace_apps: "com.example.myapp"
+
+      # Enables all events for all apps.
+      # atrace_apps: "*"
+
+      # Enables specific system events tags.
+      atrace_categories: "gfx"
+      atrace_categories: "input"
+      atrace_categories: "view"
+      atrace_categories: "sched"
+
+      # ftrace_events: "sched/sched_switch"
+      # ftrace_events: "power/suspend_resume"
+      # ftrace_events: "sched/sched_process_exit"
+      # ftrace_events: "sched/sched_process_free"
+      # ftrace_events: "task/task_newtask"
+      # ftrace_events: "task/task_rename"
+      # ftrace_events: "ftrace/print"
     }
-}
-data_sources: {
-    config {
-        name: "linux.process_stats"
-        target_buffer: 1
-        process_stats_config {
-            scan_all_processes_on_start: true
-        }
-    }
+  }
 }
 ```
 
