@@ -1,7 +1,12 @@
 ---
 title: "トラブル: Systrace の画面が真っ白になる"
 date: "2016-06-08"
+lastmod: "2021-04-12"
 ---
+
+__追記 (2021-04): 現在は Systrace は deprecated になっており、Perfetto という新しいトレースツールを使うことができます__（参考: [Perfetto でシステム全体のパフォーマンスを計測する](./perfetto.html)）。過去に systrace で取得したトレースファイルを開きたいときは、[Perfetto UI](https://ui.perfetto.dev/) のサイト上で `Open with Legacy UI` から開くことができます。
+
+----
 
 Android の DDMS などで利用可能な systrace を実行すると、trace.html ファイルが生成されますが、この中で非推奨になった JavaScript API(Object.observe) を使用しているため、最新の Chrome では表示できない問題が出ています。
 

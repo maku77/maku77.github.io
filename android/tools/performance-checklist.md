@@ -73,6 +73,7 @@ date: "2021-03-08"
         - スレッド起動するだけにする
         - レイアウトの Inflate 処理を遅らせる ([ViewStub](https://developer.android.com/reference/android/view/ViewStub) で次のフレームへ遅らせる）
         - DI による依存注入処理を Dagger/Hilt で遅延させる
+    - コールバックオブジェクトの共通化
 
 
 補足メモ
@@ -104,4 +105,20 @@ Layout Inspector は 3D 表示にして角度をずらして、Layer spacing ス
 - この設定は開発者オプションの深いところにあるので、[ADB で OFF/ON](http://localhost:4000/android/tools/adb-debug-options.html) するのが早い
 - 何らかの操作をしているときに、__赤や緑の矩形が表示されることがないか__ を調べる（できれば青の領域もない方がいい）
 - オーバードローされている部分は Layout Inspector でレイアウトを確認
+
+### コールバックオブジェクトの共通化
+
+例えば、`RecyclerView.Adapter#onBindViewHolder` の中で次のようにリスナー登録していると、そのビューが表示されるごとにリスナーオブジェクトが生成されることになります。
+
+```
+setOnClickListener {
+    ...
+}
+```
+
+リスナー内の処理が共通であれば、共通のリスナーオブジェクトを使うようにします。
+
+```
+setOnClickListener(handleClick)
+```
 
