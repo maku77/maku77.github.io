@@ -1,6 +1,7 @@
 ---
 title: "シールクラスで継承可能なクラスを制限する (sealed class)"
 date: "2019-05-13"
+lastmod: "2021-06-01"
 ---
 
 シールクラスとは
@@ -92,6 +93,52 @@ gotoProductDetail(2)
 上記の `when` 式の記述を見ると分かるように、`else` 節の記述が省略されています。
 シールクラスを使用すると、コンパイラがすべてのサブクラス分岐をカバーできていることを把握できるようになるので、`else` 節によるフォールバック記述が必要なくなります。
 この仕組みにより、enum 型クラスと同様、`when` 式での記述漏れを防ぐことができます。
+
+
+（コラム）シールクラスオブジェクトのリストの先頭が null になる問題
+----
+
+シールクラスを使い始めた人が時々ハマる問題です。
+下記のように、シールクラスで定義したオブジェクトを `companion object` でリスト化しようとすると、先頭の要素がなぜか `null` になります。
+
+```kotlin
+sealed class Color(rgb: String) {
+    object R: Color("ff0000")
+    object G: Color("00ff00")
+    object B: Color("0000ff")
+
+    companion object {
+        val AvailableColors = listOf(R, G, B)
+    }
+}
+
+fun main() {
+    println(Color.R)
+    println(Color.AvailableColors)
+}
+```
+
+```
+Color$R@2a84aee7
+[null, Color$G@452b3a41, Color$B@4a574795]
+```
+
+これは、オブジェクト初期化時の循環参照が原因になっており、現状は次のように遅延初期化することで解決できます。
+
+```kotlin
+companion object {
+    val AvailableColors by lazy {
+        listOf(R, G, B)
+    }
+}
+```
+
+```
+Color$R@2a84aee7
+[Color$R@2a84aee7, Color$G@452b3a41, Color$B@4a574795]
+```
+
+この話は、[stack overflow でもたまに取り上げられます](https://stackoverflow.com/questions/47648689/) 。
 
 
 参考
