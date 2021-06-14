@@ -1,7 +1,7 @@
 ---
 title: "全文検索（インクリメンタルサーチ）の機能を付ける"
 date: "2018-09-11"
-lastmod: "2021-03-07"
+lastmod: "2021-06-14"
 description: "ここでは JavaScript を使ってサイト内の全文検索を実現する方法を示します。全文検索を実現する方法としては、Google カスタム検索を利用する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます。"
 ---
 
@@ -232,10 +232,10 @@ http://localhost:1313/search/#検索ワード
 
 ### 全文検索のページのコードを修正
 
-元のコードでは、`input` 要素の `onkeyup` 属性を使って `search()` 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメント (`location.hash`) にセットするように変更します。
+元のコードでは、`input` 要素の `onkeyup` 属性を使って `search()` 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメントにセットするように変更します（2021-06追記: `location.hash=this.value` としてましたが、これだとキー入力のたびに履歴に追加されてしまうので、`location.replace()` を使うように変更しました）。
 
 ```html
-<input id="query" onkeyup="location.hash=this.value"
+<input id="query" onkeyup="location.replace('#' + this.value)"
   size="15" autocomplete="off" autofocus placeholder="検索ワード" />
 ```
 
