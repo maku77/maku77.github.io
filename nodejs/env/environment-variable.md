@@ -1,13 +1,64 @@
 ---
 title: "Node.js で環境変数を参照する (process.env)"
 date: "2012-12-07"
+lastmod: "2021-06-20"
 ---
 
 Node.js で環境変数を扱いたいときは、**`process.env`** オブジェクトを参照します。
 `process` モジュールはデフォルトで使用可能になっているので、`require` する必要はありません。
 
 
-すべての環境変数を取得する
+指定した環境変数を取得する
+----
+
+`process.env.環境変数名` とすれば、任意の環境変数を参照できます。
+
+```
+$ node
+> console.log(process.env.HOME);
+D:\x\home
+```
+
+下記は、環境変数 `HTTP_PROXY` の設定の有無に応じて処理を振り分ける例です。
+
+```javascript
+if (process.env.HTTP_PROXY != undefined) {
+  // Proxy 環境で動作している場合
+} else {
+  // Proxy 環境ではない場合
+}
+```
+
+### 環境変数が指定されていない場合のデフォルト値
+
+環境変数が設定されていない場合（`undefined` の場合）にデフォルト値を設定したいのであれば、下記のように `??`（Null 合体演算子）を使います。
+
+```javascript
+const port = process.env.MYSERVER_PORT ?? 50000;
+```
+
+`??` 演算子は ES2020 で導入された [Nullish Coalescing](https://maku.blog/p/5oyaju5/) という仕組みで、ある変数値の値を参照しつつ、その値が `undefined` あるいは `null` の場合に、右側に指定した値を代わりに返してくれます。
+上の例の場合は、環境変数 `MYSERVER_PORT` が設定されていないときに、デフォルトのポート番号として 50000 が使用されます。
+
+`??` 演算子が導入される前は、次のように `undefined` 判定を行う必要がありました。
+
+```javascript
+let port = process.env.MYSERVER_PORT;
+if (typeof port === 'undefined') port = 50000;
+// 簡易的に if (port != undefined) でも OK
+```
+
+これはちょっと冗長なので、次のように `||` 演算子を使う方法もよく使われていました。
+
+```javascript
+const port = process.env.MYSERVER_PORT || 50000;
+```
+
+ただ、このやり方ですと、環境変数 `MYSERVER_PORT` に 0 が指定された場合も偽値としてみなされてしまうという問題がありました。
+ES2020 以降の環境では、Null 合体演算子 (`??`) を使えば万事解決です。
+
+
+すべての環境変数を列挙する
 ----
 
 `process.env` オブジェクトにどのように環境変数が格納されているかは、下記のようにインタラクティブモードで出力すれば簡単に確認することができます。
@@ -28,45 +79,27 @@ $ node
 }
 ```
 
-指定した環境変数だけ取得する
-----
+### キーでソートして表示
 
-`process.env.環境変数名` とすれば、任意の環境変数を参照できます。
-
-```
-$ node
-> console.log(process.env.HOME);
-D:\x\home
-```
-
-下記は、環境変数 `HTTP_PROXY` の設定の有無に応じて処理を振り分ける例です。
+Node.js 環境の全ての環境変数を、変数名でソートして列挙したいときは次のようにします。
 
 ```javascript
-if (process.env.HTTP_PROXY) {
-  // Proxy 環境で動作している場合
-} else {
-  // Proxy 環境ではない場合
-}
+Object.keys(process.env).sort().forEach(key => {
+  console.log(`${key}: ${process.env[key]}`)
+});
 ```
 
-### 環境変数が指定されていない場合のデフォルト値
+### 特定のプレフィックスで始まる環境変数を列挙
 
-環境変数が設定されていない場合にデフォルト値を設定したいのであれば、下記のように `||` 演算子を使用するのが手っ取り早いです。
+環境変数名の配列を `filter` 関数でフィルタしてやれば、注目している環境変数だけを列挙できます。
+次の例では、`NODE` で始まる環境変数のみを列挙しています。
 
 ```javascript
-var port = process.env.MYSERVER_PORT || 50000;
+const keys = Object.keys(process.env).filter((v) => v.startsWith('NODE'));
+keys.sort().forEach(key => {
+  console.log(`${key}: ${process.env[key]}`)
+});
 ```
-
-環境変数 `MYSERVER_PORT` が設定されていない場合は、ポート番号として 50000 が使用されます。
-これは、`undefined` が偽値とみなされることを利用しています。
-ただ、このやり方ですと、環境変数 `MYSERVER_PORT` に 0 が指定された場合も偽値としてみなされてしまうので、正確性を求めるのであれば、下記のように実装するのがよいでしょう。
-
-```javascript
-var port = process.env.MYSERVER_PORT;
-if (typeof port === 'undefined') port = 50000;
-```
-
-まぁ、ポート番号としては 0 という値はそもそも不正な値なので、ここまで厳密に `undefined` かどうかの判断をする必要はないと思いますが。
 
 
 関連記事
