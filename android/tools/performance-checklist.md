@@ -3,9 +3,30 @@ title: "Android アプリのパフォーマンス改善のためのチェック�
 date: "2021-03-08"
 ---
 
-アプリケーションを 60FPS の描画性能で動作させるには、1フレームあたりわずか 16.6 ミリ秒で処理を終える必要があります。
+はじめに
+----
+
+パフォーマンスの最適化を行うには、__フレームワーク特有の知識と、プロファイラによる計測__ の両面から攻めていく必要があります。
+アプリケーションを 60FPS の描画性能で動作させるには、1フレームあたりわずか 16.6 ミリ秒で処理を終えなければいけません。
 複雑な計算処理や描画を行うアプリケーションにおいて、常に 60FPS を達成するのは非常に大変で、考えるべきことがたくさんあります。
 ここでは、Android アプリのパフォーマンス改善のヒントをまとめておきます。
+
+
+パフォーマンス可視化自動化のススメ
+----
+
+定期的にパフォーマンスに関するプロファイリングを行うのはよいことですが、もっといい方法は、__パフォーマンスに関する計測を自動化＆見える化__ することです。
+例えば次のような仕組みを作り、普段の開発では常に有効化しておきます。
+
+1. 各フェーズの実行にかかった時間を、画面上に自動で表示する
+2. 画面上に FPS を表示する
+3. 各端末のパフォーマンス（メトリクス情報）を自動でサーバーに送り、統計をグラフ化する
+
+このような仕組みを作り込んでおけば、__チームメンバー全員が普段からパフォーマンスを意識__ して開発できるようになります。
+アーキテクトだけにプロファイリング作業を任せたり、プロジェクト終盤になってからパフォーマンス計測をはじめたりするのはやめましょう。
+コードを作り込んでからデータ構造やスレッド戦略を変更するのはとても大変で、手遅れになることが多いです。
+
+上記の仕組みによって表示された結果は、製品リリースのためのパフォーマンスクライテリアを満たしているかの指標にもなります。
 
 
 まずは計測
@@ -16,8 +37,9 @@ date: "2021-03-08"
         - [GPU レンダリング速度のプロファイリング](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja)
         - [Profile HWUI rendering の設定は ADB で OFF/ON する](../tools/adb-debug-options.html) と素早く切り替えられる
         - 何らかの操作をしているときに、__赤色のライン (16.6ms) を上回ることがないか__ を調べる
+    - [Window.OnFrameMetricsAvailableListener](https://developer.android.com/reference/kotlin/android/view/Window.OnFrameMetricsAvailableListener?hl=ja) でフレームごとのメトリクス情報を取得できる
+    - [Firebase](https://firebase.google.com/) などを使えるのであれば、メトリクス情報をサーバー集計することが可能
     - [Choreographer を使ってプログラム内で FPS を確認する](../fw/fps.html) 方法もあり
-    - [Window.OnFrameMetricsAvailableListener](https://developer.android.com/reference/kotlin/android/view/Window.OnFrameMetricsAvailableListener?hl=ja) でフレームごとの詳細情報を取得できる
     - `adb shell dumpsys gfxinfo PKG名 | grep frames` で [ジャンクフレーム発生率を調べる](../tools/janky-frames.html)
 1. オーバードローの確認（Debug GPU overdraw で何度も重ねて描画している部分がないか確認）
 1. レイアウトの確認（[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector?hl=ja) で無駄なネストを確認）
@@ -37,7 +59,7 @@ date: "2021-03-08"
 1. 背景色描画の削減
     - 背景色は、テーマ、Activity、Fragment、View のいずれかのレイヤで一回のみ指定する
     - テーマの背景色が余計なときは、テーマの定義で `android:windowbackground="null"` するか、Activity で __`window.setBackgroundDrawable(null)`__ する
-1. カスタムビュー内のオバードローチェック
+1. カスタムビュー内のオーバードローをチェック
     - `onDraw` 内の描画で重なって見えない部分は __`clipRect`__ でマスクする。カスタムビューの描画内容は Android フレームワークが最適化することができない
 1. レイアウトをフラット化
     - ListView → ConstraintLayout / RelativeLayout
@@ -51,22 +73,26 @@ date: "2021-03-08"
         - __`Dispatcher.Default`__ ... ワーカースレッド（__ほとんどの処理はここで実行する__）
         - `Dispatcher.IO` ... I/O アクセス、ネットワーク処理など
     - メインスレッドの処理を極小化
-        - 例えば、ユーザー入力ハンドル時は ViewModel のメソッドをトリガにコルーチン起動し、その中から戻り値なしの別コンテキスト（スレッド）処理を呼び出して、メインスレッドはすぐに抜けるようにする。画面反映は LiveData からの更新通知で。
+        - 例えば、Android のユーザー入力イベントはメインスレッドでハンドルされるので、ViewModel のメソッドをトリガにコルーチン起動 (`viewModelScope.launch`) し、その中から戻り値なしの別コンテキスト（スレッド）処理を呼び出し (`withContext(Dispatcher.Default)`) て、メインスレッドはそのまま抜けるようにする。画面反映は LiveData からの更新通知のタイミングで行えばよい。__ViewModel クラスには戻り値を持つ public メソッド (getter) を作らないということ__（それは同期処理を意味する）。
     - 並列化できる処理を見極める
         - __順序依存のない処理は同時に開始する__ ように書き換える（とくに画面遷移後の初期化処理など）
         - 最後に Join の必要な並列処理は `coroutineScope { ... async { ... }}` など
     - スレッドのキャンセル、間引き処理
         - キー連打や同種のイベントが連続発生する可能性がある場合は、要求をコマンド化してキューイングして間引く（Command パターン）
         - あえてシングルスレッドでキュー処理して (`SingleThreadExecutor`)、新しい要求が来たらキューを空にするとか（最新要求だけ処理）
+    - 排他制御のデザインパターン
+        - 排他制御によるロック時間を最小化するパターンを学ぶ。例えば、Read-Write Lock パターンでは、Read スレッド同士は排他制御する必要がないことを示している（Java の標準クラスにも `ReadWriteLock` がある）。
 1. 頻繁な GC の抑制
-    - `onDraw` 内でオブジェクト生成しないようにする（アニメーション中の GC 発生は致命傷）
+    - `onDraw` 内でオブジェクト生成しないようにする（アニメーション中の GC 発生を抑制）
     - ループ内で一時オブジェクトを生成しないようにする
     - Flyweight パターンでオブジェクトを共有する
     - オブジェクトプールでオブジェクトを使いまわす（Android の [Message クラス](https://developer.android.com/reference/android/os/Message) が参考になる (`Message.obtain()` でプールから取得 → `recycle()` でプールに戻す)）
 1. その他
-    - 関数呼び出し結果のキャッシュ（メモ化）
-    - シーケンシャルサーチ (`indexOf`) 処理をマップ処理に置き換え（`O(n) → O(1)`）
-    - ログ出力用のオブジェクト生成（主にテキスト構築）を削除
+    - キャッシュ関連処理は全般的に難しいが重要
+        - 時間のかかる関数呼び出し結果はメモ化
+        - キャッシュコントロール（いつ消すかなど）は、基本的には HTTP の Cache-Control レスポンスヘッダの stale-while-revalidate 拡張 ([RFC 5861](https://datatracker.ietf.org/doc/html/rfc5861)) を参考にするとよい。簡単にいうと、キャッシュで高速に描画しつつ、背後でキャッシュの更新処理を走らせるという考え方。
+    - シーケンシャルサーチ (`indexOf`) 処理はマップ処理に置き換える（`O(n) → O(1)`）
+    - ログ出力用のオブジェクト生成（主にテキスト構築）を削除（`if (DEBUG)` で引数生成部分ごと囲む）
     - 画像ファイルに PNG ではなく WebP フォーマットを使用する
     - 起動時 (`onCreate`) での初期化コードは最低限にする（各種処理の遅延化）
         - `onResume` へ遅らせる
