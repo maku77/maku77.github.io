@@ -1,9 +1,69 @@
 ---
-title: "２つのオブジェクトのプロパティをマージする"
+title: "2つのオブジェクトのプロパティをマージする（...スプレッド演算子、Object.assign）"
 date: "2015-02-11"
+lastmod: "2021-06-29"
 ---
 
-extend 関数を実装する
+スプレッド構文を使う方法（ECMAScript 2018 以降）
+----
+
+オブジェクトリテラル (`{}`) の中で、[スプレッド演算子 (...)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax) を使うと、複数のオブジェクトのプロパティをマージしたオブジェクトを生成できます。
+同じプロパティキーを持つ場合は、後ろに指定したもので上書きされます。
+
+```javascript
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = { ...obj1, ...obj2 };  // { a: 1, b: 3, c: 4}
+```
+
+特定のプロパティを置き換えたオブジェクトを作りたいときは、次のように記述できます。
+
+```javascript
+const obj = { a: 1, b: 2 };
+const merged = { ...obj, b: 3, c: 4 };  // { a: 1, b: 3, c: 4}
+```
+
+第1引数で指定した `obj` の内容が書き変わってしまうことはありません。
+
+ちなみに、スプレッド演算子は、オブジェクトのプロパティを分解するときにも使えます。
+
+```javascript
+const obj = { a: 1, b: 2, c: 3, d: 4 };
+const { a, b, ...rest } = obj;
+
+console.log(a);     // 1
+console.log(b);     // 2
+console.log(rest);  // { c: 3, d: 4}
+```
+
+
+Object.assign を使う方法（ECMAScript 2015 (ES6) 以降）
+----
+
+[Object.assign 関数](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) は、第1引数で指定したオブジェクトに、第2引数以降で指定したオブジェクトのプロパティをマージします。
+
+```javascript
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+Object.assign(obj1, obj2);
+
+console.log(obj1);  // { a: 1, b: 3, c: 4 }
+console.log(obj2);  // { b: 3, c: 4 }
+```
+
+__第1引数で指定したオブジェクトの内容が書き換わる__ ことに注意してください。
+複数のオブジェクトのプロパティをマージして新しいオブジェクトを作りたいときは、次のように第1引数で空のオブジェクト `{}` を渡して、その参照を戻り値として受け取ります。
+
+```javascript
+const obj1 = { a: 1, b: 2 }
+const obj2 = { b: 3, c: 4 }
+const merged = Object.assign({}, obj1, obj2)
+
+console.log(merged)  // { a: 1, b: 3, c: 4 }
+```
+
+
+（おまけ）自力でマージ関数を実装する方法
 ----
 
 下記の `extend` 関数は、第１引数で渡されたオブジェクトに、第２引数で渡されたオブジェクトのプロパティをすべてコピーします。
@@ -21,15 +81,11 @@ function extend(obj1, obj2) {
 }
 
 // 使用例
-var a = {'A':1};
-var b = {'B':2, 'C':3};
+let a = {'A':1};
+const b = {'B':2, 'C':3};
 extend(a, b);
 console.log(a);  //=> {'A':1, 'B':2, 'C':3}
 ```
-
-
-underscore.js の extend 関数
-----
 
 下記は、参考にした underscore.js の `extend` 関数の抜粋です。
 

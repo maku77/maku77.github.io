@@ -57,7 +57,7 @@ layout: category-index
 ----
 - [配列の基本](array/basic.html)
 - [配列に要素を追加・挿入する (push, unshift, splice)](array/push.html)
-- [配列と配列を結合する (concat)](array/concat.html)
+- [配列と配列を結合する (...スプレッド演算子, concat)](array/concat.html)
 - [配列から部分配列を取得する (slice, splice)](array/slice.html)
 - [配列をコピーする](array/copy.html)
 - [配列をループで処理する (for, forEach, for-of)](array/loop.html)
@@ -111,7 +111,7 @@ layout: category-index
 ### オブジェクト
 - [オブジェクトの基本](object/basic.html)
 - [オブジェクトのプロパティを列挙する (for-in)](object/enum-properties.html)
-- [２つのオブジェクトのプロパティをマージする](object/merge-properties.html)
+- [2つのオブジェクトのプロパティをマージする（...スプレッド演算子、Object.assign）](object/merge-properties.html)
 - [Property Shorthand の記法で複数の変数をひとつのオブジェクトにまとめる](object/property-shorthand.html) (ECMAScript 2015)
 
 ### クラス
