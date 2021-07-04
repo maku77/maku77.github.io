@@ -20,8 +20,7 @@ Ruby の構文
 * [Ruby の真偽値](syntax/true-and-false.html)
 * [if と unless による分岐](syntax/if.html)
 * [case による分岐](syntax/case.html)
-* [条件指定によるループ (while と until)](syntax/while.html)
-* [範囲指定によるループ (for, each, step)](syntax/for.html)
+* [繰り返し処理（ループ） (while, until, times, for, each, step)](syntax/loop.html)
 * [複数の値を同時に代入する（多重代入）](syntax/multiple-assignment.html)
 * [2 つの変数の値をスワップする](swap-values.html)
 
@@ -97,6 +96,7 @@ Ruby の構文
 ### 生成
 * [文字列をコピーする (dup)](string/dup.html)
 * [インデント用の文字列を作成する](string/create-indent.html)
+* [n 文字のランダム文字列を生成する](string/rand-str.html)
 
 ### 分割／結合
 * [文字列を結合する](string/concat.html)
@@ -126,7 +126,7 @@ Ruby の構文
 ----
 * [最大値／最小値を求める (min/max/minmax)](number/max-and-min.html)
 * [配列内で最大値を持つ要素のインデックスを取得する](number/max-value-index.html)
-* [乱数を生成する](number/random.html)
+* [乱数（ランダムな数値）を生成する](number/random.html)
 * [数値のインクリメントとデクリメント](number/increment.html)
 
 
