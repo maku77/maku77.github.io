@@ -103,6 +103,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 
 Android Framework/SDK
 ----
+* [Jetpack Compose の宣言型 (declarative) の UI 定義とは？](fw/compose.html)
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
 * [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
