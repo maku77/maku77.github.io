@@ -1,6 +1,7 @@
 ---
 title: "JSON 形式のテキストファイルを Python オブジェクトとして読み込む (json.load)"
 date: "2014-11-28"
+lastmod: "2021-07-04"
 ---
 
 Python に付属している `json` ライブラリが提供する [json.load 関数](https://docs.python.org/ja/3/library/json.html#json.load)を使用すると、JSON 形式のテキストファイルを読み込んで、Python のオブジェクトを生成することができます。
@@ -9,8 +10,8 @@ Python に付属している `json` ライブラリが提供する [json.load �
 import json
 
 # JSON ファイルを読み込んで Python オブジェクトとして返す
-fun load_json(filename):
-    with open('input.json', encoding='utf-8') as f:
+def load_json(filename):
+    with open(filename, encoding='utf-8') as f:
         return json.load(f)
 
 obj = load_json('input.json')
