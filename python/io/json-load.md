@@ -53,6 +53,8 @@ JSON ファイル内の各要素は、次のようなマッピングで Python �
 JSON ファイルに書き出す (json.dump)
 ----
 
+### 基本
+
 Python のオブジェクトを JSON 形式のテキストファイルに書き出すには、[json.dump 関数](https://docs.python.org/ja/3/library/json.html#json.dump) を使用します。
 こちらも、パラメーターとしてはファイル名ではなく、ファイルオブジェクト（`write` 関数を持つオブジェクト）を渡すことに注意してください。
 
@@ -81,6 +83,8 @@ save_json('output.json', obj)
 ```json
 {"ccc": 300, "aaa": 100, "bbb": 200, "data": [1, 2, 3]}
 ```
+
+### 出力形式をカスタマイズする (indent, sort_keys)
 
 デフォルトでは、上記のように改行なしのコンパクトな出力になります。
 改行やインデントを入れて出力したい場合は、`json.dump` 関数の引数で、__`indent=2`__ のようにインデントサイズを指定します。
@@ -123,6 +127,21 @@ save_json('books.json', books)
 
 - [dictionary の内部的な要素順序を変更する](../dictionary/ordered-dic.html)
 
+### 日本語をそのまま出力する (ensure_ascii)
+
+`json.dump` 関数は、デフォルトで日本語を Unicode エスケープして出力しようとします（例えば、`あ` は `\u3042` になります）。
+この振る舞いを抑制して、日本語のまま出力するには、引数で __`ensure_ascii=False`__ を指定します。
+
+```python
+import json
+
+def save_json(filename, obj):
+    with open(filename, 'w', encoding='utf-8', newline='\n') as fp:
+        json.dump(obj, fp, ensure_ascii=False)
+
+obj = {'a': 'あいう'}
+save_json('output.json', obj)
+```
 
 （参考）ファイルではなく JSON 形式の文字列を扱う場合
 ----

@@ -44,7 +44,7 @@ print(json_str)
 {"bbb": 200, "aaa": 100}
 ```
 
-### 整形して出力する
+### 整形して出力する (indent=2)
 
 改行を入れた形で見やすく出力したい場合は、`json.dumps()` 関数の __`indent`__ パラメータにスペース数を指定します（Python 3.2 以降は、インデントに使用する文字列そのものを指定することもできます）。
 
@@ -63,7 +63,7 @@ print(json_str)
 }
 ```
 
-### キーでソートして出力する
+### キーでソートして出力する (sort_keys=True)
 
 デフォルトでは、`json.dumps()` は辞書オブジェクトの要素を追加順に出力します（Python 3.7 より前は不定でした）。
 アルファベット順にキー名でソートして出力したい場合は、`json.dumps()` 関数の __`sort_keys`__ パラメータを `True` に設定します。
@@ -79,6 +79,23 @@ print(json.dumps(obj, indent=2, sort_keys=True))
   "aaa": 100,
   "bbb": 200
 }
+```
+
+### 日本語を Unicode エスケープしない (ensure_ascii=False)
+
+日本語を含んだオブジェクトを `json.dumps` で文字列に変換すると、デフォルトで Unicode エスケープされます。
+
+```python
+obj = {'a': 'あいう'}
+print(json.dumps(obj))  #=> {"a": "\u3042\u3044\u3046"}
+```
+
+これは、XSS などの脆弱性を防ぐためですが、使用用途が限られているのであれば、UTF-8 エンコーディングの日本語をそのまま出力してしまった方がわかりやすいです。
+非 ASCII 文字の Unicode エンコーディングを停止するには、__`ensure_ascii=False`__ オプションを指定します。
+
+```python
+obj = {'a': 'あいう'}
+print(json.dumps(obj, ensure_ascii=False))  #=> {"a": "あいう"}
 ```
 
 
