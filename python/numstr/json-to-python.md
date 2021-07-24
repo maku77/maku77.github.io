@@ -1,12 +1,13 @@
 ---
 title: "JSON 形式のテキストと Python オブジェクトの相互変換 (json.loads, json.dumps)"
 date: "2013-05-22"
+lastmod: "2021-07-24"
 ---
 
-Python 2.6 からは json モジュールが標準搭載されており、JSON 形式のテキストと、Python のオブジェクトを相互に変換することができます。
+Python 2.6 からは __`json`__ モジュールが標準搭載されており、JSON 形式のテキストと、Python のオブジェクトを相互に変換することができます。
 
 
-JSON テキスト を Python オブジェクトに変換する
+JSON 文字列 → Python オブジェクト (json.loads)
 ----
 
 JSON 形式の文字列データから、Python オブジェクトを作成するには [json.loads 関数](https://docs.python.org/ja/3/library/json.html#json.loads) を使用します。
@@ -24,7 +25,7 @@ print(data['key'])  #=> 'value'
 - 参考: [JSON 形式のテキストファイルを Python オブジェクトとして読み込む (json.load)](../io/json-load.html)
 
 
-Python オブジェクト を JSON テキストに変換する
+Python オブジェクト → JSON 文字列 (json.dumps)
 ----
 
 逆に、Python オブジェクトから JSON 形式のテキストを生成するには、[json.dumps 関数](https://docs.python.org/ja/3/library/json.html#json.dumps) を使用します。
@@ -45,11 +46,11 @@ print(json_str)
 
 ### 整形して出力する
 
-きれいに整形して出力したい場合は、`json.dumps()` 関数の **`indent`** パラメータにスペース数を指定します（Python 3.2 以降は、インデントに使用する文字列そのものを指定することもできます）。
+改行を入れた形で見やすく出力したい場合は、`json.dumps()` 関数の __`indent`__ パラメータにスペース数を指定します（Python 3.2 以降は、インデントに使用する文字列そのものを指定することもできます）。
 
 ```python
 obj = {'aaa':100, 'bbb':200}
-json_str = json.dumps(obj, indent=4)
+json_str = json.dumps(obj, indent=2)
 print(json_str)
 ```
 
@@ -57,57 +58,76 @@ print(json_str)
 
 ```
 {
-    "bbb": 200,
-    "aaa": 100
+  "bbb": 200,
+  "aaa": 100
 }
 ```
 
 ### キーでソートして出力する
 
-デフォルトでは、`json.dumps()` はオブジェクトの要素を不定の順序で出力します。
-キー名でソートされた JSON テキストとして出力したい場合は、`json.dumps()` 関数の **`sort_keys`** パラメータを `True` に設定します。
+デフォルトでは、`json.dumps()` は辞書オブジェクトの要素を追加順に出力します（Python 3.7 より前は不定でした）。
+アルファベット順にキー名でソートして出力したい場合は、`json.dumps()` 関数の __`sort_keys`__ パラメータを `True` に設定します。
 
 ```python
-print(json.dumps(obj, indent=4, sort_keys=True))
+print(json.dumps(obj, indent=2, sort_keys=True))
 ```
 
 #### 実行結果
 
 ```
 {
-    "aaa": 100,
-    "bbb": 200
+  "aaa": 100,
+  "bbb": 200
 }
 ```
 
 
-JSON テキストをきれいに整形して出力する
+（おまけ） JSON 文字列を整形する関数を作ってみる
 ----
 
-下記の `pretty_json()` 関数は、JSON 形式の文字列データを、きれいにインデントや改行を入れた形に整形します。
-まず、`json.loads` で Python オブジェクトに変換してから、`json.dumps` で整形されたテキスト形式に戻しています。
+次の `pretty_json()` 関数は、JSON 形式の文字列データを、きれいにインデントや改行を入れた形に整形します。
+まず、`json.loads` で「JSON文字列→オブジェクト」の変換をしてから、`json.dumps` で「オブジェクト→JSONテキスト」と逆変換しています。
+
+#### sample.py
 
 ```python
 import json
 
 def pretty_json(json_text):
-    return json.dumps(json.loads(json_text), indent=4)
+    """JSON文字列を読みやすく整形して返します。"""
+    temp = json.loads(json_text)
+    return json.dumps(temp, indent=2, sort_keys=True)
 
 s = '{"aaa":100, "bbb":200, "ccc":300}'
 print(pretty_json(s))
 ```
 
-JSON 形式の文字列と、通常のオブジェクトのどちらでも処理できるようにするには、`isinstance` で `str` 型オブジェクトどうかを判別して処理すればよいでしょう。
-下記の `print_json()` 関数は、渡された JSON テキスト、あるいはオブジェクトをきれいに整形して出力します。
+#### 実行結果
+
+```js
+{
+  "aaa": 100,
+  "bbb": 200,
+  "ccc": 300
+}
+```
+
+次のステップとして、パラメーターに文字列ではない通常のオブジェクトを受け取った場合でも JSON 文字列に変換できるようにしてみます。
+__`isinstance`__ 関数を使うと、あるオブジェクトが文字列型 (`str`) かどうかを判別することができます。
+下記の `pretty_json()` 関数は、JSON 文字列、あるいは任意の Python オブジェクトを受け取って、整形された JSON 文字列として返します。
 
 ```python
 import json
 
-def print_json(obj):
-    s = json.loads(obj) if isinstance(obj, str) else obj
-    print(json.dumps(s, indent=4))
+def pretty_json(obj):
+    temp = json.loads(obj) if isinstance(obj, str) else obj
+    return json.dumps(temp, indent=2, sort_keys=True)
 
-print_json('{"aaa":100, "bbb":200, "ccc":300}')  # JSON テキストでも
-print_json({"aaa":100, "bbb":200, "ccc":300})    # オブジェクトでもOK
+json_str = '{"aaa":100, "bbb":200, "ccc":300}'
+json_obj = {"aaa":100, "bbb":200, "ccc":300}
+print(pretty_json(json_str))  # JSON文字列も、
+print(pretty_json(json_obj))  # オブジェクトもどちらも渡せる
 ```
+
+ちなみに、python はコマンドラインで [JSON テキストを整形するツール (json.tool) を提供](../io/json-tool.html) しているので、ローカルの JSON ファイルをササッと整形したいときにはこちらを使うと便利かもしれません。
 

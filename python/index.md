@@ -129,6 +129,7 @@ python コマンド / 実行環境
 * [dictionary の要素をループで処理する](dictionary/loop.html)
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
+* [dictionary の内部的な要素順序を変更する (dict, OrderedDictionary)](dictionary/ordered-dic.html)
 
 セット (Set)
 ====
@@ -179,8 +180,8 @@ python コマンド / 実行環境
 YAML ファイル / JSON ファイル
 ----
 * [Python で YAML ファイルを扱う](io/yaml.html)
-* [JSON 形式のテキストファイルを Python オブジェクトとして読み込む (json.load)](io/json-load.html)
-* [コマンドラインで JSON 形式のテキストファイルを整形する (json.tool)](io/json-tool.html)
+* [JSON 形式のテキストファイルを読み書きする (json.load, json.dump)](io/json-load.html)
+* [コマンドラインで JSON ファイルを整形する (json.tool)](io/json-tool.html)
 
 HTML/XML ファイル
 ----
