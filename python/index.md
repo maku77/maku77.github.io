@@ -160,7 +160,7 @@ python コマンド / 実行環境
 ----
 * [ディレクトリ内のファイルを列挙する (os.listdir, os.walk, glob)](io/enum-files.html)
 * [指定した拡張子、名前のファイルを列挙する](find-files.html)
-* [ファイル／ディレクトリの存在を確認する (os.path.exists)](check-file-existence.html)
+* [ファイル／ディレクトリの存在を確認する (os.path.exists, os.path.isfile, os.path.isdir)](check-file-existence.html)
 * [ファイル／ディレクトリの名前を変更する (os.rename)](change-filename.html)
 * [ディレクトリを作成する (os.mkdir, os.makedirs)](create-directory.html)
 * [ディレクトリを削除する (os.rmdir)](remove-directory.html)
