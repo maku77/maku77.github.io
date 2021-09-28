@@ -65,3 +65,11 @@ theme = "mythemes"
 
 例えば、各 Hugo プロジェクトの設定ファイルで、上記のように設定しておくと、上位のディレクトリに置いた共通のテーマディレクトリ (`hugo_themes/mythemes/`) を使用することができます。
 
+設定ファイルを使わずに、`hugo` コマンドの __`--themesDir`__ オプションでテーマディレクトリを指定することもできます。
+
+~~~
+$ hugo server --themesDir ~/gitwork/hugo_themes
+~~~
+
+設定ファイルの `themesDir` 変数と、コマンドライン引数の `--themesDir` の両方が指定された場合は、コマンドライン引数の方が優先されます。
+
