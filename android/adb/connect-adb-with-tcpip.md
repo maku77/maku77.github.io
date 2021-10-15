@@ -1,19 +1,34 @@
 ---
 title: "TCP/IP で adb 接続する"
 date: "2014-04-08"
+lastmod: "2021-10-15"
 ---
 
-adb を TCP/IP 接続に切り替える
+<center>
+<figure>
+  <img src="connect-adb-with-tcpip.svg">
+  <figcaption>ADB まわりの接続構成</figcaption>
+</figure>
+</center>
+
+ADB を TCP/IP 接続に切り替える
 ----
 
-adb 接続を USB 経由ではなく、LAN 接続 (TCP/IP プロトコル）で行うようにする手順です。
+ADB 接続を USB 経由ではなく、LAN 接続 (TCP/IP プロトコル）で行うようにする手順です。
+Android 端末側の ADB デーモンを TCP/IP モードに切り替えないといけないので、この設定自体は USB 接続された状態で行う必要があります。
+一度設定してしまえば、次回からは USB ケーブルは必要なくなります。
 
-1. PC 側の adb デーモンを TCP/IP 接続モードにする
-  - (PCで) `adb tcpip 5555`
-2. PC から端末のアドレスと上記ポートを指定して TCP/IP で接続
-  - (PCで) `adb connect 192.168.11.6:5555`
-3. 元に戻す場合は以下のように USB 接続待ち受け状態にする
-  - (PCで) `adb usb`
+1. Android 端末側の「開発者向けオプション」を有効にして USB 接続する
+    - [設定] > [デバイス情報] に移動して、[ビルド番号] を 7 回タップすると「開発者向けオプション」が有効になります。
+2. （USB 接続された状態で）Android 端末側の ADB デーモンを TCP/IP 接続モードにする
+    - `adb tcpip 5555`
+3. Android 端末の LAN 内の IP アドレスを確認しておく
+    - `adb shell "ip addr | grep inet"`
+4. （この時点で USB ケーブルは外して OK）
+5. PC から Android 端末のアドレスとポート番号を指定して TCP/IP で接続
+    - `adb connect 192.168.11.6:5555`
+
+USB 接続に戻したいときは、`adb usb` コマンドを実行します。
 
 
 トラブルシューティング
@@ -37,5 +52,5 @@ List of devices attached
 参考
 ----
 
-* [http://developer.android.com/guide/topics/connectivity/usb/index.html](http://developer.android.com/guide/topics/connectivity/usb/index.html)
+* [https://developer.android.com/guide/topics/connectivity/usb](https://developer.android.com/guide/topics/connectivity/usb)
 
