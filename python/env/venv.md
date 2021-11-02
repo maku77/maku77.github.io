@@ -18,8 +18,8 @@ Python プログラムを実行するために、何も考えずに `pip install
 `venv` を使って仮想環境を作ると、その環境内に閉じて `pip install` することができるようになります。
 例えば、app1 と app2 という 2 つの Python プログラム用に別々の仮想環境を作って、それぞれのプログラムに必要なパッケージをインストールするということができます。
 
-（注意）以下、`python` というコマンドを使っていますが、これはバージョン 3 以降の Python だけがインストールされている環境を想定しています。
-環境によっては、`python3` に置き換えてください（Windows の場合は `py` だったりします）。
+（注意）以下、`python3` というコマンドを使っていますが、これはバージョン 3 以降の Python を使用することを示しています。
+環境によっては、`python` に置き換えて読んでください（Windows の場合は `py` だったりします）。
 
 
 プロジェクト用の仮想環境を作成する／削除する
@@ -29,7 +29,7 @@ Python プログラムを実行するために、何も考えずに `pip install
 仮想環境はディレクトリの形で作成され、その中に必要なファイルが自動生成されます。
 
 ```
-$ python -m venv <仮想環境ディレクトリ>
+$ python3 -m venv <仮想環境ディレクトリ>
 ```
 
 プロジェクトごとに仮想環境を作成するのであれば、プロジェクトのルートに仮想環境ディレクトリを作成するのがよいでしょう。
@@ -38,7 +38,7 @@ $ python -m venv <仮想環境ディレクトリ>
 ```
 $ mkdir ~/myapp
 $ cd ~/myapp
-$ python -m venv .venv
+$ python3 -m venv .venv
 ```
 
 この仮想環境ディレクトリには、次のようなファイル群が格納されていて、仮想環境内でインストールしたパッケージなどはこの中で管理されます。
@@ -88,13 +88,13 @@ $ source .venv/bin/activate
 (.venv) $
 ```
 
-この状態で `python -m pip install` コマンドを実行すると、仮想環境内に閉じてパッケージがインストールされます。
-そのパッケージが有効なのは、この仮想環境内で `python` コマンドを実行した場合のみです。
+この状態で `python3 -m pip install` コマンドを実行すると、仮想環境内に閉じてパッケージがインストールされます。
+そのパッケージが有効なのは、この仮想環境内で `python3` コマンドを実行した場合のみです。
 
 ```
-(.venv) $ python -m pip install requests
-(.venv) $ python -m pip install python-dotenv
-(.venv) $ python -m pip install ...
+(.venv) $ python3 -m pip install requests
+(.venv) $ python3 -m pip install python-dotenv
+(.venv) $ python3 -m pip install ...
 ```
 
 ### deactivate
@@ -118,11 +118,11 @@ Python アプリのソースコードと一緒に、この `requirements.txt` �
 
 ### requirements.txt を作成する
 
-__`python -m pip freeze`__ コマンドを使うと、現在の仮想環境にインストールされているパッケージのリストをもとに `requirements.txt` を作成することができます。
+__`python3 -m pip freeze`__ コマンドを使うと、現在の仮想環境にインストールされているパッケージのリストをもとに `requirements.txt` を作成することができます。
 このコマンドは、仮想環境に入っている状態 (`source .venv/bin/activate`) で実行してください。
 
 ```
-(.venv) python -m pip freeze > requirements.txt
+(.venv) python3 -m pip freeze > requirements.txt
 ```
 
 例えば、`requires` と `python-dotenv` パッケージをインストールした後の `requirements.txt` の内容は次のような感じになります（間接的に依存するパッケージも列挙されます）。
@@ -143,10 +143,10 @@ urllib3==1.26.7
 別の PC 環境に開発を始めるときは、次のようにセットアップすることができます。
 
 ```
-$ python -m venv .venv       # 仮想環境の作成
+$ python3 -m venv .venv      # 仮想環境の作成
 $ source .venv/bin/activate  # 仮想環境に入る
-(.venv) $ python -m pip install -r requirements.txt  # 依存パッケージのインストール
+(.venv) $ python3 -m pip install -r requirements.txt  # 依存パッケージのインストール
 ```
 
-これで、依存パッケージがすべてインストールされた状態で `python` コマンドを実行することができます。
+これで、依存パッケージがすべてインストールされた状態で `python3` コマンドを実行することができます。
 
