@@ -1,6 +1,7 @@
 ---
-title: "Python の実行環境を切り替えて使用する (venv)"
+title: "Python の実行環境を切り替えて使用する (venv) Python3.3以降"
 date: "2020-05-27"
+lastmod: "2021-11-02"
 description: "venv モジュールは、Python の仮想実行環境を作成するための標準モジュールです。"
 ---
 
@@ -15,75 +16,137 @@ Python プログラムを実行するために、何も考えずに `pip install
 あるプログラムを動作させるために `pip install` すると、別のプログラムが動作しなくなるといったことが起こります。
 
 `venv` を使って仮想環境を作ると、その環境内に閉じて `pip install` することができるようになります。
-例えば、Python プログラム1 のために `env-1` という仮想環境を作り、Python プログラム2 のために `env-2` という仮想環境を作る、といったことができます。
+例えば、app1 と app2 という 2 つの Python プログラム用に別々の仮想環境を作って、それぞれのプログラムに必要なパッケージをインストールするということができます。
+
+（注意）以下、`python` というコマンドを使っていますが、これはバージョン 3 以降の Python だけがインストールされている環境を想定しています。
+環境によっては、`python3` に置き換えてください（Windows の場合は `py` だったりします）。
 
 
-仮想環境を作成する／削除する
+プロジェクト用の仮想環境を作成する／削除する
 ----
 
 仮想環境を作成するには、次のようなコマンドを実行します。
 仮想環境はディレクトリの形で作成され、その中に必要なファイルが自動生成されます。
 
 ```
-$ python -m venv 仮想環境ディレクトリ
+$ python -m venv <仮想環境ディレクトリ>
 ```
 
-ここでは、ホームディレクトリに仮想環境用のディレクトリを作成してみましょう。
-次のように実行すると、ホームディレクトリに `python-venv/myapp` という名前のディレクトリが作成されます（ディレクトリ階層が深くても大丈夫です）。
+プロジェクトごとに仮想環境を作成するのであれば、プロジェクトのルートに仮想環境ディレクトリを作成するのがよいでしょう。
+例えば、`myapp` プロジェクト用の仮想環境を作るには次ようにします（仮想環境ディレクトリ名を `.venv` としています）。
 
 ```
-$ python -m venv ~/python-venv/myapp
+$ mkdir ~/myapp
+$ cd ~/myapp
+$ python -m venv .venv
+```
 
-$ ls ~/python-venv/myapp
+この仮想環境ディレクトリには、次のようなファイル群が格納されていて、仮想環境内でインストールしたパッケージなどはこの中で管理されます。
+
+```
+$ ls .venv
 bin/    include/    lib/    pyvenv.cfg
 ```
 
-仮想環境が必要なくなった場合は、このディレクトリを丸ごと削除してしまえば OK です。
+仮想環境が必要なくなった場合は、仮想環境ディレクトリを丸ごと削除してしまえば OK です。
 
 ```
-$ rm -Rf ~/python-venv/myapp
+$ rm -Rf .venv
 ```
 
+### .gitignore に .venv を追加
 
-仮想環境に入る (activate) / 仮想環境から抜ける (deactivate)
+仮想環境ディレクトリは他のユーザーと共有する仕組みにはなっていないので、`.gitignore` ファイルに次のように記述して、Git にコミットしないようにします。
+
+#### .gitignore
+
+```
+.venv/
+```
+
+ここでは、仮想環境ディレクトリ名が `.venv` であると想定していますが、このあたりはプロジェクト内でルール化して、`README.md` などに記述しておきましょう。
+
+
+仮想環境に入る (activate) / 抜ける (deactivate)
 ----
 
+### activate
+
 作成した仮想環境を使用するには、仮想環境のディレクトリ内に作成された __`activate`__ スクリプトを実行します。
-このとき、カレントディレクトリはどこでもいいことに注意してください（つまり、実行したい Python スクリプトが置いてあるディレクトリから、任意の仮想環境に入ることができます）。
-
-#### Linux や macOS での実行例
 
 ```
-$ source ~/python-venv/myapp/bin/activate
-```
+### Linux や macOS の場合
+$ source .venv/bin/activate
 
-#### Windows での実行例
-
-```
-C:\> C:\python-venv\myapp\Scripts\activate.bat
+### Windows の場合
+.venv\Scripts\activate.bat
 ```
 
 仮想環境に入ると、次のように、プロンプトの先頭に仮想環境名が表示されます。
 
 ```
-(myapp) $
+(.venv) $
 ```
 
-この状態で `pip install` コマンドを実行すると、仮想環境内に閉じてモジュールがインストールされます。
-そのモジュールが有効なのは、この仮想環境内で `python` コマンドを実行した場合のみです。
-
-次の例では、いくつかの外部モジュール（`requests` と `python-dotenv`）をインストールし、python スクリプト (`app.py`) を実行しています。
+この状態で `python -m pip install` コマンドを実行すると、仮想環境内に閉じてパッケージがインストールされます。
+そのパッケージが有効なのは、この仮想環境内で `python` コマンドを実行した場合のみです。
 
 ```
-(myapp) $ pip install requests python-dotenv
-(myapp) $ python app.py
+(.venv) $ python -m pip install requests
+(.venv) $ python -m pip install python-dotenv
+(.venv) $ python -m pip install ...
 ```
+
+### deactivate
 
 仮想環境から抜けるには、単純に __`deactivate`__ コマンドを実行します。
 このコマンドは、仮想環境に入っている状態であれば、どのディレクトリからでも実行できるようになっています。
 
 ```
 (myapp) $ deactivate
-$
 ```
+
+
+プロジェクトの依存パッケージを requirements.txt で管理する
+-----
+
+### requirements.txt とは
+
+これは `venv` の仕組みではなくて、パッケージ管理ツールの [pip の仕組み](https://pip.pypa.io/en/latest/user_guide/#requirements-files) ですが、__`requirements.txt`__ というファイルに依存パッケージを記述しておくと、一撃で依存パッケージをインストールできるようになります。
+Python アプリのソースコードと一緒に、この `requirements.txt` を Git にコミットしておくことで、チーム内の開発環境を簡単に揃えることができます。
+`venv` による仮想環境を使って開発を進める場合、初期状態では何もパッケージがインストールされていない状態からパッケージをインストールしていくことになるため、`requirements.txt` によるパッケージ管理は非常に相性がよいといえます。
+
+### requirements.txt を作成する
+
+__`python -m pip freeze`__ コマンドを使うと、現在の仮想環境にインストールされているパッケージのリストをもとに `requirements.txt` を作成することができます。
+このコマンドは、仮想環境に入っている状態 (`source .venv/bin/activate`) で実行してください。
+
+```
+(.venv) python -m pip freeze > requirements.txt
+```
+
+例えば、`requires` と `python-dotenv` パッケージをインストールした後の `requirements.txt` の内容は次のような感じになります（間接的に依存するパッケージも列挙されます）。
+
+```
+certifi==2021.10.8
+charset-normalizer==2.0.7
+idna==3.3
+python-dotenv==0.19.1
+requests==2.26.0
+urllib3==1.26.7
+```
+
+`requirements.txt` はプロジェクトのルートディレクトリに配置して、Git にコミットしておきましょう。
+
+### requirements.txt を使ってパッケージをインストールする
+
+別の PC 環境に開発を始めるときは、次のようにセットアップすることができます。
+
+```
+$ python -m venv .venv       # 仮想環境の作成
+$ source .venv/bin/activate  # 仮想環境に入る
+(.venv) $ python -m pip install -r requirements.txt  # 依存パッケージのインストール
+```
+
+これで、依存パッケージがすべてインストールされた状態で `python` コマンドを実行することができます。
 

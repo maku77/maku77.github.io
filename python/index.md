@@ -12,8 +12,8 @@ layout: category-index
 開発環境／デバッグ／ユニットテスト
 ----
 * [Python のパッケージ管理ツール (pip)](pip.html)
+* [Python の実行環境を切り替えて使用する (venv) Python3.3以降](env/venv.html)
 * [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](env/virtualenv.html)
-* [Python の実行環境を切り替えて使用する (venv)](env/venv.html)
 * [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
 * [Python でユニットテストを記述する](unittest.html)
 * [Python コードの実行時間を計測する](misc/measure-time.html)
