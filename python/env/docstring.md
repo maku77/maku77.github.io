@@ -1,6 +1,7 @@
 ---
 title: "Docstring でドキュメンテーションコメントを記述する"
 date: "2019-06-04"
+lastmod: "2021-11-03"
 ---
 
 Docstring とは？
@@ -36,11 +37,32 @@ Docstring の書き方
 - 一行目はサマリであり、ピリオドで終わるフレーズで記述する。
 - 一行目は `"""` と同じ行に記述してもよいし、改行してから記述してもよい。
 - 最後の `"""` は行末に書いてもよいし、単独の行に書いてもよい。
-- 一行だけで記述する場合は、`"""Form a comlex number."""` のように、開始クォートと終了クォートを同じ行に記述してもよい。
+- 一行だけで記述する場合は、開始クォートと終了クォートを同じ行に記述してもよい。
+
+  ```python
+  def complex(real=0.0, imag=0.0):
+      """Form a complex number."""
+  ```
+
 - 一行当たり **72 文字**以内で記述する。
+    - クラスメソッドであれば、最初から 8 文字インデントして書き始めることになるので、結局、一行あたりのサイズを 80 文字にするということですね。
 - `r"""` で始めると Raw docstring となり、バックスラッシュを含めることができる。
-- サマリは命令形で記述する。動詞で始め、**三単現の s は付けない**（例: "Return ..."）。これは、Javadoc が三単現の s を付けるのを慣例しているのとは対照的。
+- サマリは命令形で記述する。動詞で始め、**三単現の s は付けない**（例: "Return ..."）。
+    - これは、Javadoc が三単現の s を付けるのを慣例しているのとは対照的です。
+    - 以下、[PEP 257 -- Docstring Conventions](https://www.python.org/dev/peps/pep-0257/) からの抜粋です。
+      > The docstring is a phrase ending in a period. It prescribes the function or method's effect as a command ("Do this", "Return that"), not as a description; e.g. don't write "Returns the pathname ...".
 - 詳細なコメントを記述する場合は、一行目にサマリ、二行目は空行、三行目以降に詳細コメントを記述する。この場合も一行目のサマリは、`"""` と同じ行に記述してよい。
+
+  ```python
+  def complex(real=0.0, imag=0.0):
+      """Form a complex number.
+
+      Keyword arguments:
+      real -- the real part (default 0.0)
+      imag -- the imaginary part (default 0.0)
+      """
+  ```
+
 - パッケージのドキュメントは **`__init__.py`** に書く。自分が export するモジュールやサブパッケージをリスト化し、それぞれ一行のサマリを記述する。
 
 

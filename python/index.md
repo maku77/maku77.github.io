@@ -5,9 +5,16 @@ layout: category-index
 
 はじめに／基本
 ====
+
+コーディングスタイル／モジュールの仕組み
+----
+
 * [Python のコーディングスタイル](coding-style.html)
 * [Python でモジュールを import する方法いろいろ](import-modules.html)
 * [Python のモジュール／パッケージを作成する](env/create-module.html)
+* [Docstring でドキュメンテーションコメントを記述する](env/docstring.html)
+* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
+
 
 開発環境／デバッグ／ユニットテスト
 ----
@@ -20,9 +27,6 @@ layout: category-index
 * [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
 * [Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)](dev/py2exe.html)
 
-### ドキュメンテーション・コメント
-* [Docstring でドキュメンテーションコメントを記述する](env/docstring.html)
-* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
 
 構文
 ----

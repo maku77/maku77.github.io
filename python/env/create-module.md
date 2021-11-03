@@ -1,6 +1,7 @@
 ---
 title: "Python でモジュール／パッケージを作成する"
 date: "2016-12-16"
+lastmod: "2021-11-03"
 ---
 
 モジュールとパッケージ
@@ -28,9 +29,11 @@ Python では、再利用可能な関数などを集めたスクリプトファ�
 
 ```python
 def add(a, b):
+    """Return the sum of a and b."""
     return a + b
 
 def sub(a, b):
+    """Subtract b from a."""
     return a - b
 ```
 
@@ -50,8 +53,9 @@ if __name__ == '__main__':
 パッケージを作成する
 ----
 
-モジュールをディレクトリまとめると、それはパッケージと呼ばれるようになります。
-下記の例では、`mylib` というディレクトリに `mymath.py` を格納することで、`mylib` パッケージを作成しています。
+モジュール (`*.py`) をディレクトリにまとめたものを __パッケージ__ と呼びます。
+下記の例では、`mylib` ディレクトリに `mymath.py` を格納することで、`mylib` パッケージを作成しています。
+ちなみに、パッケージ名（ディレクトリ名）にはアンダースコア (`_`) は含んではいけません。このあたりの詳細は [Python のコーディングスタイル](../coding-style.html) を参照してください。
 
 ```
 +-- main.py
@@ -168,15 +172,15 @@ mod1.hello()
 
 ### モジュールのドキュメントを記述する
 
-モジュールの先頭に `""" ... """` という形式のドキュメンテーションコメントを記述しておくと、そのモジュールのドキュメントして認識されます。
+モジュールの先頭に `"""..."""` という形式のドキュメンテーションコメントを記述しておくと、そのモジュールのドキュメントして認識されます。
 
 #### fibo.py
 
 ```python
-""" Fibonacci numbers module. """
+"""Fibonacci numbers module."""
 
 def fib(n):
-    """ Prints fibonacci series up to n. """
+    """Print fibonacci series up to n."""
     a, b = 0, 1
     while b < n:
         print(b, end=' ')
@@ -194,7 +198,7 @@ NAME
 
 FUNCTIONS
     fib(n)
-        Prints fibonacci series up to n.
+        Print fibonacci series up to n.
 
 FILE
     D:\y\sandbox\python\fibo.py
@@ -205,7 +209,7 @@ FILE
 #### mylib/\_\_init\_\_.py
 
 ```python
-""" My first package. """
+"""My first package."""
 ```
 
 パッケージのドキュメントを参照すると、パッケージに含まれているモジュールのリスト (`PACKAGE CONTENTS`) も表示してくれます。

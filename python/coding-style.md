@@ -1,6 +1,7 @@
 ---
 title: "Python のコーディングスタイル"
 date: "2007-02-06"
+lastmod: "2021-11-03"
 ---
 
 Python のコーディングスタイルは、PEP 8 や PEPで指針が示されています。
@@ -27,31 +28,45 @@ Python の name mangling の仕組みによって、アンダースコア 2 つ�
 
 ### グローバル領域でのアンダースコアの使用について
 
-外部に公開しないクラスや関数は、プレフィックスとしてアンダースコアを付けます。
-こうすることにより、`from M import *` の構文でインポートされないようになります。
+トップレベルに定義するクラスや関数で、モジュール（ファイル）内に閉じて外部に公開しないものは、プレフィックスとして 1 つのアンダースコアを付けます。
+こうすることで、`from M import *` の形での自動インポートを防ぐことができます。
 
-パッケージ名とモジュール名は、ファイル名に直結するため、小文字のみで構成します。
-モジュール名は、必要があれば単語の区切りのためにアンダースコアを含めてもよいとされています。
+```python
+# モジュール内部で使う関数
+def _parse_timestamp_with_tzinfo(value, tzinfo):
+    """Parse timestamp with pluggable tzinfo options."""
+    ...省略...
 
-- パッケージ名にはアンダースコアを含めない
-- モジュール名にはアンダースコアを含んでもよい
+# モジュール内部で使うクラス
+class _RetriesExceededError(Exception):
+    """Internal exception used when the number of retries are exceeded."""
+    pass
+```
+
+モジュール名（ファイル）とパッケージ名（ディレクトリ）は、小文字のみで構成します。
+モジュール名は、必要があれば単語の区切りのためにアンダースコアを含めてもよいとされていますが、パッケージ名（ディレクトリ）にはアンダースコアを含めてはいけません。
+
+- モジュール名にはアンダースコアを含んでもよい (OK: `user.py`, `user_info.py`)
+- パッケージ名にはアンダースコアを含めない (OK: `game/`, NG: `game_db/`)
 
 これらのアンダースコアの扱いに関しては、[PEP 0008 (Style Guide for Python Code) の Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) のセクションにおいて、下記のように記述されています。
 
-> Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
+> Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability.
+>
+> Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
 
 
 ### その他の命名規則
 
-- 独自の Exception クラスは、Exception を継承して作成し、サフィックスに `Error` を付ける（例: `HogeHogeError`）。
-- インスタンスメソッドの最初の引数名は `self`、クラスメソッドの最初の引数名は `cls`。
+- 独自の Exception クラスは、Exception を継承して作成し、サフィックスに __`Error`__ を付ける（例: `HogeHogeError`）。
+- インスタンスメソッドの最初の引数名は __`self`__、クラスメソッドの最初の引数名は __`cls`__。
 - 予約語と被る attribute 名を使用したい場合は、変に省略名を付けるのではなく、サフィックスとしてアンダースコアを付ける。ただし、`class` という名前に関しては、`class_` でなく `cls` を用いる。
 
 
 インデント／スペース
 ----
 
-- インデントはスペース 4 文字。タブは使用しない。
+- インデントは __スペース 4 文字__。タブは使用しない。
   - python のコマンドライン引数で `-t` を指定すればスペースとタブが混在しているときに警告を表示してくれます（`-tt` オプションならエラーにしてくれる）。
 - 一行は 79 文字（+ 改行）まで。ただし、ドキュメント (docstring) やコメント行は 72 文字まで。
 - デフォルトパラメータの `=` の前後にはスペースを入れない。
@@ -69,8 +84,9 @@ if (width == 0 and height == 0 and
     highlight > 100):
 ```
 
-- クラス内のメソッドは 1 行の空白行で区切る。トップレベルのクラス定義やメソッドは 2 行の空白行で区切る。
-- 開き括弧 (, [ の前後に空白スペースを入れない。
+- クラス内のメソッド間は 1 行の空白行で区切る。トップレベルのクラス定義やメソッドは 2 行の空白行で区切る。
+  - ▽このあたりのルールは有名どころの OSS のコードは [ちゃんと守ってます](https://github.com/boto/botocore/tree/develop/botocore) が、ドキュメンテーションコメントの最初の動詞に三単現の s を付けない、というルールはあまり守られていないっぽいです。
+- 開き括弧 `(`、`[` の前後に空白スペースを入れない。
 - コロン `:`、セミコロン `;` の前に空白スペースを入れない。
 - 算術演算子の前後には空白スペースを入れる。
 - 代入文が複数行に渡って続く場合に、`=` の位置を空白スペースで揃えたりしない。
@@ -80,27 +96,50 @@ if (width == 0 and height == 0 and
 ----
 
 - Python 3.0 からはエンコーディング形式に UTF-8 が推奨される。
-- コメントや docstring 意外の文字列リテラルで ASCII 意外のエンコーディング形式を使用する場合は、`\x`, `\u`, `\U` でエスケープすること。
+- コメントや docstring 以外の文字列リテラルで ASCII 意外のエンコーディング形式を使用する場合は、`\x`, `\u`, `\U` でエスケープすること。
 
 
-import
+インポート
 ----
 
-- import は次の順番で宣言する。各セクションは空白行で区切る。
+- `import` は次の順番で宣言し、__各セクションを空白行で区切る__。
   1. 標準ライブラリ
   2. サードパーティ・ライブラリ
   3. ローカル・ライブラリ
-- import は次のように 1 行ずつ分離して行う。
+
+```python
+import random
+import os
+import socket
+
+import dateutil.parser
+from dateutil.tz import tzutc
+
+import botocore
+import botocore.awsrequest
+```
+
+- `import` は次のように 1 行ずつ分離して行う。
 
 ```python
 import os
 import sys
 ```
 
-- ただし、次のような `from -- import --` の形式は OK。
+- ただし、次のような `from -- import --` の形式は 1 行で書いても OK。
 
 ```python
 from subprocess import Popen, PIPE
+```
+
+- 上記の `import` 以降が複数行に渡るときは、次のように括弧で囲めば OK。
+
+```python
+from botocore.compat import (
+    json, quote, zip_longest, urlsplit, urlunsplit, OrderedDict,
+    six, urlparse, get_tzinfo_options, get_md5, MD5_AVAILABLE,
+    HAS_CRT
+)
 ```
 
 
@@ -108,11 +147,11 @@ from subprocess import Popen, PIPE
 ----
 
 - コメントはセンテンスになっているべきで、最初の文字は大文字で始める。短いセンテンスは最後のピリオドを省略してよいが、通常はピリオドを省略してはならない。
-- コメントは英語。
+- コメントは基本的には英語で。
 - ブロックコメントの中のパラグラフは、1 つの `#` を含む行で区切ること。
 - インラインコメントの `#` は、ステートメントの後ろに 2 つ以上のスペースを置いてから記述すること。
-- docstring の内容については [PEP 0257](http://www.python.org/dev/peps/pep-0257/) を参照。
-- docstring のクォーテーションは、シングルクォート `'` ではなく、ダブルクォート `"` を使用する。
-- docstring の最後の `"""` は単独行に記述する。その前の行は空白行を 1 行入れる。
-- docstring が 1 行だけの場合は、最後の `"""` を同じ行に記述してよい。
+
+モジュール（ファイル）や、クラス、関数などのドキュメンテーションコメントは、__docstring 形式__ での記述が推奨されています。下記記事を参考にしてください。
+
+- [Docstring でドキュメンテーションコメントを記述する](./env/docstring.html)
 
