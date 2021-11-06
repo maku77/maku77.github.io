@@ -94,6 +94,74 @@ if __name__ == '__main__':
     print(mymath.sub(1, 2))
 ```
 
+
+モジュールから別のモジュールをインポートするときの注意
+----
+
+- main.py
+- libs/
+    - mod1.py
+    - mod2.py
+
+このようなディレクトリ構成で `libs` パッケージを作っていて、`mod1.py` から `mod2.py` をインポートしたいときは、次のように __`from .`__ を付けて相対パスでの参照であることを明示する必要があります。
+
+#### libs/mod1.py
+
+```python
+from . import mod2
+
+def hello():
+    mod2.hello()
+```
+
+#### libs/mod2.py
+
+```python
+def hello():
+    print('hello')
+```
+
+上記の `from . import mod2` となっているところを、単純に `import mod2` と書いてしまうと、`main.py` から次のように `mod1` 経由で読み込もうとしたときに __`ModuleNotFoundError: No module named 'mod2'`__ エラーになってしまいます。
+
+#### main.py
+
+```python
+from libs import mod1
+
+mod1.hello()
+```
+
+ちなみに、1 つ上の階層にあるモジュールをインポートしたいときは、ドットの数を 1 つ増やして `..` とします。
+2 つ上の階層のモジュールをインポートしたければ、さらにドットを増やして `...` です。
+まとめておきます。
+
+- 同じ階層のモジュール ... `from . import mod` / `from .mod import hello`
+- 1つ上の階層のモジュール ... `from .. import mod` / `from ..mod import hello`
+- 2つ上の階層のモジュール ... `from ... import mod` / `from ...mod import hello`
+
+
+別名を付ける (as)
+----
+
+パッケージ名やモジュール名が長すぎて扱いにくい場合や、名前の衝突が起きてしまう場合は、__`as`__ キーワードを使って別名を付けることができます。
+
+#### longlongmodule.py をインポートするとき
+
+```python
+import longlongmodule as libs
+
+libs.hello()
+```
+
+#### mypackage/longlongmodule.py をインポートするとき
+
+```python
+from mypackage import longlongmodule as libs
+
+libs.hello()
+```
+
+
 応用
 ----
 
