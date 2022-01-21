@@ -12,7 +12,7 @@ Docker コンテナ内でプログラムが動作している状態をキープ�
 ```
 
 上記のようなプログラムを、`docker run` コマンドで単純に Docker コンテナ内で動かすと、起動元の標準出力に `Hello` と表示され続けてしまいます。
-そうではなくて、Docker コンテナ内の標準出力へ出力するようにするには、`docker run` コマンドに `-d` オプションを付けて実行します。
+そうではなくて、Docker コンテナ内の標準出力へ出力するようにするには、`docker run` コマンドに `-d (--detach)` オプションを付けて実行します。
 
 ```
 $ sudo docker run -d ubuntu:14.04 /bin/bash -c 'while true; do echo Hello; sleep 1; done'
