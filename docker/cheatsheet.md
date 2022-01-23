@@ -4,7 +4,7 @@ date: "2015-04-02"
 ---
 
 Registry / Repository / Image / Tag の概念
-====
+----
 
 ![cheatsheet.png](cheatsheet.png)
 
@@ -16,7 +16,7 @@ Registry / Repository / Image / Tag の概念
 
 
 イメージ関連のコマンド
-====
+----
 
 | コマンド | 内容 |
 | -------- | ---- |
@@ -33,7 +33,7 @@ Registry / Repository / Image / Tag の概念
 
 
 コンテナ関連のコマンド
-====
+----
 
 | コマンド | 内容 |
 | -------- | ---- |
@@ -43,7 +43,7 @@ Registry / Repository / Image / Tag の概念
 
 
 実行に関するコマンド
-====
+----
 
 | コマンド | 内容 |
 | -------- | ---- |
@@ -52,7 +52,7 @@ Registry / Repository / Image / Tag の概念
 
 
 Docker ファイルでの命令
-====
+----
 
 | 命令 | 内容 |
 | ---- | ---- |
