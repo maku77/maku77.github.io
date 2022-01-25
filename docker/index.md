@@ -5,7 +5,7 @@ layout: category-index
 
 Docker をはじめる（インストールと設定）
 ----
-* [Docker のインストール](install.html)
+* [Docker をインストールする (Docker Desktop / Docker Engine)](install)
 * [Docker のプロキシ設定](proxy.html)
 * [一般ユーザから docker コマンドを実行できるようにする](run-docker-without-root.html)
 
@@ -31,6 +31,9 @@ Docker の操作
 * [Docker コンテナ内で動作しているプロセスの一覧を表示する](list-processes.html)
 * [Docker コンテナの詳細情報を表示する](inspect-container.html)
 * [Docker コンテナ内で公開しているポート番号が外部から見てどのポート番号にマッピングされているか調べる](port-mappings.html)
+
+### マウント（ボリューム、バインドマウント、tmpfs マウント）
+* [Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント、tmpfsマウント）](mount)
 
 
 トラブルシューティング
