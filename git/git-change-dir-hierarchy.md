@@ -1,5 +1,5 @@
 ---
-title: "Git のコミット履歴を書き換えてディレクトリ階層を変更する"
+title: "Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する"
 date: "2015-06-29"
 ---
 
@@ -24,7 +24,7 @@ date: "2015-06-29"
 
 `git filter-branch` コマンドを使用すると、すべてのコミット履歴を書き換えて、もともとプロジェクト全体がこのような構成になっていたとみなすことができます。
 
-```sh
+```console
 $ git filter-branch -f --subdirectory-filter root -- --all
 ```
 
@@ -38,7 +38,7 @@ $ git filter-branch -f --subdirectory-filter root -- --all
 #### 例: src.git の階層構造を変えて dst.git として push
 下記は、GitHub 上で空のリポジトリ dst.git を作成済みだと仮定しています。
 
-```sh
+```console
 ### 元になるリポジトリを clone して階層構造を変更する
 $ git clone --mirror https://github.com/user/src.git
 $ cd src.git
@@ -54,3 +54,4 @@ $ git push --tags （全タグを push）
 #### 参考: git filter-branch コマンドのヘルプ
 
 * http://git-scm.com/docs/git-filter-branch
+

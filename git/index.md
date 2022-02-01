@@ -65,11 +65,12 @@ Git
 
 コミット／履歴の書き換え
 ---
-* [直前のコミットのコメントを修正する](git-modify-comment.html)
-* [直前のコミットを取り消す](commit/reset-prev-commit.html)
-* [最近のコミットを歴史から抹消する](commit/delete-recent-commits.html)
+* [Git やり直し: 直前のコミットのコメントを修正する](git-modify-comment.html)
+* [Git やり直し: 直前のコミットを取り消す](commit/reset-prev-commit.html)
+* [Git やり直し: main ブランチに入れてしまったコミットを別のブランチに移す](commit/move-commit.html)
+* [Git やり直し: 最近のコミットを歴史から抹消する](commit/delete-recent-commits.html)
+* [Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 * [変更の一部だけをコミットする](commit/commit-by-hunk.html)
-* [Git のコミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 
 ログ (git log)
 ----

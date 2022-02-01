@@ -1,19 +1,18 @@
 ---
-title: "最近のコミットを歴史から抹消する"
+title: "Git やり直し: 最近のコミットを歴史から抹消する"
 date: "2018-08-31"
 ---
 
 最近実行したコミットを、完全にコミットログ上から削除してしまいたい場合は、`git rebase` を下記のような感じで実行します。
 
-~~~
+```console
 $ git rebase -i HEAD~5  # 最近の５つのコミットから選んで削除したいとき
 $ git rebase -i 40facd  # 指定したコミットから最新までの中から選んで削除したいとき
-~~~
-
+```
 
 上記のように実行すると、下記のようにコミットのリストがエディタ上に表示されます。
 
-~~~
+```
 pick 26b81e6 How to show dependencies of subprojects
 pick 86f2132 Correct ffmpeg options
 pick 892197c Vim articles
@@ -38,26 +37,25 @@ pick fa18ad8 Correct Markdown format
 # However, if you remove everything, the rebase will be aborted.
 #
 # Note that empty commits are commented out
-~~~
+```
 
 歴史から削除したいコミットの行頭に書かれている、`pick` という部分を、`drop` に書き換えて保存すれば、それらのコミットがなかったことになります。
 
-~~~
+```
 pick 26b81e6 How to show dependencies of subprojects
 drop 86f2132 Correct ffmpeg options  ★履歴から消したいコミット
 pick 892197c Vim articles
 drop 492c84c How to use Sass in Hugo ★履歴から消したいコミット
 pick fa18ad8 Correct Markdown format
-~~~
+```
 
 この操作は、`git push` で公開したコミットに対して実行してはいけません。
 すでにリポジトリを clone しているユーザが大混乱することになります。
 どうしても共有リポジトリ側に `git push` したい場合は、次のように `-f` オプションをつけて強制的に push する必要があります（付けないとエラーになる）。
 
-~~~
+```console
 $ git push -f
-~~~
-
+```
 
 ### コラム: 昔のバージョンの Git の場合
 
