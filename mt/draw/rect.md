@@ -1,12 +1,12 @@
 ---
 title: "チャート上に矩形を表示する"
 date: "2016-03-21"
+redirect: https://memoja.net/p/qju4dmu
+sitemap: false
 ---
 
 矩形オブジェクトについて
 ----
-
-![rect.png](./rect.png)
 
 矩形オブジェクト (`OBJ_RECTANGLE`) および、矩形ラベルオブジェクト (`OBJ_RECTANGLE_LABEL`) は、MetaTrader のチャート上に表示できる描画オブジェクトです。
 表示位置の指定方法によって、下記のように使い分けます。

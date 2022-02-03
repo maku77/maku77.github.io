@@ -48,8 +48,8 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 
 描画オブジェクトの表示
 ----
-* [チャート上にラベルを表示する](draw/label.html)
-* [チャート上に矩形を表示する](draw/rect.html)
+* [チャート上にラベルを表示する &#x2197;](https://memoja.net/p/h4fq2cm)
+* [チャート上に矩形を表示する &#x2197;](https://memoja.net/p/qju4dmu)
 * [サンプル: 通貨ペアとタイムフレームを大きく表示する](draw/large-symbol.html)
 
 資金管理／口座情報
