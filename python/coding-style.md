@@ -1,13 +1,16 @@
 ---
 title: "Python のコーディングスタイル"
 date: "2007-02-06"
-lastmod: "2021-11-03"
+lastmod: "2022-02-17"
 ---
 
-Python のコーディングスタイルは、PEP 8 や PEPで指針が示されています。
+Python のコーディングスタイルは、PEP 8 や PEP 257 で指針が示されています。
 
 - [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 - [PEP 257 -- Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
+
+このページでは主に上記の内容についてまとめていますが、実際に Python のプロジェクトにコーディングスタイルを適用するときは、[Black などの Python フォーマッターを導入](https://maku.blog/p/4oybku6/) することをおすすめします。
+Black は、PEP 8 や PEP 257 と若干異なるところがありますが、理にかなったスタイルを強制的に適用してくれます。
 
 
 命名規則
