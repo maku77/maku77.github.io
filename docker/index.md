@@ -13,7 +13,7 @@ Docker をはじめる（インストールと設定）
 Docker の基本的な使い方
 ----
 * [Docker イメージのダウンロードと Hello World](download-image.html)
-* [Docker コンテナを起動してシェル (bash) を扱う](run-container.html)
+* [Docker コンテナで起動した bash シェルに接続する (docker container run, start, exec, attach)](run-container.html)
 * [Docker コンテナをデーモンとして動作させる](run-container-as-daemon.html)
 
 
