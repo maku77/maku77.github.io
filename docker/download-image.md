@@ -1,61 +1,60 @@
 ---
 title: "Docker イメージのダウンロードと Hello World"
 date: "2015-03-15"
+lastmod: "2022-02-18"
 ---
 
-Docker イメージのダウンロード
-====
+Docker イメージのダウンロード (docker image pull)
+----
 
 Docker でコンテナを作成するためには、ベースとなるイメージが必要です。
-多くのイメージが **DockerHub** に用意されているので、通常はここからベースとなるイメージを取得します。
-ここでは、**Ubuntu 14.04** のイメージをダウンロードします。
+多くのイメージが __DockerHub__ に用意されているので、通常はここからベースとなるイメージを取得します。
+ここでは、__Ubuntu 20.04__ のイメージをダウンロードします。
 
-`docker pull` コマンドに、ダウンロードしたいイメージ名と、バージョンを表すタグ（最新なら `latest`）を指定してダウンロードします。
-タグを指定しないと、全タグのイメージを取得してしまうので注意してください。
+__`docker image pull`__ (`docker pull`) コマンドに、ダウンロードしたいイメージ名と、バージョンを表すタグ（最新なら `latest`）を指定してダウンロードします。
+省略すると デフォルトタグとして `lastest` が使用されます。
 
-```
-$ sudo docker pull ubunutu:14.04
-Pulling repository ubuntu
-2d24f826cb16: Download complete
-511136ea3c5a: Download complete
-fa4fd76b09ce: Download complete
-1c8294cc4160: Download complete
-117ee323aaa9: Download complete
+```console
+$ docker image pull ubuntu:20.04
+20.04: Pulling from library/ubuntu
+Digest: sha256:669e010b58baf5beb2836b253c1fd5768333f0d1dbcb834f7c07a4dc93f474be
+Status: Downloaded newer image for ubuntu:20.04
+docker.io/library/ubuntu:20.04
 ```
 
-イメージがダウンロードできているかを確認します。
+ダウンロード済みのイメージの一覧は `docker image ls` コマンドで確認できます（旧型式: `docker images`）。
 
-```
-$ sudo docker images
-REPOSITORY   TAG       IMAGE ID       CREATED      VIRTUAL SIZE
-ubuntu       14.04     2d24f826cb16   2weeks ago   188.3 MB
+```console
+$ docker image ls
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+ubuntu        20.04     54c9d81cbb44   2 weeks ago   72.8MB
 ```
 
 
-Docker イメージの削除
-====
+Docker イメージの削除 (docker image rm)
+----
 
-Docker イメージを削除したくなったときは、下記のように `docker rmi` コマンドで削除できます。
-**「イメージ名:タグ名」**で指定する代わりに、`docker images` で表示される**「イメージの ID」**を指定することもできます。
+Docker イメージを削除したくなったときは、下記のように __`docker image rm`__  (`docker rmi`) コマンドで削除できます。
+__イメージ名:タグ名__ で指定する代わりに、`docker image ls` で表示される __イメージの ID__ を指定することもできます。
 
+```console
+$ docker image rm ubuntu:20.04
 ```
-$ sudo docker rmi ubuntu:14.04
-```
 
 
-Docker イメージの実行
-====
+Docker イメージの実行 (docker container run)
+----
 
-`docker run` コマンドを使うと、指定した Docker イメージ上で任意のコマンドを実行することができます。
-例えば、Ubuntu 14.04 の Docker イメージ上で、`echo` コマンドを実行するには、以下のようにします。
+__`docker container run`__ (`docker run`) コマンドを使うと、指定した Docker イメージからコンテナを起動し、任意のコマンドを実行することができます。
+例えば、Ubuntu 20.04 の Docker イメージ上で、`echo` コマンドを実行するには、以下のようにします。
 
-```
-$ sudo docker run ubuntu:14.04 echo Hello World!
+```console
+$ docker container run ubuntu:20.04 echo Hello World!
 Hello World!
 ```
 
-`docker run` コマンドにより、**「Docker コンテナ」**が起動され、その中で `echo` が実行されます。
-この例の場合、`echo` コマンドの実行が終わり次第、すぐに「Docker コンテナ」は停止します。
-`docker run` コマンドで指定したイメージがまだローカルに存在しない場合は、そのイメージを公開レジストリである Docker Hub からダウンロードしてくれます。
-なので、実は `docker pull` であらかじめイメージを取得しておかなくても、上記の `docker run` を直接実行することができます。
+`docker container run` コマンドにより、__Docker コンテナ__ が起動され、その中で `echo` が実行されます。
+`echo` コマンドの実行が終わり次第、Docker コンテナはすぐに停止します。
+`docker container run` コマンドで指定したイメージがまだローカルに存在しない場合は、そのイメージを公開レジストリである Docker Hub からダウンロードしてくれます。
+なので、実は `docker image pull` であらかじめイメージを取得しておかなくても、上記の `docker container run` を直接実行することができます。
 
