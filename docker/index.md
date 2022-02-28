@@ -25,6 +25,7 @@ Docker の操作
 * [Docker イメージを作成する (docker image build, docker container commit)](create-image.html)
 * [Docker イメージを Docker Hub に登録する](register-image-to-dockerhub.html)
 * [リポジトリ名のついていない Docker イメージをすべて削除する](remove-unnamed-images.html)
+* [Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する](multistage-build.html)
 
 ### コンテナ
 * [すべての Docker コンテナを削除する](remove-all-containers.html)
