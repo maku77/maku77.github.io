@@ -22,15 +22,15 @@ Docker の操作
 * [Docker チートシート](cheatsheet.html)
 
 ### イメージ
-* [Docker イメージを作成する](create-image.html)
+* [Docker イメージを作成する (docker image build, docker container commit)](create-image.html)
 * [Docker イメージを Docker Hub に登録する](register-image-to-dockerhub.html)
 * [リポジトリ名のついていない Docker イメージをすべて削除する](remove-unnamed-images.html)
 
 ### コンテナ
 * [すべての Docker コンテナを削除する](remove-all-containers.html)
 * [Docker コンテナ内で動作しているプロセスの一覧を表示する](list-processes.html)
-* [Docker コンテナの詳細情報を表示する](inspect-container.html)
-* [Docker コンテナ内で公開しているポート番号が外部から見てどのポート番号にマッピングされているか調べる](port-mappings.html)
+* [Docker コンテナの詳細情報を表示する (docker container inspect)](inspect-container.html)
+* [Docker コンテナ側の公開ポートがホスト側のどのポートにマッピングされているか調べる (docker container port)](port-mappings.html)
 
 ### マウント（ボリューム、バインドマウント、tmpfs マウント）
 * [Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント、tmpfsマウント）](mount)
