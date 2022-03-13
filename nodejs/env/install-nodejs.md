@@ -1,6 +1,7 @@
 ---
 title: "Node.js とは／Node.js をインストールする"
 date: "2012-11-25"
+lastmod: "2022-03-13"
 ---
 
 Node.js とは
@@ -34,22 +35,23 @@ Node.js のインストール
 
 各 OS 用の Node.js インストーラが提供されています。
 下記のサイトからダウンロードして実行するだけで簡単にインストールできます。
+複数バージョンの Node.js 実行環境をインストールしたい場合は、[nvm というコマンドラインツールを使って Node.js をインストール](./nvm.html) してください。
 
 - [Node.js (https://nodejs.org/)](https://nodejs.org/)
 
 Node.js の実行環境は、デフォルトで下記のようなディレクトリにインストールされます。
 
-* Windows の場合: `C:\Program Files\nodejs\`
-* Mac OSX の場合: `/usr/local/bin/node` および `/usr/local/bin/npm`
+- Windows の場合: `C:\Program Files\nodejs\`
+- Mac OSX の場合: `/usr/local/bin/node` および `/usr/local/bin/npm`
 
-Node.js 0.6.0 以降は、Node.js 用のパッケージ管理ツールである **npm (Node Package Manager)** も一緒にインストールされます。
+Node.js 0.6.0 以降は、Node.js 用のパッケージ管理ツールである __npm (Node Package Manager)__ も一緒にインストールされます。
 正しくインストールできたかどうかは、下記のようにして確認できます。
 
 ```
-C:\> node -v
-v0.8.14
+$ node -v
+v16.13.0
 
-C:\> npm -v
-1.1.65
+$ npm -v
+8.1.3
 ```
 
