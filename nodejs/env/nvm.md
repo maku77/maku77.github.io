@@ -63,6 +63,7 @@ $ sudo npm uninstall -g XXXX  # 不要なパッケージをアンインストー
 `nvm` で特定のバージョンの Node.js をインストールしたいときは、__`nvm install`__ コマンドを使用します。
 次の例では、メジャーバージョン 16 の最新の Node.js をインストールしています。
 最新の LTS （長期サポート）バージョンをインストールしたいときは、`--lts` オプションを指定します。
+最新バージョンをインストールしたいときは、`node` というエイリアス名を使用します。
 
 
 ```console
@@ -72,9 +73,12 @@ Downloading and installing node v16.14.0...
 $ nvm install --lts  # 最新の LTS 版をインストールする場合
 Installing latest LTS version.
 v16.14.0 is already installed.
+
+$ nvm install node  # 最新バージョンをインストールする場合
+Downloading and installing node v17.7.1...
 ```
 
-新しい Node.js をインストールすると、自動的にそのバージョンがアクティブになります。
+Node.js 環境を追加インストールすると、自動的にそのバージョンがアクティブになります。
 
 ```console
 $ nvm current
@@ -117,6 +121,7 @@ $ nvm use v16.14.0
 $ nvm use default
 $ nvm use stable
 $ nvm use lts/gallium
+$ nvm use --lts  （参考までに LTS はオプションでも指定可能）
 ```
 
 `default` となっているのは、その名の通り、ターミナル起動時（bash シェル起動時）にデフォルトで有効になるバージョンとして扱われます。
@@ -134,4 +139,61 @@ $ nvm alias default 14
 ```console
 $ nvm uninstall 14
 ```
+
+
+（応用）最新環境に同じ NPM パッケージをインストールする
+----
+
+前述の通り、`nvm install node` コマンドを使用すると、最新の Node.js バージョンをインストールすることができますが、新しい環境の NPM グローバルパッケージはひとつずつ入れ直す必要があります。
+現在アクティブになっている Node.js 環境にインストールされている NPM グローバルパッケージを、最新の Node.js 環境にすべてインストールするには次のように __`--reinstall-packages-from`__ オプションを使用します。
+
+```console
+$ nvm install node --reinstall-packages-from=current
+```
+
+このオプションには、任意のエイリアス名を指定できます。
+
+```console
+# 現在の最新環境 (node) にインストールされているパッケージを引き継ぐ
+$ nvm install node --reinstall-packages-from=node
+
+# 特定のバージョンにインストールされているパッケージを引き継ぐ
+$ nvm install node --reinstall-packages-from=16
+```
+
+デフォルトでは NPM パッケージのバージョンはすべて引き継がれますが、__`--latest-npm`__ オプションを指定することで、最新の NPM パッケージをインストールすることができます。
+新しい Node.js 環境では、新しいバージョンの NPM パッケージが必要になることも多いため、このオプションは指定しておいた方がいいかもしれません。
+
+```console
+$ nvm install node --reinstall-packages-from=node --latest-npm
+```
+
+
+（応用） .nvmrc ファイルで Node.js バージョンを揃える
+----
+
+Node.js プロジェクトのルートディレクトリに __`.nvmrc`__ ファイルを置くと、そのプロジェクトが想定する Node.js のバージョンを示すことができます。
+例えば、プロジェクトで Node.js バージョン `14.19.x` を使用するように統一したい場合は、次のように `.nvmrc` ファイルを作成して、Git などにコミットしておきます。
+
+```console
+$ echo 14.19 > .nvmrc
+```
+
+このディレクトリより下のディレクトリで `nvm install` を引数なしで実行すると、`.nvmrc` に記述されたバージョンの Node.js がインストールされます。
+
+```console
+$ nvm install
+Found '/Users/maku/myapp/.nvmrc' with version <14.19.0>
+Downloading and installing node v14.19.0...
+```
+
+アクティブな Node.js バージョンを切り替える場合も、`nvm use` を引数なしで実行するだけで済みます。
+
+```console
+$ nvm use
+Found '/Users/maku/myapp/.nvmrc' with version <14.19.0>
+Now using node v14.19.0 (npm v6.14.16)
+```
+
+このように、`nvm` さえ入れておけば、プロジェクト全体で使用する Node.js のバージョンを簡単に揃えることができます。
 
