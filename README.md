@@ -4,6 +4,15 @@
 - https://maku77.github.io/
 
 
+セットアップ＆ビルド
+----
+
+```console
+$ bundle install --path vendor/bundle
+$ ./run.sh
+```
+
+
 Windows PC で Jekyll サーバーを立てる場合のメモ
 ----
 

@@ -12,19 +12,17 @@ plugins:
 
 # Prevent the following files from converting by Jekyll.
 exclude:
-  - "*.jekyll-metadata"
   - "*.bat"
-  - .git/
-  - .jekyll-cache/
-  - .sass-cache/
-  - gemfiles/
+  - "*.jekyll-metadata"
+  - "*.json"
+  - "*.sh"
+  - ".*"
   - Gemfile
   - Gemfile.lock
-  - node_modules/
   - README.md
-  - run.bat
-  - run.sh
-  - remove_conflicts.bat
+  - gemfiles/
+  - node_modules/
+  - vendor/
 
 # Enable highlighter.
 # highlighter: pygments
