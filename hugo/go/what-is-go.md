@@ -60,14 +60,39 @@ go version go1.9 windows/amd64
 Go のバージョン推移
 ----
 
-- go1.18 (released 2022-03-15) -- ジェネリクスをサポート
-- go1.17 (released 2021-08-16) -- Installing executables with go get is deprecated. go install may be used instead.
-- go1.16 (released 2021-02-16)
-- go1.15 (released 2020-08-11)
-- go1.14 (released 2020-02-25)
-- go1.13 (released 2019-09-03)
-- go1.12 (released 2019-02-25)
-- go1.11 (released 2018-08-24)
+- [go1.18 (released 2022-03-15)](https://go.dev/doc/go1.18)
+  - __ジェネリクス__ をサポート。
+  - Fuzzing テストのサポート。
+  - `go get` はパッケージのビルドもインストールもしなくなり、`go.mod` ファイルの依存情報を更新するだけになった（= `-d` フラグが常に有効）。そのため、モジュールの外（`go.mod` がない）ディレクトリで `go get` を実行するとエラーになるようになった。
+  - GOPATH モード (`GO111MODULE=off`) にすれば、`go get` コマンドは以前のようにパッケージのビルドとインストールを行う。
+  - `go.mod` ファイルと `go.sum` ファイルは、`go get`、`go mod tidy`、`go mod download` コマンドのみで更新される。
+- [go1.17 (released 2021-08-16)](https://go.dev/doc/go1.17)
+  - `go get` によるコマンドのインストールが非推奨に。代わりに `go install cmd@ver` を使う。
+  - Windows の 64-bit ARM アーキテクチャをサポート。
+  - ビルド制御のための `//go:build` コメントをサポート（古い型式の `// +build` は `gofmt` で置換してくれる）。
+- [go1.16 (released 2021-02-16)](https://go.dev/doc/go1.16)
+  - パッケージビルドは module-aware モードがデフォルトになった（`go.mod` ファイルが存在しなくても）。今後、すべてのプロジェクトは module-aware モードでのビルドが推奨とされた。
+  - `GO111MODULE` による振る舞い（未指定時が `on` とみなされるようになった）
+    - 未指定 ... 常に module-aware モードで動作（下記 `on` と同様に動作）
+    - `on` ... 常に module-aware モードで動作
+    - `off` ... 常に GOPATH モードで動作（go1.10 までと同じ）
+    - `auto` ... `$GOPATH/src` 以下で `go.mod` ファイルが存在しない場合のみ GOPATH モードで動作（go1.15 までのデフォルト動作）
+- [go1.15 (released 2020-08-11)](https://go.dev/doc/go1.15)
+  - `GOMODCACHE` でモジュールキャッシュ用のディレクトリを `$GOPATH/pkg/mod` から変更できるようになった。
+- [go1.14 (released 2020-02-25)](https://go.dev/doc/go1.14)
+- [go1.13 (released 2019-09-03)](https://go.dev/doc/go1.13)
+- [go1.12 (released 2019-02-25)](https://go.dev/doc/go1.12)
+  - `go mod init` で `go.mod` ファイルにデフォルトで go directive （go のバージョン情報）が入るようになった。
+  - Go tour がメインバイナリに含まれなくなったので、`go tool tour` は `go get -u golang.org/x/tour` と実行するようになった。
+- [go1.11 (released 2018-08-24)](https://go.dev/doc/go1.11)
+  - __module-aware（モジュール対応）モード__ の導入。go コマンドは、コンテキストに応じて GOPATH モードと module-aware モードのどちらかで動作するようになった。
+    - GOPATH モード ... go1.10 までのモードで、コード管理を GOPATH で指定されたディレクトリ内で行う
+    - module-aware モード ... コード管理を任意のディレクトリ（モジュールディレクトリ）で行う
+  - `GO111MODULE` による振る舞い
+    - 未指定 ... 下記 `auto` と同様に動作
+    - `on` ... 常に module-aware モードで動作
+    - `off` ... 常に GOPATH モードで動作（go1.10 までと同じ）
+    - `auto` ... `$GOPATH/src` 以下で `go.mod` ファイルが存在しない場合のみ GOPATH モードで動作（go1.15 までのデフォルト動作）
 - go1.10 (released 2018-02-16)
 - go1.9 (released 2017/08/24)
 - go1.8 (released 2017/02/16)

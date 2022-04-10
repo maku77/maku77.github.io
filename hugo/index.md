@@ -136,21 +136,27 @@ hugo コマンド
 * [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
 * [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
 
+
 Go 言語入門（Golang 入門）
 ====
 
-はじめに
+はじめに／実行環境
 ----
 * [Go 言語とは？／Go をインストールする](go/what-is-go.html)
 * [Go 言語で Hello World をコンパイル、実行する](go/hello-world.html)
 * [Go 言語のコーディングスタイル（コーディング規約）](go/coding-style.html)
 * [Go ツアーを起動して Go 言語の基本を勉強する](go/go-tour.html)
 * [Go のワークスペースの考え方 (GOPATH)](go/workspace.html)
+* [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](go/gobin.html)
+
+パッケージとモジュール
+----
+* [パッケージを参照する (import)](go/import.html)
+* [Go でコマンドラインツール (CLI) を作って GitHub で公開する](go/module.html)
+* [（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
 
 Go の文法
 ----
-* [パッケージを参照する (import)](go/import.html)
-* [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
 
 ### 型
 * [Go 言語の組込み型一覧](go/types.html)
@@ -167,8 +173,7 @@ Go の文法
 * [関数を定義する (func)](go/func.html)
 * [パニックによるエラー処理 (panic, recover)](go/panic.html)
 
-Go の型システムと構造体（クラスもどき）
-----
+### 型システムと構造体（クラスもどき）
 * [組込み型に独自の型名を付ける (type)](go/type.html)
 * [構造体を定義する (struct)](go/struct.html)
 * [構造体のコンストラクタ（ファクトリ関数）を定義する](go/constructor.html)
