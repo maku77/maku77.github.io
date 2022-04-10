@@ -151,12 +151,16 @@ Go の文法
 ----
 * [パッケージを参照する (import)](go/import.html)
 * [GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
+
+### 型
 * [Go 言語の組込み型一覧](go/types.html)
 * [変数を定義する (var)／ゼロ値について](go/var.html)
 * [配列とスライスを扱う](go/array.html)
 * [マップを扱う (map)](go/map.html)
-* [ポインタを扱う](go/pointer.html)
+* [ポインタを扱う (*)](go/pointer.html)
 * [定数を定義する (const)](go/const.html)
+
+### 制御構文
 * [if による条件分岐](go/if.html)
 * [switch による条件分岐](go/switch.html)
 * [for によるループ処理](go/for.html)
@@ -170,7 +174,7 @@ Go の型システムと構造体（クラスもどき）
 * [構造体のコンストラクタ（ファクトリ関数）を定義する](go/constructor.html)
 * [メソッドを定義する（レシーバ付き関数）](go/method.html)
 * [Go 言語のインタフェースの扱いを理解する (interface)](go/interface.html)
-* [型のキャストと、型アサーションによる型変換](go/cast.html)
+* [型キャストと型アサーションによる型変換](go/cast.html)
 * [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](go/embedding.html)
 
 Go の標準パッケージ

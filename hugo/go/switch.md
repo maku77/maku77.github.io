@@ -7,9 +7,9 @@ description: "Go 言語の switch 文は、Java や C++ に比べて簡潔に記
 switch 文の基本
 ----
 
-Go 言語の switch 文では、`case` に複数の値をカンマで区切って指定することができます。
-１つの `case` が実行されると自動的に `switch` 文を終了するため、`case` ごとに最後に `break` と記述する必要はありません。
-逆に、次の `case` を続けて実行したい場合は、明示的に `fallthrough` と記述する必要があります。
+Go 言語の __`switch`__ 文では、__`case`__ に複数の値をカンマで区切って指定することができます。
+１つの `case` が実行されると自動的に `switch` 文を終了するため、C 言語のように `case` ごとに `break` と記述する必要はありません。
+逆に、次の `case` を続けて実行したい場合は、明示的に __`fallthrough`__ と記述する必要があります。
 
 ~~~ go
 func checkNumber(i int) {
@@ -24,6 +24,8 @@ func checkNumber(i int) {
 	}
 }
 ~~~
+
+`if` 文の代わりに `switch` 文を使うと、コードを簡潔にできることがあります。
 
 ~~~ go
 func shouldEscape(c byte) bool {
@@ -53,7 +55,7 @@ default:
 連続する if else の代わりとして switch 文を使用する
 ----
 
-条件部分を省略した switch 文は、`switch true` と記述するのと同様の振る舞いをします。
+__switch 文の条件部分を省略__ すると、`switch true` と記述するのと同様の振る舞いをします。
 この記述方法は、連続した `if else` を簡潔に記述するために使用することができます。
 
 ~~~ go
@@ -109,7 +111,7 @@ if t := time.Now(); t.Hour() < 12 {
 }
 ~~~
 
-まぁ、このくらいであればそれほど見にくくはないですが、switch の方がパッと見分かりやすいですね。
+まぁ、このくらいであればそれほど差はありませんが、`switch` の方がやや可読性が高いかもしれません。
 
 
 型スイッチ (Type Switch)

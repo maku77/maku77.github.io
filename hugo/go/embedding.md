@@ -28,8 +28,7 @@ type ReadWriter interface {
 }
 ~~~
 
-Go 言語では、このようなケースのために埋め込み (Embedding) の仕組みが提供されており、下記のように既存のインタフェースを再利用する形で新しいインタフェースを定義することができます。
-埋め込み (Embedding) の仕組みを使用するには、下記のように埋め込みたい型の名前だけを指定します。
+Go 言語では、このようなケースのために __埋め込み (Embedding)__ の仕組みが提供されており、次のように既存のインタフェースを再利用する形で新しいインタフェースを定義することができます。
 
 ~~~ go
 type ReadWriter interface {
@@ -51,12 +50,13 @@ type ReadWriter interface {
 
 ~~~ go
 type Product struct {
-	Name string
+	Model string
+	Name  string
 	Price int
 }
 
 func (p *Product) AdLabel() string {
-	return fmt.Sprintf("%s (%s)", p.Name, p.Model)
+	return fmt.Sprintf("%s (%s)", p.Model, p.Name)
 }
 
 type Stock struct {
