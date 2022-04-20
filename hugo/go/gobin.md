@@ -22,7 +22,23 @@ export GOBIN=~/bin
 export PATH=$PATH:$GOBIN
 ```
 
-例えば、次のような感じでコマンドを GitHub からインストールして、どこからでも実行できるようになります。
+でも、なんだかんだ言って次のような標準的な構成にしておくとトラブルが少なくてよいかも。
+
+```sh
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+```
+
+Windows なら、コントロールパネルの「環境変数を編集」から次のような感じで設定します（`%USERPROFILE%` 以外の変数を参照すると、うまく展開できなくて問題が出たりするので注意）。
+
+```
+GOPATH → %USERPROFILE%\go
+GOBIN  → %USERPROFILE%\go\bin
+PATH   → %USERPROFILE%\go\bin （追加）
+```
+
+上記のようにパスを通しておけば、`go install` でインストールしたコマンドを、どこからでも実行できるようになります。
 
 ```console
 $ go install github.com/maku77/go-hello
