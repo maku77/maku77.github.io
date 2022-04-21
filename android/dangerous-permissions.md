@@ -1,12 +1,14 @@
 ---
-title: "protection レベルが dangerous なパーミッションの一覧を表示する"
+title: "protection レベルが dangerous なパーミッションの一覧を表示する (pm list permissions)"
+permalink: /p/8x8qmy3/
+redirect_from: /android/dangerous-permissions.html
 date: "2015-08-04"
 ---
 
 `pm list permissions` コマンドに **-d** オプションを付けて実行すると、**protectionLevel が dangerous** に設定されたパーミッションのみを一覧表示してくれます。
 Android M からは、dangerous なパーミッションはユーザが個別に On/Off することができるようになったため、どのようなパーミッションが存在しているのかを把握することがより重要になりました。
 
-```bash
+```console
 shell@xxx:/ $ pm list permissions -d
 Dangerous Permissions:
 

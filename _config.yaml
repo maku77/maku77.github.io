@@ -8,6 +8,7 @@ keep_files: [assets]
 sass:
   sass_dir: /assets/css/_sass
 plugins:
+  - jekyll-redirect-from
   - jekyll-sitemap
 
 # Prevent the following files from converting by Jekyll.

@@ -5,7 +5,7 @@ layout: category-index
 
 Tools
 ----
-* [protection レベルが dangerous なパーミッションの一覧を表示する](dangerous-permissions.html)
+* [protection レベルが dangerous なパーミッションの一覧を表示する (pm list permissions)](/p/8x8qmy3/)
 * [パーミッショングループの一覧を表示する](permission-groups.html)
 * [ダウンロード可能な Android SDK コンポーネントの一覧を取得する](list-sdk.html)
 * [Dex 形式の Shared library (JAR) を作成する (dx)](create-dex-jar.html)
@@ -41,8 +41,8 @@ Tools
 * [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
 * [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
 * [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
-* [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](/p/bg2g4bu)
-* [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj)
+* [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](/p/bg2g4bu/)
+* [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj/)
 * [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
 * [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [ANR の原因を突き止める](analyze-anr.html)

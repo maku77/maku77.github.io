@@ -1,6 +1,6 @@
 ---
 title: "ADB で Android 端末のバージョンや API レベルを調べる (getprop)"
-permalink: /p/bg2g4bu
+permalink: /p/bg2g4bu/
 date: "2022-04-21"
 ---
 
