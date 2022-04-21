@@ -1,12 +1,12 @@
 ---
-title: "ADB でディレクトリ内のファイルをすべて取得する"
+title: "ADB でディレクトリ内のファイルをすべて取得する (adb pull)"
 date: "2011-07-29"
 ---
 
-`adb pull` コマンドは、ディレクトリごとファイルを取得するのにも使用できます。
+__`adb pull`__ コマンドは、単一のファイルだけではなく、ディレクトリごとファイルを取得するのにも使用できます。
 下記の例では、Android デバイス上の `/system/lib` ディレクトリ内のファイルをすべて取得しています。
 
-```
+```console
 $ adb pull /system/lib
 pull: building file list...
 pull: /system/lib/libcutils.so -> ./libcutils.so

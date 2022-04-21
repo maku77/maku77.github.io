@@ -34,29 +34,31 @@ Tools
 * [APK のパッケージ依存関係やクラス依存関係を調べる](analyze/apk-dependencies.html)
 * [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
 * [APK の情報を表示する (aapt)](aapt.html)
-* [ADB でアプリを起動する intent を投げる (am start/am broadcast)](adb/adb-am-start.html)
-* [ADB でディレクトリ内のファイルをすべて取得する](adb/adb-pull-dir.html)
-* [ADB で指定したアプリを強制終了する](adb/adb-force-stop-app.html)
+* [ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)](adb/adb-am-start.html)
+* [ADB で指定したアプリを強制終了する (am force-stop)](adb/adb-force-stop-app.html)
+* [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
+* [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
 * [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
 * [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
 * [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
-* [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
+* [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](adb/get-device-version.html)
+* [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](adb/pm-list-packages.html)
+* [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
 * [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
 * [ANR の原因を突き止める](analyze-anr.html)
 * [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
 * [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
 * [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
+* ADB 接続（旧記事）
+  * [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
+  * [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
+  * [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
+  * [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
+  * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 ### Logcat
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
 
-### ADB 接続
-* [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
-* [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
-* [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
-* [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
-* [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
-* [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 ビルド関連
 ----
