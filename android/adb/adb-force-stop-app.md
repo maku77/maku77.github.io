@@ -17,5 +17,5 @@ generic_x86:/ $ am force-stop com.example.myapp
 
 ちなみに、インストールされているアプリのパッケージ名一覧は `adb shell pm list packages` で調べることができます（こちらは `am` じゃなくて __`pm`__ コマンドであることに注意してください）。
 
-- 参考: [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](./pm-list-packages.html)
+- 参考: [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj)
 

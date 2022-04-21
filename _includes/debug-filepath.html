@@ -1,0 +1,6 @@
+{% if jekyll.environment == "development" %}
+<div style="color:red;">{{ site.source }}<b>/{{ page.path }}</b></div>
+{% if page.permalink %}
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">{{ page.permalink }}<span></div>
+{% endif %}
+{% endif %}
