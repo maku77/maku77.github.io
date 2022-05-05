@@ -66,7 +66,7 @@ hugo コマンド
 * [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
 * [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
 * [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
-* [Hugo テンプレート内で define よる部分テンプレート定義を行う（関数もどき）](template/define.html)
+* [Hugo テンプレート内で define による部分テンプレート定義を行う（関数もどき）](template/define.html)
 * [Hugo のパーシャルテンプレートから値を返す（関数化）](template/return-from-partial.html)
 
 ### セクション機能
