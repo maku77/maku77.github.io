@@ -116,11 +116,8 @@ Linux システム／管理
 
 Linux コマンド全般　
 ----
+* [Linuxコマンド: ファイルやディレクトリを検索する (find, grep)](/p/hudubr8/)
 * [Windows で Linux 系のコマンドを使用できるようにする (Gow)](basic/gow.html)
-* find/grep
-    * [find で見つけたファイルを grep 検索する](basic/find-and-grep.html)
-    * [ファイル名の大文字と小文字を区別せずに find 検索する](basic/find-iname.html)
-    * [grep で OR 検索する](basic/grep-or.html)
 * [rsync コマンドでディレクトリを同期する](basic/rsync.html)
 * [行番号付きでテキストファイルの内容を出力する (cat -b)](basic/cat-with-line-number.html)
 * [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
