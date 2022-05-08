@@ -135,6 +135,17 @@ defaults:
       category_long_desc: "Git によるバージョン管理と、GitHub 特有の話もあるよ。"
   -
     scope:
+      path: "go"
+      type: "pages"
+    values:
+      category_title: "Go言語"
+      category_id: "go"
+      category_logo: "logo-go.svg"
+      category_og_image: "logo-go.png"
+      category_desc: "天才星人まくの Go 言語ノート"
+      category_long_desc: "Go 言語 (Golang) 入門。各種 OS に対応した高速な実行ファイルを作成できます。"
+  -
+    scope:
       path: "gradle"
       type: "pages"
     values:
@@ -160,12 +171,12 @@ defaults:
       path: "hugo"
       type: "pages"
     values:
-      category_title: "Hugo/Go"
+      category_title: "Hugo"
       category_id: "hugo"
       category_logo: "logo-hugo.png"
       category_og_image: "logo-hugo.png"
-      category_desc: "天才星人まくのHugo/Goノート"
-      category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。Go 言語の説明も。"
+      category_desc: "天才星人まくの Hugo ノート"
+      category_long_desc: "高速な静的サイトジェネレータ Hugo の使い方。"
   -
     scope:
       path: "java"

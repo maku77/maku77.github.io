@@ -3,9 +3,6 @@ title: "Hugo"
 layout: category-index
 ---
 
-Hugo
-====
-
 はじめに
 ----
 * [Hugo とは／Hugo をインストールする](basic/install.html)
@@ -137,63 +134,5 @@ hugo コマンド
 * [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
 
 
-Go 言語入門（Golang 入門）
-====
-
-はじめに／実行環境
-----
-* [Go 言語とは？／Go をインストールする](go/what-is-go.html)
-* [Go 言語で Hello World をコンパイル、実行する](go/hello-world.html)
-* [Go 言語のコーディングスタイル（コーディング規約）](go/coding-style.html)
-* [Go ツアーを起動して Go 言語の基本を勉強する](go/go-tour.html)
-* [Go のワークスペースの考え方 (GOPATH)](go/workspace.html)
-* [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](go/gobin.html)
-
-パッケージとモジュール
-----
-* [パッケージを参照する (import)](go/import.html)
-* [Go でコマンドラインツール (CLI) を作って GitHub で公開する](go/module.html)
-* [（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](go/github.html)
-
-Go の文法
-----
-
-### 型
-* [Go 言語の組込み型一覧](go/types.html)
-* [変数を定義する (var)／ゼロ値について](go/var.html)
-* [配列とスライスを扱う](go/array.html)
-* [マップを扱う (map)](go/map.html)
-* [ポインタを扱う (*)](go/pointer.html)
-* [定数を定義する (const)](go/const.html)
-
-### 制御構文
-* [if による条件分岐](go/if.html)
-* [switch による条件分岐](go/switch.html)
-* [for によるループ処理](go/for.html)
-* [関数を定義する (func)](go/func.html)
-* [パニックによるエラー処理 (panic, recover)](go/panic.html)
-
-### 型システムと構造体（クラスもどき）
-* [組込み型に独自の型名を付ける (type)](go/type.html)
-* [構造体を定義する (struct)](go/struct.html)
-* [構造体のコンストラクタ（ファクトリ関数）を定義する](go/constructor.html)
-* [メソッドを定義する（レシーバ付き関数）](go/method.html)
-* [Go 言語のインタフェースの扱いを理解する (interface)](go/interface.html)
-* [型キャストと型アサーションによる型変換](go/cast.html)
-* [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](go/embedding.html)
-
-Go の標準パッケージ
-----
-* [ファイルからの読み出し／ファイルへの書き込みを行う (os, io)](go/file.html)
-* [テンプレート機能を使用する (text/template, html/template)](go/template.html)
-* [時刻データを扱う (time)](go/time.html)
-* [ベンチマークを行う (testing.B)](go/benchmark.html)
-
-外部リンク
-----
-* [公式サイト](https://golang.org/)
-  * [Language Specification（Go 言語仕様）](https://golang.org/ref/spec)
-  * [Command Documentation（コマンドラインツール説明）](https://golang.org/doc/cmd)
-  * [Effective Go（よいコーディング指針）](https://golang.org/doc/effective_go.html)
-  * [Packages（標準パッケージ一覧）](https://golang.org/pkg/)
+[Go 言語に関する記事はこちら](/go/) へ移動しました。
 
