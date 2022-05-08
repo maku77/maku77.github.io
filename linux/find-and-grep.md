@@ -84,17 +84,21 @@ find いろいろ
 $ find . -iname foo.txt
 ```
 
-### 空のファイル／ディレクトリを検索する (-empty)
+### 特定のディレクトリを検索対象外にする (-not -path)
 
-#### 例: サイズが 0 のファイルを検索する
+`-not -path` あるいは `! -path` で検索対象外にするパスのパターンを指定できます。
+
+#### 例: node_modules ディレクトリを検索対象外にする
 
 ```console
-$ find . -type f -empty
+$ find . -name '*.md' -not -path '*/node_modules/*'
+$ find . -name '*.md' ! -path '*/node_modules/*'
 ```
 
-#### 例: 空っぽのディレクトリを検索する
+### 空のファイル／ディレクトリを検索する (-empty)
 
 ```console
-$ find . -type d -empty
+$ find . -type f -empty  # サイズが 0 のファイルを検索する
+$ find . -type d -empty  # 空っぽのディレクトリを検索する
 ```
 
