@@ -14,12 +14,17 @@ plugins:
 # Prevent the following files from converting by Jekyll.
 exclude:
   - "*.bat"
+  - "*.cmd"
   - "*.jekyll-metadata"
   - "*.json"
+  - "*.py"
   - "*.sh"
+  - "*.yaml"
+  - "*.yml"
   - ".*"
   - Gemfile
   - Gemfile.lock
+  - LOCAL_MEMO.md
   - README.md
   - gemfiles/
   - node_modules/
