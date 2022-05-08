@@ -1,6 +1,7 @@
 ---
 title: "ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)"
-permalink: "/p/uh84kfj/"
+permalink: "p/uh84kfj"
+redirect_from: "/android/adb/pm-list-packages"
 date: "2022-04-21"
 tags: ["Android"]
 ---

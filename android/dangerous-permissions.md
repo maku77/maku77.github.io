@@ -1,7 +1,7 @@
 ---
 title: "protection レベルが dangerous なパーミッションの一覧を表示する (pm list permissions)"
-permalink: /p/8x8qmy3/
-redirect_from: /android/dangerous-permissions.html
+permalink: "p/8x8qmy3"
+redirect_from: /android/dangerous-permissions
 date: "2015-08-04"
 ---
 

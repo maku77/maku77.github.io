@@ -116,7 +116,7 @@ hugo コマンド
 ----
 * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
 * [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
-* [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](misc/permalink.html)
+* [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
 * [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [Google カスタム検索を設置して記事を検索できるようにする](advanced/google-custom-search.html)

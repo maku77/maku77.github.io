@@ -18,7 +18,7 @@ description: "GitHub Pages で存在しないページにアクセスすると�
 ---
 title: "404"
 layout: "404"
-permalink: "/404.html"
+permalink: "404.html"
 ---
 ~~~
 
