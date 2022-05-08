@@ -30,7 +30,7 @@ $ cd ~/go-hello
 ```
 
 __`go mod`__ コマンドで、プロジェクトのルートディレクトリに __`go.mod`__ ファイルを作成します。
-引数として、モジュール名を指定します。
+引数として、モジュール名（モジュールパス）を指定します。
 GitHub で公開するのであれば次のような感じで指定します（`maku77` の部分は自分の GitHub ユーザー ID に変更してください）。
 
 ```console
@@ -86,19 +86,23 @@ $ ./go-hello
 Hello, world!
 ```
 
-`go install` コマンドを使うと、`go-hello` 実行ファイルが __`$GOPATH/bin`__（あるいは `$GOBIN` で指定したディレクトリ）にインストールされます。
-つまり、コマンドをグローバルインストールしたことになります。
+`go install` コマンドを使うと、`go-hello` 実行ファイルが __`$GOPATH/bin`__（あるいは `$GOBIN` で指定したディレクトリ）にインストールされます（あらかじめ `go build` しておく必要はありません）。
+[Go 用の PATH 環境変数を設定](/p/s258beh/) してあれば、どのディレクトリからでもインストールした `go-hello` コマンドを実行できるようになります。
 
 ```console
 $ go install
-$ `go env GOPATH`/bin/go-hello
+$ go-hello
 Hello, world!
 ```
 
-インストールしたコマンドが必要なければ最後に削除しておきます。
+インストールしたコマンドが不要になった場合は、次のように単純に実行ファイルを削除すれば OK です。
 
 ```console
 $ rm `go env GOPATH`/bin/go-hello
+
+# GOBIN 環境変数を設定済みであれば下記でも OK
+
+$ rm `go env GOBIN`/go-hello
 ```
 
 
@@ -135,9 +139,18 @@ $ git push
 ### GitHub からコマンドをインストールしてみる
 
 GitHub への Go モジュールのデプロイが完了したら、GitHub から直接 `go install` してみます。
+この際、取得するコードのバージョンをサフィックスとして指定する必要があります。
+これは想定外のコードを使わないようにするための安全策です。
+最新コードを信用してよいのであれば、次のように __`@latest`__ を指定してインストールします。
 
 ```console
 $ go install github.com/maku77/go-hello@latest
+```
+
+もう少しお行儀よくやるには、[GitHub のコードにバージョンタグを付けておき](/p/y2cmv5d/)、次のようにバージョンを指定してインストールします。
+
+```console
+$ go install github.com/maku77/go-hello@v1.0.0
 ```
 
 下記のように実行ファイルができていれば、うまくインストールできています。
@@ -145,9 +158,82 @@ $ go install github.com/maku77/go-hello@latest
 ```console
 $ ls `go env GOPATH`/bin
 go-hello
+
+$ go-hello
+Hello, world!
 ```
 
-インストール先のディレクトリ（`$GOBIN` や `$GOPATH/bin`）にパスを通しておけば、どのディレクトリからでも簡単にコマンドを実行できるようになります。
 
-- 参考: [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](./gobin.html)
+複数のコマンドを提供する
+----
+
+前述の例では、モジュール名を `github.com/maku77/go-hello` として、`go-hello` という名前のコマンド作成しました。
+1 つのモジュールで複数のコマンドを提供したい場合は、コマンドごとにディレクトリを作成して、その中にそれぞれの `main` パッケージを構成します。
+[典型的なディレクトリ構成](https://github.com/golang-standards/project-layout/blob/master/README.md) としては、__`cmd`__ ディレクトリを作って、その中にコマンド名と同名のディレクトリを作成します。
+例えば、`go-hello` モジュール内に `hello1` コマンドと `hello2` コマンドを作成するには次のようなディレクトリ構成にします。
+
+```
+go-hello/
+    +- go.mod
+    +- cmd/
+        +- hello1/main.go （hello1 コマンド用の main パッケージ）
+        +- hello2/main.go （hello2 コマンド用の main パッケージ）
+```
+
+#### go-hello/cmd/hello1/main.go
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello 1")
+}
+```
+
+#### go-hello/cmd/hello2/main.go
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello 2")
+}
+```
+
+各コマンド用のディレクトリを `go run` で指定すれば実行できます。
+ディレクトリ名は `./` で始まる相対パスで指定することに注意してください。
+
+```console
+$ go run ./cmd/hello1
+Hello1
+
+$ go run ./cmd/hello2
+Hello2
+```
+
+`go run` の代わりに `go install` を使えば、システムにコマンドをインストールできます。
+
+```console
+$ go install ./cmd/hello1
+$ go install ./cmd/hello2
+
+# 次のようにまとめてインストールすることも可能です
+
+$ go install ./...
+```
+
+これらのコードを GitHub にプッシュして公開すれば、世界中の人が次のように簡単にコマンドをインストールできるようになります。
+
+```console
+$ go install github.com/maku77/go-hello/cmd/hello1@v1.0.0
+$ go install github.com/maku77/go-hello/cmd/hello2@v1.0.0
+
+# あるいは次のようにまとめてインストール
+
+$ go install github.com/maku77/go-hello/cmd/...@v1.0.0
+```
 

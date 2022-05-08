@@ -12,8 +12,8 @@ layout: category-index
 * [Go 言語で Hello World をコンパイル、実行する](/p/nuz369c/)
 * [Go 言語のコーディングスタイル（コーディング規約）](/p/rz47adg/)
 * [Go ツアーを起動して Go 言語の基本を勉強する](/p/dkpsvz3/)
-* [Go のワークスペースの考え方 (GOPATH)](/p/u48bfim/)
 * [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](/p/s258beh/)
+* [（旧）GOPATH によるコードの一元管理](/p/u48bfim/)
 
 ### パッケージとモジュール
 * [パッケージの作成とインポート (import)](/p/t269cgj/)

@@ -1,5 +1,5 @@
 ---
-title: "Go のワークスペースの考え方 (GOPATH)"
+title: "（旧）GOPATH によるコードの一元管理"
 url: "p/u48bfim"
 permalink: "p/u48bfim"
 date: "2017-08-31"
