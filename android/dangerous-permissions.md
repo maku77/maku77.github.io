@@ -1,8 +1,9 @@
 ---
 title: "protection レベルが dangerous なパーミッションの一覧を表示する (pm list permissions)"
-permalink: "p/8x8qmy3"
-redirect_from: /android/dangerous-permissions
+permalink: "p/8x8qmy3/"
 date: "2015-08-04"
+redirect_from:
+  - /android/dangerous-permissions
 ---
 
 `pm list permissions` コマンドに **-d** オプションを付けて実行すると、**protectionLevel が dangerous** に設定されたパーミッションのみを一覧表示してくれます。
