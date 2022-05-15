@@ -17,7 +17,6 @@ exclude:
   - "*.cmd"
   - "*.jekyll-metadata"
   - "*.json"
-  - "*.py"
   - "*.sh"
   - "*.yaml"
   - "*.yml"
@@ -28,6 +27,7 @@ exclude:
   - README.md
   - gemfiles/
   - node_modules/
+  - tools/
   - vendor/
 
 # Enable highlighter.
