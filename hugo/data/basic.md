@@ -32,7 +32,7 @@ description: "data ディレクトリに YAML、JSON、TOML、CSV などの形�
 ~~~
 
 <div class="note">
-Hugo 0.37 より前のバージョンには YAML 処理の不具合があり、上記のようにルートレベルに配列データを記述することができませんでした。<code>hugo version</code> でバージョンを確認し、必要があれば<a href="../install.html">最新の Hugo に更新</a>しましょう。
+Hugo 0.37 より前のバージョンには YAML 処理の不具合があり、上記のようにルートレベルに配列データを記述することができませんでした。<code>hugo version</code> でバージョンを確認し、必要があれば <a href="../basic/install.html">最新の Hugo に更新</a> しましょう。
 </div>
 
 あるいは、JSON ファイルとして作成するのであればこんな感じ。

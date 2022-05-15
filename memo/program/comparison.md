@@ -8,13 +8,13 @@ date: "2010-05-07"
 
 |      | Bash | PHP  | Python | Ruby | Perl |
 | ---- | ---- | ---- | ------ | ---- | ---- |
-| if-else | [Bash](/shell/syntax/if.html) | [PHP](/php/syntax/if.html) | [Python](/python/syntax/if.html)  |  |  |
+| if-else | [Bash](/linux/syntax/if.html) | [PHP](/php/syntax/if.html) | [Python](/python/syntax/if.html)  |  |  |
 | switch-case |  |  | [Python](/python/syntax/switch.html) |  |  |
 | ループ |  | [PHP](/php/syntax/loop.html) | `for x in a:` | [Ruby](/ruby/syntax-loop.html) |  |
 | クラス |  | [PHP](/php/syntax/class.html) | [Python](/python/syntax/class.html) |  |  |
-| 文字列リテラル |  |  |  [Python](/python/syntax/string-literal.html) |  |  |
+| 文字列リテラル |  |  |  [Python](/python/numstr/string-literal.html) |  |  |
 | ヒアドキュメント | | [PHP](/php/syntax/here-document.html) | [Python](/python/syntax/here-document.html) | [Ruby](/ruby/here-document.html) | [Perl](/perl/string/here-document.html) |
-| 正規表現 |  |  | [Python](/python/regexp.html) |  |  |
+| 正規表現 |  |  | [Python](/python/numstr/search-string.html) |  |  |
 
 
 入出力

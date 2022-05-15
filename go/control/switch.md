@@ -144,5 +144,5 @@ func checkType(value interface{}) {
 }
 ~~~
 
-型スイッチは、[型アサーション (Type Assertion)](./cast.html) の特殊形態だと考えることができます。
+型スイッチは、[型アサーション (Type Assertion)](/p/jruz369) の特殊形態だと考えることができます。
 

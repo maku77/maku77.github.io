@@ -60,7 +60,7 @@ C:\app\Jenkins\users\maku\config.xml
 実は Jenkins CLI を使用しなくても、ブラウザ上で Groovy スクリプトを貼り付けて実行することもできます。
 Jenkins のメニューから、**Jenkins の管理 → スクリプトコンソール** と辿って起動するか、下記のアドレスにアクセスすると、スクリプトコンソールの画面を表示できます。
 
-* [http://localhost:8080/script](http://localhost:8080/script)
+* `http://localhost:8080/script`
 
 ここに、任意の Groovy スクリプトを貼り付けて実行できます。
 スクリプトを実行するには、「実行」ボタンを押すか、**Ctrl + Enter** というキーボードショートカットを利用します。

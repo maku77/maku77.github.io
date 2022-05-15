@@ -14,7 +14,7 @@ redirect_from:
 GitHub 上のパッケージをインポートする
 ----
 
-`go get` コマンドで、GitHub リポジトリのパスを下記のように指定すると、GitHub 上で公開されている Go パッケージ（ここでは `github.com/maku77/gosample`）のコードを、`$GOPATH/src` ディレクトリに取得することができます（`$GOPATH` については[こちらを参照](./workspace.html)）。
+`go get` コマンドで、GitHub リポジトリのパスを下記のように指定すると、GitHub 上で公開されている Go パッケージ（ここでは `github.com/maku77/gosample`）のコードを、`$GOPATH/src` ディレクトリに取得することができます（`$GOPATH` については[こちらを参照](/p/u48bfim)）。
 
 #### github.com/maku77/gosample パッケージを取得する
 

@@ -67,8 +67,8 @@ JSpinner spinner = new JSpinner(model);
 JSpinner で日時を選択する (SpinnerDateModel)
 ----
 
-![spinner-date1.png](./spinner-date1.png)
-![spinner-date2.png](./spinner-date2.png)
+![jspinner-date1.png](./jspinner-date1.png)
+![jspinner-date2.png](./jspinner-date2.png)
 
 JSpinner で日時を選択できるようにするには、JSpinner のモデルとして SpinnerDateModel? をセットします。デフォルト値は現在日時になります。
 

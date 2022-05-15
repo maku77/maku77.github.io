@@ -42,7 +42,7 @@ Chef Client finished, 112/120 resources updated in 72.205821345 seconds
 gitlab Reconfigured!
 ```
 
-Web ブラウザで [http://localhost/](http://localhost/) にアクセスすると、以下のようにログイン画面が表示されるはずです。
+Web ブラウザで `http://localhost/` にアクセスすると、以下のようにログイン画面が表示されるはずです。
 楽ちん！
 
 管理用 ID とパスワードは、以下のようになっているので、一度サインインしてパスワードを変更しておきます。

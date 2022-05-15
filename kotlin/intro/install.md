@@ -32,11 +32,11 @@ Kotlin には次のような特徴があります。
 Kotlin の開発環境のインストールと HelloWorld
 ----
 
-### Try Kotlin のサイトで試してみる
+### Kotlin Playground のサイトで試してみる
 
 簡単な Kotlin のコードであれば、下記のサイト上で直接実行することができます。
 
-- [Try Kotlin](https:/try.kotlinlang.org/)
+- [Kotlin Playground](https://play.kotlinlang.org/)
 
 ![install-try-kotlin.png](install-try-kotlin.png){: .center }
 

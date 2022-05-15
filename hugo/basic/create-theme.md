@@ -67,7 +67,7 @@ themes/my-theme/
 $ hugo server -t my-theme
 ~~~
 
-とサーバを立ち上げたら、[http://localhost:1313/](http://localhost:1313/) にアクセスすれば、表示を確認できます。
+とサーバを立ち上げたら、`http://localhost:1313/` にアクセスすれば、表示を確認できます。
 
 
 トップページに全ページのリストを表示する

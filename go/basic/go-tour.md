@@ -10,7 +10,7 @@ redirect_from:
   - /hugo/go/go-tour
 ---
 
-![go-tour.png](./go-tour.png){: .center}
+![go-tour.png](/go/basic/go-tour.png){: .center}
 
 
 Web 上の Go ツアーを使う方法
@@ -45,5 +45,5 @@ $ ~/go/bin/tour
 
 `GOBIN` 環境変数や `GOPATH` 環境変数を設定している場合は、`go install` によるコマンドのインストール先が変わるので注意してください。
 
-- 参考: [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](./gobin.html)
+- 参考: [go install のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)](/p/s258beh)
 
