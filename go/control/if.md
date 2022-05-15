@@ -63,3 +63,17 @@ if err := recover(); err != nil {
 }
 ```
 
+次の例では、マップ変数 `m` にキー `aaa` が存在するときのみ、その値を参照しています。
+
+```go
+m := map[string]int{
+	"aaa": 100,
+	"bbb": 200,
+	"ccc": 300,
+}
+
+if val, ok := m["aaa"]; ok {
+	fmt.Println(val)
+}
+```
+

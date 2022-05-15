@@ -16,7 +16,7 @@ Go 言語の __`switch`__ 文では、__`case`__ に複数の値をカンマで�
 １つの `case` が実行されると自動的に `switch` 文を終了するため、C 言語のように `case` ごとに `break` と記述する必要はありません。
 逆に、次の `case` を続けて実行したい場合は、明示的に __`fallthrough`__ と記述する必要があります。
 
-~~~ go
+```go
 func checkNumber(i int) {
 	switch i {
 	case 0:
@@ -25,14 +25,14 @@ func checkNumber(i int) {
 		fmt.Println("primary number")
 		fallthrough
 	default:
-		fmt.Println("good")
+		fmt.Println("good number")
 	}
 }
-~~~
+```
 
-`if` 文の代わりに `switch` 文を使うと、コードを簡潔にできることがあります。
+`if` 文の代わりに `switch` 文を使うことでコードを簡潔にできることがあります。
 
-~~~ go
+```go
 func shouldEscape(c byte) bool {
 	switch c {
 	case ' ', '?', '&', '=', '#', '+', '%':
@@ -40,11 +40,11 @@ func shouldEscape(c byte) bool {
 	}
 	return false
 }
-~~~
+```
 
 if 文と同様に、switch 文でも変数のスコープをブロック内に絞った変数定義を行うことができます。
 
-~~~ go
+```go
 switch os := runtime.GOOS; os {
 case "darwin":
 	fmt.Println("OS = OS X")
@@ -52,9 +52,9 @@ case "linux":
 	fmt.Println("OS = Linux")
 default:
 	// freebsd, openbsd, plan9, windows...
-	fmt.Printf("OS = %s", os)
+	fmt.Printf("OS = %s\n", os)
 }
-~~~
+```
 
 
 連続する if else の代わりとして switch 文を使用する
@@ -62,8 +62,9 @@ default:
 
 __switch 文の条件部分を省略__ すると、`switch true` と記述するのと同様の振る舞いをします。
 この記述方法は、連続した `if else` を簡潔に記述するために使用することができます。
+典型的なのは、ある変数の値を大小比較したいケースです。
 
-~~~ go
+```go
 func unhex(c byte) byte {
 	switch {
 	case '0' <= c && c <= '9':
@@ -75,9 +76,11 @@ func unhex(c byte) byte {
 	}
 	return 0
 }
-~~~
+```
 
-~~~ go
+もう 1 つ例を。
+
+```go
 func greet() {
 	t := time.Now()
 	switch {
@@ -89,11 +92,11 @@ func greet() {
 		fmt.Println("Good evening.")
 	}
 }
-~~~
+```
 
 上記の変数 `t` のスコープを switch 文の内部に絞りたいのであれば、下記のように変数定義します（セミコロンの後ろの条件部分だけを省略します）。
 
-~~~ go
+```go
 switch t := time.Now(); {
 case t.Hour() < 12:
 	fmt.Println("Good morning.")
@@ -102,11 +105,11 @@ case t.Hour() < 17:
 default:
 	fmt.Println("Good evening.")
 }
-~~~
+```
 
 ちなみに上記の switch を if else を使って書き換えると次のようになります。
 
-~~~ go
+```go
 if t := time.Now(); t.Hour() < 12 {
 	fmt.Println("Good morning!")
 } else if t.Hour() < 17 {
@@ -114,18 +117,18 @@ if t := time.Now(); t.Hour() < 12 {
 } else {
 	fmt.Println("Good evening.")
 }
-~~~
+```
 
-まぁ、このくらいであればそれほど差はありませんが、`switch` の方がやや可読性が高いかもしれません。
+まぁ、このくらいであればそれほど差はありませんが、それでも `switch` の方が可読性は高そうです。
 
 
 型スイッチ (Type Switch)
 ----
 
-**型スイッチ (Type Switch)** は `switch` 文の特殊な使用方法で、空インタフェース型 (`interface{}`) の変数の実際の型に基いた分岐を行いたいときに使用します。
-主に、任意の型のパラメータを受け取る関数の実装で使用されます。
+Go 言語の関数で任意の型の引数を受け取るには、[空インタフェース型 interface{}](/p/aimpsvz/) を使用します。
+オブジェクトの実際の型に基づいて分岐処理を行うには、次のように __型スイッチ (Type Switch)__ の仕組みを使います。
 
-~~~ go
+```go
 func checkType(value interface{}) {
 	switch v := value.(type) {
 	case nil:
@@ -142,7 +145,7 @@ func checkType(value interface{}) {
 		fmt.Printf("value has unknown type (%T)\n", v)
 	}
 }
-~~~
+```
 
-型スイッチは、[型アサーション (Type Assertion)](/p/jruz369) の特殊形態だと考えることができます。
+型スイッチは、[型アサーション (Type Assertion)](/p/jruz369/) の特殊形態だと考えることができます。
 

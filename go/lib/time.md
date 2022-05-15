@@ -14,21 +14,21 @@ redirect_from:
 
 ### 現在時刻を取得する
 
-Go 言語で日時を表す型は、`time` パッケージで定義されている `time.Time` 型です。
-現在の時刻を取得するには、`time.Now` 関数を使用します。
+Go 言語で日時を表す型は、`time` パッケージで定義されている __`time.Time`__ 型です。
+現在の時刻を取得するには、__`time.Now`__ 関数を使用します。
 
-~~~ go
+```go
 t := time.Now()
 fmt.Printf("%v\n", t)  // time.Time が保持する値を表示
 fmt.Printf("%T\n", t)  // 型名を表示
-~~~
+```
 
 #### 実行結果
 
-~~~
+```
 2017-09-12 21:23:23.7770078 +0900 JST m=+0.003000200
 time.Time
-~~~
+```
 
 
 ### 日時を指定して作成する
@@ -36,10 +36,10 @@ time.Time
 [time.Date 関数](https://golang.org/pkg/time/#Date)を使用して、指定した日時の `time.Time` を作成することができます。
 パラメータには、年、月、日、時、分、秒、ナノ秒、Location を指定します。
 
-~~~ go
+```go
 t := time.Date(2017, 9, 12, 23, 0, 0, 0, time.Local)
 fmt.Println(t)  // "2017-09-12 23:00:00 +0900 JST"
-~~~
+```
 
 Location には、ローカルタイムで設定することを表す `time.Local` や、協定世界時で設定することを表す `time.UTC` を指定することができます。
 
@@ -47,45 +47,45 @@ Location には、ローカルタイムで設定することを表す `time.Loca
 ### 文字列表現から作成する
 
 [time.Parse 関数](https://golang.org/pkg/time/#Parse) を使用すると、日時を表す文字列から `time.Time` オブジェクトを作成することができます。
-第一パラメータに、日時文字列の形式を表す layout string、第二パラメータに、実際に変換する文字列を渡します。
+第 1 パラメータに、日時文字列の形式を表す layout string、第 2 パラメータに、実際に変換する文字列を渡します。
 
-~~~ go
+```go
 const layout = "2006-01-02"
 t, err := time.Parse(layout, "2017-09-27")
 if err != nil {
 	panic(err)
 }
 fmt.Println(t)  // 2017-09-27 00:00:00 +0000 UTC
-~~~
+```
 
 layout string には、下記のようにいろいろなパターンを指定することができます。
 
-~~~ go
+```go
 const layout = "Jan 2, 2006 at 3:04pm (MST)"
 t, _ := time.Parse(layout, "Feb 3, 2013 at 7:54pm (PST)")
 fmt.Println(t)  // 2013-02-03 19:54:00 +0000 PST
-~~~
+```
 
 指定しなかったフィールドは、0 で初期化されます。
 例えば、下記のように日付だけを指定した場合は、０時０分０秒になります。
 
-~~~ go
+```go
 const layout = "2006-Jan-02"
 t, _ := time.Parse(layout, "2013-Feb-03")
 fmt.Println(t)  // 2013-02-03 00:00:00 +0000 UTC
-~~~
+```
 
 layout string 中に `JST` などのタイムゾーンを示す文字列を指定しない場合は、`time.Parse` が生成する時刻データは世界協定時 `UTC` の時刻が指定されたものとして扱われます。
 ローカルタイムの時刻を指定して `time.Time` を生成したい場合は、次のように `time.ParseInLocation` 関数を使用します。
 
-~~~ go
+```go
 const layout = "2006-01-02 15:04:05"
 t, err := time.ParseInLocation(layout, "2017-01-01 00:00:00", time.Local)
 if err != nil {
 	panic(err)
 }
 fmt.Println(t)  // 2017-01-01 00:00:00 +0900 JST
-~~~
+```
 
 
 layout string
@@ -97,9 +97,9 @@ layout string に指定する文字列は、**2006年1月2日 15時4分5秒 (MST
 この日時を扱うのは、次のように 1 ～ 7 の数字が並べられることが理由のようです。
 詳しくは[公式ドキュメント](https://golang.org/pkg/time/#pkg-constants)を参照してください。
 
-~~~
+```
 01/02 03:04:05PM '06 -0700
-~~~
+```
 
 例えば、次のような文字列を layout string として使用することができます。
 
@@ -114,7 +114,7 @@ layout string に指定する文字列は、**2006年1月2日 15時4分5秒 (MST
 
 `time` パッケージには、下記のような layout string があらかじめ定義されています。
 
-~~~ go
+```go
 const (
 	ANSIC       = "Mon Jan _2 15:04:05 2006"
 	UnixDate    = "Mon Jan _2 15:04:05 MST 2006"
@@ -133,7 +133,7 @@ const (
 	StampMicro = "Jan _2 15:04:05.000000"
 	StampNano  = "Jan _2 15:04:05.000000000"
 )
-~~~
+```
 
 
 時刻情報を参照する
@@ -143,7 +143,7 @@ const (
 
 `time.Time` 構造体には、時分秒などの各パートの情報を切り出して取得するためのメソッドが用意されています。
 
-~~~ go
+```go
 t := time.Now()
 fmt.Printf("%d\n", t.Year())    // 2017（年）
 fmt.Printf("%d\n", t.Month())   // 9（月）
@@ -153,7 +153,7 @@ fmt.Printf("%d\n", t.Weekday()) // 2（曜日: time.Sunday==0）
 fmt.Printf("%d\n", t.Hour())    // 21（時）
 fmt.Printf("%d\n", t.Minute())  // 37（分）
 fmt.Printf("%d\n", t.Second())  // 11（秒）
-~~~
+```
 
 月や曜日は単純な `int` ではなく、`time.Month` と `time.Weekday` という型で定義されており、それぞれの月や曜日を表す定数も定義されています（`time.January` や `time.Sunday`）。
 
@@ -162,30 +162,30 @@ fmt.Printf("%d\n", t.Second())  // 11（秒）
 
 上記の型には `String()` メソッドが実装されているため、次のようにして文字列表現の月、曜日を取得することができます。
 
-~~~ go
+```go
 t := time.Now()
 month := t.Month().String()      //=> "September"
 weekday := t.Weekday().String()  //=> "Tuesday"
-~~~
+```
 
 もちろん、`Printf` 系メソッドのフォーマットで `%s` を指定して文字列表現で出力することもできます。
 
-~~~ go
+```go
 t := time.Now()
 fmt.Printf("%s\n", t.Month())    //=> "September"
 fmt.Printf("%s\n", t.Weekday())  //=> "Tuesday"
-~~~
+```
 
 ### 年月日データのみ、時分秒データのみを取得する
 
-パラメータなしの `Date()` メソッドは、年、月、日の情報を戻り値として返します。
-同様に、`Clock()` メソッドは、時、分、秒の情報を戻り値として返します。
+__パラメータなしの `Date()`__ メソッドは、年、月、日の情報を戻り値として返します。
+同様に、__`Clock()`__ メソッドは、時、分、秒の情報を戻り値として返します。
 
-~~~ go
+```go
 t := time.Now()
 year, month, day := t.Date()
 hour, minute, second := t.Clock()
-~~~
+```
 
 
 日時を文字列表現で取得する
@@ -196,7 +196,7 @@ hour, minute, second := t.Clock()
 
 #### sample.go
 
-~~~ go
+```go
 package main
 
 import "fmt"
@@ -207,17 +207,17 @@ func main() {
 	t := time.Now()
 	fmt.Println(t.Format(layout))
 }
-~~~
+```
 
 #### 実行結果
 
-~~~
+```
 2017-09-12 Tue 23:30:58 (JST)
-~~~
+```
 
 ちなみに、`time.Time` 構造体の `String()` 関数は下記のようなフォーマットで、文字列を返すように実装されています。
 
-~~~
+```
 2006-01-02 15:04:05.999999999 -0700 MST
-~~~
+```
 
