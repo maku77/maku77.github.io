@@ -11,8 +11,10 @@ redirect_from:
   - /linux/basic/grep-or
 ---
 
-指定した拡張子のファイルを検索する (find)
+find と grep の基本
 ----
+
+### 指定した拡張子のファイルを検索する (find)
 
 次のようにすると、カレントディレクトリ (`.`) を起点にして、拡張子 `.txt` を持つファイルを検索して一覧表示することができます。
 
@@ -20,9 +22,7 @@ redirect_from:
 $ find . -name '*.txt'
 ```
 
-
-ファイル内の文字列を検索する (grep)
-----
+### ファイル内の文字列を検索する (grep)
 
 次のようにすると、指定したテキストファイル内の文字列を検索することができます。
 
@@ -52,27 +52,65 @@ $ grep -r -I '検索文字列' .
 ```
 
 
-grep で OR 検索する
+grep で NOT、AND、OR 検索する
 ----
 
-`grep` コマンドで検索文字列を指定するときに __`-e`__ オプションを使うと、複数の検索文字列を指定して OR 検索することができます。
+### NOT 検索
 
-#### 例: aaa か bbb を含む行を検索する
+`grep` の __`-v`__ オプションを指定すると、指定した __文字列を含まない__ 行だけを抽出できます。
 
-```console
-$ grep -e 'aaa' -e 'bbb' file.txt
-```
-
-別の方法として、正規表現を使用して OR 検索する方法もあります。
+#### 例: TODO という文字列を含まない行を検索する
 
 ```console
-$ grep -E 'aaa|bbb' file.txt
-$ egrep 'aaa|bbb' file.txt
+$ grep -v 'TODO' file.txt
+```
+
+### AND 検索
+
+`grep` で AND 検索したいときは、`grep` の検索結果をパイプで繋いでさらに `grep` 検索してしまうのが簡単です。
+
+#### 例: すべての .txt ファイルから AAA と BBB の両方を含む行を検索する
+
+```console
+$ find . -name '*.txt' | xargs grep AAA | grep BBB
+```
+
+#### 例: すべての .html ファイルから http: を含む行（ただし http://localhost ではない）を検索する
+
+```console
+$ find . -name '*.html' | xargs grep 'http:' | grep -v 'http://localhost'
+```
+
+### OR 検索
+
+`grep` で OR 検索したいときは、検索した文字列を __`-e`__ オプションで複数回指定します。
+
+#### 例: AAA あるいは BBB を含む行を検索する
+
+```console
+$ grep -e AAA -e BBB file.txt
+```
+
+別の方法として、正規表現（__`-E`__ オプション）を使用して OR 検索する方法もあります。
+
+```console
+$ grep -E 'AAA|BBB' file.txt
+$ egrep 'AAA|BBB' file.txt
 ```
 
 
-find いろいろ
+find のオプションいろいろ
 ----
+
+### ファイル名で OR 検索する
+
+`find` でファイル名の OR 検索をするときは、__`-o`__ オプションで `-name` などの検索オプションを繋ぎます。
+
+#### 例: .py ファイルと .rb ファイルを検索する
+
+```console
+$ find . -name '*.py' -o -name '*.rb'
+```
 
 ### ファイル名の大文字と小文字を区別しない (-iname)
 
@@ -86,7 +124,7 @@ $ find . -iname foo.txt
 
 ### 特定のディレクトリを検索対象外にする (-not -path)
 
-`-not -path` あるいは `! -path` で検索対象外にするパスのパターンを指定できます。
+__`-not -path`__ あるいは __`! -path`__ で検索対象外にするパスのパターンを指定できます。
 
 #### 例: node_modules ディレクトリを検索対象外にする
 
