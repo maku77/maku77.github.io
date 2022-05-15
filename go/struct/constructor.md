@@ -1,7 +1,7 @@
 ---
 title: "構造体のコンストラクタ（ファクトリ関数）を定義する"
-url: "p/6dhkoru"
-permalink: "p/6dhkoru"
+url: "p/6dhkoru/"
+permalink: "p/6dhkoru/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語で構造体用のコンストラクタを作成したいときは、通常の関数の形でファクトリ関数を実装します。"

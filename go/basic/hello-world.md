@@ -1,7 +1,7 @@
 ---
 title: "Go 言語で Hello World をコンパイル、実行する"
-url: "p/nuz369c"
-permalink: "p/nuz369c"
+url: "p/nuz369c/"
+permalink: "p/nuz369c/"
 date: "2017-08-30"
 tags: ["Go"]
 description: "ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル、実行してみます。"

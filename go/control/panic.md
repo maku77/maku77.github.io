@@ -1,7 +1,7 @@
 ---
 title: "パニックによるエラー処理 (panic, recover)"
-url: "p/j47aswy"
-permalink: "p/j47aswy"
+url: "p/j47aswy/"
+permalink: "p/j47aswy/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語には try-catch による例外処理の仕組み存在しませんが、panic という仕組みが用意されています。"

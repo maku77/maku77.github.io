@@ -1,7 +1,7 @@
 ---
 title: "定数を定義する (const, iota)"
-url: "p/qqy9gok"
-permalink: "p/qqy9gok"
+url: "p/qqy9gok/"
+permalink: "p/qqy9gok/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の定数は、変数を定義するのと同じ感覚で定義することができます。"

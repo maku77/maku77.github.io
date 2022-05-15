@@ -1,7 +1,7 @@
 ---
 title: "タグの名前を変更する"
-url: "p/h4dnw6e"
-permalink: "p/h4dnw6e"
+url: "p/h4dnw6e/"
+permalink: "p/h4dnw6e/"
 date: "2015-06-29"
 lastmod: "2022-05-09"
 tags: ["Git"]

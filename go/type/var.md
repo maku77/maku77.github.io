@@ -1,7 +1,7 @@
 ---
 title: "変数を定義する (var)／ゼロ値について"
-url: "p/5dhkoru"
-permalink: "p/5dhkoru"
+url: "p/5dhkoru/"
+permalink: "p/5dhkoru/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語では明示的に型を指定した変数定義と、コンパイラによる型推論を利用した変数定義を行うことができます。"

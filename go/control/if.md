@@ -1,7 +1,7 @@
 ---
 title: "if による条件分岐"
-url: "p/pw258be"
-permalink: "p/pw258be"
+url: "p/pw258be/"
+permalink: "p/pw258be/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の if 文の構文は、Java や C++ とほぼ同じですが、括弧の使用ルールが微妙に異なります。"

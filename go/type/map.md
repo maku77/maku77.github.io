@@ -1,7 +1,7 @@
 ---
 title: "マップを扱う (map)"
-url: "p/5cgjnqt"
-permalink: "p/5cgjnqt"
+url: "p/5cgjnqt/"
+permalink: "p/5cgjnqt/"
 date: "2017-09-05"
 tags: ["Go"]
 description: "Go 言語でマップを定義するには、map キーワードを使用します。"

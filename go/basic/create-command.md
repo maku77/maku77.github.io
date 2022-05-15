@@ -1,7 +1,7 @@
 ---
 title: "Go でコマンドラインツールを作って GitHub で公開する"
-url: "p/ow258be"
-permalink: "p/ow258be"
+url: "p/ow258be/"
+permalink: "p/ow258be/"
 date: "2022-04-10"
 tags: ["Go"]
 redirect_from:

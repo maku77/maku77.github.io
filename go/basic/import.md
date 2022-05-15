@@ -1,7 +1,7 @@
 ---
 title: "パッケージの作成とインポート (import)"
-url: "p/t269cgj"
-permalink: "p/t269cgj"
+url: "p/t269cgj/"
+permalink: "p/t269cgj/"
 date: "2017-08-31"
 lastmod: "2022-04-10"
 tags: ["Go"]

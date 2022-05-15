@@ -1,7 +1,7 @@
 ---
 title: "ファイルからの読み出し／ファイルへの書き込みを行う (os, io)"
-url: "p/6eimpsv"
-permalink: "p/6eimpsv"
+url: "p/6eimpsv/"
+permalink: "p/6eimpsv/"
 date: "2017-09-08"
 tags: ["Go"]
 description: "Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。"

@@ -1,7 +1,7 @@
 ---
 title: "構造体を定義する (struct)"
-url: "p/8z2o63r"
-permalink: "p/8z2o63r"
+url: "p/8z2o63r/"
+permalink: "p/8z2o63r/"
 date: "2017-09-05"
 tags: ["Go"]
 descrition: "Go 言語の構造体は、struct というキーワードを使って定義します。"

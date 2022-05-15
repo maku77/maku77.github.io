@@ -1,7 +1,7 @@
 ---
 title: "コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)"
-url: "p/y2cmv5d"
-permalink: "p/y2cmv5d"
+url: "p/y2cmv5d/"
+permalink: "p/y2cmv5d/"
 date: "2011-08-08"
 lastmod: "2022-05-08"
 tags: ["Git"]

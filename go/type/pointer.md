@@ -1,7 +1,7 @@
 ---
 title: "ポインタを扱う (＊)"
-url: "p/vpz8fnv"
-permalink: "p/vpz8fnv"
+url: "p/vpz8fnv/"
+permalink: "p/vpz8fnv/"
 date: "2017-09-04"
 tags: ["Go"]
 description: "Go 言語には、C/C++ と同様にポインタが存在します。構文もかなり似ていますが、簡潔に記述できるような工夫がされています。"

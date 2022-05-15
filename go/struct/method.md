@@ -1,7 +1,7 @@
 ---
 title: "メソッドを定義する（レシーバ付き関数）"
-url: "p/4behkor"
-permalink: "p/4behkor"
+url: "p/4behkor/"
+permalink: "p/4behkor/"
 date: "2017-09-05"
 tags: ["Go"]
 description: "Go 言語のメソッドの定義方法は、Java や C++ とは異なり、関数にレシーバを指定するという文法を使用します。"

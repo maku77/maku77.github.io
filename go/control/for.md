@@ -1,7 +1,7 @@
 ---
 title: "for によるループ処理"
-url: "p/v58cfik"
-permalink: "p/v58cfik"
+url: "p/v58cfik/"
+permalink: "p/v58cfik/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語では、for キーワード 1 つだけで while ループや無限ループを表現することができます。"

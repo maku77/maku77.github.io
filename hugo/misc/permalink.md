@@ -2,8 +2,8 @@
 title: "サイト構造を変えてもページの URL が変わらないようにする"
 date: "2019-10-20"
 lastmod: "2022-05-08"
-url: "p/u9r9p7n"
-permalink: "p/u9r9p7n"
+url: "p/u9r9p7n/"
+permalink: "p/u9r9p7n/"
 redirect_from: "/hugo/misc/permalink"
 date: "2022-05-08"
 tags: ["Hugo"]
@@ -35,7 +35,7 @@ Markdown ファイルのフロントマターに **`url`** プロパティを設
 ```yaml
 ---
 title: "ページタイトル"
-url: "p/abc1234"
+url: "p/abc1234/"
 date: "2019-10-20"
 ---
 ```
@@ -72,7 +72,7 @@ Hugo は 1 つのページを [多言語化してホスティング](https://goh
 このとき、フロントマターの `url` プロパティには `en` や `fr` やなどの言語プレフィックスを付ける必要はありません。
 
 ```yaml
-url: "p/abc1234"  ← 全ページ共通でこの指定で OK
+url: "p/abc1234/"  ← 全ページ共通でこの指定で OK
 ```
 
 多言語対応ページをビルドしたときに、自動的に言語プレフィックスを考慮したパスに HTML ファイルを出力してくれます（[Hugo 0.55 以降](https://gohugo.io/content-management/urls/#set-url-in-front-matter)）。
@@ -84,7 +84,7 @@ url: "p/abc1234"  ← 全ページ共通でこの指定で OK
 ただし、フロントマターの `url` プロパティの値をスラッシュ (`/`) で始めると、こういった言語プレフィックスの考慮はなくなり、指定したままのパスで HTML 出力されることになるので注意してください。
 
 ```yaml
-url: "/p/abc1234"  ← スラッシュで始めるように変えた
+url: "/p/abc1234/"  ← スラッシュで始めるように変えた
 ```
 
 上記のように記述すると、必ず次のようなパスで HTML 出力されることになります。
@@ -97,18 +97,18 @@ url: "/p/abc1234"  ← スラッシュで始めるように変えた
 （応用）Archetypes でフロントマターを自動挿入
 ----
 
-Hugo プロジェクトのルートに、`archtypes/default.md` というファイルを作成しておくと、`hugo new` コマンドで記事ページを生成したときに、その内容が雛形として使用されます（Hugo の Archetypes という機能です）。
+Hugo プロジェクトのルートに、`archetypes/default.md` というファイルを作成しておくと、`hugo new` コマンドで記事ページを生成したときに、その内容が雛形として使用されます（Hugo の Archetypes という機能です）。
 
 次のサンプルでは、自動でフロントマターにランダムな `url` プロパティを挿入するようにしています。
 
-#### archtypes/default.md
+#### archetypes/default.md
 
 ```
 ---
 title: ""
-url: "{{ "{{" }} template "permanentId" }}"
+url: "p/{{ "{{" }} template "permanentId" }}/"
 date: "{{ "{{" }} now.Format "2006-01-02" }}"
-tags: []
+tags: [""]
 ---
 
 {{ "{{" }} define "permanentId" -}}
@@ -117,7 +117,7 @@ tags: []
     {{ "{{" }}- $nextCh := slice "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" | shuffle | first 1 -}}
     {{ "{{" }}- $scratch.Add "id" $nextCh -}}
   {{ "{{" }}- end -}}
-  p/{{ "{{" }}- delimit ($scratch.Get "id") "" -}}
+  {{ "{{" }}- delimit ($scratch.Get "id") "" -}}
 {{ "{{" }}- end -}}
 ```
 
@@ -136,9 +136,9 @@ $ hugo new sample.md
 ```
 ---
 title: ""
-url: "p/es3qakw"
+url: "p/es3qakw/"
 date: "2020-03-16"
-tags: []
+tags: [""]
 ---
 ```
 
@@ -171,9 +171,9 @@ endfunction
 " 先頭行に Hugo 用のフロントマターを挿入する
 function! s:InsertHugoFrontMatter()
   let title = "title: \"\"\n"
-  let url = "url: \"p/" . s:RandStr(7) . "\"\n"
+  let url = "url: \"p/" . s:RandStr(7) . "/\"\n"
   let date = "date: \"" . strftime("%Y-%m-%d") . "\"\n"
-  let tags = "tags: []\n"
+  let tags = "tags: [\"\"]\n"
   execute ":normal gg"
   execute ":normal I" . "---\n" . title . url . date . tags . "---\n\n"
   execute ":normal gg"
@@ -205,9 +205,9 @@ Vim エディタから下記のようにコマンドを実行すると、
 ```
 ---
 title: ""
-url: "p/4nzaju5"
+url: "p/4nzaju5/"
 date: "2019-10-20"
-tags: []
+tags: [""]
 ---
 ```
 

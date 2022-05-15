@@ -1,7 +1,7 @@
 ---
 title: "インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)"
-url: "p/tbf357g"
-permalink: "p/tbf357g"
+url: "p/tbf357g/"
+permalink: "p/tbf357g/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には継承の仕組みはありませんが、埋め込み (Embedding) という仕組みによって型の拡張（結合）を行うことができます。"

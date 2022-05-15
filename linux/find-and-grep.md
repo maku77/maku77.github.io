@@ -1,7 +1,7 @@
 ---
 title: "Linuxコマンド: ファイルやディレクトリを検索する (find, grep)"
-url: "p/hudubr8"
-permalink: "p/hudubr8"
+url: "p/hudubr8/"
+permalink: "p/hudubr8/"
 date: "2008-09-08"
 lastmod: "2022-05-08"
 tags: ["find", "grep", "Linux"]

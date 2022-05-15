@@ -1,7 +1,7 @@
 ---
 title: "関数を定義する (func)"
-url: "p/kswy47a"
-permalink: "p/kswy47a"
+url: "p/kswy47a/"
+permalink: "p/kswy47a/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。"

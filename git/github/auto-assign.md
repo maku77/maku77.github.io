@@ -1,6 +1,5 @@
 ---
 title: "Pull Request のコードレビューワーを自動でアサインする"
-url: "/p/v9gouy7"
 date: "2020-10-20"
 tags: ["GitHub"]
 ---

@@ -1,7 +1,7 @@
 ---
 title: "組込み型に独自の型名を付ける (type)"
-url: "p/cuxyj8c"
-permalink: "p/cuxyj8c"
+url: "p/cuxyj8c/"
+permalink: "p/cuxyj8c/"
 date: "2017-09-05"
 tags: ["Go"]
 description: "Go 言語で type キーワードを使用すると、組込み型に新しい名前を付けることができます。これは単なるエイリアスではなく、新しい型として区別されるので、コンパイル時の型チェックの対象となり、コーディングミスを減らすことができます。"

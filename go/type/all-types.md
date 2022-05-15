@@ -1,7 +1,7 @@
 ---
 title: "Go 言語の組込み型一覧"
-url: "p/as29hpw"
-permalink: "p/as29hpw"
+url: "p/as29hpw/"
+permalink: "p/as29hpw/"
 date: "2017-09-01"
 tags: ["Go"]
 description: Go 言語には次のような組込み型が定義されています。

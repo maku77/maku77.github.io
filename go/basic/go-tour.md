@@ -1,7 +1,7 @@
 ---
 title: "Go ツアーを起動して Go 言語の基本を勉強する"
-url: "p/dkpsvz3"
-permalink: "p/dkpsvz3"
+url: "p/dkpsvz3/"
+permalink: "p/dkpsvz3/"
 date: "2017-08-31"
 lastmod: "2022-04-10"
 tags: ["Go"]

@@ -1,7 +1,7 @@
 ---
 title: "Go 言語とは？／Go をインストールする"
-url: "p/wxhzfvc"
-permalink: "p/wxhzfvc"
+url: "p/wxhzfvc/"
+permalink: "p/wxhzfvc/"
 date: "2017-08-30"
 lastmod: "2022-04-08"
 tags: ["Go"]

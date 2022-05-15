@@ -1,7 +1,7 @@
 ---
 title: "ベンチマークを行う (testing.B)"
-url: "p/29dgjnq"
-permalink: "p/29dgjnq"
+url: "p/29dgjnq/"
+permalink: "p/29dgjnq/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には、ベンチマークを行うための仕組みが標準機能として搭載されています。"

@@ -1,7 +1,7 @@
 ---
 title: "（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する"
-url: "p/xs3ahpw"
-permalink: "p/xs3ahpw"
+url: "p/xs3ahpw/"
+permalink: "p/xs3ahpw/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語には GitHub 上に公開されたパッケージを簡単にインポートして使用する仕組みが組み込まれています。"

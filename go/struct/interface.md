@@ -1,7 +1,7 @@
 ---
 title: "Go 言語のインタフェースの扱いを理解する (interface)"
-url: "p/aimpsvz"
-permalink: "p/aimpsvz"
+url: "p/aimpsvz/"
+permalink: "p/aimpsvz/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語の interface は、Java などとは異なり、implements 宣言による実装の明示を行いません。"

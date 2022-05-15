@@ -1,7 +1,7 @@
 ---
 title: "Go のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)"
-url: "p/s258beh"
-permalink: "p/s258beh"
+url: "p/s258beh/"
+permalink: "p/s258beh/"
 date: "2022-04-10"
 tags: ["Go"]
 redirect_from:

@@ -1,7 +1,7 @@
 ---
 title: "（旧）GOPATH によるコードの一元管理"
-url: "p/u48bfim"
-permalink: "p/u48bfim"
+url: "p/u48bfim/"
+permalink: "p/u48bfim/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語を用いた開発では、他のプログラミング言語とは異なり、１つのワークスペース内ですべてのコードを管理するという慣習があります。"

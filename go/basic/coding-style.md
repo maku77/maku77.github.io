@@ -1,7 +1,7 @@
 ---
 title: "Go 言語のコーディングスタイル（コーディング規約）"
-url: "p/rz47adg"
-permalink: "p/rz47adg"
+url: "p/rz47adg/"
+permalink: "p/rz47adg/"
 date: "2017-08-30"
 tags: ["Go"]
 description: "Go 言語には、標準のコーディング規約が用意されています。"
