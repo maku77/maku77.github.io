@@ -1,5 +1,5 @@
-- (2022-05-08) パーマリンク対応手順
-  - __`permalink: "p/xxxxxxx"`__ と記述（前後のスラッシュは付けない）
-  - __`redirect_from: "/java/file-basename"`__ で過去の HTML パスを記述（先頭だけスラッシュを付ける）
+- (2022-05-15) パーマリンク対応手順
+  - __`permalink: "p/xxxxxxx/"`__ と記述（後ろのスラッシュだけ付ける）
+  - __`redirect_from: "/java/file-basename"`__ で過去の HTML パスを記述（前のスラッシュだけ付ける）
   - インデックスページからのリンクを __`/p/xxxxxxx/`__ に変える（前後にスラッシュを付ける）
 
