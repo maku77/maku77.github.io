@@ -82,6 +82,7 @@ hugo コマンド
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
 * [ページリスト（記事一覧）に列挙されないページを作る (_build.list)](list/exclude-from-list.html)
+* [セクションページでいろいろな方法でページソートする](/p/9gjnqtw/)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
 * [タクソノミーの基本](taxonomy/basic.html)
