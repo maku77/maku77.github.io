@@ -18,7 +18,7 @@ Open Graph タグを出力するためのパーシャルテンプレート
 
 #### layouts/partials/head/ogp.html
 
-```
+```go
 <meta property="og:site_name" content="{{ "{{" }} .Site.Title }}" />
 <meta property="og:title" content="{{ "{{" }} .Title }}" />
 <meta property="og:type" content="website" />
@@ -28,8 +28,13 @@ Open Graph タグを出力するためのパーシャルテンプレート
 {{ "{{" }}- if .Params.image }}
   {{ "{{" }}- $imageRes := .Resources.GetMatch .Params.image -}}
   <meta property="og:image" content="{{ "{{" }} $imageRes.Permalink }}" />
+  <meta property="og:image:width" content="{{ "{{" }} $imageRes.Width }}" />
+  <meta property="og:image:height" content="{{ "{{" }} $imageRes.Height }}" />
 {{ "{{" }}- else if .Site.Params.image }}
-  <meta property="og:image" content="{{ "{{" }} .Site.Params.image | absURL }}" />
+  {{ "{{" }}- $imageRes := resources.Get .Site.Params.image -}}
+  <meta property="og:image" content="{{ "{{" }} $imageRes.Permalink }}" />
+  <meta property="og:image:width" content="{{ "{{" }} $imageRes.Width }}" />
+  <meta property="og:image:height" content="{{ "{{" }} $imageRes.Height }}" />
 {{ "{{" }}- end }}
 
 {{ "{{" }}- if .Description }}
@@ -50,10 +55,11 @@ Open Graph タグを出力するためのパーシャルテンプレート
 ### og:image
 
 ページバンドルとして画像ファイルを含んでいる場合、フロントマターの `image` プロパティでそのファイル名を指定することで、Open Graph の画像として表示できるようにしています。
+例えば、`content/aaa/bbb/index.md` というページにバンドルする画像ファイルは、`content/aaa/bbb/sample.png` のように同じディレクトリ内に配置します。
 
-#### フロントマターの記述例
+#### フロントマターでのページ画像の指定
 
-```
+```yaml
 ---
 title: "ページタイトル"
 date: "2020-03-15"
@@ -61,13 +67,14 @@ image: "sample.png"
 ---
 ```
 
-その指定がない場合は、サイトの設定ファイル (`config.toml`) の独自プロパティ `params.image` で指定した画像を使用します。
+フロントマターで `image` プロパティが指定されていない場合は、サイトの設定ファイル (`config.toml`) の独自プロパティ `params.image` で指定した画像ファイルをサイトロゴ画像として使用します。
+サイトロゴ画像は、Hugo プロジェクトのディレクトリ内に、`assets/img/site-log-large.png` のようなパスで配置しておきます（Hugo の Image processing 機能を使って画像サイズを取得するため、`static` ディレクトリではなく `assets` ディレクトリに配置しなければいけないことに注意してください）。
 
-#### config.toml の記述例（抜粋）
+#### config.toml でのサイトロゴの指定（抜粋）
 
 ```toml
 [params]
-  image = "assets/img/site-logo-large.png"
+  image = "img/site-logo.png"
 ```
 
 ### og:description
@@ -99,10 +106,10 @@ head 要素に Open Graph メタ情報を埋め込む
 
 #### layouts/_default/baseof.html の抜粋
 
-```
+```go
 <!DOCTYPE html>
 <html lang="{{ "{{" }} .Site.LanguageCode }}">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
 <head>
   <meta charset="UTF-8">
   {{ "{{" }} partial "head/ogp" . }}
@@ -114,7 +121,7 @@ head 要素に Open Graph メタ情報を埋め込む
 これで、Facebook や Twitter といった SNS アプリでサイトの URL が共有されたときに、アイキャッチ画像や説明文が表示されるようになります。
 
 
-（おまけ）親セクションの image プロパティを採用する
+（応用）親セクションの image プロパティを採用する
 ----
 
 細かいページをたくさん作っている場合は、各ページごとにアイキャッチ画像を用意するのは大変です。
@@ -123,18 +130,39 @@ head 要素に Open Graph メタ情報を埋め込む
 
 #### layouts/partials/head/ogp.html の og:image 出力部分抜粋
 
-```
+```go
 {{ "{{" }}- define "og_image" }}
   {{ "{{" }}- if .Params.image }}
     {{ "{{" }}- $imageRes := .Resources.GetMatch .Params.image -}}
     <meta property="og:image" content="{{ "{{" }} $imageRes.Permalink }}" />
+    <meta property="og:image:width" content="{{ "{{" }} $imageRes.Width }}" />
+    <meta property="og:image:height" content="{{ "{{" }} $imageRes.Height }}" />
   {{ "{{" }}- else if .Parent }}
     {{ "{{" }}- template "og_image" .Parent }}
   {{ "{{" }}- else if .Site.Params.image }}
-    <meta property="og:image" content="{{ "{{" }} .Site.Params.image | absURL }}" />
+    {{ "{{" }}- $imageRes := resources.Get .Site.Params.image -}}
+    <meta property="og:image" content="{{ "{{" }} $imageRes.Permalink }}" />
+    <meta property="og:image:width" content="{{ "{{" }} $imageRes.Width }}" />
+    <meta property="og:image:height" content="{{ "{{" }} $imageRes.Height }}" />
   {{ "{{" }}- end }}
 {{ "{{" }}- end }}
 
 {{ "{{" }}- template "og_image" . }}
 ```
+
+この仕組みを採用した場合、最終的にホームページ (`content/_index.md`) のフロントマターまで遡って `image` プロパティを探してくれるようになるので、サイト全体のロゴをホームページのフロントマターでも設定できるようになります（サイトの設定ファイル (`config.toml`) で `image` プロパティを設定しておく必要がなくなります）。
+
+#### content/_index.md によるサイトロゴの指定
+
+```yaml
+---
+title: "まくろぐ"
+url: "/"
+image: "site-logo.png"
+---
+```
+
+この場合は、`site-log.png` ファイルはホームページにバンドルされたものを参照することになるので、次のようなパスで配置することに注意してください（`assets` ディレクトリには配置しません）。
+
+- `content/site-logo.png`
 
