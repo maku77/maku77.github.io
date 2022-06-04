@@ -106,7 +106,8 @@ hugo コマンド
 * [各種ページにおいて .Kind や .IsPage、.IsSection、.IsNode の値がどうなるかの一覧](template/page-types.html)
 * [次のページ、前のページへのリンクを表示する](template/prev-next-link.html)
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
-* [Markdown (.md) ファイルのパス情報を取得する](template/markdown-path.html)
+* [Markdown (.md) ファイルのパス情報を取得する](/p/8env4bi/)
+* [Markdown (.md) ファイルを VS Code で開くリンクを表示する](/p/9hkprvx/)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
 * [テンプレートの中で絵文字を使用する (emojify)](template/emojify.html)
 
