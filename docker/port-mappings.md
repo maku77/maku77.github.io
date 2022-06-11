@@ -1,7 +1,12 @@
 ---
 title: "Docker コンテナ側の公開ポートがホスト側のどのポートにマッピングされているか調べる (docker container port)"
+url: "p/ow258be/"
+permalink: "p/ow258be/"
 date: "2015-03-12"
 lastmod: "2022-02-28"
+tags: ["Docker"]
+redirect_from:
+  - /docker/port-mappings
 ---
 
 docker container port コマンドの使い方

@@ -1,18 +1,22 @@
 ---
-title: "Docker イメージのダウンロードと Hello World"
+title: "Docker で Hello World 〜 イメージの取得からコンテナの起動まで (docker image pull, docker container run)"
+url: "p/z8behko/"
+permalink: "p/z8behko/"
 date: "2015-03-15"
 lastmod: "2022-02-18"
+tags: ["Docker"]
+redirect_from:
+  - /docker/download-image
 ---
 
 Docker イメージのダウンロード (docker image pull)
 ----
 
 Docker でコンテナを作成するためには、ベースとなるイメージが必要です。
-多くのイメージが __DockerHub__ に用意されているので、通常はここからベースとなるイメージを取得します。
-ここでは、__Ubuntu 20.04__ のイメージをダウンロードします。
-
-__`docker image pull`__ (`docker pull`) コマンドに、ダウンロードしたいイメージ名と、バージョンを表すタグ（最新なら `latest`）を指定してダウンロードします。
-省略すると デフォルトタグとして `lastest` が使用されます。
+多くのイメージが [Docker Hub](https://hub.docker.com/) に用意されているので、通常はここからベースとなるイメージを取得します。
+ここでは、Ubuntu 20.04 のイメージをダウンロードしてみます。
+__`docker image pull`__（旧: `docker pull`）コマンドに、ダウンロードしたいイメージ名 `ubuntu` と、バージョンを表すタグ `20.04` を指定してダウンロードします。
+省略するとデフォルトタグとして、最新バージョンを表す `lastest` が使用されます。
 
 ```console
 $ docker image pull ubuntu:20.04
@@ -22,7 +26,7 @@ Status: Downloaded newer image for ubuntu:20.04
 docker.io/library/ubuntu:20.04
 ```
 
-ダウンロード済みのイメージの一覧は `docker image ls` コマンドで確認できます（旧型式: `docker images`）。
+ダウンロード済みのイメージの一覧は __`docker image ls`__ コマンド（旧: `docker images`）で確認できます。
 
 ```console
 $ docker image ls
@@ -30,16 +34,13 @@ REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
 ubuntu        20.04     54c9d81cbb44   2 weeks ago   72.8MB
 ```
 
-
-Docker イメージの削除 (docker image rm)
-----
-
-Docker イメージを削除したくなったときは、下記のように __`docker image rm`__  (`docker rmi`) コマンドで削除できます。
-__イメージ名:タグ名__ で指定する代わりに、`docker image ls` で表示される __イメージの ID__ を指定することもできます。
+Docker イメージを削除したくなったときは、次のように __`docker image rm`__ コマンド（旧: `docker rmi` ）で削除できます。
 
 ```console
 $ docker image rm ubuntu:20.04
 ```
+
+- 参考: [Docker イメージを削除する (docker image rm)](/p/8fjnqtw/)
 
 
 Docker イメージの実行 (docker container run)
