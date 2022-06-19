@@ -42,33 +42,34 @@ body {
 }
 
 // ヘッダー
-* + h1, * + h2, * + h3, * + h4 {
-  margin-top: 2em;
+* + h1, * + h2, * + h3, * + h4, * + h5 {
+  margin-top: 1.5em;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   margin-bottom: 1em;
-  padding: 0 0.2em;
   color: $COLOR_HEADER;
   font-weight: bolder;
 }
 h1 {
+  padding: 0 0.2em;
   font-size: 1.4rem;
   background: #666;
   color: white;
 }
 h2 {
+  padding: 0 0.2em;
   font-size: 1.3rem;
   border-bottom: 1px solid $COLOR_HEADER;
 }
-h3 {
-  font-size: 1.1rem;
-}
-h4 {
-  font-size: 1rem;
+h3, h4, h5 {
+  padding: 0;
   @include screen-size-1 {
     margin-left: $SIDE_MARGIN_DESKTOP;
   }
 }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1.0rem; }
 
 // 定義リスト
 dl {
