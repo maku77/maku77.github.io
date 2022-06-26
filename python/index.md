@@ -239,7 +239,7 @@ HTTP リクエスト
 
 HTTP サーバー
 ----
-* [Python で簡易的な HTTP サーバを立てる (SimpleHTTPServer)](web/simple-http-server.html)
+* [Python で簡易的な HTTP サーバを立てる (http.server, SimpleHTTPServer)](/p/rr3cmu5/)
 
 
 NumPy / Matplotlib

@@ -319,7 +319,7 @@ defaults:
       category_logo: "logo-python.png"
       category_og_image: "logo-python.png"
       category_desc: "天才星人まくのPythonノート"
-      category_long_desc: "海外で主流のオブジェクト指向言語 Python の使い方。"
+      category_long_desc: "機械学習の世界で最も人気なプログラミング言語 Python の使い方。"
   -
     scope:
       path: "r"
