@@ -1,6 +1,7 @@
 ---
 title: "Docker チートシート"
 date: "2015-04-02"
+lastmod: "2022-06-15"
 ---
 
 Registry / Repository / Image / Tag の概念
@@ -40,9 +41,9 @@ docker container（コンテナ関連のコマンド）
 | コマンド | 旧コマンド | 説明 |
 | ---- | ---- | --- |
 | `docker container attach`  | `docker attach` | 動作中のコンテナに標準入力や標準出力を接続する<br>Attach local standard input, output, and error streams to a running container |
-| `docker container commit`  | `docker commit` | Create a new image from a container's changes |
-| `docker container cp`      | `docker cp` | Copy files/folders between a container and the local filesystem |
-| `docker container create`  | `docker create` | Create a new container |
+| `docker container commit`  | `docker commit` | コンテナの変更内容から新しいイメージを作成する<br>Create a new image from a container's changes |
+| `docker container cp`      | `docker cp` | コンテナとホスト間でファイルをコピーする<br>Copy files/folders between a container and the local filesystem |
+| `docker container create`  | `docker create` | 新しいコンテナを作成する<br>Create a new container |
 | `docker container diff`    | `docker diff` | Inspect changes to files or directories on a container's filesystem |
 | `docker container exec`    | `docker exec` | 動作中のコンテナで新しいプロセスを起動する<br>Run a command in a running container |
 | `docker container export`  | `docker export` | Export a container's filesystem as a tar archive |
@@ -64,6 +65,20 @@ docker container（コンテナ関連のコマンド）
 | `docker container unpause` | `docker unpause` | Unpause all processes within one or more containers |
 | `docker container update`  | `docker update` | Update configuration of one or more containers |
 | `docker container wait`    | `docker wait` | Block until one or more containers stop, then print their exit codes |
+
+
+docker network（ネットワーク関連のコマンド）
+----
+
+| コマンド | 説明 |
+| ---- | --- |
+| `docker network connect`    | コンテナをネットワークに接続する<br>Connect a container to a network |
+| `docker network create`     | ネットワークを作成する<br>Create a network |
+| `docker network disconnect` | コンテナをネットワークから切り離す<br>Disconnect a container from a network |
+| `docker network inspect`    | ネットワークの詳細情報を表示する<br>Display detailed information on one or more networks |
+| `docker network ls`         | ネットワークの一覧を表示する<br>List networks |
+| `docker network prune`      | 未使用のネットワークをすべて削除する<br>Remove all unused networks |
+| `docker network rm`         | ネットワークを削除する<br>Remove one or more networks |
 
 
 docker volume（ボリューム関連のコマンド）

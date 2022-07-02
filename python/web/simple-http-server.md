@@ -1,5 +1,5 @@
 ---
-title: "Python で簡易的な HTTP サーバを立てる (SimpleHTTPServer)"
+title: "Python で簡易的な HTTP サーバを立てる (http.server, SimpleHTTPServer)"
 url: "p/rr3cmu5/"
 permalink: "p/rr3cmu5/"
 date: "2012-12-09"
