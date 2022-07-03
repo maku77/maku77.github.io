@@ -12,7 +12,7 @@ Docker をはじめる（インストールと設定）
 
 Docker の基本的な使い方
 ----
-* [Docker で Hello World 〜 イメージの取得からコンテナの起動まで (docker image pull, docker container run)](/p/z8behko/)
+* [Docker で Hello World 〜 イメージの取得からコンテナの起動まで (docker image pull, docker container run)](/p/y2biqx6/)
 * [Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)](/p/y8cfimp/)
 * [Docker コンテナをデーモンとして動作させる (docker container run -d, docker container logs)](/p/dmpsvz3/)
 

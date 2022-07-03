@@ -1,7 +1,7 @@
 ---
 title: "Docker で Hello World 〜 イメージの取得からコンテナの起動まで (docker image pull, docker container run)"
-url: "p/z8behko/"
-permalink: "p/z8behko/"
+url: "p/y2biqx6/"
+permalink: "p/y2biqx6/"
 date: "2015-03-15"
 lastmod: "2022-02-18"
 tags: ["Docker"]

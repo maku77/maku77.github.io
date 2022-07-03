@@ -17,7 +17,7 @@ layout: category-index
 
 ### パッケージとモジュール
 * [パッケージの作成とインポート (import)](/p/t269cgj/)
-* [Go でコマンドラインツールを作って GitHub で公開する](/p/ow258be/)
+* [Go でコマンドラインツールを作って GitHub で公開する](/p/whs2bjt/)
 * [（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](/p/xs3ahpw/)
 
 
