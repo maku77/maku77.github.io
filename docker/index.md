@@ -27,7 +27,7 @@ Docker コマンドによる操作
 * [Docker イメージを削除する (docker image rm)](/p/8fjnqtw/)
   * [（応用）リポジトリ名のついていない Docker イメージをすべて削除する (docker image rm)](remove-unnamed-images.html)
 * [Docker イメージを Docker Hub に登録する](register-image-to-dockerhub.html)
-* [Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する](multistage-build.html)
+* [Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する](/p/z3n4hye/)
 * [Docker Hub のイメージを検索する (docker search)](/p/4ohyhxe/)
 
 ### コンテナ (docker container)

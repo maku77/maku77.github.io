@@ -1,6 +1,10 @@
 ---
 title: "Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する"
+url: "p/z3n4hye/"
+permalink: "p/z3n4hye/"
 date: "2022-03-01"
+tags: ["Docker"]
+redirect_from: "/docker/multistage-build"
 ---
 
 マルチステージビルドとは？
