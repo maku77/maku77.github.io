@@ -101,6 +101,7 @@ import (
 
 パッケージで定義されている関数を参照するときは、__`パッケージ名.関数名`__ という形で呼び出します。
 大文字で始まる関数のみ参照できます。
+次の例では、`cmp` パッケージの `Diff` 関数を呼び出しています。
 
 ```go
 package main
@@ -121,8 +122,8 @@ func main() {
 package main
 
 import (
-	. "fmt"                             // パッケージ名を省略して呼び出せるようにする
-	sample "github.com/maku77/gosample" // 別名を付けて参照
+	. "fmt"                             // パッケージ名を省略して関数名だけで呼び出せるようにする
+	sample "github.com/maku77/gosample" // パッケージに別名を付けて参照
 	_ "math/rand"                       // 参照していなくてもコンパイルエラーにしない
 )
 
@@ -210,11 +211,14 @@ myapp/
 ```
 
 まず、モジュールのルートディレクトリ (`myapp`) で、__`go mod init`__ コマンドを実行して、`go.mod` ファイルを生成します。
-ここではローカルだけで使うことを前提に、とりあえずモジュールパス名を `com.example/myapp` としますが、GitHub での公開を想定しているのであれば、`github.com/<user>/<repo>` のように世界で一意となる名前を付けるべきです。
+GitHub で管理することを想定しているのであれば、モジュールパス名はリポジトリ名に合わせて __`github.com/<user>/<repo>`__ のようにします。
+これにより、モジュールパス名が世界で一意になるとともに、別のモジュールから GitHub 経由でインポートできるようになります。
+ローカルでテスト開発するだけのアプリであれば、とりあえずモジュールパス名は `myapp` のように適当に付けちゃって構いません。
 
 ```console
-$ cd myapp
-$ go mod init com.example/myapp
+$ cd ~/gitwork/myapp
+$ go mod init github.com/maku77/myapp  # GitHub で管理するならリポジトリ名を指定
+$ go mod init myapp                    # ローカルでのテスト用ならこれでも OK
 ```
 
 `mymath` パッケージでは、簡単な足し算を行う `Add` 関数を提供することにします。
@@ -230,7 +234,7 @@ func Add(a, b int) int {
 }
 ```
 
-この `mymath.Add` 関数を `main` 関数から参照するには次のようにします。
+この `mymath.Add` 関数を、`main` パッケージの `main` 関数から参照するには次のようにします。
 
 #### main.go
 
@@ -238,7 +242,7 @@ func Add(a, b int) int {
 package main
 
 import "fmt"
-import "com.example/myapp/mymath"
+import "github.com/maku77/myapp/mymath"
 
 func main() {
 	fmt.Println(mymath.Add(100, 200))
@@ -261,6 +265,6 @@ $ ./myapp
 ```
 
 Go 言語のパッケージは、`"./mymath"` のような __相対パスではインポートできない__ ことに注意してください。
-必ず `"com.example/myapp/mymath"` のようにモジュール名を含むパッケージパス全体（絶対パス）を指定する必要があります。
+必ず `"github.com/maku77/myapp/mymath"` のようにモジュール名を含むパッケージパス全体（絶対パス）を指定する必要があります（`go mod init` でモジュールパス名を `myapp` のように簡略化した場合は、"myapp/mymath" のようにインポートします）。
 昔は同一モジュール内のパッケージであれば相対パスでインポートできたのですが、現在は外部モジュールのパッケージと同様に絶対パスによる指定に統一されています。
 

@@ -38,7 +38,7 @@ Windows なら、コントロールパネルの「環境変数を編集」から
 ```
 GOPATH → %USERPROFILE%\go
 GOBIN  → %USERPROFILE%\go\bin
-PATH   → %USERPROFILE%\go\bin （追加）
+PATH   → %USERPROFILE%\go\bin （を PATH に追加）
 ```
 
 上記のようにパスを通しておけば、`go install` でインストールしたコマンドを、どこからでも実行できるようになります。
