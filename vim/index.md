@@ -41,7 +41,7 @@ layout: category-index
 ### ファイルを開く
 * [ファイル名を指定してファイルを開く](file/open-specified-file.html)
 * [カーソル位置の単語をファイル名としてファイルを開く (gf)](file/open-file-at-cursor.html)
-* [編集中のファイルと拡張子だけが異なるファイルを開く（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.htmL)
+* [編集中のファイルと拡張子だけが異なるファイルを開く (%<)（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.html)
 * [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
 * [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
 
