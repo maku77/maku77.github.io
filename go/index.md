@@ -55,7 +55,7 @@ Go の標準パッケージ <!-- lib -->
 * [テンプレート機能を使用する (text/template, html/template)](/p/z8behko/)
 * [時刻データを扱う (time)](/p/sy58beh/)
 * [ベンチマークを行う (testing.B)](/p/29dgjnq/)
-
+* [環境変数を扱う (os.Getenv, os.LookupEnv)](/p/4ox6dmu/)
 
 Go 関連リンク
 ----
