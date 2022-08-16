@@ -1,6 +1,10 @@
 ---
 title: "ページリスト（記事一覧）に列挙されないページを作る (_build.list)"
+url: "p/4ziyhxe/"
+permalink: "p/4ziyhxe/"
 date: "2020-05-17"
+redirect_from:
+  - /hugo/list/exclude-from-list
 ---
 
 [Hugo 0.65.0](https://gohugo.io/news/0.65.0-relnotes/) でフロントマター用の [_build プロパティ](https://gohugo.io/content-management/build-options/) が導入されました。

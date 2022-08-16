@@ -83,6 +83,7 @@ redirectTo を使う方法（独自）
 
 あとは、リダイレクトさせたいページのフロントマターで、このレイアウトを使うように指定すれば OK です。
 リダイレクト先の URL は、__`redirectTo`__ プロパティで設定します。
+さらに、[_build プロパティ](/p/4ziyhxe/) で、ページのコレクションに列挙されないようにしておくのがよさそうです。
 
 <b>content/old-page/_index.md</b>
 
@@ -91,6 +92,7 @@ redirectTo を使う方法（独自）
 title: "別のサイトへリダイレクトさせたいページ"
 layout: redirect
 redirectTo: "https://google.com"
+_build: { list: false }
 ---
 ```
 
