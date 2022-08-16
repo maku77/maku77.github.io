@@ -130,6 +130,7 @@ hugo コマンド
 * [mermaid.js で Markdown 中に UML 図を埋め込む](advanced/mermaid.html)
 * [Hugo のテンプレートやショートコードでランダムな文字列を生成する](misc/random.html)
 * [記事ページで TypeScript ファイルをインクルードして使用する](/p/3adgjnq/)
+* [新しいページや別のサイトへ自動でリダイレクトする (aliases, redirectTo)](/p/oj3izfu/)
 
 トラブルシューティング
 ----
