@@ -4,11 +4,18 @@
 - https://maku77.github.io/
 
 
-セットアップ＆ビルド
+セットアップ ＆ Jekyll サーバー起動
 ----
 
 ```console
-$ bundle install --path vendor/bundle
+# 最初の一回だけ
+$ bundle config set --local path 'vendor/bundle'
+$ bundle install
+
+# 次のパス指定方法は deprecated
+# bundle install --path vendor/bundle
+
+# Jekyll サーバー起動
 $ ./run.sh
 ```
 
