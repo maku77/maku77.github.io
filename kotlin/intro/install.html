@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/intro/install.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Kotlin とは？ Kotlin をインストールする | まくまくKotlinノート" />
+  <title>Kotlin とは？ Kotlin をインストールする - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Kotlin とは？ Kotlin をインストールする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-01-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/intro/install.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin とは？ Kotlin をインストールする&url=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="kotlin-の特徴">Kotlin の特徴</h2>
+
+<p><a href="https://kotlinlang.org/">Kotlin</a> は <strong>Java との親和性を重視して作成されたコンパイル型の言語</strong>です。
+IntelliJ IDEA の開発元である JetBrains 社によって作成された言語であり、強力な IDE のサポートがあります。</p>
+
+<p>2017年の Google I/O で、Google が Android における Kotlin の公式サポートを発表したため、言語としての知名度が一気に向上しました。</p>
+
+<p>Kotlin には次のような特徴があります。</p>
+
+<ul>
+  <li>Kotlin のコンパイラ (kotlinc) は、Java の仮想マシン JVM 上で動作する <code class="language-plaintext highlighter-rouge">.class</code> ファイルを生成します。</li>
+  <li>Kotlin で作成したコードを Java コードから簡単に呼び出せます。逆に、Kotlin から Java のコードを利用するのも容易です。</li>
+  <li>Java で作成されたフレームワークやライブラリをそのまま使用することができます。</li>
+  <li>Gradle や Ant などを使ってビルドすることができます。</li>
+  <li>上記のような特徴により、<strong>1 つのプロジェクト内に Java のコードと Kotlin のコードを共存</strong>させることができます。</li>
+  <li><strong>Java に比べて少ない記述量</strong>で同等以上のことを実現することができます。文末のセミコロンがいらなかったり、型名を省略できたり、ラッパー関数があったり。</li>
+  <li>Java と同様に静的型付き言語 (Statically typed language) ですが、多くの場合はコンパイラによる推論 (type inference) により型名を省略できます（コンパイル時に型が確定することは変わりありません）。</li>
+  <li><strong>Null 非許容型などを言語的にサポート</strong>するため、メンテナンス性の高いコードを記述できます。</li>
+  <li>Java と同様にオブジェクト指向言語として扱えますが、<strong>関数型プログラミング (Functional programming) を言語レベルでサポート</strong>しています。
+    <ul>
+      <li>関数をパラメータとして受け取ったり、戻り値で返したりすることができます。</li>
+      <li>Lambda 式という小さなコードブロックを受け渡しすることができます。</li>
+      <li>Data class というイミュータブルなオブジェクトを作成するための簡潔な構文が用意されています。</li>
+      <li>コレクションを関数型プログラミングのスタイルで扱う API が用意されています。</li>
+    </ul>
+  </li>
+  <li>JavaScript へのトランスパイルが検討されています（Kotlin コード → JavaScript コードへの変換）。</li>
+</ul>
+
+<h2 id="kotlin-の開発環境のインストールと-helloworld">Kotlin の開発環境のインストールと HelloWorld</h2>
+
+<h3 id="kotlin-playground-のサイトで試してみる">Kotlin Playground のサイトで試してみる</h3>
+
+<p>簡単な Kotlin のコードであれば、下記のサイト上で直接実行することができます。</p>
+
+<ul>
+  <li><a href="https://play.kotlinlang.org/">Kotlin Playground</a></li>
+</ul>
+
+<p><img src="/kotlin/intro/install-try-kotlin.png" alt="install-try-kotlin.png" class="center" /></p>
+
+<p>左側のペーンでサンプルコードを選択して Run ボタンを押せば、実行結果が下の出力エリアに表示されます。
+エディタ部分には、任意のコードを入力することができるため、簡単な文法テストだけであれば、このサイト上だけで済ませてしまうことができます。</p>
+
+<h3 id="kotlinc">Kotlin のスタンドアロン・コンパイラ (kotlinc) を使用する</h3>
+
+<p>Kotlin のスタンドアロン・コンパイラをインストールしておけば、<strong><code class="language-plaintext highlighter-rouge">kotlinc</code></strong> コマンドを使用して Kotlin のソースコード (.kt) をコンパイルすることができます。
+下記のサイトに各環境でのインストール方法が説明されています。</p>
+
+<ul>
+  <li><a href="https://kotlinlang.org/docs/tutorials/command-line.html">Kotlin - Command Line Compiler</a></li>
+</ul>
+
+<h4 id="macos-の場合-homebrew">macOS の場合 (Homebrew)</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew update
+$ brew install kotlin
+</code></pre></div></div>
+
+<p>macOS であれば、Homebrew（<code class="language-plaintext highlighter-rouge">brew</code> コマンド）などを使ってインストールしてしまうのが簡単です。</p>
+
+<h4 id="windows-の場合">Windows の場合</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; choco install kotlinc
+</code></pre></div></div>
+
+<p>Windows であれば、<a href="https://chocolatey.org/install">Chocolately</a> を使ってインストールしてしまうのが簡単です。
+コマンドプロンプトを「管理者として実行」で起動して、上記のようにタイプするだけでインストールできます。</p>
+
+<p>GitHub 上 <a href="https://github.com/JetBrains/kotlin/releases/">Kotlin リリースページ</a> から、実行バイナリを直接ダウンロードして使う方法もあります。
+ダウンロードした zip アーカイブを展開し、<code class="language-plaintext highlighter-rouge">bin</code> ディレクトリに PATH を通してやれば OK です。</p>
+
+<p><code class="language-plaintext highlighter-rouge">kotlinc</code> コマンドが実行できるようになったら、下記のようなサンプルコードをコンパイルして実行してみましょう。
+ビルド後のアプリケーションは、Java アプリケーションと同様に <code class="language-plaintext highlighter-rouge">java</code> コマンドを使用して実行することができます。</p>
+
+<h4 id="samplekt">sample.kt</h4>
+
+<pre><code class="language-kt">fun main(args: Array&lt;String&gt;) {
+    println("Hello, world!")
+}
+</code></pre>
+
+<h4 id="コンパイル">コンパイル</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ kotlinc sample.kt -include-runtime -d sample.jar
+</code></pre></div></div>
+
+<h4 id="実行">実行</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -jar sample.jar
+Hello, world!
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">kotlinc</code> でコンパイルしたアプリケーションの実行には、Kotlin ランタイムが必要です。
+<code class="language-plaintext highlighter-rouge">kotlinc</code> の <strong><code class="language-plaintext highlighter-rouge">-include-runtime</code></strong> オプションは、生成する JAR ファイル内にこの Kotlin ランタイムを含めてしまう指定です。
+このようにして作成した JAR ファイルは、上記のように単独で実行することができます。</p>
+
+<h3 id="ide-intellij-idea-を使用する">IDE (IntelliJ IDEA) を使用する</h3>
+
+<p>JetBrains 社が提供している IntelliJ IDEA という統合開発環境 (IDE) は、ネイティブで Kotlin による開発をサポートしています。
+Community Edition であれば無料で使用することができますので、Kotlin で本格的に開発を行いたい場合はインストールしておくとよいでしょう。
+Kotlin の生みの親である JetBrains 社が作成している IDE ですので、今後も長期的にリリースが続くと思われます。</p>
+
+<ul>
+  <li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA - JetBrains</a></li>
+</ul>
+
+<p>IntelliJ IDEA でプロジェクトを作成するときに、Kotlin を選択すれば開発準備 OK です。</p>
+
+<p><img src="/kotlin/intro/install-idea.png" alt="install-idea.png" class="center" /></p>
+
+<h3 id="ide-android-studio-を使用する">IDE (Android Studio) を使用する</h3>
+
+<p>Kotlin で Android アプリを作成するときは、<a href="https://developer.android.com/studio/">Android Studio</a> に Kotlin サポートを追加して使用します。
+プロジェクトの作成時に下記のように <strong>Include Kotlin support</strong> にチェックを入れてやれば、スケルトンコードも Kotlin ファイルとして生成されます（<code class="language-plaintext highlighter-rouge">MainActivity.kt</code> などが生成されます）。</p>
+
+<p><img src="/kotlin/intro/install-studio.png" alt="install-studio.png" class="center" /></p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin とは？ Kotlin をインストールする&url=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/intro/install.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-01-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

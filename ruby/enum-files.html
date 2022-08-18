@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/enum-files.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ディレクトリ内のファイルを列挙する | まくまくRubyノート" />
+  <title>ディレクトリ内のファイルを列挙する - まくまくRubyノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/ruby/">
+    <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/ruby/">
+    <div class="xPageHeader_category">
+    まくまくRubyノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ディレクトリ内のファイルを列挙する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2010-05-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/ruby/enum-files.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： ディレクトリ内のファイルを列挙する&url=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h1 id="ディレクトリ内のファイルディレクトリを列挙する一階層のみ">ディレクトリ内のファイル／ディレクトリを列挙する（一階層のみ）</h1>
+
+<h2 id="dirforeach-を使用する方法">Dir.foreach を使用する方法</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Dir</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">item</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>カレントディレクトリを示す <code class="language-plaintext highlighter-rouge">.</code> や親ディレクトリを示す <code class="language-plaintext highlighter-rouge">..</code> が含まれてしまうので、これらを除いて列挙したい場合は、下記のように除外する必要があります。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Dir</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="k">next</span> <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">'.'</span> <span class="n">or</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">'..'</span>
+  <span class="nb">puts</span> <span class="n">item</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="diropen-を使用する方法">Dir.open を使用する方法</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Dir</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">dir</span><span class="o">|</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">dir</span>
+    <span class="nb">puts</span> <span class="n">item</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>この方法では、<code class="language-plaintext highlighter-rouge">Dir.foreach</code> を用いた場合と同様の結果が得られます。</p>
+
+<h2 id="dirglob-を使用する方法">Dir.glob を使用する方法</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s1">'*'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">item</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Dir.glob</code> では、ファイルパターンを指定してファイルを列挙することができます。
+列挙される要素には <code class="language-plaintext highlighter-rouge">.</code> や <code class="language-plaintext highlighter-rouge">..</code> などのディレクトリや、ドットで始まるファイルは含まれません。</p>
+
+<h1 id="下位ディレクトリを再帰的に列挙する">下位ディレクトリを再帰的に列挙する</h1>
+
+<h2 id="dirglob-を使用する方法-1">Dir.glob を使用する方法</h2>
+<p>ディレクトリ内のファイルとディレクトリを再帰的に列挙したい場合は、<code class="language-plaintext highlighter-rouge">Dir.glob</code> を使用すると簡単です。
+<code class="language-plaintext highlighter-rouge">Dir.glob</code> の検索パターンに <code class="language-plaintext highlighter-rouge">**</code> を含めると、深い階層のディレクトリに含まれるファイルまで検索してくれます。
+下記のようにすると、カレントディレクトリ以下のファイルをすべて列挙します（ただし、ドットで始まるファイルは含まれません）。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="s1">'**/*'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">item</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="findrb-を使用する方法">find.rb を使用する方法</h2>
+<p>Ruby に標準で付属している <code class="language-plaintext highlighter-rouge">find.rb</code> が提供する <code class="language-plaintext highlighter-rouge">Find.find</code> メソッドを使用してファイルを再帰的に列挙する方法もあります。</p>
+
+<p><code class="language-plaintext highlighter-rouge">Find.find</code> メソッドの結果には、親ディレクトリ (<code class="language-plaintext highlighter-rouge">..</code>) は含まれませんが、自分自身のディレクトリ (<code class="language-plaintext highlighter-rouge">.</code>) や、ドットファイルは含まれます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'find'</span>
+
+<span class="no">Find</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">item</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>下記は、少しだけ応用して、</p>
+
+<ul>
+  <li>スクリプトの引数でディレクトリを指定</li>
+  <li>ファイルのベース名だけを表示</li>
+  <li>ファイルの種類をファイル名の後ろに表示</li>
+</ul>
+
+<p>するようにしたサンプルです。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'find'</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">?</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="s1">'.'</span>
+<span class="no">Find</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="n">base</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">base</span><span class="si">}</span><span class="se">\t</span><span class="si">#{</span><span class="no">File</span><span class="p">.</span><span class="nf">ftype</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="自力で再帰処理を記述する方法">自力で再帰処理を記述する方法</h2>
+
+<p>自力でディレクトリ内のファイルを再帰的に列挙すると、次のような感じになります。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">enum_files</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+  <span class="no">Dir</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'.'</span> <span class="n">or</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'..'</span>
+    <span class="n">new_path</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">directory?</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">enum_files</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="nb">puts</span> <span class="n">new_path</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">enum_files</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>上記の <code class="language-plaintext highlighter-rouge">enum_files</code> メソッドで、ブロックパラメータを使用できるようにするには以下のように <code class="language-plaintext highlighter-rouge">yield</code> を使用します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">enum_files</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+  <span class="no">Dir</span><span class="p">.</span><span class="nf">foreach</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'.'</span> <span class="n">or</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'..'</span>
+    <span class="n">new_path</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">directory?</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="k">then</span>
+      <span class="n">enum_files</span><span class="p">(</span><span class="n">new_path</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="k">yield</span> <span class="n">x</span> <span class="p">}</span>
+    <span class="k">else</span>
+      <span class="k">yield</span> <span class="n">new_path</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">enum_files</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">x</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： ディレクトリ内のファイルを列挙する&url=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/enum-files.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/ruby/"><span class="xArticle_up_label">まくまくRubyノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2010-05-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

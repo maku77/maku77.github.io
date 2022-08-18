@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="379" height="187" viewBox="0, 0, 379, 187">
+  <g id="レイヤー_1" transform="translate(-66, -138)">
+    <g>
+      <path d="M72.5,144.5 L444.5,144.5 L444.5,324.5 L72.5,324.5 L72.5,144.5 z" fill="#FFFFFF"/>
+      <path d="M72.5,144.5 L444.5,144.5 L444.5,324.5 L72.5,324.5 L72.5,144.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 174, 174)">
+      <tspan x="-90" y="-5" font-family="ArialMT" font-size="14" fill="#000000">document</tspan>
+      <tspan x="-28.518" y="-5" font-family="HiraginoSans-W3" font-size="14" fill="#000000">（ルート）</tspan>
+    </text>
+    <g>
+      <path d="M156.5,192.5 L348.5,192.5 L348.5,312.5 L156.5,312.5 L156.5,192.5 z" fill="#EAEAEA"/>
+      <path d="M156.5,192.5 L348.5,192.5 L348.5,312.5 L156.5,312.5 L156.5,192.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 204, 216)">
+      <tspan x="-36" y="-0" font-family="HiraginoSans-W3" font-size="14" fill="#000000">親要素</tspan>
+    </text>
+    <g>
+      <g>
+        <path d="M228.5,150.5 L228.5,222.5" fill-opacity="0" stroke="#3866FF" stroke-width="1"/>
+        <path d="M231.5,152.5 L228.5,145.5 L225.5,152.5 M228.5,150.5 L228.5,145.5 M233.5,144.5 L223.5,144.5" fill-opacity="0" stroke="#3866FF" stroke-width="1" stroke-opacity="1"/>
+        <path d="M225.5,220.5 L228.5,227.5 L231.5,220.5 M228.5,222.5 L228.5,227.5 M223.5,228.5 L233.5,228.5" fill-opacity="0" stroke="#3866FF" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#3866FF" transform="matrix(1, 0, -0, 1, 302.037, 168.429)">
+        <tspan x="-66.157" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$('#box').offset().top</tspan>
+      </text>
+    </g>
+    <g>
+      <g>
+        <path d="M78.5,228.5 L222.5,228.5" fill-opacity="0" stroke="#3866FF" stroke-width="1"/>
+        <path d="M80.5,225.5 L73.5,228.5 L80.5,231.5 M78.5,228.5 L73.5,228.5 M72.5,223.5 L72.5,233.5" fill-opacity="0" stroke="#3866FF" stroke-width="1" stroke-opacity="1"/>
+        <path d="M220.5,231.5 L227.5,228.5 L220.5,225.5 M222.5,228.5 L227.5,228.5 M228.5,233.5 L228.5,223.5" fill-opacity="0" stroke="#3866FF" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#3866FF" transform="matrix(1, 0, -0, 1, 147.932, 239.563)">
+        <tspan x="-65.758" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$('#box').offset().left</tspan>
+      </text>
+    </g>
+    <g>
+      <path d="M228.5,228.5 L324.5,228.5 L324.5,300.5 L228.5,300.5 L228.5,228.5 z" fill="#BFBFBF"/>
+      <path d="M228.5,228.5 L324.5,228.5 L324.5,300.5 L228.5,300.5 L228.5,228.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <g>
+        <path d="M162.5,264.5 L222.5,264.5" fill-opacity="0" stroke="#F42A79" stroke-width="1"/>
+        <path d="M164.5,261.5 L157.5,264.5 L164.5,267.5 M162.5,264.5 L157.5,264.5 M156.5,259.5 L156.5,269.5" fill-opacity="0" stroke="#F42A79" stroke-width="1" stroke-opacity="1"/>
+        <path d="M220.5,267.5 L227.5,264.5 L220.5,261.5 M222.5,264.5 L227.5,264.5 M228.5,269.5 L228.5,259.5" fill-opacity="0" stroke="#F42A79" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#F42A79" transform="matrix(1, 0, -0, 1, 203.56, 276.182)">
+        <tspan x="-73.605" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$('#box').position().left</tspan>
+      </text>
+    </g>
+    <g>
+      <g>
+        <path d="M264.5,198.5 L264.5,222.5" fill-opacity="0" stroke="#F42A79" stroke-width="1"/>
+        <path d="M267.5,200.5 L264.5,193.5 L261.5,200.5 M264.5,198.5 L264.5,193.5 M269.5,192.5 L259.5,192.5" fill-opacity="0" stroke="#F42A79" stroke-width="1" stroke-opacity="1"/>
+        <path d="M261.5,220.5 L264.5,227.5 L267.5,220.5 M264.5,222.5 L264.5,227.5 M259.5,228.5 L269.5,228.5" fill-opacity="0" stroke="#F42A79" stroke-width="1" stroke-opacity="1"/>
+      </g>
+      <text fill="#F42A79" transform="matrix(1, 0, -0, 1, 345.884, 209.523)">
+        <tspan x="-74.004" y="5.306" font-family="HelveticaNeue-Bold" font-size="14">$('#box').position().top</tspan>
+      </text>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 276, 252)">
+      <tspan x="-36" y="1" font-family="ArialMT" font-size="14" fill="#000000">#box</tspan>
+    </text>
+  </g>
+</svg>

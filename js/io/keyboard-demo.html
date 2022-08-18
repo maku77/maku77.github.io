@@ -1,0 +1,35 @@
+<DOCTYPE! html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>JavaScript によるキーイベント処理のデモページ</title>
+<script>
+  window.onload = function() {
+    'use strict';
+    var resultElem = document.getElementById('result');
+
+    /**
+     * Handles a key down/up event.
+     * @param {KeyboardEvent} e
+     */
+    function onKeyDownOrUp(e) {
+      // Display key information
+      resultElem.innerText = 'code=' + e.code + ', key=' + e.key +
+          ', shiftKey=' + e.shiftKey + ', ctrlKey=' + e.ctrlKey +
+          ', type=' + e.type + ', repeat=' + e.repeat;
+      // Prevent the keyboard events from bubbling up to the broser itself
+      e.preventDefault();
+    };
+
+    // Set up key event handlers
+    window.addEventListener('keydown', onKeyDownOrUp);
+    window.addEventListener('keyup', onKeyDownOrUp);
+  };
+</script>
+</head>
+<body>
+  <p>ここを一度クリックしてから、キー入力してみてください。</p>
+  <div id="result"></div>
+</body>
+</html>
+

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/collection/immutable-and-mutable.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="immutable なコレクションと mutable なコレクション (List, Set, Map) | まくまくKotlinノート" />
+  <title>immutable なコレクションと mutable なコレクション (List, Set, Map) - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">immutable なコレクションと mutable なコレクション (List, Set, Map)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-04-24</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/collection/immutable-and-mutable.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： immutable なコレクションと mutable なコレクション (List, Set, Map)&url=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Kotlin で immutable なリストを生成するときは <code class="language-plaintext highlighter-rouge">listOf</code>、mutable なリストを生成するときは <code class="language-plaintext highlighter-rouge">mutableListOf</code> を使って生成していると思います。
+ここでは、Kotlin がどのように immutable なリスト、mutable なリストを使い分けているかを説明します。
+内部的な仕組みを知らなくてもあまり困ることはありませんが、全体像を把握しておくことで自信を持ってコレクション系の API を扱えるようになると思います。</p>
+
+<h2 id="collection-と-mutablecollection">Collection と MutableCollection</h2>
+
+<p>Kotlin のコレクション系オブジェクト（<code class="language-plaintext highlighter-rouge">List</code>、<code class="language-plaintext highlighter-rouge">Set</code>、<code class="language-plaintext highlighter-rouge">Map</code> オブジェクトなど）にアクセスするときは、リードオンリーでアクセスするのか、編集用にアクセスするのかによってインタフェースが使い分けられます。
+要素を参照するだけであれば、<strong><code class="language-plaintext highlighter-rouge">Collection</code></strong> インタフェースを使用し、要素の追加や削除が必要な場合は <strong><code class="language-plaintext highlighter-rouge">MutableCollection</code></strong> インタフェースを使用します。</p>
+
+<ul>
+  <li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html">kotlin.collections.Collection インタフェース</a>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">size</code>、<code class="language-plaintext highlighter-rouge">iterator</code>、<code class="language-plaintext highlighter-rouge">contains</code> など、要素を参照するためのインタフェースのみを備える。</li>
+    </ul>
+  </li>
+  <li><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html">kotlin.collections.MutableCollection インタフェース</a>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Collection</code> インタフェースを継承したインタフェース。</li>
+      <li><code class="language-plaintext highlighter-rouge">add</code>、<code class="language-plaintext highlighter-rouge">remove</code>、<code class="language-plaintext highlighter-rouge">clear</code> など、要素を追加・削除するためのインタフェースを備える。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>下記の <code class="language-plaintext highlighter-rouge">addAll</code> 関数は、2 つのコレクションをパラメータで受け取りますが、1 つ目のパラメータ <code class="language-plaintext highlighter-rouge">src</code> は参照用 (immutable) に使用され、2 つ目のパラメータ <code class="language-plaintext highlighter-rouge">dst</code> は内部で変更される (mutable) ことを示しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * [src] のすべての要素を [dst] の末尾に追加します。
+ */</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">addAll</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span> <span class="n">dst</span><span class="p">:</span> <span class="nc">MutableCollection</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">e</span> <span class="k">in</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dst</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">src</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>  <span class="c1">// リードオンリー</span>
+    <span class="kd">val</span> <span class="py">dst</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>  <span class="c1">// 編集可能</span>
+    <span class="nf">addAll</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>  <span class="c1">//=&gt; [100, 200, 300]</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span>  <span class="c1">//=&gt; [400, 500, 600, 100, 200, 300]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>リードオンリーな <code class="language-plaintext highlighter-rouge">Collection</code> オブジェクトを <code class="language-plaintext highlighter-rouge">MutableCollection</code> として渡そうとすると、Type mismatch のビルドエラーになります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">src</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">dst</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+
+<span class="c1">// 下記はエラーになる</span>
+<span class="c1">// Type mismatch: inferred type is List&lt;Int&gt; but MutableCollection&lt;Int&gt; was expected</span>
+<span class="nf">addAll</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="3-大コレクション-listsetmap-の全体像">3 大コレクション (List、Set、Map) の全体像</h2>
+
+<p><a href="./immutable-and-mutable.puml.txt">
+<img src="/kotlin/collection/immutable-and-mutable.svg" alt="immutable-and-mutable.svg" class="center" />
+</a></p>
+
+<p>Kotlin では、<code class="language-plaintext highlighter-rouge">List</code> や <code class="language-plaintext highlighter-rouge">Set</code>、<code class="language-plaintext highlighter-rouge">Map</code> などの基本的なコレクションインタフェースはリードオンリーなインタフェースとして定義されており、それぞれ編集可能なインタフェースとして <code class="language-plaintext highlighter-rouge">MutableList</code>、<code class="language-plaintext highlighter-rouge">MutableMap</code>、<code class="language-plaintext highlighter-rouge">MutableSet</code> インタフェースを用意しています。</p>
+
+<h3 id="コレクションオブジェクト生成のための関数">コレクションオブジェクト生成のための関数</h3>
+
+<p>これらのコレクションオブジェクトを生成するための、<code class="language-plaintext highlighter-rouge">xxxOf()</code> という形のユーティリティ関数が用意されており、およそ下記のような継承関係になっています。
+多くの場合は、ハイライトされている、基本の 6 種類のオブジェクトを生成する関数で事足りるでしょう。</p>
+
+<ul>
+  <li><b>List (read-only)</b>: <strong><code class="language-plaintext highlighter-rouge">listOf()</code></strong>
+    <ul>
+      <li><b>MutableList (mutable)</b>: <strong><code class="language-plaintext highlighter-rouge">mutableListOf()</code></strong>
+        <ul>
+          <li>ArrayList (mutable): <code class="language-plaintext highlighter-rouge">arrayListOf()</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b>Set (read-only)</b>: <strong><code class="language-plaintext highlighter-rouge">setOf()</code></strong>
+    <ul>
+      <li><b>MutableSet (mutable)</b>: <strong><code class="language-plaintext highlighter-rouge">mutableSetof()</code></strong>
+        <ul>
+          <li>HashSet (mutable): <code class="language-plaintext highlighter-rouge">hashSetOf()</code></li>
+          <li>LinkedHashSet (mutable): <code class="language-plaintext highlighter-rouge">linkedSetOf()</code></li>
+        </ul>
+      </li>
+      <li>java.util.SortedSet (mutable): <code class="language-plaintext highlighter-rouge">sortedSetOf()</code></li>
+    </ul>
+  </li>
+  <li><b>Map (read-only)</b>: <strong><code class="language-plaintext highlighter-rouge">mapOf()</code></strong>
+    <ul>
+      <li><b>MutableMap (mutable)</b>: <strong><code class="language-plaintext highlighter-rouge">mutableMapOf()</code></strong>
+        <ul>
+          <li>HashMap (mutable): <code class="language-plaintext highlighter-rouge">hashMapOf()</code></li>
+          <li>LinkedHashMap (mutable): <code class="language-plaintext highlighter-rouge">linkedMapOf()</code></li>
+        </ul>
+      </li>
+      <li>java.util.SortedMap (mutable): <code class="language-plaintext highlighter-rouge">sortedMapOf()</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>注意しなければいけないのは、<code class="language-plaintext highlighter-rouge">listOf()</code> や <code class="language-plaintext highlighter-rouge">setOf()</code> によって実際に生成されるオブジェクトは、従来の Java 実装によるコレクションインスタンスかもしれないということです。
+つまり、read-only なのはあくまでインタフェースだけであり、その背後で操作しているオブジェクトは mutable（可変）かもしれないということです。</p>
+
+<h3 id="java-の-javautilcollection-との互換性">Java の java.util.Collection との互換性</h3>
+
+<p>Java の <code class="language-plaintext highlighter-rouge">java.util.Collection</code> オブジェクトをパラメータに取るメソッドには、Kotlin の <code class="language-plaintext highlighter-rouge">Collection</code> および <code class="language-plaintext highlighter-rouge">MutableCollection</code> オブジェクトのいずれも渡すことができます。
+Kotlin の <code class="language-plaintext highlighter-rouge">Collection</code> インタフェースは read-only を示すインタフェースですが、要素を変更可能な Java の <code class="language-plaintext highlighter-rouge">java.util.Collection</code> オブジェクトとして渡せてしまいます。
+これは、Kotlin の <code class="language-plaintext highlighter-rouge">Collection</code> オブジェクトが、実質的には immutable（不変）ではないということを示しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">list</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1">// immutable な List を作成しているつもり</span>
+<span class="n">java</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="nc">Collections</span><span class="p">.</span><span class="nf">reverse</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>  <span class="c1">// mutable な java.util.List として渡せてしまう</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>  <span class="c1">//=&gt; [5, 4, 3, 2, 1]</span>
+</code></pre></div></div>
+
+<p>ちなみに、上記のように配列やコレクションの要素を逆順にしたい場合は Kotlin の <code class="language-plaintext highlighter-rouge">reverse</code> 関数を使いましょう。
+Kotlin では下記のように書くのが正解です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">list</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">reverse</span><span class="p">()</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>  <span class="c1">//=&gt; [5, 4, 3, 2, 1]</span>
+</code></pre></div></div>
+
+<p>この場合は、もちろん mutable な <code class="language-plaintext highlighter-rouge">MutableList</code> に対してしか実行できないようになっています。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： immutable なコレクションと mutable なコレクション (List, Set, Map)&url=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/collection/immutable-and-mutable.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-04-24</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

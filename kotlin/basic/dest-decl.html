@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/basic/dest-decl.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解 | まくまくKotlinノート" />
+  <title>分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解 - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2020-01-16</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/basic/dest-decl.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解&url=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="pair-クラスと-triple-クラス">Pair クラスと Triple クラス</h2>
+
+<p>Kotlin は 2 つの値、あるいは 3 つの値を保持するための簡易クラスとして、<code class="language-plaintext highlighter-rouge">Pair</code> クラスと <code class="language-plaintext highlighter-rouge">Triple</code> クラスを用意しています。
+<code class="language-plaintext highlighter-rouge">Pair</code> オブジェクトの 1 番目と 2 番目の要素には、それぞれ <code class="language-plaintext highlighter-rouge">first</code>、<code class="language-plaintext highlighter-rouge">second</code> というプロパティでアクセスできます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">pair</span> <span class="p">=</span> <span class="s">"one"</span> <span class="n">to</span> <span class="mi">1</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">first</span><span class="p">)</span>   <span class="c1">//=&gt; "one"</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">second</span><span class="p">)</span>  <span class="c1">//=&gt; 1</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Triple</code> オブジェクトの要素も同様に、<code class="language-plaintext highlighter-rouge">first</code>、<code class="language-plaintext highlighter-rouge">second</code>、<code class="language-plaintext highlighter-rouge">third</code> というプロパティでアクセスできます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">triple</span> <span class="p">=</span> <span class="nc">Triple</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="s">"three"</span><span class="p">)</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">triple</span><span class="p">.</span><span class="n">first</span><span class="p">)</span>   <span class="c1">//=&gt; "one"</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">triple</span><span class="p">.</span><span class="n">second</span><span class="p">)</span>  <span class="c1">//=&gt; "two"</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">triple</span><span class="p">.</span><span class="n">third</span><span class="p">)</span>   <span class="c1">//=&gt; "three"</span>
+</code></pre></div></div>
+
+<h2 id="分解宣言でオブジェクトの各プロパティを別々の変数に代入する">分解宣言でオブジェクトの各プロパティを別々の変数に代入する</h2>
+
+<p>Kotlin の <strong>分解宣言 (destructuring declarations)</strong> と呼ばれている形で変数を定義すると、オブジェクトの各プロパティが保持している値を、別々の変数に一度に代入することができます。
+分解宣言の方法は簡単で、代入文の左辺に複数の変数を括弧で囲んで記述するだけです。
+次の例では、<code class="language-plaintext highlighter-rouge">Pair</code> オブジェクトの <code class="language-plaintext highlighter-rouge">first</code> プロパティと <code class="language-plaintext highlighter-rouge">second</code> プロパティの値を、それぞれ <code class="language-plaintext highlighter-rouge">x</code>、<code class="language-plaintext highlighter-rouge">y</code> という変数に取り出しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">pair</span> <span class="p">=</span> <span class="mi">100</span> <span class="n">to</span> <span class="mi">200</span>  <span class="c1">// Pair(100, 200) と同じ</span>
+
+<span class="kd">val</span> <span class="p">(</span><span class="py">x</span><span class="p">,</span> <span class="py">y</span><span class="p">)</span> <span class="p">=</span> <span class="n">pair</span>  <span class="c1">// 分解宣言で代入</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1">//=&gt; 100</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1">//=&gt; 200</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Triple</code> オブジェクトに関しても同様です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">triple</span> <span class="p">=</span> <span class="nc">Triple</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="kd">val</span> <span class="p">(</span><span class="py">x</span><span class="p">,</span> <span class="py">y</span><span class="p">,</span> <span class="py">z</span><span class="p">)</span> <span class="p">=</span> <span class="n">triple</span>
+</code></pre></div></div>
+
+<h2 id="pair-オブジェクトを使って多値関数を実現する">Pair オブジェクトを使って多値関数を実現する</h2>
+
+<p>関数が <code class="language-plaintext highlighter-rouge">Pair</code> や <code class="language-plaintext highlighter-rouge">Triple</code> を戻り値として返す場合も同様に、複数の変数に直接代入してしまうことができます。
+これは、あたかも <strong>複数の戻り値を返す関数（多値関数）</strong> のように振る舞います。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 簡易的な多値関数</span>
+<span class="k">fun</span> <span class="nf">getPosition</span><span class="p">():</span> <span class="nc">Pair</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="mi">100</span> <span class="n">to</span> <span class="mi">200</span>
+
+<span class="c1">// 返された Pair の各プロパティを別々の変数で受け取る</span>
+<span class="kd">val</span> <span class="p">(</span><span class="py">x</span><span class="p">,</span> <span class="py">y</span><span class="p">)</span> <span class="p">=</span> <span class="nf">getPosition</span><span class="p">()</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1">//=&gt; 100</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1">//=&gt; 200</span>
+</code></pre></div></div>
+
+<p>ただし、このように関数の戻り値を分解宣言で受け取るときは、変数の順序を間違えないように注意する必要があります。
+例えば、次のように変数の名前を逆にしてしまうと、見つけにくい不具合になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="p">(</span><span class="py">y</span><span class="p">,</span> <span class="py">x</span><span class="p">)</span> <span class="p">=</span> <span class="nf">getPosition</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>なので、<code class="language-plaintext highlighter-rouge">Pair</code> オブジェクトを多値関数の実装のために使用するのは、どちらかというとアンチパターンになります。
+Kotlin ではデータクラスを簡単に定義することができるので、通常は次のように戻り値を表す型を定義してしまった方が安全です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Position</span><span class="p">(</span><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">y</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">getPosition</span><span class="p">():</span> <span class="nc">Position</span> <span class="p">=</span> <span class="nc">Position</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">pos</span><span class="p">:</span> <span class="nc">Position</span> <span class="p">=</span> <span class="nf">getPosition</span><span class="p">()</span>
+<span class="kd">val</span> <span class="p">(</span><span class="py">x</span><span class="p">,</span> <span class="py">y</span><span class="p">)</span> <span class="p">=</span> <span class="nf">getPosition</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>最終行では、前述の例と同様に分解宣言による代入を行っていますが、変数の名前を逆転させてしまった場合には、IDE（開発環境）が警告メッセージを表示してくれるので、不具合が入る可能性がグッと下がります。</p>
+
+<h2 id="分解宣言の仕組み">分解宣言の仕組み</h2>
+
+<h3 id="データクラスによる-componentn-の自動実装">データクラスによる componentN の自動実装</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">triple</span> <span class="p">=</span> <span class="nc">Triple</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="kd">val</span> <span class="p">(</span><span class="py">x</span><span class="p">,</span> <span class="py">y</span><span class="p">,</span> <span class="py">z</span><span class="p">)</span> <span class="p">=</span> <span class="n">triple</span>
+</code></pre></div></div>
+
+<p>上記のような分解宣言は、内部的には実は下記のように処理されます（実際にこのように記述しても動作します）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">triple</span> <span class="p">=</span> <span class="nc">Triple</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">triple</span><span class="p">.</span><span class="nf">component1</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">y</span> <span class="p">=</span> <span class="n">triple</span><span class="p">.</span><span class="nf">component2</span><span class="p">()</span>
+<span class="kd">val</span> <span class="py">z</span> <span class="p">=</span> <span class="n">triple</span><span class="p">.</span><span class="nf">component3</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>このように振舞うためには、<code class="language-plaintext highlighter-rouge">Triple</code> クラスが <code class="language-plaintext highlighter-rouge">componentN</code> というメソッドを提供していなければいけないはずですが、<code class="language-plaintext highlighter-rouge">Triple</code> クラスの定義を見てもそれらしき実装は見当たりません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kd">data class</span> <span class="nc">Triple</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">A</span><span class="p">,</span> <span class="k">out</span> <span class="nc">B</span><span class="p">,</span> <span class="k">out</span> <span class="nc">C</span><span class="p">&gt;(</span>
+    <span class="k">public</span> <span class="kd">val</span> <span class="py">first</span><span class="p">:</span> <span class="nc">A</span><span class="p">,</span>
+    <span class="k">public</span> <span class="kd">val</span> <span class="py">second</span><span class="p">:</span> <span class="nc">B</span><span class="p">,</span>
+    <span class="k">public</span> <span class="kd">val</span> <span class="py">third</span><span class="p">:</span> <span class="nc">C</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>実は、Kotlin では、クラスをデータクラスとして定義すると、そのプロパティにアクセスするための <code class="language-plaintext highlighter-rouge">componentN</code> オペレータ関数を自動的に定義してくれるようになっています。
+つまり、 <strong>データクラスのプロパティはデフォルトで分解宣言による代入が可能</strong> です。</p>
+
+<p>分解宣言の代表的な使用例として、コレクション系クラスの <code class="language-plaintext highlighter-rouge">withIndex()</code> 関数があります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">arr</span> <span class="p">=</span> <span class="nf">arrayOf</span><span class="p">(</span><span class="s">"one"</span><span class="p">,</span> <span class="s">"two"</span><span class="p">,</span> <span class="s">"three"</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">arr</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"$index -&gt; $value"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 -&gt; one
+1 -&gt; two
+2 -&gt; three
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">withIndex()</code> 関数は、<code class="language-plaintext highlighter-rouge">IndexedValue</code> というクラスのオブジェクトを順番に返すのですが、このクラスもデータクラスとして定義されているので、そのプロパティ (<code class="language-plaintext highlighter-rouge">index</code> と <code class="language-plaintext highlighter-rouge">value</code>) を分解宣言で取り出せるというわけです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">IndexedValue</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">T</span><span class="p">&gt;(</span><span class="k">public</span> <span class="kd">val</span> <span class="py">index</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="k">public</span> <span class="kd">val</span> <span class="py">value</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="データクラス以外の-componentn-の実装">データクラス以外の componentN の実装</h3>
+
+<p>データクラス以外のオブジェクトを分解宣言の右辺に置けるようにするには、<code class="language-plaintext highlighter-rouge">componentN</code> 系のメソッドを自力で実装する必要があります。</p>
+
+<p>次のコードは <code class="language-plaintext highlighter-rouge">Map</code> の要素をループ処理する例ですが、ここで <code class="language-plaintext highlighter-rouge">key</code> と <code class="language-plaintext highlighter-rouge">value</code> のペアを取り出すときも分解宣言の仕組みが利用されています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="mi">1</span> <span class="n">to</span> <span class="s">"one"</span><span class="p">,</span> <span class="mi">2</span> <span class="n">to</span> <span class="s">"two"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="k">in</span> <span class="n">map</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"$key -&gt; $value"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Map</code> および <code class="language-plaintext highlighter-rouge">Map.Entry</code> は、データクラスではなくインタフェースなので、<code class="language-plaintext highlighter-rouge">componentN</code> 系のメソッドが実装されておらず、そのままでは分解宣言の右辺には置くことができません。
+そこで、Kotlin の標準ライブラリでは、<code class="language-plaintext highlighter-rouge">Map</code> インタフェースと <code class="language-plaintext highlighter-rouge">Map.Entry</code> インタフェースを次のように拡張し、分解宣言を利用したループ処理を可能にしています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">inline</span> <span class="k">operator</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;</span> <span class="nf">Map</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;.</span><span class="nf">iterator</span><span class="p">():</span> <span class="nc">Iterator</span><span class="p">&lt;</span><span class="nc">Map</span><span class="err">.</span><span class="nc">Entry</span><span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;&gt;</span> <span class="p">=</span> <span class="n">entries</span><span class="p">.</span><span class="nf">iterator</span><span class="p">()</span>
+<span class="k">inline</span> <span class="k">operator</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;</span> <span class="nc">Map</span><span class="p">.</span><span class="nf">Entry</span><span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;.</span><span class="nf">component1</span><span class="p">():</span> <span class="nc">K</span> <span class="p">=</span> <span class="n">key</span>
+<span class="k">inline</span> <span class="k">operator</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;</span> <span class="nc">Map</span><span class="p">.</span><span class="nf">Entry</span><span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;.</span><span class="nf">component2</span><span class="p">():</span> <span class="nc">V</span> <span class="p">=</span> <span class="n">value</span>
+</code></pre></div></div>
+
+<p>つまり、上述のループ処理は、次のようなコードと等価になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">entry</span> <span class="k">in</span> <span class="n">map</span><span class="p">.</span><span class="n">entries</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">key</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="nf">component1</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="py">value</span> <span class="p">=</span> <span class="n">entry</span><span class="p">.</span><span class="nf">component2</span><span class="p">()</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"$key -&gt; $value"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 分解宣言 (destructuring declarations) による Pair 要素や Triple 要素の分解&url=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/dest-decl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2020-01-16</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

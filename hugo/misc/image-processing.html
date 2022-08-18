@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Hugo ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/hugo/misc/image-processing.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-hugo.png" />
+
+  <meta property="og:description" content="天才星人まくの Hugo ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing) | まくまくHugoノート" />
+  <title>大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing) - まくまくHugoノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/hugo/">
+    <img src="/assets/img/logo-hugo.png" class="xPageHeader_logo">
+  </a>
+  <a href="/hugo/">
+    <div class="xPageHeader_category">
+    まくまくHugoノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2020-01-15</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/hugo/misc/image-processing.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： 大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)&url=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="image-processing-機能とは">Image Processing 機能とは</h2>
+
+<p>Hugo の <a href="https://gohugo.io/content-management/image-processing/">Image Processing 機能</a> を使用すると、<a href="./page-bundle.html">ページにバンドル</a> した 1 枚の画像ファイルを加工し、サムネイル画像などを自動的に生成することができます。</p>
+
+<p>例えば、デジカメで撮影した写真をウェブサイト上に掲載する場合、直接画像を貼り付けるとサイズが大きいため、小さなサムネイル画像からのリンクを用意することが多いと思います。
+このような場合に、Image Processing 機能を使用すれば、サムネイル画像を手動で作成する手間をなくすことができます。</p>
+
+<h2 id="image-processing-の使用例">Image Processing の使用例</h2>
+
+<p>ここでは、下記のように、books セクションページ内に <code class="language-plaintext highlighter-rouge">sample.png</code> というリソースが含まれているとします。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">content/</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">books/</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">_index.md</code></li>
+          <li><code class="language-plaintext highlighter-rouge">sample.png</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Image Processing の機能を使って画像の変換を行うには、<a href="https://gohugo.io/content-management/page-resources/">Page Resources のオブジェクト</a> を取得する必要があります（<code class="language-plaintext highlighter-rouge">Page</code> 変数ではないので注意）。
+このオブジェクトは、<a href="https://gohugo.io/variables/page/">Page 変数</a> の次のようなプロパティ、およびメソッドを使って取得することができます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.Resources</code>（バンドルされたすべてのリソースを参照する）</li>
+  <li><code class="language-plaintext highlighter-rouge">.Resources.ByType</code>（指定した種類のリソースだけ取り出す）
+    <ul>
+      <li>例: <code class="language-plaintext highlighter-rouge">$resources := .Resources.ByType "image"</code></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">.Resources.Match</code>（ファイル名のパターンに一致するリソースだけ取り出す）
+    <ul>
+      <li>例: <code class="language-plaintext highlighter-rouge">$resources := .Resources.Match "sample.png"</code></li>
+      <li>例: <code class="language-plaintext highlighter-rouge">$resources := .Resources.Match "**.png"</code></li>
+      <li>例: <code class="language-plaintext highlighter-rouge">$resources := .Resources.Match "images/**.png"</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>これらのメソッドは Markdown ファイル内から直接呼び出すことはできないので、実際にはショートコードやテンプレートファイルから利用することになります。</p>
+
+<p>例えば、次のようなショートコードを作成しておけば、元の画像ファイルがどのようなサイズであっても、強制的に 150x150 のサイズのサムネイル画像を生成して表示してくれます。</p>
+
+<h4 id="layoutsshortcodesthumbnailhtml">layouts/shortcodes/thumbnail.html</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- $src := .Get "src" }}
+{{- $imageRes := .Page.Resources.GetMatch $src }}
+{{- $imageRes := $imageRes.Fill "150x150" }}
+{{- $imageUrl := $imageRes.RelPermalink }}
+
+&lt;img src="{{ $imageUrl }}" alt="{{ $src }}" /&gt;
+</code></pre></div></div>
+
+<p>ショートコードから <code class="language-plaintext highlighter-rouge">.Resources</code> オブジェクトを参照するときは、上記のように <code class="language-plaintext highlighter-rouge">.Page.Resources</code> としなければいけないことに注意してください。</p>
+
+<p>この <code class="language-plaintext highlighter-rouge">thumbnail</code> ショートコードは、Markdown ファイル内からは次のように利用します。</p>
+
+<h4 id="contentbooks_indexmd">content/books/_index.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "タイトル"
+date: "2020-01-15"
+---
+
+{{&lt; thumbnail src="sample.png" &gt;}}
+</code></pre></div></div>
+
+<p>ここでは、<code class="language-plaintext highlighter-rouge">Fill</code> メソッドで生成する画像ファイルのサイズを 150x150 で固定していますが、ショートコードのパラメータで指定できるようにしてもよいでしょう。</p>
+
+<p>ちなみに自動生成されるサムネイル画像の URL は次のような感じのランダムな文字列になるようです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/books/sample_d74hu175c61ccf69bf5f1995b2e27ba4cd_111429_150x150_fill_q75_box_smart1.png
+</code></pre></div></div>
+
+<p>Image Processing 用の関数は、<code class="language-plaintext highlighter-rouge">Fill</code> メソッド以外にも<a href="https://gohugo.io/content-management/image-processing/">色々ある</a>ので、ざっと目を通しておくとよいでしょう。
+下記に、<code class="language-plaintext highlighter-rouge">Resize</code>、<code class="language-plaintext highlighter-rouge">Fit</code>、<code class="language-plaintext highlighter-rouge">Fill</code> メソッドの使用例を示しておきます。</p>
+
+<ul>
+  <li>幅x高さを 200x150 にする（アスペクト比は考慮されないので、歪んだ画像になるかもしれない）
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$img = $resource.Resize "200x150"</code></li>
+    </ul>
+  </li>
+  <li>アスペクト比を保って幅が 200px になるよう拡大縮小する
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$img = $resource.Resize "200x"</code></li>
+    </ul>
+  </li>
+  <li>アスペクト比を保って高さが 150px になるよう拡大縮小する
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$img = $resource.Resize "x150"</code></li>
+    </ul>
+  </li>
+  <li>アスペクト比を保って幅x高さが大きくても 200x150 に収まるようにする（最終的な画像サイズはどちらか一辺が指定したサイズより小さくなるかもしれない）
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$img = $resource.Fit "200x150"</code></li>
+    </ul>
+  </li>
+  <li>アスペクト比を保って幅x高さがちょうど 200x150 になるようにする（アスペクト比が変わる場合、画像の中央当たりだけが見えるような画像になる）
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">$img = $resource.Fill "200x150"</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>他にも、背景色を指定したり、回転させたり、JPEG のクオリティを調整したりと、色々なオプションが用意されています。</p>
+
+<p>Facebook などで Web ページをシェアする場合は、画像ファイルの中央部分しか表示されなかったりしますね（OGP という仕組みが使われる）。
+この振舞いは、上記の <code class="language-plaintext highlighter-rouge">Fill</code> メソッドの動きに似ているので、サムネイル用のショートコードを作成するときは、<code class="language-plaintext highlighter-rouge">Fill</code> メソッドを使用するのがよいかもしれません。</p>
+
+<h2 id="サムネイル画像をクリックしたときに元の画像ファイルを表示する">サムネイル画像をクリックしたときに元の画像ファイルを表示する</h2>
+
+<p>おまけのショートコードサンプルです。
+この <code class="language-plaintext highlighter-rouge">image</code> ショートコードを使用して画像を表示すると、指定したサイズに縮小した画像を表示しつつ、画像をクリックすることで元の大きいサイズの画像を表示することができます。</p>
+
+<h4 id="layoutsshortcodesimagehtml">layouts/shortcodes/image.html</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- $src := .Get "src" }}
+{{- $title := .Get "title" }}
+{{- $width := .Get "w" }}
+{{- $size := printf "%sx" $width }}
+{{- $res := .Page.Resources.GetMatch $src }}
+{{- $image := $res.Resize $size }}
+{{- $imageUrl := $image.RelPermalink }}
+
+&lt;figure&gt;
+  &lt;a href="{{ $src }}" target="_blank"&gt;
+    &lt;img src="{{ $imageUrl }}" alt="{{ $src }}" /&gt;
+  &lt;/a&gt;
+  {{- with $title }}
+    &lt;figcaption&gt;図: {{ . }}&lt;/figcaption&gt;
+  {{- end }}
+&lt;/figure&gt;
+</code></pre></div></div>
+
+<p>Markdown ファイルの中からは次のように呼び出します。</p>
+
+<h4 id="contentbooks_indexmd-1">content/books/_index.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{&lt; image w="200" src="sample.jpg" title="タイトル" &gt;}}
+</code></pre></div></div>
+
+<p>ここでは、<code class="language-plaintext highlighter-rouge">figure</code> タグと <code class="language-plaintext highlighter-rouge">figcaption</code> を使って、画像のタイトルも表示できるようにしています（ショートコードのパラメータで <code class="language-plaintext highlighter-rouge">title="タイトル"</code> のように指定します）。</p>
+
+<p>また、アスペクト比を保ったまま画像を縮小表示することを想定しているため、サイズ指定は横幅だけを指定できるようにしています（ショートコードのパラメータで <code class="language-plaintext highlighter-rouge">w="200"</code> のように単位なしで指定します）。</p>
+
+<h3 id="応用1-w-パラメータをオプショナルにしたバージョン">応用1: w パラメータをオプショナルにしたバージョン</h3>
+
+<p>下記はもう少し改良したバージョンの <code class="language-plaintext highlighter-rouge">image</code> ショートコードで、<code class="language-plaintext highlighter-rouge">w</code> パラメータが省略された場合に、<code class="language-plaintext highlighter-rouge">src</code> で指定した画像ファイルをそのまま使用するようにしています。</p>
+
+<h4 id="layoutsshortcodesimagehtml-1">layouts/shortcodes/image.html</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- $src := .Get "src" }}
+{{- $title := .Get "title" }}
+{{- $width := .Get "w" }}
+{{- $imageUrl := $src }}
+{{- $res := .Page.Resources.GetMatch $src }}
+
+{{- /* ページまたぎでリンク切れを防ぐおまじない */}}
+{{- if $res }}
+  {{- $src = $res.RelPermalink }}
+  {{- $imageUrl = $res.RelPermalink }}
+{{- end }}
+
+{{- if $width }}
+  {{- $size := printf "%sx" $width }}
+  {{- $image := $res.Resize $size }}
+  {{- $imageUrl = $image.RelPermalink }}
+{{- end }}
+
+&lt;figure&gt;
+  &lt;a href="{{ $src }}" target="_blank"&gt;
+    &lt;img src="{{ $imageUrl }}" alt="{{ $src }}" /&gt;
+  &lt;/a&gt;
+  {{- with $title }}
+    &lt;figcaption&gt;図: {{ . }}&lt;/figcaption&gt;
+  {{- end }}
+&lt;/figure&gt;
+</code></pre></div></div>
+
+<h3 id="応用2-svg-ファイルに対応する">応用2: SVG ファイルに対応する</h3>
+
+<p>SVG ファイルは Image Processing 機能に対応していないので、同じコードで width 調整しようとすると、次のようなエラーになってしまいます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error calling Resize: *resources.genericResource is not an image
+</code></pre></div></div>
+
+<p>下記の <code class="language-plaintext highlighter-rouge">image</code> ショートコードは、<code class="language-plaintext highlighter-rouge">src</code> パラメータで指定されたファイルの拡張子が <code class="language-plaintext highlighter-rouge">svg</code> だった場合に、Image Processing 機能を使わず、<code class="language-plaintext highlighter-rouge">style</code> 属性を使って横幅を指定するようにしています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- $src := .Get "src" }}
+{{- $title := .Get "title" }}
+{{- $width := .Get "w" }}
+{{- $imageUrl := $src }}
+{{- $res := .Page.Resources.GetMatch $src }}
+
+{{- /* ページまたぎでリンク切れを防ぐおまじない */}}
+{{- if $res }}
+  {{- $src = $res.RelPermalink }}
+  {{- $imageUrl = $res.RelPermalink }}
+{{- end }}
+
+{{- $isSvg := strings.HasSuffix $src "svg" }}
+{{- if and $width (not $isSvg) }}
+  {{- $size := printf "%sx" $width }}
+  {{- $image := $res.Resize $size }}
+  {{- $imageUrl = $image.RelPermalink }}
+{{- end }}
+
+&lt;figure&gt;
+  &lt;a href="{{ $src }}" target="_blank"&gt;
+    &lt;img {{ if $isSvg }}style="width:{{ $width }}px;"{{ end }} src="{{ $imageUrl }}" alt="{{ $src }}" /&gt;
+  &lt;/a&gt;
+  {{- with $title }}
+    &lt;figcaption&gt;図: {{ . }}&lt;/figcaption&gt;
+  {{- end }}
+&lt;/figure&gt;
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： 大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)&url=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/misc/image-processing.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/hugo/"><span class="xArticle_up_label">まくまくHugoノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li class="xNav-focused"><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2020-01-15</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

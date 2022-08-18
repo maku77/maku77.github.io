@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/io/optparse.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="コマンドライン引数によるオプションに対応する (optparse) | まくまくRubyノート" />
+  <title>コマンドライン引数によるオプションに対応する (optparse) - まくまくRubyノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/ruby/">
+    <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/ruby/">
+    <div class="xPageHeader_category">
+    まくまくRubyノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">コマンドライン引数によるオプションに対応する (optparse)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2016-04-18</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/ruby/io/optparse.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： コマンドライン引数によるオプションに対応する (optparse)&url=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="optionparser-の基本">OptionParser の基本</h2>
+
+<p><code class="language-plaintext highlighter-rouge">OptionParser</code> クラスを使用すると、<code class="language-plaintext highlighter-rouge">-a</code> や <code class="language-plaintext highlighter-rouge">--add</code> といった形式のコマンドラインオプションを簡単に扱うことができます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">OptionParser</code> でハンドルすべきオプションは、下記の <code class="language-plaintext highlighter-rouge">on</code> メソッドで設定します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">on</span><span class="p">(</span><span class="n">short</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="o">...</span> <span class="p">}</span>
+<span class="n">on</span><span class="p">(</span><span class="n">short</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="o">...</span> <span class="p">}</span>
+<span class="n">on</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="o">...</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">short</code> はショートオプションを表し、<code class="language-plaintext highlighter-rouge">-a</code> や <code class="language-plaintext highlighter-rouge">-d</code> のように指定します。
+<code class="language-plaintext highlighter-rouge">long</code> はロングオプションを表し、<code class="language-plaintext highlighter-rouge">--add</code> や <code class="language-plaintext highlighter-rouge">--delete</code> のように指定します。
+<code class="language-plaintext highlighter-rouge">desc</code> はそのオプションの説明文で、<code class="language-plaintext highlighter-rouge">--help</code> オプションを指定して実行した場合に表示される説明文を設定します。
+後ろのブロックには、そのオプションが指定された場合に実行されるコードを記述します。
+オプションごとのパラメータを受け取ることもできます。</p>
+
+<p>すべてのオプションについて <code class="language-plaintext highlighter-rouge">on</code> メソッドによる定義を完了したら、<code class="language-plaintext highlighter-rouge">parse(ARGV)</code> を実行すれば、指定したオプションに一致するブロックが実行されていきます。</p>
+
+<h2 id="簡単なサンプル">簡単なサンプル</h2>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">OptionParser</code> を使用して、<code class="language-plaintext highlighter-rouge">-a (--add)</code> オプションと、<code class="language-plaintext highlighter-rouge">-d (--delete)</code> オプションをハンドルしています。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-a'</span><span class="p">,</span> <span class="s1">'--add'</span><span class="p">,</span> <span class="s1">'add an item'</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s1">'Added'</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-d'</span><span class="p">,</span> <span class="s1">'--del'</span><span class="p">,</span> <span class="s1">'delete an item'</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s1">'Deleted'</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>下記は、それぞれのオプションを指定してプログラムを実行したときの実行例です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb -a
+Added
+
+$ ruby samle.rb -d
+Deleted
+
+$ ruby sample.rb -a -d
+Added
+Deleted
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">OptionParser</code> を使用すると、デフォルトで <code class="language-plaintext highlighter-rouge">-h (--help)</code> オプションが定義され、<code class="language-plaintext highlighter-rouge">on</code> メソッドの <code class="language-plaintext highlighter-rouge">desc</code> オプションで指定した説明文が表示されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb --help
+Usage: sample [options]
+    -a, --add                        add an item
+    -d, --del                        delete an item
+</code></pre></div></div>
+
+<h2 id="オプションごとにパラメータを受け取れるようにする">オプションごとにパラメータを受け取れるようにする</h2>
+
+<p><code class="language-plaintext highlighter-rouge">on</code> メソッドでオプション名を指定するときに、その後ろにパラメータ名を指定すると、そのオプションにはパラメータ指定が必要であることを示すことができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-a'</span><span class="p">,</span> <span class="s1">'--add ITEM'</span><span class="p">,</span> <span class="s1">'add an item'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Add </span><span class="si">#{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-d'</span><span class="p">,</span> <span class="s1">'--del ITEM'</span><span class="p">,</span> <span class="s1">'delete an item'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"Delete </span><span class="si">#{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>次のようにオプションごとにパラメータを受け取ることができるようになります。
+ロングオプションのパラメータの前は、スペースで区切っても、<code class="language-plaintext highlighter-rouge">=</code> で区切っても構いません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb -a 100
+Add 100
+
+$ ruby sample.rb --add 200
+Add 200
+
+$ ruby sample.rb --del=300
+Delete 300
+</code></pre></div></div>
+
+<p>この例のように、各オプションに対してパラメータを単純に追記すると、そのパラメータ指定は必須だとみなされます。
+例えば、下記のようにパラメータ指定を忘れるとエラーが発生します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb -d
+sample.rb:6:in `&lt;main&gt;': missing argument: -d (OptionParser::MissingArgument)
+</code></pre></div></div>
+
+<h2 id="オプションのパラメータを省略可能にする">オプションのパラメータを省略可能にする</h2>
+
+<p>オプションごとのパラメータ名を <code class="language-plaintext highlighter-rouge">[</code> で始めると、そのパラメータは省略可能になります。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-a'</span><span class="p">,</span> <span class="s1">'--add [ITEM]'</span><span class="p">,</span> <span class="s1">'add an item'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">val</span><span class="o">|</span>
+  <span class="k">if</span> <span class="n">val</span> <span class="o">!=</span> <span class="kp">nil</span>
+    <span class="nb">puts</span> <span class="s2">"Add </span><span class="si">#{</span><span class="n">val</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s2">"Add something"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>下記のように、パラメータを省略して実行してもエラーが発生しなくなります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb --add 100
+Add 100
+
+$ ruby sample.rb --add
+Add something
+</code></pre></div></div>
+
+<h2 id="ヘルプオプション--h-help-の説明を表示する">ヘルプオプション (‘-h’, ‘–help’) の説明を表示する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">OptionParser</code> を使用すると、自動的に <code class="language-plaintext highlighter-rouge">-h</code> と <code class="language-plaintext highlighter-rouge">--help</code> オプションが定義されるのですが、それによるヘルプメッセージには <code class="language-plaintext highlighter-rouge">-h</code> と <code class="language-plaintext highlighter-rouge">--help</code> オプションの説明が表示されません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb --help
+Usage: sample [options]
+    -a, --add                        add an item
+</code></pre></div></div>
+
+<p>ヘルプメッセージに <code class="language-plaintext highlighter-rouge">-h</code> と <code class="language-plaintext highlighter-rouge">--help</code> の説明も表示するには、他のオプションと同じように <code class="language-plaintext highlighter-rouge">on</code> メソッドでオプションを定義します。
+これらのハンドラの中では、<code class="language-plaintext highlighter-rouge">OptionParser</code> オブジェクト自体を出力するようにすると、ヘルプメッセージを表示することができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-a'</span><span class="p">,</span> <span class="s1">'--add'</span><span class="p">,</span> <span class="s1">'add an item'</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">"Add"</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-h'</span><span class="p">,</span> <span class="s1">'--help'</span><span class="p">,</span> <span class="s1">'show this help'</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">opt</span><span class="p">;</span> <span class="nb">exit</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb --help
+Usage: sample [options]
+    -a, --add                        add an item
+    -h, --help                       show this help
+</code></pre></div></div>
+
+<h2 id="オプションではない引数も扱う">オプションではない引数も扱う</h2>
+
+<p>例えば、下記のようにコマンドライン引数を指定したとします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb -n 100 hoge
+</code></pre></div></div>
+
+<p>最後に指定した <code class="language-plaintext highlighter-rouge">hoge</code> という引数は、オプションのパラメータとしてはみなされないので、<code class="language-plaintext highlighter-rouge">OptionParser#on('-n' ...)</code> によるハンドラの中で取得することができません。
+このような場合は、<code class="language-plaintext highlighter-rouge">OptionParser#parse!</code> を使用してコマンドライン引数をパースすることで、<code class="language-plaintext highlighter-rouge">ARGV</code> の中に <code class="language-plaintext highlighter-rouge">hoge</code> だけが残るようにします。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-n VALUE'</span><span class="p">,</span> <span class="s1">'do something'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"do something with </span><span class="si">#{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="n">opt</span><span class="p">.</span><span class="nf">parse!</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+
+<span class="c1"># ARGV の中にオプションとしてパースされなかった残りの引数が残っている</span>
+<span class="nb">puts</span> <span class="s2">"ARGV = </span><span class="si">#{</span><span class="no">ARGV</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb -n 100 hoge
+do something with 100
+ARGV = ["hoge"]
+</code></pre></div></div>
+
+<h2 id="オプションの取得部分をクラス化する">オプションの取得部分をクラス化する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">OptionParser</code> クラスを使用して、そのアプリケーションに必要なコマンドライン引数をパースするためのクラスを作成しておくと、オプションの扱うコードの見通しがよくなります。
+下記の例では、内部的に <code class="language-plaintext highlighter-rouge">OptionParser</code> を使用するクラス (<code class="language-plaintext highlighter-rouge">AppOption</code>) を作成しています。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AppOption</span>
+  <span class="nb">require</span> <span class="s1">'optparse'</span>
+
+  <span class="c1"># インスタンス化と同時にコマンドライン引数をパース</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@options</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">o</span><span class="o">|</span>
+      <span class="n">o</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-a'</span><span class="p">,</span> <span class="s1">'--add ITEM [OPT]'</span><span class="p">,</span> <span class="s1">'add item'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:add</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="p">}</span>
+      <span class="n">o</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-d'</span><span class="p">,</span> <span class="s1">'--delete ITEM'</span><span class="p">,</span> <span class="s1">'delete item'</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="vi">@options</span><span class="p">[</span><span class="ss">:del</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="p">}</span>
+      <span class="n">o</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s1">'-h'</span><span class="p">,</span> <span class="s1">'--help'</span><span class="p">,</span> <span class="s1">'show this help'</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">v</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">o</span><span class="p">;</span> <span class="nb">exit</span> <span class="p">}</span>
+      <span class="n">o</span><span class="p">.</span><span class="nf">parse!</span><span class="p">(</span><span class="no">ARGV</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1"># オプションが指定されたかどうか</span>
+  <span class="k">def</span> <span class="nf">has?</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@options</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># オプションごとのパラメータを取得</span>
+  <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@options</span><span class="p">[</span><span class="nb">name</span><span class="p">]</span>
+  <span class="k">end</span>
+
+  <span class="c1"># オプションパース後に残った部分を取得</span>
+  <span class="k">def</span> <span class="nf">get_extras</span>
+    <span class="no">ARGV</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># 使用例</span>
+<span class="n">option</span> <span class="o">=</span> <span class="no">AppOption</span><span class="p">.</span><span class="nf">new</span>
+<span class="k">if</span> <span class="n">option</span><span class="p">.</span><span class="nf">has?</span><span class="p">(</span><span class="ss">:add</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="n">option</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="ss">:add</span><span class="p">)</span>   <span class="c1"># --add オプションのパラメータを取得</span>
+  <span class="nb">puts</span> <span class="n">option</span><span class="p">.</span><span class="nf">get_extras</span>  <span class="c1"># 残りのコマンドライン引数を取得</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb --add AAA BBB
+AAA
+BBB
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： コマンドライン引数によるオプションに対応する (optparse)&url=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/io/optparse.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/ruby/"><span class="xArticle_up_label">まくまくRubyノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2016-04-18</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

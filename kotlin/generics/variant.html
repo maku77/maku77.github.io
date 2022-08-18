@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/generics/variant.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する | まくまくKotlinノート" />
+  <title>ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-12-20</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/generics/variant.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する&url=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="共変である-covariant-とはどういうことか">共変である (covariant) とはどういうことか？</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Int</code> は <code class="language-plaintext highlighter-rouge">Any</code> として使用することができます（<code class="language-plaintext highlighter-rouge">Any</code> は Java で言うところの <code class="language-plaintext highlighter-rouge">Object</code>）。
+それでは、</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">List&lt;Any&gt;</code> として扱うことができるでしょうか？</li>
+  <li><code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">MutableList&lt;Any&gt;</code> として扱うことができるでしょうか？</li>
+</ol>
+
+<p>その答えは、使用している Generic クラスが、その型パラメータに関して <strong>共変である (covariant) か不変であるか (invariant)</strong> どうかによって決まります。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">List&lt;Any&gt;</code> として<strong>使える</strong>（<code class="language-plaintext highlighter-rouge">List</code> は共変である (= covariant)）</li>
+  <li><code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">MutableList&lt;Any&gt;</code> としては<strong>使えない</strong>（<code class="language-plaintext highlighter-rouge">MutableList</code> は共変ではない (= invariant)）</li>
+</ol>
+
+<p>「Generic クラスが共変である」とは、型引数に指定した型の親子関係が、Generic クラスによって生成された型の親子関係と等しくなるということを意味します。
+例えば、<code class="language-plaintext highlighter-rouge">List&lt;E&gt;</code> はその型パラメータ <code class="language-plaintext highlighter-rouge">E</code> に関して共変なので、<code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> を <code class="language-plaintext highlighter-rouge">List&lt;Any&gt;</code> として扱うことが可能です（<code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">List&lt;Any&gt;</code> のサブタイプとみなされます）。</p>
+
+<h4 id="listint-は-listany-として扱える">List&lt;Int&gt; は List&lt;Any&gt; として扱える</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">showElems</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">e</span> <span class="k">in</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1">// List&lt;Int&gt;</span>
+    <span class="nf">showElems</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1">// OK!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>一方で、<code class="language-plaintext highlighter-rouge">MutableList&lt;E&gt;</code> は型パラメータ <code class="language-plaintext highlighter-rouge">E</code> に関して共変ではないので、<code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">MutableList&lt;Any&gt;</code> として扱うことができません。
+まったく互換性のない型として扱われます。</p>
+
+<p>なぜこのような差が出てくるのでしょうか？
+次のようなコードを考えると分かりやすいと思います。</p>
+
+<h4 id="mutablelistint-は-mutablelistany-としては扱えない">MutableList&lt;Int&gt; は MutableList&lt;Any&gt; としては扱えない</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">addElems</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+    <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"World"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1">// MutableList&lt;Int&gt;</span>
+    <span class="nf">addElems</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1">// Compile Error!</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>仮に上記のようなコードが合法とされてしまうと、<code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> 型のオブジェクトに、<code class="language-plaintext highlighter-rouge">Int</code> 以外の任意の要素を追加できることになってしまいます。
+だから、<code class="language-plaintext highlighter-rouge">MutableList&lt;E&gt;</code> は型パラメータ <code class="language-plaintext highlighter-rouge">E</code> に関して共変ではない、と定義されているのです。
+そのため、上記のようなコードはコンパイルエラーになります。</p>
+
+<p><code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> の要素がより汎用的な <code class="language-plaintext highlighter-rouge">Any</code> として<strong>使われるだけ</strong>であれば問題はなく、<code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> がより汎用的な型である <code class="language-plaintext highlighter-rouge">Any</code> を<strong>受け入れてしまう</strong>のは問題があるということです。</p>
+
+<p>ややこしいですが、共変 (covariant) と不変 (invariant) は Kotlin のジェネリクスを扱う上で非常に大切な概念なので、もう一度まとめておきます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">A</code> が <code class="language-plaintext highlighter-rouge">B</code> のサブタイプであるとき、<code class="language-plaintext highlighter-rouge">List&lt;A&gt;</code> は <code class="language-plaintext highlighter-rouge">List&lt;B&gt;</code> のサブタイプとなる。このような Generic クラスを <strong>共変である (covariant)</strong> という。</li>
+  <li><code class="language-plaintext highlighter-rouge">A</code> が <code class="language-plaintext highlighter-rouge">B</code> のサブタイプであったとしても、<code class="language-plaintext highlighter-rouge">MutableList&lt;A&gt;</code> は <code class="language-plaintext highlighter-rouge">MutableList&lt;B&gt;</code> のサブタイプにはならない。このような Generic クラスを <strong>不変である (invariant)</strong> という（＝共変ではない）。</li>
+</ul>
+
+<h2 id="共変な-generic-クラス-covariant-class-を定義する">共変な Generic クラス (covariant class) を定義する</h2>
+
+<p>ある型パラメータに関して共変な Generic クラスを定義するには、型パラメータに <strong><code class="language-plaintext highlighter-rouge">out</code></strong> キーワードを付けて定義します。
+逆に何も修飾子を付けないで型パラメータを定義した場合は、その Generic クラスはデフォルトで不変 (invariant) になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Holder</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">elem</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">get</span><span class="p">():</span> <span class="nc">T</span> <span class="p">=</span> <span class="n">elem</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>型パラメータに <code class="language-plaintext highlighter-rouge">out</code> を付けるということは、その Generic クラスの実装において、型パラメータを出力用としてしか使用しないという宣言でもあります。
+出力用というのは、戻り値の位置のみでその型パラメータを使用するということです。
+そのため、このようなクラスを producer と読んだりして、サンプルコードのクラス名として <code class="language-plaintext highlighter-rouge">Producer</code> が使われたりします。
+個人的にはそういった命名はサンプルコードとしては分かりにくいと思うので、ここでは <code class="language-plaintext highlighter-rouge">Holder</code> というクラス名にしています。</p>
+
+<p>専門用語では、getter などの出力位置で使うことを <strong>out position</strong> で使用する、setter などの入力位置で使うことを <strong>in position</strong> で使用すると言います。
+型パラメータに <code class="language-plaintext highlighter-rouge">out</code> を付けることができるのは、その型パラメータを out position でしか使用していない場合のみに限られます（正確には in position で使用しない場合）。</p>
+
+<p>例えば、上記のサンプルコードでは、型パラメータ <code class="language-plaintext highlighter-rouge">T</code> を getter の戻り値 (out position) の型としてのみ使用しています（コンストラクタのパラメータでも使っていますが、コンストラクタの <code class="language-plaintext highlighter-rouge">val</code> パラメータは本質的には getter を定義するものであり、out position とみなされます）。
+型パラメータ <code class="language-plaintext highlighter-rouge">T</code> は in position では一切使用していないので、<code class="language-plaintext highlighter-rouge">out</code> 修飾子を付加することができ、共変 (covariant) な Generic クラスとすることができます。</p>
+
+<p>もし、次のように <code class="language-plaintext highlighter-rouge">out</code> を付けた型パラメータを in position で使ってしまうと、</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Holder</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">elem</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">dump</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>  <span class="c1">// ERROR</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type parameter T is declared as 'out' but occurs in 'in' position in type T
+</code></pre></div></div>
+
+<p>といった感じのコンパイルエラーになります。
+なぜなら、このような使い方を許してしまうと、先に示した <code class="language-plaintext highlighter-rouge">MutableList</code> の例のように、型の安全性が保てなくなってしまうケースが発生するからです。</p>
+
+<p>さて、ここで、次のような継承関係のある <code class="language-plaintext highlighter-rouge">Animal</code> クラスと <code class="language-plaintext highlighter-rouge">Bird</code> クラスがあるとします。
+<code class="language-plaintext highlighter-rouge">Bird</code> は <code class="language-plaintext highlighter-rouge">Animal</code> のサブタイプです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">open</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">eat</span><span class="p">()</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"EAT"</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Bird</span> <span class="p">:</span> <span class="nc">Animal</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">fly</span><span class="p">()</span> <span class="p">{</span> <span class="nf">println</span><span class="p">(</span><span class="s">"FLY"</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>そして、<code class="language-plaintext highlighter-rouge">Holder&lt;Animal&gt;</code> をパラメータに取る <code class="language-plaintext highlighter-rouge">doEat</code> 関数を次のように定義したとします。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">doEat</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="nc">Holder</span><span class="p">&lt;</span><span class="nc">Animal</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">animal</span> <span class="p">=</span> <span class="n">holder</span><span class="p">.</span><span class="k">get</span><span class="p">()</span>
+    <span class="n">animal</span><span class="p">.</span><span class="nf">eat</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Holder</code> クラスは共変なジェネリッククラスとして定義（型パラメータ <code class="language-plaintext highlighter-rouge">T</code> に <code class="language-plaintext highlighter-rouge">out</code> を付けて定義）されているので、<code class="language-plaintext highlighter-rouge">Holder&lt;Bird&gt;</code> オブジェクトは <code class="language-plaintext highlighter-rouge">Holder&lt;Animal&gt;</code> オブジェクトの代わりに使用することができます。
+よって、次のように <code class="language-plaintext highlighter-rouge">doEat</code> 関数に、<code class="language-plaintext highlighter-rouge">Holder&lt;Bird&gt;</code> オブジェクトを渡すことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">holder</span><span class="p">:</span> <span class="nc">Holder</span><span class="p">&lt;</span><span class="nc">Bird</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">Holder</span><span class="p">(</span><span class="nc">Bird</span><span class="p">())</span>
+<span class="nf">doEat</span><span class="p">(</span><span class="n">holder</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>これが、<code class="language-plaintext highlighter-rouge">class Holder&lt;out T&gt;</code> のように、型パラメータに <code class="language-plaintext highlighter-rouge">out</code> を付けて定義した効果です。
+もし、<code class="language-plaintext highlighter-rouge">out</code> を付けないで <code class="language-plaintext highlighter-rouge">class Holder&lt;T&gt;</code> と不変 (invariant) なクラスとして定義していると、<code class="language-plaintext highlighter-rouge">doEat(holder)</code> の呼び出しは、次のようなエラーになってしまいます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type mismatch: inferred type is Holder&lt;Bird&gt; but Holder&lt;Animal&gt; was expected
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Holder</code> が共変になっていないので、<code class="language-plaintext highlighter-rouge">Holder&lt;Bird&gt;</code> と <code class="language-plaintext highlighter-rouge">Holder&lt;Animal&gt;</code> の間には何の互換性もないからです。
+ただ、これには少しだけ抜け道があって、ジェネリッククラスを使用する側（ここでは <code class="language-plaintext highlighter-rouge">doEat</code> 関数を定義する場所）で、次のように <code class="language-plaintext highlighter-rouge">out</code> を付けて、「共変 (covariant) な型パラメータとして使用しますよ」と宣言してしまう方法があります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">doEat</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="nc">Holder</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">Animal</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">animal</span> <span class="p">=</span> <span class="n">holder</span><span class="p">.</span><span class="k">get</span><span class="p">()</span>
+    <span class="n">animal</span><span class="p">.</span><span class="nf">eat</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これは、<code class="language-plaintext highlighter-rouge">Holder</code> クラス自体は共変として定義してないけれど、少なくともこの関数の実装では共変なクラスとして使いますよ（<code class="language-plaintext highlighter-rouge">Holder&lt;Animal&gt;</code> の代わりに <code class="language-plaintext highlighter-rouge">Holder&lt;Bird&gt;</code> を渡してもいいですよ）ということを示しています。
+このように、ジェネリッククラスを利用する場所で型引数に <code class="language-plaintext highlighter-rouge">out</code> 修飾子を付けてしまう方法を、<strong>use-site variance（利用箇所分散）</strong> と呼びます。
+詳しくは後述します。</p>
+
+<h3 id="kotlin-の-list-と-mutablelist-の定義">Kotlin の List と MutableList の定義</h3>
+
+<p>では、Kotlin の <code class="language-plaintext highlighter-rouge">List</code> インタフェースと <code class="language-plaintext highlighter-rouge">MutableList</code> インタフェースの定義を見てみましょう。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">List</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">E</span><span class="p">&gt;</span> <span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="kd">interface</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;,</span> <span class="nc">MutableCollection</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">List</code> インタフェースの型パラメータ <code class="language-plaintext highlighter-rouge">E</code> には <code class="language-plaintext highlighter-rouge">out</code> が付いており、<code class="language-plaintext highlighter-rouge">MutableList</code> インタフェースの方には付いていません。
+よって、<code class="language-plaintext highlighter-rouge">List</code> は型パラメータ <code class="language-plaintext highlighter-rouge">E</code> に関して共変 (covariant) なジェネリッククラスであり、<code class="language-plaintext highlighter-rouge">MutableList</code> は不変 (invariant) なジェネリッククラスです。</p>
+
+<p>型パラメータの <code class="language-plaintext highlighter-rouge">out</code> 修飾子は、多くの場合、ファクトリ系のクラスや、immutable なデータホルダー系クラスで使われることになります。
+しかし、<code class="language-plaintext highlighter-rouge">clear()</code> のように、まったくパラメータを取らずにオブジェクトの内容を変更するメソッドもあり得るため、immutable なクラスのみが共変 (covariant) なクラスになれるというわけではなりません。</p>
+
+<h2 id="反変な-generic-クラス-contravariant-class-を定義する">反変な Generic クラス (contravariant class) を定義する</h2>
+
+<p>共変 (covariant) に近い概念に、その反対の性質を持つ <strong>反変 (contravariant)</strong> があります。
+共変 (covariant) なジェネリッククラスから生成された型は、その型引数で指定した型の親子関係と同じ親子関係を持ちますが、反変 (contravariant) なジェネリッククラスから生成された型は、この親子関係が逆転します。
+文章で書いても分かりにくいので、コードで見てみましょう。</p>
+
+<p>まず、共変 (covarinat) のおさらいから。
+共変な型パラメータは、<code class="language-plaintext highlighter-rouge">out</code> で修飾します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">List</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">E</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">List&lt;Any&gt;</code> のサブタイプになります。</p>
+
+<p>次に、反変 (contravariant) の例です。
+反変なインタフェースの代表例としてあげられるのが <code class="language-plaintext highlighter-rouge">Comparator</code> インタフェースです。
+反変な型パラメータは、<strong><code class="language-plaintext highlighter-rouge">in</code></strong> で修飾します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Comparator</span><span class="p">&lt;</span><span class="k">in</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">compare</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nc">T</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nc">T</span><span class="p">):</span> <span class="nc">Int</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Comparator&lt;Int&gt;</code> は <code class="language-plaintext highlighter-rouge">Comparator&lt;Any&gt;</code> の<strong>スーパータイプ</strong>になります。
+言い換えると、<code class="language-plaintext highlighter-rouge">Comparator&lt;Any&gt;</code> が <code class="language-plaintext highlighter-rouge">Comparator&lt;Int&gt;</code> のサブタイプになります。
+このあたりの親子関係が、共変 (covariant) のときと逆転しているため、反変 (contravariant) と呼びます。</p>
+
+<p>なぜこのように親子関係が逆転するのでしょうか？
+<code class="language-plaintext highlighter-rouge">Comparator&lt;Any&gt;</code> と <code class="language-plaintext highlighter-rouge">Comparator&lt;Int&gt;</code> の関係を考えてみましょう。
+<code class="language-plaintext highlighter-rouge">Comparator&lt;Int&gt;</code> をパラメータとして受け取る関数には、<code class="language-plaintext highlighter-rouge">Comparator&lt;Any&gt;</code> オブジェクトを渡すことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">anyComp</span> <span class="p">=</span> <span class="nc">Comparator</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">-&gt;</span>
+    <span class="n">a</span><span class="p">.</span><span class="nf">hashCode</span><span class="p">()</span> <span class="p">-</span> <span class="n">b</span><span class="p">.</span><span class="nf">hashCode</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">val</span> <span class="py">intList</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">intList</span><span class="p">.</span><span class="nf">sortWith</span><span class="p">(</span><span class="n">anyComp</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>なぜなら、<code class="language-plaintext highlighter-rouge">Comparator&lt;Any&gt;</code> の実装の中では <code class="language-plaintext highlighter-rouge">Any</code> インタフェースしか参照しないため、その実装を <code class="language-plaintext highlighter-rouge">Int</code> オブジェクト同士の比較に使用しても何ら問題はないからです。</p>
+
+<p><code class="language-plaintext highlighter-rouge">in</code> 修飾子を付けられる型パラメータは、in position でしか使われないものに限定されます（正確には、public メソッドの戻り値のような、out position では一切使われないもの）。
+そのジェネリッククラスの中では、型パラメータを受け入れる（あるいは消費する）用途にしか使用しないため、そのジェネリッククラスのことを consumer と呼んだりします。
+なので、サンプルコードでは反変 (contravariant) なジェネリッククラスの名前が <code class="language-plaintext highlighter-rouge">Comsumer</code> になっていたりします。</p>
+
+<p>Kotlin の <code class="language-plaintext highlighter-rouge">Continuation</code> インタフェースも、反変なジェネリックインタフェースのひとつです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Continuation</span><span class="p">&lt;</span><span class="k">in</span> <span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+   <span class="kd">val</span> <span class="py">context</span><span class="p">:</span> <span class="nc">CoroutineContext</span>
+   <span class="k">fun</span> <span class="nf">resume</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span>
+   <span class="k">fun</span> <span class="nf">resumeWithException</span><span class="p">(</span><span class="n">exception</span><span class="p">:</span> <span class="nc">Throwable</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="declaration-site-variance宣言箇所分散と-use-site-variance利用箇所分散">declaration-site variance（宣言箇所分散）と use-site variance（利用箇所分散）</h2>
+
+<p>前述の <code class="language-plaintext highlighter-rouge">Holder</code> クラスの説明の場所でも少し出てきましたが、ジェネリッククラスの型パラメータに、<code class="language-plaintext highlighter-rouge">out</code> や <code class="language-plaintext highlighter-rouge">in</code> などの分散修飾子 (variance modifier) を付ける場合、Kotlin ではその付加タイミングが 2 パターンあります。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">declaration-site variance（宣言箇所分散）</code> … クラスやインタフェースの宣言時に型パラメータを <code class="language-plaintext highlighter-rouge">out</code> や <code class="language-plaintext highlighter-rouge">in</code> で修飾する</li>
+  <li><code class="language-plaintext highlighter-rouge">use-site variance（使用箇所分散）</code> … すでに定義されているジェネリッククラスを使うときに型引数に <code class="language-plaintext highlighter-rouge">out</code> や <code class="language-plaintext highlighter-rouge">in</code> を付ける</li>
+</ul>
+
+<h3 id="declaration-site-variance宣言箇所分散">declaration-site variance（宣言箇所分散）</h3>
+
+<p>次の、<code class="language-plaintext highlighter-rouge">List</code> インタフェースのように、インタフェースを宣言する時点で、型パラメータに <code class="language-plaintext highlighter-rouge">out</code> や <code class="language-plaintext highlighter-rouge">in</code> 修飾子を付けてしまう方法です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">List</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">E</span><span class="p">&gt;</span> <span class="p">:</span> <span class="nc">Collection</span><span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>この場合、この <code class="language-plaintext highlighter-rouge">List</code> インタフェースを使う場所では、デフォルトで共変 (covariant) として扱われます。
+例えば、<code class="language-plaintext highlighter-rouge">List&lt;Number&gt;</code> を受け取る関数には、<code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> や <code class="language-plaintext highlighter-rouge">List&lt;Double&gt;</code> を渡すことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">showNumbers</span><span class="p">(</span><span class="n">nums</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">showNumbers</span><span class="p">(</span><span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1">// List&lt;Int&gt; を渡せる</span>
+    <span class="nf">showNumbers</span><span class="p">(</span><span class="nf">listOf</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>  <span class="c1">// List&lt;Double&gt; も渡せる</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>もっと簡単に書くと、<code class="language-plaintext highlighter-rouge">List</code> インタフェースでは、次のような代入が可能ということです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">nums</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">// OK</span>
+</code></pre></div></div>
+
+<p>逆に、<code class="language-plaintext highlighter-rouge">MutableList</code> インタフェースは共変 (convariant) として定義されていない（＝不変 (invariant)) ので、次のような代入ができません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">nums</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">// NG</span>
+</code></pre></div></div>
+
+<h3 id="use-site-variance使用箇所分散">use-site variance（使用箇所分散）</h3>
+
+<p>ジェネリッククラスを使用する際に、その型引数に <code class="language-plaintext highlighter-rouge">in</code> や <code class="language-plaintext highlighter-rouge">out</code> キーワードを付ける方法です。</p>
+
+<p>例えば、Kotlin の <code class="language-plaintext highlighter-rouge">MutableList</code> は不変 (invariant) なジェネリッククラスなので、次のように、<code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> を <code class="language-plaintext highlighter-rouge">MutableList&lt;Number&gt;</code> として扱うことはできません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">list</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">// ERROR</span>
+</code></pre></div></div>
+
+<p>このような不変 (invariant) クラスであっても、使用する場所で <code class="language-plaintext highlighter-rouge">out</code> キーワードを付ければ、その部分だけでは共変であるとみなして使用することができます。
+その副作用として、in position で要素を扱うことができなくなるので、<code class="language-plaintext highlighter-rouge">add()</code> メソッドなどを呼び出せなくなります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val list: MutableList&lt;out Number&gt; = mutableListOf&lt;Int&gt;(1, 2, 3)
+list.add(1.5)  // ERROR
+</code></pre></div></div>
+
+<p>このように型引数を使用することを、専門用語で <strong>型投影（タイププロジェクション）</strong> と呼んだりします。
+このケースでは、<code class="language-plaintext highlighter-rouge">out</code> キーワードを付けているので、out-projected されているといいます。</p>
+
+<p>より実践的な例として、次のような、配列 (<code class="language-plaintext highlighter-rouge">Array</code>) の中身をコピーする関数を考えてみます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">copyArray</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span> <span class="n">dst</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="nf">assert</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">size</span> <span class="p">==</span> <span class="n">dst</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">src</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">src</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Kotlin の <code class="language-plaintext highlighter-rouge">Array</code> クラスは、次のように型パラメータに variance modifier（<code class="language-plaintext highlighter-rouge">out</code> や <code class="language-plaintext highlighter-rouge">in</code>）が付いていないので、<code class="language-plaintext highlighter-rouge">MutableList</code> と同様に、不変 (invariant) なジェネリッククラスです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>よって、<code class="language-plaintext highlighter-rouge">Array&lt;Int&gt;</code> と <code class="language-plaintext highlighter-rouge">Array&lt;Number&gt;</code> には互換性がなく、次のようなコードはエラーになります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">arr1</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">arr2</span> <span class="p">=</span> <span class="n">arrayOfNulls</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nf">copyArray</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>  <span class="c1">// ERROR</span>
+</code></pre></div></div>
+
+<p>そこで、使用箇所分散 (use-site variance) の仕組みを使って、<code class="language-plaintext highlighter-rouge">dst</code> パラメータの型パラメータに <code class="language-plaintext highlighter-rouge">in</code> キーワードを付けて、反変 (contravariant) にします。
+<code class="language-plaintext highlighter-rouge">in</code> キーワードが付けられるということは、この <code class="language-plaintext highlighter-rouge">dst</code> オブジェクトは、<code class="language-plaintext highlighter-rouge">T</code> 型の要素を取り込むだけ (consume) という宣言になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">copyArray2</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;,</span> <span class="n">dst</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="k">in</span> <span class="nc">T</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="nf">assert</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">size</span> <span class="p">==</span> <span class="n">dst</span><span class="p">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">src</span><span class="p">.</span><span class="n">indices</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">src</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>すると、この関数の <code class="language-plaintext highlighter-rouge">src</code> パラメータに <code class="language-plaintext highlighter-rouge">Array&lt;Int&gt;</code> を渡した場合は、<code class="language-plaintext highlighter-rouge">dst</code> パラメータに <code class="language-plaintext highlighter-rouge">Array&lt;Number&gt;</code> などをサブタイプとみなして渡せるようになります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">arr1</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">arr2</span> <span class="p">=</span> <span class="n">arrayOfNulls</span><span class="p">&lt;</span><span class="nc">Number</span><span class="p">&gt;(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nf">copyArray2</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">)</span>  <span class="c1">// OK</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Array</code> クラスは本来は不変 (invariant) なクラスとして定義されているものですが、この関数だけは反変 (contravariant) として使えるようになるということです。</p>
+
+<p>ちなみに、Java には、この use-site variance しか存在せず、<code class="language-plaintext highlighter-rouge">&lt;? extends Hoge&gt;</code> や <code class="language-plaintext highlighter-rouge">&lt;? super Hoge&gt;</code> といった上限境界、下限境界を指定する方法が使われていました。</p>
+
+<h2 id="in-position-と-out-position">in position と out position</h2>
+
+<p>型パラメータを共変 (covariant) にするには <code class="language-plaintext highlighter-rouge">out</code> 修飾子を付ける必要があり、反変 (contravariant) にするには <code class="language-plaintext highlighter-rouge">in</code> 修飾子を付ける必要があります。
+これらの修飾子を付けるときの制約は次のようになっています。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">out</code> … in position で使用する型パラメータには付けられない</li>
+  <li><code class="language-plaintext highlighter-rouge">in</code> … out position で使用する型パラメータには付けられない</li>
+</ul>
+
+<p>ここでは、どの位置で型パラメータを参照することが、in position と out position のどちらで使用しているとみなされるのかをまとめておきます。</p>
+
+<ul>
+  <li>in position
+    <ul>
+      <li>public なメソッドのパラメータ</li>
+      <li>public なプロパティの setter（コンストラクタパラメータで、<code class="language-plaintext highlighter-rouge">var</code> が付いているもの。内部的に setter が定義されるため in position とみなされる）</li>
+    </ul>
+  </li>
+  <li>out position
+    <ul>
+      <li>public なメソッドの戻り値</li>
+      <li>public なプロパティの getter（コンストラクタパラメータで、<code class="language-plaintext highlighter-rouge">val</code> あるいは <code class="language-plaintext highlighter-rouge">var</code> が付いているもの。内部的に getter が定義されるため out position とみなされる）</li>
+    </ul>
+  </li>
+  <li>in position でも out position でもない（共変にも反変にもできる）
+    <ul>
+      <li>private なメソッドやプロパティのパラメータおよび戻り値（private なメソッドでは、型の誤用の心配がないため）</li>
+      <li>コンストラクタパラメータで、<code class="language-plaintext highlighter-rouge">val</code> も <code class="language-plaintext highlighter-rouge">var</code> も付いていないもの（初期化時にしか呼ばれないものであり、型パラメータの誤用の危険性が低いため、in position でも out position でもないとみなされる）</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="kotlin-の配列は不変java-の配列は共変">Kotlin の配列は不変、Java の配列は共変</h2>
+
+<p>Kotlin の <code class="language-plaintext highlighter-rouge">Array</code> クラスは不変 (invariant) なジェネリッククラスとして定義されています。
+なので、基本的に、<code class="language-plaintext highlighter-rouge">Array</code> クラスから生成される異なる型の間に、親子関係は生まれません（前述の型投影 (use-site variance) の仕組みを使う場合は例外です）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">arr</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">// ERROR</span>
+</code></pre></div></div>
+
+<p>一方、Java の配列は共変 (covariant) なものと定義されていました。
+なので、次のような代入が可能でした。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Integer</span><span class="o">[]</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">};</span>
+<span class="nc">Object</span><span class="o">[]</span> <span class="n">objs</span> <span class="o">=</span> <span class="n">nums</span><span class="o">;</span>
+<span class="n">objs</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s">"ABC"</span><span class="o">;</span>  <span class="c1">// Runtime ERROR</span>
+</code></pre></div></div>
+
+<p>この仕様の問題点として、上記のように、<code class="language-plaintext highlighter-rouge">Integer[]</code> 配列に <code class="language-plaintext highlighter-rouge">String</code> オブジェクトを格納するコードがコンパイルできてしまう点が挙げられていました。
+このような問題に対するアプローチとして、Kotlin では <code class="language-plaintext highlighter-rouge">Array&lt;E&gt;</code> クラスを（よりプリミティブな要素を保持する <code class="language-plaintext highlighter-rouge">IntArray</code> や <code class="language-plaintext highlighter-rouge">CharArray</code> も同様に）不変 (invariant) とすることに決めました。
+<code class="language-plaintext highlighter-rouge">Array&lt;Int&gt;</code> と <code class="language-plaintext highlighter-rouge">Array&lt;Any&gt;</code> の間には互換性がないため、上記の Java の例のように、想定外の型の要素が格納されてしまう心配がありません。</p>
+
+<h2 id="listany-と-list-star-projection-の違い">List&lt;Any?&gt; と List&lt;*&gt; (star projection) の違い</h2>
+
+<p>ジェネリクス型のオブジェクトを受け取る関数を定義するときに、要素の型情報を特に意識しないケースでは、型パラメータの代わりに、より簡潔な <strong>スタープロジェクション (star projection)</strong> の構文を使用することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">dump</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="err">*</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="nf">withIndex</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"$index: $elem"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"AAA"</span><span class="p">,</span> <span class="s">"BBB"</span><span class="p">,</span> <span class="s">"CCC"</span><span class="p">)</span>
+    <span class="nf">dump</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記の <code class="language-plaintext highlighter-rouge">dump</code> 関数を次のように型パラメータを使って定義しても同様に動作しますが、関数の定義の中で型情報を使用しないため、スタープロジェクションの構文を使用した方がシンプルに記述できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fun &lt;T&gt; dump(list: List&lt;T&gt;)
+</code></pre></div></div>
+
+<p>型パラメータの位置に <code class="language-plaintext highlighter-rouge">&lt;*&gt;</code> を指定するのと、<code class="language-plaintext highlighter-rouge">&lt;Any?&gt;</code> を指定するのは同じような感じがしますが、次のように明確な違いがあります。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MutableList&lt;*&gt;</code> … 特定の型の要素が入ったリスト</li>
+  <li><code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> … 何でも入れられるリスト</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">MutableList&lt;*&gt;</code> で参照しているリストの実態は <code class="language-plaintext highlighter-rouge">MutableList&lt;Int&gt;</code> だったりする一方、<code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> で参照するリストは必ず <code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> です。</p>
+
+<p><code class="language-plaintext highlighter-rouge">MutableList&lt;*&gt;</code> を受け取る関数は、具体的な型は気にしないけれど、呼び出し元で具体的な型引数を指定して作成したリストが渡されることを想定しています。
+つまり、次のようなコードは型の安全性がないため、コンパイルエラーになります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">addSomething</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="err">*</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>  <span class="c1">// ERROR: 勝手にStringを入れちゃだめ</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">intList</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="nf">addSomething</span><span class="p">(</span><span class="n">intList</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>一方で、<code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> は何でも格納できるリストであることを示します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">addSomething</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Any</span><span class="err">?</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">list</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">list</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">?&gt;(</span><span class="mi">1</span><span class="p">,</span> <span class="s">"A"</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+    <span class="nf">addSomething</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">MutableList</code> は不変 (invariant) なクラスであるため、<code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> を受け取る関数には、<code class="language-plaintext highlighter-rouge">MutableList&lt;Any?&gt;</code> オブジェクトしか渡せないことに注意してください。</p>
+
+<p>スタープロジェクションは、その要素をリードオンリーにする性質を持っています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">list1</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">list1</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1">// OK</span>
+
+<span class="kd">val</span> <span class="py">list2</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="err">*</span><span class="p">&gt;</span> <span class="p">=</span> <span class="n">list1</span>
+<span class="n">list2</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1">// ERROR</span>
+</code></pre></div></div>
+
+<p>ちなみに、Java ではワイルドカード文字として、<code class="language-plaintext highlighter-rouge">*</code> ではなく <code class="language-plaintext highlighter-rouge">?</code> を使用していますが、Kotlin と同様にコレクションクラスをリードオンリーにする作用があります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">strList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">strList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>  <span class="c1">// OK</span>
+
+<span class="nc">List</span><span class="o">&lt;?&gt;</span> <span class="n">roList</span> <span class="o">=</span> <span class="n">strList</span><span class="o">;</span>
+<span class="n">roList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"World"</span><span class="o">);</span>  <span class="c1">// ERROR</span>
+</code></pre></div></div>
+
+<h2 id="コラム分散という呼び方について">（コラム）分散という呼び方について</h2>
+
+<p>covariant（共変）や invariant（不変）、contravariant（反変）などの性質は、まとめて variance/variant と呼ばれます。
+これの日本語訳はよく「分散」と記述されていますが、分散ってデータの散らばり具合を意味する用語なので、この訳はとても気持ちが悪いです。</p>
+
+<p>型の互換性を示すものなのだから、もっとわかりやすく、互換性とか変換性のように呼ぶべきだと思いますが、ちょっと抽象的すぎなのであまりいい用語がなかったのかもしれません。
+でも少なくとも、分散とか変な呼び方をして、理解しにくくしてしまうのは悪い傾向かと思います。
+誰かもっといい名前を付けて！</p>
+
+<p>あと、型パラメータに制約を付けるときの upper bound（上限境界）とか、lower bound（下限境界）とかいう用語も、ネーミングセンスよくないですね。
+わざと分かりにくくしているのではないかという都市伝説。。。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する&url=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/generics/variant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-12-20</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

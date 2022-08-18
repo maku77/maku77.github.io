@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Node JS ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/nodejs/module/require.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-nodejs.png" />
+
+  <meta property="og:description" content="天才星人まくの Node JS ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Node.js が require() で検索するパスのまとめ | まくまくNode.jsノート" />
+  <title>Node.js が require() で検索するパスのまとめ - まくまくNode.jsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/nodejs/">
+    <img src="/assets/img/logo-nodejs.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/nodejs/">
+    <div class="xPageHeader_category">
+    まくまくNode.jsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Node.js が require() で検索するパスのまとめ</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2014-09-22</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/nodejs/module/require.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js が require() で検索するパスのまとめ&url=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p><code class="language-plaintext highlighter-rouge">require()</code> によって Node.js がどのようにロードするモジュールを検索するかは、<a href="https://nodejs.org/api/modules.html#modules_all_together">Node.js の Modules のドキュメント</a> に詳しく説明されていますが、若干複雑なのでここでまとめておきます。</p>
+
+<h2 id="require-の使い分け">require の使い分け</h2>
+
+<p><code class="language-plaintext highlighter-rouge">require</code> でモジュールをロードするとき、多くは下記の 3 パターンのロード方法に分類できます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// コアモジュール、あるいは node_modules にインストールしたパッケージのロード</span>
+<span class="kd">const</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">crypto</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// ローカルモジュールのロード</span>
+<span class="kd">const</span> <span class="nx">myLocalModule</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./path/to/myLocalModule</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// JSON ファイルのロード</span>
+<span class="kd">const</span> <span class="nx">jsonData</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./path/to/data.json</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>簡単にまとめると、</p>
+
+<ul>
+  <li>組み込みモジュールや、外部パッケージを使うときは名前そのものを指定する。</li>
+  <li>自分で作成したローカルモジュールや JSON ファイルは <code class="language-plaintext highlighter-rouge">./</code> で始まるパスで指定する。</li>
+</ul>
+
+<p>と理解しておけばよいでしょう。</p>
+
+<h2 id="require-がどのようにモジュールを検索するか">require がどのようにモジュールを検索するか？</h2>
+
+<p><code class="language-plaintext highlighter-rouge">require</code> によってどのパスに置かれたファイルがロードされるかは、下記のようなアルゴリズムで決められます。</p>
+
+<h3 id="requirename-としたとき">require(‘name’) としたとき</h3>
+
+<p><code class="language-plaintext highlighter-rouge">require</code> のパラメータでモジュール名そのもの（<code class="language-plaintext highlighter-rouge">express</code> など）を指定した場合は、下記のようなアルゴリズムでロードするモジュールが決められます。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">name</code> というコアモジュールを探す。</li>
+  <li>同じディレクトリの <code class="language-plaintext highlighter-rouge">node_modules/name</code> というパッケージを探す。</li>
+  <li>より上位のディレクトリの <code class="language-plaintext highlighter-rouge">node_modules/name</code> というパッケージを探していく。</li>
+  <li>見つからなければ not found エラーを投げる。</li>
+</ol>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">/aaa/bbb/main.js</code> 内で <code class="language-plaintext highlighter-rouge">require('express')</code> とすると、下記のように検索されていきます。</p>
+
+<ol>
+  <li>コアモジュール（Node の組み込みモジュール）の <code class="language-plaintext highlighter-rouge">express</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/node_modules/express</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/node_modules/express</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/node_modules/express</code></li>
+</ol>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">name</code> というモジュール名の部分に、<code class="language-plaintext highlighter-rouge">path/to/name</code> のようにディレクトリパスが含まれていれば、そのような階層でインストールされた <code class="language-plaintext highlighter-rouge">name</code> モジュールがロードされます（<code class="language-plaintext highlighter-rouge">node_modules/path/to/name</code> などが検索される）。</p>
+
+<div class="note">
+上記の検索順序から分かるように、モジュール名を指定して <code>require</code> を呼び出した場合は、何よりも先にコアモジュールが検索されます。つまり、<code>express</code> という名前のコアモジュールが提供されるようになったら、<code>npm install</code> でインストールされた <code>express</code> の方は参照されなくなるということですね。格差社会。。。
+</div>
+
+<h3 id="requirename-としたとき-1">require(‘./name’) としたとき</h3>
+
+<p><code class="language-plaintext highlighter-rouge">require</code> のパラメータが <code class="language-plaintext highlighter-rouge">'./name'</code>、<code class="language-plaintext highlighter-rouge">'../name'</code>、<code class="language-plaintext highlighter-rouge">'/name'</code> というように、<code class="language-plaintext highlighter-rouge">./</code> や <code class="language-plaintext highlighter-rouge">/</code> で始まるパスで指定された場合は、そのファイルが置かれたディレクトリからの相対パス（あるいは絶体パス）で、下記のようにファイルが検索されます。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">name</code> という名前のファイルを探す。</li>
+  <li><code class="language-plaintext highlighter-rouge">name.js</code> という名前のファイルを探す。</li>
+  <li><code class="language-plaintext highlighter-rouge">name.json</code> という名前のファイルを探す（JSON ファイルとしてロード）。</li>
+  <li><code class="language-plaintext highlighter-rouge">name.node</code> という名前のファイルを探す（バイナリ addon として dlopen でロード）。</li>
+  <li><code class="language-plaintext highlighter-rouge">name/package.json</code> というファイルがあれば、その <code class="language-plaintext highlighter-rouge">main</code> フィールドを見て、<code class="language-plaintext highlighter-rouge">name/&lt;mainフィールドの値&gt;</code> というパスを使用して 1 からやり直し。<code class="language-plaintext highlighter-rouge">main</code> フィールドの記載がなければ、下記のステップへ続く。</li>
+  <li><code class="language-plaintext highlighter-rouge">name/index.js</code> という名前のファイルを探す。</li>
+  <li><code class="language-plaintext highlighter-rouge">name/index.json</code> という名前のファイルを探す（JSON ファイルとしてロード）。</li>
+  <li><code class="language-plaintext highlighter-rouge">name/index.node</code> という名前のファイルを探す（バイナリ addon として dlopen でロード）。</li>
+  <li>グローバルフォルダから検索する（後述）。</li>
+  <li>見つからなければ not found エラーを投げる</li>
+</ol>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">/aaa/bbb/main.js</code> 内で <code class="language-plaintext highlighter-rouge">require('./mylib')</code> とすると、下記のように検索されていきます。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib</code> という JavaScript ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib.js</code> という JavaScript ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib.json</code> という JSON ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib.node</code> というバイナリ addon ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib/package.json</code> に <code class="language-plaintext highlighter-rouge">name</code> フィールドがあれば、<code class="language-plaintext highlighter-rouge">mylib/&lt;mainフィールドの値&gt;</code> が指定されたものとして同様に検索</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib/index.js</code> という JavaScript ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib/index.json</code> という JSON ファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">/aaa/bbb/mylib/index.node</code> というバイナリ addon ファイル</li>
+  <li>各グローバルフォルダ以下から同様に検索</li>
+</ol>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">require</code> に渡す名前に <code class="language-plaintext highlighter-rouge">./sample.js</code> のように、拡張子まで含めて指定した場合も、上記のアルゴリズムはそのまま実行されます。
+<code class="language-plaintext highlighter-rouge">.js</code> という拡張子を持つファイルだけが検索されるわけではありません。
+つまり、<code class="language-plaintext highlighter-rouge">sample.js</code> というファイルが見つからなければ、<code class="language-plaintext highlighter-rouge">sample.js.js</code> や <code class="language-plaintext highlighter-rouge">sample.js.json</code> のようなファイル名で検索が行われます。</p>
+
+<h2 id="グローバルフォルダからのモジュールロード非推奨">グローバルフォルダからのモジュールロード（非推奨）</h2>
+
+<p>Node は上記で説明したパスからだけでなく、下記のようなディレクトリからもモジュールを検索します（参考: <a href="https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders">Loading from the global folders</a>） 。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">NODE_PATH</code> 環境変数に列挙されたディレクトリ（Linux はコロン区切り、Windows はセミコロン区切りで列挙）</li>
+  <li><code class="language-plaintext highlighter-rouge">$HOME/.node_modules</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$HOME/.node_libraries</code></li>
+  <li><code class="language-plaintext highlighter-rouge">$PREFIX/lib/node</code></li>
+</ol>
+
+<p>ただし、これらの仕組みは現在のような高度なモジュール検索アルゴリズムが導入される前に作られたもので、互換性のために残されています。
+環境毎の設定の違いにより、アプリケーションの振る舞いが大きく変わってしまう可能性があるので、できるだけグローバルフォルダの仕組みは使わないようにしましょう。</p>
+
+<h2 id="コラム-require-によりロードしたモジュールは指定した名前でキャッシュされる">（コラム） require によりロードしたモジュールは指定した名前でキャッシュされる</h2>
+
+<p>Node.js は、<code class="language-plaintext highlighter-rouge">require</code> による同一モジュールの読み込みを効率化するため、読み込んだモジュールをキャッシュしています。
+主にメモリ効率や速度向上のための仕組みですが、副次的な作用として、モジュールインスタンスが複数のクライアントモジュール間で共有されることに注意してください。
+次のサンプルコードの動作を見るとわかりやすいです。</p>
+
+<h4 id="mylibjs">mylib.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">exports</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="strangerjs">stranger.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mylib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./mylib</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">mylib</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="mainjsエントリポイント">main.js（エントリポイント）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mylib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./mylib</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mylib</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">stranger</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./stranger</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mylib</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node main.js
+100
+200  ★mylib.value の値が書き換わっている
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">mylib</code> モジュールは、<code class="language-plaintext highlighter-rouge">value</code> 変数を公開しています。
+<code class="language-plaintext highlighter-rouge">mylib.value</code> の値は最初 100 ですが、<code class="language-plaintext highlighter-rouge">stranger.js</code> の中で間接的に 200 に書き換えられています。
+<code class="language-plaintext highlighter-rouge">stranger.js</code> から読み込んだ <code class="language-plaintext highlighter-rouge">mylib</code> モジュールインスタンスは、<code class="language-plaintext highlighter-rouge">main.js</code> が参照しているインスタンスと同じものなので、<code class="language-plaintext highlighter-rouge">stranger.js</code> で <code class="language-plaintext highlighter-rouge">mylib</code> インスタンスの内容を書き換えると、その影響が <code class="language-plaintext highlighter-rouge">main.js</code> 側の <code class="language-plaintext highlighter-rouge">mylib</code> インスタンスにも及ぶことになります（<code class="language-plaintext highlighter-rouge">stranger.js</code> をロードするだけで <code class="language-plaintext highlighter-rouge">mylib.value</code> の値が 100 から 200 に変わってしまう）。</p>
+
+<p>このキャッシュの仕組みを、モジュール間の値のやりとりに利用できそうだと思うかもしれませんが、そのような用途で使うのは避けるべきです。
+なぜなら、<strong>同一だと思われるモジュールでも別のキャッシュインスタンスが生成されることがある</strong>からです。
+Node.js は、キャッシュされたモジュールの識別子として、<code class="language-plaintext highlighter-rouge">require</code> のパラメータで指定された名前を使用しています。
+ロードするモジュールの相対的なパスが変わったり、ファイル名の指定方法が変わるだけで別のインスタンスが生成される可能性があります。</p>
+
+<p>例えば、Windows のファイルシステムは大文字と小文字を区別しませんが、Node.js がモジュールインスタンスをキャッシュするときは、大文字と小文字が区別された名前を識別子として使用します。
+Windows 環境において、<code class="language-plaintext highlighter-rouge">mylib.js</code> と <code class="language-plaintext highlighter-rouge">MYLIB.js</code> は同一のファイルを示しますが、Node.js で <code class="language-plaintext highlighter-rouge">require('./mylib')</code> とした場合と、<code class="language-plaintext highlighter-rouge">require('./MYLIB')</code> とした場合は別々のモジュールインスタンスとしてキャッシュされることになります。</p>
+
+<p>下記の例を見てください。
+前述の <code class="language-plaintext highlighter-rouge">main.js</code> をちょっとだけ書き換えて、<code class="language-plaintext highlighter-rouge">require</code> パラメータで指定するモジュールのパスを大文字に変更しています。</p>
+
+<h4 id="mainjs">main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mylib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./MYLIB</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// 大文字で指定</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mylib</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">stranger</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./stranger</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mylib</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="実行結果-1">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node main.js
+100
+100  ★stranger.js の中の変更は main.js に影響しない
+</code></pre></div></div>
+
+<p>このようにすると、<code class="language-plaintext highlighter-rouge">main.js</code> の中の <code class="language-plaintext highlighter-rouge">mylib</code> インスタンスと、<code class="language-plaintext highlighter-rouge">stranger.js</code> の中の <code class="language-plaintext highlighter-rouge">mylib</code> インスタンスは別々のインスタンスとして扱われるため、<code class="language-plaintext highlighter-rouge">stranger.js</code> の中での <code class="language-plaintext highlighter-rouge">mylib</code> インスタンスの変更は <code class="language-plaintext highlighter-rouge">main.js</code> 側に影響しません。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js が require() で検索するパスのまとめ&url=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/module/require.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/nodejs/"><span class="xArticle_up_label">まくまくNode.jsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li class="xNav-focused"><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2014-09-22</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/pic/asm/timer1.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="タイマ 1 を使用する ─ PIC めもめも | まくまくいろいろノート" />
+  <title>タイマ 1 を使用する ─ PIC めもめも - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">タイマ 1 を使用する ─ PIC めもめも</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/pic/asm/timer1.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： タイマ 1 を使用する ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>タイマ 1 はミッドレンジシリーズの PIC16F84 などで使用することができます。
+タイマ 1 を使用することにより、より正確なインターバルタイマとして機能させることができます。</p>
+
+<h2 id="t1con-レジスタの構成">T1CON レジスタの構成</h2>
+
+<table align="center">
+	<caption>T1CON レジスタ (10h : Bank0)</caption>
+	<tr class="c">
+		<td class="namec" width="12.5%">─<br />(7)</td>
+		<td class="namec" width="12.5%">─<br />(6)</td>
+		<td width="12.5%">T1CKPS1<br />(5)</td>
+		<td width="12.5%">T1CKPS0<br />(4)</td>
+		<td width="12.5%">T1OSCEN<br />(3)</td>
+		<td width="12.5%"><span style="text-decoration: overline;">T1SYNC</span><br />(2)</td>
+		<td width="12.5%">TMR1CS<br />(1)</td>
+		<td width="12.5%">TMR1ON<br />(0)</td>
+	</tr>
+</table>
+
+<ul>
+  <li><strong>T1CKPS1 (5) ～ T1CKPS0 (4)</strong>: タイマ 1 入力クロックプリスケール選択ビット
+    <ul>
+      <li>00 ･･･ 1:1 プリスケール値</li>
+      <li>01 ･･･ 1:2 プリスケール値</li>
+      <li>10 ･･･ 1:4 プリスケール値</li>
+      <li>11 ･･･ 1:8 プリスケール値</li>
+    </ul>
+  </li>
+  <li><strong>T1OSCEN (3)</strong>: タイマ 1 オシレータイネーブルコントロールビット
+    <ul>
+      <li>0 ･･･ オシレータを停止させる。オシレータインバータと帰還抵抗をオフにして消費電流を抑えます。</li>
+      <li>1 ･･･ オシレータを動作させる。</li>
+    </ul>
+  </li>
+  <li><strong><span style="text-decoration: overline;">T1SYNC</span> (2)</strong>: タイマ 1 外部クロック入力同期コントロールビット
+    <ul>
+      <li>If TMR1CS = 1
+        <ul>
+          <li>0 ･･･ 外部クロック入力を同期させる</li>
+          <li>1 ･･･ 外部クロック入力を同期させない</li>
+        </ul>
+      </li>
+      <li>If TMR1CS = 0
+        <ul>
+          <li>このビットは無視されます。TMR1CS = 0 のとき、タイマ 1 は内部クロックを使用します。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>TMR1CS (1)</strong>: タイマ 1 クロックソース選択ビット
+    <ul>
+      <li>0 ･･･ 内部クロック (Fosc/4)</li>
+      <li>1 ･･･ RC0/T1OSO/T1CKI（立ち上がりエッジ）ピンからの外部クロック</li>
+    </ul>
+  </li>
+  <li><strong>TMR1ON (0)</strong>: タイマ 1 オン・ビット
+    <ul>
+      <li>0 ･･･ タイマ 1 を停止する</li>
+      <li>1 ･･･ タイマ 1 を動作させる</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="タイマ-1-による割り込みの仕組み">タイマ 1 による割り込みの仕組み</h2>
+
+<p>タイマ 1 の仕組みは、ほぼタイマ 0 と同じ仕組みになっていますが、タイマ 1 のカウンタは TMR1L (8bit) と TMR1H (8bit) の計 16 bit を使うため、<strong>プリスケーラを入れないでも、65,536 までのカウントが可能</strong>です。
+ただし、プリスケーラはタイマ 0 の時と違い、少なめの 3 bit になっており、スケールは 1:8 までです。
+といっても、合計 19bit のカウンタとして働くので、<strong>プリスケーラを入れて、524,288 までのカウントが可能</strong>となり、システムクロックが 10MHz の場合は約 210 msec までのインターバルを実現することができます（20MHz の場合は約 105 msec まで）。</p>
+
+<p>タイマ 0 の時は、プリスケーラを機能させるかどうかを OPTION_REG&lt;PSA(3)&gt; のビットで切り替えていましたが、タイマ 1 の場合は常にプリスケーラが働きます。
+その代わり、スケール値は 1:2 からでなく、1:1 から設定できるようになっています。
+スケール値は <strong>T1CON&lt;T1CKPS0(4)&gt;, T1CON&lt;T1CKPS1(5)&gt;</strong> で次のように設定します。</p>
+
+<table align="center">
+	<caption>タイマ 1 のプリスケーラのスケール設定</caption>
+	<tr>
+		<th>T1CON<br />&lt;T1CKPS1(5)&gt;</th><th>T1CON<br />&lt;T1CKPS0(4)&gt;</th>
+		<th>スケール</th>
+	</tr>
+	<tr>
+		<td class="namec">0</td><td class="namec">0</td>
+		<td>1:1 (65,536 * 1 = 655,36 カウントまで)</td>
+	</tr>
+	<tr>
+		<td class="namec">0</td><td class="namec">1</td>
+		<td>1:2 (65,536 * 2 = 131,072 カウントまで)</td>
+	</tr>
+	<tr>
+		<td class="namec">1</td><td class="namec">0</td>
+		<td>1:4 (65,536 * 4 = 262,144 カウントまで)</td>
+	</tr>
+	<tr>
+		<td class="namec">1</td><td class="namec">1</td>
+		<td>1:8 (65,536 * 8 = 524,288 カウントまで)</td>
+	</tr>
+</table>
+
+<p>TMR1L がオーバーフローすると、TMR1H が自動的にインクリメントされ、TMR1H もオーバーフローすると割り込みが発生します。</p>
+
+<h2 id="タイマ-1-のカウンタのためのクロック">タイマ 1 のカウンタのためのクロック</h2>
+
+<p>タイマ 1 のカウントのためのクロックは外部クロックを使うか、内部クロックを使うか選択することができます。
+<strong>T1CON&lt;TMR1CS(1)&gt;</strong> のビットで切り替えます。
+内部クロックを使う場合は、システムクロックの 1/4 の周波数でカウントされていきます。</p>
+
+<ul>
+  <li>T1CON&lt;TMR1CS(1)&gt; = 0 … 内部クロックを使用 (Fosc/4)</li>
+  <li>T1CON&lt;TMR1CS(1)&gt; = 1 … 外部クロックを使用</li>
+</ul>
+
+<h2 id="割り込み時の処理">割り込み時の処理</h2>
+
+<p>TMR1H がオーバーフローすると、割り込みが発生 (4 番地にジャンプ) し、割り込みフラグビット <strong>PIR1&lt;TMR1IF(0)&gt;</strong> がセットされます。</p>
+
+<h2 id="ccp-モジュールのコンペアモードを利用した割り込み">CCP モジュールのコンペアモードを利用した割り込み</h2>
+
+<p>CCP モジュールのコンペアモードを使うと、タイマ 1 のカウンタが指定した値になったときに割り込みを発生させることができます。
+この場合は、オーバーフローによる割り込みを使用する必要がないので、カウンタの初期値をあらかじめ計算してセットする必要がありません（CCPR1L、CCPR1H の値と TMR1L、TMR1H の値が等しくなった時に、なんらかのアクションが発生します）。
+コンペアモードを使うことにより、タイマ 1 を正確なインターバルタイマとして利用することができます。</p>
+
+<h2 id="タイマ-1-の設定例">タイマ 1 の設定例</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SetupTimer1
+    MOVLW    B'00000001'
+             ;プリスケーラ 1:1
+             ;オシレータ停止
+             ;内部クロック
+    MOVWF    T1CON
+</code></pre></div></div>
+
+<p>CCS モジュールのコンペアモードで割り込みを発生させる場合は、T1CON の設定はこれだけになります（この場合、CCPR1L, CCPR1H の値を目的の値に設定する必要があります）。
+<strong>タイマ 1 は設定するとただちにカウントを始めるため、他のレジスタの設定が済んでから設定を行なうようにします。</strong>
+<strong>あるいは、割り込みをイネーブルにする直前に、カウンタ (TMR1L, TMR1H) をリセットするのも 1 つの方法です。</strong></p>
+
+<p>タイマ 1 をタイマ 0 と同じように、カウンタのオーバーフローによる割り込み (PIR1&lt;TMR1IF(0)&gt;) で利用する場合は、TMR1H が予定時間にうまくオーバーフローするように、TMR1L、TMR1H の初期値を計算してあらかじめセットしておく必要があります。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： タイマ 1 を使用する ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/timer1.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

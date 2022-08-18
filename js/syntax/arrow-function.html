@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaScriptノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/syntax/arrow-function.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaScriptノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="アロー関数で関数を定義する | まくまくJavaScriptノート" />
+  <title>アロー関数で関数を定義する - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">アロー関数で関数を定義する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2018-11-22</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/syntax/arrow-function.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： アロー関数で関数を定義する&url=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="アロー関数とは">アロー関数とは</h2>
+
+<p>アロー関数は、<a href="https://www.ecma-international.org/ecma-262/6.0/#sec-arrow-function-definitions">ECMAScript 2015 (6th Edition, ECMA-262)</a> で定義された構文で、この構文を使用することで無名の関数を短く記述することができるようになります。</p>
+
+<p>例えば、配列の <code class="language-plaintext highlighter-rouge">map</code> メソッドの例を見てみましょう。
+<code class="language-plaintext highlighter-rouge">map</code> メソッドは受け取った関数を各要素に適用した配列を返します。
+従来は、下記のように無名の関数オブジェクトを渡していました。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span>  <span class="c1">//=&gt; [ 2, 4, 6 ]</span>
+</code></pre></div></div>
+
+<p>これを、アロー関数を使って書き換えると、次のように簡潔に記述することができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr2</span><span class="p">);</span>  <span class="c1">//=&gt; [ 2, 4, 6 ]</span>
+</code></pre></div></div>
+
+<p>短く記述できて、かつ、分かりやすいですね！</p>
+
+<h2 id="アロー関数の基本構文">アロー関数の基本構文</h2>
+
+<p>アロー関数を使用する場合は、パラメータの数が、0個、1個、それ以上の場合で注意する点があるのでここでまとめておきます。</p>
+
+<h3 id="パラメータが-0-個の場合">パラメータが 0 個の場合</h3>
+
+<p>パラメータがない場合、アロー関数のパラメータ部分は <code class="language-plaintext highlighter-rouge">()</code> とだけ記述する必要があります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">doTask</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">);</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="パラメータが-1-個の場合">パラメータが 1 個の場合</h3>
+
+<p>パラメータが1つだけの場合は、パラメータは括弧 <code class="language-plaintext highlighter-rouge">()</code> で囲んでも、囲まなくても構いません。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">x</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="パラメータが-2-個以上の場合">パラメータが 2 個以上の場合</h3>
+
+<p>パラメータが複数ある場合、パラメータは必ず括弧 <code class="language-plaintext highlighter-rouge">()</code> で囲む必要があります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>  <span class="c1">//=&gt; [ 1, 2, 3, 4, 5 ]</span>
+</code></pre></div></div>
+
+<p>ちなみに、アロー関数は従来の関数オブジェクトの定義の代わりに使用できるので、下記のように変数に代入することができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>初めて見ると <code class="language-plaintext highlighter-rouge">=</code> がいっぱい出てきて面食らうので覚えておきましょう。</p>
+
+<h2 id="アロー関数では-return-の記述を省略できる">アロー関数では return の記述を省略できる</h2>
+
+<p>アロー (<code class="language-plaintext highlighter-rouge">=&gt;</code>) の右側の <code class="language-plaintext highlighter-rouge">{}</code> を省略すると、その値が <code class="language-plaintext highlighter-rouge">return</code> されたのと同様に振る舞います。
+つまり、下記の2つは同じ動作になります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="アロー関数のデフォルト引数">アロー関数のデフォルト引数</h2>
+
+<p>アロー関数のパラメータとして、デフォルト値を設定しておくことができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">doSomething</span><span class="p">((</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="アロー関数では-this-が束縛されない">アロー関数では this が束縛されない</h2>
+
+<p>アロー関数の中で <code class="language-plaintext highlighter-rouge">this</code> を参照すると、その外側のスコープの <code class="language-plaintext highlighter-rouge">this</code> を参照することができます。
+この性質は、メソッド定義内のコールバック関数から <code class="language-plaintext highlighter-rouge">this</code> を参照したい場合に役に立ちます。</p>
+
+<p>例えば、下記の <code class="language-plaintext highlighter-rouge">MyClass</code> クラスは、コンストラクタで渡された名前 (<code class="language-plaintext highlighter-rouge">this.name</code>) を参照してメッセージを出力する <code class="language-plaintext highlighter-rouge">hello()</code> メソッドを定義しています。
+しかし、実際に <code class="language-plaintext highlighter-rouge">this</code> を参照している部分はコールバック関数内にあるため、<code class="language-plaintext highlighter-rouge">MyClass</code> のインスタンスとしての <code class="language-plaintext highlighter-rouge">this</code> を参照できていません。</p>
+
+<h4 id="間違った例">間違った例</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// コンストラクタ</span>
+<span class="kd">function</span> <span class="nx">MyClass</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// インスタンスメソッド（1秒待ってからメッセージを表示）</span>
+<span class="nx">MyClass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">Maku</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">hello</span><span class="p">();</span>  <span class="c1">//=&gt; Hello undefined</span>
+</code></pre></div></div>
+
+<p>この問題を解決するため、従来は次のように <code class="language-plaintext highlighter-rouge">this</code> への参照を <code class="language-plaintext highlighter-rouge">that</code> や <code class="language-plaintext highlighter-rouge">self</code> といった名前の変数に保持しておくのが一般的な方法でした。</p>
+
+<h4 id="正しく-this-を参照できるようにした例">正しく this を参照できるようにした例</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">MyClass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">that</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="nx">that</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>アロー関数を使用すると、こういった <code class="language-plaintext highlighter-rouge">this</code> 参照の退避が必要なくなり、次のようにスッキリと記述することができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">MyClass</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： アロー関数で関数を定義する&url=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/syntax/arrow-function.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2018-11-22</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

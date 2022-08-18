@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/env/dotenv.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content=".env ファイルで環境変数を設定する (python-dotenv) | まくまくPythonノート" />
+  <title>.env ファイルで環境変数を設定する (python-dotenv) - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">.env ファイルで環境変数を設定する (python-dotenv)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2020-05-27</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/env/dotenv.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： .env ファイルで環境変数を設定する (python-dotenv)&url=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="python-dotenv-モジュールの概要">python-dotenv モジュールの概要</h2>
+
+<p><a href="https://pypi.org/project/python-dotenv/">python-dotenv モジュール</a> を使用すると、Python プログラム実行時に下記のようなファイルを読み込んで、環境変数を設定することができます。</p>
+
+<h4 id="env">.env</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MYAPP_USER=maku
+MYAPP_PASS=makupass
+MYAPP_CONFIG=${HOME}/${MYAPP_USER}/config
+</code></pre></div></div>
+
+<p>上記の例のように、<code class="language-plaintext highlighter-rouge">${HOME}</code> という形で環境変数の値を展開することもできます。</p>
+
+<p>特定のプログラムを実行するために、いちいち OS の環境変数を設定するのを嫌がるユーザーはたくさんいます。
+あなたのプログラムが何らかの環境変数を必要としているのであれば、<code class="language-plaintext highlighter-rouge">.env</code> ファイルによる設定手段も提供しておくと親切です。</p>
+
+<p><code class="language-plaintext highlighter-rouge">.env</code> の仕組みは Python に限ったものではなく、いろいろな言語で採用されています。</p>
+
+<ul>
+  <li>参考: <a href="/nodejs/env/dotenv.html">Node.js プログラムで .env ファイルを使用する</a></li>
+</ul>
+
+<h2 id="python-dotenv-モジュールのインストール">python-dotenv モジュールのインストール</h2>
+
+<p><code class="language-plaintext highlighter-rouge">python-dotenv</code> モジュールは <code class="language-plaintext highlighter-rouge">pip</code> コマンドでインストールできます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install python-dotenv
+</code></pre></div></div>
+
+<p>システム全体の Python 実行環境を汚したくない場合は、次のように <a href="../env/venv.html">仮想環境を作成してインストール</a> しましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m venv ~/venv
+$ source ~/venv/bin/activate
+(venv) $ pip install python-dotenv
+</code></pre></div></div>
+
+<p>仮想環境は次のように抜けられます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(venv) $ deactivate
+</code></pre></div></div>
+
+<h2 id="python-dotenv-の使い方">python-dotenv の使い方</h2>
+
+<h3 id="env-ファイルの内容を環境変数に反映する">.env ファイルの内容を環境変数に反映する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">.env</code> ファイルを読み込むのはとても簡単で、<strong><code class="language-plaintext highlighter-rouge">load_dotenv()</code></strong> を呼び出すだけです。
+次の Python スクリプトでは、同じディレクトリ（あるいは、より上位のディレクトリ）に置かれた <code class="language-plaintext highlighter-rouge">.env</code> ファイルの内容を読み込み、環境変数に反映しています。</p>
+
+<h4 id="configpy">config.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .env ファイルをロードして環境変数へ反映
+</span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># 環境変数を参照
+</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">MYAPP_USER</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'MYAPP_USER'</span><span class="p">)</span>
+<span class="n">MYAPP_PASS</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'MYAPP_PASS'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>仮に、<code class="language-plaintext highlighter-rouge">.env</code> ファイルが存在しなくても、<code class="language-plaintext highlighter-rouge">load_dotenv()</code> はエラーにならないので、上記のようなコードは安心して実行することができます。
+ちなみに、上記の <code class="language-plaintext highlighter-rouge">config.py</code> モジュールは、次のような感じで使用します。</p>
+
+<h4 id="mainpy">main.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">config</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">MYAPP_USER</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">config</span><span class="p">.</span><span class="n">MYAPP_PASS</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="環境変数の値を上書きする">環境変数の値を上書きする</h3>
+
+<p>OS の環境変数設定で、すでに同じ名前の変数が定義されている場合は、そちらが優先して使われるようになっています。
+<code class="language-plaintext highlighter-rouge">.env</code> ファイルで設定した値を優先して使いたい場合は、次のように <strong><code class="language-plaintext highlighter-rouge">override</code></strong> オプションを指定します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">override</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="env-ファイルの扱い方">.env ファイルの扱い方</h2>
+
+<h3 id="env-ファイルはどこに置くべきか">.env ファイルはどこに置くべきか？</h3>
+
+<p>ある Python スクリプトから <code class="language-plaintext highlighter-rouge">dotenv.load_dotenv()</code> 関数を呼び出すと、そのスクリプトファイルがあるディレクトリを起点に、<code class="language-plaintext highlighter-rouge">.env</code> ファイルが見つかるまで親ディレクトリを遡りながら検索します。
+なので、あるプロジェクトで使用する <strong><code class="language-plaintext highlighter-rouge">.env</code> ファイルは、そのプロジェクトのルートディレクトリに配置</strong> しておけば、まずロードに失敗することはありません。</p>
+
+<h3 id="env-ファイルは-git-にコミットする">.env ファイルは Git にコミットする？</h3>
+
+<p><code class="language-plaintext highlighter-rouge">.env</code> ファイルは、ユーザー固有の設定を記述するものです。
+例えば、Web サービスのアクセストークンなどを記述するので、 <strong><code class="language-plaintext highlighter-rouge">.env</code> ファイルは Git にコミットしてはいけません</strong>。
+間違えてコミットしないように、<code class="language-plaintext highlighter-rouge">.gitignore</code> ファイルに <code class="language-plaintext highlighter-rouge">.env</code> のエントリを登録しておきましょう。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： .env ファイルで環境変数を設定する (python-dotenv)&url=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/dotenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2020-05-27</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

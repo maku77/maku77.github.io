@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="EasyLanguage の if-else 分岐処理は、条件分岐後に実行するステートメントが1つだけの場合と、複数の場合で書き方を変える必要があります。Easy といっておきながら若干わかりにくいですが、慣れるしかありません。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/tradestation/syntax/if-else.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-tradestation.png" />
+
+  <meta property="og:description" content="EasyLanguage の if-else 分岐処理は、条件分岐後に実行するステートメントが1つだけの場合と、複数の場合で書き方を変える必要があります。Easy といっておきながら若干わかりにくいですが、慣れるしかありません。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="EasyLanguage: if-else による条件分岐 | まくまくトレードステーションノート" />
+  <title>EasyLanguage: if-else による条件分岐 - まくまくトレードステーションノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/tradestation/">
+    <img src="/assets/img/logo-tradestation.png" class="xPageHeader_logo">
+  </a>
+  <a href="/tradestation/">
+    <div class="xPageHeader_category">
+    まくまくトレードステーションノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">EasyLanguage: if-else による条件分岐</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/tradestation/">トレードステーション</a></div>
+  <div class="xPageDate">2018-11-26</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/tradestation/syntax/if-else.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくトレードステーションノート： EasyLanguage: if-else による条件分岐&url=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">EasyLanguage の if-else 分岐処理は、条件分岐後に実行するステートメントが1つだけの場合と、複数の場合で書き方を変える必要があります。Easy といっておきながら若干わかりにくいですが、慣れるしかありません。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="分岐後のステートメントが-1-つの場合">分岐後のステートメントが 1 つの場合</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if 条件式 then ステートメント;
+if 条件式 then ステートメント1 else ステートメント2;
+</code></pre></div></div>
+
+<p>条件分岐は、この if-then-else の構成が基本となります。
+各ステートメントの後ろにセミコロン (<code class="language-plaintext highlighter-rouge">;</code>) を記述せず、if-then-else 全体の最後にだけセミコロンを記述します。
+全体を 1 つの英語文章のように捉えるのであれば、最初の I だけを大文字で記述するのがよいでしょう。</p>
+
+<h4 id="使用例">使用例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
+</code></pre></div></div>
+
+<p>ステートメント部分が長い場合は、下記のように複数行に分けて記述することもできます。
+この場合も、セミコロンは最後の 1 つだけ記述することに注意してください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if 条件式 then
+    ステートメント;
+
+if 条件式 then
+    ステートメント1
+else
+    ステートメント2;
+</code></pre></div></div>
+
+<p>if-else 分岐を複数行に分けて記述する場合は、下記に説明するような <code class="language-plaintext highlighter-rouge">begin</code> ～ <code class="language-plaintext highlighter-rouge">end</code> セクションを使用した方が、書き方を統一できて読みやすいかもしれません。</p>
+
+<h2 id="分岐後のステートメントが-2-つ以上の場合">分岐後のステートメントが 2 つ以上の場合</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if 条件式 then begin
+    ステートメント1;
+    ステートメント2;
+end;
+
+if 条件式 then begin
+    ステートメント1;
+    ステートメント2;
+end else begin
+    ステートメント3;
+    ステートメント4;
+end;
+</code></pre></div></div>
+
+<p>条件分岐後に複数のステートメントを記述する場合は、それらを <code class="language-plaintext highlighter-rouge">begin</code> ～ <code class="language-plaintext highlighter-rouge">end</code> で囲む必要があります。
+パッと見はかなり複雑に見えますが、ステートメントが 1 つだけだったときの書き方の、ステートメントの部分を <code class="language-plaintext highlighter-rouge">begin</code> ～ <code class="language-plaintext highlighter-rouge">end</code> セクションに置き換えたのだと考えると分かりやすいと思います。
+<code class="language-plaintext highlighter-rouge">begin</code> ～ <code class="language-plaintext highlighter-rouge">end</code> セクションの中の各ステートメントの最後はセミコロンで終わる必要があります。</p>
+
+<h4 id="使用例-1">使用例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if BarType = 2 then begin
+    if FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;
+    if FastAvg crosses under SlowAvg then Sellshort 500 shares next bar at market;
+end;
+</code></pre></div></div>
+
+<h2 id="else-if-な条件分岐">else if な条件分岐</h2>
+
+<p>ここまでを踏まえて、else if な条件分岐を記述する場合は、次のように記述することになります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if 条件式1 then begin
+    ステートメント1;
+    ステートメント2;
+end else if 条件式2 then begin
+    ステートメント3;
+    ステートメント4;
+end else begin
+    ステートメント5;
+    ステートメント6;
+end;
+</code></pre></div></div>
+
+<p>どっひゃ～。分かりにくい。。。</p>
+
+<h2 id="関係演算子">関係演算子</h2>
+
+<p>if-else の条件式部分では、以下のような関係演算子を使って数値比較を行うことができます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>関係演算子</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
+      <td>より大きい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>より小さい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">=</code></td>
+      <td>等しい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;&gt;</code></td>
+      <td>異なる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
+      <td>より大きいか等しい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
+      <td>より小さいか等しい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">crosses over</code> (<code class="language-plaintext highlighter-rouge">crosses above</code>)</td>
+      <td>現在の足ではより大きいが、前の足ではより小さいか等しい</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">crosses under</code> (<code class="language-plaintext highlighter-rouge">crosses below</code>)</td>
+      <td>現在の足ではより小さいが、前の足ではより大きいか等しい</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="使用例-2">使用例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if Close &gt; Open then ...;
+if (High + L) /2 &gt; Close then ...;
+if CurrentBar &gt; 1 and Close &gt; HighestFC(High,Length)[1] then Buy on Close;
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくトレードステーションノート： EasyLanguage: if-else による条件分岐&url=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/tradestation/syntax/if-else.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/tradestation/"><span class="xArticle_up_label">まくまくトレードステーションノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li class="xNav-focused"><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/tradestation/">トレードステーション</a></div>
+  <div class="xPageDate">2018-11-26</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

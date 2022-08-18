@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/basic/interface.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="インタフェースを定義する (interface) | まくまくKotlinノート" />
+  <title>インタフェースを定義する (interface) - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">インタフェースを定義する (interface)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-04-24</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/basic/interface.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： インタフェースを定義する (interface)&url=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="インタフェースの基本">インタフェースの基本</h2>
+
+<p>Kotlin でのインタフェース定義は、Java と同様に <strong><code class="language-plaintext highlighter-rouge">interface</code></strong> キーワードを使用します。
+下記の例では、<code class="language-plaintext highlighter-rouge">Command</code> インタフェースを定義し、それを <code class="language-plaintext highlighter-rouge">GreetCommand</code> クラスと <code class="language-plaintext highlighter-rouge">ExplodeCommand</code> クラスが実装しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">GreetCommand</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Hi, $name"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ExplodeCommand</span> <span class="p">:</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Boom!"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">executeAllCommands</span><span class="p">(</span><span class="n">commands</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Command</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="n">commands</span><span class="p">.</span><span class="nf">forEach</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="nf">execute</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">commands</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span>
+        <span class="nc">GreetCommand</span><span class="p">(</span><span class="s">"Maku"</span><span class="p">),</span>
+        <span class="nc">GreetCommand</span><span class="p">(</span><span class="s">"Hemu"</span><span class="p">),</span>
+        <span class="nc">ExplodeCommand</span><span class="p">())</span>
+    <span class="nf">executeAllCommands</span><span class="p">(</span><span class="n">commands</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hi, Maku
+Hi, Hemu
+Boom!
+</code></pre></div></div>
+
+<p>インタフェースのメソッドはオーバーライドされることを前提としているため、<code class="language-plaintext highlighter-rouge">fun</code> の前に <code class="language-plaintext highlighter-rouge">open</code> を付ける必要はないことに注意してください。
+<strong>オーバーライドする側のメソッドには <code class="language-plaintext highlighter-rouge">override</code> を付ける</strong>必要があります（Java のような <code class="language-plaintext highlighter-rouge">@Override</code> アノテーションは使いません）。</p>
+
+<h2 id="インタフェースの継承">インタフェースの継承</h2>
+
+<p>インタフェースは他のインタフェースを継承することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nc">UndoableCommand</span> <span class="p">:</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">undo</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>インタフェース（およびクラス）は、複数のインタフェースを継承（および実装）することができます。
+下記の <code class="language-plaintext highlighter-rouge">DrawCommand</code> クラスは、<code class="language-plaintext highlighter-rouge">Command</code> インタフェースと <code class="language-plaintext highlighter-rouge">Undoable</code> インタフェースを実装しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nc">Undoable</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">undo</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">DrawCommand</span><span class="p">:</span> <span class="nc">Command</span><span class="p">,</span> <span class="nc">Undoable</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">undo</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>あるオブジェクトが特定のインタフェースを継承しているかどうかを調べるには、<strong><code class="language-plaintext highlighter-rouge">is</code></strong> を使って、<code class="language-plaintext highlighter-rouge">if (obj is InterfaceName)</code> のように記述します。
+下記の例では、リストに含まれている要素が <code class="language-plaintext highlighter-rouge">Number</code> であるかをひとつずつチェックしています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">printAllNums</span><span class="p">(</span><span class="n">maybeNumbers</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Any</span><span class="p">&gt;)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">e</span> <span class="k">in</span> <span class="n">maybeNumbers</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="k">is</span> <span class="nc">Number</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">println</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s">"AAA"</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="s">"BBB"</span><span class="p">)</span>
+    <span class="nf">printAllNums</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>  <span class="c1">//=&gt; 100 200</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="マーカーインタフェース">マーカーインタフェース</h2>
+
+<p>Java の <code class="language-plaintext highlighter-rouge">Serializable</code> インタフェースなどは、メソッドを何も持っていないマーカーインタフェースです。
+Kotlin では、マーカーインタフェースは下記のようにシンプルに定義できます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">MyMarker</span>
+</code></pre></div></div>
+
+<p>あるオブジェクトがマーカーインタフェースを持っているかを調べるには、<code class="language-plaintext highlighter-rouge">is</code> キーワードを使用します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">checkMarker</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nc">Any</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="k">is</span> <span class="nc">MyMarker</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"MyMarker を実装しています"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">class</span> <span class="nc">MyClass</span> <span class="p">:</span> <span class="nc">MyMarker</span>
+    <span class="nf">checkMarker</span><span class="p">(</span><span class="nc">MyClass</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="インタフェースのデフォルト実装">インタフェースのデフォルト実装</h2>
+
+<p>Kotlin のインタフェースは、Java8 のインタフェースのデフォルトメソッドと同様に、デフォルトの実装を持つことができます。
+下記の <code class="language-plaintext highlighter-rouge">Command</code> インタフェースの <code class="language-plaintext highlighter-rouge">help</code> メソッドはデフォルト実装を持っています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+    <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"No help exists"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">MyCommand</span> <span class="p">:</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"I am MyCommand"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="nc">MyCommand</span><span class="p">()</span>
+    <span class="n">a</span><span class="p">.</span><span class="nf">execute</span><span class="p">()</span>  <span class="c1">//=&gt; I am MyCommand</span>
+    <span class="n">a</span><span class="p">.</span><span class="nf">help</span><span class="p">()</span>  <span class="c1">//=&gt; No help exists</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Java でインタフェースにデフォルト実装を持たせるときは <code class="language-plaintext highlighter-rouge">default</code> キーワードが必要でしたが、Kotlin では通常のメソッドと同様に定義するだけで OK です。</p>
+
+<h3 id="デフォルト実装の衝突の回避">デフォルト実装の衝突の回避</h3>
+
+<p>インタフェースのデフォルト実装が可能になるということは、実装の多重継承ができることと同等の意味を持ちます。
+これは、実装の衝突という問題を生みます。</p>
+
+<p>下記は、2 つのインタフェースが、同じ <code class="language-plaintext highlighter-rouge">help</code> という名前のデフォルト実装を持つ例です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Menu</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Menu.help"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Command.help"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">FileOpenMenu</span> <span class="p">:</span> <span class="nc">Menu</span><span class="p">,</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="c1">// コンパイルエラー！</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">FileOpenMenu</code> クラスは <code class="language-plaintext highlighter-rouge">help()</code> のデフォルト実装を使おうとしますが、<code class="language-plaintext highlighter-rouge">Menu.help()</code> を呼び出せばいいのか、<code class="language-plaintext highlighter-rouge">Command.help()</code> を呼び出せばいいのか判断できないため、上記のコードはコンパイルエラーになります。</p>
+
+<p>次のように、自分自身でオーバーライドしてしまえば問題ありません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">FileOpenMenu</span> <span class="p">:</span> <span class="nc">Menu</span><span class="p">,</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"FileOpenMenu.help"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>どちらかのデフォルト実装をそのまま呼び出したい場合は、<strong><code class="language-plaintext highlighter-rouge">super</code></strong> キーワードを使って次のように記述します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">FileOpenMenu</span> <span class="p">:</span> <span class="nc">Menu</span><span class="p">,</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">=</span> <span class="k">super</span><span class="p">&lt;</span><span class="nc">Menu</span><span class="p">&gt;.</span><span class="nf">help</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>デフォルト実装を呼び出す位置に制約はないので、次のようにして両方のデフォルト実装を呼び出してしまうこともできます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">FileOpenMenu</span> <span class="p">:</span> <span class="nc">Menu</span><span class="p">,</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">help</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">&lt;</span><span class="nc">Menu</span><span class="p">&gt;.</span><span class="nf">help</span><span class="p">()</span>
+        <span class="k">super</span><span class="p">&lt;</span><span class="nc">Command</span><span class="p">&gt;.</span><span class="nf">help</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="インタフェースで抽象プロパティを定義する">インタフェースで抽象プロパティを定義する</h2>
+
+<p>Kotlin のインタフェースには<strong>抽象プロパティ (abstract property)</strong> を持たせることができます（Kotlin のプロパティは実質 getter と setter メソッドの省略記法なので、当然といえば当然ですが）。
+下記の <code class="language-plaintext highlighter-rouge">Book</code> クラスは、<code class="language-plaintext highlighter-rouge">description</code> という抽象プロパティを定義しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Book</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">description</span><span class="p">:</span> <span class="nc">String</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このインタフェースには、<code class="language-plaintext highlighter-rouge">description</code> プロパティが示す実体は存在しないことに注意してください。
+このインタフェースを実装するクラスで、<code class="language-plaintext highlighter-rouge">description</code> プロパティを実装 (<code class="language-plaintext highlighter-rouge">override</code>) する必要があります。
+下記のようにパラメータでプロパティの実体を定義してしまってもよいし、</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">RealBook</span><span class="p">(</span><span class="k">override</span> <span class="kd">val</span> <span class="py">description</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Book</span>
+</code></pre></div></div>
+
+<p>下記のように getter メソッドを用意しても OK です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">RealBook</span><span class="p">(</span><span class="n">bookId</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Book</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="kd">val</span> <span class="py">description</span><span class="p">:</span> <span class="nc">String</span>
+        <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="nf">getBookDescription</span><span class="p">(</span><span class="n">bookId</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="コラム-インタフェースの実装とクラスの継承の見分け方">コラム: インタフェースの実装とクラスの継承の見分け方</h2>
+
+<p>Java では、インタフェースの実装には <code class="language-plaintext highlighter-rouge">implements</code>、クラスの継承には <code class="language-plaintext highlighter-rouge">extends</code> というように、キーワードを使い分けていました。
+一方、Kotlin では、どちらも非常に似たような文法を使用します。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">class Foo : MyInterface</code> … インタフェースの実装</li>
+  <li><code class="language-plaintext highlighter-rouge">class Bar : Parent()</code> … クラスの継承</li>
+</ul>
+
+<p><strong>見分けるポイントは、後ろに括弧 <code class="language-plaintext highlighter-rouge">()</code> があるかないか</strong>です。
+クラスを継承する場合は、親クラスのコンストラクタを指定するための括弧が必要になります。
+パラメータを取らないプライマリ・コンストラクタを呼び出す場合は、上記のように空の括弧 <code class="language-plaintext highlighter-rouge">()</code> を指定することになります。</p>
+
+<p>下記は、インタフェースの実装と、クラスの継承を同時に行うクラスの実装例です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">Command</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">open</span> <span class="kd">class</span> <span class="nc">Parent</span> <span class="p">{</span>
+    <span class="k">open</span> <span class="k">fun</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Parent"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Child</span> <span class="p">:</span> <span class="nc">Command</span><span class="p">,</span> <span class="nc">Parent</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">execute</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Child.execute"</span><span class="p">)</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">hello</span><span class="p">()</span> <span class="p">=</span> <span class="nf">println</span><span class="p">(</span><span class="s">"Child.hello"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Child</code> クラスの定義に着目してください。
+インタフェースの実装を示す部分 (<code class="language-plaintext highlighter-rouge">Command</code>) には括弧がついておらず、クラスの継承を示す部分 (<code class="language-plaintext highlighter-rouge">Parent()</code>) には括弧がついています。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： インタフェースを定義する (interface)&url=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/interface.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-04-24</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

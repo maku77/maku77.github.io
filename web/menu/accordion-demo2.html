@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    main {
+      margin: 2rem;
+    }
+
+    /* メニュー全体 */
+    .menu {
+      width: 20rem;
+    }
+
+    /* チェックボックスは非表示にする（内部的な Off/On の機能だけ利用する） */
+    .menu input {
+        display: none;
+    }
+
+    /* 開いた状態のサブメニュー */
+    .menu input:checked + ul {
+        line-height: 1.5;
+        padding: 1rem 1rem;
+    }
+
+    /* 閉じた状態のサブメニュー */
+    .menu ul {
+        overflow: hidden;
+        line-height: 0;
+        padding: 0 1rem;
+        transition: 0.2s;
+
+        /* 下記は開閉によらず共通の設定 */
+        background: #eee;
+        list-style: none;
+        margin: 0;
+    }
+
+    /* 親項目の装飾 */
+    .menu label {
+        display: block;
+        margin: 0;
+        padding: 0.5rem;
+        background: #ddd;
+        cursor: pointer;
+    }
+
+    .menu label:hover {
+        background: #ccc;
+    }
+  </style>
+  <title>CSS によるメニューの開閉 (2): デモページ</title>
+</head>
+<body>
+<main>
+
+<div class="menu">
+  <label for="item1">項目１</label>
+  <input type="checkbox" id="item1">
+  <ul>
+    <li>項目１－１
+    <li>項目１－２
+    <li>項目１－３
+  </ul>
+
+  <label for="item2">項目２</label>
+  <input type="checkbox" id="item2">
+  <ul>
+    <li>項目２－１
+    <li>項目２－２
+    <li>項目２－３
+  </ul>
+</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/ui/recycler-view.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="RecyclerView の基本 | まくまくAndroidノート" />
+  <title>RecyclerView の基本 - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">RecyclerView の基本</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-11-12</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/ui/recycler-view.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： RecyclerView の基本&url=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="recyclerview-とは">RecyclerView とは</h2>
+
+<p>Android アプリで多数のコンテンツのリストを表示したいケースでは、<a href="https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.html">RecyclerView</a> という UI コンポーネントを使用すると、個々のアイテムの描画用インスタンスを使いまわしながら効率的な描画を行えます。
+<code class="language-plaintext highlighter-rouge">RecyclerView</code> によって表示された描画領域をスクロールし、表示されているコンテンツが画面外に消えていくと、その描画用インスタンスが、新たに画面内に入ってきたコンテンツのために使いまわされます。</p>
+
+<p><img src="/android/ui/recycler-view-001.png" alt="recycler-view-001.png" class="center" /></p>
+
+<p>このとき使いまわされる描画用インスタンスを、view holder オブジェクトといい、<a href="https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.ViewHolder.html">RecyclerView.ViewHolder</a> を継承して、任意の View を保持するように実装します。</p>
+
+<p><code class="language-plaintext highlighter-rouge">ListView</code> などでも複数のコンテンツを並べることはできますが、<code class="language-plaintext highlighter-rouge">ListView</code> は一度にすべてのコンテンツを表示しきってしまえるような場合に使用します。
+何十、何百というコンテンツを並べたいときは、<code class="language-plaintext highlighter-rouge">RecyclerView</code> を使用します。</p>
+
+<h2 id="recyclerview-の構成">RecyclerView の構成</h2>
+
+<p><img src="/android/ui/recycler-view-002.png" alt="recycler-view-002.png" class="center" /></p>
+
+<p>RecyclerView はこのような構成要素から成り立っています。</p>
+
+<dl>
+  <dt>RecyclerView</dt>
+  <dd>Android アプリ上に表示する View コンポーネントです。</dd>
+  <dt>RecyclerView.LayoutManager</dt>
+  <dd><code class="language-plaintext highlighter-rouge">RecyclerView</code> 上の各要素をどのように配置するかのアルゴリズムを実装します。標準のレイアウトマネージャーとして、<a href="https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/LinearLayoutManager.html">LinearLayoutManager</a> や <a href="https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/GridLayoutManager.html">GridLayoutManager</a> が用意されていますが、<a href="https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.LayoutManager.html">LayoutManager</a> を拡張して独自のレイアウトマネージャーを作成することもできます。</dd>
+  <dt>RecyclerView.ViewHolder</dt>
+  <dd><code class="language-plaintext highlighter-rouge">RecyclerView</code> 上の各要素を描画するための <code class="language-plaintext highlighter-rouge">View</code> を保持します。この <code class="language-plaintext highlighter-rouge">ViewHolder</code> インスタンスは、画面外にスクロールアウトしたときに、別の項目を表示するために再利用されます。</dd>
+  <dt>RecyclerView.Adapter</dt>
+  <dd><code class="language-plaintext highlighter-rouge">RecyclerView</code> と実際のデータを結びつけ、適切なタイミングで <code class="language-plaintext highlighter-rouge">ViewHolder</code> オブジェクトの生成 (<code class="language-plaintext highlighter-rouge">onCreateViewHolder()</code>) や、表示内容の入れ替え (<code class="language-plaintext highlighter-rouge">onBindViewHolder()</code>) を行います（<code class="language-plaintext highlighter-rouge">LayoutManager</code> から自動的に呼び出されます）。つまり、アプリの開発者は、<code class="language-plaintext highlighter-rouge">onCreateViewHolder()</code> で <code class="language-plaintext highlighter-rouge">ViewHolder</code> インスタンスを生成し、<code class="language-plaintext highlighter-rouge">onBindViewHolder()</code> でその表示内容を更新するように実装するだけでよいことになります。</dd>
+</dl>
+
+<h2 id="recyclerview-を使った実装">RecyclerView を使った実装</h2>
+
+<p><img src="/android/ui/recycler-view-003.png" alt="recycler-view-003.png" class="center" /></p>
+
+<p>まず、<code class="language-plaintext highlighter-rouge">RecyclerView</code> を配置したレイアウトファイルを用意します。
+<code class="language-plaintext highlighter-rouge">LinearLayout</code> などの <code class="language-plaintext highlighter-rouge">ViewGroup</code> を一段かましてもよいのですが、ここではルートに <code class="language-plaintext highlighter-rouge">RecyclerView</code> を配置して、直接 <code class="language-plaintext highlighter-rouge">MainActivity.setContentView()</code> でセットしてしまうことにします。</p>
+
+<h4 id="reslayoutactivity_mainxml">res/layout/activity_main.xml</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;androidx.recyclerview.widget.RecyclerView</span>
+    <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:id=</span><span class="s">"@+id/recycler_view"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:scrollbars=</span><span class="s">"vertical"</span>
+<span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>次の <code class="language-plaintext highlighter-rouge">item.xml</code> は、<code class="language-plaintext highlighter-rouge">RecyclerView</code> で描画される各要素の View を構成するためのレイアウトファイルです。
+ここでは、テキストとボタンを左右に配置しています。
+<code class="language-plaintext highlighter-rouge">RecyclerView.Adapter</code> 内で <code class="language-plaintext highlighter-rouge">ViewHolder</code> インスタンスを生成するときに inflate します。</p>
+
+<h4 id="reslayoutitemxml">res/layout/item.xml</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;androidx.constraintlayout.widget.ConstraintLayout</span>
+    <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">xmlns:app=</span><span class="s">"http://schemas.android.com/apk/res-auto"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Button</span>
+        <span class="na">android:id=</span><span class="s">"@+id/button"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:text=</span><span class="s">"Button"</span>
+        <span class="na">app:layout_constraintEnd_toEndOf=</span><span class="s">"parent"</span>
+        <span class="na">app:layout_constraintTop_toTopOf=</span><span class="s">"parent"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/label"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_marginStart=</span><span class="s">"8dp"</span>
+        <span class="na">android:text=</span><span class="s">"Element"</span>
+        <span class="na">app:layout_constraintBottom_toBottomOf=</span><span class="s">"@+id/button"</span>
+        <span class="na">app:layout_constraintStart_toStartOf=</span><span class="s">"parent"</span>
+        <span class="na">app:layout_constraintTop_toTopOf=</span><span class="s">"@+id/button"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</span>
+</code></pre></div></div>
+
+<p>アプリのエントリポイントとなる <code class="language-plaintext highlighter-rouge">MainActivity</code> では、<code class="language-plaintext highlighter-rouge">RecyclerView</code> に配置アルゴリズムとなる <code class="language-plaintext highlighter-rouge">LayoutManager</code> と、データと View を結び付けるための <code class="language-plaintext highlighter-rouge">Adapter</code> をセットします。
+ここでは、<code class="language-plaintext highlighter-rouge">LayoutManager</code> として、Android に標準で搭載されている <code class="language-plaintext highlighter-rouge">LinearLayoutManager</code> を使用します（デフォルトで縦方向に並びますが、コンストラクタの <code class="language-plaintext highlighter-rouge">orientation</code> パラメータで水平方向を指定することもできます）。
+<code class="language-plaintext highlighter-rouge">Adapter</code> にセットするデータとしては、1～100 の整数配列 (<code class="language-plaintext highlighter-rouge">IntArray</code>) を使うことにします。</p>
+
+<h4 id="mainactivitykt">MainActivity.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span>
+<span class="k">import</span> <span class="nn">android.os.Bundle</span>
+<span class="k">import</span> <span class="nn">androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="k">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// RecyclerView 本体、および、LayoutManager と Adapter</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">recyclerView</span><span class="p">:</span> <span class="nc">RecyclerView</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">layoutManager</span><span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">LayoutManager</span>
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">adapter</span><span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">Adapter</span><span class="p">&lt;</span><span class="err">*</span><span class="p">&gt;</span>
+
+    <span class="c1">// Adapter にセットするデータ (1～100)</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">data</span> <span class="p">=</span> <span class="nc">IntArray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">{</span> <span class="n">it</span> <span class="p">+</span> <span class="mi">1</span> <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+        <span class="nf">setContentView</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">recycler_view</span><span class="p">)</span>
+
+        <span class="n">layoutManager</span> <span class="p">=</span> <span class="nc">LinearLayoutManager</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+        <span class="n">adapter</span> <span class="p">=</span> <span class="nc">MyAdapter</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">recyclerView</span> <span class="p">=</span> <span class="n">findViewById</span><span class="p">&lt;</span><span class="nc">RecyclerView</span><span class="p">&gt;(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">recycler_view</span><span class="p">).</span><span class="nf">also</span> <span class="p">{</span>
+            <span class="n">it</span><span class="p">.</span><span class="n">layoutManager</span> <span class="p">=</span> <span class="n">layoutManager</span>
+            <span class="n">it</span><span class="p">.</span><span class="n">adapter</span> <span class="p">=</span> <span class="n">adapter</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>次の <code class="language-plaintext highlighter-rouge">MyViewHolder</code> クラスは、各要素を描画するための <code class="language-plaintext highlighter-rouge">View</code> を保持するための <code class="language-plaintext highlighter-rouge">RecyclerView.ViewHolder</code> の実装です。
+保持する <code class="language-plaintext highlighter-rouge">View</code> 自体は、後述の <code class="language-plaintext highlighter-rouge">MyAdapter</code> で <code class="language-plaintext highlighter-rouge">item.xml</code> から inflate して作成します。
+その <code class="language-plaintext highlighter-rouge">View</code> を <code class="language-plaintext highlighter-rouge">MyViewHolder</code> のコンストラクタで受け取るようにしています。
+<code class="language-plaintext highlighter-rouge">View</code> 内の表示内容は、外の <code class="language-plaintext highlighter-rouge">MyAdapter</code> から更新する必要があるため、ここではプロパティを介して <code class="language-plaintext highlighter-rouge">TextView</code> や <code class="language-plaintext highlighter-rouge">Button</code> に直接アクセスできるようにしています。</p>
+
+<h4 id="myviewholderkt">MyViewHolder.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">android.view.View</span>
+<span class="k">import</span> <span class="nn">android.widget.Button</span>
+<span class="k">import</span> <span class="nn">android.widget.TextView</span>
+<span class="k">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="cm">/**
+ * ViewHolder の実装（各要素を表示するための View を保持する）
+ */</span>
+<span class="kd">class</span> <span class="nc">MyViewHolder</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">view</span><span class="p">:</span> <span class="nc">View</span><span class="p">)</span> <span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">ViewHolder</span><span class="p">(</span><span class="n">view</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">label</span><span class="p">:</span> <span class="nc">TextView</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">findViewById</span><span class="p">&lt;</span><span class="nc">TextView</span><span class="p">&gt;(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">label</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kd">val</span> <span class="py">button</span><span class="p">:</span> <span class="nc">Button</span> <span class="k">by</span> <span class="nf">lazy</span> <span class="p">{</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">findViewById</span><span class="p">&lt;</span><span class="nc">Button</span><span class="p">&gt;(</span><span class="nc">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">button</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>最後に、<code class="language-plaintext highlighter-rouge">RecyclerView.Adapter</code> を拡張して、<code class="language-plaintext highlighter-rouge">MyAdapter</code> クラスを作成します。
+このクラスでは少なくとも次の 3 つのメソッドを実装する必要があります。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Adapter.getItemCount()</code> … セットされているデータの要素数を返す。</li>
+  <li><code class="language-plaintext highlighter-rouge">Adapter.onCreateViewHolder()</code> … 新しい <code class="language-plaintext highlighter-rouge">ViewHolder</code> インスタンスを生成する。XML ファイルを inflate して作成した <code class="language-plaintext highlighter-rouge">View</code> オブジェクトを、独自の <code class="language-plaintext highlighter-rouge">ViewHolder</code> インスタンスにセットして返せばよい。</li>
+  <li><code class="language-plaintext highlighter-rouge">Adapter.onBindViewHolder()</code> … <code class="language-plaintext highlighter-rouge">ViewHolder</code> の表示内容を更新する。パラメータで渡される <code class="language-plaintext highlighter-rouge">ViewHolder</code> が最初に表示されるときにも呼び出されるし、使いまわされるときにも呼び出される。</li>
+</ul>
+
+<p>ここでは、<code class="language-plaintext highlighter-rouge">Adapter.onCreateViewHolder()</code> のタイミングで <code class="language-plaintext highlighter-rouge">item.xml</code> を inflate して <code class="language-plaintext highlighter-rouge">MyViewHolder</code> インスタンスを生成し、<code class="language-plaintext highlighter-rouge">Adapter.onBindViewHolder()</code> でその中のテキストやボタンのラベルを更新しています。</p>
+
+<h4 id="myadapterkt">MyAdapter.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">android.view.LayoutInflater</span>
+<span class="k">import</span> <span class="nn">android.view.View</span>
+<span class="k">import</span> <span class="nn">android.view.ViewGroup</span>
+<span class="k">import</span> <span class="nn">androidx.recyclerview.widget.RecyclerView</span>
+
+<span class="cm">/**
+ * Adapter の実装（データを結びつけ、ViewHolder の生成とデータ反映を行う）
+ */</span>
+<span class="kd">class</span> <span class="nc">MyAdapter</span><span class="p">(</span><span class="k">private</span> <span class="kd">val</span> <span class="py">data</span><span class="p">:</span> <span class="nc">IntArray</span><span class="p">)</span> <span class="p">:</span> <span class="nc">RecyclerView</span><span class="p">.</span><span class="nc">Adapter</span><span class="p">&lt;</span><span class="nc">MyViewHolder</span><span class="p">&gt;()</span> <span class="p">{</span>
+    <span class="cm">/** 表示用データの要素数（ここでは IntArray のサイズ） */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">getItemCount</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span>
+
+    <span class="cm">/** 新しく ViewHolder オブジェクトを生成するための実装 */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreateViewHolder</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="nc">ViewGroup</span><span class="p">,</span> <span class="n">viewType</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">MyViewHolder</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">inflater</span> <span class="p">=</span> <span class="nc">LayoutInflater</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="n">parent</span><span class="p">.</span><span class="n">context</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nc">MyViewHolder</span><span class="p">(</span><span class="n">inflater</span><span class="p">.</span><span class="nf">inflate</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">item</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="k">false</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="cm">/** position の位置のデータを使って、表示内容を適切に設定（更新）する */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onBindViewHolder</span><span class="p">(</span><span class="n">holder</span><span class="p">:</span> <span class="nc">MyViewHolder</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">num</span> <span class="p">=</span> <span class="n">data</span><span class="p">[</span><span class="n">position</span><span class="p">]</span>
+        <span class="n">holder</span><span class="p">.</span><span class="n">label</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Element-$num"</span>
+        <span class="n">holder</span><span class="p">.</span><span class="n">button</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">"Button-$num"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： RecyclerView の基本&url=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/recycler-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-11-12</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

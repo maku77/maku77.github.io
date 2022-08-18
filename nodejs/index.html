@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Node JS ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/nodejs/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-nodejs.png" />
+
+  <meta property="og:description" content="天才星人まくの Node JS ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Node.js ノート | 天才まくまくノート" />
+  <title>まくまく Node.js ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-nodejs.svg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくNode.jsノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        今やクライアントもサーバも Node.js でバッチシ。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js&url=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="nodejs-実行環境など">Node.js 実行環境など</h2>
+
+<ul>
+  <li><a href="env/install-nodejs.html">Node.js とは／Node.js をインストールする</a></li>
+  <li><a href="env/nvm.html">nvm で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)</a></li>
+  <li><a href="shebang.html">node アプリをシェバングで起動するようにする</a></li>
+  <li><a href="assert.html">Node.js で assert を使用する</a></li>
+  <li><a href="env/environment-variable.html">Node.js で環境変数を参照する (process.env)</a></li>
+  <li><a href="env/dotenv.html">環境変数の代わりに .env ファイルを使用する (dotenv)</a></li>
+  <li><a href="env/v8-version.html">Node.js がどのバージョンの V8 エンジンで動作しているか調べる</a></li>
+  <li><a href="env/nodemon.html">nodemon で Node.js サーバの再起動を自動化する</a></li>
+</ul>
+
+<h3 id="モジュールパッケージ">モジュール／パッケージ</h3>
+<ul>
+  <li><a href="module/create-module.html">Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）</a></li>
+  <li><a href="module/require.html">Node.js が require() で検索するパスのまとめ</a></li>
+  <li><a href="module/load-json.html">外部の JSON ファイルを読み込む (require)</a></li>
+  <li><a href="module/require-main.html">モジュール自身のコードにテストコードを記述する (require.main)</a></li>
+</ul>
+
+<h3 id="npm-node-package-manager">npm (Node Package Manager)</h3>
+<ul>
+  <li><a href="npm/install-package.html">npm コマンドで Node.js のパッケージをインストール／アンインストールする (npm install, uninstall)</a></li>
+  <li><a href="npm/npm-list.html">npm コマンドでインストールされている Node.js 用パッケージの一覧を表示する (npm list, ll)</a></li>
+  <li><a href="npm/npm-search.html">npm コマンドでインストール可能なパッケージを検索する (npm search)</a></li>
+  <li><a href="npm/proxy.html">npm コマンド用に HTTP プロキシを設定する (npm config)</a></li>
+  <li><a href="npm/package-version.html">npm でインストール可能なパッケージのバージョンを調べる</a></li>
+  <li><a href="npm/npm-run.html">npm run で任意のコマンドを実行する (npm run, npm start)</a></li>
+  <li><a href="npm/npm-run-copy-file.html">npm run のスクリプトの中でファイルのコピーを行う (cpx)</a></li>
+  <li><a href="npm/npm-run-rimraf.html">npm run のスクリプトの中でディレクトリの削除を行う (rimraf)</a></li>
+  <li><a href="npm/npm-run-all.html">npm run のスクリプトを連続実行・並列実行する (npm-run-all)</a></li>
+  <li>package.json
+    <ul>
+      <li><a href="npm/npm-init.html">package.json ファイルを作成する (npm init)</a></li>
+      <li><a href="npm/package-dependencies.html">package.json ファイルで依存パッケージを管理する</a></li>
+      <li><a href="npm/npm-help-json.html">package.json の書式、説明を確認する (npm help json)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="入出力-io">入出力 (I/O)</h2>
+<ul>
+  <li><a href="io/stdio.html">標準出力 (stdout)、標準エラー出力 (stderr) への出力</a></li>
+  <li><a href="io/cmdline-args.html">コマンドライン引数（パラメータ）を取得する (process.argv)</a></li>
+  <li><a href="io/readline-from-keyboard.html">キーボードからの入力を取得する (reaqline.question)</a></li>
+  <li><a href="io/child-process.html">外部プログラムを実行してその出力を取得する</a></li>
+</ul>
+
+<h3 id="ファイルディレクトリ">ファイル／ディレクトリ</h3>
+<ul>
+  <li><a href="io/filename.html">実行中の JavaScript ファイルのパスやディレクトリ名を取得する (__filename, __dirname)</a></li>
+  <li><a href="io/main-filename.html">エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (require.main.filename)</a></li>
+  <li><a href="io/path-join.html">パスを結合する (path.join)</a></li>
+  <li><a href="io/is-directory.html">指定したパスがディレクトリかどうか調べる</a></li>
+  <li><a href="io/walk-dir.html">カレントディレクトリ以下のファイルを列挙する</a></li>
+</ul>
+
+<h4 id="csv">CSV</h4>
+<ul>
+  <li><a href="io/csv.html">CSV ファイルを読み込む</a></li>
+</ul>
+
+<h4 id="yaml">Yaml</h4>
+<ul>
+  <li><a href="io/yaml.html">Yaml ファイルを読み書きする (js-yaml)</a></li>
+</ul>
+
+<h3 id="sqlite-データベース">SQLite データベース</h3>
+<ul>
+  <li><a href="io/sqlite1.html">SQLite を使用する (1) node-sqlite3 のインストール</a></li>
+  <li><a href="io/sqlite2.html">SQLite を使用する (2) node-sqlite3 による逐次処理</a></li>
+  <li><a href="io/sqlite3.html">SQLite を使用する (3) SELECT 文を実行する</a></li>
+</ul>
+
+<h3 id="mongodb-データベース">MongoDB データベース</h3>
+<ul>
+  <li><a href="io/mongoose1.html">mongoose (1) mongoose をインストールする</a></li>
+  <li><a href="io/mongoose2.html">mongoose (2) データベースへ接続する</a></li>
+  <li><a href="io/mongoose3.html">mongoose (3) モデルクラスを作成する</a></li>
+  <li><a href="io/mongoose4-1.html">mongoose (4-1) DB にドキュメントを追加する</a></li>
+  <li><a href="io/mongoose4-2.html">mongoose (4-2) DB からドキュメントを検索する</a></li>
+  <li><a href="io/mongoose4-3.html">mongoose (4-3) DB のドキュメントを更新する</a></li>
+  <li><a href="io/mongoose4-4.html">mongoose (4-4) DB からドキュメントを削除する</a></li>
+  <li><a href="io/mongoose-rest.html">mongoose と Express で RESTful Web API を作成する</a></li>
+  <li><a href="io/mongojs.html">mongojs で MongoDB を扱う</a></li>
+</ul>
+
+<h2 id="デバッグテスト">デバッグ／テスト</h2>
+<ul>
+  <li><a href="time/console-time.html">プログラムの実行時間を計測する (console.time, console.timeEnd)</a></li>
+  <li><a href="debug/console-trace.html">現在位置のスタックトレースを出力する (console.trace)</a></li>
+</ul>
+
+<h2 id="ネットワーク">ネットワーク</h2>
+
+<h3 id="url">URL</h3>
+<ul>
+  <li><a href="https://maku.blog/p/oj9nzgt/">Node.js で URL のパスを結合する (url-join)</a></li>
+</ul>
+
+<h3 id="http-通信--http-サーバ">HTTP 通信 / HTTP サーバ</h3>
+<ul>
+  <li><a href="net/http-server.html">http 標準モジュールを使用して HTTP サーバを立てる</a></li>
+  <li><a href="net/http-module.html">http 標準モジュールを使用して HTTP 通信を行う</a></li>
+  <li><a href="net/node-fetch.html">node-fetch モジュールを使用して HTTP 通信を行う</a></li>
+  <li><a href="net/request-module.html">request モジュールを使用して HTTP 通信を行う (deprecated)</a></li>
+  <li><a href="net/request-promise-module.html">request-promise モジュールを使用して HTTP 通信を行う (deprecated)</a></li>
+  <li><a href="net/global-agent.html">プロキシ経由の HTTP 通信を行う（global-agent モジュール）</a></li>
+  <li><a href="net/proxy-in-request.html">プロキシ経由の HTTP 通信を行う（request モジュール）</a></li>
+</ul>
+
+<h3 id="websocket-通信">WebSocket 通信</h3>
+<ul>
+  <li><a href="net/websocket-client.html">WebSocket のクライアントを作成する</a></li>
+  <li><a href="net/websocket-echo-server.html">Node.js で WebSocket サーバを作る（簡単な echo サーバ）</a></li>
+  <li><a href="net/websocket-chat-server.html">Node.js で WebSocket サーバを作る（chat サーバ）</a></li>
+  <li><a href="net/websocket-client-info.html">WebSocket サーバに接続してきたクライアントの情報を調べる</a></li>
+</ul>
+
+<h3 id="web-サーバ-express">Web サーバ (Express)</h3>
+<ul>
+  <li><a href="express/features.html">Express の特徴</a></li>
+  <li><a href="express/install.html">Express をインストールする</a></li>
+  <li><a href="express/web-server.html">Express で Web サーバを作成する</a></li>
+  <li><a href="express/handle-get-and-post-data.html">GET/POST メソッドで送られてきたデータを取得する</a></li>
+  <li><a href="express/regexp-in-routing.html">Express のルート定義の URL のパラメータで数字のみを受け付けるようにする</a></li>
+  <li><a href="express/next.html">Express で next() により次のハンドラへ処理を委譲する</a></li>
+  <li><a href="express/url-for-search.html">RESTful API として検索用の URL を定義する (req.query)</a></li>
+  <li><a href="express/exchange-json.html">jQuery クライアントと Express サーバで JSON データを送受信する</a></li>
+  <li><a href="express/access-log.html">Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)</a></li>
+  <li><a href="express/internal-server-error.html">Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する</a></li>
+  <li><a href="express/switch-env.html">Express の動作環境を切り替える（NODE_ENV 変数）</a></li>
+  <li><a href="express/static-file.html">Express で静的ファイル（static ファイル）をホスティングする</a></li>
+  <li><a href="express/reverse-proxy-addr.html">リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する</a></li>
+  <li><a href="express/jade-with-express.html">Express でテンプレートエンジンとして Jade を使用する</a></li>
+  <li><a href="express/basic-authentication.html">Express で Basic 認証を有効にする</a></li>
+  <li><a href="express/cors.html">Express で CORS の設定を行う（クロスドメインでの Ajax を許可）</a></li>
+</ul>
+
+<h3 id="リバースプロキシ">リバースプロキシ</h3>
+<ul>
+  <li><a href="net/reverse-proxy.html">Node.js でお手軽リバースプロキシを作る</a></li>
+</ul>
+
+<h2 id="nodejs-の制御構文">Node.js の制御構文</h2>
+
+<h3 id="例外処理">例外処理</h3>
+<ol>
+  <li><a href="exception/try-and-catch.html">try ～ catch による例外処理</a></li>
+  <li><a href="exception/uncaught-exception.html">Uncaught Exception（未捕捉例外）をハンドルする</a></li>
+  <li><a href="exception/domain-for-exception.html">ドメインごとに Uncaught Exception（未捕捉例外）をハンドルする</a></li>
+</ol>
+
+<h3 id="非同期処理">非同期処理</h3>
+<ul>
+  <li><a href="async/promisify.html">util.promisify でコールバックベースの関数を Promise 化する</a></li>
+  <li>async.js による非同期処理
+    <ol>
+      <li><a href="async-js1.html">非同期処理のフロー制御を行う (1) async.js を使う準備</a></li>
+      <li><a href="async-js2.html">非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)</a></li>
+      <li><a href="async-js3.html">非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)</a></li>
+    </ol>
+  </li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js&url=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li class="xNav-focused"><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

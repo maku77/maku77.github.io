@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>Hugo - .InSection .IsAncestor .IsDescendant のテスト</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td, th {
+      border: solid 1px gray;
+      margin: 0;
+      padding: 0.1em 0.5em;
+    }
+    th {
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <a id="/"></a>
+  <h3>$p2 = /</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr style="background:pink">
+    <td><a href="#%2f">/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/page/"></a>
+  <h3>$p2 = /page/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/"></a>
+  <h3>$p2 = /sec1/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr style="background:pink">
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <table>
+
+  <a id="/sec1/page/"></a>
+  <h3>$p2 = /sec1/page/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-1/sec1-1-1/page/"></a>
+  <h3>$p2 = /sec1/sec1-1/sec1-1-1/page/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-1/"></a>
+  <h3>$p2 = /sec1/sec1-1/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr style="background:pink">
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-1/page1/"></a>
+  <h3>$p2 = /sec1/sec1-1/page1/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-1/page2/"></a>
+  <h3>$p2 = /sec1/sec1-1/page2/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-1/sec1-1-1/"></a>
+  <h3>$p2 = /sec1/sec1-1/sec1-1-1/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr style="background:pink">
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-2/"></a>
+  <h3>$p2 = /sec1/sec1-2/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr style="background:pink">
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th>true</th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th>true</th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-2/page1/"></a>
+  <h3>$p2 = /sec1/sec1-2/page1/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+  <a id="/sec1/sec1-2/page2/"></a>
+  <h3>$p2 = /sec1/sec1-2/page2/</h3>
+  <table>
+    <tr>
+      <th>$p1.URL</th>
+      <th>$p1.InSection $p2</th>
+      <th>$p1.IsAncestor $p2</th>
+      <th>$p1.IsDescendant $p2</th>
+    </tr>
+  <tr >
+    <td><a href="#%2f">/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fpage%2f">/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2f">/sec1/</a></td>
+    <th></th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fpage%2f">/sec1/page/</a></td>
+      <th></th>
+      <th>true</th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2f">/sec1/sec1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage1%2f">/sec1/sec1-1/page1/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fpage2%2f">/sec1/sec1-1/page2/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2f">/sec1/sec1-1/sec1-1-1/</a></td>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-1%2fsec1-1-1%2fpage%2f">/sec1/sec1-1/sec1-1-1/page/</a></td>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr >
+    <td><a href="#%2fsec1%2fsec1-2%2f">/sec1/sec1-2/</a></td>
+    <th>true</th>
+    <th>true</th>
+    <th></th>
+  </tr>
+    <tr >
+      <td><a href="#%2fsec1%2fsec1-2%2fpage1%2f">/sec1/sec1-2/page1/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr style="background:pink">
+      <td><a href="#%2fsec1%2fsec1-2%2fpage2%2f">/sec1/sec1-2/page2/</a></td>
+      <th>true</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <table>
+
+</body>
+</html>

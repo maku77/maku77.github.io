@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/operator/operator-arithmetic.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="算術演算子を定義してオブジェクトに + や += を適用できるようにする | まくまくKotlinノート" />
+  <title>算術演算子を定義してオブジェクトに + や += を適用できるようにする - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">算術演算子を定義してオブジェクトに + や += を適用できるようにする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-07-16</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/operator/operator-arithmetic.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 算術演算子を定義してオブジェクトに + や += を適用できるようにする&url=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Kotlin では、<code class="language-plaintext highlighter-rouge">+</code> や <code class="language-plaintext highlighter-rouge">+=</code> などの演算子をオーバーロードして、独自の振る舞いを定義することができます（Java では演算子のオーバーロードはできません）。</p>
+
+<p>ここでは、様々な演算子のオーバーロードの例を示すために、下記のような複素数を保持する簡単なデータクラスを使用することにします。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Complex</span><span class="p">(</span><span class="kd">val</span> <span class="py">re</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">im</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="二項演算子のオーバーロード-binary-arithmetic-operators">二項演算子のオーバーロード (Binary arithmetic operators)</h2>
+
+<p>Kotlin で <code class="language-plaintext highlighter-rouge">a + b</code> のような演算を可能にする二項演算子を定義するには、<code class="language-plaintext highlighter-rouge">plus</code> や <code class="language-plaintext highlighter-rouge">minus</code> などの <strong>演算子関数</strong> を実装します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>使用する演算子</th>
+      <th>定義する演算子関数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+</code></td>
+      <td><code class="language-plaintext highlighter-rouge">plus</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-</code></td>
+      <td><code class="language-plaintext highlighter-rouge">minus</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
+      <td><code class="language-plaintext highlighter-rouge">times</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/</code></td>
+      <td><code class="language-plaintext highlighter-rouge">div</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mod</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>下記は、<code class="language-plaintext highlighter-rouge">+</code> 演算子をオーバーロードする例です。
+演算子関数を定義するときは、モディファイアとして <strong><code class="language-plaintext highlighter-rouge">operator</code></strong> を付けることに注意してください（同名の通常関数の定義と区別するためです）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Complex</span><span class="p">(</span><span class="kd">val</span> <span class="py">re</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">im</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">plus</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Complex</span><span class="p">):</span> <span class="nc">Complex</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">Complex</span><span class="p">(</span><span class="n">re</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">re</span><span class="p">,</span> <span class="n">im</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">im</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これにより、独自オブジェクト同士の <code class="language-plaintext highlighter-rouge">+</code> 演算子による演算が可能になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">c1</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">c2</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">c1</span> <span class="p">+</span> <span class="n">c2</span><span class="p">)</span>  <span class="c1">//=&gt; Complex(re=4, im=6)</span>
+</code></pre></div></div>
+
+<p>上記では、メンバ関数として演算子関数を定義しましたが、拡張関数として定義することもできます。
+この方法であれば、既存の外部ライブラリが提供するクラスの演算子をオーバーロードすることが可能です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">operator</span> <span class="k">fun</span> <span class="nc">Complex</span><span class="p">.</span><span class="nf">plus</span><span class="p">(</span><span class="n">other</span><span class="p">:</span> <span class="nc">Complex</span><span class="p">):</span> <span class="nc">Complex</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nc">Complex</span><span class="p">(</span><span class="n">re</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">re</span><span class="p">,</span> <span class="n">im</span> <span class="p">+</span> <span class="n">other</span><span class="p">.</span><span class="n">im</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ここまでは、<code class="language-plaintext highlighter-rouge">Complex</code> インスタンス同士の演算を定義していましたが、別の型との演算を定義することもできます。
+次の例では、各プロパティを、指定した <code class="language-plaintext highlighter-rouge">Int</code> 値倍に変化させる <code class="language-plaintext highlighter-rouge">*</code> 演算子 (<code class="language-plaintext highlighter-rouge">times</code>) を定義しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Complex</span><span class="p">(</span><span class="kd">val</span> <span class="py">re</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">im</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">times</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="nc">Int</span><span class="p">):</span> <span class="nc">Complex</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nc">Complex</span><span class="p">(</span><span class="n">re</span> <span class="p">*</span> <span class="n">scale</span><span class="p">,</span> <span class="n">im</span> <span class="p">*</span> <span class="n">scale</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">c1</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">c2</span> <span class="p">=</span> <span class="n">c1</span> <span class="p">*</span> <span class="mi">10</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>  <span class="c1">// =&gt; Complex(re=10, im=20)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このように違う型同士の演算を定義した場合、<strong>演算子の左右の値は交換可能ではない</strong> ことに注意してください。
+例えば、<code class="language-plaintext highlighter-rouge">10 * Complex(1, 2)</code> という演算を行いたいのであれば、<code class="language-plaintext highlighter-rouge">Int.times(c: Complex)</code> という演算子関数を定義しておく必要があります。</p>
+
+<p>二項演算子の戻り値を、元のオブジェクトの型とは別のものにすることもできます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">operator</span> <span class="k">fun</span> <span class="nc">Char</span><span class="p">.</span><span class="nf">times</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">=</span> <span class="nf">toString</span><span class="p">().</span><span class="nf">repeat</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="sc">'A'</span> <span class="p">*</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">//=&gt; "AAA"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="複合代入演算子のオーバーロード-compound-assignment-operators">複合代入演算子のオーバーロード (Compound assignment operators)</h2>
+
+<p>Kotlin では、二項演算子の <code class="language-plaintext highlighter-rouge">+</code> (<code class="language-plaintext highlighter-rouge">plus</code>) を定義すると、自動的に複合代入演算子である <code class="language-plaintext highlighter-rouge">+=</code> も使用できるようになります。
+ただし、この場合は変数の値を変更できるようにするために、<code class="language-plaintext highlighter-rouge">val</code> ではなく <code class="language-plaintext highlighter-rouge">var</code> で変数定義しておく必要があります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="py">c</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="p">+=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1">// =&gt; Complex(re=4, im=6)</span>
+</code></pre></div></div>
+
+<p>一方、コレクション系クラスやビルダ系クラスでは、要素の追加を行うための <code class="language-plaintext highlighter-rouge">+=</code> 演算子のみを定義したいことがあります。
+このようなケースでは、<strong><code class="language-plaintext highlighter-rouge">plusAssign</code></strong> や <strong><code class="language-plaintext highlighter-rouge">minusAssign</code></strong> という名前の演算子関数を定義します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>使用する演算子</th>
+      <th>定義する演算子関数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">plusAssign</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">minusAssign</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">timesAssign</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">divAssign</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%=</code></td>
+      <td><code class="language-plaintext highlighter-rouge">remAssign</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>下記は、<a href="https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/collections/MutableCollections.kt">MutableCollection</a> による拡張関数定義の抜粋です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">inline</span> <span class="k">operator</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">MutableCollection</span><span class="p">&lt;</span><span class="k">in</span> <span class="nc">T</span><span class="p">&gt;.</span><span class="nf">plusAssign</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">inline</span> <span class="k">operator</span> <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">MutableCollection</span><span class="p">&lt;</span><span class="k">in</span> <span class="nc">T</span><span class="p">&gt;.</span><span class="nf">minusAssign</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="nc">T</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">remove</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>つまり、<code class="language-plaintext highlighter-rouge">a += b</code> という記述は、<code class="language-plaintext highlighter-rouge">a = a.plus(b)</code> あるいは <code class="language-plaintext highlighter-rouge">a = a.plusAssign(b)</code> という呼び出しのどちらかにマッピングされることになります。
+<code class="language-plaintext highlighter-rouge">plus</code> と <code class="language-plaintext highlighter-rouge">plusAssign</code> の両方が定義されていると、<code class="language-plaintext highlighter-rouge">a += b</code> という呼び出しはコンパイルエラーになります。
+もちろん、<code class="language-plaintext highlighter-rouge">a = a.plus(b)</code> のように関数名を明示して呼び出せばエラーにはなりませんが、通常は <code class="language-plaintext highlighter-rouge">plus</code> と <code class="language-plaintext highlighter-rouge">plusAssign</code> を同時に定義しないようにすべきでしょう。</p>
+
+<h2 id="単項演算子のオーバーロード-unary-operators">単項演算子のオーバーロード (Unary operators)</h2>
+
+<p>下記のような単項演算子をオーバーロードすることもできます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>使用する演算子</th>
+      <th>定義する演算子関数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+x</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unaryPlus</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-x</code></td>
+      <td><code class="language-plaintext highlighter-rouge">unaryMinus</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">!x</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">++x</code>, <code class="language-plaintext highlighter-rouge">x++</code></td>
+      <td><code class="language-plaintext highlighter-rouge">inc</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--x</code>, <code class="language-plaintext highlighter-rouge">x--</code></td>
+      <td><code class="language-plaintext highlighter-rouge">dec</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>次の例では、各プロパティの符号を反転する <code class="language-plaintext highlighter-rouge">-</code> 演算子を定義しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Complex</span><span class="p">(</span><span class="kd">val</span> <span class="py">re</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">im</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">unaryMinus</span><span class="p">()</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(-</span><span class="n">re</span><span class="p">,</span> <span class="p">-</span><span class="n">im</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">c1</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">c2</span> <span class="p">=</span> <span class="p">-</span><span class="n">c1</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>  <span class="c1">// =&gt; Complex(re=-1, im=-2)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>前置インクリメント (<code class="language-plaintext highlighter-rouge">++x</code>)、後置インクリメント (<code class="language-plaintext highlighter-rouge">x++</code>) を使用するには、<code class="language-plaintext highlighter-rouge">inc</code> 演算子関数を 1 つ定義するだけで OK です。
+デクリメントに関しても同様です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">data class</span> <span class="nc">Complex</span><span class="p">(</span><span class="kd">val</span> <span class="py">re</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="kd">val</span> <span class="py">im</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">operator</span> <span class="k">fun</span> <span class="nf">inc</span><span class="p">()</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="n">re</span> <span class="p">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">im</span> <span class="p">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="py">c</span> <span class="p">=</span> <span class="nc">Complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">c</span><span class="p">++)</span> <span class="c1">// =&gt; Complex(re=1, im=2)</span>
+    <span class="nf">println</span><span class="p">(++</span><span class="n">c</span><span class="p">)</span> <span class="c1">// =&gt; Complex(re=3, im=4)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 算術演算子を定義してオブジェクトに + や += を適用できるようにする&url=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/operator/operator-arithmetic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-07-16</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

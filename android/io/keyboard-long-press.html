@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/io/keyboard-long-press.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する | まくまくAndroidノート" />
+  <title>Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2020-02-13</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/io/keyboard-long-press.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する&url=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Android TV の実機上では、リモコンの決定キー (<code class="language-plaintext highlighter-rouge">KEYCODE_DPAD_ENTER</code>) を長押しすると、<code class="language-plaintext highlighter-rouge">KeyEvent.isLongPress</code> が <code class="language-plaintext highlighter-rouge">true</code> になるので、このフラグを見て長押し時の処理を記述することができます。</p>
+
+<p>一方、Android アプリの開発をエミュレーターで行っているとき、キーボードの Enter キー (<code class="language-plaintext highlighter-rouge">KEYCODE_ENTER</code>) を、<code class="language-plaintext highlighter-rouge">KEYCODE_DPAD_ENTER</code> の代わりにしようとしても、<strong><code class="language-plaintext highlighter-rouge">KeyEvent.isLongPress</code> が <code class="language-plaintext highlighter-rouge">true</code> になってくれません</strong>。
+なぜなら、キーボードのハードウェア的なキーリピート（正確には OS によるキーリピート）が働いてしまい、長押しではなくキー連打だと判定されてしまうからです。</p>
+
+<p>下記の <code class="language-plaintext highlighter-rouge">LongKeyPressChecker</code> クラスは、キーボードからのキー入力であっても、そのキーが長押しされているかどうかを判別できるようにするためのユーティリティクラスです。</p>
+
+<h4 id="longkeypresscheckerkt">LongKeyPressChecker.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">android.view.KeyEvent</span>
+
+<span class="cm">/**
+ * キーボードによるキー入力が長押しかどうかを判別します。
+ */</span>
+<span class="kd">class</span> <span class="nc">LongKeyPressChecker</span> <span class="p">{</span>
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="c1">// この時間以内に連続してキー入力があったら、そのキーは押しっぱなしだと判断する</span>
+        <span class="k">const</span> <span class="kd">val</span> <span class="py">REPEAT_INTERVAL_MILLIS</span> <span class="p">=</span> <span class="mi">200</span>
+
+        <span class="c1">// 間髪いれずにこの回数だけキー入力があったら長押しされたと判断する</span>
+        <span class="k">const</span> <span class="kd">val</span> <span class="py">LONG_PRESSED_COUNT</span> <span class="p">=</span> <span class="mi">3</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 各キーが最後に押された時間と連打回数</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">timeAndCount</span> <span class="p">=</span> <span class="n">mutableMapOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">,</span> <span class="nc">Pair</span><span class="p">&lt;</span><span class="nc">Long</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;&gt;()</span>
+
+    <span class="cm">/**
+     * キーが長押しされたかどうかを判別します。
+     * 下記のいずれか関数の中で毎回呼び出す必要があります。
+     *   - onKeyDown
+     *   - dispatchKeyEvent
+     *   - onUnhandledKeyEvent
+     */</span>
+    <span class="k">fun</span> <span class="nf">isLongPressed</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nc">KeyEvent</span><span class="p">):</span> <span class="nc">Boolean</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">action</span> <span class="p">!=</span> <span class="nc">KeyEvent</span><span class="p">.</span><span class="nc">ACTION_DOWN</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">false</span>
+        <span class="p">}</span>
+
+        <span class="c1">// KeyEvent.repeatCount 対応のキーでは KeyEvent.isLongPress を信用する</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">repeatCount</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">event</span><span class="p">.</span><span class="n">isLongPress</span>
+        <span class="p">}</span>
+
+        <span class="kd">val</span> <span class="py">key</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="n">event</span><span class="p">.</span><span class="n">keyCode</span>
+        <span class="kd">val</span> <span class="py">time</span><span class="p">:</span> <span class="nc">Long</span> <span class="p">=</span> <span class="n">event</span><span class="p">.</span><span class="n">downTime</span>
+        <span class="kd">val</span> <span class="py">timeAndCount</span> <span class="p">=</span> <span class="n">timeAndCount</span><span class="p">.</span><span class="nf">getOrDefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nc">Pair</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="p">((</span><span class="n">time</span> <span class="p">-</span> <span class="n">timeAndCount</span><span class="p">.</span><span class="n">first</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nc">REPEAT_INTERVAL_MILLIS</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 間髪入れずにキー入力があればカウントアップ</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">timeAndCount</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="nc">Pair</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">timeAndCount</span><span class="p">.</span><span class="n">second</span> <span class="p">+</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">timeAndCount</span><span class="p">.</span><span class="n">second</span> <span class="p">==</span> <span class="nc">LONG_PRESSED_COUNT</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 短時間でのキー入力が一定回数に達したら長押しされたと判断</span>
+                <span class="k">return</span> <span class="k">true</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// 前回のキープレスから一定時間が経過していたらそこからカウント開始</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">timeAndCount</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="nc">Pair</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>使い方は簡単で、<code class="language-plaintext highlighter-rouge">View.onKeyDown</code> などの先頭で <code class="language-plaintext highlighter-rouge">isLongPressed</code> メソッドを呼び出すだけです。
+次のようにすれば、キーボードの Enter キー (<code class="language-plaintext highlighter-rouge">KEYCODE_ENTER</code>) が長押しされたかどうかを判別できます。</p>
+
+<h4 id="mainactivitykt">MainActivity.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">FragmentActivity</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">main_activity</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">longKeyPressChecker</span> <span class="p">=</span> <span class="nc">LongKeyPressChecker</span><span class="p">()</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onKeyDown</span><span class="p">(</span><span class="n">keyCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nc">KeyEvent</span><span class="p">):</span> <span class="nc">Boolean</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">isLongPressed</span> <span class="p">=</span> <span class="n">longKeyPressChecker</span><span class="p">.</span><span class="nf">isLongPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="k">when</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">keyCode</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nc">KeyEvent</span><span class="p">.</span><span class="nc">KEYCODE_ENTER</span><span class="p">,</span> <span class="nc">KeyEvent</span><span class="p">.</span><span class="nc">KEYCODE_DPAD_CENTER</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isLongPressed</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nc">Log</span><span class="p">.</span><span class="nf">d</span><span class="p">(</span><span class="s">"MainActivity"</span><span class="p">,</span> <span class="s">"決定キーが長押しされたよ！"</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="k">true</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">super</span><span class="p">.</span><span class="nf">onKeyDown</span><span class="p">(</span><span class="n">keyCode</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>仕組みとしては、前回のキー入力から時間をあけずに（上記の例では <code class="language-plaintext highlighter-rouge">REPEAT_INTERVAL_MILLIS</code> ミリ秒以内）に、同じキーが何回も（上記の例では <code class="language-plaintext highlighter-rouge">LONG_PRESSED_COUNT</code> 回）押されたかを判別しているだけです。</p>
+
+<p>なので、短時間にキー連打すると、長押しと判定されてしまう可能性があります。
+また、Windows などの OS のキーリピート設定により、キー押しっぱなし時のカウント速度が変わってくることに注意してください。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する&url=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/io/keyboard-long-press.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2020-02-13</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

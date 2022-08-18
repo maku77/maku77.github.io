@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのソフトウェア開発に関するノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo.jpg" />
+
+  <meta property="og:description" content="天才星人まくのソフトウェア開発に関するノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="天才まくまくノート" />
+  <title>天才まくまくノート</title>
+  <style>
+    #siteHeader {
+      margin: 0 0 5px 0;
+      padding: 10px 10px 20px;
+      border: none;
+      background: white;
+      box-shadow: 0px -20px 20px 0px #eee inset;
+    }
+    #siteHeader_logo {
+      height: 43px;
+      width: 100px;
+      border-radius: 5px;
+    }
+    #siteHeader_title {
+      font-size: 30px;
+      vertical-align: top;
+      color: #3366ff;
+    }
+
+    body {
+      background: #eee;
+    }
+
+    .local-categoryBoxes {
+      margin: 15px 0;
+      line-height: 1.5;
+    }
+    .local-categoryBoxes::after {
+      /* Cleaf fix */
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .local-categoryBox {
+      display: block;
+      width: 100%;
+      height: 100px;
+    }
+    /*
+     * categoryBox_title と categoryBox_desc の height の合計が
+     * .local-categoryBox_image の height になるようにすること。
+     */
+    .local-categoryBox_image {
+      width: 90px;
+      height: 90px;
+      float: left;
+      padding: 5px;
+      margin: 5px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .local-categoryBox_title {
+      padding-top: 5px !important;
+      padding-left: 5px !important;
+      height: 30px;
+      overflow: hidden;
+      font-size: 14pt;
+      font-weight: bolder;
+      color: black;
+    }
+    .local-categoryBox_desc {
+      padding-top: 2px !important;
+      padding-left: 5px !important;
+      height: 68px;
+      padding: 5px 0px;
+      overflow: hidden;
+      /* text-overflow: ellipsis; */  /* はみ出たら ... 表示 */
+      font-size: 11pt;
+      font-weight: normal;
+      color: gray;
+    }
+    a:link {
+      border: none;
+    }
+    a:hover {
+      color: white;
+      background: #9cf;
+    }
+    a:active {
+      color: white;
+      background: #f9c;
+    }
+
+    /* From bootstrap */
+    .col-md-4, .col-sm-6, .col-xs-12 {
+      position: relative;
+      min-height: 1px;
+    }
+    .col-xs-12 {
+      float: left;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .col-sm-6 {
+        float: left;
+        width: 50%;
+      }
+    }
+    @media (min-width: 992px) {
+      .col-md-4 {
+        float: left;
+        width: 33.33333333%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="siteHeader">
+    <img id="siteHeader_logo" src="/assets/img/logo.jpg">
+    <span id="siteHeader_title">天才まくまくノート</span>
+  </h1>
+
+<div id="xBody">
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div class="local-widget">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくノート： 天才まくまくノート&url=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+  </div>
+
+  <p>
+  ここには天才まくのいろんなノートが置いてありますよ～。日々更新中なり。
+  </p>
+
+  <div class="local-categoryBoxes">
+    
+      
+      
+        
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/memo/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-program.svg">
+          <div class="local-categoryBox_title">いろいろ</div>
+          <div class="local-categoryBox_desc">ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/android/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-android.jpg">
+          <div class="local-categoryBox_title">Android</div>
+          <div class="local-categoryBox_desc">Android スマホアプリ、Android TV の開発に関して。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/ansible/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-ansible.svg">
+          <div class="local-categoryBox_title">Ansible</div>
+          <div class="local-categoryBox_desc">これからの構成管理は Ansible で！ DevOps の要！ Infrastructur as Code！</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/blender/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-blender.svg">
+          <div class="local-categoryBox_title">Blender</div>
+          <div class="local-categoryBox_desc">3DCG を描くなら Blender で！ アニメーションも作れるよ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/cpp/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-cpp.svg">
+          <div class="local-categoryBox_title">C/C++</div>
+          <div class="local-categoryBox_desc">ポインタポインタポインター！</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/docker/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-docker.png">
+          <div class="local-categoryBox_title">Docker</div>
+          <div class="local-categoryBox_desc">アプリケーション実行環境をコンテナ化し、柔軟なデプロイを可能にする Docker の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/git/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-github.png">
+          <div class="local-categoryBox_title">Git</div>
+          <div class="local-categoryBox_desc">Git によるバージョン管理と、GitHub 特有の話もあるよ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/go/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-go.svg">
+          <div class="local-categoryBox_title">Go言語</div>
+          <div class="local-categoryBox_desc">Go 言語 (Golang) 入門。各種 OS に対応した高速な実行ファイルを作成できます。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/gradle/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-gradle.png">
+          <div class="local-categoryBox_title">Gradle</div>
+          <div class="local-categoryBox_desc">Java の最新のビルドシステム Gradle の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/web/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-html5.svg">
+          <div class="local-categoryBox_title">HTML/CSS</div>
+          <div class="local-categoryBox_desc">スタイルシートの使い方や、Web 用パーツサンプルなど。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/hugo/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-hugo.png">
+          <div class="local-categoryBox_title">Hugo</div>
+          <div class="local-categoryBox_desc">高速な静的サイトジェネレータ Hugo の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/java/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-java.svg">
+          <div class="local-categoryBox_title">Java</div>
+          <div class="local-categoryBox_desc">Android のおかげで息を吹き返した感のある Java。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/js/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-js.svg">
+          <div class="local-categoryBox_title">JavaScript</div>
+          <div class="local-categoryBox_desc">Web プログラマにとって必須の言語。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/kotlin/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-kotlin.svg">
+          <div class="local-categoryBox_title">Kotlin</div>
+          <div class="local-categoryBox_desc">Androidの公式サポートによって一気にメジャーになったKotlin。Javaでコーディングしたくなったときは、先にKotlinの採用を検討しましょう。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/linux/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-linux.svg">
+          <div class="local-categoryBox_title">Linux/Shell</div>
+          <div class="local-categoryBox_desc">Linux 全般のメモ。Bash や Linux シェルプログラミングなど。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/mac/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-mac.svg">
+          <div class="local-categoryBox_title">Mac</div>
+          <div class="local-categoryBox_desc">Mac OS 関連のメモ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/middleman/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-middleman.svg">
+          <div class="local-categoryBox_title">Middleman</div>
+          <div class="local-categoryBox_desc">静的サイトジェネレータ Middleman の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/mt/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-metatrader.png">
+          <div class="local-categoryBox_title">Meta Trader</div>
+          <div class="local-categoryBox_desc">メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/nodejs/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-nodejs.svg">
+          <div class="local-categoryBox_title">Node.js</div>
+          <div class="local-categoryBox_desc">今やクライアントもサーバも Node.js でバッチシ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/octave/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-octave.svg">
+          <div class="local-categoryBox_title">Octave</div>
+          <div class="local-categoryBox_desc">MATLAB 互換な数値解析ソフト Octave。グラフも描けるよ！</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/p4/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-p4.jpg">
+          <div class="local-categoryBox_title">Perforce</div>
+          <div class="local-categoryBox_desc">p4 コマンドや p4v についていろいろ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/perl/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-perl.svg">
+          <div class="local-categoryBox_title">Perl</div>
+          <div class="local-categoryBox_desc">おそらくもうオワコンな言語、Perl。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/php/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-php.svg">
+          <div class="local-categoryBox_title">PHP</div>
+          <div class="local-categoryBox_desc">サーバサイド言語の世界で一世を風靡した PHP。CodeIgnitor は RoR よりも手軽でオススメ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/python/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-python.png">
+          <div class="local-categoryBox_title">Python</div>
+          <div class="local-categoryBox_desc">機械学習の世界で最も人気なプログラミング言語 Python の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/r/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-r.svg">
+          <div class="local-categoryBox_title">R</div>
+          <div class="local-categoryBox_desc">統計解析やグラフプロットに便利な R の入門。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/ruby/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-ruby.jpg">
+          <div class="local-categoryBox_title">Ruby</div>
+          <div class="local-categoryBox_desc">日本で生まれたオブジェクト指向言語 Ruby の使い方。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/sass/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-sass.svg">
+          <div class="local-categoryBox_title">Sass</div>
+          <div class="local-categoryBox_desc">CSSはSassを使って効率的に作りましょう。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/sed/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-text.png">
+          <div class="local-categoryBox_title">sed/awk</div>
+          <div class="local-categoryBox_desc">Linux 系のコマンドを用いたテキスト処理いろいろ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/sql/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-sql.svg">
+          <div class="local-categoryBox_title">SQL</div>
+          <div class="local-categoryBox_desc">SQL 全般や SQLite、MySQL に関するメモ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/tradestation/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-tradestation.png">
+          <div class="local-categoryBox_title">トレードステーション</div>
+          <div class="local-categoryBox_desc">最強のトレードソフト TradeStation。EasyLanguage によるシストレ用プログラムなど。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/vagrant/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-vagrant.svg">
+          <div class="local-categoryBox_title">Vagrant</div>
+          <div class="local-categoryBox_desc">仮想環境の立ち上げ＆設定の自動化に関するメモ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/vba/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-vba.svg">
+          <div class="local-categoryBox_title">VBA</div>
+          <div class="local-categoryBox_desc">Excel や PowerPoint まだまだ現役な VBA マクロのメモ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/vim/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-vim.svg">
+          <div class="local-categoryBox_title">Vim</div>
+          <div class="local-categoryBox_desc">素敵なテキストエディタ Vim のメモ。</div>
+        </a>
+      </div>
+    
+      
+      
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <a class="local-categoryBox" href="/windows/">
+          <img class="local-categoryBox_image" src="/assets/img/logo-windows.jpg">
+          <div class="local-categoryBox_title">Windows</div>
+          <div class="local-categoryBox_desc">Windows の便利な使い方や、バッチファイルによるプログラミング方法。</div>
+        </a>
+      </div>
+    
+  </div>
+
+  <center>
+    <a target="_blank" href="https://en.maku.blog/eitan/">まくまく英単語クイズ</a> / <a target="_blank" href="https://hb.afl.rakuten.co.jp/hsc/14722cbc.ad6285bf.14683058.77b4f5eb/?pc=&cmd=shop&me_id=1&category_id=17&item_id=&link_type=pict&image_type=original">24時間限定セール（楽天市場）</a>
+  </center>
+
+<div class="local-widget">
+
+
+</div>
+
+  <div class="local-widget"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくノート： 天才まくまくノート&url=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+</div>
+</div>
+
+</body>
+</html>

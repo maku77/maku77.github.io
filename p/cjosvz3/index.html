@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Go 言語の配列は固定長ですが、スライスを組み合わせて使用することで、可変長配列のように扱うことができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/cjosvz3/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
+
+  <meta property="og:description" content="Go 言語の配列は固定長ですが、スライスを組み合わせて使用することで、可変長配列のように扱うことができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="配列とスライスを扱う | まくまくGo言語ノート" />
+  <title>配列とスライスを扱う - まくまくGo言語ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/go/">
+    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/go/">
+    <div class="xPageHeader_category">
+    まくまくGo言語ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">配列とスライスを扱う</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/go/type/array.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/cjosvz3/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 配列とスライスを扱う&url=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Go 言語の配列は固定長ですが、スライスを組み合わせて使用することで、可変長配列のように扱うことができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="配列定義の基本-n-">配列定義の基本 ([n], […])</h2>
+
+<p>Go で配列を定義するときは、変数の型名の前に <strong><code class="language-plaintext highlighter-rouge">[サイズ]</code></strong> プレフィックスを付けて定義します。
+例えば、サイズ 3 の <code class="language-plaintext highlighter-rouge">int</code> 配列を定義するには次のようにします。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">arr</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span>
+</code></pre></div></div>
+
+<p>“arr is array 3 of int.” と英語で自然に読めるような文法になっています。
+配列の各要素には、Java や C/C++ のように 0 から始まるインデックスを指定してアクセスすることができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">arr</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span>
+<span class="n">arr</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">=</span> <span class="m">100</span>
+<span class="n">arr</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="m">200</span>
+<span class="n">arr</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="m">300</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>  <span class="c">//=&gt; [100 200 300]</span>
+</code></pre></div></div>
+
+<p>下記のようにすれば、配列定義と同時に初期値を設定することができます（後者の記述方法ができるのは関数内のみ）。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>初期値と指定する要素の数と同じサイズの配列を定義するのであれば、配列サイズを下記のように <strong><code class="language-plaintext highlighter-rouge">...</code></strong> と指定することができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>固定サイズの配列をパラメータにとる関数は、同じサイズの配列のみ受け取ることができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">hoge</span><span class="p">(</span><span class="n">arr</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c">//...</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+	<span class="n">arr2</span> <span class="o">:=</span> <span class="p">[</span><span class="m">4</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="m">400</span><span class="p">}</span>
+	<span class="n">hoge</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+	<span class="n">hoge</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span> <span class="c">// Error: cannot use arr2 (type [4]int) as type [3]int</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>なお、上記のように固定サイズの配列を受け取る関数に配列を渡すと、値渡しで配列が渡されます（値がコピーされる）。
+従って、関数内部で配列要素を書き換えても、呼び出し側の配列は変化しません。
+呼び出し側の配列の内容を変更するには、後述のスライスを使用します。</p>
+
+<h2 id="配列の各要素を-for-ループで処理する-range">配列の各要素を for ループで処理する (range)</h2>
+
+<p>for ループで <strong><code class="language-plaintext highlighter-rouge">range</code></strong> キーワードを使用すると、配列要素のインデックスと値を 1 つずつ取り出しながら処理することができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">arr</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"arr[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arr[0] = 100
+arr[1] = 200
+arr[2] = 300
+</code></pre></div></div>
+
+<p>ループ時にインデックスだけが必要な場合は、２番目のパラメータを省略して次のように記述します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">arr</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"arr[%d] = %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>値だけを取得したいときは、次のように１番目のパラメータに <code class="language-plaintext highlighter-rouge">_</code> を指定して無視するようにします。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">sum</span> <span class="o">:=</span> <span class="m">0</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">arr</span> <span class="p">{</span>
+	<span class="n">sum</span> <span class="o">+=</span> <span class="n">val</span>
+<span class="p">}</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">sum</span><span class="p">)</span>  <span class="c">//=&gt; 600</span>
+</code></pre></div></div>
+
+<h2 id="スライス">スライス</h2>
+
+<h3 id="スライスの基本-">スライスの基本 ([])</h3>
+
+<p>Go 言語の配列は固定長ですが、スライスという型を可変長配列のように扱うことができます。
+Go 言語では、メモリ効率が重視されるとき以外は、配列よりもスライスの方がよく使用されるようです。</p>
+
+<p>スライスを定義するには、下記のようにします（配列のサイズを指定しないような構文で定義します）。
+配列と同様に、初期値とする要素を設定することもできます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">s</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="k">var</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>スライスのサイズを拡張するには、組込みの <strong><code class="language-plaintext highlighter-rouge">append</code></strong> 関数を使用します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">s</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="m">200</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="m">400</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c">//=&gt; [100 200 300 400]</span>
+</code></pre></div></div>
+
+<p>スライスのサイズを拡張していく過程で、メモリ領域が再割り当てされて参照位置が変わる可能性があるので、<code class="language-plaintext highlighter-rouge">append</code> 関数による拡張結果は戻り値として受け取る必要があります。</p>
+
+<h3 id="スライスのサイズと容量">スライスのサイズと容量</h3>
+
+<p>スライスは内部データとして、現在格納されている要素数 (<strong>len</strong>) と、メモリ上に確保された容量 (<strong>cap</strong>) の情報を持っています。
+それぞれの値は、<code class="language-plaintext highlighter-rouge">len(s)</code>、<code class="language-plaintext highlighter-rouge">cap(s)</code> といった感じで組込関数を使って取得することができます。
+スライスの初期化時には要素数と容量は等しくなっており、<code class="language-plaintext highlighter-rouge">append</code> 関数などで要素の追加を行った際に容量オーバーすると、自動的に２倍の容量が新しいメモリ領域に割り当てられます（ただし、容量が 1024 が超えるあたりから、確保サイズの計算方法が変化するようです）。
+下記のテストコードで、要素数 (<code class="language-plaintext highlighter-rouge">len</code>) と容量 (<code class="language-plaintext highlighter-rouge">cap</code>) の変化を確かめてみてください。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">s</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"len=%d cap=%d %v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+	<span class="n">s</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果-1">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>len=0 cap=0 []
+len=1 cap=1 [0]
+len=2 cap=2 [0 1]
+len=3 cap=4 [0 1 2]
+len=4 cap=4 [0 1 2 3]
+len=5 cap=8 [0 1 2 3 4]
+len=6 cap=8 [0 1 2 3 4 5]
+len=7 cap=8 [0 1 2 3 4 5 6]
+len=8 cap=8 [0 1 2 3 4 5 6 7]
+len=9 cap=16 [0 1 2 3 4 5 6 7 8]
+</code></pre></div></div>
+
+<p>確かに、容量 (<code class="language-plaintext highlighter-rouge">cap</code>) は２倍、２倍と拡張されていることがわかります。
+容量の拡張時には、内部で新しいメモリ領域へのデータコピーが発生するため、頻繁な容量拡張が発生すると効率が悪くなります。
+あらかじめ追加するおおよその要素数が分かっている場合は、後述の <code class="language-plaintext highlighter-rouge">make</code> 関数を使うことで、容量を指定したスライス生成を行えます。</p>
+
+<h3 id="make-によるスライスの初期化">make によるスライスの初期化</h3>
+
+<p>Go 言語の組込み関数の <a href="https://golang.org/pkg/builtin/#make">make</a> を使用してスライスを作成すると、初期サイズ (len) と、初期容量 (cap) を指定してスライスを作成できます。
+初期サイズを 1 以上に設定した場合、各要素はゼロ値で初期化されます。</p>
+
+<p>作成したいスライスの型と、初期サイズ (len) だけを指定して <code class="language-plaintext highlighter-rouge">make</code>`を呼び出すと、初期容量 (cap) は初期サイズと同じになります。</p>
+
+<h4 id="例-初期サイズ初期容量５-のスライスを作成">例: 初期サイズ＝初期容量＝５ のスライスを作成</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"len=%d cap=%d %v"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>  <span class="c">//=&gt; len=5 cap=5 [0 0 0 0 0]</span>
+</code></pre></div></div>
+
+<p>次の例では、初期サイズ (len) と異なる初期容量 (cap) を指定してスライスを作成しています。
+初期容量 (cap) は、初期サイズ (len) 以上の値を指定する必要があります。</p>
+
+<h4 id="初期サイズ５初期容量100-のスライスを作成">初期サイズ＝５、初期容量＝100 のスライスを作成</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"len=%d cap=%d %v"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="nb">cap</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>  <span class="c">//=&gt; len=5 cap=100 [0 0 0 0 0]</span>
+</code></pre></div></div>
+
+<h3 id="スライスは参照">スライスは参照</h3>
+
+<p>スライス変数は、配列とは異なり、内部的なメモリ領域へのアドレス値を格納しています（Java の参照のようなもの）。
+つまり、スライス変数の代入は、同じメモリ領域を参照するように指示していることになります。</p>
+
+<p>下記の例では、スライス <code class="language-plaintext highlighter-rouge">s1</code> と <code class="language-plaintext highlighter-rouge">s2</code> は同じメモリ領域を共有しているため、どちらか一方の変更が、もう一方にも影響を与えることを示しています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"AAA"</span><span class="p">,</span> <span class="s">"BBB"</span><span class="p">,</span> <span class="s">"CCC"</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">:=</span> <span class="n">s1</span>       <span class="c">// 同じ領域を参照する</span>
+<span class="n">s1</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">"XXX"</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"s1=%v, s2=%v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>  <span class="c">//=&gt; s1=[XXX BBB CCC], s2=[XXX BBB CCC]</span>
+</code></pre></div></div>
+
+<p>この性質を利用して、関数のパラメータとしてスライスを受け取り、呼び出し側のスライスの要素を書き換えることができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">change</span><span class="p">(</span><span class="n">values</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="m">2</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+	<span class="n">change</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c">//=&gt; [200 400 600]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、上記の <code class="language-plaintext highlighter-rouge">change</code> 関数の中の for ループを、次のように <code class="language-plaintext highlighter-rouge">range</code> を使用するように変更すると、スライスの要素の値は変更されません。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">change</span><span class="p">(</span><span class="n">values</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">values</span> <span class="p">{</span>
+		<span class="n">v</span> <span class="o">*=</span> <span class="m">2</span>  <span class="c">// ローカル変数の v の値を書き換えているだけ</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="配列スライスの要素を切り出す">配列、スライスの要素を切り出す</h3>
+
+<p>任意の配列やスライス（あるいは string）を、<strong><code class="language-plaintext highlighter-rouge">arr[開始インデックス:終了インデックス]</code></strong> という形で参照すると、元の配列の「開始インデックス ～ 終了インデックス-1」 の領域の要素を参照可能なスライスを取得することができます。
+開始インデックスを省略した場合は先頭要素からの切り出し (<code class="language-plaintext highlighter-rouge">s[:3] == s[0:3]</code>)、終了インデックスを省略した場合は末尾要素までの切り出し (<code class="language-plaintext highlighter-rouge">s[3:] == s[3:len(3)]</code>) として扱われます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">}</span>
+<span class="n">s1</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">]</span>  <span class="c">//=&gt; [3, 4, 5]</span>
+<span class="n">s2</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="p">]</span>   <span class="c">//=&gt; [6, 7]</span>
+<span class="n">s3</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>   <span class="c">//=&gt; [1, 2]</span>
+<span class="n">s4</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="o">:</span><span class="p">]</span>    <span class="c">//=&gt; [1, 2, 3, 4, 5, 6, 7]</span>
+</code></pre></div></div>
+
+<p>切り出し後のスライスは、元の配列やスライスのメモリ領域を共有することに注意してください。
+切り出し後のスライス経由で要素の値を変更すると、元のスライスにも影響を与えます。
+下記のように、それぞれのスライスのアドレスを表示してみると、同じメモリ領域を共有していることが分かります（<code class="language-plaintext highlighter-rouge">s1</code> と <code class="language-plaintext highlighter-rouge">s2</code> は先頭要素の位置がずれている分だけアドレスもずれています）。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">}</span>
+<span class="n">s1</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">]</span>  <span class="c">//=&gt; [3, 4, 5]</span>
+<span class="n">s2</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="m">5</span><span class="o">:</span><span class="p">]</span>   <span class="c">//=&gt; [6, 7]</span>
+<span class="n">s3</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>   <span class="c">//=&gt; [1, 2]</span>
+<span class="n">s4</span> <span class="o">:=</span> <span class="n">s</span><span class="p">[</span><span class="o">:</span><span class="p">]</span>    <span class="c">//=&gt; [1, 2, 3, 4, 5, 6, 7]</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>   <span class="c">// 0xc04200c240</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>  <span class="c">// 0xc04200c250</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>  <span class="c">// 0xc04200c268</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s3</span><span class="p">)</span>  <span class="c">// 0xc04200c240</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s4</span><span class="p">)</span>  <span class="c">// 0xc04200c240</span>
+</code></pre></div></div>
+
+<p>確実に別のメモリ領域を扱うスライスを作成したい場合は、組み込み関数 <strong><code class="language-plaintext highlighter-rouge">copy</code></strong> を使用してスライスをコピーします。</p>
+
+<h3 id="スライスをコピーする-copy">スライスをコピーする (copy)</h3>
+
+<p>Go の組み込み関数 <a href="https://golang.org/pkg/builtin/#copy">copy</a> を使用すると、あるスライスの内容を、別スライスの領域へコピーすることができます。
+関数の定義は下記のようになっており、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>copy(dst, src []T) int
+</code></pre></div></div>
+
+<p>コピー元スライス <code class="language-plaintext highlighter-rouge">src</code> から、コピー先スライス <code class="language-plaintext highlighter-rouge">dst</code> に実際にコピーされた要素数が返されます。
+ただし、コピー元スライスの要素数 (<code class="language-plaintext highlighter-rouge">len(src)</code>)、あるいは、コピー先のスライスの要素数 (<code class="language-plaintext highlighter-rouge">len(src)</code>) のうち小さい方の数だけしかコピーされません。
+つまり、コピー元スライスの要素をすべてコピーするには、あらかじめコピー先スライスの要素数 (len) を確保しておく必要があります。
+下記のサンプルでは、<code class="language-plaintext highlighter-rouge">make</code> 関数を使用して、十分なサイズの <code class="language-plaintext highlighter-rouge">dst</code> スライスを作成しています。</p>
+
+<h4 id="例-スライス-src-の要素を-dst-へコピー">例: スライス src の要素を dst へコピー</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">src</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+	<span class="n">dst</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">src</span><span class="p">))</span>  <span class="c">// コピー先スライスの要素数を確保 (len=3)</span>
+	<span class="n">n</span> <span class="o">:=</span> <span class="nb">copy</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="n">src</span><span class="p">)</span>
+
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%d elements have been copied</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"src=%v, dst=%v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果-2">実行結果</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 elements have been copied
+src=[100 200 300], dst=[100 200 300]
+</code></pre></div></div>
+
+<p>コピーされる要素数を決定するための判断基準は、あくまでスライスの要素数（len）であって、容量 (cap) ではないことに注意してください。
+なので、次のように容量だけを確保してもコピーは実行されません。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dst</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>  <span class="c">// len=0, cap=3</span>
+</code></pre></div></div>
+
+<p>スライスによる要素の切り出しを組み合わせて使用すれば、任意の位置の要素を、任意の位置にコピーすることができます。</p>
+
+<h4 id="例-src-のインデックス-13-1-の要素を-dst-のインデックス-2-以降にコピー">例: src のインデックス 1～(3-1) の要素を dst のインデックス 2 以降にコピー</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">src</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="m">400</span><span class="p">,</span> <span class="m">500</span><span class="p">}</span>
+	<span class="n">dst</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">}</span>
+	<span class="n">n</span> <span class="o">:=</span> <span class="nb">copy</span><span class="p">(</span><span class="n">dst</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="p">],</span> <span class="n">src</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">])</span>
+
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%d elements have been copied</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"src=%v, dst=%v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果-3">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 elements have been copied
+src=[100 200 300 400 500], dst=[1 2 200 300 5]
+</code></pre></div></div>
+
+<p>さらに、<code class="language-plaintext highlighter-rouge">copy</code> 関数の仕様として、コピー元とコピー先の領域がオーバーラップすることが許されているので、次のように、自分自身のスライスの領域間でコピーすることもできます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">src</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">}</span>
+<span class="nb">copy</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="m">4</span><span class="o">:</span><span class="p">],</span> <span class="n">src</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="p">])</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>  <span class="c">//=&gt; [1, 2, 3, 4, 3, 4, 5, 6]</span>
+</code></pre></div></div>
+
+<h3 id="スライス同士を結合する-append">スライス同士を結合する (append)</h3>
+
+<p>Go の組み込み関数 <a href="https://pkg.go.dev/builtin#append">append</a> を使用すると、スライスに対して要素を追加することができますが、別のスライスの要素をすべて結合してしまうこともできます。
+結合された結果のスライスは、戻り値として受け取る必要があることに注意してください。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">400</span><span class="p">,</span> <span class="m">500</span><span class="p">,</span> <span class="m">600</span><span class="p">}</span>
+<span class="n">s3</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="o">...</span><span class="p">)</span>  <span class="c">//=&gt; [100, 200, 300, 400, 500, 600]</span>
+</code></pre></div></div>
+
+<p>上記の例では、結合結果を新しいスライス <code class="language-plaintext highlighter-rouge">s3</code> に割り当てていますが、もちろん既存のスライス <code class="language-plaintext highlighter-rouge">s1</code> に上書き代入してしまうこともできます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">100</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="m">300</span><span class="p">}</span>
+<span class="n">s2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">400</span><span class="p">,</span> <span class="m">500</span><span class="p">,</span> <span class="m">600</span><span class="p">}</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="o">...</span><span class="p">)</span>  <span class="c">//=&gt; [100, 200, 300, 400, 500, 600]</span>
+</code></pre></div></div>
+
+<p>このケースでは、<code class="language-plaintext highlighter-rouge">append</code> 後に新しいメモリ領域が確保されるため、代入後の <code class="language-plaintext highlighter-rouge">s1</code> のアドレスは、元の <code class="language-plaintext highlighter-rouge">s1</code> のアドレスから変化していることに注意してください。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 配列とスライスを扱う&url=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/cjosvz3/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

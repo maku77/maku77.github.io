@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      img {
+        max-width: 100%;
+      }
+      #page {
+        width: 980px;
+        margin: 0 auto;
+        border: blue 5px solid;
+      }
+      #header {
+        background-color: lightblue;
+      }
+      #content {
+        width: 680px;
+        float: left;
+        background-color: lightpink;
+      }
+      #sidebar {
+        width: 300px;
+        float: right;
+        background-color: lightgreen;
+      }
+      #footer {
+        clear: both;
+        background-color: lightblue;
+      }
+
+      @media screen and (max-width: 1000px) {
+        #page {
+          width: 98%;
+          border-color: yellow;
+        }
+        #content {
+          width: 70%;
+        }
+        #sidebar {
+          width: 30%;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        #page {
+          border-color: red;
+        }
+        #content {
+          width: 100%;
+        }
+        #sidebar {
+          width: 100%;
+        }
+      }
+    </style>
+    <title>Media Query Sample</title>
+  </head>
+  <body>
+    <div id="page">
+      <header id="header">Header</header>
+      <article id="content">
+        <div>
+          <img src="https://lh3.googleusercontent.com/SiYoZT9CLmmeDqCajQ3KrhO90laZBy1WqdGVFFghYI_Ktxo19LrWwm6fGU81ufkLJOHpgfbNETwQ1OPqx72P-FEJwAHaoLeMoAJOv7-FEQ=s660">
+        </div>
+        <div>Content</div>
+        <div>Content</div>
+      </article>
+      <aside id="sidebar">
+        <div>Sidebar</div>
+        <div>Sidebar</div>
+      </aside>
+      <footer id="footer">Footer</footer>
+    </div>
+  </body>
+</html>

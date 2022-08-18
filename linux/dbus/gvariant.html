@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのLinux/Shellノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/linux/dbus/gvariant.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-linux.png" />
+
+  <meta property="og:description" content="天才星人まくのLinux/Shellノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="glib の GVariant を使ってみる | まくまくLinux/Shellノート" />
+  <title>glib の GVariant を使ってみる - まくまくLinux/Shellノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/linux/">
+    <img src="/assets/img/logo-linux.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/linux/">
+    <div class="xPageHeader_category">
+    まくまくLinux/Shellノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">glib の GVariant を使ってみる</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2012-06-20</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/linux/dbus/gvariant.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： glib の GVariant を使ってみる&url=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="gvariant-型とは">GVariant 型とは</h2>
+
+<ul>
+  <li>本家ドキュメント
+    <ul>
+      <li><a href="http://developer.gnome.org/glib/stable/glib-GVariantType.html">GVariantType — introduction to the GVariant type system</a></li>
+      <li><a href="http://developer.gnome.org/glib/stable/glib-GVariant.html">GVariant — strongly typed value datatype</a></li>
+      <li><a href="http://developer.gnome.org/glib/stable/gvariant-format-strings.html">GVariant Format Strings</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>GDBus のライブラリを使って、array や dictionary などのデータをやりとりしようとすると、C の実装としては <code class="language-plaintext highlighter-rouge">GVariant</code> 型で扱うことになります。
+<code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトが保持するデータの型は、<strong>type strings</strong> という文字列で表現されます。
+例えば、<code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトの type strings が、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"s"
+</code></pre></div></div>
+
+<p>と定義されている場合、その <code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトは 1 つの文字列データを保持しています。
+以下のサンプルコードは、1 つの文字列データを保持する <code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトを作成し、そこから文字列データを取り出す例です。</p>
+
+<h4 id="makefile">Makefile</h4>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CXX</span> <span class="o">=</span> clang++
+<span class="nv">MY_LIBS</span> <span class="o">=</span> glib-2.0
+<span class="nv">CPPFLAGS</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> pkg-config <span class="nt">--cflags</span> <span class="nv">${MY_LIBS}</span><span class="nf">)</span>
+<span class="nv">LDLIBS</span> <span class="o">=</span> <span class="nf">$(</span><span class="nb">shell</span> pkg-config <span class="nt">--libs</span> <span class="nv">${MY_LIBS}</span><span class="nf">)</span>
+
+<span class="nl">sample</span><span class="o">:</span> <span class="nf">sample.cpp</span>
+</code></pre></div></div>
+
+<h4 id="samplecpp">sample.cpp</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;glib.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Create a GVariant object.</span>
+    <span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">g_variant_new</span><span class="p">(</span><span class="s">"s"</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+
+    <span class="c1">// Obtain a value from a GVariant object.</span>
+    <span class="n">gchar</span> <span class="o">*</span><span class="n">val</span><span class="p">;</span>
+    <span class="n">g_variant_get</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="s">"s"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+    <span class="n">g_print</span><span class="p">(</span><span class="s">"value = %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+    <span class="n">g_free</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>特に、<code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトが１つのデータだけを保持している場合は、専用の関数を使えば type strings の指定は必要なくなります。</p>
+
+<h2 id="例-gvariant-オブジェクトに-int32-データを入れる">例: GVariant オブジェクトに INT32 データを入れる</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">g_variant_new_int32</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// 取得</span>
+<span class="n">gint32</span> <span class="n">val</span> <span class="o">=</span> <span class="n">g_variant_get_int32</span><span class="p">(</span><span class="n">variant</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトは、複数のデータを保持することができます。</p>
+
+<h2 id="例-gvariant-に文字列-s-と数値-i-と真偽値-b-を入れる">例: GVariant に文字列 (s) と数値 (i) と真偽値 (b) を入れる</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">g_variant_new</span><span class="p">(</span><span class="s">"(sib)"</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">TRUE</span><span class="p">);</span>
+
+<span class="c1">// 取得</span>
+<span class="n">gchar</span> <span class="o">*</span><span class="n">valStr</span><span class="p">;</span>
+<span class="n">gint32</span> <span class="n">valInt32</span><span class="p">;</span>
+<span class="n">gboolean</span> <span class="n">valBoolean</span><span class="p">;</span>
+<span class="n">g_variant_get</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="s">"(sib)"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">valStr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">valInt32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">valBoolean</span><span class="p">);</span>
+<span class="n">g_print</span><span class="p">(</span><span class="s">"%s, %d, %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">valStr</span><span class="p">,</span> <span class="n">valInt32</span><span class="p">,</span> <span class="n">valBoolean</span><span class="p">);</span>
+<span class="n">g_free</span><span class="p">(</span><span class="n">valStr</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトに可変サイズの配列データを持たせる場合は、<code class="language-plaintext highlighter-rouge">GVariantBuilder</code> を使って動的にデータを詰めていくことができます。
+逆に、<code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトから配列データを順に取り出すには、<code class="language-plaintext highlighter-rouge">GVariantIter</code> を使います。</p>
+
+<h2 id="例-バイナリデータ-byte-を-gvariant-で取得する">例: バイナリデータ (byte[]) を GVariant で取得する</h2>
+
+<p>Type string で、<code class="language-plaintext highlighter-rouge">ay</code> は byte 配列を表します。
+このデータを <code class="language-plaintext highlighter-rouge">GVariant</code> で取得するには、<code class="language-plaintext highlighter-rouge">g_variant_get()</code> で指定する type string で、<code class="language-plaintext highlighter-rouge">@ay</code> のように頭に <code class="language-plaintext highlighter-rouge">@</code> を付けます。
+以下の例では、<code class="language-plaintext highlighter-rouge">GVariant</code> から「文字列、文字列、byte 配列」を取り出しています。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="p">...;</span>
+
+<span class="c1">// 取得</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">TYPE_STRING</span> <span class="o">=</span> <span class="s">"(ss@ay)"</span><span class="p">;</span>
+<span class="n">gchar</span><span class="o">*</span> <span class="n">str1</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">gchar</span><span class="o">*</span> <span class="n">str2</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">GVariant</span><span class="o">*</span> <span class="n">binary</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="n">g_variant_get</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">TYPE_STRING</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">str1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">str2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">binary</span><span class="p">);</span>
+
+<span class="c1">// バイトデータへのポインタと、サイズを取得</span>
+<span class="n">gconstpointer</span> <span class="n">dataAddr</span> <span class="o">=</span> <span class="n">g_variant_get_data</span><span class="p">(</span><span class="n">binary</span><span class="p">);</span>
+<span class="n">gsize</span> <span class="n">dataSize</span> <span class="o">=</span> <span class="n">g_variant_get_size</span><span class="p">(</span><span class="n">binary</span><span class="p">);</span>
+
+<span class="c1">// バッファ削除</span>
+<span class="n">g_free</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+<span class="n">g_free</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+<span class="n">g_variant_unref</span><span class="p">(</span><span class="n">binary</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GVariant</code> データを解放するときは、<code class="language-plaintext highlighter-rouge">g_free()</code> ではなく、<code class="language-plaintext highlighter-rouge">g_variant_unref()</code> を使うことに注意してください。</p>
+
+<h2 id="例-gvariant-に配列データを入れる">例: GVariant に配列データを入れる</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="nf">create_variant</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">GVariantBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="n">g_variant_builder_new</span><span class="p">(</span><span class="n">G_VARIANT_TYPE_ARRAY</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">g_variant_builder_end</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">create_variant</span><span class="p">();</span>
+
+<span class="c1">// 取得</span>
+<span class="n">gint32</span> <span class="n">val</span><span class="p">;</span>
+<span class="n">GVariantIter</span> <span class="n">it</span><span class="p">;</span>
+<span class="n">g_variant_iter_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">it</span><span class="p">,</span> <span class="n">variant</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">g_variant_iter_next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">it</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">g_print</span><span class="p">(</span><span class="s">"%d, "</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>dictionary データのループ処理にも、<code class="language-plaintext highlighter-rouge">GVariantBuilder</code> や <code class="language-plaintext highlighter-rouge">GVariantIter</code> を使うことができます。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="nf">create_variant</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">GVariantBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="n">g_variant_builder_new</span><span class="p">(</span><span class="n">G_VARIANT_TYPE_ARRAY</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"{ii}"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">g_variant_builder_end</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">create_variant</span><span class="p">();</span>
+
+<span class="c1">// 取得</span>
+<span class="n">gint32</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">;</span>
+<span class="n">GVariantIter</span> <span class="n">it</span><span class="p">;</span>
+<span class="n">g_variant_iter_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">it</span><span class="p">,</span> <span class="n">variant</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">g_variant_iter_next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">it</span><span class="p">,</span> <span class="s">"{ii}"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val2</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">g_print</span><span class="p">(</span><span class="s">"%d, %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトに含まれている配列データは、<code class="language-plaintext highlighter-rouge">GVariantIter</code> を使わずに、インデックス指定によって取り出すこともできます。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// INT32 の配列 ("ai") を作成</span>
+<span class="n">GVariant</span> <span class="o">*</span><span class="nf">create_variant</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">GVariantBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="n">g_variant_builder_new</span><span class="p">(</span><span class="n">G_VARIANT_TYPE_ARRAY</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">g_variant_builder_end</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 作成</span>
+    <span class="n">GVariant</span> <span class="o">*</span><span class="n">variant</span> <span class="o">=</span> <span class="n">create_variant</span><span class="p">();</span>
+
+    <span class="c1">// 取得</span>
+    <span class="n">gsize</span> <span class="n">size</span> <span class="o">=</span> <span class="n">g_variant_n_children</span><span class="p">(</span><span class="n">variant</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gint32</span> <span class="n">val</span><span class="p">;</span>
+        <span class="n">g_variant_get_child</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+        <span class="n">g_print</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトを入れ子にすれば、「<code class="language-plaintext highlighter-rouge">INT32</code> 配列の配列」なども作れます。</p>
+
+<h2 id="例-int32-配列の配列を入れる">例: INT32 配列の配列を入れる</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GVariant</span> <span class="o">*</span><span class="nf">create_child</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">GVariantBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="n">g_variant_builder_new</span><span class="p">(</span><span class="n">G_VARIANT_TYPE_ARRAY</span><span class="p">);</span>
+    <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="mi">111</span><span class="p">);</span>
+    <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="mi">222</span><span class="p">);</span>
+    <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="mi">333</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">g_variant_builder_end</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 作成 "aai"</span>
+    <span class="n">GVariantBuilder</span> <span class="o">*</span><span class="n">builder</span> <span class="o">=</span> <span class="n">g_variant_builder_new</span><span class="p">(</span><span class="n">G_VARIANT_TYPE_ARRAY</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">GVariant</span> <span class="o">*</span><span class="n">child</span> <span class="o">=</span> <span class="n">create_variant</span><span class="p">();</span>
+        <span class="n">g_variant_builder_add</span><span class="p">(</span><span class="n">builder</span><span class="p">,</span> <span class="s">"v"</span><span class="p">,</span> <span class="n">child</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">GVariant</span><span class="o">*</span> <span class="n">variant</span> <span class="o">=</span> <span class="n">g_variant_builder_end</span><span class="p">(</span><span class="n">builder</span><span class="p">);</span>
+
+    <span class="c1">// 取得</span>
+    <span class="n">gsize</span> <span class="n">size1</span> <span class="o">=</span> <span class="n">g_variant_n_children</span><span class="p">(</span><span class="n">variant</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size1</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">GVariant</span> <span class="o">*</span><span class="n">child</span><span class="p">;</span>
+        <span class="n">g_variant_get_child</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">"v"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">child</span><span class="p">);</span>
+        <span class="n">gsize</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">g_variant_n_children</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size2</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">gint32</span> <span class="n">val</span><span class="p">;</span>
+            <span class="n">g_variant_get_child</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">"i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+            <span class="n">g_print</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="例-gvariant-に連想配列の配列を入れる-aass">例: GVariant に連想配列の配列を入れる (“aa{ss}”)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">a{ss}</code> という type string は、連想配列を表しています。
+なので、<code class="language-plaintext highlighter-rouge">aa{ss}</code> は連想配列の配列ということになります。
+以下のコードは <code class="language-plaintext highlighter-rouge">aa{ss}</code> のデータを含む <code class="language-plaintext highlighter-rouge">GVariant</code> オブジェクトを処理しています。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gsize</span> <span class="n">num</span> <span class="o">=</span> <span class="n">g_variant_n_children</span><span class="p">(</span><span class="n">variant</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">GVariant</span><span class="o">*</span> <span class="n">child</span> <span class="o">=</span> <span class="n">g_variant_get_child_value</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">gsize</span> <span class="n">mapSize</span> <span class="o">=</span> <span class="n">g_variant_n_children</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">mapSize</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gchar</span><span class="o">*</span> <span class="n">key</span><span class="p">;</span>
+        <span class="n">gchar</span><span class="o">*</span> <span class="n">val</span><span class="p">;</span>
+        <span class="n">g_variant_get_child</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s">"{ss}"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">key</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+        <span class="c1">// ここで key, val を使用</span>
+        <span class="n">g_free</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+        <span class="n">g_free</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">g_variant_unref</span><span class="p">(</span><span class="n">child</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： glib の GVariant を使ってみる&url=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/dbus/gvariant.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/linux/"><span class="xArticle_up_label">まくまくLinux/Shellノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li class="xNav-focused"><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2012-06-20</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

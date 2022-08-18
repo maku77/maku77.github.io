@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/native-service3.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ネイティブサービスの実装 (3) サービスのインタフェースを定義する | まくまくAndroidノート" />
+  <title>ネイティブサービスの実装 (3) サービスのインタフェースを定義する - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ネイティブサービスの実装 (3) サービスのインタフェースを定義する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2011-05-09</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/native-service3.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： ネイティブサービスの実装 (3) サービスのインタフェースを定義する&url=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="クライアント側のコードをすっきりさせたい">クライアント側のコードをすっきりさせたい</h2>
+
+<p><code class="language-plaintext highlighter-rouge">IBinder</code> クラスの <code class="language-plaintext highlighter-rouge">transact()</code> インタフェースだけでサービスの機能にアクセスするのは分かりにくく、すべてのクライアントコードに本質的ではない <code class="language-plaintext highlighter-rouge">Parcel</code> オブジェクトの生成コードが表れてしまいます。</p>
+
+<h4 id="例-calcservice-を利用する煩雑なクライアントコード">例: CalcService を利用する煩雑なクライアントコード</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sp</span><span class="o">&lt;</span><span class="n">IServiceManager</span><span class="o">&gt;</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">defaultServiceManager</span><span class="p">();</span>
+<span class="n">sp</span><span class="o">&lt;</span><span class="n">IBinder</span><span class="o">&gt;</span> <span class="n">binder</span> <span class="o">=</span> <span class="n">sm</span><span class="o">-&gt;</span><span class="n">getService</span><span class="p">(</span><span class="n">String16</span><span class="p">(</span><span class="s">"CalcService"</span><span class="p">));</span>
+
+<span class="n">Parcel</span> <span class="n">data</span><span class="p">;</span>   <span class="c1">// Input</span>
+<span class="n">Parcel</span> <span class="n">reply</span><span class="p">;</span>  <span class="c1">// Output</span>
+<span class="n">data</span><span class="p">.</span><span class="n">writeInt32</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">data</span><span class="p">.</span><span class="n">writeInt32</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">binder</span><span class="o">-&gt;</span><span class="n">transact</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">reply</span><span class="p">);</span>  <span class="c1">// Add function</span>
+<span class="n">LEGI</span><span class="p">(</span><span class="s">"CalcService returns: %d"</span><span class="p">,</span> <span class="n">reply</span><span class="p">.</span><span class="n">readInt32</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>サービスのインタフェースを定義し、そのインタフェース経由で機能にアクセスできるようにすればクライアント側のコードがすっきりします。
+Binder フレームワークには、このためのヘルパークラスなどが用意されていて、これらをうまく使用すると、以下のような感じで <code class="language-plaintext highlighter-rouge">CalcService</code> にアクセスできるようになります。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sp</span><span class="o">&lt;</span><span class="n">IServiceManager</span><span class="o">&gt;</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">defaultServiceManager</span><span class="p">();</span>
+<span class="n">sp</span><span class="o">&lt;</span><span class="n">IBinder</span><span class="o">&gt;</span> <span class="n">binder</span> <span class="o">=</span> <span class="n">sm</span><span class="o">-&gt;</span><span class="n">getService</span><span class="p">(</span><span class="n">String16</span><span class="p">(</span><span class="s">"CalcService"</span><span class="p">));</span>
+<span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">interface_cast</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">binder</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>  <span class="c1">// すっきり！</span>
+</code></pre></div></div>
+
+<p>まぁ、簡単に言ってしまえば、<code class="language-plaintext highlighter-rouge">IBinder</code> を直接使うのではなく、分かりやすいラッパークラスを用意してやりましょうということ。
+<code class="language-plaintext highlighter-rouge">interface_cast</code> というテンプレート関数は、<code class="language-plaintext highlighter-rouge">IInterface.h</code> で定義されていて、上記のサンプルコードは以下のように展開されます。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">interface_cast</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">binder</span><span class="p">);</span>
+<span class="err">↓</span>
+<span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">ICalcService</span><span class="o">::</span><span class="n">asInterface</span><span class="p">(</span><span class="n">binder</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>要するに、<code class="language-plaintext highlighter-rouge">ICalcService</code> には、<code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトから <code class="language-plaintext highlighter-rouge">ICalcService</code> オブジェクトを取得するための <code class="language-plaintext highlighter-rouge">asInterface()</code> メソッドが定義されていないといけません。
+最終的にクライアントに公開されるファイルは、サービスインタフェースである <code class="language-plaintext highlighter-rouge">ICalcService.h</code> などのヘッダファイルと、その実装である <code class="language-plaintext highlighter-rouge">ICalcService.so</code> などになるでしょう。</p>
+
+<h2 id="クライアントに公開するサービスインタフェースの実装">クライアントに公開するサービスインタフェースの実装</h2>
+
+<p>サービスのインタフェースは、<code class="language-plaintext highlighter-rouge">IInterface</code> を継承して作成します。
+例えば、サービスクラス <code class="language-plaintext highlighter-rouge">CalcService</code> にアクセスするためのインタフェースは、<code class="language-plaintext highlighter-rouge">ICalcService</code> という名前で作成し、ここに <code class="language-plaintext highlighter-rouge">add()</code> や <code class="language-plaintext highlighter-rouge">subtract()</code> などの分かりやすいアクセスメソッドを用意してやります。
+<code class="language-plaintext highlighter-rouge">IInterface.h</code> に定義されているマクロが、プレフィックスとして <code class="language-plaintext highlighter-rouge">I</code> を付ける前提のコードになっているので、このように「<code class="language-plaintext highlighter-rouge">I</code> + サービス名」というネーミングをしなければいけません。</p>
+
+<h4 id="icalcserviceh">ICalcService.h</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ICalcService</span> <span class="o">:</span> <span class="k">public</span> <span class="n">IInterface</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">DECLARE_META_INTERFACE</span><span class="p">(</span><span class="n">CalcService</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">subtract</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">DECLARE_META_INTERFACE</code> というマクロは以下のように展開されます。
+この中で、<code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトから <code class="language-plaintext highlighter-rouge">ICalcService</code> オブジェクトを取得するための <code class="language-plaintext highlighter-rouge">asInterface()</code> も定義されます。</p>
+
+<h4 id="icalcserviceh-1">ICalcService.h</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">String16</span> <span class="n">descriptor</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">asInterface</span><span class="p">(</span><span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">android</span><span class="o">::</span><span class="n">IBinder</span><span class="o">&gt;&amp;</span> <span class="n">obj</span><span class="p">);</span>
+<span class="k">virtual</span> <span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">String16</span><span class="o">&amp;</span> <span class="n">getInterfaceDescriptor</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="n">ICalcService</span><span class="p">();</span>
+<span class="k">virtual</span> <span class="o">~</span><span class="n">ICalcService</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>これらの実装を提供するための、<code class="language-plaintext highlighter-rouge">IMPLEMENT_META_INTERFACE</code> というマクロも用意されています。
+例えば、</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IMPLEMENT_META_INTERFACE</span><span class="p">(</span><span class="n">CalcService</span><span class="p">,</span> <span class="s">"sample.CalcService"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>と記述しておくと、以下のように展開されます。</p>
+
+<h4 id="icalcservicecpp">ICalcService.cpp</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">String16</span> <span class="n">ICalcService</span><span class="o">::</span><span class="n">descriptor</span><span class="p">(</span><span class="s">"sample.CalcService"</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">String16</span><span class="o">&amp;</span> <span class="n">ICalcService</span><span class="o">::</span><span class="n">getInterfaceDescriptor</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ICalcService</span><span class="o">::</span><span class="n">descriptor</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">ICalcService</span><span class="o">::</span><span class="n">asInterface</span><span class="p">(</span><span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">android</span><span class="o">::</span><span class="n">IBinder</span><span class="o">&gt;&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">intr</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">intr</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">obj</span><span class="o">-&gt;</span><span class="n">queryLocalInterface</span><span class="p">(</span><span class="n">ICalcService</span><span class="o">::</span><span class="n">descriptor</span><span class="p">).</span><span class="n">get</span><span class="p">());</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">intr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">intr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BpCalcService</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">intr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">ICalcService</span><span class="o">::</span><span class="n">ICalcService</span><span class="p">()</span> <span class="p">{};</span>
+<span class="n">ICalcService</span><span class="o">::~</span><span class="n">ICalcService</span><span class="p">()</span> <span class="p">{};</span>
+</code></pre></div></div>
+
+<p>この中で、<code class="language-plaintext highlighter-rouge">asInterface()</code> で取得するオブジェクトとして、<code class="language-plaintext highlighter-rouge">BpCalcService</code> というオブジェクトを生成するように実装されます。
+つまり、<code class="language-plaintext highlighter-rouge">ICalcService</code> というインタフェースを実装する <code class="language-plaintext highlighter-rouge">BpCalcService</code> クラスを作成する必要があります。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BpCalcService</span> <span class="o">:</span> <span class="k">public</span> <span class="n">android</span><span class="o">::</span><span class="n">BpInterface</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="p">)</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">BpCalcService</span><span class="p">(</span><span class="k">const</span> <span class="n">android</span><span class="o">::</span><span class="n">sp</span><span class="o">&lt;</span><span class="n">android</span><span class="o">::</span><span class="n">IBinder</span><span class="o">&gt;&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{};</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">BpCalcService</span><span class="p">();</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+    <span class="k">virtual</span> <span class="kt">int</span> <span class="n">subtract</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">add()</code> や <code class="language-plaintext highlighter-rouge">subtract()</code> メソッドの実装で <code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトへの参照が必要になるのですが、実は親クラスの <code class="language-plaintext highlighter-rouge">BpInterface</code> クラスのコンストラクタに <code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトを渡しておけば、いつでも <code class="language-plaintext highlighter-rouge">remote()</code> メソッドを使って参照できるようになります。
+つまり、<code class="language-plaintext highlighter-rouge">BpCalcService</code> の実装で、<code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトを保持しておく必要はありません。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">BpCalcService</span><span class="o">::</span><span class="n">BpCalcService</span><span class="p">(</span><span class="k">const</span> <span class="n">sp</span><span class="o">&lt;</span><span class="n">IBinder</span><span class="o">&gt;&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="o">:</span> <span class="n">BpInterface</span><span class="p">(</span><span class="n">ICalcService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="n">BpCalcService</span><span class="o">::~</span><span class="n">BpCalcService</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="kt">int</span> <span class="n">BpCalcService</span><span class="o">::</span><span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Parcel</span> <span class="n">data</span><span class="p">,</span> <span class="n">reply</span><span class="p">;</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">writeInt32</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">writeInt32</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">remote</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">transact</span><span class="p">(</span><span class="n">CODE_ADD</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">reply</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">reply</span><span class="p">.</span><span class="n">readInt32</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">transact</code> に渡す <code class="language-plaintext highlighter-rouge">code</code> は、次のように <code class="language-plaintext highlighter-rouge">IBinder::FIRST_CALL_TRANSACTION</code> (0) から割り当てていきます。
+この数値は、もちろんサービス側の実装に合わせる必要があります。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="p">{</span>
+    <span class="n">CODE_ADD</span> <span class="o">=</span> <span class="n">IBinder</span><span class="o">::</span><span class="n">FIRST_CALL_TRANSACTION</span><span class="p">,</span>
+    <span class="n">CODE_SUBTRACT</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ICalcService.h</code> をサービス側、クライアント側の両方から見える include ディレクトリに配置するのなら、<code class="language-plaintext highlighter-rouge">ICalcService.h</code> のクラス定義の中で protected に上記の enum 定義を入れてしまうのがよいかもしれません。</p>
+
+<h2 id="クライアントの実装">クライアントの実装</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">sp</span><span class="o">&lt;</span><span class="n">IServiceManager</span><span class="o">&gt;</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">defaultServiceManager</span><span class="p">();</span>
+    <span class="n">sp</span><span class="o">&lt;</span><span class="n">IBinder</span><span class="o">&gt;</span> <span class="n">binder</span> <span class="o">=</span> <span class="n">sm</span><span class="o">-&gt;</span><span class="n">getService</span><span class="p">(</span><span class="n">String16</span><span class="p">(</span><span class="s">"CalcService"</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">binder</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">LOGW</span><span class="p">(</span><span class="s">"CalcService has not been published yet..."</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">sp</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">interface_cast</span><span class="o">&lt;</span><span class="n">ICalcService</span><span class="o">&gt;</span><span class="p">(</span><span class="n">binder</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="o">-&gt;</span><span class="n">subtract</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>  <span class="c1">// Subtract function</span>
+    <span class="n">LOGI</span><span class="p">(</span><span class="s">"CalcService returns: %d"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="完全なコードと実行テスト">完全なコードと実行テスト</h2>
+
+<ul>
+  <li><a href="/android/files/20110509-CalcClient2.zip">CalcClient2.zip</a></li>
+  <li><a href="/android/files/20110509-CalcService2.zip">CalcService2.zip</a></li>
+</ul>
+
+<p>ここでは、クライアントが使用する <code class="language-plaintext highlighter-rouge">ICalcService.h</code> とその実装を、クライアントプログラム (CalcClient) に埋め込んでしまっていますが、複数のプログラムから使用するインタフェースとして切り出したい場合は、</p>
+
+<ul>
+  <li>ICalcService.h（サービスインタフェース）</li>
+  <li>ICalcService.so（サービスインタフェースを実装した共有ライブラリ）</li>
+</ul>
+
+<p>といったファイルとして切り出して、共有できるように配置します。</p>
+
+<p>CalcClient と CalcService プログラムをセット上の <code class="language-plaintext highlighter-rouge">/system/bin</code> に転送したら、以下のように CalcService サービスを起動し、CalcClient プログラムを使ってサービスにアクセスします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># CalcService &amp;
+04-28 17:26:57.480  3178  3178 I CalcService: Add CalcService to ServiceManager
+
+# CalcClient
+04-28 17:27:33.236  3196  3196 I CalcClient: CalcService returns: 50
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： ネイティブサービスの実装 (3) サービスのインタフェースを定義する&url=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/native-service3.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2011-05-09</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

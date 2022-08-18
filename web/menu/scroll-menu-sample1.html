@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    main {
+      display: block;  /* for IE */
+      margin-left: 150px;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 150px;
+      height: 100vh;
+      background: lightgray;
+
+      /* 縦方向のスクロールバーを表示 */
+      overflow-y: scroll;
+
+      /* IE などのスクロールバーの色設定 */
+      scrollbar-face-color: #999;
+      scrollbar-track-color: #eee;
+
+      /* スマホ用の慣性スクロール */
+      -webkit-overflow-scrolling: touch;
+    }
+    .menu li {
+      list-style: none;
+    }
+  </style>
+  <title>メニュー要素内でスクロールできるようにする: デモページ</title>
+</head>
+<body>
+
+<main>
+  <p>
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+  </p>
+  <p>
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+  </p>
+  <p>
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+    これはダミーの本文です。これはダミーの本文です。これはダミーの本文です。
+  </p>
+</main>
+
+<nav class="menu">
+  <ul>
+    <li>Item 1 <li>Item 2 <li>Item 3 <li>Item 4 <li>Item 5
+    <li>Item 6 <li>Item 7 <li>Item 8 <li>Item 9 <li>Item 10
+    <li>Item 11 <li>Item 12 <li>Item 13 <li>Item 14 <li>Item 15
+    <li>Item 16 <li>Item 17 <li>Item 18 <li>Item 19 <li>Item 20
+    <li>Item 21 <li>Item 22 <li>Item 23 <li>Item 24 <li>Item 25
+    <li>Item 26 <li>Item 27 <li>Item 28 <li>Item 29 <li>Item 30
+    <li>Item 31 <li>Item 32 <li>Item 33 <li>Item 34 <li>Item 35
+    <li>Item 36 <li>Item 37 <li>Item 38 <li>Item 39 <li>Item 40
+  </ul>
+</nav>
+
+</body>
+</html>

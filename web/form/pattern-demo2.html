@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    input[type=text]:invalid, input[type=email]:invalid {
+      background: pink;
+    }
+  </style>
+  <title>pattern 属性のデモページ 2</title>
+</head>
+<body>
+
+  <form>
+    <label>
+      ユーザーID:
+      <input type="text" name="userid" pattern="^[0-9A-Za-z]+$" required>
+      （半角英数）※必須
+    </label><br>
+    <label>
+      メール:
+      <input type="email" required>
+      ※必須
+    </label><br>
+    <label>
+      日付:
+      <input type="text" pattern="\d\d\d\d-\d\d-\d\d">
+      （YYYY-MM-DD）
+    </label><br>
+    <input type="submit" value="送信する">
+    <input type="reset" value="リセット">
+  </form>
+
+</body>
+</html>

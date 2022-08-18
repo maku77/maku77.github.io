@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Windows の schtasks コマンドを使用すると、任意のコマンドやバッチファイルなどを指定したスケジュールで自動実行することができます（Linux の cron のようなものです）。日々のバックアップ作業、ログの取得などを自動で行うことができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/windows/admin/schtasks.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-windows.jpg" />
+
+  <meta property="og:description" content="Windows の schtasks コマンドを使用すると、任意のコマンドやバッチファイルなどを指定したスケジュールで自動実行することができます（Linux の cron のようなものです）。日々のバックアップ作業、ログの取得などを自動で行うことができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Windows で任意のコマンド（タスク）を自動実行する (schtasks) | まくまくWindowsノート" />
+  <title>Windows で任意のコマンド（タスク）を自動実行する (schtasks) - まくまくWindowsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/windows/">
+    <img src="/assets/img/logo-windows.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/windows/">
+    <div class="xPageHeader_category">
+    まくまくWindowsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Windows で任意のコマンド（タスク）を自動実行する (schtasks)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2019-02-13</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/windows/admin/schtasks.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Windows で任意のコマンド（タスク）を自動実行する (schtasks)&url=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Windows の schtasks コマンドを使用すると、任意のコマンドやバッチファイルなどを指定したスケジュールで自動実行することができます（Linux の cron のようなものです）。日々のバックアップ作業、ログの取得などを自動で行うことができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="タスクスケジューラと-schtasks-コマンド">タスクスケジューラと schtasks コマンド</h2>
+
+<p>Windows にはタスクスケジューラ (task scheduler) サービスが標準搭載されており、ここに <strong><code class="language-plaintext highlighter-rouge">schtasks</code></strong> コマンドでタスクを登録することで、指定された時間や頻度で、任意のコマンドを自動実行してくれます（以降、タスクスケジューラに登録するタスクのことを、「スケジュールタスク」あるいは単に「タスク」と呼びます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks</code> コマンドでは、主に下記の 6 種類のオプションを利用してスケジュールタスクの管理を行います。
+これらのコマンド一覧は <code class="language-plaintext highlighter-rouge">schtasks /?</code> で確認できます。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /create</code></strong>: スケジュールタスクを作成します。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /delete</code></strong>: 登録されているスケジュールタスクを削除します。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /query</code></strong>: 登録されているスケジュールタスクの一覧を表示します。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /change</code></strong>: 登録されているスケジュールタスクの設定を変更します。有効化、無効化の切り替えを行うこともできます。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /run</code></strong>: 登録されているスケジュールタスクを手動で実行します。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">schtasks /end</code></strong>: 実行中のスケジュールタスクを強制終了します。</li>
+</ul>
+
+<h2 id="スケジュールタスクの作成-schtasks-create">スケジュールタスクの作成 (schtasks /create)</h2>
+
+<p>スケジュールタスクを作成するときは、次のような構文で <code class="language-plaintext highlighter-rouge">schtasks /create</code> コマンドを実行します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn &lt;タスク名&gt; /tr &lt;実行するコマンド&gt; 【実行タイミング】【開始日時および終了日時】
+</code></pre></div></div>
+
+<p>【実行タイミング】の指定方法と、【開始日時および終了日時】の指定方法は下記に示した例を参考にしてください。
+【実行タイミング】の指定は必須ですが、【開始日時および終了日時】はオプショナルです。
+より詳細な指定方法は、<code class="language-plaintext highlighter-rouge">schtasks /create /?</code> で確認することができます。</p>
+
+<h3 id="タスクの実行タイミングを指定する">タスクの【実行タイミング】を指定する</h3>
+
+<p>タスクの実行タイミングは、<strong><code class="language-plaintext highlighter-rouge">/sc</code></strong> オプションと、<strong><code class="language-plaintext highlighter-rouge">/mo</code></strong> オプション（あるいは <code class="language-plaintext highlighter-rouge">/m</code> や <code class="language-plaintext highlighter-rouge">/d</code> など）で指定します。
+<strong><code class="language-plaintext highlighter-rouge">/sc</code> オプションで大まかなスケジュールの種類（minute、hourly、daily、weekly、onstart など）を指定</strong>し、必要があれば、<strong>その後ろに続けて <code class="language-plaintext highlighter-rouge">/mo</code> オプションなどで詳細パラメータを指定</strong>します。</p>
+
+<p>例えば、次のように <code class="language-plaintext highlighter-rouge">/sc once</code> で実行すると、タスクを作成して直ちに一度だけ実行します。
+単純にコマンドを実行した場合（<code class="language-plaintext highlighter-rouge">c:\sample.bat</code> を直接実行した場合）との違いは、スケジュールタスクとして登録された状態になることです。
+将来このタスク名を使って、実行のスケジューリングを行うことができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn "MyTask" /tr c:\sample.bat /sc once
+</code></pre></div></div>
+
+<p>下記に実行タイミングの指定方法の例です。
+<code class="language-plaintext highlighter-rouge">/sc</code> よりも前の部分は共通なので、<code class="language-plaintext highlighter-rouge">/sc</code> オプション以降の指定方法だけを示します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>実行タイミングの指定方法</th>
+      <th>意味</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc once</code></td>
+      <td>直ちに一度だけ実行（繰り返しなし）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc once /m 7 /d 10</code></td>
+      <td>7 月 10 日に一度だけ実行（繰り返しなし）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc once /st 21:30</code></td>
+      <td>今日の 21 時 30 分に一度だけ実行（繰り返しなし）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc once /sd 2019/12/31 /st 23:55</code></td>
+      <td>2019 年 12 月 31 日の 23 時 55 分に一度だけ実行（繰り返しなし）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc onstart</code></td>
+      <td>システム起動時に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc onstart /delay 5:00</code></td>
+      <td>システム起動後、5 分後に実行。<code class="language-plaintext highlighter-rouge">/delay MM:SS</code> の指定は他のオプションと時刻の単位が違うことに注意</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc onlogon</code></td>
+      <td>ユーザのログオン時に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc onlogon /delay 5:00</code></td>
+      <td>ユーザのログオン後、5 分後に実行。<code class="language-plaintext highlighter-rouge">/delay MM:SS</code> の指定は他のオプションと時刻の単位が違うことに注意</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc onidle /i 10</code></td>
+      <td>10 分以上アイドル状態（無操作）のときに実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc minute</code></td>
+      <td>毎分実行（<code class="language-plaintext highlighter-rouge">/mo 1</code> を指定した場合と同じ）。システム時刻の分の位が更新するときに起動するので、初回実行までの待機時間は 60 秒より短くなる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc minute /mo 15</code></td>
+      <td>15 分ごとに実行。初回実行までの待機時間はちょうど 15 分</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc hourly</code></td>
+      <td>毎時実行（<code class="language-plaintext highlighter-rouge">/mo 1</code> を指定した場合と同じ）。開始時刻はタスク作成時刻になる。初回実行までの待機時間は 60 分より短くなる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc hourly /mo 5</code></td>
+      <td>5 時間ごとに実行。タスク作成時間からカウントされるので、初回実行までの待機時間はちょうど 5 時間</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc daily</code></td>
+      <td>毎日実行。（<code class="language-plaintext highlighter-rouge">/mo 1</code> を指定した場合と同じ）。開始時刻はタスク作成時刻になる。初回実行までの待機時間はちょうど 24 時間</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc daily /st 21:00</code></td>
+      <td>毎日 21:00 に実行。初回実行までの待機時間は 24 時間より短くなる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc daily /mo 3</code></td>
+      <td>3 日ごとにタスク作成時の時刻に実行。初回実行までの待機時間はちょうど 72 時間</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc daily /mo 3 /st 00:00 </code></td>
+      <td>3 日ごとに午前 0 時に実行。初回実行までの待機時間は 72 時間よりも短くなる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc weekly</code></td>
+      <td>毎週（月曜日に）実行（<code class="language-plaintext highlighter-rouge">/mo 1</code> あるいは <code class="language-plaintext highlighter-rouge">/d mon</code> を指定した場合と同じ）。開始時刻はタスク作成時刻になる。初回は次の月曜日に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc weekly /mo 6</code></td>
+      <td>6 週ごとに実行。初回は 6 週間後に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc weekly /d mon,wed</code></td>
+      <td>毎週月曜日と水曜日に実行。開始時刻はタスク作成時刻になる</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc weekly /d *</code></td>
+      <td>すべての曜日で実行（毎日ということ）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly</code></td>
+      <td>毎月 1 日に実行。初回は翌月の 1 日に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo first</code></td>
+      <td>毎月 1 週目に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo second</code></td>
+      <td>毎月 2 週目に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo last</code></td>
+      <td>毎月最終週に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo lastday</code></td>
+      <td>毎月月末に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo 3 /d 10</code></td>
+      <td>3 カ月ごとに 10 日に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /m jul</code></td>
+      <td>毎年 7 月 1 日に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /m jan,mar /d 10</code></td>
+      <td>毎年 1 月と 3 月の 10 日に実行</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sc monthly /mo first /d mon /m apr,aug,dec</code></td>
+      <td>4月、8月、12月の最初の月曜日に実行</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>その日のうちに何度も繰り返したいタスクを作成したいときは、<code class="language-plaintext highlighter-rouge">/sc</code> オプションで <code class="language-plaintext highlighter-rouge">minute</code> あるいは <code class="language-plaintext highlighter-rouge">hourly</code> を指定します。
+日をまたいで何度も繰り返したいタスクは <code class="language-plaintext highlighter-rouge">/sc</code> オプションで <code class="language-plaintext highlighter-rouge">daily</code>、<code class="language-plaintext highlighter-rouge">weekly</code>、<code class="language-plaintext highlighter-rouge">monthly</code> のいずれかを指定します。</p>
+
+<h3 id="スケジュールの開始日時および終了日時を指定する">スケジュールの【開始日時および終了日時】を指定する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks /create</code> でスケジュールタスクを作成するときに、下記のようなオプションを使用して開始時間と終了時間を指定すると、そのタスクをアクティブにする時間を設定することができます。
+例えば、日中（9 時から 18 時まで）の間だけ 10 分おきに何らかのタスクを実行する、という制御を行えます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>開始日時および終了日時の指定方法</th>
+      <th>意味</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/st HH:MM</code></td>
+      <td>タスクの開始時刻 (start time) を24時間形式で指定します。<code class="language-plaintext highlighter-rouge">/sc minute</code> や <code class="language-plaintext highlighter-rouge">/sc daily</code> スイッチと組み合わせて使用します。<code class="language-plaintext highlighter-rouge">/sc once</code> と一緒に指定した場合は、その時間になったら 1 度だけ実行するタスクになります。このオプションを指定したときに、<code class="language-plaintext highlighter-rouge">/sd</code> オプションによる開始日を省略すると本日を指定したことになるので、明日以降の開始時刻を指定したいときは、<code class="language-plaintext highlighter-rouge">/sd</code> オプションで同時に開始日まで指定するようにしてください。</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/et HH:MM</code></td>
+      <td>タスクをスケジュールを終了する終了時刻 (end time) を24時間形式で指定します。このオプションを指定したときに、<code class="language-plaintext highlighter-rouge">/ed</code> オプションによる終了日を省略すると本日を指定したことになるので、明日以降の終了時刻を指定したいときは、<code class="language-plaintext highlighter-rouge">/ed</code> オプションで同時に終了日まで指定するようにしてください。また、<code class="language-plaintext highlighter-rouge">/et</code> オプションを指定すると、<code class="language-plaintext highlighter-rouge">/ri</code> による繰り返し間隔がデフォルトで 10 分に設定されます。混乱を防ぐために、<code class="language-plaintext highlighter-rouge">/et</code> オプションは <code class="language-plaintext highlighter-rouge">/ri</code> オプションとペアで使用するときのみ使用することをオススメします。</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/du HHHH:MM</code></td>
+      <td>タスクの継続時間 (duration) を時/分の単位で指定します。繰り返し実行される各々のタスクにおける実行継続時間を示します。<code class="language-plaintext highlighter-rouge">/sc minute</code> や <code class="language-plaintext highlighter-rouge">/sc hour</code> と一緒に使用すると、<code class="language-plaintext highlighter-rouge">/du</code> オプションで指定した時間の間だけ、分単位、時間単位で処理を繰り返すことになります。<code class="language-plaintext highlighter-rouge">/sc daily</code> や <code class="language-plaintext highlighter-rouge">/sc weekly</code> と一緒に使用すると、スケジュールされたタスクが起動するたびに <code class="language-plaintext highlighter-rouge">/du</code> オプションで指定した時間の間だけ、<code class="language-plaintext highlighter-rouge">/ri</code> オプションで指定した間隔で処理を繰り返します。</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/sd YYYY/MM/DD</code></td>
+      <td>タスクのスケジュールの開始日 (start date) を年月日で指定します。受け付けるフォーマットはシステムのロケール設定（コントロールパネルの地域と言語のオプション）により変化します。</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/ed YYYY/MM/DD</code></td>
+      <td>タスクのスケジュールの終了日 (end date) を年月日で指定します。受け付けるフォーマットはシステムのロケール設定（コントロールパネルの地域と言語のオプション）により変化します。<code class="language-plaintext highlighter-rouge">/ed</code> オプションが指定されずに、<code class="language-plaintext highlighter-rouge">/et</code> オプションによる終了時間のみ指定された場合、終了日のデフォルト値はタスク作成日になります。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>例えば、下記のようにスケジュールタスクを作成すると、本日の午後 3 時から (<code class="language-plaintext highlighter-rouge">/st 15:00</code>)、1 時間 (<code class="language-plaintext highlighter-rouge">/du 01:00</code>)、5 分おきに (<code class="language-plaintext highlighter-rouge">/sc minute /mo 5</code>)、notepad が起動します（嫌なタスクですが ^^;）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn MyTask /tr notepad /sc minute /mo 5 /st 15:00 /du 01:00
+</code></pre></div></div>
+
+<div class="note">
+<code>/st</code> による開始時刻の指定は、基本的に <code>/sd</code> による開始日の指定とセットで使われることが想定されており、<code>/sd</code> を省略した場合は本日の日付が開始日として使用されることに注意してください。
+上記のように <code>/sd</code> オプションによる開始日の指定を省略した場合、現在時刻がすでに、指定した「開始時刻＋継続時間」の時刻を過ぎている場合、そのタスクが実行されることはありません（次の日になっても開始されません）。
+</div>
+
+<p>下記のように年月日、時分まで指定してスケジュールの開始日時を設定できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 1週間ごとに起動されるタスクを 2020年2月15日の午前3時に開始
+schtasks /create /tn MyTask /tr notepad /sc weekly /sd 2020/02/15 /st 03:00
+</code></pre></div></div>
+
+<h3 id="ある日時になったら分単位のインターバルでタスクを繰り返し実行する-ri">ある日時になったら分単位のインターバルでタスクを繰り返し実行する (/ri)</h3>
+
+<p><img src="/windows/admin/schtasks-interval.jpg" alt="schtasks-interval.jpg" class="center" /></p>
+
+<p>ちょっと高度な使い方として、<strong><code class="language-plaintext highlighter-rouge">/ri</code></strong> オプション (repeat interval) があります。
+このオプションは、<code class="language-plaintext highlighter-rouge">/sc daily</code>、<code class="language-plaintext highlighter-rouge">/sc weekly</code>、<code class="language-plaintext highlighter-rouge">/sc monthly</code> スイッチによる、日をまたいで繰り返し実行されるタスクと組み合わせて使用します。
+スケジュールされたタスクの開始時刻になると、<code class="language-plaintext highlighter-rouge">/ri</code> オプションによって指定された分の間隔で、タスクが繰り返し実行されます。
+繰り返し実行を終了するまでの継続期間は、<strong><code class="language-plaintext highlighter-rouge">/du HH:MM</code></strong> オプションで指定します（省略すると 1 時間になります）。</p>
+
+<p>例えば次のようにすると、毎日の (<code class="language-plaintext highlighter-rouge">/sc daily</code>)、午後 3 時から (<code class="language-plaintext highlighter-rouge">/st 15:00</code>)、30 分間 (<code class="language-plaintext highlighter-rouge">/du 0:30</code>)、5 分おきに (<code class="language-plaintext highlighter-rouge">ri 5</code>) タスクを繰り返し実行します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn MyTask /tr notepad /sc daily /st 15:00 /du 0:30 /ri 5
+</code></pre></div></div>
+
+<p>下記は、上記のコマンドで登録された MyTask タスクの詳細情報です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /query /tn MyTask /fo list /v
+フォルダー\
+ホスト名:                                       maku_pc
+タスク名:                                       \MyTask
+次回の実行時刻:                                 2019/02/15 15:00:00
+状態:                                           準備完了
+ログオン モード:                                対話型のみ
+前回の実行時刻:                                 1999/11/30 0:00:00
+前回の結果:                                     267011
+作成者:                                         maku
+実行するタスク:                                 notepad
+開始:                                           N/A
+コメント:                                       N/A
+スケジュールされたタスクの状態:                 有効
+アイドル時間:                                   無効
+電源管理:                                       バッテリ モードで停止, バッテリで開始しない
+ユーザーとして実行:                             maku
+再度スケジュールされない場合はタスクを削除する: 無効
+タスクを停止するまでの時間:                     72:00:00
+スケジュール:                                   スケジュール データをこの形式で使用することはできません。
+スケジュールの種類:                             毎日
+開始時刻:                                       15:00:00
+開始日:                                         2019/02/14
+終了日:                                         N/A
+日:                                             1 日ごと
+月:                                             N/A
+繰り返し: 間隔:                                 0 時間、5 分
+繰り返し: 終了時刻:                             なし
+繰り返し: 期間:                                 0 時間、30 分
+繰り返し: 実行中の場合は停止:                   無効
+</code></pre></div></div>
+
+<h3 id="タスクの終了時にタスクスケジューラからタスクを削除する">タスクの終了時にタスクスケジューラからタスクを削除する</h3>
+
+<p>スケジュールの終了日時を指定した場合、<strong><code class="language-plaintext highlighter-rouge">/z</code></strong> オプションを追加で指定しておくことにより、その終了時刻になったときにタスクスケジューラからタスクを削除することができます。
+スケジュールの有効期限が過ぎたタスクが登録されていても害はありませんが、ゴミを残すのが嫌だという場合は指定しておくとよいでしょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 毎日午前 9 時に実行するタスクを 2019年7月20日 午前0時 になるまで続け、その時点でタスク自体を削除する
+schtasks /create /tn MyTask /tr c:\sample.bat /sc daily /st 09:00 /ed 2019/07/20 /et 00:00 /ri 0 /z
+</code></pre></div></div>
+
+<div class="note">
+<code>/et</code> オプションを使って終了時刻を指定すると、デフォルトで繰り返し間隔が 10 分に設定されるという奇妙な振る舞いがあるため、上記のように <code>/ri 0</code> として繰り返し実行されないようにリセットしておく必要があります。
+<code>/ed</code> オプションで終了日だけを指定した場合は、このようなリセット処理は必要ありません。
+daily で実行する開始時刻は <code>/st</code> で指定されているのだから、終了時刻まで指定する必要はないだろうということで採用した仕様なのだと思いますが、マイクロソフトの公式解説書『<a target="_blank" href="https://amazon.co.jp/dp/489100438X?tag=maku04-22">Windows コマンドライン活用ガイド</a>』に掲載されている例でも間違えて使われています。
+Microsoft 自身が間違えてしまうような複雑な仕様なので、このあたりは設計ミスと言わざるを得ません。
+</div>
+
+<p>また、似たようなオプションに <strong><code class="language-plaintext highlighter-rouge">/k</code></strong> オプションがありますが、こちらを指定しておくと、スケジュールの終了時刻になったときに、起動されているタスクのプロセスが強制終了されます。
+あまり有効な使い道が思い浮かばないので、使用例は省略します。</p>
+
+<h3 id="実行コマンドにスペースを含む場合">実行コマンドにスペースを含む場合</h3>
+
+<p>タスクとして実行しようとしているコマンドのパスに空白を含んでいる場合は、ダブルクォートで囲む必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn "MyTask" /tr "c:\my script\hello world.bat" /sc daily
+</code></pre></div></div>
+
+<p>タスクとして実行するコマンドにコマンドライン引数を渡したい場合は、コマンドライン引数まで含めて全体をダブルクォートで囲む必要があります。
+さらに、コマンドライン引数自体にスペースを含めたい場合は、シングルクォートで囲みます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /tn "MyTask" /tr "c:\sample.bat 'first arg' 'second arg'" /sc daily
+</code></pre></div></div>
+
+<h3 id="スケジュールタスクの上書き作成">スケジュールタスクの上書き作成</h3>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks /create /tn "MyTask" ...</code> と実行したときに、すでに MyTask というタスクがタスクスケジューラに登録されていると、上書き作成するかどうかの警告が表示されます。
+この警告を表示せずに強制的に新しいタスクで上書き作成したいときは、<strong><code class="language-plaintext highlighter-rouge">/f</code></strong> オプション (force) を指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /create /f /tn "MyTask" ...
+</code></pre></div></div>
+
+<h2 id="スケジュールタスクの削除-schtasks-delete">スケジュールタスクの削除 (schtasks /delete)</h2>
+
+<p>タスクスケジューラに登録されているタスクを削除するには下記のようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /delete /tn &lt;削除するタスク名&gt;
+</code></pre></div></div>
+
+<h4 id="例-mytask-タスクを削除する">例: MyTask タスクを削除する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /delete /tn MyTask
+警告: タスク "MyTask" を削除しますか (Y/N) ? y
+成功: スケジュール タスク "MyTask" は正しく削除されました。
+</code></pre></div></div>
+
+<p>タスクを削除する際には、上記のようにタスクを削除するかどうかを確認する警告メッセージが表示されます。
+この警告メッセージを表示せずにタスクを削除したい場合は、<strong><code class="language-plaintext highlighter-rouge">/f</code></strong> オプションを追加してください。</p>
+
+<p>下記のように、アクセス権限に関するエラーメッセージが表示される場合は、<a href="../cmd/admin.html">コマンドプロンプトを管理者権限で起動して</a>から実行してみてください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /delete /f /tn MyTask
+エラー: アクセスが拒否されました。
+</code></pre></div></div>
+
+<h2 id="スケジュールタスクの一覧を表示-schtasks-query">スケジュールタスクの一覧を表示 (schtasks /query)</h2>
+
+<p>下記のように実行すると、タスクスケジューラに登録されているタスクの一覧を表示することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /query
+</code></pre></div></div>
+
+<p>デフォルトで Windows によってたくさんのタスクが登録されています。
+自分で作成したタスクの情報のみを表示したいときは、下記のように <strong><code class="language-plaintext highlighter-rouge">/tn</code></strong> オプションでタスク名を指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /query /tn MyTask
+</code></pre></div></div>
+
+<p>デフォルトではテーブル形式で表示されますが、<strong><code class="language-plaintext highlighter-rouge">/fo</code></strong> オプション (format) を指定すると、リスト形式や、CSV 形式で表示することができます。
+テーブル形式や CSV 形式では、カラム名のヘッダが付きますが、<strong><code class="language-plaintext highlighter-rouge">/nh</code></strong> オプション (no headers) を指定してヘッダ出力を無効にすることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /query /fo table  # テーブル形式で出力（デフォルト）
+schtasks /query /fo list   # リスト形式で出力
+schtasks /query /fo csv    # CSV 形式で出力
+</code></pre></div></div>
+
+<p>デフォルトでは簡易的なタスク情報しか表示されませんが、<strong><code class="language-plaintext highlighter-rouge">/v</code></strong> オプション (verbose) を指定すると、より詳細なタスク情報を表示することができます。
+おすすめの指定方法は、下記のようにタスク名を指定し、リスト形式で詳細情報を出力する方法です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /query /tn MyTask /fo list /v
+</code></pre></div></div>
+
+<h2 id="スケジュールタスクの変更-schtasks-change">スケジュールタスクの変更 (schtasks /change)</h2>
+
+<p>タスクスケジューラに登録済みのタスクの設定を変更するには、<strong><code class="language-plaintext highlighter-rouge">schtasks /change</code></strong> コマンドを使用します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /change /tn &lt;タスク名&gt; 【変更パラメータ】
+</code></pre></div></div>
+
+<p>【変更パラメータ】には下記のようなものを指定できます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/tr &lt;実行コマンド&gt;</code>: 実行するコマンドを変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/st HH:MM</code>: タスクの開始時刻を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/et HH:MM</code>: タスクの終了時刻を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/du MM</code>: タスクの継続時間（分）を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/ri MM</code>: タスクの実行間隔（分）を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/sd YYYY/MM/DD</code>: タスクの開始日を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/ed YYYY/MM/DD</code>: タスクの終了日を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">/enable</code>: タスクを有効にする</li>
+  <li><code class="language-plaintext highlighter-rouge">/disable</code>: タスクを無効にする</li>
+</ul>
+
+<p>設定を部分的に変更するよりも、<code class="language-plaintext highlighter-rouge">schtasks /create /f</code> でタスクごと作成し直してしまった方がわかりやすいので、使いどころがあまりなさそうですが、<code class="language-plaintext highlighter-rouge">/disable</code> オプションでスケジュールを一時的に無効にする機能は使えるかもしれません。</p>
+
+<h4 id="例-実行するコマンドを変更する">例: 実行するコマンドを変更する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /change /tn MyTask /tr C:\new\script.bat
+</code></pre></div></div>
+
+<h4 id="例-2020年1月20日15時30分に開始するよう変更">例: 2020年1月20日15時30分に開始するよう変更</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /change /tn MyTask /sd 2020/01/20 /st 15:30
+</code></pre></div></div>
+
+<p>変更パラメータとして、<code class="language-plaintext highlighter-rouge">/disable</code> を指定すると、一時的にタスクを無効化することができます。
+無効になった状態のタスクは、変更パラメータに <code class="language-plaintext highlighter-rouge">/enable</code> を指定することで再度有効化できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /change /tn MyTask /disable
+成功: スケジュール タスク "MyTask" のパラメーターは変更されました。
+
+C:\&gt; schtasks /query /tn MyTask /fo list /v | findstr 状態
+状態:                                           無効
+スケジュールされたタスクの状態:                 無効
+</code></pre></div></div>
+
+<h2 id="スケジュールタスクを手動で実行-schtasks-run">スケジュールタスクを手動で実行 (schtasks /run)</h2>
+
+<p>タスクスケジューラに登録さたタスクは、<strong><code class="language-plaintext highlighter-rouge">schtasks /run</code></strong> コマンドを使用して手動で開始することができます。
+このコマンドでタスクを開始しても、登録されているタスクのスケジュール情報が変更されることはありません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /run /tn &lt;タスク名&gt;
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks /change /disable</code> によって無効状態にされているタスクを開始したい場合は、<code class="language-plaintext highlighter-rouge">schtaks /change /enable</code> でタスクを有効状態に戻しておく必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /run /tn MyTask
+エラー: スケジュールされたタスク "MyTask" は無効になっているため実行できませんでした。
+
+C:\&gt; schtasks /change /tn MyTask /enable
+成功: スケジュール タスク "MyTask" のパラメーターは変更されました。
+
+C:\&gt; schtasks /run /tn MyTask
+成功: スケジュール タスク "MyTask" の実行が試行されました。
+</code></pre></div></div>
+
+<h2 id="実行中のスケジュールタスクを強制終了-schtasks-end">実行中のスケジュールタスクを強制終了 (schtasks /end)</h2>
+
+<p>実行中のスケジュールタスクは、下記のように <code class="language-plaintext highlighter-rouge">schtasks /end</code> コマンドで強制終了することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /end /tn &lt;タスク名&gt;
+</code></pre></div></div>
+
+<p>このコマンドは、<code class="language-plaintext highlighter-rouge">schtasks /run</code> コマンドで手動で開始したタスクに対しても有効です。
+下記の例では、メモ帳を起動するタスクを <code class="language-plaintext highlighter-rouge">schtasks /run</code> で起動し、<code class="language-plaintext highlighter-rouge">schtasks /end</code> で終了しています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 自動で開始されないタスク（過去の開始時刻）を作成しておく
+schtasks /create /tn MyTask /tr notepad /sc once /sd 1999/01/01 /st 00:00
+
+# 手動でタスクを起動（メモ帳が起動する）
+schtasks /run /tn MyTask
+
+# 手動でタスクを終了（メモ帳が終了する）
+schtasks /end /tn MyTask
+</code></pre></div></div>
+
+<p>ちなみに、タスクスケジューラ以外の経路で立ち上げた <code class="language-plaintext highlighter-rouge">notepad.exe</code> は、上記のコマンドでは終了しません。
+このあたりのタスクと実行プロセスの関連付けはうまくできているようです。</p>
+
+<h2 id="タスクスケジューラでスクリプトバッチファイルを実行するときの出力">タスクスケジューラでスクリプト（バッチファイル）を実行するときの出力</h2>
+
+<p>タスクスケジューラによりバッチファイルを自動実行する場合、通常コマンドプロンプトは表示されないため、標準出力 (stdout) や標準エラーへ出力を確認することができません。
+後から出力を確認したい場合は、次のようにバッチファイル内で標準出力と標準エラー出力をログファイルにもリダイレクトするようにしておきます。</p>
+
+<h4 id="defrag-allbat">defrag-all.bat</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defrag c:\ &gt;&gt; c:\logs\defrag-log.txt 2&gt;&amp;1
+defrag d:\ &gt;&gt; c:\logs\defrag-log.txt 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>このようにログファイルを出力する場合、ログファイルを格納するディレクトリをあらかじめ作成しておくことを忘れないようにしてください。
+下記のようにしてバッチファイル内でログファイル格納用のディレクトリを作成してしまうのもよいでしょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdr c:\logs &gt; NUL 2&gt;&amp;1
+</code></pre></div></div>
+
+<h2 id="ノート-pc-でバッテリ駆動しているときにスケジュールされたタスクが実行されない">ノート PC でバッテリ駆動しているときにスケジュールされたタスクが実行されない</h2>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks /create</code> で作成されたタスクは、デフォルトで「<strong>バッテリモードで停止</strong>」という電源管理設定になっており、スケジュールされた時刻になっても起動しません。（ぬぁにーーー！）</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; schtasks /query /tn MyTask /fo list /v | findstr 電源管理
+電源管理:  バッテリ モードで停止, バッテリで開始しない
+</code></pre></div></div>
+
+<p>それどころか、<code class="language-plaintext highlighter-rouge">schtasks /run</code> で手動実行しようとしても起動してくれませんが、<strong><code class="language-plaintext highlighter-rouge">/i</code></strong> オプションを追加すれば手動起動はできるようです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>schtasks /run /tn MyTask /i
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">schtasks /create</code> コマンドで作成したスケジュールタスクを、モバイル PC で電源接続していない場合にも起動するようにするには、GUI のタスクスケジューラアプリ上で設定を変更する必要があります。</p>
+
+<ol>
+  <li><kbd>Windows</kbd> キーを押してスタートメニューを表示する</li>
+  <li><code class="language-plaintext highlighter-rouge">タスク</code> あるいは <code class="language-plaintext highlighter-rouge">task</code> と入力し、タスクスケジューラを選択して起動する（間違えてタスクマネージャーを起動しないように）</li>
+  <li>アクティブなタスクの一覧から <code class="language-plaintext highlighter-rouge">MyTask</code> をダブルクリック</li>
+  <li><samp>プロパティ</samp> ボタンを押して、プロパティ設定画面を起動し、<samp>コンピュータを AC 電源で使用している場合のみタスクを開始する</samp> というチェックボックスのチェックを外す</li>
+</ol>
+
+<p><img src="/windows/admin/schtasks-battery.png" alt="schtasks-battery.png" class="center" /></p>
+
+<p>これでモバイル PC 上でも、常にスケジュールタスクが実行されるようになります。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Windows で任意のコマンド（タスク）を自動実行する (schtasks)&url=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/admin/schtasks.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/windows/"><span class="xArticle_up_label">まくまくWindowsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li class="xNav-focused"><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2019-02-13</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

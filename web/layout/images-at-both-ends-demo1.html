@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: relative; /* 子要素のタイトルを aboslute 配置するため */
+      height: 100px;
+      background: #eee;
+    }
+    .box .box_imageLeft {
+      position: absolute;
+      left: 0;
+    }
+    .box .box_imageRight {
+      position: absolute;
+      right: 0;
+    }
+  </style>
+  <title>画像や div 要素を両端に表示するデモ (1)</title>
+</head>
+<body>
+
+<div class="box">
+  <img class="box_imageLeft" src="images-at-both-ends.png">
+  <img class="box_imageRight" src="images-at-both-ends.png">
+</div>
+
+</body>
+</html>

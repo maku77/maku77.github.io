@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaScriptノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/io/keyboard.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaScriptノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="キーボードからの入力を取得する | まくまくJavaScriptノート" />
+  <title>キーボードからの入力を取得する - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">キーボードからの入力を取得する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-03-31</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/io/keyboard.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： キーボードからの入力を取得する&url=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="キーハンドルの基本">キーハンドルの基本</h2>
+
+<p><code class="language-plaintext highlighter-rouge">window.addEventListener</code> 関数を使用して、<code class="language-plaintext highlighter-rouge">keydown</code> や <code class="language-plaintext highlighter-rouge">keyup</code> イベントのハンドラを設定しておくと、ページ内で発生したキー入力を捕捉することができます。
+下記の例では、入力されたキー情報をページ内に表示しています。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;DOCTYPE</span><span class="err">!</span> <span class="na">html</span><span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">resultElem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="cm">/**
+     * Handles a key down/up event.
+     * @param {KeyboardEvent} e
+     */</span>
+    <span class="kd">function</span> <span class="nx">onKeyDownOrUp</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Display key information</span>
+      <span class="nx">resultElem</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">code=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">code</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">, key=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">key</span> <span class="o">+</span>
+          <span class="dl">'</span><span class="s1">, shiftKey=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">shiftKey</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">, ctrlKey=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">ctrlKey</span> <span class="o">+</span>
+          <span class="dl">'</span><span class="s1">, type=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">type</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">, repeat=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">repeat</span><span class="p">;</span>
+      <span class="c1">// Prevent the keyboard events from bubbling up to the broser itself</span>
+      <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="p">};</span>
+
+    <span class="c1">// Set up key event handlers</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDownOrUp</span><span class="p">);</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDownOrUp</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;p&gt;</span>ここを一度クリックしてから、キー入力してみてください。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"result"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="デモ">デモ</h3>
+
+<iframe class="xHtmlDemo" src="keyboard-demo.html"></iframe>
+<p><a target="_blank" href="keyboard-demo.html">デモページを開く</a></p>
+
+<p>下記は、キーボードから a b c とタイプしたときの出力です。
+<code class="language-plaintext highlighter-rouge">keydown</code> と <code class="language-plaintext highlighter-rouge">keyup</code> の2つのイベントを捕捉しているため、キー入力ごとに2度情報が表示されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code=KeyA, key=a, shiftKey=false, ctrlKey=false, type=keydown, repeat=false
+code=KeyA, key=a, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
+code=KeyB, key=b, shiftKey=false, ctrlKey=false, type=keydown, repeat=false
+code=KeyB, key=b, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
+code=KeyC, key=c, shiftKey=false, ctrlKey=false, type=keydown, repeat=false
+code=KeyC, key=c, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">keydown</code> イベントと <code class="language-plaintext highlighter-rouge">keyup</code> イベント用のイベントハンドラは、下記のように設定することができます。
+ここでは、共通のイベントハンドラとして、<code class="language-plaintext highlighter-rouge">onKeyDownOrUp</code> 関数を設定しています。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Set up key event handlers</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDownOrUp</span><span class="p">);</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keyup</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDownOrUp</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>あるいは、次のように設定することもできます（こちらの方法の場合、高々1つのイベントハンドラしか設定できません）。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">onkeydown</span> <span class="o">=</span> <span class="nx">onKeyDownOrUp</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onkeyup</span> <span class="o">=</span> <span class="nx">onKeyDownOrUp</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>キーイベントが発生すると、上記で指定したイベントハンドラが呼び出され、パラメータとして <code class="language-plaintext highlighter-rouge">KeyboardEvent</code> オブジェクトが渡されます。
+<code class="language-plaintext highlighter-rouge">KeyboardEvent</code> のプロパティにどんなものが用意されているかは、下記のサイトにまとめられています。</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent">KeyboardEvent - Web APIs｜MDN</a></li>
+</ul>
+
+<p>例えば、どのようなキーが押されたかを調べるには、<code class="language-plaintext highlighter-rouge">code</code> プロパティや、<code class="language-plaintext highlighter-rouge">key</code> プロパティの値を参照します。</p>
+
+<div class="note">
+似たようなプロパティとして、<code>charCode</code> や、<code>keyCode</code>、<code>which</code> プロパティがありますが、これらは既に deprecated（非推奨）メソッドとなっているため、使用してはいけません。
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">KeyboardEvent.code</code> プロパティや、<code class="language-plaintext highlighter-rouge">KeyboardEvent.key</code> プロパティの値が具体的にどのような値になるかは、下記のページにまとめられています。</p>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code">KeyboardEvent.code - Web APIs｜MDN</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">Key Values - Web APIs｜MDN</a></li>
+</ul>
+
+<p>イベントハンドラ内で、<code class="language-plaintext highlighter-rouge">KeyboardEvent.preventDefault()</code> を呼び出しておくと、上位要素（ここではブラウザ自身）にキー入力が引き渡されなくなります。
+これを入れておかないと、例えば TAB キーを入力したときに、最後にフォーカス位置が移動してしまいます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Prevent the keyboard events from bubbling up to the broser itself</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="押されたキーによって振る舞いを変える">押されたキーによって振る舞いを変える</h2>
+
+<p>押されたキーによって処理方法を変えるには、例えば下記のように <code class="language-plaintext highlighter-rouge">KeyboardEvent.code</code> の値を見て switch で分岐するようにします。
+今回は、<code class="language-plaintext highlighter-rouge">keydown</code> イベントのみをハンドルしています。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">use strict</span><span class="dl">'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">MOVE_BY</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// 移動量</span>
+  <span class="kd">var</span> <span class="nx">puppetElem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">puppet</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="cm">/** Handles a key down/up event. */</span>
+  <span class="kd">function</span> <span class="nx">onKeyDown</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Display key information</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">ArrowLeft</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">KeyA</span><span class="dl">'</span><span class="p">:</span>
+        <span class="nx">moveElem</span><span class="p">(</span><span class="nx">puppetElem</span><span class="p">,</span> <span class="o">-</span><span class="nx">MOVE_BY</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">ArrowRight</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">KeyD</span><span class="dl">'</span><span class="p">:</span>
+        <span class="nx">moveElem</span><span class="p">(</span><span class="nx">puppetElem</span><span class="p">,</span> <span class="nx">MOVE_BY</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">ArrowUp</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">KeyW</span><span class="dl">'</span><span class="p">:</span>
+        <span class="nx">moveElem</span><span class="p">(</span><span class="nx">puppetElem</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="nx">MOVE_BY</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">ArrowDown</span><span class="dl">'</span><span class="p">:</span>
+      <span class="k">case</span> <span class="dl">'</span><span class="s1">KeyS</span><span class="dl">'</span><span class="p">:</span>
+        <span class="nx">moveElem</span><span class="p">(</span><span class="nx">puppetElem</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">MOVE_BY</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Prevent the keyboard events from bubbling up to the broser itself</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="p">};</span>
+
+  <span class="cm">/** Moves a specified HTML element. */</span>
+  <span class="kd">function</span> <span class="nx">moveElem</span><span class="p">(</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">offsetX</span><span class="p">,</span> <span class="nx">offsetY</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">offsetX</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">px</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">elem</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">top</span> <span class="o">+</span> <span class="nx">offsetY</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">px</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Set up key event handlers</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDown</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>次のデモウィンドウをマウスでクリックしてから、カーソルキーや、<kbd>A</kbd>、<kbd>S</kbd>、<kbd>D</kbd>、<kbd>W</kbd> を入力すると、画面内の要素を動かすことができます。</p>
+
+<h3 id="デモ-1">デモ</h3>
+
+<iframe class="xHtmlDemo" src="keyboard-demo2.html"></iframe>
+<p><a target="_blank" href="keyboard-demo2.html">デモページを開く</a></p>
+
+<h2 id="jquery-でキーハンドル処理を行う">jQuery でキーハンドル処理を行う</h2>
+
+<p>jQuery を使用すると、イベントハンドラの登録部分を若干シンプルに記述することができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">onKeyDownOrUp</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">code=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">code</span><span class="p">);</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="dl">'</span><span class="s1">keydown keyup</span><span class="dl">'</span><span class="p">,</span> <span class="nx">onKeyDownOrUp</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>上記のように、<code class="language-plaintext highlighter-rouge">keydown</code> と <code class="language-plaintext highlighter-rouge">keyup</code> イベントのハンドラを、一度に設定してしまうことができます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： キーボードからの入力を取得する&url=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/io/keyboard.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-03-31</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="482" height="169" viewBox="0, 0, 482, 169">
+  <g id="レイヤー_1" transform="translate(-71, -72)">
+    <g>
+      <path d="M72.5,96.5 L216.5,96.5 L216.5,240.5 L72.5,240.5 L72.5,96.5 z" fill="#FFFFFF"/>
+      <path d="M72.5,96.5 L216.5,96.5 L216.5,240.5 L72.5,240.5 L72.5,96.5 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 132, 82)">
+      <tspan x="-48.008" y="5" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">.../page/1</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 150, 168.5)">
+      <tspan x="-66" y="-45.795" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・タイトル</tspan>
+      <tspan x="13.52" y="-45.795" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 1</tspan>
+      <tspan x="-66" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-24.495" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 2</tspan>
+      <tspan x="-66" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-3.195" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 3</tspan>
+      <tspan x="-66" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="18.105" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 4</tspan>
+      <tspan x="-66" y="39.405" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="39.405" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> ...</tspan>
+      <tspan x="-66" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="60.705" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 5</tspan>
+    </text>
+    <g>
+      <path d="M240.5,96.5 L384.5,96.5 L384.5,240.5 L240.5,240.5 L240.5,96.5 z" fill="#FFFFFF"/>
+      <path d="M240.5,96.5 L384.5,96.5 L384.5,240.5 L240.5,240.5 L240.5,96.5 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 300, 83.25)">
+      <tspan x="-48.008" y="3.75" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">.../page/</tspan>
+      <tspan x="38.406" y="3.75" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">2</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 318, 168.5)">
+      <tspan x="-66" y="-45.795" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-45.795" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-45.795" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 11</tspan>
+      <tspan x="-66" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-24.495" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 12</tspan>
+      <tspan x="-66" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-3.195" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 13</tspan>
+      <tspan x="-66" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="18.105" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 14</tspan>
+      <tspan x="-66" y="39.405" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="39.405" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> ...</tspan>
+      <tspan x="-66" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="60.705" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 15</tspan>
+    </text>
+    <g>
+      <path d="M408.5,96.5 L552.5,96.5 L552.5,240.5 L408.5,240.5 L408.5,96.5 z" fill="#FFFFFF"/>
+      <path d="M408.5,96.5 L552.5,96.5 L552.5,240.5 L408.5,240.5 L408.5,96.5 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 468, 83.25)">
+      <tspan x="-48.008" y="3.75" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">.../page/</tspan>
+      <tspan x="38.406" y="3.75" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">3</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 486, 168.5)">
+      <tspan x="-66" y="-45.795" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-45.795" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-45.795" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 21</tspan>
+      <tspan x="-66" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-24.495" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-24.495" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 22</tspan>
+      <tspan x="-66" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="-3.195" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="-3.195" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 23</tspan>
+      <tspan x="-66" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="18.105" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="18.105" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 24</tspan>
+      <tspan x="-66" y="39.405" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="39.405" font-family="Courier-Bold" font-size="16" fill="#2B2B2B">...</tspan>
+      <tspan x="-66" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">・</tspan>
+      <tspan x="-50" y="60.705" font-family="HiraginoSans-W6" font-size="16" fill="#2B2B2B">タイトル</tspan>
+      <tspan x="13.52" y="60.705" font-family="Courier-Bold" font-size="16" fill="#2B2B2B"> 29</tspan>
+    </text>
+  </g>
+</svg>

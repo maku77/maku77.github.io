@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="ここでは JavaScript を使ってサイト内の全文検索を実現する方法を示します。全文検索を実現する方法としては、Google カスタム検索を利用する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/hugo/advanced/full-text-search.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-hugo.png" />
+
+  <meta property="og:description" content="ここでは JavaScript を使ってサイト内の全文検索を実現する方法を示します。全文検索を実現する方法としては、Google カスタム検索を利用する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="全文検索（インクリメンタルサーチ）の機能を付ける | まくまくHugoノート" />
+  <title>全文検索（インクリメンタルサーチ）の機能を付ける - まくまくHugoノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/hugo/">
+    <img src="/assets/img/logo-hugo.png" class="xPageHeader_logo">
+  </a>
+  <a href="/hugo/">
+    <div class="xPageHeader_category">
+    まくまくHugoノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">全文検索（インクリメンタルサーチ）の機能を付ける</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2021-06-14</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/hugo/advanced/full-text-search.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： 全文検索（インクリメンタルサーチ）の機能を付ける&url=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">ここでは JavaScript を使ってサイト内の全文検索を実現する方法を示します。全文検索を実現する方法としては、Google カスタム検索を利用する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <figure>
+    <img src="full-text-search.png" />
+    <figcaption>全文検索＋インクリメンタルサーチの完成イメージ（<a target="_blank" href="http://memoja.net/search/">実際のサイト</a>）</figcaption>
+</figure>
+
+<p>大まかに、下記のようなファイルを出力できれば、サイト内の全文検索を実現することができます。</p>
+
+<ol>
+  <li>検索用データ (<code class="language-plaintext highlighter-rouge">search/data.js</code>)</li>
+  <li>検索用ページ＋検索処理用JavaScript (<code class="language-plaintext highlighter-rouge">search/index.html</code>)</li>
+</ol>
+
+<p>ここでは、全文検索のためのページとして <code class="language-plaintext highlighter-rouge">search</code> という名前のセクションを作成することにします（URL としては http://localhost:1313/search/ という形でアクセスすることになります）。
+すでに <code class="language-plaintext highlighter-rouge">search</code> というセクション名を使用している場合は適宜変更してください。</p>
+
+<h2 id="検索用データ-searchdatajs-の作成">検索用データ (search/data.js) の作成</h2>
+
+<p>まず、全ページの本文を JavaScript から検索できるようするために、検索用のデータ（インデックスファイル）を作成します。
+ここでは、<code class="language-plaintext highlighter-rouge">search/data.js</code> という JavaScript ファイルに、下記のようなフォーマットで変数 <code class="language-plaintext highlighter-rouge">data</code> として出力することにします。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">url</span><span class="p">:</span><span class="dl">"</span><span class="s2">ページURL1</span><span class="dl">"</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span><span class="dl">"</span><span class="s2">タイトル1</span><span class="dl">"</span><span class="p">,</span> <span class="na">body</span><span class="p">:</span><span class="dl">"</span><span class="s2">本文1…</span><span class="dl">"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">url</span><span class="p">:</span><span class="dl">"</span><span class="s2">ページURL2</span><span class="dl">"</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span><span class="dl">"</span><span class="s2">タイトル2</span><span class="dl">"</span><span class="p">,</span> <span class="na">body</span><span class="p">:</span><span class="dl">"</span><span class="s2">本文2…</span><span class="dl">"</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">url</span><span class="p">:</span><span class="dl">"</span><span class="s2">ページURL3</span><span class="dl">"</span><span class="p">,</span> <span class="na">title</span><span class="p">:</span><span class="dl">"</span><span class="s2">タイトル3</span><span class="dl">"</span><span class="p">,</span> <span class="na">body</span><span class="p">:</span><span class="dl">"</span><span class="s2">本文3…</span><span class="dl">"</span> <span class="p">},</span>
+  <span class="p">...</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">data</code> 変数は、各ページの情報を配列として保持しています。
+検索ページから上記の JavaScript ファイルを読み込んで、<code class="language-plaintext highlighter-rouge">body</code> プロパティの内容を検索するように実装します。</p>
+
+<p><code class="language-plaintext highlighter-rouge">data.js</code> は、次のような Hugo テンプレートを作成しておけば、全てのコンテンツの情報から自動生成することができます。</p>
+
+<h4 id="layoutssearchsinglehtml">layouts/search/single.html</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- /* エスケープ処理（改行を空白化、前後の空白削除、連続する空白を集約） */}}
+{{- define "escape" }}
+  {{- trim (replace . "\n" " ") " " | replaceRE " +" " " | jsonify -}}
+{{- end }}
+
+var data = [
+{{- range $index, $page := .Site.Pages }}
+  {
+    url: {{ $page.Permalink | jsonify }},
+    title: {{ $page.Title | jsonify }},
+    date: {{ $page.Date | jsonify }},
+    body: {{ template "escape" (printf "%s %s" $page.Title $page.Plain) }}
+  },
+{{- end }}
+];
+</code></pre></div></div>
+
+<p>JavaScript の文字列として含んではいけない文字をエスケープするために、Hugo の <code class="language-plaintext highlighter-rouge">jsonify</code> 関数を使用しているところがポイントです。
+他にも、連続するスペースの集約や、改行文字の削除などを行っています。</p>
+
+<p>タグの一覧ページ（<code class="language-plaintext highlighter-rouge">.Kind = taxonomy</code>) や、あるタグの一覧ページ (<code class="language-plaintext highlighter-rouge">.Kind = term</code>) を検索対象にしたくないときは、上記の <code class="language-plaintext highlighter-rouge">.Pages</code> のループの中に次のような <code class="language-plaintext highlighter-rouge">if - end</code> 条件分岐を追加してフィルタします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{- if not (or (eq $page.Kind "taxonomy") (eq $page.Kind "term")) }}
+</code></pre></div></div>
+
+<p>このテンプレートファイルを作成しただけでは実際の <code class="language-plaintext highlighter-rouge">data.js</code> ファイルは出力されないので、下記のようなダミーのコンテンツページを作成して、<code class="language-plaintext highlighter-rouge">data.js</code> が出力されるようにします。
+<code class="language-plaintext highlighter-rouge">url</code> プロパティを使って、強引に拡張子を <code class="language-plaintext highlighter-rouge">.js</code> にしてしまうのがポイントです。</p>
+
+<h4 id="contentsearchdatamd">content/search/data.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+url: "search/data.js"
+---
+</code></pre></div></div>
+
+<p>これで、Hugo によって <code class="language-plaintext highlighter-rouge">search/data.js</code> ファイルが出力されるようになります。
+ここまでできたら、http://localhost:1313/search/data.js にアクセスして、出力されたファイルの内容を確かめてみるとよいでしょう。</p>
+
+<h2 id="検索用ページ-searchindexhtml-の作成">検索用ページ (search/index.html) の作成</h2>
+
+<p>最後に、全文検索を実行するためのページのレイアウト (HTML) と JavaScript コードを作成します。
+スタイルシート (CSS) まで含んでいるので若干長いですが、やっていることは、上記で作成した <code class="language-plaintext highlighter-rouge">data.js</code> 内で定義されている <code class="language-plaintext highlighter-rouge">data</code> 配列の中身を、フォームに入力された文字列で検索しているだけです。</p>
+
+<h4 id="layoutssearchlisthtml">layouts/search/list.html</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>{{ .Page.Title }} | {{ .Site.Title }}<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"data.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nt">body</span> <span class="p">{</span>
+      <span class="nl">background</span><span class="p">:</span> <span class="m">#fafafa</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">input</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="no">deeppink</span><span class="p">;</span>
+      <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2em</span><span class="p">;</span>
+      <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">input</span><span class="nd">::-webkit-input-placeholder</span> <span class="p">{</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">#result</span> <span class="p">{</span>
+      <span class="nl">margin</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.item_title</span> <span class="p">{</span>
+      <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+      <span class="nl">color</span><span class="p">:</span> <span class="m">#36f</span><span class="p">;</span>
+      <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.item_excerpt</span> <span class="p">{</span>
+      <span class="nl">background</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+      <span class="nl">margin</span><span class="p">:</span> <span class="m">0.5em</span> <span class="m">2em</span> <span class="m">1em</span><span class="p">;</span>
+      <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5em</span><span class="p">;</span>
+      <span class="nl">border</span><span class="p">:</span> <span class="nb">dashed</span> <span class="m">1px</span> <span class="n">lightgray</span><span class="p">;</span>
+      <span class="nl">font-size</span><span class="p">:</span> <span class="nb">smaller</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nc">.item_excerpt</span> <span class="nt">b</span> <span class="p">{</span>
+      <span class="nl">background</span><span class="p">:</span> <span class="no">pink</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>{{ .Page.Title }}<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">onkeyup=</span><span class="s">"search(this.value)"</span> <span class="na">size=</span><span class="s">"15"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">autofocus</span> <span class="na">placeholder=</span><span class="s">"検索ワード"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"inputWord"</span><span class="nt">&gt;&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"resultCount"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"result"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">function</span> <span class="nx">search</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">searchData</span><span class="p">(</span><span class="nx">query</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">html</span> <span class="o">=</span> <span class="nx">createHtml</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+  <span class="nx">showResult</span><span class="p">(</span><span class="nx">html</span><span class="p">);</span>
+  <span class="nx">showResultCount</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">searchData</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 検索にヒットした情報を下記のような配列として格納していく</span>
+  <span class="c1">// [データのインデックス, 文字の開始位置, 文字の終了位置]</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="nx">query</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">query</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">var</span> <span class="nx">re</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">body</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">re</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">i</span><span class="p">,</span> <span class="nx">pos</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">+</span> <span class="nx">query</span><span class="p">.</span><span class="nx">length</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">createHtml</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">htmls</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">dataIndex</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">startPos</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">endPos</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">dataIndex</span><span class="p">].</span><span class="nx">url</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">title</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">dataIndex</span><span class="p">].</span><span class="nx">title</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">dataIndex</span><span class="p">].</span><span class="nx">body</span><span class="p">;</span>
+    <span class="nx">htmls</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">createEntry</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nx">startPos</span><span class="p">,</span> <span class="nx">endPos</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">htmls</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">createEntry</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="nx">startPos</span><span class="p">,</span> <span class="nx">endPos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="dl">'</span><span class="s1">&lt;div class="item"&gt;</span><span class="dl">'</span> <span class="o">+</span>
+      <span class="dl">'</span><span class="s1">&lt;a class="item_title" href="</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">url</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/a&gt;</span><span class="dl">'</span> <span class="o">+</span>
+      <span class="dl">'</span><span class="s1">&lt;div class="item_excerpt"&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">excerpt</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="nx">startPos</span><span class="p">,</span> <span class="nx">endPos</span><span class="p">)</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/div&gt;</span><span class="dl">'</span> <span class="o">+</span>
+      <span class="dl">'</span><span class="s1">&lt;/div&gt;</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">excerpt</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="nx">startPos</span><span class="p">,</span> <span class="nx">endPos</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="nx">body</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">startPos</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">startPos</span><span class="p">),</span>
+    <span class="dl">'</span><span class="s1">&lt;b&gt;</span><span class="dl">'</span><span class="p">,</span> <span class="nx">body</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">startPos</span><span class="p">,</span> <span class="nx">endPos</span><span class="p">),</span> <span class="dl">'</span><span class="s1">&lt;/b&gt;</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">body</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="nx">endPos</span><span class="p">,</span> <span class="nx">endPos</span> <span class="o">+</span> <span class="mi">200</span><span class="p">)</span>
+  <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">showResult</span><span class="p">(</span><span class="nx">html</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">result</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">html</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">showResultCount</span><span class="p">(</span><span class="nx">count</span><span class="p">,</span> <span class="nx">total</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">resultCount</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;b&gt;</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">count</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">&lt;/b&gt; 件見つかりました（</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">total</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">件中）</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>これで、http://localhost:1313/search/ といった URL にアクセスすれば、全文検索のページが表示されるようになります。</p>
+
+<h2 id="応用urlのハッシュフラグメントに検索ワードを入れる">応用：URLのハッシュフラグメントに検索ワードを入れる</h2>
+
+<h3 id="やりたいこと">やりたいこと</h3>
+
+<p>ハッシュフラグメントとは、次のような、URL の末尾についた <code class="language-plaintext highlighter-rouge">#</code> 以降の文字列のことです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:1313/search/#検索ワード
+</code></pre></div></div>
+
+<p>ここでは、ハッシュフラグメントに設定された検索ワードを使って全文検索を実行するようにしてみます。
+コードは複雑になりますが、このような仕組みにすることで、</p>
+
+<ul>
+  <li>検索結果のページにリンクを張れるようになる</li>
+  <li>検索結果のページをブックマークできるようになる</li>
+</ul>
+
+<p>といった利点があります（正確には検索結果のページにリンクを張るわけではなく、ページを開いてから検索を実行します）。</p>
+
+<h3 id="全文検索のページのコードを修正">全文検索のページのコードを修正</h3>
+
+<p>元のコードでは、<code class="language-plaintext highlighter-rouge">input</code> 要素の <code class="language-plaintext highlighter-rouge">onkeyup</code> 属性を使って <code class="language-plaintext highlighter-rouge">search()</code> 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメントにセットするように変更します（2021-06追記: <code class="language-plaintext highlighter-rouge">location.hash=this.value</code> としてましたが、これだとキー入力のたびに履歴に追加されてしまうので、<code class="language-plaintext highlighter-rouge">location.replace()</code> を使うように変更しました）。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"query"</span> <span class="na">onkeyup=</span><span class="s">"location.replace('#' + this.value)"</span>
+  <span class="na">size=</span><span class="s">"15"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">autofocus</span> <span class="na">placeholder=</span><span class="s">"検索ワード"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>これにより、ユーザーが検索ワードを入力するたびに、ブラウザの URL 欄のハッシュフラグメントにその値が反映されるようになります。</p>
+
+<p>次に、ページの表示時 (<code class="language-plaintext highlighter-rouge">DOMContentLoaded</code>) と、ハッシュフラグメントの変更時 (<code class="language-plaintext highlighter-rouge">hashchange</code>) に、ハッシュフラグメントの値を使って <code class="language-plaintext highlighter-rouge">search()</code> 関数を呼び出すようにします。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ハッシュフラグメントの値で検索を実行</span>
+<span class="kd">function</span> <span class="nx">searchWithHash</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+  <span class="nx">search</span><span class="p">(</span><span class="nx">hash</span><span class="p">);</span>
+
+  <span class="c1">// 必要があれば input 要素の値を更新</span>
+  <span class="kd">const</span> <span class="nx">queryElem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">query</span><span class="dl">'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">queryElem</span><span class="p">.</span><span class="nx">value</span> <span class="o">!==</span> <span class="nx">hash</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">queryElem</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">hash</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ハッシュフラグメント付きの URL でページを開いたときに検索</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="nx">searchWithHash</span><span class="p">);</span>
+
+<span class="c1">// ページ表示後にハッシュフラグメントが変化したら検索</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">hashchange</span><span class="dl">'</span><span class="p">,</span> <span class="nx">searchWithHash</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>これで、ハッシュフラグメント経由での全文検索を実行できるようになります。
+検索ワード付きの URL をブラウザで開いたときには、その検索ワードを使って即全文検索が実行されるようになり、その検索ワードが <code class="language-plaintext highlighter-rouge">input</code> 要素に表示されます。
+ページ表示後にユーザーが <code class="language-plaintext highlighter-rouge">input</code> 要素のテキストを変更すれば、URL のハッシュフラグメントに反映され、その値で再度検索が実行されます。</p>
+
+<h3 id="他のページに検索ボックスを配置する">他のページに検索ボックスを配置する</h3>
+
+<p>次のような検索フォームを任意のページに配置しておけば、そこから検索ワードを入力して全文検索のページにジャンプできるようになります。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"searchKeyword"</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">size=</span><span class="s">"20"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"searchButton"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"検索"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">const</span> <span class="nx">SEARCH_URL</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">/search/</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">searchButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">searchButton</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">searchKeyword</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">searchKeyword</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="c1">// 検索ボタンのクリックで検索ページへジャンプ</span>
+  <span class="nx">searchButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>  <span class="c1">// Prevent default form's behavior</span>
+    <span class="kd">const</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">searchKeyword</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">query</span> <span class="p">?</span> <span class="nx">SEARCH_URL</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">#</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">query</span> <span class="p">:</span> <span class="nx">SEARCH_URL</span><span class="p">;</span>
+    <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">form</code> 要素のデフォルトアクションではハッシュフラグメントに検索ワードを付加できないので、検索ボタンの <code class="language-plaintext highlighter-rouge">click</code> イベントをハンドルし、自力でハッシュフラグメントをセットした上でページ遷移を行うようにしています。</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><a href="/js/web/detect-fragment-change.html">URL 内のハッシュフラグメントの値を扱う (hashchange, location.hash) ｜ まくまくJavaScriptノート</a></li>
+  <li><a href="google-custom-search.html">Google カスタム検索を設置して記事を検索できるようにする</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： 全文検索（インクリメンタルサーチ）の機能を付ける&url=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/advanced/full-text-search.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/hugo/"><span class="xArticle_up_label">まくまくHugoノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li class="xNav-focused"><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2021-06-14</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

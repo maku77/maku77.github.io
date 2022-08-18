@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/jruz369/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
+
+  <meta property="og:description" content="Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="型キャストと型アサーションによる型変換 | まくまくGo言語ノート" />
+  <title>型キャストと型アサーションによる型変換 - まくまくGo言語ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/go/">
+    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/go/">
+    <div class="xPageHeader_category">
+    まくまくGo言語ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">型キャストと型アサーションによる型変換</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-11</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/go/type/cast.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/jruz369/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 型キャストと型アサーションによる型変換&url=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="型キャスト">型キャスト</h2>
+
+<p>Go 言語では暗黙的な型変換は許されていないため、下記のような異なる型の変数への代入はコンパイルエラーになります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">i</span> <span class="kt">int</span> <span class="o">=</span> <span class="m">100</span>
+<span class="k">var</span> <span class="n">f</span> <span class="kt">float64</span> <span class="o">=</span> <span class="n">i</span>  <span class="c">// cannot use i (type int) as type float64</span>
+</code></pre></div></div>
+
+<p>このようなケースでは、<strong><code class="language-plaintext highlighter-rouge">型名(値)</code></strong> という形で明示的な <strong>型キャスト</strong> を行います。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">i</span> <span class="kt">int</span> <span class="o">=</span> <span class="m">100</span>
+<span class="k">var</span> <span class="n">f</span> <span class="kt">float64</span> <span class="o">=</span> <span class="kt">float64</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c">// OK</span>
+</code></pre></div></div>
+
+<p>下記は様々な型変換の例です。</p>
+
+<h4 id="int8--int32">int8 → int32</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">a</span> <span class="kt">uint8</span> <span class="o">=</span> <span class="m">100</span>
+<span class="k">var</span> <span class="n">b</span> <span class="kt">uint32</span> <span class="o">=</span> <span class="kt">uint32</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="int32--int8">int32 → int8</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">a</span> <span class="kt">uint32</span> <span class="o">=</span> <span class="m">1234567890</span>
+<span class="k">var</span> <span class="n">b</span> <span class="kt">uint8</span> <span class="o">=</span> <span class="kt">uint8</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c">// 210（情報が欠落する）</span>
+</code></pre></div></div>
+
+<h4 id="string--byte">string → []byte</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">s</span> <span class="kt">string</span> <span class="o">=</span> <span class="s">"ABC"</span>
+<span class="k">var</span> <span class="n">arr</span> <span class="p">[]</span><span class="kt">byte</span> <span class="o">=</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>  <span class="c">// [65 66 67]</span>
+</code></pre></div></div>
+
+<h4 id="byte--string">[]byte → string</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="m">65</span><span class="p">,</span> <span class="m">66</span><span class="p">,</span> <span class="m">67</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">:=</span> <span class="kt">string</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c">// "ABC"</span>
+</code></pre></div></div>
+
+<h2 id="型アサーション-type-assertion-による型変換">型アサーション (Type Assertion) による型変換</h2>
+
+<p>Go 言語で任意の型の変数（型の定まっていない変数）は、空インタフェース型 (<code class="language-plaintext highlighter-rouge">interface{}</code>) として表現されます。
+このような値を、特定の型 <code class="language-plaintext highlighter-rouge">T</code> の変数に代入するには、<strong>型アサーション (Type Assertion)</strong> という仕組みを使用する必要があります。
+型アサーションは、下記のような構文で実行します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">x</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">:=</span> <span class="n">i</span><span class="o">.</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>  <span class="c">// 関数内であればこの省略形で OK</span>
+</code></pre></div></div>
+
+<p>これにより、空インタフェース型 (<code class="language-plaintext highlighter-rouge">interface{}</code>) の変数 <code class="language-plaintext highlighter-rouge">i</code> が、型 <code class="language-plaintext highlighter-rouge">T</code> の変数 <code class="language-plaintext highlighter-rouge">x</code> に代入されます。
+空インタフェース型の <code class="language-plaintext highlighter-rouge">i</code> を、型 <code class="language-plaintext highlighter-rouge">T</code> に変換できない場合は <a href="/p/j47aswy/">パニック</a> が発生します。</p>
+
+<p>下記の <code class="language-plaintext highlighter-rouge">doGreet</code> 関数は、パラメータで受け取った任意の型のオブジェクトに対して、<code class="language-plaintext highlighter-rouge">Greet</code> メソッドを実行します。
+空インタフェースは <code class="language-plaintext highlighter-rouge">Greet</code> メソッドを備えていないので、まずは、<code class="language-plaintext highlighter-rouge">i.(Greeter)</code> という型アサーションで <code class="language-plaintext highlighter-rouge">Greeter</code> 型に変換してから <code class="language-plaintext highlighter-rouge">Greet</code> メソッドを呼び出しています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Greeter</span> <span class="k">interface</span> <span class="p">{</span>
+	<span class="n">Greet</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">doGreet</span><span class="p">(</span><span class="n">i</span> <span class="k">interface</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="n">g</span> <span class="o">:=</span> <span class="n">i</span><span class="o">.</span><span class="p">(</span><span class="n">Greeter</span><span class="p">)</span>
+	<span class="n">g</span><span class="o">.</span><span class="n">Greet</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記の <code class="language-plaintext highlighter-rouge">doGreet</code> 関数は、<code class="language-plaintext highlighter-rouge">Greet()</code> メソッドを実装したオブジェクトを渡された場合にうまく動作します。
+下記のサンプルでは、<code class="language-plaintext highlighter-rouge">Greet()</code> メソッドを実装した <code class="language-plaintext highlighter-rouge">People</code> 構造体のオブジェクトを、<code class="language-plaintext highlighter-rouge">doGreet</code> 関数に渡しています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">People</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">Name</span> <span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="p">(</span><span class="n">this</span> <span class="o">*</span><span class="n">People</span><span class="p">)</span> <span class="n">Greet</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Hello, I am %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">this</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">p</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">People</span><span class="p">{</span><span class="s">"Maku"</span><span class="p">}</span>
+	<span class="n">doGreet</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c">//=&gt; "Hello, I am Maku"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>逆に、<code class="language-plaintext highlighter-rouge">Greet()</code> メソッドを実装していないオブジェクトを <code class="language-plaintext highlighter-rouge">doGreet</code> 関数に渡すと、型アサーションによる型変換に失敗し、パニックが発生します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">doGreet</span><span class="p">(</span><span class="s">"Hoge"</span><span class="p">)</span>  <span class="c">// panic: interface conversion:</span>
+                 <span class="c">// string is not main.Greeter: missing method Greet</span>
+</code></pre></div></div>
+
+<p>このように、実際に実行するまでパニックが発生するかどうか分からないような関数は、安心して実行することができません。
+そこで、型アサーションには、型変換がうまくいったかどうかを調べる構文が用意されています（<a href="/p/5cgjnqt/">マップ</a> のキーの有無を確認する構文と同じです）。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="n">i</span><span class="o">.</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>上記のように、2 つの戻り値を受け取るように型アサーションを実行すると、2 番目の戻り値 (bool) で、型変換に成功したかどうかを判別することができます。
+型変換に失敗してもパニックは発生せず、<code class="language-plaintext highlighter-rouge">x</code> には型 <code class="language-plaintext highlighter-rouge">T</code> のゼロ値が格納されます。</p>
+
+<p>下記の <code class="language-plaintext highlighter-rouge">doGreet</code> 関数は、渡された <code class="language-plaintext highlighter-rouge">interface{}</code> オブジェクトを <code class="language-plaintext highlighter-rouge">Greeter</code> 型に変換できるか確認し、変換できた場合のみ <code class="language-plaintext highlighter-rouge">Greet()</code> メソッドを呼び出しています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">doGreet</span><span class="p">(</span><span class="n">i</span> <span class="k">interface</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="n">g</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="n">i</span><span class="o">.</span><span class="p">(</span><span class="n">Greeter</span><span class="p">);</span> <span class="n">ok</span> <span class="p">{</span>
+		<span class="n">g</span><span class="o">.</span><span class="n">Greet</span><span class="p">()</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"Type %T is not Greeter</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">doGreet</span><span class="p">(</span><span class="o">&amp;</span><span class="n">People</span><span class="p">{</span><span class="s">"Maku"</span><span class="p">})</span>  <span class="c">//=&gt; Hello, I am Maku</span>
+	<span class="n">doGreet</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>              <span class="c">//=&gt; Type int is not Greeter</span>
+	<span class="n">doGreet</span><span class="p">(</span><span class="m">0.5</span><span class="p">)</span>              <span class="c">//=&gt; Type float64 is not Greeter</span>
+	<span class="n">doGreet</span><span class="p">(</span><span class="s">"Hoge"</span><span class="p">)</span>           <span class="c">//=&gt; Type string is not Greeter</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、より多くの型への型変換を試みなければならないケース (<code class="language-plaintext highlighter-rouge">Printf</code> のような関数の実装）では、<a href="/p/x6adgjn/">型スイッチの構文</a> を使用するとより簡潔に記述することができます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 型キャストと型アサーションによる型変換&url=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/jruz369/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-11</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

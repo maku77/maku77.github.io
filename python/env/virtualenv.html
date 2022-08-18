@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="virtualenv コマンドを使用すると、仮想的な Python の実行環境を作成することができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/env/virtualenv.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="virtualenv コマンドを使用すると、仮想的な Python の実行環境を作成することができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで | まくまくPythonノート" />
+  <title>Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2018-04-28</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/env/virtualenv.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで&url=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">virtualenv コマンドを使用すると、仮想的な Python の実行環境を作成することができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>（追記）Python 3.3 以降は、virtualenv と同様の機能を提供する <strong>venv</strong> モジュールが標準搭載されたので、そちらを使うようにしましょう。</p>
+
+<ul>
+  <li><a href="./venv.html">Python の実行環境を切り替えて使用する (venv)</a></li>
+</ul>
+
+<h2 id="virtualenv-とは">virtualenv とは</h2>
+
+<ul>
+  <li><a href="https://virtualenv.pypa.io/">Virtualenv</a></li>
+</ul>
+
+<p>Python 製のツールを使おうとすると、使用可能な Python のバージョンが制限されていたり、依存する Python パッケージを pip コマンドでたくさんインストールしなければいけなかったりします。
+こういったツールを実行するために、パッケージをどんどんインストールしていくと、PC 内の Python 環境がぐちゃぐちゃになってしまいます（システムの <code class="language-plaintext highlighter-rouge">site-packages</code> ディレクトリに大量のパッケージがインストールされて管理できなくなる）。</p>
+
+<p>そこで便利なのが、独立した Python 環境を作成することができる <strong>virtualenv</strong> です。
+virtualenv で作成した仮想環境の中では、特定のバージョンの Python を使用することができ、閉じた環境内に Python パッケージをインストール (<code class="language-plaintext highlighter-rouge">pip install</code>) することができます。
+もし、その環境が必要なくなったら、仮想環境ごと削除してしまえば、PC 内のグローバルな Python 実行環境はクリーンなままです。</p>
+
+<p>例えば、何らかの Python 製ツール app があったとして、そのツールを使用するにはいくつかの Python パッケージをインストールしなければならないとします。
+virtualenv を使用して、その Python 製ツールを使用するための環境を作る流れは以下のようになります。</p>
+
+<ol>
+  <li>app ディレクトリに移動する (<code class="language-plaintext highlighter-rouge">cd app</code>)</li>
+  <li>app 用の Python 仮想環境を作成する (<code class="language-plaintext highlighter-rouge">virtualenv 環境名</code>)</li>
+  <li>仮想環境に入る (<code class="language-plaintext highlighter-rouge">source 環境名/bin/activate</code>)</li>
+  <li>app に必要な Python パッケージをインストール (<code class="language-plaintext highlighter-rouge">pip install XXX</code>)</li>
+  <li>app を使う (<code class="language-plaintext highlighter-rouge">python app.py</code>)</li>
+  <li>仮想環境を抜ける (<code class="language-plaintext highlighter-rouge">deactivate</code>)</li>
+</ol>
+
+<h2 id="virtualenv-のインストール">virtualenv のインストール</h2>
+
+<p>virtualenv は、pip コマンドで簡単にインストールすることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install virtualenv （うまくいかない場合は sudo をつけてみる）
+</code></pre></div></div>
+
+<p>virtualenv コマンドが実行できるようになればインストール成功です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv --version
+15.2.0
+</code></pre></div></div>
+
+<h2 id="virtualenv-で-python-実行環境を作成使用削除する">virtualenv で Python 実行環境を作成／使用／削除する</h2>
+
+<p>virtualenv コマンドで新しい Python 実行環境を作成するには、下記のように実行します。
+<code class="language-plaintext highlighter-rouge">ENV</code> というのは任意の環境名で、ここで指定した名前のディレクトリがカレントディレクトリに作成されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv ENV
+</code></pre></div></div>
+
+<p>この環境を使用するには、<code class="language-plaintext highlighter-rouge">ENV</code> ディレクトリの中に作成された <code class="language-plaintext highlighter-rouge">bin/activate</code> スクリプトを読み込みます（Windows の場合はバッチファイルになっています）。
+仮想環境に入ると、プロンプトに <code class="language-plaintext highlighter-rouge">(環境名)</code> と表示されるようになります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ENV/bin/activate  （source の代わりに . でもOK）
+(ENV)$
+</code></pre></div></div>
+
+<p>仮想環境に入った状態で <code class="language-plaintext highlighter-rouge">python</code> コマンドを実行すると、その仮想環境内に配置された <code class="language-plaintext highlighter-rouge">ENV/bin/python</code> が参照されます（この処理系の切り替え方法は後述）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(ENV)$ which python
+/Users/maku/ENV/bin/python
+</code></pre></div></div>
+
+<p>また、<code class="language-plaintext highlighter-rouge">pip</code> コマンドでインストールする Python パッケージも、仮想環境内の <code class="language-plaintext highlighter-rouge">ENV/lib/python3.6/site-packages</code> に格納されるようになるので、たくさんパッケージをインストールしても、仮想環境の外の Python 実行環境を汚染することがありません。</p>
+
+<p>仮想環境を抜けて元の世界に戻るには、<code class="language-plaintext highlighter-rouge">deactivate</code> コマンドを実行します。
+このコマンドは、<code class="language-plaintext highlighter-rouge">ENV/bin/deactivate</code> として配置されているのですが、仮想環境に入るときに <code class="language-plaintext highlighter-rouge">ENV/bin</code> にパスが通されるので、どこからでも実行することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(ENV)$ deactivate
+$
+</code></pre></div></div>
+
+<p>仮想環境自体が不要になったら、ディレクトリごと削除してしまえば OK です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm -r ENV
+</code></pre></div></div>
+
+<h2 id="virtualenv-の高度な使い方">virtualenv の高度な使い方</h2>
+
+<h3 id="仮想環境で使用する-python-のバージョンを指定する">仮想環境で使用する Python のバージョンを指定する</h3>
+
+<p>仮想環境で使用する Python (<code class="language-plaintext highlighter-rouge">ENV/bin/python</code>) のバージョンは、デフォルトでは virtualenv のインストールに使用した python 処理系と同じバージョンになります（要するに pip コマンドが使用する python のバージョンということ）。</p>
+
+<p>仮想環境内から使用する python 処理系のバージョンを指定したい場合は、仮想環境の作成時に、<code class="language-plaintext highlighter-rouge">--python</code> オプションで指定します（<code class="language-plaintext highlighter-rouge">ENV/bin/python</code> として配置する処理系を指定する）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv --python=python ENV
+$ virtualenv --python=python2.7 ENV
+$ virtualenv --python=python3 ENV
+$ virtualenv --python=/opt/python-2.7/bin/python ENV
+</code></pre></div></div>
+
+<p>この例からも分かるように、指定できる Python 処理系は、あらかじめインストールされているものだけだということに注意してください。
+Python 2.7 しかインストールされていない環境で、Python 3 を使用する仮想環境を作成したいときは、先に Python 3 をインストールしておく必要があります。</p>
+
+<h3 id="仮想環境からグローバルな-site-packages-を参照できるようにする">仮想環境からグローバルな site-packages を参照できるようにする</h3>
+
+<p>システムにインストールされている Python パッケージ群を、仮想環境からも参照できるようにするには、仮想環境を作成するときに <code class="language-plaintext highlighter-rouge">--system-site-packages</code> オプションを指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv --system-site-packages ENV
+</code></pre></div></div>
+
+<div class="note">
+過去のバージョンの virtualenv では、デフォルトで仮想環境からグローバルな site-packages を参照できるようになっており、これを抑制するためには <code>--no-site-packages</code> オプションが必要でした。現在は、デフォルトでグローバルな site-package は参照できないようになっており、<code>--no-site-packages</code> オプションも deprecated（廃止予定）となっています。
+</div>
+
+<h3 id="仮想環境内に-linux-コマンドなどをインストールする">仮想環境内に Linux コマンドなどをインストールする</h3>
+
+<p>virtualenv の仮想環境に入ると、<code class="language-plaintext highlighter-rouge">ENV/bin</code> ディレクトリに自動的にパスが通されるようになっています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ . ENV/bin/activate
+(ENV)$ echo $PATH
+/Users/maku/ENV/bin:...
+</code></pre></div></div>
+
+<p>つまり、この <code class="language-plaintext highlighter-rouge">ENV/bin</code> ディレクトリ内に新しいコマンドをインストールすれば、仮想環境内でのみ使用可能なコマンドとして扱うことができます。
+仮想環境が必要なくなった場合は、<code class="language-plaintext highlighter-rouge">ENV</code> ディレクトリごと削除してしまえばよいので、外部の環境に影響を与えずに済みます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで&url=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/virtualenv.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2018-04-28</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

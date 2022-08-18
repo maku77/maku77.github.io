@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/effective/11.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="clone を注意してオーバライドする | まくまくJavaノート" />
+  <title>clone を注意してオーバライドする - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">clone を注意してオーバライドする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2016-07-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/effective/11.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： clone を注意してオーバライドする&url=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <ul>
+  <li>出展: <a target="_blank" href="https://amazon.co.jp/dp/4621303252?tag=maku04-22">Effective Java 第3版</a></li>
+</ul>
+
+<p>あるクラスで <code class="language-plaintext highlighter-rouge">clone()</code> メソッドをサポートするときには、<code class="language-plaintext highlighter-rouge">Cloneable</code> インタフェースを <code class="language-plaintext highlighter-rouge">implements</code> した上で <code class="language-plaintext highlighter-rouge">clone()</code> メソッドをオーバライドする必要があります。</p>
+
+<h2 id="clone-を実装するときのポイント">clone を実装するときのポイント</h2>
+
+<ul>
+  <li>コピーコンストラクタ (<code class="language-plaintext highlighter-rouge">public MyClass(MyClass obj)</code>) の導入で済ませられないか検討する。<code class="language-plaintext highlighter-rouge">Cloneable</code> を <code class="language-plaintext highlighter-rouge">implements</code> したクラスを拡張するケース以外では、コピーコンストラクタやコピーファクトリを作成した方がシンプルに実装できることが多い。</li>
+  <li><code class="language-plaintext highlighter-rouge">clone()</code> を実装するクラスでは、<code class="language-plaintext highlighter-rouge">implements Cloneable</code> と宣言し、自分自身のクラス型のオブジェクトを返す public な <code class="language-plaintext highlighter-rouge">clone()</code> メソッドを実装する</li>
+  <li><code class="language-plaintext highlighter-rouge">clone()</code> メソッドの実装では <code class="language-plaintext highlighter-rouge">super.clone()</code> を使用し、シャロー・コピーで問題となるフィールドがある場合は、そのフィールドをディープ・コピーする</li>
+</ul>
+
+<h2 id="cloneable-インタフェースが意味するもの">Cloneable インタフェースが意味するもの</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Cloneable</code> インタフェースを <code class="language-plaintext highlighter-rouge">implements</code> しているクラスは、<code class="language-plaintext highlighter-rouge">clone()</code> メソッドの呼び出しをサポートしていることを示します（<code class="language-plaintext highlighter-rouge">CloneNotSupportedException</code> 例外をスローせずに、正しくクローン処理が行われるということ）。
+<code class="language-plaintext highlighter-rouge">clone()</code> メソッドは <code class="language-plaintext highlighter-rouge">Cloneable</code> インタフェースで定義されているのではなく、実際には <code class="language-plaintext highlighter-rouge">Object</code> クラスで定義されている <code class="language-plaintext highlighter-rouge">protected</code> メソッドです。
+サブクラスで <code class="language-plaintext highlighter-rouge">Cloneable</code> メソッドが <code class="language-plaintext highlighter-rouge">implements</code> されているかどうかによって、この <code class="language-plaintext highlighter-rouge">Object#clone()</code> の振る舞いが変化するように実装されています。</p>
+
+<h4 id="objectclone-の実装">Object#clone() の実装</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Object {
+    ...
+
+    protected Object clone() throws CloneNotSupportedException {
+        if (!(this instanceof Cloneable)) {
+            throw new CloneNotSupportedException("Class " + getClass().getName() +
+                                                    " doesn't implement Cloneable");
+        }
+        return internalClone();  // シャロー・コピーを実施
+    }
+
+    private native Object internalClone();
+}
+</code></pre></div></div>
+
+<p>具体的には、<code class="language-plaintext highlighter-rouge">Cloneable</code> インタフェースの <code class="language-plaintext highlighter-rouge">implements</code> の有無によって、<code class="language-plaintext highlighter-rouge">Object#clone()</code> の動作が下記のように変化します。</p>
+
+<ol>
+  <li>Cloneable を implements していないクラスで clone() を呼び出した場合は、<strong>CloneNotSupportedException</strong> を投げる</li>
+  <li>Cloneable を implements しているクラスで clone() を呼び出した場合は、各フィールドを<strong>シャロー・コピー</strong>する</li>
+</ol>
+
+<p>このように親クラスの振る舞いを変化させるためにインタフェースを使用するという設計は極めて特殊であり、<code class="language-plaintext highlighter-rouge">Cloneable</code> インタフェースが嫌われている理由のひとつになっています。</p>
+
+<h2 id="clone-の仕様一般契約">clone() の仕様／一般契約</h2>
+
+<p><a href="https://docs.oracle.com/javase/jp/8/docs/api/java/lang/Object.html#clone--">Object (Java Platform SE 8)</a> に、<code class="language-plaintext highlighter-rouge">clone()</code> は下記のような結果を想定すると記述されています。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">x.clone() != x</code>  （クローンしたオブジェクトは異なるメモリ領域に確保されているということ）</li>
+  <li><code class="language-plaintext highlighter-rouge">x.clone().getClass() == x.getClass()</code>  （クローンしたオブジェクトは同じ型であること）</li>
+  <li><code class="language-plaintext highlighter-rouge">x.clone().equals(x)</code>  （クローンしたオブジェクトは論理的に同じ値を持つこと）</li>
+</ol>
+
+<p>2 と 3 は絶対要件ではないと記述されているので、<code class="language-plaintext highlighter-rouge">clone()</code> メソッドの振る舞いがどうあるべきかは、最終的にはそのクラスの仕様次第ということになります。
+「クローン」すると言うからには、通常は上記の条件をすべて満たすように実装されていて欲しいところですが、<code class="language-plaintext highlighter-rouge">equals()</code> メソッドを正しく実装するのはなかなか骨の折れる作業ですので、3 に関してはサポートしないケースもあるでしょう（<code class="language-plaintext highlighter-rouge">equals()</code> が実装されていない場合は、デフォルトで同じ参照かどうかを調べるだけの振る舞いになりますので、3 の評価結果は偽 (false) となります）。</p>
+
+<h2 id="clone-の実装方法">clone() の実装方法</h2>
+
+<h3 id="フィールドにプリミティブ型あるいは-immutable-なオブジェクトしか持たないクラスの場合">フィールドにプリミティブ型、あるいは immutable なオブジェクトしか持たないクラスの場合</h3>
+
+<p><code class="language-plaintext highlighter-rouge">clone()</code> メソッドを実装する場合、外部から呼び出しを可能にするために、可視性は public にします。
+<code class="language-plaintext highlighter-rouge">Object#clone()</code> の実装では、オブジェクトのフィールドがシャロー・コピーされるようになっているため、プリミティブな型の値や、immutable なオブジェクトへの参照しかフィールドとして持たないクラスの <code class="language-plaintext highlighter-rouge">clone()</code> メソッドは、単純に <code class="language-plaintext highlighter-rouge">super.clone()</code> を呼び出すことによって完結できます（<code class="language-plaintext highlighter-rouge">Object#clone()</code> の実行にたどり着くために、すべてのスーパークラスが <code class="language-plaintext highlighter-rouge">super.clone()</code> を使用して実装しているという前提が必要です）。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span> <span class="kd">implements</span> <span class="nc">Cloneable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Primitive 型</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>  <span class="c1">// Primitive 型</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"hello"</span><span class="o">;</span>  <span class="c1">// Immutable なオブジェクト</span>
+
+    <span class="o">...</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="nc">TextView</span> <span class="nf">clone</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CloneNotSupportedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AssertionError</span><span class="o">();</span>  <span class="c1">// Should not happen</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>また、J2SE 1.5 からは共変戻り値型の仕組みが取り入れられたため、戻り値は自分自身のクラスの型にキャストしてから返すことができます。共変戻り値型というのは、戻り値の型を、その型のサブタイプにしてオーバライドすることのできる仕組みです。これが導入される前は、<code class="language-plaintext highlighter-rouge">clone()</code> の戻り値はすべて Object 型で定義しなくてはならず、呼び出し側でキャストして使用しなければいけませんでした。</p>
+
+<h3 id="ディープコピーが必要なフィールドを持つクラスの場合">ディープ・コピーが必要なフィールドを持つクラスの場合</h3>
+
+<p>immutable でないオブジェクトへの参照をフィールドで保持しているようなクラスで <code class="language-plaintext highlighter-rouge">clone()</code> メソッドをサポートする場合は、それらのフィールドをディープ・コピーする処理を記述する必要があります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Stack</span> <span class="kd">implements</span> <span class="nc">Cloneable</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">elements</span><span class="o">;</span>
+
+    <span class="o">...</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="nc">Stack</span> <span class="nf">clone</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="nc">Stack</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Stack</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">elements</span> <span class="o">=</span> <span class="n">elements</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>  <span class="c1">// コピー元と同じ参照を持たないようにする</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CloneNotSupportedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AssertionError</span><span class="o">();</span>  <span class="c1">// Should not happen</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： clone を注意してオーバライドする&url=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/effective/11.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2016-07-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

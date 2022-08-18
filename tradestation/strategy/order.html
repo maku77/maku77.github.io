@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="トレードステーションで自動売買ストラテジーを動作させると、アプリケーションを立ち上げておくだけで自動的にトレードを行ってくれるようになります。ここでは、ストラテジー内からどのように注文を出すかを説明します。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/tradestation/strategy/order.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-tradestation.png" />
+
+  <meta property="og:description" content="トレードステーションで自動売買ストラテジーを動作させると、アプリケーションを立ち上げておくだけで自動的にトレードを行ってくれるようになります。ここでは、ストラテジー内からどのように注文を出すかを説明します。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="EasyLanguage: 自動売買ストラテジから注文を出す | まくまくトレードステーションノート" />
+  <title>EasyLanguage: 自動売買ストラテジから注文を出す - まくまくトレードステーションノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/tradestation/">
+    <img src="/assets/img/logo-tradestation.png" class="xPageHeader_logo">
+  </a>
+  <a href="/tradestation/">
+    <div class="xPageHeader_category">
+    まくまくトレードステーションノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">EasyLanguage: 自動売買ストラテジから注文を出す</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/tradestation/">トレードステーション</a></div>
+  <div class="xPageDate">2017-10-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/tradestation/strategy/order.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくトレードステーションノート： EasyLanguage: 自動売買ストラテジから注文を出す&url=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">トレードステーションで自動売買ストラテジーを動作させると、アプリケーションを立ち上げておくだけで自動的にトレードを行ってくれるようになります。ここでは、ストラテジー内からどのように注文を出すかを説明します。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>EasyLanguage での注文は、売買の種類 (Order Verbs) とそのタイミング (Order Actions)、発注株数を組み合わせることによって指定します。</p>
+
+<h2 id="オーダーの種類-order-verbs">オーダーの種類 (Order Verbs)</h2>
+
+<p>Order Verbs は買いで入るのか、売りで入るのかを指定します。
+<code class="language-plaintext highlighter-rouge">Buy</code> と <code class="language-plaintext highlighter-rouge">SellShort</code> はロングポジションとショートポジションの生成のために使用し、<code class="language-plaintext highlighter-rouge">Sell</code> と <code class="language-plaintext highlighter-rouge">BuyToCover</code> は現在のポジションを決済するために使用します。</p>
+
+<dl>
+  <dt>Buy</dt>
+  <dd><strong>ロングポジション（買い玉）を追加します。</strong> すでにショートポジションがある場合は、相殺されるようにそのポジションが先に決済されます（両建てにはなりません）。</dd>
+  <dt>SellShort (Sell Short)</dt>
+  <dd><strong>ショートポジション（売り玉）を追加します。</strong> すでにロングポジションがある場合は、相殺されるようにそのポジションが先に決済されます（両建てにはなりません）。</dd>
+  <dt>Sell</dt>
+  <dd><strong>ロングポジション（買い玉）を決済します。</strong> ノーポジ (flat) 状態であれば、このオーダーは無視されます（このオーダーによってショートポジションを取ることはありません）。</dd>
+  <dt>BuyToCover (Buy To Cover)</dt>
+  <dd><strong>ショートポジション（売り玉）を決済します。</strong> ノーポジ (flat) 状態であれば、このオーダーは無視されます（このオーダーによってロングポジションを取ることはありません）。</dd>
+</dl>
+
+<h2 id="オーダーのタイミング-order-actions">オーダーのタイミング (Order Actions)</h2>
+
+<p>オーダーの種類 (Order Verbs) の後ろには、そのオーダーをどのタイミングで実行するかを示す Order Actions を指定します。
+Order Actions には次のようなものを指定できます。</p>
+
+<dl>
+  <dt>next bar at market</dt>
+  <dd>次のバーの開始時に注文を実行します。</dd>
+  <dt>next bar stop</dt>
+  <dd>逆指値 (stop price) に達したとき、次のバーの開始時に注文を実行します。</dd>
+  <dt>next bar limit</dt>
+  <dd>指値（limit price) に達したとき、次のバーの開始時に注文を実行します。</dd>
+  <dt>this bar on close</dt>
+  <dd>現在のバーが終了するときに注文を実行します。主にバックテストで使用されます。</dd>
+</dl>
+
+<p><code class="language-plaintext highlighter-rouge">at</code> や <code class="language-plaintext highlighter-rouge">on</code>、<code class="language-plaintext highlighter-rouge">of</code> などの単語は、EasyLanguage では意味を持たないスキップ後として扱われるので、省略して記述することもできます（英語の文章のように読めるようにするのが慣例のようです）。</p>
+
+<h2 id="発注株数の指定">発注株数の指定</h2>
+
+<p>何株の注文を出すかの指定は、オーダーの種類（<code class="language-plaintext highlighter-rouge">Buy</code> など）の後ろ、あるいはオーダーのタイミング（<code class="language-plaintext highlighter-rouge">next bar</code> など）の後ろで、<strong><code class="language-plaintext highlighter-rouge">XXX shares</code></strong> という形で指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Buy 100 shares next bar at market;  // 次のバーの開始時に 100 株購入
+Buy next bar 100 shares at market;  // 同上
+</code></pre></div></div>
+
+<h2 id="オーダーのサンプル">オーダーのサンプル</h2>
+
+<p>下記は、Order Verbs と Order Actions の組み合わせによる注文実行の例です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Buy next bar at market;        // 次のバーの開始時に、買いで入る
+SellShort next bar at market;  // 次のバーの開始時に、売りで入る
+SellShort next bar 50 limit;   // 次のバーの開始時に、指値に達していたら 50 株の売りで入る
+Sell next bar 50 stop;         // 次のバーの開始時に、逆指値に達していたら 50 株の買い玉を決済する
+BuyToCover this bar on close;  // 現在のバーの終了時に、売り玉を決済する
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくトレードステーションノート： EasyLanguage: 自動売買ストラテジから注文を出す&url=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/tradestation/strategy/order.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/tradestation/"><span class="xArticle_up_label">まくまくトレードステーションノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li class="xNav-focused"><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/tradestation/">トレードステーション</a></div>
+  <div class="xPageDate">2017-10-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPHPノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/php/cakephp/abc-4.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-php.png" />
+
+  <meta property="og:description" content="天才星人まくのPHPノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="CakePHP 入門 (4) Controller、View、Model を作成する | まくまくPHPノート" />
+  <title>CakePHP 入門 (4) Controller、View、Model を作成する - まくまくPHPノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/php/">
+    <img src="/assets/img/logo-php.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/php/">
+    <div class="xPageHeader_category">
+    まくまくPHPノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">CakePHP 入門 (4) Controller、View、Model を作成する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/php/">PHP</a></div>
+  <div class="xPageDate">2012-05-04</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/php/cakephp/abc-4.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPHPノート： CakePHP 入門 (4) Controller、View、Model を作成する&url=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="まずは-controller-と-view-を作ってみる">まずは Controller と View を作ってみる</h2>
+
+<p>まずは、以下のような URL で Hello World を表示するようにしてみましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost/tasks/index
+（あるいは）
+http://localhost/tasks
+</code></pre></div></div>
+
+<p>最低限必要なファイルは以下の 2 つです。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">app/Controller/TasksController.php</code>（Controller 定義）</li>
+  <li><code class="language-plaintext highlighter-rouge">app/View/Tasks/index.ctp</code>（View 定義）</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">http://localhost/tasks/*</code> という URL にアクセスがあると、自動的に <code class="language-plaintext highlighter-rouge">TasksController.php</code> という名前の <code class="language-plaintext highlighter-rouge">Controller</code> クラスが処理を受け付けるようになっています。
+まずは、このクラスに <code class="language-plaintext highlighter-rouge">index</code> メソッドを追加します。</p>
+
+<h4 id="appcontrollertaskscontrollerphp">app/Controller/TasksController.php</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">TasksController</span> <span class="kd">extends</span> <span class="nc">AppController</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記のような <code class="language-plaintext highlighter-rouge">TasksController.php</code> を作成すると、<code class="language-plaintext highlighter-rouge">http://localhost/tasks/index</code> という URL でアクセスできるようになります。
+でも、まだ表示内容 (view) の定義がないので、警告画面が表示されるはずです。
+view の定義は、<code class="language-plaintext highlighter-rouge">cts</code> という拡張子を持つ HTML テンプレートで行います。</p>
+
+<p><code class="language-plaintext highlighter-rouge">TasksController</code> がリクエストを処理すると、HTML テンプレートとして、自動的に <code class="language-plaintext highlighter-rouge">app/View/Tasks/&lt;Action名&gt;.cts</code> というファイルが使用されます。</p>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">http://localhost/tasks/index</code> にアクセスがあると、<code class="language-plaintext highlighter-rouge">TasksController</code> クラスの <code class="language-plaintext highlighter-rouge">index</code> メソッドが呼び出され、テンプレートとして <code class="language-plaintext highlighter-rouge">index.ctp</code> が使用されます。</p>
+
+<h4 id="appviewtasksindexctp">app/View/Tasks/index.ctp</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>Hello World<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">http://localhost/tasks</code> にアクセスして、以下のような感じで Hello World のページが表示されれば成功です。</p>
+
+<p><img src="/php/cakephp/abc-4-001.png" alt="./abc-4-001.png" /></p>
+
+<p>Hello World というテキスト以外にもヘッダやフッタが表示されていますが、これらの表示内容は、<code class="language-plaintext highlighter-rouge">app/View/Layouts/default.ctp</code> で定義されています。</p>
+
+<h2 id="model-クラスを作成しデータベースの内容を表示してみる">Model クラスを作成し、データベースの内容を表示してみる</h2>
+
+<p>Model クラスを作成すると、データベースのレコードに透過的にアクセスできるようになります。
+ここでも名前が重要です。
+例えば、<code class="language-plaintext highlighter-rouge">tasks</code> テーブルの 1 レコードを表すには、<code class="language-plaintext highlighter-rouge">Task</code> という名前の Model クラスを用意し、以下のパスに保存します。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">app/Model/Task.php</code>（Model 定義）</li>
+</ul>
+
+<p>テーブル名は複数形 (tasks) ですが、Model クラスは 1 レコード分のデータを表すので、<code class="language-plaintext highlighter-rouge">Task.php</code> というように単数系で定義します。</p>
+
+<h4 id="appmodeltaskphp">app/Model/Task.php</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">Task</span> <span class="kd">extends</span> <span class="nc">AppModel</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">http://localhost/tasks/index という</code> URL でアクセスしたときに、<code class="language-plaintext highlighter-rouge">tasks</code> テーブル内のレコードの内容を列挙するために、Controller と View を修正します。</p>
+
+<h4 id="appcontrollertaskscontrollerphp-1">app/Controller/TasksController.php</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">TasksController</span> <span class="kd">extends</span> <span class="nc">AppController</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$tasks</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nc">Task</span><span class="o">-&gt;</span><span class="nf">find</span><span class="p">(</span><span class="s1">'all'</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">set</span><span class="p">(</span><span class="s1">'tasks'</span><span class="p">,</span> <span class="nv">$tasks</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Controller の <code class="language-plaintext highlighter-rouge">set</code> メソッドを使うと、View のテンプレートから参照可能な View 変数を設定することができます。
+<code class="language-plaintext highlighter-rouge">$this-&gt;set(＜変数名＞, ＜値＞)</code> としておくと、テンプレート内から <code class="language-plaintext highlighter-rouge">$変数名</code> のようにアクセスできるようになります。</p>
+
+<p>上記の例では、<code class="language-plaintext highlighter-rouge">Task-&gt;find()</code> の戻り値である連想配列を、テンプレートから参照できるようにしています。</p>
+
+<h4 id="appviewtasksindexctp-1">app/View/Tasks/index.ctp</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Task List<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;table&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Title<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Body<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Created<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th&gt;</span>Modified<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="cp">&lt;?php foreach ($tasks as $t): ?&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;?php echo $t['Task']['id'] ?&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;?php echo $t['Task']['title'] ?&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;?php echo $t['Task']['body'] ?&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;?php echo $t['Task']['created'] ?&gt;</span><span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span><span class="cp">&lt;?php echo $t['Task']['modified'] ?&gt;</span><span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="cp">&lt;?php endforeach; ?&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<p>ページをリロードして、以下のように表示されれば成功です。</p>
+
+<p><img src="/php/cakephp/abc-4-002.png" alt="./abc-4-002.png" /></p>
+
+<p>table のスタイルシートもデフォルトで設定されていて、いい感じですね。</p>
+
+<h2 id="cakephp-入門記事一覧">CakePHP 入門記事一覧</h2>
+
+<ul>
+  <li><a href="./abc-1.html">CakePHP 入門 (1) セットアップ</a></li>
+  <li><a href="./abc-2.html">CakePHP 入門 (2) データベースの設定</a></li>
+  <li><a href="./abc-3.html">CakePHP 入門 (3) CakePHP アプリの URL の仕組み</a></li>
+  <li>CakePHP 入門 (4) Controller、View、Model を作成する</li>
+  <li><a href="./abc-5.html">CakePHP 入門 (5) 個別のレコードを表示する</a></li>
+  <li><a href="./abc-6.html">CakePHP 入門 (6) ヘルパーを使用してリンクを生成する</a></li>
+  <li><a href="./abc-7.html">CakePHP 入門 (7) レコードを追加できるようにする</a></li>
+  <li><a href="./abc-8.html">CakePHP 入門 (8) レコードを編集できるようにする</a></li>
+  <li><a href="./abc-9.html">CakePHP 入門 (9) レコードを削除できるようにする</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPHPノート： CakePHP 入門 (4) Controller、View、Model を作成する&url=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/php/cakephp/abc-4.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/php/"><span class="xArticle_up_label">まくまくPHPノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li class="xNav-focused"><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/php/">PHP</a></div>
+  <div class="xPageDate">2012-05-04</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

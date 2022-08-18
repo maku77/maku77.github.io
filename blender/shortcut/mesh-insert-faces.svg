@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="90" height="34" viewBox="0, 0, 90, 34">
+  <defs>
+    <linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="60" y1="40" x2="68" y2="40">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <g id="レイヤー_1" transform="translate(-19, -23)">
+    <g>
+      <path d="M20.5,24.5 L52.5,24.5 L52.5,56.5 L20.5,56.5 L20.5,24.5 z" fill="#FFFFFF"/>
+      <path d="M20.5,24.5 L52.5,24.5 L52.5,56.5 L20.5,56.5 L20.5,24.5 z" fill-opacity="0" stroke="#EE6600" stroke-width="1" stroke-linejoin="round"/>
+    </g>
+    <g>
+      <path d="M76.5,24.5 L108.5,24.5 L108.5,56.5 L76.5,56.5 L76.5,24.5 z" fill="#FFFFFF"/>
+      <path d="M76.5,24.5 L108.5,24.5 L108.5,56.5 L76.5,56.5 L76.5,24.5 z" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M76.5,24.5 L84.5,32.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M108.5,24.5 L100.5,32.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M108.5,56.5 L100.5,48.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M76.5,56.5 L84.5,48.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M60,32 L68,40 L60,48 z" fill="url(#Gradient_1)"/>
+    <g>
+      <path d="M84.5,32.5 L100.5,32.5 L100.5,48.5 L84.5,48.5 L84.5,32.5 z" fill="#FFFFFF"/>
+      <path d="M84.5,32.5 L100.5,32.5 L100.5,48.5 L84.5,48.5 L84.5,32.5 z" fill-opacity="0" stroke="#EE6600" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

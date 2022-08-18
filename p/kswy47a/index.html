@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/kswy47a/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
+
+  <meta property="og:description" content="Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="関数を定義する (func) | まくまくGo言語ノート" />
+  <title>関数を定義する (func) - まくまくGo言語ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/go/">
+    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/go/">
+    <div class="xPageHeader_category">
+    まくまくGo言語ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">関数を定義する (func)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/go/control/func.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/kswy47a/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 関数を定義する (func)&url=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="関数定義の基本">関数定義の基本</h2>
+
+<p>Go 言語で関数を定義するときは、<strong><code class="language-plaintext highlighter-rouge">func</code></strong> キーワードを使用します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">関数名</span><span class="p">(</span><span class="n">パラメータ</span><span class="p">)</span> <span class="n">戻り値の型</span> <span class="p">{</span>
+	<span class="c">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>パラメータや、戻り値を持たない場合は、それぞれ省略することができます。
+次の例は、メッセージを出力するだけの単純な関数の実装例です。</p>
+
+<h4 id="パラメータも戻り値もない関数">パラメータも戻り値もない関数</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">hello</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>次の関数は、２つの <code class="language-plaintext highlighter-rouge">int</code> 型パラメータを受け取り、足し合わせた結果を返します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="複数の戻り値を持つ関数を定義する多値関数">複数の戻り値を持つ関数を定義する（多値関数）</h2>
+
+<p>Go 言語の関数は、複数の戻り値を返すことができます。
+その場合、戻り値の型をカンマで区切って並べ、括弧で囲みます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">:=</span> <span class="n">swap</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c">//=&gt; 20, 10</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>複数の戻り値をひとつの変数で受け取ろうとすると、コンパイルエラーになります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">:=</span> <span class="n">swap</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>  <span class="c">// Error: multiple-value swap() in single-value context</span>
+</code></pre></div></div>
+
+<p>必要のない戻り値がある場合は、<code class="language-plaintext highlighter-rouge">_</code> を使って受け取ります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">swap</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>  <span class="c">// 1 つ目の戻り値のみ欲しい場合</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">y</span> <span class="o">:=</span> <span class="n">swap</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>  <span class="c">// 2 つ目の戻り値のみ欲しい場合</span>
+</code></pre></div></div>
+
+<p>ちなみに、Go 言語で変数値をスワップするときは次のように簡単に書けます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h2 id="名前付き戻り値">名前付き戻り値</h2>
+
+<p>関数の戻り値に名前をつけておくと、その名前の変数に代入した値を戻り値として返すことができます。
+次の例では、２つの <code class="language-plaintext highlighter-rouge">int</code> 型の戻り値に、それぞれ <code class="language-plaintext highlighter-rouge">index</code> と <code class="language-plaintext highlighter-rouge">value</code> という名前を付けています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">findMax</span><span class="p">(</span><span class="n">arr</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">index</span> <span class="kt">int</span><span class="p">,</span> <span class="n">value</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>関数から <code class="language-plaintext highlighter-rouge">return</code> するときに、その時点で変数 <code class="language-plaintext highlighter-rouge">index</code> と変数 <code class="language-plaintext highlighter-rouge">value</code> に格納されている値が戻り値として扱われます。
+それぞれの変数の初期値は、その型のゼロ値になります（例えば <code class="language-plaintext highlighter-rouge">int</code> であれば 0）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>package main
+
+import "fmt"
+
+// 配列の中から最大値を持つ要素を検索し、そのインデックスと値を返します。
+func findMax(arr []int) (index int, value int) {
+	// index = 0
+	// index のゼロ値は 0 なので上記の初期化処理は省略できる
+	value = arr[0]
+	for i := 1; i &lt; len(arr); i++ {
+		if value &lt; arr[i] {
+			value = arr[i]
+			index = i
+		}
+	}
+	return  // return index, value と同じ
+}
+
+func main() {
+	arr := []int{3, 6, 100, 7, 8}
+	i, v := findMax(arr)
+	fmt.Println(i, v)  //=&gt; 2, 100
+}
+</code></pre></div></div>
+
+<p>上記のように、関数が同じ型の戻り値を複数返すようなケースでは、戻り値に名前を付けておくと、戻り値の順序を間違えて <code class="language-plaintext highlighter-rouge">return</code> してしまうようなミスを防ぐことができます。</p>
+
+<h2 id="エラーを返す関数を定義する">エラーを返す関数を定義する</h2>
+
+<p>Go 言語には例外の仕組みがないため（ランタイムエラーを扱う <code class="language-plaintext highlighter-rouge">panic</code> は存在します）、関数内でエラーが発生した場合は、戻り値としてエラーを返すことでそれを表現します（成功時は <code class="language-plaintext highlighter-rouge">nil</code> を返します）。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"/tmp/sample.txt"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c">// 正常シーケンス</span>
+<span class="k">defer</span> <span class="n">f</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+<span class="c">// ...</span>
+</code></pre></div></div>
+
+<p>自作の関数の中でエラーを返したいときは、戻り値の型を <strong><code class="language-plaintext highlighter-rouge">error</code></strong> と定義し、エラーを <strong><code class="language-plaintext highlighter-rouge">errors.New</code></strong> 関数で作成します。
+下記の例では、フィボナッチ数列の n 番目の値を返す <code class="language-plaintext highlighter-rouge">fibonacci</code> 関数を定義しています。
+パラメータに 1 より小さい値を指定された場合は、2 番目の戻り値でエラーを返すようにしています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"errors"</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"log"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="m">1</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="m">0</span><span class="p">,</span> <span class="n">errors</span><span class="o">.</span><span class="n">New</span><span class="p">(</span><span class="s">"fibonacci() must take a natural number"</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">:=</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span>
+	<span class="k">for</span> <span class="p">;</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">;</span> <span class="n">n</span><span class="o">--</span> <span class="p">{</span>
+		<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="no">nil</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">n</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="m">7</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>エラーメッセージを作成するときに、フォーマット文字列を指定したい場合は、<code class="language-plaintext highlighter-rouge">errors.New</code> 関数の代わりに <strong><code class="language-plaintext highlighter-rouge">fmt.Errorf</code></strong> 関数を使用できます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="m">1</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="m">0</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"fibonacci() cannot take a number %d"</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="可変長引数を扱う関数を定義する">可変長引数を扱う関数を定義する</h2>
+
+<p>関数のパラメータの定義で、<strong>型名の前に <code class="language-plaintext highlighter-rouge">...</code></strong> というプレフィックスを指定することで、可変長引数を表現することができます。</p>
+
+<p>渡された引数は、関数内部ではスライスとして参照することができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">values</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">result</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">values</span> <span class="p">{</span>
+		<span class="n">result</span> <span class="o">+=</span> <span class="n">v</span>
+	<span class="p">}</span>
+	<span class="k">return</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">x</span> <span class="o">:=</span> <span class="n">sum</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+	<span class="nb">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c">//=&gt; 15</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>可変長引数を受け取る関数に対してスライスを渡したいときは、次のように <strong>スライスの後ろに <code class="language-plaintext highlighter-rouge">...</code></strong> を付けて展開して渡します。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">}</span>
+<span class="n">x</span> <span class="o">:=</span> <span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>（固定長の）配列を渡すときは、下記のように一度スライスに変換してから同じように渡すことができますが、これはもう少しよいやり方があるかも。。。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">}</span>
+<span class="n">x</span> <span class="o">:=</span> <span class="n">sum</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="o">:</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 関数を定義する (func)&url=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/kswy47a/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

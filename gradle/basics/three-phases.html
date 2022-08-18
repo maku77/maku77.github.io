@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGradleノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/gradle/basics/three-phases.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-gradle.png" />
+
+  <meta property="og:description" content="天才星人まくのGradleノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Gradle 実行時の 3 つのフェーズ | まくまくGradleノート" />
+  <title>Gradle 実行時の 3 つのフェーズ - まくまくGradleノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/gradle/">
+    <img src="/assets/img/logo-gradle.png" class="xPageHeader_logo">
+  </a>
+  <a href="/gradle/">
+    <div class="xPageHeader_category">
+    まくまくGradleノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Gradle 実行時の 3 つのフェーズ</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/gradle/">Gradle</a></div>
+  <div class="xPageDate">2014-06-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/gradle/basics/three-phases.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGradleノート： Gradle 実行時の 3 つのフェーズ&url=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="3-つのフェーズ">3 つのフェーズ</h2>
+
+<p>Gradle によるビルドを実行するとき、内部では下記のような 3 つのフェーズに分けてビルドが実行されていきます。</p>
+
+<ol>
+  <li>Initialization フェーズ</li>
+  <li>Configuration フェーズ</li>
+  <li>Execution フェーズ</li>
+</ol>
+
+<h3 id="1-initialization-フェーズ">(1) Initialization フェーズ</h3>
+
+<p>マルチプロジェクトにおけるプロジェクトの依存関係が解決され、プロジェクトのビルド順序が決められるフェーズです。
+サブプロジェクトの構成は、トップレベルのディレクトリに置かれる <code class="language-plaintext highlighter-rouge">settings.gradle</code> ファイルで定義されます（Gradle の内部では、このファイルを基に <a href="https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html">Settings</a> オブジェクトが生成されています）。</p>
+
+<h4 id="settingsgradle">settings.gradle</h4>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">include</span> <span class="s1">'subproject1'</span>
+<span class="n">include</span> <span class="s1">'subproject2'</span>
+</code></pre></div></div>
+
+<p>また、プロジェクトごとに Gradle 内部で <a href="https://docs.gradle.org/current/dsl/org.gradle.api.Project.html">Project</a> インスタンスが生成されています（マルチプロジェクトなビルド構成であれば、複数の <code class="language-plaintext highlighter-rouge">Project</code> インスタンスが生成されます）。
+プロジェクトの依存関係は、各プロジェクトの <code class="language-plaintext highlighter-rouge">dependencies</code> ブロック内で定義されます。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">':subproject'</span><span class="o">)</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="2-configuration-フェーズ">(2) Configuration フェーズ</h3>
+
+<p>すべてのプロジェクトの <code class="language-plaintext highlighter-rouge">build.gradle</code> が処理され、すべてのタスクの依存関係を認識するフェーズです。
+タスクの依存関係は、下記のように <code class="language-plaintext highlighter-rouge">dependsOn</code> プロパティで指定されます。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">task</span> <span class="nf">task2</span><span class="o">(</span><span class="nl">dependsOn:</span> <span class="n">task1</span><span class="o">)</span> <span class="o">&lt;&lt;</span> <span class="o">{</span>
+    <span class="n">println</span> <span class="s1">'Hello task2'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上記の例では依存タスクを <code class="language-plaintext highlighter-rouge">task1</code> というオブジェクトで指定していますが、<code class="language-plaintext highlighter-rouge">'task1'</code> のように、文字列でタスク名を指定することもできます。
+文字列でタスク名を指定することにより、その時点でまだ定義されていないタスクを指定することができます。
+Configuration フェーズでは、すべてのタスク定義を走査するため、最終的にはすべての依存関係が問題なく解決されます（逆に、Configuration フェーズ終了時に未解決なタスクがあるとエラーになります）。</p>
+
+<p>Gradle の処理系内部では、依存グラフ (dependency graph) が生成されています。</p>
+
+<h3 id="3-execution-フェーズ">(3) Execution フェーズ</h3>
+
+<p>実際にどのタスクを実行すべきかを判断し、タスクの実行を行うフェーズです。
+<code class="language-plaintext highlighter-rouge">gradle</code> コマンドに渡したタスク名や、実行時のカレントディレクトによってどのタスクを実行するかが変化します。</p>
+
+<h2 id="振る舞いを調べてみる">振る舞いを調べてみる</h2>
+
+<p>次のようなビルドファイルを作成すると、3 つのフェーズがどのような順番で実行されていくかを確認することができます。</p>
+
+<h3 id="settingsgradle-1">settings.gradle</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>println 'Initialization'
+</code></pre></div></div>
+
+<h3 id="buildgradle">build.gradle</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>println 'Configuration 1'
+
+task hello1 {
+    println 'Configuration 2'
+    doLast {
+        println 'Execution (hello1)'
+    }
+    println 'Configuration 3'
+}
+
+println 'Configuration 4'
+
+task hello2 {
+    println 'Configuration 5'
+    doLast {
+        println 'Execution (hello2)'
+    }
+    println 'Configuration 6'
+}
+
+println 'Configuration 7'
+</code></pre></div></div>
+
+<h3 id="実行結果">実行結果</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gradle <span class="nt">-q</span> hello2
+
+Initialization
+Configuration 1
+Configuration 2
+Configuration 3
+Configuration 4
+Configuration 5
+Configuration 6
+Configuration 7
+Execution <span class="o">(</span>hello2<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Configuration フェーズの実行は、単純に上から実行されていくことが分かります。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGradleノート： Gradle 実行時の 3 つのフェーズ&url=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/gradle/basics/three-phases.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/gradle/"><span class="xArticle_up_label">まくまくGradleノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li class="xNav-focused"><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/gradle/">Gradle</a></div>
+  <div class="xPageDate">2014-06-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

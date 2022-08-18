@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Hugo ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/hugo/shortcode/has-shortcode.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-hugo.png" />
+
+  <meta property="og:description" content="天才星人まくの Hugo ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode) | まくまくHugoノート" />
+  <title>あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode) - まくまくHugoノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/hugo/">
+    <img src="/assets/img/logo-hugo.png" class="xPageHeader_logo">
+  </a>
+  <a href="/hugo/">
+    <div class="xPageHeader_category">
+    まくまくHugoノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2020-10-13</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/hugo/shortcode/has-shortcode.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)&url=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="hasshortcode-関数">.HasShortcode 関数</h2>
+
+<p>外部の JavaScript ファイルを利用して動作するショートコードを作成すると、Web サイトの表現力を大きく向上させることができます。
+例えば、次のようなショートコードが考えられます。</p>
+
+<ul>
+  <li>独自の構文でコードを記述すると UML 図を出力してくれる <code class="language-plaintext highlighter-rouge">mermaid</code> ショートコード（<a href="https://mermaid-js.github.io/mermaid/">mermaid.js</a> などを利用）</li>
+  <li>TeX 構文でコードを記述すると数式を出力してくれる <code class="language-plaintext highlighter-rouge">math</code> ショートコード（<a href="https://www.mathjax.org/">MathJax.js</a> などを利用）</li>
+</ul>
+
+<p>このとき悩ましいのが、どのようにして次のような <code class="language-plaintext highlighter-rouge">script</code> 要素を出力するかです。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"for-shortcode.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>すべてのページにこのようなコードを出力してしまうと、この JavaScript が必要ないページでもファイルのロードが発生してしまいます。
+こういった拡張が増えてくると、大量の JavaScript ファイルが読み込まれることになり、重い Web サイトになってしまいます。</p>
+
+<p>このような場合の救世主が <strong><code class="language-plaintext highlighter-rouge">Page.HasShortcode</code></strong> 関数です。</p>
+
+<ul>
+  <li>参考: <a href="https://gohugo.io/templates/shortcode-templates/#checking-for-existence">Hugo - Create Your Own Shortcodes - Checking for Existence</a></li>
+</ul>
+
+<p>ページテンプレート内で、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ if .HasShortcode "my-shortcode" }}
+  ...
+{{ end }}
+</code></pre></div></div>
+
+<p>といった記述をしておくと、Markdown ファイル内で <code class="language-plaintext highlighter-rouge">my-shortcode</code> ショートコードを使用している場合のみ出力を行うことができます。</p>
+
+<h2 id="実装例">実装例</h2>
+
+<p>例えば、ベーステンプレートの <code class="language-plaintext highlighter-rouge">body</code> 要素の末尾に次のように記述しておけば、Markdown ファイル内で <code class="language-plaintext highlighter-rouge">mermaid</code> ショートコードを使用している場合のみ、<code class="language-plaintext highlighter-rouge">mermaid.js</code> の読み込みと初期化処理を実行することができます。</p>
+
+<h4 id="layouts_defaultbaseofhtml抜粋">layouts/_default/baseof.html（抜粋）</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ...
+  {{- if .HasShortcode "mermaid" }}
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span><span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="na">startOnLoad</span><span class="p">:</span> <span class="kc">true</span><span class="p">});</span><span class="nt">&lt;/script&gt;</span>
+  {{- end }}
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">mermaid</code> ショートコードの実装は次のような感じになっています。</p>
+
+<h4 id="layoutsshortcodesmermaidhtml">layouts/shortcodes/mermaid.html</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+{{ .Inner }}
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h4 id="markdown-ファイル内での使い方">Markdown ファイル内での使い方</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{&lt; mermaid &gt;}}
+sequenceDiagram
+    Client-&gt;&gt;Cache: search cache
+    Cache--&gt;&gt;Client: cache
+    Client-&gt;&gt;Repo: fetch data
+    Repo--&gt;&gt;Client: data
+{{&lt; /mermaid &gt;}}
+</code></pre></div></div>
+
+<h4 id="表示結果">表示結果</h4>
+
+<p><img src="/hugo/shortcode/has-shortcode-001.svg" alt="has-shortcode-001.svg" /></p>
+
+<h2 id="応用他のページを間接的に出力するとき">（応用）他のページを間接的に出力するとき</h2>
+
+<h3 id="baseofhtml-での-hasshortcode-がうまく動作しない例">baseof.html での .HasShortcode がうまく動作しない例</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Page.HasShortcode</code> 関数は、あくまで現在処理しようとしているページの Markdown 内でショートコードが使われているかどうかを調べます。
+例えば、ホームページテンプレートで、次のように最新記事の内容を間接的に取得して表示しているような場合は、<code class="language-plaintext highlighter-rouge">baseof.html</code> テンプレートに記述した <code class="language-plaintext highlighter-rouge">.HasShortcode</code> 関数は意図通り動作しない可能性があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- 最近の記事をいくつかまとめて表示 --&gt;
+{{- range first 3 .Site.RegularPages.ByLastmod.Reverse -}}
+  &lt;article class="xArticle" itemscope itemtype="https://schema.org/BlogPosting"&gt;
+    {{ .Render "inc-article" }}
+  &lt;/article&gt;
+{{- end -}}
+</code></pre></div></div>
+
+<p>なぜなら、ホームページ (<code class="language-plaintext highlighter-rouge">content/_index.md</code>) の Markdown ファイルではショートコードを使っていないのにもかかわらず（<code class="language-plaintext highlighter-rouge">.HasShortcode</code> が <code class="language-plaintext highlighter-rouge">false</code> になる）、上記ループで表示される別ページ内で JavaScript のロードを必要としていることがあるからです。</p>
+
+<p>このようなケースに対応するには、上記のような <code class="language-plaintext highlighter-rouge">Page</code> オブジェクトをループしている部分で、<code class="language-plaintext highlighter-rouge">.HasShortcode</code> によるチェックを行わなければいけません。
+ただし、ループ内で JavaScript ファイルをロードする <code class="language-plaintext highlighter-rouge">script</code> 要素を出力してしまうと、ロードタイミングとしてはよろしくない（できれば <code class="language-plaintext highlighter-rouge">body</code> の末尾がいい）し、ロード用のコードが重複してしまいます。</p>
+
+<h3 id="解決案">解決案</h3>
+
+<p>解決方法はいろいろありそうですが、ひとつの解決方法としては、ショートコード内で、自分自身が必要とする JavaScript ファイル（下記の例では <code class="language-plaintext highlighter-rouge">mermaid.min.js</code>）をロードする JavaScript コードを出力してしまうという方法です。</p>
+
+<h4 id="layoutsshortcodesmermaidhtml-1">layouts/shortcodes/mermaid.html</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mermaid"</span><span class="nt">&gt;</span>
+{{.Inner }}
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">JS_FILE</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js</span><span class="dl">'</span><span class="p">;</span>
+
+  <span class="c1">// JSファイルの多重ロードを防止</span>
+  <span class="kd">const</span> <span class="nx">jsSet</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">loadedJsSet</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">loadedJsSet</span> <span class="o">||</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">jsSet</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">JS_FILE</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
+  <span class="nx">jsSet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">JS_FILE</span><span class="p">);</span>
+
+  <span class="c1">// JSファイルの動的読み込み</span>
+  <span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">'</span><span class="s1">script</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">JS_FILE</span><span class="p">;</span>
+  <span class="nx">script</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 必要に応じてJSファイルロード後に初期化処理</span>
+    <span class="nx">mermaid</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span><span class="na">startOnLoad</span><span class="p">:</span> <span class="kc">true</span><span class="p">});</span>
+  <span class="p">}</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+<span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>すでにロードした JavaScript の情報は、グローバルな <code class="language-plaintext highlighter-rouge">window.loadedJsSet</code> 変数に格納しておくことで重複ロードを防いでいます。
+この方法であれば、<code class="language-plaintext highlighter-rouge">baseof.html</code> などのベーステンプレートで <code class="language-plaintext highlighter-rouge">script</code> 要素を出力する必要もなく、ショートコード用のファイルだけで完結できます。
+ある意味 <code class="language-plaintext highlighter-rouge">.HasShortcode</code> を使う方法よりもすっきりするかもしれません。</p>
+
+<p>この方法の欠点としては、このショートコードを使うたびに同じ JavaScript コードが出力されてしまうという点でしょうか。
+とはいえ、ページ内でのショートコードの呼び出し回数が高々数回程度であるのであれば、それほど気にしなくてもいいと思います。</p>
+
+<ul>
+  <li>参考: <a href="../advanced/mermaid.html">mermaid.js で Markdown 中に UML 図を埋め込む</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)&url=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/shortcode/has-shortcode.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/hugo/"><span class="xArticle_up_label">まくまくHugoノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li class="xNav-focused"><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2020-10-13</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

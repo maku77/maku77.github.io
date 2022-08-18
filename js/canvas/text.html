@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="HTML5 の canvas 要素にテキストを描画するには、fillText や strokeText メソッドを使用します。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/canvas/text.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="HTML5 の canvas 要素にテキストを描画するには、fillText や strokeText メソッドを使用します。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="HTML5 Canvas でテキストを描画する | まくまくJavaScriptノート" />
+  <title>HTML5 Canvas でテキストを描画する - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">HTML5 Canvas でテキストを描画する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2018-04-10</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/canvas/text.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： HTML5 Canvas でテキストを描画する&url=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">HTML5 の canvas 要素にテキストを描画するには、fillText や strokeText メソッドを使用します。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="構文">構文</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void ctx.fillText(text, x, y [, maxWidth]);
+void ctx.strokeText(text, x, y [, maxWidth]);
+</code></pre></div></div>
+
+<p>通常のテキスト描画を行うときは、CanvasRenderingContext2D オブジェクトの <a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/fillText">fillText メソッド</a> を使用し、テキストの輪郭のみを描画するときは <a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/strokeText">strokeText メソッド</a> を使用します。</p>
+
+<p>どちらも、第1引数に描画するテキスト、第2引数にx座標、第3引数にy座標を指定します。
+第4引数に関しては後述します。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello World</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeText</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello World</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="フォントの指定">フォントの指定</h2>
+
+<p>fillText メソッドや strokeText メソッドでテキストを描画するときに使用するフォントは、CanvasRenderingContext2D オブジェクトの <strong>font</strong> プロパティで設定します。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">20pt Arial</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>設定する値のフォーマットは、CSS の font プロパティと同様で、下記のような感じで設定することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctx.font = '48pt sans-serif';
+ctx.font = 'bold 18px Times Roman';
+ctx.font = 'italic 12pt monospaced';
+ctx.font = 'bolder smaller serif';
+</code></pre></div></div>
+
+<h2 id="fillstyle-によるテキスト描画">fillStyle によるテキスト描画</h2>
+
+<p><img src="/js/canvas/text1.png" alt="text1.png" class="center" /></p>
+
+<p>fillStyle メソッドでテキストを描画するときは、<strong>fillStyle</strong> プロパティに設定した色でテキストのグリフが塗りつぶされるように描画されます（つまりごく普通のテキスト描画）。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span> <span class="na">width=</span><span class="s">"250"</span> <span class="na">height=</span><span class="s">"100"</span> <span class="na">style=</span><span class="s">"border:solid gray 1px;"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">canvas</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// HTMLCanvasElement</span>
+  <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// CanvasRenderingContext2D</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">50pt Arial</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">rgba(0, 0, 255)</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">70</span><span class="p">);</span>  <span class="c1">// 座標 (20, 50) にテキスト描画</span>
+<span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h2 id="strokestyle-によるテキスト描画輪郭">strokeStyle によるテキスト描画（輪郭）</h2>
+
+<p><img src="/js/canvas/text2.png" alt="text2.png" class="center" /></p>
+
+<p>strokeStyle メソッドでテキストを描画すると、テキストの輪郭だけが描画されます。
+輪郭線の色は <strong>strokeStyle</strong> プロパティ、輪郭線の太さは <strong>lineWidth</strong> プロパティで指定することができます。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span> <span class="na">width=</span><span class="s">"250"</span> <span class="na">height=</span><span class="s">"100"</span> <span class="na">style=</span><span class="s">"border:solid gray 1px;"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">canvas</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// HTMLCanvasElement</span>
+  <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// CanvasRenderingContext2D</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">bold 60pt sans-serif</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#f00</span><span class="dl">'</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeText</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>  <span class="c1">// 座標 (20, 80) にテキスト描画</span>
+<span class="p">};</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h2 id="第4引数で最大描画幅を指定する">第4引数で最大描画幅を指定する</h2>
+
+<p>fillText メソッドと、strokeText メソッドには、オプショナルの第4引数 (maxWidth) が用意されています。
+第4引数でサイズ指定を行うと、その幅に収まるようにテキストが縮小されて描画されます。
+縮小しなくてもテキストがそのサイズに収まる場合は縮小されず、font プロパティに指定したフォントサイズ通りに描画されます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#0f0</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">bold 60pt sans-serif</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="dl">'</span><span class="s1">描画</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>  <span class="c1">// 最大描画幅を 100 ピクセルに指定</span>
+</code></pre></div></div>
+
+<h3 id="表示例">表示例</h3>
+
+<p><img src="/js/canvas/text3.png" alt="text3.png" class="center" /></p>
+
+<p>上側の画像は第4引数を指定せずに fillText を呼び出した場合、下側の画像は第4引数に 100 を指定して fillText を呼び出した場合の結果です。
+100px 内に収まるように縮小されて描画されていることが分かります。</p>
+
+<h2 id="テキストアラインメントとベースラインの指定">テキストアラインメントとベースラインの指定</h2>
+
+<p>CanvasRenderingContext2D オブジェクトの <strong>textAlign</strong> プロパティでアラインメント指定（横方向のアライン）、<strong>textBaseline</strong> プロパティでベースライン指定（縦方向のアライン）を指定することができます。</p>
+
+<h3 id="横方向のアラインメント-textalign">横方向のアラインメント (textAlign)</h3>
+
+<p><img src="/js/canvas/text4.png" alt="text4.png" class="center" /></p>
+
+<p>上記の描画例は、textAlign プロパティの値を変えた時に、fillText で指定した x 座標（赤ドット）とどのような位置関係で描画されるかを示しています（使用した HTML/JS コードは<a href="/js/canvas/text4.html.txt">こちら</a>）。</p>
+
+<p>textAlign プロパティには以下のような値を設定できます。</p>
+
+<ul>
+  <li><strong>start</strong> (default): LTR (light-to-right) な言語では左寄せで表示され、RTL (right-to-left) な言語では右寄せで表示されます。canvas タグの <code class="language-plaintext highlighter-rouge">dir</code> 属性に <code class="language-plaintext highlighter-rouge">rtl</code> を指定すると、RTL 言語だとみなされます。</li>
+  <li><strong>end</strong>: start を指定した場合と反対で、LTR (light-to-right) な言語では右寄せで表示され、RTL (right-to-left) な言語では左寄せで表示されます。</li>
+  <li><strong>left</strong>: 左寄せで表示されます。</li>
+  <li><strong>right</strong>: 右寄せで表示されます。</li>
+  <li><strong>center</strong>: 中央寄せで表示されます。</li>
+</ul>
+
+<h3 id="縦方向のアラインメント-textbaseline">縦方向のアラインメント (textBaseline)</h3>
+
+<p><img src="/js/canvas/text5.png" alt="text5.png" class="center" /></p>
+
+<p>下記の描画例は、textBaseline プロパティの値を変えた時に、fillText で指定した y 座標（赤ライン）とどのような位置関係で描画されるかを示しています（使用した HTML/JS コードは<a href="/js/canvas/text5.html.txt">こちら</a>）。</p>
+
+<p>textBaseline プロパティには以下のような値を設定できます。</p>
+
+<ul>
+  <li><strong>top</strong>: y座標値がテキストの上端になります。</li>
+  <li><strong>middle</strong>: y座標値がテキストの中央になります。</li>
+  <li><strong>bottom</strong>: y座標値がテキストの下端になります。</li>
+  <li><strong>alphabetic</strong> (default): ラテン系言語（英語）で使われるベースラインです。</li>
+  <li><strong>ideographic</strong>: 日本語や中国語で使われるベースラインです。</li>
+  <li><strong>hanging</strong>: インドで使われる言語（Devangariなど）で使われるベースラインです。</li>
+</ul>
+
+<h2 id="テキストの描画サイズを調べる">テキストの描画サイズを調べる</h2>
+
+<p>HTML5 Canvas に描画したテキストのサイズは、<a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText">CanvasRenderingContext2D.measureText()</a> を使用して調べることができます。
+<code class="language-plaintext highlighter-rouge">measureText()</code> の戻り値は <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics">TextMetrics オブジェクト</a>になっており、実際の描画領域のサイズを取得することができます。</p>
+
+<p>得られた <code class="language-plaintext highlighter-rouge">TextMetrics</code> オブジェクトの <code class="language-plaintext highlighter-rouge">width</code> プロパティを参照することで、実際の描画幅 (px) を調べることができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="dl">'</span><span class="s1">text</span><span class="dl">'</span><span class="p">).</span><span class="nx">width</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>下記の例では、テキスト「あいうえお」を実際に描画した時の横幅を調べて、その幅で矩形を表示しています。</p>
+
+<h4 id="実行結果">実行結果</h4>
+
+<p><img src="/js/canvas/text6.png" alt="text6.png" class="center" /></p>
+
+<h4 id="samplehtml">sample.html</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span> <span class="na">width=</span><span class="s">"200"</span> <span class="na">height=</span><span class="s">"100"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">canvas</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="dl">'</span><span class="s1">2d</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// CanvasRenderingContext2D</span>
+
+<span class="c1">// フォントの設定</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">20pt Arial</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// 描画サイズ (TextMetrics) の取得</span>
+<span class="kd">var</span> <span class="nx">metrics</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="dl">'</span><span class="s1">あいうえお</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// 取得した横幅で Rectangle と Text を描画</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">rgba(255, 0, 0, 0.25)</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nx">metrics</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="o">-</span><span class="mi">24</span><span class="p">);</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">rgb(255, 0, 0)</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="dl">'</span><span class="s1">あいうえお</span><span class="dl">'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： HTML5 Canvas でテキストを描画する&url=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/canvas/text.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2018-04-10</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

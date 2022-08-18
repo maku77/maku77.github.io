@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/misc/kdoc.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Kotlin のコードにドキュメンテーションコメントを記述する (KDoc) | まくまくKotlinノート" />
+  <title>Kotlin のコードにドキュメンテーションコメントを記述する (KDoc) - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-03-05</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/misc/kdoc.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)&url=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="ドキュメンテーションコメントとは">ドキュメンテーションコメントとは</h2>
+
+<p>Kotlin のソースコードにドキュメンテーションコメントを記述しておくと、関数のコメントなどから API ドキュメントを自動生成することができるようになります。
+また、関数のドキュメンテーションコメントを記述しておけば、AndroidStudio などの開発環境上でコーディングしているときに、関数の説明をポップアップ表示してくれるようになります。</p>
+
+<p>Java のドキュメンテーションコメントのフォーマットは Javadoc と呼ばれていますが、Kotlin のドキュメンテーションコメントは <strong>KDoc</strong> と呼びます。</p>
+
+<ul>
+  <li><a href="https://kotlinlang.org/docs/reference/kotlin-doc.html">KDoc - Documenting Kotlin Code</a></li>
+</ul>
+
+<p>多人数で使用するライブラリを作成する場合は API ドキュメントを用意するのは必須です。
+一人で開発する場合でも、API の仕様を明確にして実装する癖をつけることで、自然にきれいな設計を行う力が身に付きます。
+ドキュメンテーションコメントに関する基本的な考え方は下記を参照してください。</p>
+
+<ul>
+  <li><a href="/memo/how-to-write-comment.html">ドキュメンテーションコメントの書き方</a></li>
+</ul>
+
+<h2 id="javadoc-コメントと-kdoc-コメントの違い">Javadoc コメントと KDoc コメントの違い</h2>
+
+<p>KDoc ドキュメンテーションコメントは、Javadoc と同様に <strong><code class="language-plaintext highlighter-rouge">/**</code></strong> で始め <strong><code class="language-plaintext highlighter-rouge">*/</code></strong> で終わります。</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">@タグ名</code></strong> の形で付加的な情報を記述できることも同様ですが、KDoc のみで使用できるタグや、逆に KDoc では使えないタグもあります（後述）。</p>
+
+<p>Javadoc コメント内では HTML タグを使った修飾が可能でしたが、KDoc コメントでは代わりに <a href="https://daringfireball.net/projects/markdown/basics">Markdown</a> を使用します。</p>
+
+<p>下記は、Kotlin のドキュメントサイトで紹介されている KDoc コメントの記述例です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * A group of *members*.
+ *
+ * This class has no useful logic; it's just a documentation example.
+ *
+ * @param T the type of a member in this group.
+ * @property name the name of this group.
+ * @constructor Creates an empty group.
+ */</span>
+<span class="kd">class</span> <span class="nc">Group</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/**
+     * Adds a [member] to this group.
+     * @return the new size of the group.
+     */</span>
+    <span class="k">fun</span> <span class="nf">add</span><span class="p">(</span><span class="n">member</span><span class="p">:</span> <span class="nc">T</span><span class="p">):</span> <span class="nc">Int</span> <span class="p">{</span> <span class="o">..</span><span class="p">.</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="kdoc-ドキュメンテーションコメントの書き方">KDoc ドキュメンテーションコメントの書き方</h2>
+
+<h3 id="パラメータに関する記述">パラメータに関する記述</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Sums two values, [a] and [b].
+ */</span>
+<span class="k">fun</span> <span class="nf">myAdd</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<p>KDoc のドキュメンテーションコメントから関数のパラメータを参照するときは、上記のようにパラメータ名をブラケット <code class="language-plaintext highlighter-rouge">[]</code> で囲みます。</p>
+
+<p>Javadoc ではパラメータの説明は <code class="language-plaintext highlighter-rouge">@param</code> タグ、戻り値の説明は <code class="language-plaintext highlighter-rouge">@return</code> タグを使って記述することが推奨されていましたが、Kotlin の開発チームは、KDoc では説明文の形でシンプルに記述してしまうことを推奨しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Sums two values, [a] and [b].
+ *
+ * @param[a] the first value to be added
+ * @param[b] the second value to be added
+ * @return the sum of two values
+ */</span>
+</code></pre></div></div>
+
+<p>上記のようなコメントは冗長なので、下記のようにシンプルに記述すればよいということですね。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+ * Sums two values, [a] and [b].
+ */
+</code></pre></div></div>
+
+<p>もちろん、パラメータや戻り値の詳細な説明が必要なケースでは、<code class="language-plaintext highlighter-rouge">@param</code> や <code class="language-plaintext highlighter-rouge">@return</code> タグを使用してコメントを記述した方がよいでしょう。</p>
+
+<h3 id="kdoc-で使用できるブロックタグ">KDoc で使用できるブロックタグ</h3>
+
+<p>KDoc コメント内では、下記のようなブロックタグが使用できます。
+Javadoc には存在しなかった KDoc 独自のタグはハイライトしています。</p>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">@param name 説明</code><br /><code class="language-plaintext highlighter-rouge">@param[name] 説明</code></dt>
+  <dd>関数のパラメータ、あるいはクラス、プロパティ、関数のタイプパラメータの説明に使用します。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">@return 説明</code></dt>
+  <dd>戻り値の説明に使用します。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">@throws class 説明</code><br /><code class="language-plaintext highlighter-rouge">@exception class 説明</code></dt>
+  <dd>あるメソッドが投げる可能性のある例外に関しての説明を記述します。</dd>
+  <dt><strong><code class="language-plaintext highlighter-rouge">@constructor 説明</code></strong></dt>
+  <dd>クラスコメントにプライマリコンストラクタの説明を記述するときに使用します。プライマリコンストラクタのパラメータの説明は、<code class="language-plaintext highlighter-rouge">@constructor</code> タグよりも下に <code class="language-plaintext highlighter-rouge">@param</code> タグを使って記述します。</dd>
+  <dt><strong><code class="language-plaintext highlighter-rouge">@property name 説明</code></strong></dt>
+  <dd>クラスコメントで、各プロパティの説明を記述する際に使用します。プライマリコンストラクタで定義したプロパティの説明にも使用できます。各プロパティの説明は、このブロックタグを使用してクラスコメント内に記述できるので、各プロパティの定義位置に記述する必要はありません。</dd>
+  <dt><strong><code class="language-plaintext highlighter-rouge">@receiver 説明</code></strong></dt>
+  <dd>拡張関数（プロパティ）のレシーバーの説明に使用します。</dd>
+  <dt><strong><code class="language-plaintext highlighter-rouge">@sample シンボル</code></strong></dt>
+  <dd>指定した関数の実装をサンプルコードとして埋め込み表示します。完全修飾名 (fully qualified name) で関数を指定します。サンプルコードの置き場所は <code class="language-plaintext highlighter-rouge">build.gradle</code> の <code class="language-plaintext highlighter-rouge">dokka.samples</code> で指定します。</dd>
+  <dt><strong><code class="language-plaintext highlighter-rouge">@suppress</code></strong></dt>
+  <dd>API ドキュメントとしては出力しないように指示します。一般的な API としては非公開にしたいのだけど、実装上どうしても呼び出さなければいけないメソッドなどで使用します。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">@see シンボル</code></dt>
+  <dd>参考にすべきクラスやメソッドがある場合に、See also リンクを張るために使用します。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">@version バージョン</code></dt>
+  <dd>この API が導入されたバージョンを示します。</dd>
+</dl>
+
+<h3 id="kdoc-で使用できないブロックタグ">KDoc で使用できないブロックタグ</h3>
+
+<p>逆に、Javadoc では使えたけど KDoc では使えなくなっているタグもあります。</p>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">@deprecated</code> タグ</dt>
+  <dd>Kotlin では非推奨の API は <code class="language-plaintext highlighter-rouge">@Deprecated</code> アノテーションだけで示すのでコメント用のタグは存在しません。ただし、ドキュメンテーションコメントとして代替メソッドの説明を記述することは忘れないようにしましょう。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">@inheritdoc</code> タグ</dt>
+  <dd>Kotlin のドキュメンテーションコメントは、サブクラスに自動的に継承されるので、ドキュメントの継承を明示するタグは存在しません。</dd>
+  <dt>装飾用のインラインタグ (<code class="language-plaintext highlighter-rouge">@link</code>、<code class="language-plaintext highlighter-rouge">@code</code> など）</dt>
+  <dd>Kotlin では文章の装飾は Markdown フォーマットで行います（下記参照）。</dd>
+</dl>
+
+<h3 id="文章の中で使用できる-markdown-フォーマット">文章の中で使用できる Markdown フォーマット</h3>
+
+<p>Javadoc コメント内の文章に装飾を加える場合は、HTML タグや <code class="language-plaintext highlighter-rouge">@literal</code> などのインラインタグを使用していましたが、KDoc コメントでは代わりに <a href="https://daringfireball.net/projects/markdown/basics">Markdown</a> フォーマットを使用します。</p>
+
+<h4 id="リンク">リンク</h4>
+
+<p>ドキュメンテーションコメント内でクラス名や関数名にリンクを張りたいときは、下記のようにシンボル名をブラケットで囲みます（関数のパラメータと同様）。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[MyClass]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[myFunc]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[com.example.myapp.MyClass]</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[com.example.myapp.MyClass.myFunc]</code></li>
+</ul>
+
+<p>表示に使用するテキストを変更したい場合は、下記のように、表示したいテキストをブラケットで囲んで前に追加します。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[test class][com.example.myapp.test.Bar]</code></li>
+</ul>
+
+<p>一般的な Web サイトへのリンクは、アドレスを囲む括弧を <code class="language-plaintext highlighter-rouge">()</code> にします。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[Google](https://google.com/)</code></li>
+</ul>
+
+<h4 id="コードブロック">コードブロック</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```kotlin
+fun hello() {
+    Log.i(TAG, "hello")
+}
+```
+</code></pre></div></div>
+
+<h4 id="リスト">リスト</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- apple
+- banana
+- orange
+
+1. apple
+2. banana
+3. orange
+</code></pre></div></div>
+
+<h4 id="その他">その他</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 見出しを入れることができます
+
+アスタリスクで囲むと *強調* されて表示されます。
+
+バッククォートで囲んだ `インラインコード` は等幅フォントで表示されます。
+</code></pre></div></div>
+
+<h2 id="dokka-による-api-ドキュメントの生成">Dokka による API ドキュメントの生成</h2>
+
+<p>Kotlin のソースコードから HTML 形式などの API ドキュメントを出力するには、<strong>Dokka</strong> というツールを使用します。</p>
+
+<ul>
+  <li><a href="https://github.com/Kotlin/dokka">Dokka</a></li>
+</ul>
+
+<p>Dokka は Java コードに記述された Javadoc コメントを扱う機能を備えているため、Java コードと Kotlin コードの混在するプロジェクトでも、Dokka だけ使用すればよいようになっています。</p>
+
+<p>Gradle の <strong><code class="language-plaintext highlighter-rouge">org.jetbrains.dokka</code></strong> プラグインが <a href="https://bintray.com/kotlin/dokka/dokka">Maven リポジトリ (jcenter)</a>から配信されているので、下記のように <code class="language-plaintext highlighter-rouge">build.gradle</code> ファイルに依存関係を記述するだけで Gradle の <strong><code class="language-plaintext highlighter-rouge">dakka</code></strong> タスクを実行できるようになります。</p>
+
+<h3 id="通常の-java-アプリの場合">通常の Java アプリの場合</h3>
+
+<h4 id="buildgradle">build.gradle</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">ext</span><span class="o">.</span><span class="na">dokka_version</span> <span class="o">=</span> <span class="s1">'0.9.+'</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">jcenter</span><span class="o">()</span>
+    <span class="o">}</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s2">"org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'org.jetbrains.dokka'</span>
+</code></pre></div></div>
+
+<h3 id="android-アプリの場合">Android アプリの場合</h3>
+
+<p>Android プロジェクトでは、<code class="language-plaintext highlighter-rouge">org.jetbrains.dokka</code> プラグインの代わりに <strong><code class="language-plaintext highlighter-rouge">org.jetbrains.dokka-android</code></strong> プラグインを使用します。
+Android 用のプラグインを使用することで、自動生成される <code class="language-plaintext highlighter-rouge">R</code> クラスなどのドキュメントが無駄に出力されないようになります。
+<code class="language-plaintext highlighter-rouge">dependencies</code> で指定する ID が微妙に異なるので注意してください。</p>
+
+<h4 id="ルートの-buildgradle">ルートの build.gradle</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">ext</span><span class="o">.</span><span class="na">dokka_version</span> <span class="o">=</span> <span class="s1">'0.9.+'</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">jcenter</span><span class="o">()</span>
+    <span class="o">}</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s2">"org.jetbrains.dokka:dokka-android-gradle-plugin:$dokka_version"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Android のプロジェクトでは、<code class="language-plaintext highlighter-rouge">app</code> ディレクトリなどのサブプロジェクト構成になっていると思います。
+各サブプロジェクトの <code class="language-plaintext highlighter-rouge">build.gradle</code> で <code class="language-plaintext highlighter-rouge">com.android.application</code> や <code class="language-plaintext highlighter-rouge">com.android.library</code> プラグインを適用した後で、<code class="language-plaintext highlighter-rouge">org.jetbrains.dokka-android</code> プラグインを適用します。</p>
+
+<h4 id="appbuildgradle">app/build.gradle</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.application'</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'kotlin-android'</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'org.jetbrains.dokka-android'</span>
+</code></pre></div></div>
+
+<p>これで、Gradle の <strong><code class="language-plaintext highlighter-rouge">dokka</code></strong> タスクを実行して API ドキュメントを生成できるようになります。</p>
+
+<h4 id="実行例">実行例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./gradlew dokka
+</code></pre></div></div>
+
+<p>デフォルトでは、各プロジェクトの <strong><code class="language-plaintext highlighter-rouge">build/dokka</code></strong> ディレクトリ内に API ドキュメントが出力されます。</p>
+
+<h2 id="dokka-の出力設定">Dokka の出力設定</h2>
+
+<p>Gradle プラグインとして提供されている Dokka を使用する場合、<code class="language-plaintext highlighter-rouge">dokka</code> ブロックで <code class="language-plaintext highlighter-rouge">dokka</code> タスクの設定を行うことができます。</p>
+
+<h3 id="出力形式を変更する">出力形式を変更する</h3>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dokka</span> <span class="o">{</span>
+    <span class="n">outputFormat</span> <span class="o">=</span> <span class="s1">'javadoc'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>下記のような出力形式を指定できます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">html</code> - デフォルト形式</li>
+  <li><code class="language-plaintext highlighter-rouge">javadoc</code> - Javadoc 形式</li>
+  <li><code class="language-plaintext highlighter-rouge">markdown</code> - Markdown structured as html（一般的な Markdown 形式）</li>
+  <li><code class="language-plaintext highlighter-rouge">gfm</code> - GitHub flavored markdown（生成されたファイルを GitHub にそのまま push すれば Web 上で読めるようになる）</li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll</code> - Jekyll compatible markdown（GitHub pages も Jekyll で動作しているのでこれが使える）</li>
+</ul>
+
+<p>デフォルトの出力形式は <code class="language-plaintext highlighter-rouge">html</code> です。
+<code class="language-plaintext highlighter-rouge">javadoc</code> を指定することで、見慣れた Javadoc 形式の API ドキュメントを生成することができます。
+Javadoc 形式の方が、サイドバーがあって使いやすいかもしれません。</p>
+
+<h3 id="出力先ディレクトリを変更する">出力先ディレクトリを変更する</h3>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dokka</span> <span class="o">{</span>
+    <span class="n">outputDirectory</span> <span class="o">=</span> <span class="s2">"$buildDir/javadoc"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>デフォルトの出力先は <code class="language-plaintext highlighter-rouge">$buildDir/dokka</code> です。</p>
+
+<h3 id="モジュールパッケージのドキュメンテーションファイルを指定する">モジュール／パッケージのドキュメンテーションファイルを指定する</h3>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dokka</span> <span class="o">{</span>
+    <span class="n">includes</span> <span class="o">=</span> <span class="o">[</span><span class="s1">'packages.md'</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>KDoc では、複数パッケージのドキュメントを、独立した Markdown ファイルにまとめて記述しておくことができます。
+Javadoc で使われていた <code class="language-plaintext highlighter-rouge">package-info.java</code> のようなものを、1 ファイルにまとめて記述できるということですね。
+Kotlin は Java と違って「ディレクトリ構造＝パッケージ構造」ではないので、パッケージに関するドキュメントファイルもディレクトリ構造とは独立した形で作成できるようになっています。</p>
+
+<p>パッケージドキュメントの記述方法に関しては、下記のドキュメントを参照してください。</p>
+
+<ul>
+  <li><a href="https://kotlinlang.org/docs/reference/kotlin-doc.html#module-and-package-documentation">Documenting Kotlin Code - Module and Package Documentation</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)&url=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/misc/kdoc.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-03-05</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

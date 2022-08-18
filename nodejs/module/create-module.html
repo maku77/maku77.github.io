@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Node JS ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/nodejs/module/create-module.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-nodejs.png" />
+
+  <meta property="og:description" content="天才星人まくの Node JS ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する） | まくまくNode.jsノート" />
+  <title>Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する） - まくまくNode.jsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/nodejs/">
+    <img src="/assets/img/logo-nodejs.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/nodejs/">
+    <div class="xPageHeader_category">
+    まくまくNode.jsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2016-07-19</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/nodejs/module/create-module.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）&url=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="node-モジュール作成の基本">Node モジュール作成の基本</h2>
+
+<p>Node.js では、<code class="language-plaintext highlighter-rouge">.js</code> ファイルを<strong>モジュール</strong>として扱うことができます（配布用に <code class="language-plaintext highlighter-rouge">package.json</code> が用意されたものは、特に「<strong>パッケージ</strong>」と呼ばれます）。
+作成したモジュール（<code class="language-plaintext highlighter-rouge">.js</code> ファイル）は、下記のように <code class="language-plaintext highlighter-rouge">require()</code> を使用して読み込むことができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var mod = require('./mymodule.js');  // .js は省略可能
+mod.foo(1, 2);
+</code></pre></div></div>
+
+<p>Node モジュールで公開するプロパティや関数は、以下のいずれかの方法で設定します。</p>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">exports</code></strong> の各プロパティに設定する方法</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">module.exports</code></strong> 自体に任意のオブジェクトを代入する方法</li>
+</ol>
+
+<h2 id="1-exports-のプロパティとして公開プロパティを設定する方法">(1) exports のプロパティとして公開プロパティを設定する方法</h2>
+
+<p><code class="language-plaintext highlighter-rouge">exports</code>オブジェクト（実際は <code class="language-plaintext highlighter-rouge">module.exports</code> のエイリアス）のプロパティとして設定したものが <code class="language-plaintext highlighter-rouge">require</code> したクライアント側からアクセスできるようになります。
+逆に、<code class="language-plaintext highlighter-rouge">exports</code> のプロパティに設定されていない変数や関数は、ファイル内にスコープが限定されます。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">exports</code> のプロパティ経由で、<code class="language-plaintext highlighter-rouge">name</code> 変数、<code class="language-plaintext highlighter-rouge">add</code> 関数を公開しています。</p>
+
+<h4 id="mymodulejsnode-モジュール">mymodule.js（Node モジュール）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 公開される変数や関数</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">magu</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">privFunc</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span> <span class="p">}</span>
+
+<span class="c1">// 非公開の変数や関数</span>
+<span class="kd">var</span> <span class="nx">secret</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">privFunc</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">secret</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>この Node モジュールは、以下のように <code class="language-plaintext highlighter-rouge">require()</code> 関数でロードして使用します。
+同じディレクトリに置いたモジュールは、プレフィックスに <code class="language-plaintext highlighter-rouge">./</code> を付けた相対パスで指定します（拡張子の <code class="language-plaintext highlighter-rouge">.js</code> は省略可能です）。</p>
+
+<h4 id="mainjsnode-モジュールを使用する">main.js（Node モジュールを使用する）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">mymodule</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./mymodule</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// mymodule.js のロード</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mymodule</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>            <span class="c1">//=&gt; 'magu'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mymodule</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>       <span class="c1">//=&gt; 103</span>
+</code></pre></div></div>
+
+<h2 id="2-moduleexports-に公開オブジェクトを設定する方法">(2) module.exports に公開オブジェクトを設定する方法</h2>
+
+<h3 id="1つのオブジェクトを公開する">1つのオブジェクトを公開する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">module.exports</code> にオブジェクトを代入すると、<code class="language-plaintext highlighter-rouge">require</code> 時にそのオブジェクト自体が返されるようになります。</p>
+
+<h4 id="mymodulejs">mymodule.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">magu</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">add</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="mainjs">main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">mymodule</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./mymodule</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// mymodule.js のロード</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mymodule</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>            <span class="c1">//=&gt; 'magu'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">mymodule</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>       <span class="c1">//=&gt; 3</span>
+</code></pre></div></div>
+
+<div class="note">
+<code>exports</code> が <code>module.exports</code> のエイリアスなのであれば、<code>exports = myObj;</code> としても <code>myObj</code> を公開できそうですが、この方法は上手くいきません。<code>exports</code> は <code>module.exports</code> を参照する単なる変数であり、<code>module.exports</code> 自体に値を代入するには、あくまで <code>module.exports = myObj;</code> とする必要があります。
+</div>
+
+<h3 id="関数オブジェクトを公開する">関数オブジェクトを公開する</h3>
+
+<p>JavaScript では関数もオブジェクト（関数オブジェクト）なので、<code class="language-plaintext highlighter-rouge">module.exports</code> に関数を代入することができます。
+この場合、<code class="language-plaintext highlighter-rouge">require</code> 時に関数オブジェクト自体が返されることになります。</p>
+
+<h4 id="greetjs">greet.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="mainjs-1">main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./greet</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// greet.js のロード</span>
+<span class="nx">greet</span><span class="p">(</span><span class="dl">'</span><span class="s1">Joe</span><span class="dl">'</span><span class="p">);</span>                    <span class="c1">//=&gt; 'Hello Joe'</span>
+</code></pre></div></div>
+
+<h3 id="クラスを公開する">クラスを公開する</h3>
+
+<p>クラスのコンストラクタ（関数オブジェクト）を、<code class="language-plaintext highlighter-rouge">module.exports</code> に代入してやれば、<code class="language-plaintext highlighter-rouge">require</code> 時にコンストラクタが返されるようになるので、<strong>クラスライブラリとして使用できる Node モジュール</strong>として使用できるようになります。</p>
+
+<p>下記は、<code class="language-plaintext highlighter-rouge">Counter</code> クラスを提供するモジュール (<code class="language-plaintext highlighter-rouge">counter.js</code>) の実装例です。</p>
+
+<h4 id="counterjs">counter.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Counter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">increment</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">Counter</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getCount</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">val</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Counter コンストラクタを公開</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Counter</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="mainjs-2">main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Counter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./counter.js</span><span class="dl">'</span><span class="p">);</span>  <span class="c1">// コンストラクタが返される</span>
+
+<span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Counter</span><span class="p">();</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">getCount</span><span class="p">());</span>  <span class="c1">//=&gt; 1</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">getCount</span><span class="p">());</span>  <span class="c1">//=&gt; 2</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">increment</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">getCount</span><span class="p">());</span>  <span class="c1">//=&gt; 3</span>
+</code></pre></div></div>
+
+<h2 id="フレームワーク的な構成にし複数のクラスを同時に読み込む">フレームワーク的な構成にし、複数のクラスを同時に読み込む</h2>
+
+<p>一連のクラスを同時に扱う必要があるフレームワークのような機能を提供したい場合は、下記のように一度の <code class="language-plaintext highlighter-rouge">require()</code> 呼び出しで複数のクラスを参照できるようにしておくと便利です。</p>
+
+<h4 id="mainjs-3">main.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./animal</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">cat</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">animal</span><span class="p">.</span><span class="nx">Cat</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">animal</span><span class="p">.</span><span class="nx">Dog</span><span class="p">();</span>
+<span class="nx">cat</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span>
+<span class="nx">dog</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>下記のような書き方もよく見ますね。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Cat = require('./animal').Cat;
+var Dog = require('./animal').Dog;
+var cat = new Cat();
+var dog = new Dog();
+</code></pre></div></div>
+
+<p>これを実現する簡単な方法は、下記のように <code class="language-plaintext highlighter-rouge">animal.js</code> の中で複数のコンストラクタを定義する方法です。</p>
+
+<h4 id="animaljs">animal.js</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Cat</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* Cat コンストラクタ実装 */</span> <span class="p">},</span>
+  <span class="na">Dog</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="cm">/* Dog コンストラクタ実装 */</span> <span class="p">},</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>ただ、1 ファイル (<code class="language-plaintext highlighter-rouge">animal.js</code>) だけでプログラムを記述していくと、ファイルが肥大化してメンテナンス性が悪くなってしまいます。
+ここでは、クラスごとにファイルを分割し、それらのファイルを <code class="language-plaintext highlighter-rouge">animal</code> ディレクトリ内で管理する方法を説明します。</p>
+
+<p>ディレクトリ構成は下記のようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- main.js （エントリポイント）
+- animal/
+    +-- index.js （ここから下記のファイルをすべて読み込む）
+    +-- cat.js   （Cat クラス）
+    +-- dog.js   （Dog クラス）
+</code></pre></div></div>
+
+<p>Node.js の <code class="language-plaintext highlighter-rouge">require()</code> 関数は柔軟なファイル検索を行ってくれるため、</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">animal</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./animal</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>のように<strong>拡張子を省略してモジュール名を指定すると、<code class="language-plaintext highlighter-rouge">./animal/index.js</code> を検索してくれます</strong>（ただし、<code class="language-plaintext highlighter-rouge">./animal.js</code> というファイルが存在していれば、そちらが優先的に使用されます）。
+この <code class="language-plaintext highlighter-rouge">animal/index.js</code> ファイルの中で、関連するクラスファイルをさらに <code class="language-plaintext highlighter-rouge">require()</code> で読み込むようにすれば、各クラスごとに別ファイルで管理できるようになります。</p>
+
+<h4 id="animalindexjscat-クラスと-dog-クラスを同時に読み込む">animal/index.js（Cat クラスと Dog クラスを同時に読み込む）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Cat</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./cat.js</span><span class="dl">'</span><span class="p">),</span>
+  <span class="na">Dog</span><span class="p">:</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./dog.js</span><span class="dl">'</span><span class="p">),</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="animalcatjscat-クラス">animal/cat.js（Cat クラス）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Cat</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Meow!</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Cat</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Cat</span><span class="p">;</span>  <span class="c1">// コンストラクタを公開</span>
+</code></pre></div></div>
+
+<h4 id="animaldogjsdog-クラス">animal/dog.js（Dog クラス）</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Dog</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Bow wow!</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">Dog</span><span class="p">;</span>  <span class="c1">// コンストラクタを公開</span>
+</code></pre></div></div>
+
+<p>このように <code class="language-plaintext highlighter-rouge">cat.js</code> と <code class="language-plaintext highlighter-rouge">dog.js</code> をファイルに分割したことにより、副次的な作用として、下記のように単一のクラスだけを読み込むこともできるようになります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Cat クラスだけをロード</span>
+<span class="kd">var</span> <span class="nx">Cat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./animal/cat</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）&url=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/module/create-module.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/nodejs/"><span class="xArticle_up_label">まくまくNode.jsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li class="xNav-focused"><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2016-07-19</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

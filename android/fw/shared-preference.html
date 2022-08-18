@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/fw/shared-preference.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="SharedPreferences でアプリの設定値を保存する | まくまくAndroidノート" />
+  <title>SharedPreferences でアプリの設定値を保存する - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">SharedPreferences でアプリの設定値を保存する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-08-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/fw/shared-preference.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： SharedPreferences でアプリの設定値を保存する&url=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="sharedpreferences-とは">SharedPreferences とは</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SharedPreferences</code> は、キー＆バリューの組み合わせをファイル（不揮発メモリ）に保存する仕組みで、アプリ内で使用する設定情報などを保存するのに使用できます。
+設定値は XML ファイルの形で保存されるのですが、ファイル操作に関する処理は隠ぺいされているので、アプリの設計者はキー＆バリューの取り扱いのみに集中して実装することができます。
+アプリ内のコンポーネント間で、キー＆バリューのデータをやりとりする場合にも使用できます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">SharedPreferences</code> には下記のようなタイプの値を保存することができます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><code class="language-plaintext highlighter-rouge">string</code></li>
+  <li><code class="language-plaintext highlighter-rouge">int</code></li>
+  <li><code class="language-plaintext highlighter-rouge">long</code></li>
+  <li><code class="language-plaintext highlighter-rouge">float</code></li>
+</ul>
+
+<p>逆にもっと複雑なデータを保存したいときは、<code class="language-plaintext highlighter-rouge">SharedPreferences</code> ではなく、別の方法（通常のファイル I/O など）で永続化する必要があります。</p>
+
+<h2 id="sharedpreferences-による値を書き込む">SharedPreferences による値を書き込む</h2>
+
+<p>キー＆バリューのペアを扱う <code class="language-plaintext highlighter-rouge">SharedPreferences</code> オブジェクトを生成するには、以下のように <a href="https://developer.android.com/reference/android/content/Context.html#getSharedPreferences(java.lang.String,%2520int)">Context#getSharedPreferences()</a> メソッドを使用します。
+このとき第 1 パラメータで指定した名前が XML ファイルの名前に使用されます（拡張子 <code class="language-plaintext highlighter-rouge">.xml</code> は省略して指定します）。
+第 2 パラメータには、Android 7.0 (API level24) 以降では <code class="language-plaintext highlighter-rouge">Context.MODE_PRIVATE</code> しか指定できません。</p>
+
+<p><code class="language-plaintext highlighter-rouge">SharedPreferences</code> の値の編集を編集したいときは、<a href="https://developer.android.com/reference/android/content/SharedPreferences.html#edit()">edit()</a> メソッドを使って <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html">SharedPreferences.Editor</a> オブジェクトを取得する必要があります。
+値の編集が終わったら、最後に <a href="https://developer.android.com/reference/android/content/SharedPreferences.Editor.html#commit()">Editor#commit()</a> メソッドを呼び出すことで、<code class="language-plaintext highlighter-rouge">SharedPreferences</code> に変更が反映されます。
+このメソッドを呼び出し忘れると何も保存されないので注意してください。
+<code class="language-plaintext highlighter-rouge">commit()</code> の呼び出しが面倒に感じるかもしれませんが、このような仕組みになっているおかげで、変更内容を一括で（アトミックに）反映することができ、効率的なファイルへの書き込みやイベント通知を行えるようになっています。</p>
+
+<h4 id="java-の場合">Java の場合</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// import android.content.SharedPreferences;</span>
+<span class="nc">SharedPreferences</span> <span class="n">pref</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getSharedPreferences</span><span class="o">(</span><span class="s">"my_settings"</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">MODE_PRIVATE</span><span class="o">);</span>
+<span class="nc">SharedPreferences</span><span class="o">.</span><span class="na">Editor</span> <span class="n">editor</span> <span class="o">=</span> <span class="n">pref</span><span class="o">.</span><span class="na">edit</span><span class="o">();</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">putString</span><span class="o">(</span><span class="s">"stringValue"</span><span class="o">,</span> <span class="s">"ほげ"</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">putBoolean</span><span class="o">(</span><span class="s">"booleanValue"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">putInt</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="kotlin-の場合">Kotlin の場合</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">getSharedPreferences</span><span class="p">(</span><span class="s">"my_settings"</span><span class="p">,</span> <span class="nc">Context</span><span class="p">.</span><span class="nc">MODE_PRIVATE</span><span class="p">).</span><span class="nf">edit</span><span class="p">().</span><span class="nf">apply</span> <span class="p">{</span>
+    <span class="nf">putString</span><span class="p">(</span><span class="s">"stringValue"</span><span class="p">,</span> <span class="s">"ほげ"</span><span class="p">)</span>
+    <span class="nf">putBoolean</span><span class="p">(</span><span class="s">"booleanValue"</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+    <span class="nf">putInt</span><span class="p">(</span><span class="s">"intValue"</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="nf">commit</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>アプリのパッケージ名が <code class="language-plaintext highlighter-rouge">com.example.hello</code> だとすると、上記のような <code class="language-plaintext highlighter-rouge">SharedPreferences</code> 設定は <code class="language-plaintext highlighter-rouge">/data/data/com.example.hello/shared_prefs/my_settings.xml</code> というファイルに保存されます。</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;</span>
+<span class="nt">&lt;map&gt;</span>
+    <span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">"stringValue"</span><span class="nt">&gt;</span>ほげ<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;int</span> <span class="na">name=</span><span class="s">"intValue"</span> <span class="na">value=</span><span class="s">"100"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;boolean</span> <span class="na">name=</span><span class="s">"booleanValue"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/map&gt;</span>
+</code></pre></div></div>
+
+<h2 id="sharedpreferences-から値を読み出す">SharedPreferences から値を読み出す</h2>
+
+<p>保存された <code class="language-plaintext highlighter-rouge">SharedPreferences</code> の値を読み出すには、次のようにします。
+指定したキーが存在しない場合には、第２引数で指定したデフォルト値が返されます。</p>
+
+<h4 id="java-の場合-1">Java の場合</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SharedPreferences</span> <span class="n">pref</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getSharedPreferences</span><span class="o">(</span><span class="s">"my_settings"</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">MODE_PRIVATE</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">stringValue</span> <span class="o">=</span> <span class="n">pref</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"stringValue"</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
+<span class="kt">boolean</span> <span class="n">booleanValue</span> <span class="o">=</span> <span class="n">pref</span><span class="o">.</span><span class="na">getBoolean</span><span class="o">(</span><span class="s">"booleanValue"</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+<span class="kt">int</span> <span class="n">intValue</span> <span class="o">=</span> <span class="n">pref</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h4 id="kotlin-の場合-1">Kotlin の場合</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">pref</span> <span class="p">=</span> <span class="nf">getSharedPreferences</span><span class="p">(</span><span class="s">"my_settings"</span><span class="p">,</span> <span class="nc">Context</span><span class="p">.</span><span class="nc">MODE_PRIVATE</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">stringValue</span> <span class="p">=</span> <span class="n">pref</span><span class="p">.</span><span class="nf">getString</span><span class="p">(</span><span class="s">"stringValue"</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">booleanValue</span> <span class="p">=</span> <span class="n">pref</span><span class="p">.</span><span class="nf">getBoolean</span><span class="p">(</span><span class="s">"booleanValue"</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">intValue</span> <span class="p">=</span> <span class="n">pref</span><span class="p">.</span><span class="nf">getInt</span><span class="p">(</span><span class="s">"intValue"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>値の編集は行わないので、<code class="language-plaintext highlighter-rouge">SharedPreferences.Editor</code> オブジェクトを生成する必要はないところがポイントです。</p>
+
+<h2 id="sharedpreferences-の値を削除する">SharedPreferences の値を削除する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SharedPreferences</code> にすでに保存されているキー＆バリューを削除するには、<code class="language-plaintext highlighter-rouge">SharedPreferences.Editor</code> の <code class="language-plaintext highlighter-rouge">remove(key)</code> メソッドを使用します。
+この場合も、最後に <code class="language-plaintext highlighter-rouge">commit()</code> が必要なことに注意してください。</p>
+
+<h4 id="java-の場合-2">Java の場合</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SharedPreferences</span> <span class="n">pref</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getSharedPreferences</span><span class="o">(</span><span class="s">"my_settings"</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">MODE_PRIVATE</span><span class="o">);</span>
+<span class="nc">SharedPreferences</span><span class="o">.</span><span class="na">Editor</span> <span class="n">editor</span> <span class="o">=</span> <span class="n">pref</span><span class="o">.</span><span class="na">edit</span><span class="o">();</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"stringValue"</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"booleanValue"</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">);</span>
+<span class="n">editor</span><span class="o">.</span><span class="na">commit</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h4 id="kotlin-の場合-2">Kotlin の場合</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">getSharedPreferences</span><span class="p">(</span><span class="s">"my_settings"</span><span class="p">,</span> <span class="nc">Context</span><span class="p">.</span><span class="nc">MODE_PRIVATE</span><span class="p">).</span><span class="nf">edit</span><span class="p">().</span><span class="nf">apply</span> <span class="p">{</span>
+    <span class="nf">remove</span><span class="p">(</span><span class="s">"stringValue"</span><span class="p">)</span>
+    <span class="nf">remove</span><span class="p">(</span><span class="s">"booleanValue"</span><span class="p">)</span>
+    <span class="nf">remove</span><span class="p">(</span><span class="s">"intValue"</span><span class="p">)</span>
+    <span class="nf">commit</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>キー名を指定せずに、すべてのキー＆バリューを削除するには、<code class="language-plaintext highlighter-rouge">Editor#clear()</code> メソッドを使用します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">getSharedPreferences</span><span class="p">(</span><span class="s">"my_settings"</span><span class="p">,</span> <span class="nc">Context</span><span class="p">.</span><span class="nc">MODE_PRIVATE</span><span class="p">).</span><span class="nf">edit</span><span class="p">().</span><span class="nf">apply</span> <span class="p">{</span>
+    <span class="nf">clear</span><span class="p">()</span>
+    <span class="nf">commit</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="アプリ全体activity-単位で使用する-sharedpreferences">アプリ全体、Activity 単位で使用する SharedPreferences</h2>
+
+<p>上記では、<code class="language-plaintext highlighter-rouge">Context#getSharedPreferences()</code> メソッドを使って <code class="language-plaintext highlighter-rouge">SharedPreferences</code> オブジェクトを作成していましたが、他にも、アプリ全体用、Activity 用に <code class="language-plaintext highlighter-rouge">SharedPreferences</code> オブジェクトを作成するメソッドが用意されています。
+それぞれ、作成される XML ファイルのパスが変わってきます。</p>
+
+<ul>
+  <li><b>アプリ用（デフォルト SharedPreferences）</b>
+    <ul>
+      <li>API: <strong><code class="language-plaintext highlighter-rouge">PreferenceManager.getDefaultSharedPreferences(context)</code></strong></li>
+      <li>ファイルパス: <code class="language-plaintext highlighter-rouge">/data/data/&lt;package名&gt;/shared_prefs/&lt;pacakge名&gt;_preferences.xml</code></li>
+      <li>アプリ全体で使用する <code class="language-plaintext highlighter-rouge">SharedPreferences</code> を作成します。アプリ全体で 1 つのファイルが使用されます。<a href="./preference-fw.html">Preference フレームワークを使って設定画面</a> を作成した場合も、このデフォルトの SharedPreferences ファイルが使用されます。</li>
+    </ul>
+  </li>
+  <li><b>Activity 用</b>
+    <ul>
+      <li>API: <strong><code class="language-plaintext highlighter-rouge">Activity#getPreferences(Context.MODE_PRIVATE)</code></strong></li>
+      <li>ファイルパス: <code class="language-plaintext highlighter-rouge">/data/data/&lt;package名&gt;/shared_prefs/&lt;Activity名&gt;.xml</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Activity</code> ごとに専用の <code class="language-plaintext highlighter-rouge">SharedPreferences</code> を作成します。その <code class="language-plaintext highlighter-rouge">Activity</code> の設定のために使用します。</li>
+    </ul>
+  </li>
+  <li><b>ファイル名指定</b>
+    <ul>
+      <li>API: <strong><code class="language-plaintext highlighter-rouge">Context#getSharedPreferences("sample", Context.MODE_PRIVATE)</code></strong></li>
+      <li>ファイルパス: <code class="language-plaintext highlighter-rouge">/data/data/&lt;package名&gt;/shared_prefs/sample.xml</code></li>
+      <li>指定したファイル名の単位で <code class="language-plaintext highlighter-rouge">SharedPreferences</code> を作成します。用途別に設定ファイルを分けて管理することができます。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="コラムデフォルトの-sharedpreferences-ファイルだけで十分">（コラム）デフォルトの SharedPreferences ファイルだけで十分？</h3>
+
+<p>SharedPreferences の保存先 XML は、ファイル名を指定できる <code class="language-plaintext highlighter-rouge">Context#getSharedPreferences(String, int)</code> のバージョンを使用すれば切り替えることができますが、多くのアプリケーションでは <code class="language-plaintext highlighter-rouge">PreferenceManager.getDefaultSharedPreferences(Context)</code> によるデフォルトの SharedPreferences ファイルを使えば十分だったりします。
+というのも、設定項目のキー名を工夫すればある程度の数の設定項目はうまく階層化して管理できるからです。
+例えば、デバッグ用の設定項目を <code class="language-plaintext highlighter-rouge">debug.notification</code> のようなキー名にしておけば、他の重要な設定項目と混ざってしまうことはありません。</p>
+
+<p>Google の <a href="https://source.android.com/devices/tech/settings/settings-guidelines">Settings Design Guidelines</a> では、同一の設定項目を、異なる設定画面で表示するというデザインパターンが提示されています。</p>
+
+<blockquote>
+  <p>In some cases, it may be helpful to duplicate an individual setting on two different screens. Different situations can trigger users to change a setting, so including the setting in multiple places will help users find this item.</p>
+</blockquote>
+
+<p>このようなケースにおいても、設定ファイルが分かれていない方が都合がよいです。
+また、Android は <a href="./preference-fw.html">設定画面を作成する</a> ために <code class="language-plaintext highlighter-rouge">PreferenceFragmentCompat</code> クラスを提供していますが、このクラスも内部では、デフォルトの SharedPreferences ファイルを使用することを前提にした作りになっています。</p>
+
+<h2 id="sharedpreferences-オブジェクトの変更を監視する">SharedPreferences オブジェクトの変更を監視する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SharedPreferences</code> オブジェクトに <strong><code class="language-plaintext highlighter-rouge">SharedPreferences.OnSharedPreferencesChangeListener</code></strong> を登録すると、値の変更を監視することができます。
+まずは、値の変更を監視したい任意のクラスでこのリスナーを実装します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">FragmentActivity</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">activity_main</span><span class="p">),</span> <span class="nc">SharedPreferences</span><span class="p">.</span><span class="nc">OnSharedPreferenceChangeListener</span> <span class="p">{</span>
+    <span class="o">..</span><span class="p">.</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onSharedPreferenceChanged</span><span class="p">(</span><span class="n">pref</span><span class="p">:</span> <span class="nc">SharedPreferences</span><span class="p">?,</span> <span class="n">key</span><span class="p">:</span> <span class="nc">String</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="p">==</span> <span class="s">"user_name"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">val</span> <span class="py">value</span> <span class="p">=</span> <span class="n">pref</span><span class="o">?.</span><span class="nf">getString</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s">""</span><span class="p">)</span>
+            <span class="nc">Toast</span><span class="p">.</span><span class="nf">makeText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">"key '$key' is changed: $value"</span><span class="p">,</span> <span class="nc">Toast</span><span class="p">.</span><span class="nc">LENGTH_LONG</span><span class="p">).</span><span class="nf">show</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>あとは、<code class="language-plaintext highlighter-rouge">SharedPreferences</code> オブジェクトの <code class="language-plaintext highlighter-rouge">registerOnSharedPreferenceChangeListener</code> を使ってリスナーを登録するだけです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">pref</span> <span class="p">=</span> <span class="nf">getSharedPreferences</span><span class="p">(</span><span class="s">"my_settings"</span><span class="p">,</span> <span class="nc">Context</span><span class="p">.</span><span class="nc">MODE_PRIVATE</span><span class="p">)</span>
+<span class="n">pref</span><span class="p">.</span><span class="nf">registerOnSharedPreferenceChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="設定画面での変更をまとめて受け取る">設定画面での変更をまとめて受け取る</h3>
+
+<p><code class="language-plaintext highlighter-rouge">onSharedPreferenceChanged</code> は、設定画面で<strong>ひとつの設定値を変更する度に</strong>呼び出されます。
+設定画面を閉じてからまとめて変更値を取得したい場合は、設定画面の <code class="language-plaintext highlighter-rouge">Activity</code> を <code class="language-plaintext highlighter-rouge">startActivityForResult()</code> で開き、画面を閉じたタイミング (<code class="language-plaintext highlighter-rouge">onActivityResult</code>) で <code class="language-plaintext highlighter-rouge">SharedPreferences</code> から情報を取得するとよいでしょう。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： SharedPreferences でアプリの設定値を保存する&url=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/fw/shared-preference.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-08-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

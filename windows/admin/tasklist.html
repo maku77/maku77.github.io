@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="tasklist コマンドを使用すると、現在実行中のプロセスの一覧を確認することができます。様々な条件でフィルタして目的のプロセスを探すこともできます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/windows/admin/tasklist.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-windows.jpg" />
+
+  <meta property="og:description" content="tasklist コマンドを使用すると、現在実行中のプロセスの一覧を確認することができます。様々な条件でフィルタして目的のプロセスを探すこともできます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist) | まくまくWindowsノート" />
+  <title>Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist) - まくまくWindowsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/windows/">
+    <img src="/assets/img/logo-windows.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/windows/">
+    <div class="xPageHeader_category">
+    まくまくWindowsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2015-04-13</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/windows/admin/tasklist.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist)&url=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">tasklist コマンドを使用すると、現在実行中のプロセスの一覧を確認することができます。様々な条件でフィルタして目的のプロセスを探すこともできます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="tasklist-コマンドの基本">tasklist コマンドの基本</h2>
+
+<p><strong>tasklist</strong> コマンドを使って、現在動作しているタスクの一覧を表示することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist
+
+イメージ名                     PID セッション名     セッション# メモリ使用量
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0         24 K
+System                           4 Services                   0     10,924 K
+smss.exe                       416 Services                   0      1,452 K
+csrss.exe                      656 Services                   0      7,464 K
+wininit.exe                    744 Services                   0      6,292 K
+csrss.exe                      760 Console                    1     39,000 K
+winlogon.exe                   796 Console                    1     39,588 K
+services.exe                   856 Services                   0     47,656 K
+lsass.exe                      872 Services                   0     41,420 K
+lsm.exe                        880 Services                   0      5,300 K
+svchost.exe                    988 Services                   0     44,984 K
+svchost.exe                    192 Services                   0     51,544 K
+...
+</code></pre></div></div>
+
+<p><strong>イメージ名</strong> というのは、プロセスを開始した実行ファイル (.exe) の名前です。
+ただし、先頭には “System Idle Process” という、システムリソースを追跡するための特別なシステムプロセスも表示されています。</p>
+
+<p><code class="language-plaintext highlighter-rouge">/v</code> オプションを付けて実行すると、より詳細な情報（ウィンドウタイトルや CPU 時間など）を表示することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /v （詳細情報まで表示）
+
+イメージ名       PID セッション名 セッション# メモリ使用量 状態           ユーザー名 CPU 時間 ウィンドウ タイトル
+============== ===== ============ =========== ============ ============== ========== ======== ===========================
+gvim.exe        1496 Console                1     44,140 K Running        maku        0:00:05 memo.md (D:\memo.md) - GVIM
+EXCEL.EXE       3984 Console                1     46,856 K Running        maku        0:00:02 Microsoft Excel - Test.xlsx
+cmd.exe         6772 Console                1      5,204 K Running        maku        0:00:00 command
+conhost.exe     5900 Console                1     13,816 K Not Responding maku        0:00:00 OLEChannelWnd
+chrome.exe      9492 Console                1     81,316 K Unknown        maku        0:00:04 N/A
+chrome.exe     10084 Console                1    228,852 K Unknown        maku        0:01:24 N/A
+chrome.exe      6952 Console                1     60,704 K Unknown        maku        0:00:02 N/A
+chrome.exe      3916 Console                1     82,120 K Unknown        maku        0:00:04 N/A
+chrome.exe      3084 Console                1    153,452 K Unknown        maku        0:00:26 N/A
+powershell.exe  7500 Console                1    118,048 K Running        maku        0:00:01 Windows PowerShell
+conhost.exe     7472 Console                1     13,948 K Not Responding maku        0:00:00 OLEChannelWnd
+more.com        5156 Console                1      3,552 K Unknown        maku        0:00:00 N/A
+cmd.exe         6508 Console                1      5,444 K Running        maku        0:00:00 command - tasklist  /v
+</code></pre></div></div>
+
+<h2 id="出力形式を切り替える-fo-list-fo-csv">出力形式を切り替える (/fo list, /fo csv)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tasklist</code> のデフォルトの出力形式はテーブル形式 (<code class="language-plaintext highlighter-rouge">/fo table</code>) になっています。
+オプションを指定することで、リスト形式 (<code class="language-plaintext highlighter-rouge">/fo list</code>)、CSV 形式 (<code class="language-plaintext highlighter-rouge">/fo csv</code>) で出力することが可能です。</p>
+
+<h4 id="リスト形式で出力-fo-list">リスト形式で出力 (/fo list)</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /v /fo list
+
+イメージ名:          System Idle Process
+PID:                 0
+セッション名:        Services
+セッション#:         0
+メモリ使用量:        24 K
+状態:                Unknown
+ユーザー名:          NT AUTHORITY\SYSTEM
+CPU 時間:            39:43:18
+ウィンドウ タイトル: N/A
+
+イメージ名:          System
+PID:                 4
+セッション名:        Services
+セッション#:         0
+メモリ使用量:        10,928 K
+状態:                Unknown
+ユーザー名:          N/A
+CPU 時間:            0:09:42
+ウィンドウ タイトル: N/A
+
+...
+</code></pre></div></div>
+
+<h4 id="csv-形式で出力-fo-csv">CSV 形式で出力 (/fo csv)</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /v /fo csv
+"イメージ名","PID","セッション名","セッション#","メモリ使用量","状態","ユーザー名","CPU 時間","ウィンドウ タイトル"
+"System Idle Process","0","Services","0","24 K","Unknown","NT AUTHORITY\SYSTEM","39:52:34","N/A"
+"System","4","Services","0","10,928 K","Unknown","N/A","0:09:43","N/A"
+"smss.exe","416","Services","0","1,452 K","Unknown","N/A","0:00:00","N/A"
+"csrss.exe","656","Services","0","7,468 K","Unknown","N/A","0:00:19","N/A"
+"wininit.exe","744","Services","0","6,292 K","Unknown","N/A","0:00:00","N/A"
+...
+</code></pre></div></div>
+
+<p>一行当たりの文字数が制限されるメール文書などで引用したいときは、リスト形式で出力するのがよいかもしれません。
+<code class="language-plaintext highlighter-rouge">tasklist</code> の出力結果をプログラムで処理したい場合などは、CSV 形式による出力が役に立つでしょう。</p>
+
+<h2 id="プロセスとサービスの関連付けを調べる-svc">プロセスとサービスの関連付けを調べる (/svc)</h2>
+
+<p>オプションで <code class="language-plaintext highlighter-rouge">/svc</code> を指定すると、そのプロセス上で動作しているサービスの一覧を確認することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /svc
+
+Image Name                     PID Services
+========================= ======== ============================================
+System Idle Process              0 N/A
+System                           4 N/A
+smss.exe                       504 N/A
+csrss.exe                      648 N/A
+wininit.exe                    712 N/A
+csrss.exe                      736 N/A
+services.exe                   772 N/A
+lsass.exe                      796 KeyIso, Netlogon, SamSs
+lsm.exe                        804 N/A
+winlogon.exe                   872 N/A
+svchost.exe                    956 DcomLaunch, PlugPlay, Power
+svchost.exe                    540 RpcEptMapper, RpcSs
+atiesrxx.exe                   828 AMD External Events Utility
+svchost.exe                    852 AudioSrv, Dhcp, eventlog, lmhosts, wscsvc
+svchost.exe                   1088 AudioEndpointBuilder, CscService, hidserv,
+                                   Netman, PcaSvc, SysMain, TrkWks,
+                                   UmRdpService, UxSms, wudfsvc
+svchost.exe                   1112 Appinfo, BITS, Browser, CertPropSvc, gpsvc,
+                                   iphlpsvc, LanmanServer, ProfSvc, Schedule,
+                                   SENS, SessionEnv, ShellHWDetection, Themes,
+                                   Winmgmt, wuauserv
+svchost.exe                   1260 EventSystem, netprofm, nsi, W32Time,
+                                   WdiServiceHost, WinHttpAutoProxySvc
+...
+</code></pre></div></div>
+
+<p>ここで表示されるサービス名は、サービス管理用の <code class="language-plaintext highlighter-rouge">sc</code> コマンドで使用されるのと同様に、省略名で表示されます。</p>
+
+<h2 id="プロセスが使用している-dll-の一覧を調べる-m">プロセスが使用している DLL の一覧を調べる (/m)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tasklist</code> コマンドに <code class="language-plaintext highlighter-rouge">/m</code> オプションを指定すると、動作中のプロセスが使用している DLL の一覧を関連付けて表示することができます。
+すべてのプロセスの情報を表示するには、しばらく時間がかかります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /m
+
+イメージ名                     PID モジュール
+========================= ======== ============================================
+...
+SearchIndexer.exe             5828 N/A
+MSOSYNC.EXE                   5972 ntdll.dll, wow64.dll, wow64win.dll,
+                                   wow64cpu.dll
+OneDrive.exe                  4980 ntdll.dll, wow64.dll, wow64win.dll,
+                                   wow64cpu.dll
+LeapControlPanel.exe          6172 ntdll.dll, wow64.dll, wow64win.dll,
+                                   wow64cpu.dll
+Launchy.exe                   6428 ntdll.dll, wow64.dll, wow64win.dll,
+                                   wow64cpu.dll
+...
+</code></pre></div></div>
+
+<p>上記では、すべてのプロセスの情報を列挙していますが、<code class="language-plaintext highlighter-rouge">/m</code> オプションに DLL 名を渡すようにすれば、その DLL を使用しているプロセスの情報だけを検索して表示することができます（こちらも検索にしばらく時間がかかります）。</p>
+
+<h4 id="例-wow64dll-を使用しているプロセスを検索する">例: wow64.dll を使用しているプロセスを検索する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /m wow64.dll
+
+イメージ名                     PID モジュール
+========================= ======== ============================================
+UpdaterUI.exe                 5504 wow64.dll
+IMECMNT.EXE                   5680 wow64.dll
+mctray.exe                    5416 wow64.dll
+MSOSYNC.EXE                   5972 wow64.dll
+OneDrive.exe                  4980 wow64.dll
+...
+</code></pre></div></div>
+
+<h2 id="いろいろな条件でプロセスを検索する-fi">いろいろな条件でプロセスを検索する (/fi)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tasklist</code> コマンドの <code class="language-plaintext highlighter-rouge">/fi</code> オプションを使用すると、実行ファイル名や、メモリ使用量など、いろいろな条件で実行中のプロセスを検索することができます。</p>
+
+<h4 id="例-実行ファイル名が-gvimexe-のプロセスの情報を検索する">例: 実行ファイル名が “gvim.exe” のプロセスの情報を検索する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /fi "imagename eq gvim.exe"
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+gvim.exe                      6112 Console                    1     21,796 K
+</code></pre></div></div>
+
+<h4 id="例-応答しなくなったプロセス-not-responding-を表示する">例: 応答しなくなったプロセス (Not Responding) を表示する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /fi "status eq not responding"
+
+イメージ名                     PID セッション名     セッション# メモリ使用量
+========================= ======== ================ =========== ============
+jusched.exe                   7096 Console                    1      5,488 K
+conhost.exe                   2932 Console                    1     13,440 K
+conhost.exe                   5900 Console                    1     13,816 K
+</code></pre></div></div>
+
+<div class="note">
+<code>tasklist</code> コマンドのデフォルトの出力形式では、状態（Running や Not Responding など）のフィールドは表示されませんが、<code>/fi</code> オプションでその値を使ってフィルタすることは可能です。状態のフィールドを出力するには、<code>/v</code> オプションを付けて実行してください。
+</div>
+
+<h4 id="例-cpu-時間が-5-分以上のプロセスを検索する">例: CPU 時間が 5 分以上のプロセスを検索する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /fi "cputime gt 00:05:00"
+
+イメージ名                     PID セッション名     セッション# メモリ使用量
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0         24 K
+System                           4 Services                   0     10,936 K
+csrss.exe                      760 Console                    1     38,572 K
+mcshield.exe                  3416 Services                   0     59,148 K
+AIMP.exe                      9900 Console                    1     30,192 K
+OUTLOOK.EXE                   9896 Console                    1    222,716 K
+ConEmuC64.exe                 4280 Console                    1      6,516 K
+conhost.exe                   8224 Console                    1      8,316 K
+ruby.exe                     12228 Console                    1    103,168 K
+Dropbox.exe                   2532 Console                    1    188,692 K
+</code></pre></div></div>
+
+<div class="note">
+フィルタの条件文字列の中の <code>gt</code> は、greater than (＞）を示しています。他にも <code>lt</code>（＜）、<code>ge</code>（≧）、<code>le</code>（≦）などを使用することができます。
+</div>
+
+<h4 id="例-メモリ使用量が-200000kb-以上のプロセスを検索する">例: メモリ使用量が 200,000KB 以上のプロセスを検索する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /fi "memusage gt 200000"
+
+イメージ名                     PID セッション名     セッション# メモリ使用量
+========================= ======== ================ =========== ============
+svchost.exe                    564 Services                   0    403,516 K
+explorer.exe                  5172 Console                    1    323,708 K
+slack.exe                    10048 Console                    1    266,992 K
+OUTLOOK.EXE                   9896 Console                    1    222,808 K
+chrome.exe                    7260 Console                    1    259,172 K
+chrome.exe                    6292 Console                    1    217,608 K
+chrome.exe                   10084 Console                    1    247,532 K
+monitor.exe                  10472 Console                    1    212,872 K
+monitor.exe                  11024 Console                    1    394,844 K
+</code></pre></div></div>
+
+<p>複数のフィルタ条件（<code class="language-plaintext highlighter-rouge">/fo</code> オプション）を指定すると、AND 条件で検索することができます。</p>
+
+<h4 id="例-メモリ使用量が-100000kb-以上かつcpu-時間が-5-分以上のプロセスを検索する">例: メモリ使用量が 100,000KB 以上、かつ、CPU 時間が 5 分以上のプロセスを検索する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /fi "memusage gt 100000" /fi "cputime gt 00:05:00"
+
+イメージ名                     PID セッション名     セッション# メモリ使用量
+========================= ======== ================ =========== ============
+OUTLOOK.EXE                   9896 Console                    1    222,892 K
+ruby.exe                     12228 Console                    1    106,584 K
+Dropbox.exe                   2532 Console                    1    189,100 K
+</code></pre></div></div>
+
+<h2 id="tasklist-コマンドのヘルプ">tasklist コマンドのヘルプ</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tasklist</code> コマンドについてさらに詳しく調べたいときは、下記のようにしてヘルプを参照することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; help tasklist
+</code></pre></div></div>
+
+<p>あるいは、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; tasklist /?
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Windows で実行中のプロセス（タスク）の一覧を表示する (tasklist)&url=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/admin/tasklist.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/windows/"><span class="xArticle_up_label">まくまくWindowsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li class="xNav-focused"><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2015-04-13</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

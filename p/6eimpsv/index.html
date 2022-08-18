@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/6eimpsv/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
+
+  <meta property="og:description" content="Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ファイルからの読み出し／ファイルへの書き込みを行う (os, io) | まくまくGo言語ノート" />
+  <title>ファイルからの読み出し／ファイルへの書き込みを行う (os, io) - まくまくGo言語ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/go/">
+    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/go/">
+    <div class="xPageHeader_category">
+    まくまくGo言語ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ファイルからの読み出し／ファイルへの書き込みを行う (os, io)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/go/lib/file.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/6eimpsv/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： ファイルからの読み出し／ファイルへの書き込みを行う (os, io)&url=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="ファイルからバイトデータを読み出すread">ファイルからバイトデータを読み出す（Read）</h2>
+
+<p>既存のファイルを読み込み用にオープンするには、<strong><code class="language-plaintext highlighter-rouge">os.Open</code></strong> 関数を使用して下記のようにします。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// ファイルを読み取りオープン</span>
+<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"./input.txt"</span><span class="p">)</span>  <span class="c">// *os.File</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>  <span class="c">// 関数脱出時に実行</span>
+</code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">defer</code></strong> キーワードでクローズ処理を登録しておくことで、関数から抜けるときに自動的にファイルクローズを実行してくれるようになります。
+ファイルを扱うときは、常にこのように記述しておくことで、関数の途中で <code class="language-plaintext highlighter-rouge">return</code> したときなどのクローズ忘れを防ぐことができます。
+ファイルを開いてすぐに実行すべきイディオムとして覚えておきましょう。</p>
+
+<p>ファイルのオープンに失敗すると、２番目の戻り値として <code class="language-plaintext highlighter-rouge">error</code> オブジェクトが返され、下記のようなエラーメッセージを表示して終了 (<code class="language-plaintext highlighter-rouge">log.Fatal</code>) します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2017/09/08 23:43:40 open ./input.txt: The system cannot find the file specified.
+</code></pre></div></div>
+
+<p>ファイルのオープンに成功したら、取得した <code class="language-plaintext highlighter-rouge">os.File</code> オブジェクトの <strong><code class="language-plaintext highlighter-rouge">Read</code></strong> メソッドを使用して読み出し処理を行います。
+<code class="language-plaintext highlighter-rouge">Read</code> メソッドは、引数で渡した <code class="language-plaintext highlighter-rouge">[]byte</code> スライスにファイルの内容を読み込みます。
+一度に読み込むサイズは、パラメータとして渡すスライスの長さ (<code class="language-plaintext highlighter-rouge">len(s)</code>) になるため、あらかじめ <code class="language-plaintext highlighter-rouge">make</code> 関数などを使ってスライス長を確保しておく必要があります。
+<code class="language-plaintext highlighter-rouge">Read</code> 関数は、ファイルの末尾まで読み込み終わると、<strong><code class="language-plaintext highlighter-rouge">0, io.EOF</code></strong> を返します。
+２番目の戻り値が <code class="language-plaintext highlighter-rouge">io.EOF</code> になるまで繰り返し <code class="language-plaintext highlighter-rouge">Read</code> を実行するようにすれば、すべてのデータを読み出すことができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// 10 バイト分のバッファを用意</span>
+<span class="n">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+
+<span class="c">// ファイルから読み出し</span>
+<span class="k">for</span> <span class="p">{</span>
+	<span class="n">count</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">file</span><span class="o">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="n">io</span><span class="o">.</span><span class="n">EOF</span> <span class="p">{</span>
+		<span class="k">break</span>  <span class="c">// Reached to EOF</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%q</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="o">:</span><span class="n">count</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>下記は、サンプルの入力ファイルと、実行可能な全体のコード、実行結果です。
+ここでは、分かりやすさのために入力ファイルとしてテキストファイル (<code class="language-plaintext highlighter-rouge">input.txt</code>) を使用していますが、<code class="language-plaintext highlighter-rouge">Read</code> メソッドによる読み出しは、通常はバイナリファイルを扱うことを想定しています。</p>
+
+<h4 id="inputtxt">input.txt</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AAA BBB CCC
+DDD EEE FFF
+GGG HHH III
+</code></pre></div></div>
+
+<h4 id="samplego">sample.go</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"io"</span>
+	<span class="s">"log"</span>
+	<span class="s">"os"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// ファイルを読み取りオープン</span>
+	<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"./input.txt"</span><span class="p">)</span>  <span class="c">// *os.File</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>  <span class="c">// 関数脱出時に実行</span>
+
+	<span class="c">// ファイルから読み出し</span>
+	<span class="n">buf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+	<span class="k">for</span> <span class="p">{</span>
+		<span class="n">count</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">file</span><span class="o">.</span><span class="n">Read</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">==</span> <span class="n">io</span><span class="o">.</span><span class="n">EOF</span> <span class="p">{</span>
+			<span class="k">break</span>  <span class="c">// Reached to EOF</span>
+		<span class="p">}</span>
+		<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+		<span class="p">}</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%q</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="o">:</span><span class="n">count</span><span class="p">])</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go run sample.go
+<span class="go">"AAA BBB CC"
+"C\nDDD EEE "
+"FFF\nGGG HH"
+"H III\n"
+</span></code></pre></div></div>
+
+<h2 id="ファイルからテキストを-1-行ずつ読み出す-bufioscanner">ファイルからテキストを 1 行ずつ読み出す (bufio.Scanner)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Read([]byte)</code> 関数を使ったファイルの読み出しは、byte スライスによる読み出しになってしまうため、テキストファイルを 1 行ずつ読み出したい場合などに不便です。
+テキストファイルを 1 行ずつ読み出すときは <strong><code class="language-plaintext highlighter-rouge">bufio.Scanner</code></strong> を使用すると簡単です。
+<code class="language-plaintext highlighter-rouge">bufio.Scanner</code> を使用すると、テキストファイルの内容を 1 行ごとに <code class="language-plaintext highlighter-rouge">string</code> オブジェクトの形で取得していくことができます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">bufio.Scanner</code> オブジェクトは、下記のファクトリ関数で生成することができます。
+<code class="language-plaintext highlighter-rouge">io.File</code> オブジェクトは <code class="language-plaintext highlighter-rouge">Read</code> メソッドを実装しているため、このファクトリ関数のパラメータとして渡すことができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">bufio</span><span class="o">.</span><span class="n">NewScanner</span><span class="p">(</span><span class="n">r</span> <span class="n">io</span><span class="o">.</span><span class="n">Reader</span><span class="p">)</span> <span class="o">*</span><span class="n">Scanner</span>
+</code></pre></div></div>
+
+<p>下記に、テキストファイル <code class="language-plaintext highlighter-rouge">input.txt</code> を 1 行ずつ読み出すサンプルコードを示します。</p>
+
+<h4 id="samplego-1">sample.go</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"bufio"</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"os"</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// ファイルを読み出し用にオープン</span>
+	<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"./input.txt"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+
+	<span class="c">// 1 行ずつ読み出し</span>
+	<span class="n">scanner</span> <span class="o">:=</span> <span class="n">bufio</span><span class="o">.</span><span class="n">NewScanner</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">scanner</span><span class="o">.</span><span class="n">Scan</span><span class="p">()</span> <span class="p">{</span>
+		<span class="n">line</span> <span class="o">:=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">Text</span><span class="p">()</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果-1">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ go run sample.go
+AAA BBB CCC
+DDD EEE FFF
+GGG HHH III
+</code></pre></div></div>
+
+<h2 id="ファイルにバイトデータを書き込む-write">ファイルにバイトデータを書き込む (Write)</h2>
+
+<p>ファイルを書き込み用にオープン（新規作成）するには、<strong><code class="language-plaintext highlighter-rouge">os.Create</code></strong> 関数を使用します（読み出しのときは <code class="language-plaintext highlighter-rouge">os.Open</code>）。
+<code class="language-plaintext highlighter-rouge">os.Create</code> はファイルのオープンに成功すると <code class="language-plaintext highlighter-rouge">*os.File</code> を返します。
+<code class="language-plaintext highlighter-rouge">os.File</code> が実装する <code class="language-plaintext highlighter-rouge">Write([]byte)</code> 関数を使用して、バイトデータを書き込むことができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"os"</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// ファイルを書き込み用にオープン (mode=0666)</span>
+	<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s">"./output.txt"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+
+	<span class="n">data</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+	<span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">Write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="ファイルにテキストを書き込む-writestring">ファイルにテキストを書き込む (WriteString)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">os.File</code> が実装している <code class="language-plaintext highlighter-rouge">io.Writer</code> インタフェースの <code class="language-plaintext highlighter-rouge">Write([]byte)</code> メソッドは、バイトデータの書き込みを想定しているため、テキストデータの書き込みには不便です（<code class="language-plaintext highlighter-rouge">string</code> を <code class="language-plaintext highlighter-rouge">[]byte</code> に変換する手間がかかります）。</p>
+
+<p><code class="language-plaintext highlighter-rouge">os.File</code> は、実は <strong><code class="language-plaintext highlighter-rouge">WriteString(string)</code></strong> というメソッドを備えており、これを使用すると、指定したテキストデータ (<code class="language-plaintext highlighter-rouge">string</code>) をそのまま書き込むことができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"os"</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// ファイルを書き込み用にオープン (mode=0666)</span>
+	<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s">"./output.txt"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="n">file</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+
+	<span class="c">// テキストを書き込む</span>
+	<span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="s">"Hello</span><span class="se">\n</span><span class="s">World</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： ファイルからの読み出し／ファイルへの書き込みを行う (os, io)&url=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/6eimpsv/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

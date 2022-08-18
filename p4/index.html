@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPerforceノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p4/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-p4.jpg" />
+
+  <meta property="og:description" content="天才星人まくのPerforceノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Perforce ノート | 天才まくまくノート" />
+  <title>まくまく Perforce ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-p4.jpg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくPerforceノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        p4 コマンドや p4v についていろいろ。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerforceノート： Perforce メモ&url=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="p4-コマンド">p4 コマンド</h2>
+<ul>
+  <li><a href="port-by-parameter.html">p4 コマンドの引数で接続先や使用するクライアント名を指定する</a></li>
+  <li><a href="shortcut-icon.html">特定のサーバに接続するための p4v のショートカットを作成する</a></li>
+</ul>
+
+<h2 id="ファイル操作">ファイル操作</h2>
+<ul>
+  <li><a href="list-opened-files.html">オープンされているファイルを一覧表示する (p4 opened)</a></li>
+  <li><a href="revert.html">オープンされているファイルを編集前の状態に戻す (p4 revert)</a></li>
+  <li><a href="print.html">ディポ上のファイルを標準出力に出力する／ローカルファイルに保存する</a></li>
+  <li><a href="move-all-files.html">ディレクトリ内のすべてのファイルを別のディレクトリへ移動する (p4 move)</a></li>
+  <li><a href="create-dir.html">ディポ上にディレクトリを追加する</a></li>
+  <li><a href="update-and-integrate.html">p4 update と p4 integrate の違いを理解する</a></li>
+  <li><a href="add-as-binary.html">バイナリファイルとしてファイルを追加する (p4 add)</a></li>
+  <li><a href="opened-file-local-path.html">オープンされていて、かつ変更されているファイルの一覧をローカルパスで表示する</a></li>
+  <li><a href="recursive-add.html">ディレクトリ内のファイルを再帰的に p4 add する</a></li>
+  <li><a href="depots.html">サーバ上のディポ (depot) の一覧を表示する (p4 depots)</a></li>
+  <li><a href="search-files-on-depot.html">ディポ上のファイルを検索する (p4 files)</a></li>
+  <li><a href="sync-with-changelist.html">チェンジリスト番号を指定して p4 sync する</a></li>
+  <li><a href="sync-with-date.html">日時指定で p4 sync する</a></li>
+</ul>
+
+<h2 id="have-list">Have List</h2>
+<ul>
+  <li><a href="show-have-list.html">クライアントの have list を表示する (p4 have)</a></li>
+  <li><a href="delete-have-list.html">クライアントの have list をサーバから削除する</a></li>
+  <li><a href="update-have-list.html">ローカルのワークスペース上でのファイル編集情報をサーバへ通知する（have list の更新）</a></li>
+</ul>
+
+<h2 id="チェンジリスト">チェンジリスト</h2>
+<ul>
+  <li><a href="create-new-changelist.html">新しいチェンジリストを作成する（デフォルトのチェンジリストにチェンジリスト番号を付ける）</a></li>
+  <li><a href="describe.html">チェンジリストの内容を確認する (p4 describe)</a></li>
+  <li><a href="delete-changelist.html">指定したチェンジリストを削除する (p4 change)</a></li>
+  <li><a href="which-changelist.html">編集中のファイルがどのチェンジリストで管理されているか調べる (p4 opened)</a></li>
+  <li><a href="edit-in-specified-changelist.html">指定したチェンジリストでファイルをオープンする (p4 edit)</a></li>
+  <li><a href="move-to-different-changelist.html">編集中のファイルを別のチェンジリストに移動する (p4 reopen)</a></li>
+  <li><a href="pending-list.html">あるユーザがどのファイルを submit せずに pending しているかを調べる (p4 changes)</a></li>
+  <li><a href="search-log-by-username.html">あるユーザが行った submit のログを調べる</a></li>
+</ul>
+
+<h2 id="ブランチ">ブランチ</h2>
+<ul>
+  <li><a href="create-branch.html">ブランチを作成する</a></li>
+  <li><a href="branch-view.html">ブランチ仕様でブランチビューを定義して integrate 作業を簡単にする</a></li>
+</ul>
+
+<h2 id="管理設定">管理／設定</h2>
+<ul>
+  <li><a href="install-client.html">Perforce クライアントのインストールと初期設定</a></li>
+  <li><a href="check-permission.html">ユーザの各 depot へのアクセス権限を確認する</a></li>
+  <li><a href="user-info.html">Perforce ユーザ ID から本名やメールアドレスを調べる (p4 users)</a></li>
+  <li><a href="rmdir-after-sync.html">p4 sync 時に空のディレクトリを削除する ([no]rmdir)</a></li>
+  <li><a href="clobber-settings.html">p4 sync 時のファイル上書き設定 ([no]clobber)</a></li>
+  <li><a href="p4admin.html">p4admin で Perforce サーバを設定する</a></li>
+  <li><a href="overlay-mapping.html">オーバーレイ・マッピングによる差分開発を行う</a></li>
+  <li><a href="p4config.html">カレントディレクトリの位置によって P4 設定を切り替える (P4CONFIG)</a></li>
+  <li><a href="typemap.html">ファイルを p4 add したときにデフォルトで設定される filetype を調べる (p4 typemap)</a></li>
+</ul>
+
+<h2 id="トラブルシューティング">トラブルシューティング</h2>
+<ul>
+  <li><a href="cannot-delete-client.html">p4 client -d でクライアントを削除できない</a></li>
+  <li><a href="cannot-sync.html">p4 sync しようとすると opend for edit and can’t be deleted というエラーになる</a></li>
+</ul>
+
+<h2 id="便利スクリプト">便利スクリプト</h2>
+<ul>
+  <li><a href="p4-backup.html">p4-backup：オープンされているファイルをバックアップする</a></li>
+  <li><a href="p4-patch.html">p4-patch：変更されたファイルの diff からパッチファイルを作る／パッチファイルを適用する</a></li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerforceノート： Perforce メモ&url=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p4/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li class="xNav-focused"><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

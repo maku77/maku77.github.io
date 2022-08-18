@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/ui/create-custom-view.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="カスタムビューを作成する | まくまくAndroidノート" />
+  <title>カスタムビューを作成する - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">カスタムビューを作成する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2020-03-10</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/ui/create-custom-view.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： カスタムビューを作成する&url=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="ondraw-で自力で描画するカスタムビューを作る">onDraw で自力で描画するカスタムビューを作る</h2>
+
+<p>Android では、<code class="language-plaintext highlighter-rouge">android.view.View</code> を継承したビュークラスを作成することで、簡単にカスタムビューを作成することができます。
+ここでは、<code class="language-plaintext highlighter-rouge">com.example.myapp.MyCustomView</code> という、丸を描画するだけのカスタムビューを作成します。</p>
+
+<p><img src="/android/ui/create-custom-view-001.png" alt="create-custom-view-001.png" class="center" /></p>
+
+<p>描画処理は <code class="language-plaintext highlighter-rouge">onDraw()</code> メソッドをオーバーライドして記述します。</p>
+
+<h4 id="mycustomviewjava">MyCustomView.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.myapp</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.graphics.Canvas</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.graphics.Color</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.graphics.Paint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.AttributeSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCustomView</span> <span class="kd">extends</span> <span class="nc">View</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Paint</span> <span class="n">mBackgroundPaint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Paint</span><span class="o">()</span> <span class="o">{</span>
+        <span class="o">{</span>
+            <span class="n">setColor</span><span class="o">(</span><span class="nc">Color</span><span class="o">.</span><span class="na">YELLOW</span><span class="o">);</span>
+            <span class="n">setAntiAlias</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="kd">public</span> <span class="nf">MyCustomView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyCustomView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyCustomView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDraw</span><span class="o">(</span><span class="nc">Canvas</span> <span class="n">canvas</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="na">getWidth</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="na">getHeight</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">radius</span> <span class="o">=</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">h</span> <span class="o">?</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span> <span class="o">:</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="na">drawCircle</span><span class="o">(</span><span class="n">w</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span> <span class="n">h</span> <span class="o">/</span> <span class="mi">2</span><span class="o">,</span> <span class="n">radius</span><span class="o">,</span> <span class="n">mBackgroundPaint</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、Kotlin では次のように少しだけシンプルに記述できます。</p>
+
+<h4 id="mycustomviewkt">MyCustomView.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.myapp</span>
+
+<span class="k">import</span> <span class="nn">android.content.Context</span>
+<span class="k">import</span> <span class="nn">android.graphics.Canvas</span>
+<span class="k">import</span> <span class="nn">android.graphics.Color</span>
+<span class="k">import</span> <span class="nn">android.graphics.Paint</span>
+<span class="k">import</span> <span class="nn">android.util.AttributeSet</span>
+<span class="k">import</span> <span class="nn">android.view.View</span>
+
+<span class="kd">class</span> <span class="nc">MyCustomView</span> <span class="nd">@JvmOverloads</span> <span class="k">constructor</span><span class="p">(</span>
+    <span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">,</span>
+    <span class="n">attrs</span><span class="p">:</span> <span class="nc">AttributeSet</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">defStyleAttr</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">View</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">defStyleAttr</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">backgroundPaint</span> <span class="p">=</span> <span class="nc">Paint</span><span class="p">().</span><span class="nf">apply</span> <span class="p">{</span>
+        <span class="n">color</span> <span class="p">=</span> <span class="nc">Color</span><span class="p">.</span><span class="nc">YELLOW</span>
+        <span class="n">isAntiAlias</span> <span class="p">=</span> <span class="k">true</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onDraw</span><span class="p">(</span><span class="n">canvas</span><span class="p">:</span> <span class="nc">Canvas</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">w</span> <span class="p">=</span> <span class="n">canvas</span><span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="nf">toFloat</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="py">h</span> <span class="p">=</span> <span class="n">canvas</span><span class="p">.</span><span class="n">height</span><span class="p">.</span><span class="nf">toFloat</span><span class="p">()</span>
+        <span class="kd">val</span> <span class="py">radius</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="p">&lt;</span> <span class="n">h</span><span class="p">)</span> <span class="n">w</span> <span class="p">/</span> <span class="mi">2</span> <span class="k">else</span> <span class="n">h</span> <span class="p">/</span> <span class="mi">2</span>
+        <span class="n">canvas</span><span class="p">.</span><span class="nf">drawCircle</span><span class="p">(</span><span class="n">w</span> <span class="p">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">h</span> <span class="p">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">backgroundPaint</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>作成したカスタムビューは、任意のレイアウト XML ファイルから次のように使用することができます。</p>
+
+<h4 id="activity_mainxml抜粋">activity_main.xml（抜粋）</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;com.example.myapp.MyCustomView</span>
+    <span class="na">android:layout_width=</span><span class="s">"200dp"</span>
+    <span class="na">android:layout_height=</span><span class="s">"100dp"</span>
+    <span class="na">android:layout_marginVertical=</span><span class="s">"20dp"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h2 id="既存のビューを組み合わせてカスタムビューを作る">既存のビューを組み合わせてカスタムビューを作る</h2>
+
+<p>既存のボタンウィジェットなどを組み合わせて、ひとつのカスタムビューを作成することができます。
+意味のある単位でカスタムビューの形でカプセル化しておくと、コードの見通しがよくなります。</p>
+
+<p><img src="/android/ui/create-custom-view-002.png" alt="create-custom-view-002.png" class="center" /></p>
+
+<p>ここでは、ボタンを横方向に２つ並べただけの、<code class="language-plaintext highlighter-rouge">MyButtonsView</code> クラスを作成します。
+まずは、カスタムビュー用のレイアウトファイルを作成します（もちろん、XML ファイルを使わずに、Java コードの中で動的に配置することもできます）。</p>
+
+<h4 id="reslayoutmy_buttons_viewxml">res/layout/my_buttons_view.xml</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"match_parent"</span>
+    <span class="na">android:orientation=</span><span class="s">"horizontal"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;Button</span>
+        <span class="na">android:id=</span><span class="s">"@+id/button1"</span>
+        <span class="na">android:text=</span><span class="s">"1"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;Button</span>
+        <span class="na">android:id=</span><span class="s">"@+id/button2"</span>
+        <span class="na">android:text=</span><span class="s">"2"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"match_parent"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+
+<p>次に、<code class="language-plaintext highlighter-rouge">MyButtonsView</code> クラスの実装を行います。
+レイアウトとして <code class="language-plaintext highlighter-rouge">LinearLayout</code> を採用したので、<code class="language-plaintext highlighter-rouge">View</code> クラスではなく、<code class="language-plaintext highlighter-rouge">LinearLayout</code> を継承して作成します。</p>
+
+<h4 id="mybuttonsviewjava">MyButtonsView.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.myapp</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.AttributeSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.LayoutInflater</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Button</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyButtonsView</span> <span class="kd">extends</span> <span class="nc">LinearLayout</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyButtonsView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+        <span class="n">init</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyButtonsView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">);</span>
+        <span class="n">init</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">MyButtonsView</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyleAttr</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyleAttr</span><span class="o">);</span>
+        <span class="n">init</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 第 2 引数で this を指定することで、Layout XML を自分自身に inflate する</span>
+        <span class="nc">View</span> <span class="n">layout</span> <span class="o">=</span> <span class="nc">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">context</span><span class="o">).</span><span class="na">inflate</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">my_buttons_view</span><span class="o">,</span> <span class="k">this</span><span class="o">);</span>
+        <span class="o">((</span><span class="nc">Button</span><span class="o">)</span> <span class="n">layout</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">button1</span><span class="o">)).</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">mListener</span><span class="o">);</span>
+        <span class="o">((</span><span class="nc">Button</span><span class="o">)</span> <span class="n">layout</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">button2</span><span class="o">)).</span><span class="na">setOnClickListener</span><span class="o">(</span><span class="n">mListener</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">View</span><span class="o">.</span><span class="na">OnClickListener</span> <span class="n">mListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">View</span><span class="o">.</span><span class="na">OnClickListener</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="nc">View</span> <span class="n">view</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">Button</span> <span class="n">button</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Button</span><span class="o">)</span> <span class="n">view</span><span class="o">;</span>
+            <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="n">view</span><span class="o">.</span><span class="na">getContext</span><span class="o">(),</span> <span class="n">button</span><span class="o">.</span><span class="na">getText</span><span class="o">(),</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、Kotlin だと次のようにもう少し簡潔に書けます。</p>
+
+<h4 id="mybuttonsviewkt">MyButtonsView.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.myapp</span>
+
+<span class="k">import</span> <span class="nn">android.content.Context</span>
+<span class="k">import</span> <span class="nn">android.util.AttributeSet</span>
+<span class="k">import</span> <span class="nn">android.view.LayoutInflater</span>
+<span class="k">import</span> <span class="nn">android.widget.Button</span>
+<span class="k">import</span> <span class="nn">android.widget.LinearLayout</span>
+<span class="k">import</span> <span class="nn">android.widget.Toast</span>
+<span class="k">import</span> <span class="nn">kotlinx.android.synthetic.main.my_buttons_view.view.*</span>
+
+<span class="kd">class</span> <span class="nc">MyButtonsView</span> <span class="nd">@JvmOverloads</span> <span class="k">constructor</span><span class="p">(</span>
+    <span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">,</span>
+    <span class="n">attrs</span><span class="p">:</span> <span class="nc">AttributeSet</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span><span class="p">,</span>
+    <span class="n">defStyleAttr</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">LinearLayout</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">defStyleAttr</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">clickListener</span> <span class="p">=</span> <span class="nc">OnClickListener</span> <span class="p">{</span> <span class="n">view</span> <span class="p">-&gt;</span>
+        <span class="kd">val</span> <span class="py">btn</span> <span class="p">=</span> <span class="n">view</span> <span class="k">as</span> <span class="nc">Button</span>
+        <span class="nc">Toast</span><span class="p">.</span><span class="nf">makeText</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">btn</span><span class="p">.</span><span class="n">text</span><span class="p">,</span> <span class="nc">Toast</span><span class="p">.</span><span class="nc">LENGTH_LONG</span><span class="p">).</span><span class="nf">show</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="nc">LayoutInflater</span><span class="p">.</span><span class="nf">from</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="nf">inflate</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">layout</span><span class="p">.</span><span class="n">my_buttons_view</span><span class="p">,</span> <span class="k">this</span><span class="p">)</span>
+        <span class="n">button1</span><span class="p">.</span><span class="nf">setOnClickListener</span><span class="p">(</span><span class="n">clickListener</span><span class="p">)</span>
+        <span class="n">button2</span><span class="p">.</span><span class="nf">setOnClickListener</span><span class="p">(</span><span class="n">clickListener</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このカスタムビューを使用するときは、他の <code class="language-plaintext highlighter-rouge">View</code> クラスと同様に、任意のレイアウト XML ファイル内で以下のように使用できます。
+もちろん、コード内から動的に <code class="language-plaintext highlighter-rouge">View</code> を生成することもできます。</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;com.example.myapp.MyButtonsView</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： カスタムビューを作成する&url=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/create-custom-view.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2020-03-10</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

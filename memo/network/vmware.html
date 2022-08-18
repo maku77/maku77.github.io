@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="VMware によるネットワーク構築を理解するためのメモと、各種トラブルシューティング情報です。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/network/vmware.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="VMware によるネットワーク構築を理解するためのメモと、各種トラブルシューティング情報です。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="VMware のネットワーク設定 | まくまくいろいろノート" />
+  <title>VMware のネットワーク設定 - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">VMware のネットワーク設定</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2007-03-22</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/network/vmware.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： VMware のネットワーク設定&url=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">VMware によるネットワーク構築を理解するためのメモと、各種トラブルシューティング情報です。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>VMware Player 1.0.3 で確認しています。</p>
+
+<h2 id="仮想ネットワーク-virtual-network仮想スイッチ-virtual-switch">仮想ネットワーク (virtual network)／仮想スイッチ (virtual switch)</h2>
+
+<p>VMware をインストールすると、最大 9 つの virtual network（VMnet0 ～ VMnet8）が利用できるようになります。デフォルトの設定では、VMnet0、VMnet1、VMnet8 がそれぞれ次のような構成のネットワークとして設定されています。</p>
+
+<ul>
+  <li>VMnet0: bridged network（ブリッジ接続ネットワーク）</li>
+  <li>VMnet1: host-only network（ホストオンリー接続ネットワーク）</li>
+  <li>VMnet8: NAT network（NAT 接続ネットワーク）</li>
+</ul>
+
+<p>例えば、デフォルトで VMnet0 は物理的な NIC と接続するための virtual bridge（仮想ブリッジ）として使えるようになっているので、virtual machine（ゲスト OS）の virtual network adapter（仮想ネットワークアダプタ）を VMnet0 に接続するように設定すれば、物理的な NIC が繋がっている外のネットワークに接続することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+virtual network adapter ---&gt; VMnet0 (bridge) ---&gt; [physical NIC] ---&gt; external network
+</code></pre></div></div>
+
+<p>virtual network (VMnet*) の数は上記のように 9 個までと制限されていますが、ひとつの virtual network に対して複数の virtual machine（正確には virtual network adapter）を接続することができるので、ほとんど問題にはなりません（Windows ホストでは接続数に制限なし、Linux ホストでは 32 個の virutal network adapter をひとつの virtual network に接続可能）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>virtual network adapter -------+
+                               |
+virtual network adapter ---- VMnet0 (bridge) ---&gt; [Physical NIC]
+                               |
+virtual network adapter -------+
+</code></pre></div></div>
+
+<h3 id="コラム-virtual-network--virtual-switch-">コラム: virtual network = virtual switch ?</h3>
+
+<p>VMnet0 ～ VMnet8 という名前は、正確には virtual network を示しているのだと思いますが、VMware のマニュアルでは、virtual switch と呼んでいたりします。よく考えてみると、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>「ネットワークに接続する」＝「そのネットワークに繋がっているスイッチに接続する」
+</code></pre></div></div>
+
+<p>とみなしても大差はないので、VMnet0 ～ VMnet8 のことを virtual network ではなく、virutal switch と呼んでも問題ないのでしょう。
+VMnet0 ～ VMnet8 までの 9 個の仮想的なスイッチングハブがあるんだと考えると分かりやすいです。
+ホスト OS と、ゲスト OS は必ず VMnet* を介して通信します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Host OS]                                  [Guest OS]
+virtual network adapter ----&gt; VMnet1 &lt;---- virtual network adapter
+</code></pre></div></div>
+
+<h2 id="virtual-network-adapter仮想ネットワークアダプタ">virtual network adapter（仮想ネットワークアダプタ）</h2>
+
+<h3 id="ホスト-os-側の-virtual-network-adapter">ホスト OS 側の virtual network adapter</h3>
+
+<p>Windows に VMware Player をインストールすると、virtual network に接続するための virtual network adapter（仮想の NIC）が追加されます。デフォルトでは、次の 2 つの仮想ネットワークアダプタが追加されます。</p>
+
+<ul>
+  <li>VMware Network Adapter VMnet1 (for host-only network)</li>
+  <li>VMware Network Adapter VMnet8 (for NAT network)</li>
+</ul>
+
+<p>※ bridged network (VMnet0) は、ホスト OS 側の物理的 NIC に直接接続されているような状態になるため、ホスト OS 側に VMnet0 用の virtual network adapter は追加されません。</p>
+
+<p><img src="/memo/network/vmware1.png" alt="vmware1.png" class="center" /></p>
+
+<p>※ VMnet1、VMnet8 という仮想スイッチングハブに接続された 2 つのネットワークカード (VMware Network Adapter) があると考えると分かりやすいです。</p>
+
+<p>host-only network も NAT network も通常は private IP アドレスを使用するネットワークであるため、上記の virtual network adapter には <code class="language-plaintext highlighter-rouge">192.168.***.***</code> という IP アドレスが割り当てられているはずです。VMnet1 と VMnet8 は仮想といえども別のネットワークなので、それぞれ別のネットワークアドレスが割り振られます（例えば、<code class="language-plaintext highlighter-rouge">192.168.100.1</code> と <code class="language-plaintext highlighter-rouge">192.168.200.1</code>）。</p>
+
+<p>これらの IP アドレスは固定で指定することも、VMware 内部の DHCP サーバによって割り当てることもできます。ここで割り当てた IP アドレスが、ゲスト OS 側から見えるホスト OS の IP アドレスとなります。</p>
+
+<h3 id="ゲスト-os-側の-virtual-network-adapter">ゲスト OS 側の virtual network adapter</h3>
+
+<p>virtual machine 側では、virtual network (VMnet0-8) に接続するための virtual network adapter を最大 3 つまで使用することができます。ホスト OS 側の virtual network adapter と同様に、これらはそれぞれ別の virtual network (virtual switch) に接続することができます。</p>
+
+<p>3 つの virtual network adapter を、どの virtual network (virtual switch) に接続するかは、virtucal machine の設定ファイル (.vmx) で指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethernet0.present = "true"
+ethernet0.connectionType = "custom"
+ethernet0.vnet = "vmnet5"
+
+ethernet1.present = "true"
+ethernet1.connectionType = "custom"
+ethernet1.vnet = "vmnet2"
+</code></pre></div></div>
+
+<p>connectionType を bridged, hostonly, nat のようにネットワーク構成で指定する場合は、以下のように connectionType に設定します。このとき、vnet の指定は必要ありません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethernet0.present= "true"
+ethernet0.connectionType = "bridged"
+
+ethernet0.present= "true"
+ethernet0.connectionType = "hostonly"
+
+ethernet0.present= "true"
+ethernet0.connectionType ="nat"
+</code></pre></div></div>
+
+<h2 id="ネットワーク構成の種類">ネットワーク構成の種類</h2>
+
+<h3 id="bridged-networkブリッジ接続ネットワーク">bridged network（ブリッジ接続ネットワーク）</h3>
+
+<p>virtual switch を bridged network として構成した場合、物理的 NIC に接続された virtual bridge として振る舞うようになります。デフォルトでは VMnet0 が bridged network として構成されています。</p>
+
+<p>virtual machine 側の virtual network adapter を、この virtual bridge に接続する場合、ホスト OS が使っている物理的 NIC を利用して virtual network adapter に新しい IP アドレスを割り当てます。つまり、物理的 NIC が接続しているネットワークの IP アドレスがもう 1 つ必要になります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+vitual network adapter (xxx.yyy.zzz.128)
+         |
+         |
+      virtual bridge ---- physical NIC ---- external network
+      (VMnet0)                              (xxx.yyy.zzz.0)
+</code></pre></div></div>
+
+<p>イメージとしては、virtual machine が直接、物理的 NIC を利用して外部のネットワークに接続しているようなものです。NAT network や host-only network の場合とは違い、private ネットワークは構成されません。
+つまり、以下のように、ゲスト OS が物理的 NIC を使用していると考えることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+physical NIC (xxx.yyy.zzz.128) ---- external network
+                                    (xxx.yyy.zzz.0)
+</code></pre></div></div>
+
+<p>bridged network では、virtual machine とホスト OS に対して、物理的 NIC が接続しているネットワークの IP アドレスをそれぞれ個別に割り当てるため、外のマシンからは単純に複数のマシンが稼動しているかのように見えます（1 つの物理 NIC が複数の IP アドレスを持つ）。そのため、vitual machine 上で Web サーバなどを立ち上げれば、外のマシンからアクセスすることができます。</p>
+
+<p>複数の vitual machine をひとつの virtual bridge (VMnet0) に繋ぐことも可能です。ただし、その数だけ IP アドレスが必要になることに注意が必要です。</p>
+
+<p>ホストに複数の物理的 NIC が接続されている場合は、その数だけ virtual bridge を追加することができます（VMnet0 ～ 8 のいずれかをその NIC 用の virtual bridge とする）。</p>
+
+<h3 id="nat-network-address-translation-networknat-接続ネットワーク">NAT (Network address translation) network（NAT 接続ネットワーク）</h3>
+
+<p>VMware のアドレス変換機能 (NAT) を用いて、virtual machine 側の virtual network adapter に割り当てた private IP アドレスと、物理的 NIC に割り当てた IP アドレスによる通信を仲介します。
+デフォルトでは VMnet8 が NAT network として構成されています。</p>
+
+<p>ホスト OS が使っている物理的 NIC の IP アドレスと MAC アドレスを共有して外部ネットワークに接続することができるため、新しい IP アドレスを追加できない場合に便利です。ただし、NAT ネットワークには通常 private IP アドレスが割り当てられるため、外部のネットワークから virtual machine にアクセスすることはできません（外部に公開する Web サーバなどは構築できません）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+virtual network adapter (192.168.0.128)
+          |
+          |
+      virtual switch ---- VMware NAT device ---- external network
+      (VMnet8)                                   (xxx.yyy.zzz.0)
+</code></pre></div></div>
+
+<p>ホスト OS 側にも、NAT ネットワーク (VMnet8) に接続するための virtual network adapter が追加され、ホスト OS と virtual machine の間で private IP アドレスを用いて通信することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+virtual network adapter (192.168.0.128)
+          |
+          |
+      virtual switch
+      (VMnet8)
+          |
+          |
+virtual network adapter (192.168.0.1)
+[host OS]
+</code></pre></div></div>
+
+<p>NAT 接続では、単純にネットワーク間のアドレス変換、パケットの仲介をするだけなので、物理的 NIC の存在は意識されません。これは、物理的 NIC がどのような種類のネットワークに接続されていても、IP アドレスさえ割り当てられていれば virtual machine がそのネットワークへ接続できることを意味しています。例えば、Ethernet 以外の次のようなネットワークにも接続することが可能です。</p>
+
+<ul>
+  <li>ダイアルアップ</li>
+  <li>トークンリング</li>
+  <li>ATM</li>
+</ul>
+
+<h3 id="host-only-network-ホストオンリー接続ネットワーク">host-only network (ホストオンリー接続ネットワーク)</h3>
+
+<p>ホスト OS と virtual machine の間を繋ぐためのプライベートネットワークです。
+基本的には物理的 NIC や、外部のネットワークとは隔離されたものなので、ローカル環境からのみアクセス可能なセキュアなサーバを構築することができます。テスト用の virtual machine を動作させる場合は、このモードで動作させるのが安全です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+virtual network adapter (192.168.34.128)
+          |
+          |
+      virtual switch
+      (VMnet1)
+          |
+          |
+virtual network adapter (192.168.34.1)
+[host OS]
+</code></pre></div></div>
+
+<p>基本的に、private ネットワークに配置された virtual machine は外部のネットワークにアクセスできませんが、ホスト OS 側でルーティングソフトウェアや、Proxy ソフトウェアを動作させることで、外部のネットワークに接続することが可能です。例えば、Windows の「インターネット共有」の機能を使えば、host-only network からインターネットへ接続することができます。このような構成を利用することで、NAT network の場合と同様に、Ethernet 以外のネットワーク（ダイアルアップ等）にも接続することができます。</p>
+
+<h3 id="vmware-dhcp-サーバによる-private-ip-アドレス自動割り当て">VMware DHCP サーバによる private IP アドレス自動割り当て</h3>
+
+<p>NAT network、host-only network に接続する virtual network adapter の private IP アドレスは、VMware の提供する DHCP サーバ機能によって自動的に割り振ることができます。この場合、virtual switch (VMnet1, VMnet8) にそれぞれ DHCP サーバ機能が組み込まれているかのように振る舞います。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[virtual machine]
+virtual network adapter (192.168.0.128)
+         |
+         |
+     virtual switch ---- VMware DHCP server
+     (VMnet8)            (for 192.168.0.0 network)
+</code></pre></div></div>
+
+<p>DHCP サーバの IP アドレス割り当て範囲などは、VMware のネットワーク設定ツールで変更できます（Windows の場合は vmnetcfg.exe の DHCP タブで設定）。</p>
+
+<p><img src="/memo/network/vmware2.png" alt="vmware2.png" class="center" />
+<img src="/memo/network/vmware3.png" alt="vmware3.png" class="center" /></p>
+
+<h2 id="nat-接続の設定">NAT 接続の設定</h2>
+
+<p><a href="http://www.vmware.com/jp/pdf/server_vm_manual.pdf">VMware のマニュアル</a> に NAT ネットワーク上の DHCP について分かりやすい説明があるので抜粋しておきます。</p>
+
+<blockquote>
+  <p>ネットワークの構成作業を簡易化するために、VMware Server のインストール時にDHCP サーバが自動的にインストールされます。このため、NAT デバイスを使ってネットワーク上で稼働する仮想マシンは、DHCP リクエストを送信してIP アドレスをダイナミックに取得することができます。NAT ネットワーク上のDHCP サーバ（ホストオンリーネットワーク構成でも使用されます）は、<code class="language-plaintext highlighter-rouge">&lt;net&gt;.128 ～ &lt;net&gt;.254</code> の範囲でIP アドレスをダイナミックに割り当てます。ここで<code class="language-plaintext highlighter-rouge">&lt;net&gt;</code> は、NAT ネットワークに割り当てあられたネットワーク番号のことです。VMware Server は NAT ネットワークには常にクラス C アドレスを使用します。<code class="language-plaintext highlighter-rouge">&lt;net&gt;.3 ～ &lt;net&gt;.127</code> の IP アドレスは、静的 IP アドレスに使用することができます。IP アドレス <code class="language-plaintext highlighter-rouge">&lt;net&gt;.1</code> はホストアダプタに、<code class="language-plaintext highlighter-rouge">&lt;net&gt;.2</code> はNAT デバイスに割り当てられています。</p>
+</blockquote>
+
+<p>簡単にまとめると、</p>
+
+<ul>
+  <li>NAT で GuestOS を外部ネットワークに繋ぐには、GuestOS の Virtual Adapter を VMnet8 に繋げばよい。</li>
+  <li>VMnet8 に繋ぐ Host OS 側の Virtual Adapter には固定 IP アドレス 192.168.11.1 などが割り当てられている。</li>
+  <li>VMnet8 に繋ぐ Guest OS 側の Virtual Adapter は通常 DHCP でアドレス取得 (128～254) するようにしておけば問題ない。固定 IP アドレスを割り当てたい場合は、3 ～ 127 の範囲で割り当てること。この割り当て範囲は、Virutla Network Editor (vmnetcfg.exe) の DHCP タブで変更可能。</li>
+  <li>NAT デバイスは、デフォルトで VMnet8 に接続されていることになっているが、Virtual Network Editor (vmnetcfg.exe) で変更できる。NAT デバイスの IP アドレスは、192.168.11.2 などになっている（これも変更可能）。</li>
+</ul>
+
+<h3 id="設定例">設定例</h3>
+
+<p>（Host OS: Windows Vista、Guest OS: CentOS 5.1 で確認しています）</p>
+
+<h4 id="windows-側-host-os-の設定">Windows 側 (Host OS) の設定</h4>
+
+<p>インターネットに接続された NIC があることを前提とします。
+VMnet8 用の仮想アダプタ（Local Area Connection 4 など）には、192.168.11.1 などの固定 IP アドレスが割り当てられます（デフォルト）。
+VMware の vmnetcfg.exe の Host Virtual Network Mapping タブで、以下のようになっているか確認してください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VMnet8 ==&gt; Local Area Connection 4  # NAT network
+</code></pre></div></div>
+
+<h4 id="linux-側-guest-os-の設定">Linux 側 (Guest OS) の設定</h4>
+
+<p>仮想マシンの構成ファイル (CentOS_5.1.vmx) を編集して、NAT 接続 (VMnet8) できるようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethernet0.present = TRUE
+ethernet0.connectionType = "custom"
+ethernet0.vnet = "VMnet8"
+</code></pre></div></div>
+
+<p>Linux の eth0 の IP アドレスを DHCP で割り当てます（GATEWAY の設定はなくてもよいっぽい）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+ONBOOT=yes
+BOOTPROTO=dhcp
+TYPE=Ethernet
+USERCTL=yes
+IPV6INIT=no
+PEERDNS=yes
+</code></pre></div></div>
+
+<h2 id="virtual-bridge-と接続する物理的-nic-を指定する">virtual bridge と接続する物理的 NIC を指定する</h2>
+
+<p>物理的 NIC が 1 つしか存在しない場合、デフォルトでは VMnet0 の virtual bridge はその NIC に接続されます。複数の NIC が存在する場合は、いずれかの NIC が接続されます。</p>
+
+<p>Windows の場合、仮想ネットワークエディタ (Vertual Network Editor) vmnetcfg.exe を使って virtual bridge をどの物理的 NIC に接続するかを明示的に指定することができます。</p>
+
+<p><img src="/memo/network/vmware4.png" alt="vmware4.png" class="center" /></p>
+
+<p>デフォルトでは、「自動ブリッジ」ページの、「VMnet0 へブリッジできる物理ネットワークアダプタを自動的に選択する。」 にチェックが入っているので、VMnet0 の virtual bridge は、自動的にいずれかの物理的 NIC に接続されます。</p>
+
+<p><img src="/memo/network/vmware5.png" alt="vmware5.png" class="center" /></p>
+
+<p>物理的 NIC が複数存在し、VMnet0 の virtual bridge を特定の NIC に接続したい場合は、「ホスト仮想ネットワークの割り当て」ページを開き、VMnet0 のプルダウンメニューから接続したい物理的 NIC を選択します。</p>
+
+<p>※ この図は、左側の VMnet0～9 のどのネットワーク（仮想スイッチ）に、Host OS のどの NIC（物理 NIC、仮想 NIC 含む）を接続するかの対応表だと考えればよいです。
+ここでの設定は、あくまで Host OS 側の設定です。Guest OS 側の VMnet と仮想 NIC の接続の設定は、構成ファイル (.vmx) で行います。</p>
+
+<p>※ ちなみに、ここで表示される「ホストと共有プライベートネットワーク」を選択すると、いずれかの NIC が自動的に選択されます。つまり、「自動ブリッジ」ページのチェックボックスにチェックを入れるのと同じことです。</p>
+
+<h2 id="その他">その他</h2>
+
+<h3 id="guest-os-で-multi-core-cpu-を使用する">Guest OS で Multi-core CPU を使用する</h3>
+
+<p>VMware 構成ファイル (.vmx) の以下のコメントアウト行の # を外して有効にする。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you wish to use multi-core CPU on guest OS, uncomment a below line.
+# numvcpus = "2"
+</code></pre></div></div>
+
+<h3 id="vmnetdhcp-を停止する">VMnetDHCP を停止する</h3>
+
+<ol>
+  <li>スタートメニューから services.msc を起動</li>
+  <li>サービス一覧から “VMware DHCP Service” を右クリック ==&gt; Properties</li>
+  <li>Stop をクリック</li>
+  <li>Startup type: を Disabled に設定</li>
+</ol>
+
+<h3 id="トラブルシューティング-nic-二枚挿しで-bridge-接続がうまくいかない">トラブルシューティング: NIC 二枚挿しで Bridge 接続がうまくいかない</h3>
+
+<p>Guest OS (Linux) 側の仮想アダプタの 1 枚目を Bridge 接続用に設定するとうまくいくことがあります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Bridge 接続用
+ethernet0.present = "true"
+ethernet0.connectionType = "custom"
+ethernet0.vnet = "VMnet0"
+
+# NAT 接続用
+ethernet1.present = "true"
+ethernet1.connectionType = "custom"
+ethernet1.vnet = "VMnet8
+</code></pre></div></div>
+
+<ul>
+  <li>Virtual Network Editor (vmnetcfg.exe) の “Host Virtual Network Mapping” タブの VMnet0 で、ブリッジする NIC を選択する（自動選択にしない）。</li>
+  <li>Windows のネットワーク設定で、ブリッジ接続に使用する NIC だけ、Properties のダイアログで “VMware Bridge Protocol” にチェックを入れておくのがよいかも。</li>
+</ul>
+
+<h3 id="トラブルシューティング-vmware-の-dhcp-が動いているはずなのに-ip-アドレスを取得できない">トラブルシューティング: VMware の DHCP が動いているはずなのに IP アドレスを取得できない</h3>
+
+<p>（Host OS: Windows Vista、Guest OS: CentOS 5.1 で確認）</p>
+
+<ul>
+  <li>/etc/sysconfig/network-scripts/ifcfg-eth0 などで BOOTPROTO=dhcp になっているか確認。</li>
+  <li>Virtual Network Editor (vmnetcfg.exe) で DHCP サービスがちゃんと動いているか確認。</li>
+  <li>仮想マシン構成ファイル (CentOS_5.1.vmx) で仮想アダプタが DHCP の有効な仮想ネット (VMnet8) などに接続されているか確認。</li>
+  <li>うまく行かなかったら、Host OS と Guest OS を再起動してみる。※意外と重要</li>
+</ul>
+
+<h3 id="トラブルシューティング-vmnetcfgexe-で任意の物理-nic-を-vmnet-に割り当てられない">トラブルシューティング: vmnetcfg.exe で任意の物理 NIC を VMnet に割り当てられない</h3>
+
+<p>（Host OS: Windows Vista、VMware 2.5.2 で確認）</p>
+
+<p>症状:</p>
+
+<ul>
+  <li>仮想ネットワークエディタ (Virtual Network Editor) の「自動ブリッジ (Automatic Bridging)」タブの次のような項目がグレーアウトされていてチェックが外せない。<code class="language-plaintext highlighter-rouge">VMnet0 へブリッジできる物理ネットワークアダプタを自動的に選択する。(Automatically choose an available physical network adapter to bridge to VMnet0)</code></li>
+  <li>仮想ネットワークエディタ (Virtual Network Editor) の「ホスト仮想ネットワークの割り当て (Host Virtual Network Mapping)」タブで、任意の物理 NIC を選択できない。</li>
+</ul>
+
+<p>原因は、vmnetcfg.exe を Administrator 権限で実行していないから。
+Vista の場合は以下のように設定しておかないとダメらしい。まぎらわしっ！！</p>
+
+<ol>
+  <li>vmnetcfg.exe を右クリック ==&gt; Properties。</li>
+  <li>Conpatibility タブの “Run this program as an administrator” にチェックを入れて OK。</li>
+</ol>
+
+<h3 id="トラブルシューティング-windows-vista-の-windows-firewall-で-guest-os-から-host-os-へ-ping-が通らない">トラブルシューティング: Windows Vista の Windows Firewall で Guest OS から Host OS へ ping が通らない</h3>
+
+<ol>
+  <li>スタートメニューから “Windows Firewall”</li>
+  <li>“Change settings” を選択して、Off にしてみる</li>
+</ol>
+
+<p>参考:</p>
+
+<ul>
+  <li><a href="http://www.atmarkit.co.jp/fwin2k/win2ktips/896vistaping/vistaping.html">Windows Vistaのファイアウォールでpingへの応答を許可する － ＠IT</a></li>
+</ul>
+
+<h3 id="トラブルシューティング-ウィルスバスターの-firewall-で-host-os-と-guest-os-の接続がうまくいかない">トラブルシューティング: ウィルスバスターの Firewall で Host OS と Guest OS の接続がうまくいかない</h3>
+
+<ol>
+  <li>スタートメニューから services.msc を起動</li>
+  <li>サービス一覧から “OfficeScan NT Firewall” を右クリック ==&gt; Properties</li>
+  <li>Stop をクリック</li>
+  <li>Startup type: を Disabled に設定</li>
+</ol>
+
+<h3 id="トラブルシューティング-vmware-上の-red-hat-linux-9-で-dhcp-でアドレスをとれない">トラブルシューティング: VMware 上の Red Hat Linux 9 で DHCP でアドレスをとれない</h3>
+
+<p>ifcfg-eth0 ファイルなどに、おまじないコードみたいなのを書けば直るらしい。
+確かに直った。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DEVICE=eth0
+BOOTPROTO=dhcp
+ONBOOT=yes
+check_link_down () {
+    return 1;
+}
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： VMware のネットワーク設定&url=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/network/vmware.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2007-03-22</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

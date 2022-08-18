@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/ui/opengl.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Kotlin で OpenGL ES を使って 3D 表示するアプリを作る | まくまくAndroidノート" />
+  <title>Kotlin で OpenGL ES を使って 3D 表示するアプリを作る - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Kotlin で OpenGL ES を使って 3D 表示するアプリを作る</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-08-02</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/ui/opengl.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Kotlin で OpenGL ES を使って 3D 表示するアプリを作る&url=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p><img src="/android/ui/opengl-001.png" alt="opengl-001.png" class="center" /></p>
+
+<p>Android では、組み込み向けの OpenGL インタフェースである OpenGL ES を使用して 3D の描画を行うことができます。
+Kotlin でも Java でも利用方法は変わらないのですが、今はもう Kotlin が主流になってきてますので、ここでは Kotlin で書いてみます。</p>
+
+<p>Android で OpenGL ES を使った描画を行うには、下記のような手順を踏みます。</p>
+
+<ol>
+  <li>描画用のビューとして <a href="https://developer.android.com/reference/android/opengl/GLSurfaceView">GLSurfaceView</a> を作成する</li>
+  <li>描画処理を実装した <code class="language-plaintext highlighter-rouge">GLSurfaceView.Renderer</code> インスタンスを <code class="language-plaintext highlighter-rouge">GLSurfaceView</code> にセットする</li>
+</ol>
+
+<h2 id="描画用のビュー-glsurfaceview-の作成">描画用のビュー (GLSurfaceView) の作成</h2>
+
+<p>下記は、<code class="language-plaintext highlighter-rouge">MainActivity</code> の実装です。
+ここでは、OpenGL ES によって描画するためのビューとして、<strong><code class="language-plaintext highlighter-rouge">GLSurfaceView</code></strong> を生成し、そこに <strong><code class="language-plaintext highlighter-rouge">GLSurfaceView.Renderer</code></strong> インスタンスを設定します。</p>
+
+<h4 id="mainactivitykt">MainActivity.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.openglsample</span>
+
+<span class="k">import</span> <span class="nn">android.opengl.GLSurfaceView</span>
+<span class="k">import</span> <span class="nn">androidx.appcompat.app.AppCompatActivity</span>
+<span class="k">import</span> <span class="nn">android.os.Bundle</span>
+
+<span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">view</span> <span class="p">=</span> <span class="nc">GLSurfaceView</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nf">apply</span> <span class="p">{</span>
+            <span class="nf">setRenderer</span><span class="p">(</span><span class="nc">MyRenderer</span><span class="p">())</span>
+        <span class="p">}</span>
+        <span class="nf">setContentView</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これが OpenGL ES を使用する場合の、最低限のビュー構成になります。</p>
+
+<h2 id="レンダラー-glsurfaceviewrenderer-の実装">レンダラー (GLSurfaceView.Renderer) の実装</h2>
+
+<p>次に、実際に OpenGL ES の API を使って描画処理を行うレンダラークラスを実装します。
+レンダラークラスを作成するには、Android の <a href="https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer">GLSurfaceView.Renderer インタフェース</a> が提供する下記のメソッドを実装します。</p>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">onSurfaceCreated</code></strong>: 描画用サーフェスが作成されたときに呼び出される。クリア色の初期化などを行う。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">onSurfaceChanged</code></strong>: 描画用サーフェスのサイズが変更されたときに呼び出される。ビューポートの初期化などを行う。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">onDrawFrame</code></strong>: 描画が必要なときに呼び出される。ここに実際の描画処理を記述する。</li>
+</ol>
+
+<p>ここでは、各頂点が異なる色を持つ三角形を表示してみます。</p>
+
+<h4 id="myrendererkt">MyRenderer.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.openglsample</span>
+
+<span class="k">import</span> <span class="nn">android.opengl.GLSurfaceView</span>
+<span class="k">import</span> <span class="nn">android.opengl.GLU</span>
+<span class="k">import</span> <span class="nn">javax.microedition.khronos.egl.EGLConfig</span>
+<span class="k">import</span> <span class="nn">javax.microedition.khronos.opengles.GL10</span>
+
+<span class="kd">class</span> <span class="nc">MyRenderer</span> <span class="p">:</span> <span class="nc">GLSurfaceView</span><span class="p">.</span><span class="nc">Renderer</span> <span class="p">{</span>
+    <span class="cm">/** Called when the surface is created or recreated. */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onSurfaceCreated</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nc">EGLConfig</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 背景色を設定（暗い青）</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">)</span>  <span class="c1">// RGBA</span>
+    <span class="p">}</span>
+
+    <span class="cm">/** Called when the surface changed size. */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onSurfaceChanged</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// ビューポート（描画領域）の設定</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+
+        <span class="c1">// 視体積の設定 (left, right, bottom, top, near, far)</span>
+        <span class="kd">val</span> <span class="py">ratio</span> <span class="p">=</span> <span class="n">width</span><span class="p">.</span><span class="nf">toFloat</span><span class="p">()</span> <span class="p">/</span> <span class="n">height</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glMatrixMode</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_PROJECTION</span><span class="p">)</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glLoadIdentity</span><span class="p">()</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glFrustumf</span><span class="p">(-</span><span class="n">ratio</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="p">-</span><span class="mf">1f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">2f</span><span class="p">,</span> <span class="mf">6f</span><span class="p">)</span>
+
+        <span class="c1">// 視点と視線方向の設定</span>
+        <span class="nc">GLU</span><span class="p">.</span><span class="nf">gluLookAt</span><span class="p">(</span><span class="n">gl</span><span class="p">,</span>
+            <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span> <span class="mf">4f</span><span class="p">,</span>  <span class="c1">// カメラの位置（視点）</span>
+            <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// カメラの向き（注視点）</span>
+            <span class="mf">0f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">0f</span>   <span class="c1">// カメラ姿勢（上方向を表すベクトル）</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="cm">/** Called to draw the current frame. */</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onDrawFrame</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 画面のクリア</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glClear</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_COLOR_BUFFER_BIT</span><span class="p">)</span>
+
+        <span class="c1">// 3つの頂点の座標をセット</span>
+        <span class="kd">val</span> <span class="py">vertices</span> <span class="p">=</span> <span class="nf">floatArrayOf</span><span class="p">(</span>
+            <span class="p">-</span><span class="mf">1f</span><span class="p">,</span> <span class="p">-</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// (x, y, z)</span>
+             <span class="mf">1f</span><span class="p">,</span> <span class="p">-</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// (x, y, z)</span>
+             <span class="mf">0f</span><span class="p">,</span>    <span class="mf">1f</span><span class="p">,</span> <span class="mf">0f</span>   <span class="c1">// (x, y, z)</span>
+        <span class="p">)</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glVertexPointer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_FLOAT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nc">Util</span><span class="p">.</span><span class="nf">makeFloatBuffer</span><span class="p">(</span><span class="n">vertices</span><span class="p">))</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glEnableClientState</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_VERTEX_ARRAY</span><span class="p">)</span>
+
+        <span class="c1">// 3つの頂点の色をセット（RGBA の繰り返し）</span>
+        <span class="kd">val</span> <span class="py">colors</span> <span class="p">=</span> <span class="nf">floatArrayOf</span><span class="p">(</span>
+            <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>  <span class="c1">// #FFFF00 - 黄色</span>
+            <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>  <span class="c1">// #00FFFF - シアン</span>
+            <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span>   <span class="c1">// #FF00FF - マゼンタ</span>
+        <span class="p">)</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glColorPointer</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_FLOAT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nc">Util</span><span class="p">.</span><span class="nf">makeFloatBuffer</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glEnableClientState</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_COLOR_ARRAY</span><span class="p">)</span>
+
+        <span class="c1">// 描画（三角形の組み合わせで描画）</span>
+        <span class="n">gl</span><span class="p">.</span><span class="nf">glDrawArrays</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_TRIANGLE_STRIP</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vertices</span><span class="p">.</span><span class="n">size</span> <span class="p">/</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="onsurfacecreated">onSurfaceCreated</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">onSurfaceCreated</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nc">EGLConfig</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 背景色を設定（暗い青）</span>
+    <span class="n">gl</span><span class="p">.</span><span class="nf">glClearColor</span><span class="p">(</span><span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">0.5f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">)</span>  <span class="c1">// RGBA</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>サーフェスが生成されたときに呼び出される <code class="language-plaintext highlighter-rouge">onSurfaceCreated</code> ですが、ここでは、クリア色（つまり背景色）の設定だけを行っています。</p>
+
+<h3 id="onsurfacechanged">onSurfaceChanged</h3>
+
+<p>サーフェスサイズが変更された場合（および初期表示時）には、<a href="https://developer.android.com/reference/android/opengl/GLSurfaceView.Renderer.html#onSurfaceChanged(javax.microedition.khronos.opengles.GL10,%2520int,%2520int)">Renderer.onSurfaceChanged</a> が呼び出されるので、ここでビューポートや視点などの設定を行います。
+ビューポートは、<code class="language-plaintext highlighter-rouge">GLSurfaceView</code> のどの領域に描画を行うかの設定です。
+ここでは、単純にビュー全体に描画するように指定しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">onSurfaceChanged</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nc">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ビューポート（描画領域）の設定</span>
+    <span class="n">gl</span><span class="p">.</span><span class="nf">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+    <span class="o">..</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>次に、<a href="https://www.khronos.org/registry/OpenGL-Refpages/es1.1/xhtml/glFrustum.xml">glFrustumf 関数</a> を使って視体積の設定、<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluLookAt.xml">GLU.gluLookAt 関数</a> を使って視点（カメラ）の設定を行います。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 視体積の設定 (left, right, bottom, top, near, far)</span>
+<span class="kd">val</span> <span class="py">ratio</span> <span class="p">=</span> <span class="n">width</span><span class="p">.</span><span class="nf">toFloat</span><span class="p">()</span> <span class="p">/</span> <span class="n">height</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glMatrixMode</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_PROJECTION</span><span class="p">)</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glLoadIdentity</span><span class="p">()</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glFrustumf</span><span class="p">(-</span><span class="n">ratio</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="p">-</span><span class="mf">1f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">2f</span><span class="p">,</span> <span class="mf">6f</span><span class="p">)</span>
+
+<span class="c1">// 視点と視線方向の設定</span>
+<span class="nc">GLU</span><span class="p">.</span><span class="nf">gluLookAt</span><span class="p">(</span><span class="n">gl</span><span class="p">,</span>
+    <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span> <span class="mf">4f</span><span class="p">,</span>  <span class="c1">// カメラの位置（視点）</span>
+    <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// カメラの向き（注視点）</span>
+    <span class="mf">0f</span><span class="p">,</span> <span class="mf">1f</span><span class="p">,</span> <span class="mf">0f</span>   <span class="c1">// カメラ姿勢（上方向を表すベクトル）</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">glFrustumf</code> 関数のパラメータは次のようになっており、最初の 4 つのパラメータ (<code class="language-plaintext highlighter-rouge">left</code>, <code class="language-plaintext highlighter-rouge">right</code>, <code class="language-plaintext highlighter-rouge">bottom</code>, <code class="language-plaintext highlighter-rouge">top</code>) で、ニアクリップ面（最前面）の領域を示す座標値を指定します。
+これが、視点から見たときに見える範囲の最前面になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">glFrustumf</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">near</span><span class="p">,</span> <span class="n">far</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/android/ui/opengl-002.png" alt="opengl-002.png" class="center" /></p>
+
+<p>図からもわかるように、視点とニアクリップ面までの距離が近いほど、表現上の視野角は広くなります。
+<code class="language-plaintext highlighter-rouge">glFrustumf</code> の末尾の 2 つのパラメータ (<code class="language-plaintext highlighter-rouge">near</code>, <code class="language-plaintext highlighter-rouge">far</code>) が視点からニアプリップ面、ファークリップ面までの距離を表します。</p>
+
+<p><img src="/android/ui/opengl-003.png" alt="opengl-003.png" class="center" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">GLU.gluLookAt</code> 関数では、視点（カメラ）の位置、および向きを設定します。
+ここでは、原点 (0, 0) あたりに描画オブジェクトを配置することを想定し、カメラ位置は (0, 0, 4) とし、原点の方向 (0, 0, 0) を向くように設定しています。</p>
+
+<p>ここでは、遠くのものが小さく見える透視投影 (Perspective Projection) 用の設定を行いましたが、<strong><code class="language-plaintext highlighter-rouge">glOrthof</code></strong> 関数を使えば、正投影 (Orthographic Projection) 用の設定を行うことができます。
+2D のゲームなどを作るのであれば、正投影を使ったほうが簡単です。</p>
+
+<h2 id="描画処理の実装-ondrawframe">描画処理の実装 (onDrawFrame)</h2>
+
+<p>描画処理が必要なときには、<code class="language-plaintext highlighter-rouge">Renderer#onDrawFrame</code> が呼び出されるので、この中で 3D オブジェクトの描画処理を行います。
+まずは、<code class="language-plaintext highlighter-rouge">glClear</code> を使って画面をクリアします。
+クリア色として、<code class="language-plaintext highlighter-rouge">glClearColor</code> で設定済みの色が使用されます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">onDrawFrame</span><span class="p">(</span><span class="n">gl</span><span class="p">:</span> <span class="nc">GL10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 画面のクリア</span>
+    <span class="n">gl</span><span class="p">.</span><span class="nf">glClear</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_COLOR_BUFFER_BIT</span><span class="p">)</span>
+    <span class="o">..</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>次に、原点近く (z=0) に三角形を表示するために 3 つの頂点の座標を設定します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 3つの頂点の座標をセット</span>
+<span class="kd">val</span> <span class="py">vertices</span> <span class="p">=</span> <span class="nf">floatArrayOf</span><span class="p">(</span>
+    <span class="p">-</span><span class="mf">1f</span><span class="p">,</span> <span class="p">-</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// (x, y, z)</span>
+     <span class="mf">1f</span><span class="p">,</span> <span class="p">-</span><span class="mf">0.5f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span>  <span class="c1">// (x, y, z)</span>
+     <span class="mf">0f</span><span class="p">,</span>    <span class="mf">1f</span><span class="p">,</span> <span class="mf">0f</span>   <span class="c1">// (x, y, z)</span>
+<span class="p">)</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glVertexPointer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_FLOAT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nc">Util</span><span class="p">.</span><span class="nf">makeFloatBuffer</span><span class="p">(</span><span class="n">vertices</span><span class="p">))</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glEnableClientState</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_VERTEX_ARRAY</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">glVertexPointer</code> の最初のパラメータで 3 と指定しているのは、各座標値が三次元 (x, y, z) のデータであることを示しています。
+<code class="language-plaintext highlighter-rouge">Util.makeFloatBuffer</code> に関しては後述。</p>
+
+<p>さらに、3 つの頂点の色を、それぞれ RGBA で設定します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 3つの頂点の色をセット（RGBA の繰り返し）</span>
+<span class="kd">val</span> <span class="py">colors</span> <span class="p">=</span> <span class="nf">floatArrayOf</span><span class="p">(</span>
+    <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>  <span class="c1">// #FFFF00 - 黄色</span>
+    <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span>  <span class="c1">// #00FFFF - シアン</span>
+    <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span>   <span class="c1">// #FF00FF - マゼンタ</span>
+<span class="p">)</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glColorPointer</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_FLOAT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nc">Util</span><span class="p">.</span><span class="nf">makeFloatBuffer</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glEnableClientState</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_COLOR_ARRAY</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>ここでは 3 点の色を異なる色に設定していますが、すべて同じ色でよければ、下記のように簡単に設定することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 単色でよければ下記のような2行で OK</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glColor4f</span><span class="p">(</span><span class="mf">1.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">,</span> <span class="mf">0f</span><span class="p">)</span>  <span class="c1">// 黄色</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">disableClientState</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_COLOR_ARRAY</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>最後に、設定した座標値などに従ってレンダリングを行って終了です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 描画（三角形の組み合わせで描画）</span>
+<span class="n">gl</span><span class="p">.</span><span class="nf">glDrawArrays</span><span class="p">(</span><span class="nc">GL10</span><span class="p">.</span><span class="nc">GL_TRIANGLE_STRIP</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vertices</span><span class="p">.</span><span class="n">size</span> <span class="p">/</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="floatbuffer-作成用のユーティリティ">FloatBuffer 作成用のユーティリティ</h2>
+
+<p>上記の実装において、<code class="language-plaintext highlighter-rouge">glVertextPointer</code> で頂点座標を指定するときや、<code class="language-plaintext highlighter-rouge">glColorPointer</code> で頂点の色を指定するときに、<code class="language-plaintext highlighter-rouge">Util.makeFloatBuffer</code> という関数を使っていました。
+これは、OpenGL が扱える形式のバッファー (<code class="language-plaintext highlighter-rouge">FloatBuffer</code>) を生成するためのユーティリティ関数です。</p>
+
+<h3 id="utilkt">Util.kt</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.openglsample</span>
+
+<span class="k">import</span> <span class="nn">java.nio.ByteBuffer</span>
+<span class="k">import</span> <span class="nn">java.nio.ByteOrder</span>
+<span class="k">import</span> <span class="nn">java.nio.FloatBuffer</span>
+
+<span class="kd">object</span> <span class="nc">Util</span> <span class="p">{</span>
+    <span class="cm">/** OpenGL 用のバッファを作成します。 */</span>
+    <span class="k">fun</span> <span class="nf">makeFloatBuffer</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="nc">FloatArray</span><span class="p">):</span> <span class="nc">FloatBuffer</span> <span class="p">{</span>
+        <span class="kd">val</span> <span class="py">bb</span> <span class="p">=</span> <span class="nc">ByteBuffer</span><span class="p">.</span><span class="nf">allocateDirect</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">size</span> <span class="p">*</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1">// float は 4 byte</span>
+        <span class="n">bb</span><span class="p">.</span><span class="nf">order</span><span class="p">(</span><span class="nc">ByteOrder</span><span class="p">.</span><span class="nf">nativeOrder</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">bb</span><span class="p">.</span><span class="nf">asFloatBuffer</span><span class="p">().</span><span class="nf">apply</span> <span class="p">{</span>
+            <span class="nf">put</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+            <span class="nf">position</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>OpenGL でポリゴンを描画するには、座標値や色情報を OpenGL に転送してやる必要があるのですが、このとき渡すデータは Java VM 上に確保された float 配列ではダメで、OpenGL 用に作成したバッファー（ここでは <code class="language-plaintext highlighter-rouge">FloatBuffer</code>）でなければいけません。
+上記の <code class="language-plaintext highlighter-rouge">makeFloatBuffer</code> 関数は、Java の float 配列を受け取り、OpenGL 用の <code class="language-plaintext highlighter-rouge">FloatBuffer</code> を生成して返します。</p>
+
+<h2 id="全ソースコード">全ソースコード</h2>
+
+<p>上記のソースコードは下記からダウンロードできます。</p>
+
+<ul>
+  <li><a href="https://github.com/maku77/AndroidOpenGlSample">https://github.com/maku77/AndroidOpenGlSample</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Kotlin で OpenGL ES を使って 3D 表示するアプリを作る&url=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/opengl.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-08-02</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

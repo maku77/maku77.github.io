@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Hugo で多くのコンテンツを作成する場合、記事の種類ごとにセクション（ディレクトリ）に分けて管理することになります。このような場合、各ページのタイトルに対して、セクションのタイトルを自動で付加できれば、ページタイトルの管理が楽になります。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/hugo/layout/section-prefix.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-hugo.png" />
+
+  <meta property="og:description" content="Hugo で多くのコンテンツを作成する場合、記事の種類ごとにセクション（ディレクトリ）に分けて管理することになります。このような場合、各ページのタイトルに対して、セクションのタイトルを自動で付加できれば、ページタイトルの管理が楽になります。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ページタイトルに自動でセクションプレフィックスを付ける | まくまくHugoノート" />
+  <title>ページタイトルに自動でセクションプレフィックスを付ける - まくまくHugoノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/hugo/">
+    <img src="/assets/img/logo-hugo.png" class="xPageHeader_logo">
+  </a>
+  <a href="/hugo/">
+    <div class="xPageHeader_category">
+    まくまくHugoノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ページタイトルに自動でセクションプレフィックスを付ける</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2019-05-17</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/hugo/layout/section-prefix.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： ページタイトルに自動でセクションプレフィックスを付ける&url=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Hugo で多くのコンテンツを作成する場合、記事の種類ごとにセクション（ディレクトリ）に分けて管理することになります。このような場合、各ページのタイトルに対して、セクションのタイトルを自動で付加できれば、ページタイトルの管理が楽になります。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="何をやりたいか">何をやりたいか？</h2>
+
+<p>例えば、次のようなセクション構造で記事を管理しているとします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>contents/
+  +-- _index.md (home page)
+  +-- section1/
+  |    +-- _index.md (section page)
+  |    +-- page1.md  (single page)
+  |    +-- page2.md  (single page)
+  |    +-- page3.md  (single page)
+  +-- section2/
+       +-- _index.md (section page)
+       +-- ...
+</code></pre></div></div>
+
+<p>各ディレクトリにある <code class="language-plaintext highlighter-rouge">_index.md</code> は、セクションページのコンテンツファイルとして使用されます。
+このファイルのフロントマターには、下記のようにセクションのタイトルを記述することができます。</p>
+
+<h4 id="contentssection1_indexmd">contents/section1/_index.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "セクション1"
+date: "2019-05-17"
+---
+
+セクションページの本文…
+</code></pre></div></div>
+
+<p>このセクションタイトルは、セクションページ（このケースでは <code class="language-plaintext highlighter-rouge">https://example.com/section1/</code>）にアクセスしたときに使用されるものですが、同じセクションに所属する記事ページのタイトルのプレフィックスにも自動で付加できると便利です。</p>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">section1</code> に所属する記事ページとして下記のようなコンテンツがあるとします。</p>
+
+<h4 id="contentssection1pagemd">contents/section1/page.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "タイトル1"
+date: "2019-05-17"
+---
+
+ページの本文…
+</code></pre></div></div>
+
+<p>このように記述されているときに、表示するタイトルを <code class="language-plaintext highlighter-rouge">タイトル1</code> ではなく、<strong><code class="language-plaintext highlighter-rouge">セクション1: タイトル1</code></strong> のようにしたいということです。
+このように、セクションタイトルを付加することで、あるページを単独で表示したときに、どのような種類の記事なのかが分かりやすくなります。</p>
+
+<h2 id="セクションプレフィックスの実装">セクションプレフィックスの実装</h2>
+
+<p>ここでは、シングルページテンプレートで、セクションプレフィックスの仕組みを実現する方法を示します。
+下記の例では、構築したページタイトルを <code class="language-plaintext highlighter-rouge">$pageTitle</code> という変数に格納しています。</p>
+
+<h4 id="layouts_defaultssinglehtml-抜粋">layouts/_defaults/single.html （抜粋）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ $pageTitle := cond (eq .CurrentSection.Section "") (.Title) (printf "%s: %s" .CurrentSection.Title .Title) }}
+
+&lt;h1&gt;{{ $pageTitle }}&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>コンテンツのルートディレクトリ (<code class="language-plaintext highlighter-rouge">contents/</code>) に配置したページにアクセスしたときは、<code class="language-plaintext highlighter-rouge">.CurrentSection.Section</code> の値が空になることを利用して、ページのタイトルをそのまま表示するようにしています。</p>
+
+<p>上記では、<code class="language-plaintext highlighter-rouge">h1</code> 要素で表示上のページタイトルを設定していますが、<code class="language-plaintext highlighter-rouge">head</code> 要素下の <code class="language-plaintext highlighter-rouge">title</code> 要素にも同様に設定するようにしてください。
+Google などの検索エンジンは、<code class="language-plaintext highlighter-rouge">title</code> 要素に指定したページタイトルを表示します。</p>
+
+<h2 id="応用セクションプレフィックス用のプロパティを用意する">（応用）セクションプレフィックス用のプロパティを用意する</h2>
+
+<p>上記の例では、セクションプレフィックスとして、自分が所属するセクションのセクションページに設定された <code class="language-plaintext highlighter-rouge">title</code> プロパティの値を使用していました。
+ここでは、セクションプレフィックス用に、独自のプロパティ <strong><code class="language-plaintext highlighter-rouge">sectionPrefix</code></strong> を参照するようにしてみます。</p>
+
+<p>このようなケースでは、Hugo の <a href="https://gohugo.io/content-management/front-matter/#front-matter-cascade">Front Matter Cascade</a> という機能を使用すると便利です。
+例えば、セクションページのフロントマターが下記のようになっているとすると、</p>
+
+<h4 id="contentssection1_indexmd-1">contents/section1/_index.md</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: "セクションタイトル1"
+cascade:
+  sectionPrefix: "セクション1"
+---
+</code></pre></div></div>
+
+<p>そのセクションの記事内では、<code class="language-plaintext highlighter-rouge">.Params.sectionPrefix</code> 変数で <code class="language-plaintext highlighter-rouge">セクション1</code> という値を参照できるようになります。</p>
+
+<p>下記はテンプレートの実装例です。</p>
+
+<h4 id="テンプレート抜粋">テンプレート抜粋</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ if ne .Kind "section" }}
+  {{ with .Params.sectionPrefix }}
+    {{ $.Scratch.Set "title" (printf "%s: " .) }}
+  {{ end }}
+{{ end }}
+{{ $.Scratch.Add "title" .Title }}
+{{ $pageTitle := $.Scratch.Get "title" }}
+
+&lt;h1&gt;{{ $pageTitle }}&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>現在のページがセクションページでなければ、<code class="language-plaintext highlighter-rouge">sectionPrefix</code> プロパティの値をタイトルの前に連結する、という処理になっています。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： ページタイトルに自動でセクションプレフィックスを付ける&url=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/layout/section-prefix.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/hugo/"><span class="xArticle_up_label">まくまくHugoノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li class="xNav-focused"><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2019-05-17</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

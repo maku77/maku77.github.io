@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのSassノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sass/color.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-sass.png" />
+
+  <meta property="og:description" content="天才星人まくのSassノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="色（カラー値）を扱う関数 | まくまくSassノート" />
+  <title>色（カラー値）を扱う関数 - まくまくSassノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sass/">
+    <img src="/assets/img/logo-sass.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/sass/">
+    <div class="xPageHeader_category">
+    まくまくSassノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">色（カラー値）を扱う関数</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-30</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sass/color.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： 色（カラー値）を扱う関数&url=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="color-型変数の定義方法">Color 型変数の定義方法</h2>
+
+<p>CSS では下記のような色の指定方法があります。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>                      <span class="c1">// 定数名で指定</span>
+<span class="nl">color</span><span class="p">:</span> <span class="mh">#ff0000</span><span class="p">;</span>                  <span class="c1">// 16進数で指定</span>
+<span class="nl">color</span><span class="p">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="p">);</span>           <span class="c1">// 10進数で指定</span>
+<span class="nl">color</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">255</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="mi">.3</span><span class="p">);</span>     <span class="c1">// 10進数で指定（α値あり）</span>
+<span class="nl">color</span><span class="p">:</span> <span class="nf">hsl</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">100%</span><span class="o">,</span> <span class="m">50%</span><span class="p">);</span>        <span class="c1">// HSL指定</span>
+<span class="nl">color</span><span class="p">:</span> <span class="nf">hsla</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">100%</span><span class="o">,</span> <span class="m">50%</span><span class="o">,</span> <span class="m">0</span><span class="mi">.3</span><span class="p">);</span>  <span class="c1">// HSL指定（α値あり）</span>
+</code></pre></div></div>
+
+<p>CSS の <code class="language-plaintext highlighter-rouge">rgba</code> 関数は、上記のように4つのパラメータをとりますが、Sass の <code class="language-plaintext highlighter-rouge">rgba</code> 関数はより柔軟なパラメータ指定が可能になっています。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">color</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="no">red</span><span class="o">,</span> <span class="m">0</span><span class="mi">.3</span><span class="p">);</span>       <span class="c1">// 定数名 + α値</span>
+<span class="nl">color</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="mh">#ff0000</span><span class="o">,</span> <span class="m">0</span><span class="mi">.3</span><span class="p">);</span>   <span class="c1">// 16進数 + α値</span>
+</code></pre></div></div>
+
+<p>また、Sass では名前付きパラメータを使って値を指定できるので、各パラメータの意味を明確にすることができます。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">color</span><span class="p">:</span> <span class="nf">hsl</span><span class="p">(</span><span class="nv">$hue</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span> <span class="nv">$saturation</span><span class="o">:</span> <span class="m">100%</span><span class="o">,</span> <span class="nv">$lightness</span><span class="o">:</span> <span class="m">50%</span><span class="p">);</span>  <span class="c1">// 赤になる</span>
+</code></pre></div></div>
+
+<h2 id="色を調整するための関数">色を調整するための関数</h2>
+
+<h3 id="明度を調整する-lighten--darken">明度を調整する lighten() / darken()</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">lighten</code></strong> 関数、<strong><code class="language-plaintext highlighter-rouge">darken</code></strong> 関数を使用すると、ある色をパーセンテージ指定で明るくしたり暗くしたりすることができます。</p>
+
+<table>
+  <tr>
+    <th>SCSS コード内での記述</th><th>変換後</th>
+  </tr>
+  <tr>
+    <td><code>background: lighten(red, 30%);</code></td>
+    <td style="background:#ff9999;width:40px;color:white;">#ff9999</td>
+  </tr>
+  <tr>
+    <td><code>background: lighten(red, 20%);</code></td>
+    <td style="background:#ff6666;width:40px;color:white;">#ff6666</td>
+  </tr>
+  <tr>
+    <td><code>background: lighten(red, 10%);</code></td>
+    <td style="background:#ff3333;width:40px;color:white;">#ff3333</td>
+  </tr>
+  <tr>
+    <td><code>background: red;</code></td>
+    <td style="background:#ff0000;width:40px;color:white;">#ff0000</td>
+  </tr>
+  <tr>
+    <td><code>background: darken(red, 10%);</code></td>
+    <td style="background:#cc0000;width:40px;color:white;">#cc0000</td>
+  </tr>
+  <tr>
+    <td><code>background: darken(red, 20%);</code></td>
+    <td style="background:#990000;width:40px;color:white;">#990000</td>
+  </tr>
+  <tr>
+    <td><code>background: darken(red, 30%);</code></td>
+    <td style="background:#660000;width:40px;color:white">#660000</td>
+  </tr>
+</table>
+
+<h3 id="彩度を調整する-saturate--desaturate">彩度を調整する saturate() / desaturate()</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">saturate</code></strong> 関数、<strong><code class="language-plaintext highlighter-rouge">desaturate</code></strong> 関数を使用すると、ある色の彩度をパーセンテージ指定で上げたり下げたりすることができます。</p>
+
+<table>
+  <tr>
+    <th>SCSS コード内での記述</th><th>変換後</th>
+  </tr>
+  <tr>
+    <td><code>background: saturate(royalblue, 30%);</code></td>
+    <td style="background:#235aff;width:40px;color:white;">#235aff</td>
+  </tr>
+  <tr>
+    <td><code>background: saturate(royalblue, 20%);</code></td>
+    <td style="background:#2b5ef7;width:40px;color:white;">#2b5ef7</td>
+  </tr>
+  <tr>
+    <td><code>background: saturate(royalblue, 10%);</code></td>
+    <td style="background:#3664ec;width:40px;color:white;">#3664ec</td>
+  </tr>
+  <tr>
+    <td><code>background: royalblue;</code></td>
+    <td style="background:#4169e1;width:40px;color:white;">#4169e1</td>
+  </tr>
+  <tr>
+    <td><code>background: desaturate(royalblue, 10%);</code></td>
+    <td style="background:#4c6fd6;width:40px;color:white;">#4c6fd6</td>
+  </tr>
+  <tr>
+    <td><code>background: desaturate(royalblue, 20%);</code></td>
+    <td style="background:#5774cb;width:40px;color:white;">#5774cb</td>
+  </tr>
+  <tr>
+    <td><code>background: desaturate(royalblue, 30%);</code></td>
+    <td style="background:#627ac0;width:40px;color:white;">#627ac0</td>
+  </tr>
+</table>
+
+<h3 id="2つの色の中間色を作成する-mix">2つの色の中間色を作成する mix()</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">mix</code></strong> 関数を使用すると、指定した2色の中間色を作成することができます。
+第3引数（<code class="language-plaintext highlighter-rouge">$weight</code> パラメータ）を使って、1色目の比率を指定することもできます（デフォルトは 50%）。</p>
+
+<table>
+  <tr>
+    <th>SCSS コード内での記述</th><th>変換後</th>
+  </tr>
+  <tr>
+    <td><code>background: mix(white, black);</code></td>
+    <td style="background:gray;width:40px;color:white;">gray</td>
+  </tr>
+  <tr>
+    <td><code>background: mix(green, yellow);</code></td>
+    <td style="background:#80c000;width:40px;color:white;">#80c000</td>
+  </tr>
+  <tr>
+    <td><code>background: mix(white, black, 75%);</code></td>
+    <td style="background:#bfbfbf;width:40px;color:white;">#bfbfbf</td>
+  </tr>
+  <tr>
+    <td><code>background: mix(white, black, 25%);</code></td>
+    <td style="background:#404040;width:40px;color:white;">#404040</td>
+  </tr>
+</table>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： 色（カラー値）を扱う関数&url=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/color.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sass/"><span class="xArticle_up_label">まくまくSassノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li class="xNav-focused"><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-30</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

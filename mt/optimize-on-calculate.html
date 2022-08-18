@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+    <link rel="canonical" href="https://memoja.net/p/5q5gs5g">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://memoja.net/p/5q5gs5g">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Meta Trader ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/mt/optimize-on-calculate.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-metatrader.png" />
+
+  <meta property="og:description" content="天才星人まくの Meta Trader ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="カスタムインジケータの OnCalculate 関数を最適化する | まくまくMeta Traderノート" />
+  <title>カスタムインジケータの OnCalculate 関数を最適化する - まくまくMeta Traderノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/mt/">
+    <img src="/assets/img/logo-metatrader.png" class="xPageHeader_logo">
+  </a>
+  <a href="/mt/">
+    <div class="xPageHeader_category">
+    まくまくMeta Traderノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">カスタムインジケータの OnCalculate 関数を最適化する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/mt/">Meta Trader</a></div>
+  <div class="xPageDate">2015-02-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/mt/optimize-on-calculate.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくMeta Traderノート： カスタムインジケータの OnCalculate 関数を最適化する&url=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://memoja.net/p/5q5gs5g">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>カスタムインジケータの計算部分を担う <code class="language-plaintext highlighter-rouge">OnCalculate</code> は、価格の変化 (Tick) ごとに呼び出されますが、<code class="language-plaintext highlighter-rouge">prev_calculated</code> パラメータの値をうまく使うことで、すでに計算済みの値を再計算しないでも済むように処理を最適化ことができます。
+下記の <code class="language-plaintext highlighter-rouge">OnCalculate()</code> は、インジケータバッファ (<code class="language-plaintext highlighter-rouge">gBuffer</code>) に、各ローソク足の終値をセットしています。</p>
+
+<pre><code class="language-mql">// double gBuffer[];  // Buffer for indicator line
+
+/**
+ * How many candles should be re-calculated.
+ */
+int changedBars(int rates_total, int prev_calculated) {
+    if (prev_calculated == 0) {
+        return rates_total;
+    }
+    // The latest bar should be updated, so add 1.
+    return rates_total - prev_calculated + 1;
+}
+
+int OnCalculate(const int rates_total,
+                const int prev_calculated,
+                const datetime &amp;time[],
+                const double &amp;open[],
+                const double &amp;high[],
+                const double &amp;low[],
+                const double &amp;close[],
+                const long &amp;tick_volume[],
+                const long &amp;volume[],
+                const int &amp;spread[]) {
+    // 直近から見て何本のローソク足に対して計算が必要か？
+    int changed = changedBars(rates_total, prev_calculated);
+
+    // インジケータの計算（新しく計算した部分だけ更新すれば OK）
+    for (int i = 0; i &lt; changed; ++i) {
+        gBuffer[i] = close[i];
+    }
+
+    // 計算済みローソク足の数を返す
+    return rates_total;
+}
+</code></pre>
+
+<p>パラメータで渡される <code class="language-plaintext highlighter-rouge">prev_calculated</code> の値には、前回の <code class="language-plaintext highlighter-rouge">OnCalculate</code> 関数の戻り値として返した値が入ってきます。
+つまり、<code class="language-plaintext highlighter-rouge">OnCalculate</code> 関数の戻り値として、いくつのローソク足の計算を終えたか (= <code class="language-plaintext highlighter-rouge">rates_total</code>) を返しておくことで、次回の <code class="language-plaintext highlighter-rouge">OnCalculate</code> 関数のパラメータ <code class="language-plaintext highlighter-rouge">prev_calculated</code> でその値を受け取ることができるということです。</p>
+
+<p><code class="language-plaintext highlighter-rouge">OnCalculate</code> 関数が呼び出された時、<code class="language-plaintext highlighter-rouge">gBuffer</code> 配列には、すでに <code class="language-plaintext highlighter-rouge">prev_calculated</code> の数だけ計算結果が格納されています。
+例えば、現在のローソク足の数が 5 本 (<code class="language-plaintext highlighter-rouge">rates_total=5</code>) で、前回の計算数が 4 本 (<code class="language-plaintext highlighter-rouge">prev_calculated=4</code>) である場合、<code class="language-plaintext highlighter-rouge">gBuffer</code> の構成は下記のようになります。</p>
+
+<pre><code class="language-mql">gBuffer[0] = 計算が必要（最新の価格）
+gBuffer[1] = 計算済み
+gBuffer[2] = 計算済み
+gBuffer[3] = 計算済み
+gBuffer[4] = 計算済み
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">gBuffer</code> の要素が 1 つシフトしていることに注意してください。前回の <code class="language-plaintext highlighter-rouge">OnCalculate()</code> で計算した <code class="language-plaintext highlighter-rouge">gBuffer[0]</code>〜<code class="language-plaintext highlighter-rouge">gBuffer[3]</code> の値は、今回の呼び出し時点では <code class="language-plaintext highlighter-rouge">gBuffer[1]</code>〜<code class="language-plaintext highlighter-rouge">gBuffer[4]</code> の位置に保持されています。常にインデックス 0 が最新の要素になるということです。
+通常の配列は勝手に値がシフトしていくことはありませんが、<code class="language-plaintext highlighter-rouge">gBuffer</code> は、<code class="language-plaintext highlighter-rouge">OnInit</code> 関数の中で <code class="language-plaintext highlighter-rouge">SetIndexBuffer</code> を使ってデータバッファとして設定したため、このような動作をすることになります。</p>
+
+<p><code class="language-plaintext highlighter-rouge">rates_total</code> にはローソク足の総数、<code class="language-plaintext highlighter-rouge">prev_calculated</code> には計算済みの数が入っているので、新たに計算すべきローソク足の本数は下記のように計算することができます。</p>
+
+<pre><code class="language-mql">// 直近から見て何本のローソク足に対して計算が必要か？
+int changed = (prev_calculated == 0) ?
+    rates_total : rates_total - prev_calculated + 1;
+</code></pre>
+
+<p>例えば、新しく計算しなければならない足の本数が 10 本ならば、<code class="language-plaintext highlighter-rouge">changed</code> が 10 になります。
+最初はひとつも計算していない状態 (<code class="language-plaintext highlighter-rouge">prev_calculated == 0</code>) なので、ローソク足の総数 (<code class="language-plaintext highlighter-rouge">rates_total</code>) の分すべて計算する必要があります。
+2 回目以降の計算では、すでに前回の計算結果が保持されている (<code class="language-plaintext highlighter-rouge">prev_calculated != 0</code>) なので、その分だけ計算すべきローソク足の数は減ります。
+ここで、1 を足しているのは、最新のローソク足の分を常に再計算するためです。
+なぜなら、<code class="language-plaintext highlighter-rouge">OnCalculate</code> 関数はティック（価格変化）ごとに呼び出されるので、多くの場合最新のローソク足の終値が更新されているからです。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくMeta Traderノート： カスタムインジケータの OnCalculate 関数を最適化する&url=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/mt/optimize-on-calculate.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/mt/"><span class="xArticle_up_label">まくまくMeta Traderノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li class="xNav-focused"><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/mt/">Meta Trader</a></div>
+  <div class="xPageDate">2015-02-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

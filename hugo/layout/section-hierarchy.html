@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Hugo のテンプレートファイル内から参照できる .Parent や .Sections といった Page 変数を参照すると、親セクションの情報や、子セクションの情報を取得することができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/hugo/layout/section-hierarchy.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-hugo.png" />
+
+  <meta property="og:description" content="Hugo のテンプレートファイル内から参照できる .Parent や .Sections といった Page 変数を参照すると、親セクションの情報や、子セクションの情報を取得することができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections) | まくまくHugoノート" />
+  <title>セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections) - まくまくHugoノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/hugo/">
+    <img src="/assets/img/logo-hugo.png" class="xPageHeader_logo">
+  </a>
+  <a href="/hugo/">
+    <div class="xPageHeader_category">
+    まくまくHugoノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2017-12-05</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/hugo/layout/section-hierarchy.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)&url=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Hugo のテンプレートファイル内から参照できる .Parent や .Sections といった Page 変数を参照すると、親セクションの情報や、子セクションの情報を取得することができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>セクション系の情報を取得するための <a href="https://gohugo.io/variables/page/">Page 変数</a> には下記のようなものがあります。</p>
+
+<dl>
+  <dt>.CurrentSection</dt>
+  <dd>自分自身が所属するセクションの情報。自分自身がセクションページであったり、ホームページである場合は、自分自身のページの情報。型は Page オブジェクト。通常の記事ページ、ホームページ、セクションページ以外では <code class="language-plaintext highlighter-rouge">nil</code> になります（つまり、タクソノミーリストのページでは <code class="language-plaintext highlighter-rouge">nil</code> になる）。</dd>
+  <dt>.Parent</dt>
+  <dd>自分自身がセクションページの場合、親セクションの情報。自分自身が通常ページの場合、自分が所属するセクションの情報。型は Page オブジェクト。</dd>
+  <dt>.Sections</dt>
+  <dd>自分自身のセクションが含む子セクションの配列（ホームページテンプレート、あるいは、セクションテンプレートのみで意味を持つ）。型は Page オブジェクトの配列。</dd>
+</dl>
+
+<p>レイアウトファイル内で、これらのセクション情報を参照することで、階層構造に応じたナビゲーション用リンクを自動で生成したりすることができるようになります。
+ここでは、下記のような階層構造のコンテンツを用意して、それぞれのページで参照できるセクション情報がどのように変化するかを見てみましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>contents/
+  +-- _index.md (home page)
+  +-- dir1/
+  |    +-- _index.md (section page)
+  |    +-- page.md   (single page)
+  |    +-- dir1-1/
+  |    |    +-- _index.md (section page)
+  |    |    +-- page.md   (single page)
+  |    +-- dir1-2/
+  |         +-- _index.md (section page)
+  |         +-- page.md   (single page)
+  +-- dir2/
+  |    +-- _index.md (section page)
+  +-- dir3/
+       +-- _index.md (section page)
+</code></pre></div></div>
+
+<h2 id="currentsection自分が所属するセクション">.CurrentSection（自分が所属するセクション）</h2>
+
+<p>テンプレートファイル内で <code class="language-plaintext highlighter-rouge">.CurrentSection</code> を参照すると、自分自身のページが所属するセクション (同一階層の <code class="language-plaintext highlighter-rouge">_index.md</code>）の Page オブジェクトを取得することができます。
+テンプレートファイル（レイアウトファイル）内で、<code class="language-plaintext highlighter-rouge">.CurrentSection</code> の値を出力して、どのような値が格納されているかを調べてみましょう。
+ここでは、次のような３種類のテンプレートファイルを用意することにします。</p>
+
+<ul>
+  <li>Home page template: <code class="language-plaintext highlighter-rouge">layouts/index.html</code></li>
+  <li>Section page template: <code class="language-plaintext highlighter-rouge">layouts/_default/section.html</code></li>
+  <li>Single page template: <code class="language-plaintext highlighter-rouge">layouts/_default/single.html</code></li>
+</ul>
+
+<h4 id="テンプレートファイルの記述共通">テンプレートファイルの記述（共通）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;pre&gt;
+{{ with .CurrentSection }}
+  .CurrentSection = {{ . }}
+  .CurrentSection.File.Path = {{ .File.Path }}
+  .CurrentSection.Title = {{ .Title }}
+  .CurrentSection.Kind = {{ .Kind }}
+  .CurrentSection.Section = {{ .Section }}
+{{ end }}
+&lt;/pre&gt;
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">.CurrentSections</code> は通常ページ、ホームページ、セクションページ以外のテンプレートから参照すると <code class="language-plaintext highlighter-rouge">nil</code> になります。
+つまり、<code class="language-plaintext highlighter-rouge">layout/_default/taxonomy.html</code> の中で参照すると必ず <code class="language-plaintext highlighter-rouge">nil</code> になるので、タクソノミーリストテンプレートの中では参照してはいけません。
+また、<code class="language-plaintext highlighter-rouge">layouts/_default/list.html</code> の中で参照した場合は、それがタクソノミーリストテンプレートとして使用されたときに <code class="language-plaintext highlighter-rouge">.CurrentSections</code> は <code class="language-plaintext highlighter-rouge">nil</code> になります。
+<code class="language-plaintext highlighter-rouge">layouts/_default/list.html</code> の中で <code class="language-plaintext highlighter-rouge">.CurrentSection</code> の値を使用するときは、上記のように <code class="language-plaintext highlighter-rouge">with</code> ブロックや <code class="language-plaintext highlighter-rouge">if</code> ブロックで <code class="language-plaintext highlighter-rouge">nil</code> チェックしてから参照するようにしましょう。</p>
+
+<ul>
+  <li><a href="https://github.com/gohugoio/hugo/blob/master/hugolib/site_sections.go#L47">参考: hugo/site_sections.go at master · gohugoio/hugo · GitHub</a></li>
+</ul>
+
+<blockquote>
+  <p>CurrentSection returns the page’s current section or the page itself if home or a section.
+Note that this will return nil for pages that is not regular, home or section pages.</p>
+</blockquote>
+
+<h3 id="ホームページ-indexhtml-にアクセスしたとき">ホームページ (/index.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/index.html)")
+.CurrentSection.File.Path = _index.md
+.CurrentSection.Title = タイトル (/index.html)
+.CurrentSection.Kind = home
+.CurrentSection.Section =
+</code></pre></div></div>
+
+<p>ホームページ (<code class="language-plaintext highlighter-rouge">/index.md</code>) にアクセスしたときの <code class="language-plaintext highlighter-rouge">.CurrentSection</code> 変数の値は、自分自身のページ（ホームページ）を表す Page オブジェクトになります。
+つまり、ホームページテンプレート (<code class="language-plaintext highlighter-rouge">/layouts/index.html</code>) の中では、<code class="language-plaintext highlighter-rouge">.CurrenctSection.Title</code> と <code class="language-plaintext highlighter-rouge">.Title</code> の値は同じになります。
+ホームページはルート階層のコンテンツなので、どのセクションにも存在しておらず、セクション名 (<code class="language-plaintext highlighter-rouge">.Section</code>) は空っぽになっています。</p>
+
+<div class="note">
+<code>.Section</code> は <code>.CurrentSection</code> と混同しがちですが、まったく違うものであることに注意してください。
+<code>.Section</code> は自分自身のページが配置されている一階層目のディレクトリ名（String 型）を表し、<code>.CurrentSection</code> は自分自身のページが所属するセクション（同一階層の <code>_index.md</code>）の Page オブジェクトを表しています。
+</div>
+
+<h3 id="ルート階層の通常ページ-pagehtml-にアクセスしたとき">ルート階層の通常ページ (/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/index.html)")
+.CurrentSection.File.Path = _index.md
+.CurrentSection.Title = タイトル (/index.html)
+.CurrentSection.Kind = home
+.CurrentSection.Section =
+</code></pre></div></div>
+
+<p>ルート階層に置いた通常ページ（シングルページ）にアクセスしたときの <code class="language-plaintext highlighter-rouge">.CurrentSection</code> 変数の値は、ホームページ（ルート階層の <code class="language-plaintext highlighter-rouge">_index.md</code>）の Page オブジェクトになります。
+上記の出力結果を見ると、ホームページ (<code class="language-plaintext highlighter-rouge">/index.html</code>) にアクセスしたときと同じ結果になっていることが分かります。</p>
+
+<h3 id="１階層目のセクションページ-dir1indexhtml-にアクセスしたとき">１階層目のセクションページ (/dir1/index.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/dir1/index.html)")
+.CurrentSection.File.Path = dir1/_index.md
+.CurrentSection.Title = タイトル (/dir1/index.html)
+.CurrentSection.Kind = section
+.CurrentSection.Section = dir1
+</code></pre></div></div>
+
+<p>セクションページ（ディレクトリ内の <code class="language-plaintext highlighter-rouge">_index.md</code>）にアクセスしたときの <code class="language-plaintext highlighter-rouge">CurrentSection</code> 変数の値は、自分自身のページ（セクション）を表す Page オブジェクトになります。
+つまり、セクションページテンプレート (<code class="language-plaintext highlighter-rouge">/layouts/_default/section.html</code>) の中では、<code class="language-plaintext highlighter-rouge">.CurrentSection.Title</code> と <code class="language-plaintext highlighter-rouge">.Title</code> の値は同じになります。</p>
+
+<h3 id="１階層目のセクションに所属する通常ページ-dir1pagehtml-にアクセスしたとき">１階層目のセクションに所属する通常ページ (/dir1/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/dir1/index.html)")
+.CurrentSection.File.Path = dir1/_index.md
+.CurrentSection.Title = タイトル (/dir1/index.html)
+.CurrentSection.Kind = section
+.CurrentSection.Section = dir1
+</code></pre></div></div>
+
+<p>あるセクションに所属する通常ページ（シングルページ）にアクセスしたときの <code class="language-plaintext highlighter-rouge">CurrentSection</code> 変数の値は、同じ階層の <code class="language-plaintext highlighter-rouge">_index.md</code>（つまり、所属するセクションのセクションページ）を表す Page オブジェクトになります。</p>
+
+<h3 id="２階層目のセクションページ-dir1dir1-1indexhtml-にアクセスしたとき">２階層目のセクションページ (/dir1/dir1-1/index.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/dir1/dir1-1/index.html)")
+.CurrentSection.File.Path = dir1/dir1-1/_index.md
+.CurrentSection.Title = タイトル (/dir1/dir1-1/index.html)
+.CurrentSection.Kind = section
+.CurrentSection.Section = dir1
+</code></pre></div></div>
+
+<p>２階層目のセクションページにアクセスしたときの <code class="language-plaintext highlighter-rouge">CurrentSection</code> 変数の値も同様に、自分自身のページ（２階層目のセクション）を表す Page オブジェクトになります。
+深い階層のセクションであっても、<code class="language-plaintext highlighter-rouge">.Section</code> 変数の値は、１階層目のディレクトリ名になることに注意してください。</p>
+
+<h3 id="２階層目のセクションに所属する通常ページ-dir1dir1-1pagehtml-にアクセスしたとき">２階層目のセクションに所属する通常ページ (/dir1/dir1-1/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.CurrentSection = Page("タイトル (/dir1/dir1-1/index.html)")
+.CurrentSection.File.Path = dir1/dir1-1/_index.md
+.CurrentSection.Title = タイトル (/dir1/dir1-1/index.html)
+.CurrentSection.Kind = section
+.CurrentSection.Section = dir1
+</code></pre></div></div>
+
+<p>２階層目のセクションに所属する通常ページ（シングルページ）にアクセスした場合も、これまでと同じ考え方ですね。
+<code class="language-plaintext highlighter-rouge">.CurrentSection</code> の値は、同じ階層にある <code class="language-plaintext highlighter-rouge">_index.md</code> から生成されるセクションページの Page オブジェクトになります。</p>
+
+<h2 id="parent親セクション">.Parent（親セクション）</h2>
+
+<p>テンプレートファイル（レイアウトファイル）内から、<code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、親セクションのセクションページを表す Page オブジェクトを取得することができます。
+親セクションというのは、自分自身がセクションページの場合は１階層上のセクションページ、自分自身が通常ページ（シングルページ）の場合は同一階層のセクションページを表します。
+各種テンプレートの内容を次のように変更して、それぞれのページにアクセスしたときにどのような値が表示されるかを確認してみましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;pre&gt;
+{{ with .Parent }}
+  .Parent = {{ . }}
+  .Parent.File.Path = {{ .File.Path }}
+  .Parent.Title = {{ .Title }}
+  .Parent.Kind = {{ .Kind }}
+  .Parent.Section = {{ .Section }}
+{{ end }}
+&lt;/pre&gt;
+</code></pre></div></div>
+
+<h3 id="ホームページ-indexhtml-にアクセスしたとき-1">ホームページ (/index.html) にアクセスしたとき</h3>
+
+<p>ホームページは、最上位のセクションを表すページであるため、ホームページテンプレートからは親セクションを取得することはできません。
+<code class="language-plaintext highlighter-rouge">.Parent</code> を参照したときの値は <code class="language-plaintext highlighter-rouge">nil</code> になるため、上記テンプレートでは何も表示されません。</p>
+
+<div class="note">
+正確には、ホームページはセクションページには分類されませんが、<code>.Parent</code> で参照する親セクションを考えるときには、通常のセクションと同様に考えたほうが分かりやすいです。
+</div>
+
+<h3 id="ルート階層の通常ページ-pagehtml-にアクセスしたとき-1">ルート階層の通常ページ (/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Parent = Page("タイトル (/index.html)")
+.Parent.File.Path = _index.md
+.Parent.Title = タイトル (/index.html)
+.Parent.Kind = home
+.Parent.Section =
+</code></pre></div></div>
+
+<p>ルート階層に配置された通常ページのテンプレート（シングルページテンプレート）から <code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、ホームページを表す Page オブジェクトを取得することができます。</p>
+
+<h3 id="１階層目のセクションページ-dir1indexhtml-にアクセスしたとき-1">１階層目のセクションページ (/dir1/index.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Parent = Page("タイトル (/index.html)")
+.Parent.File.Path = _index.md
+.Parent.Title = タイトル (/index.html)
+.Parent.Kind = home
+.Parent.Section =
+</code></pre></div></div>
+
+<p>１階層目のセクションのセクションページから <code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、ホームページを表す Page オブジェクトを取得できます。</p>
+
+<h3 id="１階層目のセクションに所属する通常ページ-dir1pagehtml-にアクセスしたとき-1">１階層目のセクションに所属する通常ページ (/dir1/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Parent = Page("タイトル (/dir1/index.html)")
+.Parent.File.Path = dir1/_index.md
+.Parent.Title = タイトル (/dir1/index.html)
+.Parent.Kind = section
+.Parent.Section = dir1
+</code></pre></div></div>
+
+<p>１階層目のセクションに属する通常ページのテンプレート（シングルページテンプレート）から <code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、そのページが所属するセクションのセクションページを表す Page オブジェクトを取得することができます。</p>
+
+<h3 id="２階層目のセクションページ-dir1dir1-1indexhtml-にアクセスしたとき-1">２階層目のセクションページ (/dir1/dir1-1/index.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Parent = Page("タイトル (/dir1/index.html)")
+.Parent.File.Path = dir1/_index.md
+.Parent.Title = タイトル (/dir1/index.html)
+.Parent.Kind = section
+.Parent.Section = dir1
+</code></pre></div></div>
+
+<p>２階層目のセクションのセクションページから <code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、１階層上のセクションのセクションページを表す Page オブジェクトを取得することができます。</p>
+
+<h3 id="２階層目のセクションに所属する通常ページ-dir1dir1-1pagehtml-にアクセスしたとき-1">２階層目のセクションに所属する通常ページ (/dir1/dir1-1/page.html) にアクセスしたとき</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Parent = Page("タイトル (/dir1/dir1-1/index.html)")
+.Parent.File.Path = dir1/dir1-1/_index.md
+.Parent.Title = タイトル (/dir1/dir1-1/index.html)
+.Parent.Kind = section
+.Parent.Section = dir1
+</code></pre></div></div>
+
+<p>２階層目のセクションに属する通常ページのテンプレート（シングルページテンプレート）から <code class="language-plaintext highlighter-rouge">.Parent</code> を参照すると、自分自身が所属するセクション（２階層目のセクション）のセクションページを表す Page オブジェクトを取得することができます。</p>
+
+<h2 id="sections子セクションの配列">.Sections（子セクションの配列）</h2>
+
+<p>テンプレートファイル（レイアウトファイル）の中から、<code class="language-plaintext highlighter-rouge">.Sections</code> を参照すると、そのセクションの下位セクション（子セクション）の配列を取得することができます。
+<code class="language-plaintext highlighter-rouge">.Sections</code> に子セクションの値が格納されるのは、ホームページテンプレート、あるいは、セクションテンプレートから参照したときです（シングルページテンプレートから <code class="language-plaintext highlighter-rouge">.Sections</code> を参照すると、空っぽになります）。</p>
+
+<p>ここでは、各種テンプレートファイルに下記のように記述し、出力される値を確かめてみましょう。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  {{ range .Sections }}
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ .RelPermalink }}"</span><span class="nt">&gt;</span>{{ .Title }}<span class="nt">&lt;/a&gt;</span>
+  {{ end }}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<h3 id="ホームページ-indexhtml-にアクセスしたとき-2">ホームページ (/index.html) にアクセスしたとき</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/dir1/"</span><span class="nt">&gt;</span>タイトル (/dir1/index.html)<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/dir2/"</span><span class="nt">&gt;</span>タイトル (/dir2/index.html)<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/dir3/"</span><span class="nt">&gt;</span>タイトル (/dir3/index.html)<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>最上位には、<code class="language-plaintext highlighter-rouge">dir1/</code>、<code class="language-plaintext highlighter-rouge">dir2/</code>、<code class="language-plaintext highlighter-rouge">dir3/</code> というセクション（ディレクトリ）が配置されているため、ホームページテンプレートから <code class="language-plaintext highlighter-rouge">.Sections</code> を参照すると、それらのセクションページを表す Page オブジェクトの配列を取得することができます。</p>
+
+<h3 id="ルート階層の通常ページ-pagehtml-にアクセスしたとき-2">ルート階層の通常ページ (/page.html) にアクセスしたとき</h3>
+
+<p>通常ページのテンプレート（シングルページテンプレート）からは、子セクションの値を取得できません。
+<code class="language-plaintext highlighter-rouge">Sections</code> の値はサイズ０の配列になります。</p>
+
+<h3 id="１階層目のセクションページ-dir1indexhtml-にアクセスしたとき-2">１階層目のセクションページ (/dir1/index.html) にアクセスしたとき</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/dir1/dir1-1/"</span><span class="nt">&gt;</span>タイトル (/dir1/dir1-1/index.html)<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/dir1/dir1-2/"</span><span class="nt">&gt;</span>タイトル (/dir1/dir1-2/index.html)<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>１階層目のセクション (<code class="language-plaintext highlighter-rouge">/dir1</code>) には、２階層目のセクション (<code class="language-plaintext highlighter-rouge">dir1-1</code>、<code class="language-plaintext highlighter-rouge">dir1-2</code>) が存在するため、<code class="language-plaintext highlighter-rouge">.Sections</code> を参照すると、それらの下位セクションのセクションページを表す Page オブジェクトの配列を取得することができます。</p>
+
+<h3 id="１階層目のセクションに所属する通常ページ-dir1pagehtml-にアクセスしたとき-2">１階層目のセクションに所属する通常ページ (/dir1/page.html) にアクセスしたとき</h3>
+
+<p>通常ページのテンプレート（シングルページテンプレート）からは、子セクションの値を取得できません。
+<code class="language-plaintext highlighter-rouge">Sections</code> の値はサイズ０の配列になります。</p>
+
+<h3 id="２階層目のセクションページ-dir1dir1-1indexhtml-にアクセスしたとき-2">２階層目のセクションページ (/dir1/dir1-1/index.html) にアクセスしたとき</h3>
+
+<p>２階層目のセクション (<code class="language-plaintext highlighter-rouge">/dir1/dir1-1</code>) には、下位セクションが存在しないため、<code class="language-plaintext highlighter-rouge">.Sections</code> はサイズ０の配列になります。</p>
+
+<h3 id="２階層目のセクションに所属する通常ページ-dir1dir1-1pagehtml-にアクセスしたとき-2">２階層目のセクションに所属する通常ページ (/dir1/dir1-1/page.html) にアクセスしたとき</h3>
+
+<p>通常ページのテンプレート（シングルページテンプレート）からは、子セクションの値を取得できません。
+<code class="language-plaintext highlighter-rouge">Sections</code> の値はサイズ０の配列になります。</p>
+
+<h2 id="応用例">応用例</h2>
+
+<p>下記のようにすれば、そのページが所属するセクションの子セクションの一覧を表示することができます。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  {{ range .CurrentSection.Sections }}
+    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ .RelPermalink }}"</span><span class="nt">&gt;</span>{{ .Title }}<span class="nt">&lt;/a&gt;</span>
+  {{ end }}
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくHugoノート： セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)&url=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/hugo/layout/section-hierarchy.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/hugo/"><span class="xArticle_up_label">まくまくHugoノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li class="xNav-focused"><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/hugo/">Hugo</a></div>
+  <div class="xPageDate">2017-12-05</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

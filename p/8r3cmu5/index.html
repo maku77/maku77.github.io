@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのDockerノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/8r3cmu5/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-docker.png" />
+
+  <meta property="og:description" content="天才星人まくのDockerノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Compose ファイル (docker-compose.yml) 内で環境変数を参照する | まくまくDockerノート" />
+  <title>Compose ファイル (docker-compose.yml) 内で環境変数を参照する - まくまくDockerノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/docker/">
+    <img src="/assets/img/logo-docker.png" class="xPageHeader_logo">
+  </a>
+  <a href="/docker/">
+    <div class="xPageHeader_category">
+    まくまくDockerノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Compose ファイル (docker-compose.yml) 内で環境変数を参照する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-07-03</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/docker/compose/env.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/8r3cmu5/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Compose ファイル (docker-compose.yml) 内で環境変数を参照する&url=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="環境変数を参照する">環境変数を参照する</h2>
+
+<p>Docker Compose の Compose ファイル (<code class="language-plaintext highlighter-rouge">docker-compose.yml</code>) 内では、次のように OS（シェル）の環境変数の値を参照することができます。</p>
+
+<h4 id="例-環境変数-tag-の値を参照する">例: 環境変数 TAG の値を参照する</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">webapp:${TAG}"</span>
+</code></pre></div></div>
+
+<p>この仕組みを利用すると環境に依存する値をハードコードしなくて済むようになるため、汎用的な <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> を記述できるようになります。
+上記の例では、<code class="language-plaintext highlighter-rouge">${TAG}</code> のように記述していますが、多くのケースでは <code class="language-plaintext highlighter-rouge">$TAG</code> のようにカッコを省略することができます。
+ドル記号 (<code class="language-plaintext highlighter-rouge">$</code>) そのものを扱いたい場合は、<code class="language-plaintext highlighter-rouge">$$</code> のように記述する必要があります。</p>
+
+<h2 id="env-ファイル">.env ファイル</h2>
+
+<h3 id="env-ファイルは自動で読み込まれる">.env ファイルは自動で読み込まれる</h3>
+
+<p><code class="language-plaintext highlighter-rouge">docker compose up</code> コマンドは、プロジェクトディレクトリに置いてある環境ファイル <strong><code class="language-plaintext highlighter-rouge">.env</code></strong> を読み込んでくれます。
+<code class="language-plaintext highlighter-rouge">.env</code> ファイルには、次のように複数の環境変数を定義しておくことができます。</p>
+
+<h4 id="env-の記述例">.env の記述例</h4>
+
+<pre><code class="language-env">MYAPP_PORT=3000
+DB_PASSWORD=mypassword
+
+# このようにコメントも記述可能
+</code></pre>
+
+<h3 id="別の-env-ファイルを参照する">別の .env ファイルを参照する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">docker compose</code> コマンドの <strong><code class="language-plaintext highlighter-rouge">--env-file</code></strong> オプションを指定すると、参照する <code class="language-plaintext highlighter-rouge">.env</code> ファイルを切り替えることができます。</p>
+
+<h4 id="例-env-ではなく-envprod-を参照する">例: .env ではなく .env.prod を参照する</h4>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker compose <span class="nt">--env-file</span> .env.prod up
+</code></pre></div></div>
+
+<h3 id="優先順位">優先順位</h3>
+
+<p>シェル環境で同じ名前の環境変数がセットされている場合（例: <code class="language-plaintext highlighter-rouge">export MYAPP_PORT=4000</code>）は、そちらが優先して使われます。
+つまり、<code class="language-plaintext highlighter-rouge">.env</code> ファイルで定義されている値は、シェル環境変数がセットされていない場合のデフォルト値のように扱われます。</p>
+
+<ul>
+  <li>環境変数の優先順位
+    <ol>
+      <li>OS の環境変数（シェル環境）でセットした値。例えば、bash シェルであれば <code class="language-plaintext highlighter-rouge">export FOO=BAR</code> のように設定した値</li>
+      <li>プロジェクトディレクトリの <code class="language-plaintext highlighter-rouge">.env</code> ファイルで定義した値</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="環境変数が定義されていない場合の振る舞い">環境変数が定義されていない場合の振る舞い</h2>
+
+<p>環境変数 <code class="language-plaintext highlighter-rouge">VARIABLE</code> が定義されていないときに、Compose ファイルの中で <code class="language-plaintext highlighter-rouge">${VARIABLE}</code> のように参照すると、空文字列 (“”) として評価されます。
+この振る舞いは次のような参照方法によって変更することができます。</p>
+
+<h3 id="環境変数が設定されていないときにデフォルト値を使用する">環境変数が設定されていないときにデフォルト値を使用する</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">${VARIABLE:-default}</code></strong> … <code class="language-plaintext highlighter-rouge">VARIABLE</code> がセットされていないか空文字のときに <code class="language-plaintext highlighter-rouge">default</code> を使う</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">${VARIABLE-default}</code></strong> … <code class="language-plaintext highlighter-rouge">VARIABLE</code> がセットされていないときに <code class="language-plaintext highlighter-rouge">default</code> を使う（<code class="language-plaintext highlighter-rouge">VARIABLE</code> に空文字がセットされているときは空文字を使う）</li>
+</ul>
+
+<p>次の例では、web サービスのデフォルトのホストポート番号を 8000 番に設定しています。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">${APP_PORT:-8000}:80</span>
+</code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker compose up  <span class="c"># localhost:8000 でアクセスできるようになる</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">APP_PORT</code> の値は次のようにオーバーライドできます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nv">APP_PORT</span><span class="o">=</span>80 docker compose up  <span class="c"># localhost:80 でアクセスできるようになる</span>
+</code></pre></div></div>
+
+<h3 id="環境変数が設定されていないときにエラーにする">環境変数が設定されていないときにエラーにする</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">${VARIABLE:?err}</code></strong> … <code class="language-plaintext highlighter-rouge">VARIABLE</code> がセットされていないか空文字のときに、<code class="language-plaintext highlighter-rouge">err</code> メッセージを表示して終了する（実際には <code class="language-plaintext highlighter-rouge">err</code> を省略して <code class="language-plaintext highlighter-rouge">${VARIABLE:?}</code> と書くだけでもそれっぽいエラーメッセージが表示される）</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">${VARIABLE?err}</code></strong> … <code class="language-plaintext highlighter-rouge">VARIABLE</code> がセットされていないときに、<code class="language-plaintext highlighter-rouge">err</code> メッセージを表示して終了する（<code class="language-plaintext highlighter-rouge">VARIABLE</code> に空文字がセットされているときは空文字を使う）</li>
+</ul>
+
+<p>次の例では、PostgreSQL のパスワードを環境変数 <code class="language-plaintext highlighter-rouge">POSTGRES_PASSWORD</code> でセットしておくことを強制しています。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_USER=${POSTGRES_USER:-root}</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?}</span>
+      <span class="pi">-</span> <span class="s">POSTGRES_DB=${POSTGRES_DB:-mydb}</span>
+</code></pre></div></div>
+
+<p>環境変数 <code class="language-plaintext highlighter-rouge">POSTGRES_PASSWORD</code> を設定せずにサービスを起動しようとすると、次のようにエラーになります。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker compose up
+<span class="go">
+invalid interpolation format for services.db.environment.[]:
+  "required variable POSTGRES_PASSWORD is missing a value: ".
+</span><span class="gp">  You may need to escape any $</span><span class="w"> </span>with another <span class="err">$</span>
+</code></pre></div></div>
+
+<h2 id="各コンテナの環境変数を設定する">各コンテナの環境変数を設定する</h2>
+
+<p>Compose ファイル (<code class="language-plaintext highlighter-rouge">docker-compose.yml</code>) の中では OS（シェル）の環境変数を参照できますが、それらがそのまま各コンテナに渡されるわけではありません。</p>
+
+<h3 id="environment-プロパティによる指定">environment プロパティによる指定</h3>
+
+<p>各コンテナの環境変数を設定するには、各サービスの定義で <strong><code class="language-plaintext highlighter-rouge">environment</code></strong> プロパティを指定する必要があります。
+次の例では、<code class="language-plaintext highlighter-rouge">web</code> サービス（コンテナ）の環境変数 <code class="language-plaintext highlighter-rouge">DEBUG</code> の値を <code class="language-plaintext highlighter-rouge">1</code> にセットしています。
+これは、<code class="language-plaintext highlighter-rouge">docker run -e DEBUG=1 ...</code> のようにコンテナを起動するのと同じ効果があります。</p>
+
+<h4 id="docker-composeyml">docker-compose.yml</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">80:80</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">DEBUG=1</span>
+</code></pre></div></div>
+
+<p>ホスト側の環境変数（<code class="language-plaintext highlighter-rouge">.env</code> で定義したものを含む）の値をそのままコンテナに渡したいときは、次のように環境変数名だけを記述します。
+これは、<code class="language-plaintext highlighter-rouge">docker run -e DEBUG ...</code> のようにコンテナを起動するのと同じ効果があります。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">DEBUG</span>
+</code></pre></div></div>
+
+<h3 id="env_file-プロパティによる指定">env_file プロパティによる指定</h3>
+
+<p>コンテナに渡す環境変数の一覧を <code class="language-plaintext highlighter-rouge">.env</code> ファイルに記述しておき、そのファイル名を <strong><code class="language-plaintext highlighter-rouge">env_file</code></strong> プロパティで指定する、という方法もあります。</p>
+
+<h4 id="web-varsenv">web-vars.env</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DB_NAME=mydb
+DB_USER=root
+DB_PASSWORD=mypassword
+</code></pre></div></div>
+
+<h4 id="docker-composeyml-1">docker-compose.yml</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">80:80</span>
+    <span class="na">env_file</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">web-vars.env</span>
+</code></pre></div></div>
+
+<h3 id="優先度">優先度</h3>
+
+<p>次のように、<code class="language-plaintext highlighter-rouge">env_file</code> と <code class="language-plaintext highlighter-rouge">environment</code> が両方指定されていて、同じ環境変数がセットされている場合は、Compose ファイルに直接記述された <code class="language-plaintext highlighter-rouge">environment</code> の方が優先されます。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+  <span class="na">web</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">80:80</span>
+    <span class="na">env_file</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">web-vars.env</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">DB_NAME=xxxxx</span>
+      <span class="pi">-</span> <span class="s">DB_USER=yyyyy</span>
+</code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">docker compose config</code></strong> コマンドを実行すると、実際にどのような環境変数がコンテナに設定されるかを確認できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker compose config
+<span class="go">name: myproject
+services:
+  web:
+    environment:
+      DB_NAME: xxxxx
+      DB_PASSWORD: mypassword
+      DB_USER: yyyyy
+...（省略）...
+</span></code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Compose ファイル (docker-compose.yml) 内で環境変数を参照する&url=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/8r3cmu5/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/docker/"><span class="xArticle_up_label">まくまくDockerノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-07-03</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

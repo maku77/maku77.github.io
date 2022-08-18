@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGit/GitHubノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/git/gitlab/email-settings.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-github.png" />
+
+  <meta property="og:description" content="天才星人まくのGit/GitHubノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="GitLab からの通知メールを設定する | まくまくGitノート" />
+  <title>GitLab からの通知メールを設定する - まくまくGitノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/git/">
+    <img src="/assets/img/logo-github.png" class="xPageHeader_logo">
+  </a>
+  <a href="/git/">
+    <div class="xPageHeader_category">
+    まくまくGitノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">GitLab からの通知メールを設定する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2014-05-20</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/git/gitlab/email-settings.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitLab からの通知メールを設定する&url=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="設定ファイルのパス">設定ファイルのパス</h2>
+
+<p>GitLab サーバからの通知メールの設定は、以下のファイルで行います。</p>
+
+<ul>
+  <li>パッケージでインストールした場合
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/opt/gitlab/embedded/service/gitlab-rails/config/environments/production.rb</code></li>
+    </ul>
+  </li>
+  <li>手動でインストールした場合
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/home/git/gitlab/config/environments/production.rb</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="sendmail-でメール送信する場合の設定方法">sendmail でメール送信する場合の設定方法</h2>
+
+<p>GitLab のデフォルト設定では、通知メールはローカルにインストールされた <code class="language-plaintext highlighter-rouge">sendmail</code> で送信されるようになっています。
+<code class="language-plaintext highlighter-rouge">sendmail</code> がインストールされていない場合はインストールしておく必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install sendmail
+</code></pre></div></div>
+
+<p>そして、<code class="language-plaintext highlighter-rouge">production.rb</code> に下記のように記述して有効化します（GitLab 6.8.2 のデフォルト設定）。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">delivery_method</span> <span class="o">=</span> <span class="ss">:sendmail</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">sendmail_settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">location: </span><span class="s1">'/usr/sbin/sendmail'</span><span class="p">,</span>
+  <span class="ss">arguments: </span><span class="s1">'-i -t'</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>設定を終えたら、GitLab のサービス群を再起動して完了です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gitlab-ctl restart
+</code></pre></div></div>
+
+<h2 id="外部の-smtp-サーバでメール送信する場合の設定方法">外部の SMTP サーバでメール送信する場合の設定方法</h2>
+
+<p>ホスト PC 内の sendmail を使用するのではなく、外部の SMTP サーバを使用して GitLab の通知メールを送ることもできます。
+ここでは、Gmail の SMTP サーバを使用する設定例を示します。
+<code class="language-plaintext highlighter-rouge">production.rb</code> に下記のように記述します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">delivery_method</span> <span class="o">=</span> <span class="ss">:smtp</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:address</span>              <span class="o">=&gt;</span> <span class="s2">"smtp.gmail.com"</span><span class="p">,</span>
+  <span class="ss">:port</span>                 <span class="o">=&gt;</span> <span class="mi">587</span><span class="p">,</span>
+  <span class="ss">:domain</span>               <span class="o">=&gt;</span> <span class="s1">'gmail.com'</span><span class="p">,</span>
+  <span class="ss">:user_name</span>            <span class="o">=&gt;</span> <span class="s1">'sample@sample'</span><span class="p">,</span>  <span class="c1"># 省略可能</span>
+  <span class="ss">:password</span>             <span class="o">=&gt;</span> <span class="s1">'password'</span><span class="p">,</span>       <span class="c1"># 省略可能</span>
+  <span class="ss">:authentication</span>       <span class="o">=&gt;</span>  <span class="ss">:plain</span><span class="p">,</span>          <span class="c1"># 省略可能</span>
+  <span class="ss">:enable_starttls_auto</span> <span class="o">=&gt;</span> <span class="kp">true</span>              <span class="c1"># 省略可能</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="メールの送信者情報を変更する">メールの送信者情報を変更する</h2>
+
+<p>GitLab からの通知メールで使われる送信者アドレスは、以下の場所で設定されています。</p>
+
+<h4 id="optgitlabembeddedservicegitlab-railsconfiggitlabyml">/opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Email settings</span>
+<span class="c1"># Email address used in the "From" field in mails sent by GitLab</span>
+<span class="ss">email_from: </span><span class="n">gitlab</span><span class="vi">@host</span><span class="p">.</span><span class="nf">name</span>
+</code></pre></div></div>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li>http://elijahpaul.co.uk/using-an-smtp-server-with-gitlab/</li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitLab からの通知メールを設定する&url=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/gitlab/email-settings.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/git/"><span class="xArticle_up_label">まくまくGitノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li class="xNav-focused"><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2014-05-20</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

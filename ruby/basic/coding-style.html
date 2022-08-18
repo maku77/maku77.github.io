@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/basic/coding-style.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Ruby のコーディングスタイル | まくまくRubyノート" />
+  <title>Ruby のコーディングスタイル - まくまくRubyノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/ruby/">
+    <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/ruby/">
+    <div class="xPageHeader_category">
+    まくまくRubyノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Ruby のコーディングスタイル</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2003-10-14</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/ruby/basic/coding-style.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby のコーディングスタイル&url=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="命名規則">命名規則</h2>
+
+<p>Ruby では変数名のプレフィックスに記号をつけることにより、グローバル変数、インスタンス変数、クラス変数を区別します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイプ</th>
+      <th>変数名のルール</th>
+      <th>例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ローカル変数</td>
+      <td>英数字で始まる</td>
+      <td><code class="language-plaintext highlighter-rouge">local_var</code></td>
+    </tr>
+    <tr>
+      <td>グローバル変数</td>
+      <td><code class="language-plaintext highlighter-rouge">$</code> で始まる</td>
+      <td><code class="language-plaintext highlighter-rouge">$gloval_var</code></td>
+    </tr>
+    <tr>
+      <td>インスタンス変数</td>
+      <td><code class="language-plaintext highlighter-rouge">@</code> で始まる</td>
+      <td><code class="language-plaintext highlighter-rouge">@instance_var</code></td>
+    </tr>
+    <tr>
+      <td>クラス変数</td>
+      <td><code class="language-plaintext highlighter-rouge">@@</code> で始まる</td>
+      <td><code class="language-plaintext highlighter-rouge">@@class_var</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>大文字、小文字の使い分けについては次のようにすることが多いようです。</p>
+
+<ul>
+  <li>クラス名は大文字で始める（例: <code class="language-plaintext highlighter-rouge">MyClass</code>）</li>
+  <li>変数名、メソッドは小文字で始める（例: <code class="language-plaintext highlighter-rouge">my_var</code>、<code class="language-plaintext highlighter-rouge">my_method</code>）</li>
+  <li>定数名はすべて大文字（例: <code class="language-plaintext highlighter-rouge">MY_CONSTANT</code>）</li>
+</ul>
+
+<h2 id="インデントスペース">インデント／スペース</h2>
+
+<ul>
+  <li>インデントはスペース <strong>2 文字</strong>（Ruby 公式サイトと同様）</li>
+  <li>一行は <strong>80 文字</strong>まで</li>
+</ul>
+
+<h2 id="文字列リテラル">文字列リテラル</h2>
+
+<ul>
+  <li>式展開の必要のない文字列リテラルは<strong>シングルクォーテーション</strong>で囲む（例: <code class="language-plaintext highlighter-rouge">'abc'</code>）</li>
+  <li>式展開の必要がある文字列リテラルは<strong>ダブルクォーテーション</strong>で囲む（例: <code class="language-plaintext highlighter-rouge">"Hello #{name}"</code>）</li>
+</ul>
+
+<h2 id="ファイル名">ファイル名</h2>
+
+<p>ファイル名はすべて小文字で、クラス名などの単語の区切りはアンダースコア (<code class="language-plaintext highlighter-rouge">_</code>) を使用する。
+モジュールの階層はディレクトリ階層で表現する。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">test_case.rb</code>（TestCase クラス）</li>
+  <li><code class="language-plaintext highlighter-rouge">unit/test_case.rb</code>（Unit モジュール以下の TestCase クラス）</li>
+</ul>
+
+<p>このルールは、下記の RubyGems の命名規則を考慮しています。</p>
+
+<h2 id="rubygems-で公開する-gem-パッケージの命名規則">RubyGems で公開する Gem パッケージの命名規則</h2>
+
+<p>RubyGems.org などで公開する Gem の名前は、フラットなファイル名で一意に命名する必要があるため、アンダースコアやハイフンの使い方がルール化されています。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gem name</th>
+      <th>Require statement</th>
+      <th>Main class or module</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ruby_parser</code></td>
+      <td><code class="language-plaintext highlighter-rouge">require 'ruby_parser'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RubyParser</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rdoc-data</code></td>
+      <td><code class="language-plaintext highlighter-rouge">require 'rdoc/data'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RDoc::Data</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">net-http-persistent</code></td>
+      <td><code class="language-plaintext highlighter-rouge">require 'net/http/persistent'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Net::HTTP::Persistent</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">net-http-digest_auth</code></td>
+      <td><code class="language-plaintext highlighter-rouge">require 'net/http/digest_auth'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Net::HTTP::DigestAuth</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ファイルシステムへの依存を防ぐため、Gem 名はすべて小文字。</li>
+  <li>モジュール名やクラス名の単語の区切りはアンダースコア (<code class="language-plaintext highlighter-rouge">_</code>) 。</li>
+  <li>既存モジュールを拡張する場合の区切りはハイフン (<code class="language-plaintext highlighter-rouge">-</code>)。実際のモジュールファイルはディレクトリ構造を作って格納する。</li>
+  <li>拡張が複数階層になった場合は、その分だけディレクトリ構造を掘り下げればよい。</li>
+</ul>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">net-http-digest_auth</code> という名前の Gem が提供する <code class="language-plaintext highlighter-rouge">DigestAuth</code> クラスは、実際には下記のようなファイルとして作成されています。</p>
+
+<h4 id="nethttpdigest_authrb">net/http/digest_auth.rb</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Net::HTTP::DigestAuth</span>
+  <span class="nc">VERSION</span> <span class="o">=</span> <span class="s1">'1.4'</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>上記では <code class="language-plaintext highlighter-rouge">Net::HTTP::DigestAuth</code> と、<code class="language-plaintext highlighter-rouge">::</code> 区切りでクラス定義していますが、上位のクラスが定義されていない場合は <code class="language-plaintext highlighter-rouge">class</code> 定義を入れ子構造で記述する必要があります。</p>
+
+<p>クラスではなくて、モジュールを提供しているのであれば、例えば下記のようなファイルになります。</p>
+
+<h4 id="foobarmy_modulerb">foo/bar/my_module.rb</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Foo</span>
+  <span class="k">module</span> <span class="nn">Bar</span>
+    <span class="k">module</span> <span class="nn">MyModule</span>
+      <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">my_method</span>
+        <span class="o">..</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="参考サイト">参考サイト</h2>
+
+<ul>
+  <li><a href="http://guides.rubygems.org/name-your-gem/">Name your gem - RubyGems Guides</a></li>
+  <li><a href="https://github.com/styleguide/ruby">GitHub の Ruby コーディングスタイル</a></li>
+  <li><a href="http://www.loveruby.net/w/RubyCodingStyle.html">LoveRuby.net コーディングスタイル</a></li>
+  <li><a href="http://www.caliban.org/ruby/rubyguide.shtml">The Unofficial Ruby Usage Guide</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby のコーディングスタイル&url=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/basic/coding-style.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/ruby/"><span class="xArticle_up_label">まくまくRubyノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2003-10-14</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

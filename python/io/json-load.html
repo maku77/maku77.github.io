@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/io/json-load.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="JSON 形式のテキストファイルを読み書きする (json.load, json.dump) | まくまくPythonノート" />
+  <title>JSON 形式のテキストファイルを読み書きする (json.load, json.dump) - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">JSON 形式のテキストファイルを読み書きする (json.load, json.dump)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2021-07-04</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/io/json-load.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： JSON 形式のテキストファイルを読み書きする (json.load, json.dump)&url=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="json-ファイルを読み込む-jsonload">JSON ファイルを読み込む (json.load)</h2>
+
+<p>Python に付属している <code class="language-plaintext highlighter-rouge">json</code> ライブラリが提供する <a href="https://docs.python.org/ja/3/library/json.html#json.load">json.load 関数</a>を使用すると、JSON 形式のテキストファイルを読み込んで、Python のオブジェクトを生成することができます。
+<code class="language-plaintext highlighter-rouge">json.load</code> 関数のパラメーターには、ファイル名ではなく、ファイルオブジェクト（<code class="language-plaintext highlighter-rouge">read</code> 関数を持つオブジェクト）を渡すことに注意してください。</p>
+
+<h3 id="入力ファイル-inputjson">入力ファイル (input.json)</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"aaa"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bbb"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ccc"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="samplepy">sample.py</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="s">"""JSON ファイルを読み込んで Python オブジェクトとして返します。"""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># テスト
+</span><span class="n">obj</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="s">'input.json'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">'aaa'</span><span class="p">])</span>  <span class="c1">#=&gt; 100
+</span><span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">'bbb'</span><span class="p">])</span>  <span class="c1">#=&gt; 200
+</span><span class="k">print</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s">'ccc'</span><span class="p">])</span>  <span class="c1">#=&gt; 300
+</span></code></pre></div></div>
+
+<p>JSON ファイル内の各要素は、次のようなマッピングで Python オブジェクトに変換されます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>JSON の型</th>
+      <th>Python の型</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>object</td>
+      <td><code class="language-plaintext highlighter-rouge">dict</code></td>
+    </tr>
+    <tr>
+      <td>array</td>
+      <td><code class="language-plaintext highlighter-rouge">list</code></td>
+    </tr>
+    <tr>
+      <td>string</td>
+      <td><code class="language-plaintext highlighter-rouge">str</code></td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">float</code></td>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td><code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+    <tr>
+      <td>null</td>
+      <td><code class="language-plaintext highlighter-rouge">None</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="json-ファイルに書き出す-jsondump">JSON ファイルに書き出す (json.dump)</h2>
+
+<h3 id="基本">基本</h3>
+
+<p>Python のオブジェクトを JSON 形式のテキストファイルに書き出すには、<a href="https://docs.python.org/ja/3/library/json.html#json.dump">json.dump 関数</a> を使用します。
+こちらも、パラメーターとしてはファイル名ではなく、ファイルオブジェクト（<code class="language-plaintext highlighter-rouge">write</code> 関数を持つオブジェクト）を渡すことに注意してください。</p>
+
+<h4 id="samplepy-1">sample.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">save_json</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="s">"""Python オブジェクトの内容を JSON ファイルに保存します。"""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+<span class="c1"># テスト
+</span><span class="n">obj</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'ccc'</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s">'aaa'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s">'bbb'</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s">'data'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">save_json</span><span class="p">(</span><span class="s">'output.json'</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="出力結果-outputjson">出力結果 (output.json)</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"ccc"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="nl">"aaa"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nl">"bbb"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="出力形式をカスタマイズする-indent-sort_keys">出力形式をカスタマイズする (indent, sort_keys)</h3>
+
+<p>デフォルトでは、上記のように改行なしのコンパクトな出力になります。
+改行やインデントを入れて出力したい場合は、<code class="language-plaintext highlighter-rouge">json.dump</code> 関数の引数で、<strong><code class="language-plaintext highlighter-rouge">indent=2</code></strong> のようにインデントサイズを指定します。
+また、Python 3.7 以降は辞書オブジェクト (<code class="language-plaintext highlighter-rouge">dict</code>) のキーは、挿入された順に出力されるようになっています（デフォルトで <a href="https://docs.python.org/ja/3/library/collections.html#collections.OrderedDict">collections.OrderedDict</a> 相当の動きになりました）。
+アルファベット順に出力したい場合は、<strong><code class="language-plaintext highlighter-rouge">sort_keys=True</code></strong> を指定します。</p>
+
+<h4 id="samplepy修正部分抜粋">sample.py（修正部分抜粋）</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="出力結果-outputjson-1">出力結果 (output.json)</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"aaa"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"bbb"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ccc"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>辞書オブジェクトのキーが追加順に出力されるのは地味に便利で、例えば、<code class="language-plaintext highlighter-rouge">id</code> プロパティを先頭に出力したい場合は、単純にプログラム内で <code class="language-plaintext highlighter-rouge">id</code> を最初に追加するだけで済みます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book1</span> <span class="o">=</span> <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'author'</span><span class="p">:</span> <span class="s">'Author-1'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Title-1'</span><span class="p">}</span>
+<span class="n">book2</span> <span class="o">=</span> <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'author'</span><span class="p">:</span> <span class="s">'Author-2'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Title-2'</span><span class="p">}</span>
+<span class="n">book3</span> <span class="o">=</span> <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'author'</span><span class="p">:</span> <span class="s">'Author-3'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Title-3'</span><span class="p">}</span>
+<span class="n">books</span> <span class="o">=</span> <span class="p">[</span> <span class="n">book1</span><span class="p">,</span> <span class="n">book2</span><span class="p">,</span> <span class="n">book3</span> <span class="p">]</span>
+
+<span class="n">save_json</span><span class="p">(</span><span class="s">'books.json'</span><span class="p">,</span> <span class="n">books</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>要素の順序をもっと細かく制御する方法は、下記の記事を参考にしてください。</p>
+
+<ul>
+  <li><a href="../dictionary/ordered-dic.html">dictionary の内部的な要素順序を変更する</a></li>
+</ul>
+
+<h3 id="日本語をそのまま出力する-ensure_ascii">日本語をそのまま出力する (ensure_ascii)</h3>
+
+<p><code class="language-plaintext highlighter-rouge">json.dump</code> 関数は、デフォルトで日本語を Unicode エスケープして出力しようとします（例えば、<code class="language-plaintext highlighter-rouge">あ</code> は <code class="language-plaintext highlighter-rouge">\u3042</code> になります）。
+この振る舞いを抑制して、日本語のまま出力するには、引数で <strong><code class="language-plaintext highlighter-rouge">ensure_ascii=False</code></strong> を指定します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">save_json</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">'utf-8'</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="s">'あいう'</span><span class="p">}</span>
+<span class="n">save_json</span><span class="p">(</span><span class="s">'output.json'</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="参考ファイルではなく-json-形式の文字列を扱う場合">（参考）ファイルではなく JSON 形式の文字列を扱う場合</h2>
+
+<p><code class="language-plaintext highlighter-rouge">json.load</code> と <code class="language-plaintext highlighter-rouge">json/dump</code> に似た関数に、<code class="language-plaintext highlighter-rouge">json.loads</code> と <code class="language-plaintext highlighter-rouge">json.dumps</code> がありますが、これらは JSON 形式の「ファイル」ではなく「文字列」を扱います。
+<code class="language-plaintext highlighter-rouge">json.loads</code> と <code class="language-plaintext highlighter-rouge">json.dumps</code> の使い方は下記の記事を参考にしてください。</p>
+
+<ul>
+  <li><a href="../numstr/json-to-python.html">JSON 形式のテキストと Python オブジェクトの相互変換 (json.loads, json.dumps)</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： JSON 形式のテキストファイルを読み書きする (json.load, json.dump)&url=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/io/json-load.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2021-07-04</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

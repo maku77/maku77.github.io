@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくの Go 言語ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/8z2o63r/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
+
+  <meta property="og:description" content="天才星人まくの Go 言語ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="構造体を定義する (struct) | まくまくGo言語ノート" />
+  <title>構造体を定義する (struct) - まくまくGo言語ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/go/">
+    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/go/">
+    <div class="xPageHeader_category">
+    まくまくGo言語ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">構造体を定義する (struct)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-05</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/go/struct/struct.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/8z2o63r/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 構造体を定義する (struct)&url=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="構造体の基本">構造体の基本</h2>
+
+<p>構造体は、複数のデータをまとめて扱うためのデータ構造です。
+下記の例では、本のタイトル情報と著者、値段をフィールドとして持つ <code class="language-plaintext highlighter-rouge">Book</code> という構造体を定義しています。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Book</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">Title</span>   <span class="kt">string</span>
+	<span class="n">Authors</span> <span class="p">[]</span><span class="kt">string</span>
+	<span class="n">Price</span>   <span class="kt">int</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="/p/cuxyj8c">組込み型に別名を付ける</a> ときには <code class="language-plaintext highlighter-rouge">type Age int</code> のように記述しますが、この後ろの <code class="language-plaintext highlighter-rouge">int</code> の部分が <code class="language-plaintext highlighter-rouge">struct {...}</code> という記述に置き換わったと考えればよいでしょう。</p>
+
+<p>定義した構造体は下記のように使用することができます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// Book 構造体を定義する</span>
+<span class="k">type</span> <span class="n">Book</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">Title</span>   <span class="kt">string</span>
+	<span class="n">Authors</span> <span class="p">[]</span><span class="kt">string</span>
+	<span class="n">Price</span>   <span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c">// Book オブジェクトを生成する</span>
+	<span class="n">b</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span>
+		<span class="n">Title</span><span class="o">:</span>   <span class="s">"Golang ABC"</span><span class="p">,</span>
+		<span class="n">Authors</span><span class="o">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Maku"</span><span class="p">,</span> <span class="s">"Moja"</span><span class="p">},</span>
+		<span class="n">Price</span><span class="o">:</span>   <span class="m">2500</span><span class="p">,</span>
+	<span class="p">}</span>
+
+	<span class="c">// 各フィールドの値を参照する</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">Title</span><span class="p">)</span>    <span class="c">// Golang ABC</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">Authors</span><span class="p">)</span>  <span class="c">// [Maku Moja]</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">Price</span><span class="p">)</span>    <span class="c">// 2500</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>この例では、各フィールドの <strong>名前を大文字で始めている</strong>（例えば <code class="language-plaintext highlighter-rouge">Title</code>）ので、そのフィールドは別のパッケージからも参照可能なフィールドとして公開されます。
+逆に小文字で始める（例えば <code class="language-plaintext highlighter-rouge">title</code>）ように定義すると、そのフィールドは同じパッケージ内のコードからのみ参照できるようになります（≒ 同じディレクトリ内の .go ファイルであれば参照できる）。</p>
+
+<p>ちなみに、オブジェクトを生成するときに、下記のようにフィールド名を省略して初期値を設定することもできます。
+その場合は、構造体定義時と同じ順序で、すべてのフィールドの初期値を指定する必要があります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span><span class="s">"Golang ABC"</span><span class="p">,</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"Maku"</span><span class="p">,</span> <span class="s">"Moja"</span><span class="p">},</span> <span class="m">2500</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>フィールド名を指定する方法であれば、任意のフィールドの初期値を省略してオブジェクトを生成することができます。
+省略したフィールドの値は、その型の <a href="/p/5dhkoru/">ゼロ値</a> となります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// すべてのフィールドを省略</span>
+<span class="n">b1</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{}</span>  <span class="c">//=&gt; "", [], 0</span>
+
+<span class="c">// Title フィールドだけ初期値を指定</span>
+<span class="n">b2</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span><span class="n">Title</span><span class="o">:</span> <span class="s">"Golang"</span><span class="p">}</span>  <span class="c">//=&gt; "Golang", [], 0</span>
+</code></pre></div></div>
+
+<h2 id="構造体へのポインタ">構造体へのポインタ</h2>
+
+<p>関数に渡された構造体データのフィールドを書き換えたいときは、ポインタ型で渡す必要があります（そうしないとコピーが渡されてしまいます）。
+下記サンプルの、<code class="language-plaintext highlighter-rouge">raisePrice</code> 関数は、渡された <code class="language-plaintext highlighter-rouge">Book</code> オブジェクトの <code class="language-plaintext highlighter-rouge">Price</code> フィールドの値を２倍に書き換えます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">raisePrice</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span><span class="n">Book</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">b</span><span class="o">.</span><span class="n">Price</span> <span class="o">*=</span> <span class="m">2</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">b</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span>
+		<span class="n">Title</span><span class="o">:</span> <span class="s">"Golang ABC"</span><span class="p">,</span>
+		<span class="n">Price</span><span class="o">:</span> <span class="m">2500</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="n">raisePrice</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">Price</span><span class="p">)</span>  <span class="c">//=&gt; 5000（2倍になってる）</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>C/C++ の文法とは異なり、ポインタ経由のフィールドアクセスにもドット (<code class="language-plaintext highlighter-rouge">.</code>) を使用していることに注目してください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C/C++ の場合:  b-&gt;Price
+   Go の場合:  b.Price
+</code></pre></div></div>
+
+<p>Go 言語では、ポインタ経由のアクセスも同じ記法を使えるようにすることで、コードをシンプルに保てるようにしています。
+この性質を利用すると、上記の <code class="language-plaintext highlighter-rouge">main</code> 関数は下記のように書き直すことができます。
+変数 <code class="language-plaintext highlighter-rouge">b</code> を最初からポインタ型として定義してしまうことで、それ以降のコードで <code class="language-plaintext highlighter-rouge">&amp;b</code> のような形でアドレス取得する手間を省くことができます（ここでは一か所だけですけどね＾＾）。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">b</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">Book</span><span class="p">{</span>
+		<span class="n">Title</span><span class="o">:</span> <span class="s">"Golang ABC"</span><span class="p">,</span>
+		<span class="n">Price</span><span class="o">:</span> <span class="m">2500</span><span class="p">,</span>
+	<span class="p">}</span>
+	<span class="n">raisePrice</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">Price</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ここでのサンプルコードでは、<code class="language-plaintext highlighter-rouge">raisePrice</code> 関数のパラメータとして <code class="language-plaintext highlighter-rouge">Book</code> ポインタを受け取るように実装しましたが、オブジェクト指向風に実装するのであれば、<a href="/p/4behkor/">メソッドの形で実装</a> してしまえばシンプルになります。</p>
+
+<h2 id="new-関数による初期化">new 関数による初期化</h2>
+
+<p>すべてのフィールドをゼロ値で初期化したオブジェクトを生成するときは、<code class="language-plaintext highlighter-rouge">new(型)</code> という組込み関数を使って C++ 風の書き方をすることもできます。
+<code class="language-plaintext highlighter-rouge">new</code> 関数の戻り値は、指定した型のポインタとなります。</p>
+
+<h4 id="空のオブジェクトを生成する方法いろいろ">空のオブジェクトを生成する方法いろいろ</h4>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">b</span> <span class="o">*</span><span class="n">Book</span> <span class="o">=</span> <span class="nb">new</span><span class="p">(</span><span class="n">Book</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">b</span> <span class="o">*</span><span class="n">Book</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">Book</span><span class="p">{}</span>
+<span class="n">b</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="n">Book</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">Book</span><span class="p">{}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">&amp;Book{}</code> の形式を使うとタイプ数を削減できますが、<code class="language-plaintext highlighter-rouge">new(Book)</code> の方がわかりやすいかもしれません。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 構造体を定義する (struct)&url=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/8z2o63r/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
+  <div class="xPageDate">2017-09-05</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/swing/widget/jtree-add-node.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Swing - JTree に動的にノードを追加する | まくまくJavaノート" />
+  <title>Swing - JTree に動的にノードを追加する - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Swing - JTree に動的にノードを追加する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-02-12</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/swing/widget/jtree-add-node.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JTree に動的にノードを追加する&url=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>JTree に対して動的にノードを追加するには、JTree にセットした TreeModel に対してツリーノードを追加していくのが一般的です。
+TreeModel はインタフェースであり、その具象クラスでは、以下のインタフェースを実装しなければいけません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void TreeModel#addTreeModelListener(TreeModelListener l)
+void TreeModel#removeTreeModelListener(TreeModelListener l)
+</code></pre></div></div>
+
+<p>TreeModel の保持する要素が（ノードの追加などで）変更された場合、TreeModel に登録された TreeModelListener に対して、適切なメッセージを送るように実装する必要があります。
+JTree はこのメッセージを受け取ることによって、ツリーノードの追加時に自動的に自分自身を再描画することができます。</p>
+
+<p>TreeModel の各メソッドを実装するのは面倒なので、あらかじめ DefaultTreeModel というクラスが提供されています。
+DefaultTreeModel は、ツリーノードとして MutableTreeNode を保持できるようになっており、TreeModel のインタフェースの <code class="language-plaintext highlighter-rouge">addTreeModelListener()</code> も実装しています。</p>
+
+<p>DefaultTreeModel の保持するツリーノードを変更する際に、以下のようなメソッドを使用することで、登録された TreeModelListener に対して適切にメッセージが送られるようになっています。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">insertNodeInto</span><span class="o">(</span><span class="nc">MutableTreeNode</span> <span class="n">newChild</span><span class="o">,</span> <span class="nc">MutableTreeNode</span> <span class="n">parent</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">removeNodeFromParent</span><span class="o">(</span><span class="nc">MutableTreeNode</span> <span class="n">node</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">nodeChanged</span><span class="o">(</span><span class="nc">TreeNode</span> <span class="n">node</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p><img src="/java/swing/widget/jtree-default-treemodel.png" alt="jtree-default-treemodel.png" /></p>
+
+<p>以下の例では、JTree のデータモデルとして DefaultTreeModel を設定し、動的にその内容を変更します。Add ボタンを押すと、現在選択されているノードの下に、新しく子ノードを追加します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.awt.BorderLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JButton</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JPanel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JScrollPane</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JTree</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.tree.DefaultMutableTreeNode</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.tree.DefaultTreeModel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.tree.TreePath</span><span class="o">;</span>
+
+<span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">"serial"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyPanel</span> <span class="kd">extends</span> <span class="nc">JPanel</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">DefaultTreeModel</span> <span class="n">treeModel</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">JTree</span> <span class="n">tree</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyPanel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">DefaultMutableTreeNode</span> <span class="n">rootNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMutableTreeNode</span><span class="o">(</span><span class="s">"Root"</span><span class="o">);</span>
+        <span class="n">treeModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultTreeModel</span><span class="o">(</span><span class="n">rootNode</span><span class="o">);</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JTree</span><span class="o">(</span><span class="n">treeModel</span><span class="o">);</span>
+
+        <span class="nc">JButton</span> <span class="n">addButton</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JButton</span><span class="o">(</span><span class="s">"Add"</span><span class="o">);</span>
+        <span class="n">addButton</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="k">new</span> <span class="nc">ActionListener</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="nc">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">addNewNode</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="n">setLayout</span><span class="o">(</span><span class="k">new</span> <span class="nc">BorderLayout</span><span class="o">());</span>
+        <span class="n">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">JScrollPane</span><span class="o">(</span><span class="n">tree</span><span class="o">),</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">CENTER</span><span class="o">);</span>
+        <span class="n">add</span><span class="o">(</span><span class="n">addButton</span><span class="o">,</span> <span class="nc">BorderLayout</span><span class="o">.</span><span class="na">SOUTH</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">addNewNode</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">DefaultMutableTreeNode</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">getSelectedNode</span><span class="o">(</span><span class="n">tree</span><span class="o">);</span>
+        <span class="nc">DefaultMutableTreeNode</span> <span class="n">newChild</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultMutableTreeNode</span><span class="o">(</span><span class="s">"New node"</span><span class="o">);</span>
+        <span class="n">treeModel</span><span class="o">.</span><span class="na">insertNodeInto</span><span class="o">(</span><span class="n">newChild</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="n">parent</span><span class="o">.</span><span class="na">getChildCount</span><span class="o">());</span>
+        <span class="n">selectNode</span><span class="o">(</span><span class="n">tree</span><span class="o">,</span> <span class="n">newChild</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//---- utility methods ----</span>
+
+    <span class="c1">// [TreeUtil]</span>
+    <span class="cm">/**
+     * Make sure the user can see a specified node.
+     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">selectNode</span><span class="o">(</span><span class="nc">JTree</span> <span class="n">tree</span><span class="o">,</span> <span class="nc">DefaultMutableTreeNode</span> <span class="n">node</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">TreePath</span> <span class="n">path</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">TreePath</span><span class="o">(</span><span class="n">node</span><span class="o">.</span><span class="na">getPath</span><span class="o">());</span>
+        <span class="n">tree</span><span class="o">.</span><span class="na">setSelectionPath</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// [TreeUtil]</span>
+    <span class="cm">/**
+     * Returns a selected node of a tree.
+     * If there is no selection, the root node is returned.
+     */</span>
+    <span class="kd">private</span> <span class="nc">DefaultMutableTreeNode</span> <span class="nf">getSelectedNode</span><span class="o">(</span><span class="nc">JTree</span> <span class="n">tree</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">DefaultMutableTreeNode</span> <span class="n">node</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="nc">TreePath</span> <span class="n">treePath</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="na">getSelectionPath</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">treePath</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="o">(</span><span class="nc">DefaultMutableTreeNode</span><span class="o">)</span> <span class="n">tree</span><span class="o">.</span><span class="na">getModel</span><span class="o">().</span><span class="na">getRoot</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="o">(</span><span class="nc">DefaultMutableTreeNode</span><span class="o">)</span> <span class="n">treePath</span><span class="o">.</span><span class="na">getLastPathComponent</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JTree に動的にノードを追加する&url=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jtree-add-node.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-02-12</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

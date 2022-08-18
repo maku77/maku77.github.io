@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/ui/always-top.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY) | まくまくAndroidノート" />
+  <title>常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY) - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-07-09</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/ui/always-top.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： 常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)&url=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p><img src="/android/ui/always-top-001.png" alt="always-top-001.png" />
+<img src="/android/ui/always-top-002.png" alt="always-top-002.png" /></p>
+
+<p>ここでは、任意のビュー（上の図では猫）をどのアプリよりも最前面に表示し、ずっとそこに表示し続けるようにする方法を説明します。
+表示の ON/OFF は、メインアクティビティに配置したトグルボタンから行えるようにしています。
+この猫が、下に表示されているアプリの操作を邪魔することはありません（猫をタップすると、下に表示されているアプリの画面をタッチしたことになります）。</p>
+
+<h2 id="アプリのビューを最前面にオーバーレイ表示する方法">アプリのビューを最前面にオーバーレイ表示する方法</h2>
+
+<p>Android で画面の最前面に張り付くウィジェットのようなものを作る場合、かつて (API Level 25 以前、Android 7 Nougat まで）はビューを <code class="language-plaintext highlighter-rouge">TYPE_SYSTEM_OVERLAY</code> や <code class="language-plaintext highlighter-rouge">TYPE_SYSTEM_SYSTEM_ALERT_WINDOW</code> などのレイヤーに表示することで実現していました。
+API Level 26 以降（Android 8 Oreo 以降）はこのような特殊なレイヤーの使用は制限されており、代わりに <strong><code class="language-plaintext highlighter-rouge">TYPE_APPLICATION_OVERLAY</code></strong> レイヤーを使う必要があります。</p>
+
+<ul>
+  <li><a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#TYPE_APPLICATION_OVERLAY">TYPE_APPLICATION_OVERLAY</a></li>
+  <li><a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#TYPE_SYSTEM_OVERLAY">TYPE_SYSTEM_OVERLAY (deprecated)</a></li>
+  <li><a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams.html#TYPE_SYSTEM_ALERT">TYPE_SYSTEM_ALERT (deprecated)</a></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">TYPE_APPLICATION_OVERLAY</code> を使うことにより、すべての Activity よりも上位に表示しつつも、ステータスバーや IME などの重要な UI よりは下に表示されることが保障されます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">TYPE_APPLICATION_OVERLAY</code> のレイヤーに表示を行うには、AndroidManifest.xml に <a href="https://developer.android.com/reference/android/Manifest.permission.html#SYSTEM_ALERT_WINDOW">SYSTEM_ALERT_WINDOW パーミッション</a> の使用を宣言し、さらにアプリケーション実行中にユーザーからの許可（ランタイムパーミッション）を得る必要があります。</p>
+
+<p>View を最前面にオーバーレイ表示する流れは下記のようになります。</p>
+
+<ol>
+  <li>AndroidManifest.xml に <code class="language-plaintext highlighter-rouge">SYSTEM_ALERT_WINDOW</code> の uses-permission を追加</li>
+  <li>アプリ起動時やボタンを押したときなどにダイアログ表示してオーバーレイ表示の許可を得る
+    <ul>
+      <li>すでにパーミッションが付加されているかは <code class="language-plaintext highlighter-rouge">Settings.canDrawOverlays()</code> で確認できる</li>
+      <li>ダイアログの表示は <code class="language-plaintext highlighter-rouge">Settings.ACTION_MANAGE_OVERLAY_PERMISSION</code> アクションで <code class="language-plaintext highlighter-rouge">startActivity</code> すればよい</li>
+    </ul>
+  </li>
+  <li>パーミッションが得られたら <code class="language-plaintext highlighter-rouge">WindowManager</code> で対象ビューのレイヤーを移動させる</li>
+</ol>
+
+<h2 id="実装例">実装例</h2>
+
+<h3 id="androidmanifestxml-に-uses-permission-を追加">AndroidManifest.xml に uses-permission を追加</h3>
+
+<p>View のオーバーレイ表示を行うには、<code class="language-plaintext highlighter-rouge">SYSTEM_ALERT_WINDOW</code> パーミッションが必要です。
+まず、マニフェストの uses-permission 要素で、<strong><code class="language-plaintext highlighter-rouge">android.permission.SYSTEM_ALERT_WINDOW</code></strong> を使用することを宣言しておきます。</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+          <span class="na">xmlns:dist=</span><span class="s">"http://schemas.android.com/apk/distribution"</span>
+          <span class="na">package=</span><span class="s">"com.example.overlaysample"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.SYSTEM_ALERT_WINDOW"</span><span class="nt">/&gt;</span>
+    ...
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div></div>
+
+<p>これを指定しなくても Runtime Permission を要求するダイアログを表示することはできるのですが、<code class="language-plaintext highlighter-rouge">TYPE_APPLICATION_OVERLAY</code> の OFF/ON ボックスがグレーアウトされてしまいます。</p>
+
+<p><img src="/android/ui/always-top-003.png" alt="always-top-003.png" />
+<img src="/android/ui/always-top-004.png" alt="always-top-004.png" /></p>
+
+<h3 id="オーバーレイ表示の許可を得る">オーバーレイ表示の許可を得る</h3>
+
+<p>実際に <code class="language-plaintext highlighter-rouge">SYSTEM_ALERT_WINDOW</code> パーミッションを使用するには、Runtime Permission の仕組みによって、アプリ起動後にユーザーから許可を得る必要があります（API level 23 以降）。</p>
+
+<p><a href="https://developer.android.com/reference/android/provider/Settings#canDrawOverlays(android.content.Context)">Settings.canDrawOverlays()</a> を呼び出すと、すでにパーミッションが付加されているかどうかを調べることができるので、これが <code class="language-plaintext highlighter-rouge">false</code> を返した場合だけパーミッションを要求するダイアログを表示するようにします。
+パーミッション要求のダイアログは、<strong><code class="language-plaintext highlighter-rouge">Settings.ACTION_MANAGE_OVERLAY_PERMISSION</code></strong> をアクション名とするインテントを投げることで起動することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">AppCompatActivity</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="cm">/** Requests an overlay permission to the user if needed. */</span>
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">requestOverlayPermission</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nf">isOverlayGranted</span><span class="p">())</span> <span class="k">return</span>
+        <span class="kd">val</span> <span class="py">intent</span> <span class="p">=</span> <span class="nc">Intent</span><span class="p">(</span>
+            <span class="nc">Settings</span><span class="p">.</span><span class="nc">ACTION_MANAGE_OVERLAY_PERMISSION</span><span class="p">,</span>
+            <span class="nc">Uri</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="s">"package:$packageName"</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="nf">startActivityForResult</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="nc">OVERLAY_PERMISSION_REQUEST_CODE</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="cm">/** Checks if the overlay is permitted. */</span>
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">isOverlayGranted</span><span class="p">()</span> <span class="p">=</span>
+        <span class="nc">Build</span><span class="p">.</span><span class="nc">VERSION</span><span class="p">.</span><span class="nc">SDK_INT</span> <span class="p">&lt;</span> <span class="nc">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">M</span> <span class="p">||</span>
+        <span class="nc">Settings</span><span class="p">.</span><span class="nf">canDrawOverlays</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>API level 23 (<code class="language-plaintext highlighter-rouge">Build.VERSION_CODES.M</code>) より前は、Runtime Permission でユーザからの許可を得る必要はないので、何もしないで return するようにしています。</p>
+
+<p>このパーミッションを取得せずに、<code class="language-plaintext highlighter-rouge">TYPE_APPLICATION_OVERLAY</code> のレイヤにビューを表示しようとすると、<code class="language-plaintext highlighter-rouge">WindowManager$BadTokenException</code> という RuntimeException が発生します。</p>
+
+<p>ユーザーによってオーバーレイ表示が許可されたかどうかは、<code class="language-plaintext highlighter-rouge">startActivityForResult()</code> の呼び出し結果をハンドルするための <code class="language-plaintext highlighter-rouge">onActivityResult()</code> メソッドでチェックすればよいでしょう。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** Terminates the app if the user does not accept an overlay. */</span>
+<span class="k">override</span> <span class="k">fun</span> <span class="nf">onActivityResult</span><span class="p">(</span><span class="n">requestCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">resultCode</span><span class="p">:</span> <span class="nc">Int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nc">Intent</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">.</span><span class="nf">onActivityResult</span><span class="p">(</span><span class="n">requestCode</span><span class="p">,</span> <span class="n">resultCode</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">requestCode</span> <span class="p">==</span> <span class="nc">OVERLAY_PERMISSION_REQUEST_CODE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="nf">isOverlayGranted</span><span class="p">())</span> <span class="p">{</span>
+            <span class="nf">finish</span><span class="p">()</span>  <span class="c1">// Cannot continue if not granted</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ここでは、ユーザーがオーバーレイ表示を許可してくれなかった場合は、単純にアプリケーションを終了するようにしています。</p>
+
+<h2 id="ビューをオーバーレイ表示する">ビューをオーバーレイ表示する</h2>
+
+<p>オーバーレイ表示のパーミッションを取得できたたら、<a href="https://developer.android.com/reference/android/view/WindowManager.LayoutParams">WindowManager.LayoutParams</a> の設定により、任意のビューを最前面に表示することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** Settings for overlay view */</span>
+<span class="k">private</span> <span class="kd">val</span> <span class="py">layoutParams</span> <span class="p">=</span> <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">(</span>
+    <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">.</span><span class="nc">TYPE_APPLICATION_OVERLAY</span><span class="p">,</span>  <span class="c1">// Overlay レイヤに表示</span>
+    <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">.</span><span class="nc">FLAG_NOT_FOCUSABLE</span>  <span class="c1">// フォーカスを奪わない</span>
+        <span class="n">or</span> <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">.</span><span class="nc">FLAG_NOT_TOUCHABLE</span>
+        <span class="n">or</span> <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">.</span><span class="nc">FLAG_NOT_TOUCH_MODAL</span>
+        <span class="n">or</span> <span class="nc">WindowManager</span><span class="p">.</span><span class="nc">LayoutParams</span><span class="p">.</span><span class="nc">FLAG_LAYOUT_NO_LIMITS</span><span class="p">,</span>  <span class="c1">// 画面外への拡張を許可</span>
+    <span class="nc">PixelFormat</span><span class="p">.</span><span class="nc">TRANSLUCENT</span>
+<span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">showAsOverlay</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">windowManager</span><span class="p">.</span><span class="nf">addView</span><span class="p">(</span><span class="n">myView</span><span class="p">,</span> <span class="n">layoutParams</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="notificationmanager-で通知領域にメッセージを表示する">NotificationManager で通知領域にメッセージを表示する</h2>
+
+<p>このように、最前面にビューを表示し続ける場合は、ユーザーがその表示を簡単に OFF にできるように、通知領域にメッセージを登録しておくと親切です。</p>
+
+<p><img src="/android/ui/always-top-005.png" alt="always-top-005.png" /></p>
+
+<p>メインアクティビティを閉じても猫アイコン（ビュー）は表示され続けるのですが、ユーザーはこの通知をクリックすることで、いつでもメインアクティビティに戻ることできます。
+あるサービスを Foreground service として動作させ、その際に Notification を登録しておくと、そのサービスが終了するまで通知メッセージを表示しておくことができます。</p>
+
+<h4 id="androidmanifestxml-に-uses-permission-追加">AndroidManifest.xml に uses-permission 追加</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.FOREGROUND_SERVICE"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="foreground-service-としてサービスを起動">Foreground service としてサービスを起動</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">OverlayService</span> <span class="p">:</span> <span class="nc">Service</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nc">Build</span><span class="p">.</span><span class="nc">VERSION</span><span class="p">.</span><span class="nc">SDK_INT</span> <span class="p">&gt;=</span> <span class="nc">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">O</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Start as a foreground service</span>
+            <span class="kd">val</span> <span class="py">notification</span> <span class="p">=</span> <span class="nc">MyNotification</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+            <span class="nf">startForeground</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">notification</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h4 id="notification-を設定するためのヘルパクラス">Notification を設定するためのヘルパクラス</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">object</span> <span class="nc">MyNotification</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">CHANNEL_ID</span> <span class="p">=</span> <span class="s">"channel_id_overlay_sample"</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">CHANNEL_NAME</span> <span class="p">=</span> <span class="s">"オーバーレイ表示の切り替え"</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">CHANNEL_IMPORTANCE</span> <span class="p">=</span> <span class="nc">NotificationManager</span><span class="p">.</span><span class="nc">IMPORTANCE_DEFAULT</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">FIRST_LINE</span> <span class="p">=</span> <span class="s">"オーバーレイ表示中"</span>
+    <span class="k">private</span> <span class="k">const</span> <span class="kd">val</span> <span class="py">SECOND_LINE</span> <span class="p">=</span> <span class="s">"ここから表示・非表示を切り替えられます。"</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">ACTIVITY</span> <span class="p">=</span> <span class="nc">MainActivity</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span>
+
+    <span class="cm">/**
+     * Set the info for the views that show in the notification panel.
+     */</span>
+    <span class="k">fun</span> <span class="nf">build</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">):</span> <span class="nc">Notification</span> <span class="p">{</span>
+        <span class="c1">// Create a notification channel</span>
+        <span class="kd">val</span> <span class="py">nm</span> <span class="p">=</span> <span class="n">context</span><span class="p">.</span><span class="nf">getSystemService</span><span class="p">(</span><span class="nc">Context</span><span class="p">.</span><span class="nc">NOTIFICATION_SERVICE</span><span class="p">)</span> <span class="k">as</span> <span class="nc">NotificationManager</span>
+        <span class="n">nm</span><span class="p">.</span><span class="nf">createNotificationChannel</span><span class="p">(</span>
+            <span class="nc">NotificationChannel</span><span class="p">(</span><span class="nc">CHANNEL_ID</span><span class="p">,</span> <span class="nc">CHANNEL_NAME</span><span class="p">,</span> <span class="nc">CHANNEL_IMPORTANCE</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1">// The PendingIntent to launch our activity if the user selects this notification</span>
+        <span class="kd">val</span> <span class="py">pendingIntent</span> <span class="p">=</span> <span class="nc">PendingIntent</span><span class="p">.</span><span class="nf">getActivity</span><span class="p">(</span>
+            <span class="n">context</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nc">Intent</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="nc">ACTIVITY</span><span class="p">),</span> <span class="mi">0</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="nc">Notification</span><span class="p">.</span><span class="nc">Builder</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="nc">CHANNEL_ID</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">setAutoCancel</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>  <span class="c1">// don't dismiss when touched</span>
+            <span class="p">.</span><span class="nf">setContentIntent</span><span class="p">(</span><span class="n">pendingIntent</span><span class="p">)</span>  <span class="c1">// The intent to send when the entry is clicked</span>
+            <span class="p">.</span><span class="nf">setContentTitle</span><span class="p">(</span><span class="nc">FIRST_LINE</span><span class="p">)</span>  <span class="c1">// the label of the entry</span>
+            <span class="p">.</span><span class="nf">setContentText</span><span class="p">(</span><span class="nc">SECOND_LINE</span><span class="p">)</span>  <span class="c1">// the contents of the entry</span>
+            <span class="p">.</span><span class="nf">setSmallIcon</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">drawable</span><span class="p">.</span><span class="n">cat</span><span class="p">)</span>  <span class="c1">// the status icon</span>
+            <span class="p">.</span><span class="nf">setTicker</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="nf">getText</span><span class="p">(</span><span class="nc">R</span><span class="p">.</span><span class="n">string</span><span class="p">.</span><span class="n">app_name</span><span class="p">))</span>  <span class="c1">// the status text</span>
+            <span class="p">.</span><span class="nf">setWhen</span><span class="p">(</span><span class="nc">System</span><span class="p">.</span><span class="nf">currentTimeMillis</span><span class="p">())</span>  <span class="c1">// the time stamp</span>
+            <span class="p">.</span><span class="nf">build</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>オーバーレイ表示を OFF にしたときは、このサービスを終了させる (<code class="language-plaintext highlighter-rouge">stopSelf()</code>) ことで、通知メッセージを自動的に削除することができます。</p>
+
+<h2 id="全ソースコード">全ソースコード</h2>
+
+<p>ソースコードおよびリソース一式は下記に置いてあります。</p>
+
+<ul>
+  <li><a href="https://github.com/maku77/AndroidOverlaySample/">https://github.com/maku77/AndroidOverlaySample/</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： 常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)&url=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/ui/always-top.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2019-07-09</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

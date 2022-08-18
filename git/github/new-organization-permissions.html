@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGit/GitHubノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/git/github/new-organization-permissions.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-github.png" />
+
+  <meta property="og:description" content="天才星人まくのGit/GitHubノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する | まくまくGitノート" />
+  <title>GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する - まくまくGitノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/git/">
+    <img src="/assets/img/logo-github.png" class="xPageHeader_logo">
+  </a>
+  <a href="/git/">
+    <div class="xPageHeader_category">
+    まくまくGitノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2015-10-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/git/github/new-organization-permissions.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する&url=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>GitHub の Organization アカウントの新しいパーミッションモデルが公開されました。</p>
+
+<ul>
+  <li>https://github.com/blog/2064-new-organization-permissions-now-available</li>
+</ul>
+
+<h2 id="チームメンテナの設定が可能">チームメンテナの設定が可能</h2>
+
+<p>チーム内のメンバに対して、<strong>team maintainer</strong> という役割を設定できるようになりました（念願！）。
+これまでは、各チームに対するメンバ追加を行うときは、Organization の Owners メンバが追加作業を行う必要がありましたが、この機能によって、<strong>チーム内のメンバ管理は、そのチームの代表者</strong>に任せることができるようになります。</p>
+
+<h3 id="設定方法">設定方法</h3>
+<ol>
+  <li>Organization のトップページから Teams を選択</li>
+  <li>対象のチームを選択</li>
+  <li>チームメンテナに設定したいメンバの設定アイコンをクリックし、Promote to team member を選択</li>
+</ol>
+
+<p>チームメンテナとなったメンバは、自分の管理するチームに対して、自由にメンバを参加させたり外したりできます。
+チーム名の変更や、チーム内メンバのチームメンテナへの昇格も自由に行えるようになるため、ある程度責任のあるリーダクラスの人をチームメンテナとして設定すべきです。</p>
+
+<ul>
+  <li>参考: <a href="https://help.github.com/articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program/">Giving “team maintainer” permissions to an organization member</a></li>
+</ul>
+
+<h2 id="organization-内のリポジトリに対するデフォルトパーミッションを設定可能">Organization 内のリポジトリに対するデフォルトパーミッションを設定可能</h2>
+
+<p>デフォルトパーミッションとして Read/Write 権限を付加しておくことで、Organization 内のメンバ全員に対して、すべてのプロジェクト（リポジトリ）の参照権限、コミット権限を付けることができます。</p>
+
+<p>直接コミットできるメンバはプロジェクトごとに限定したいけれど、コードの参照や、PullRequest くらいは全メンバに許可したい、ということが簡単にできます（これまでは、プロジェクトに対する参照権限を与えるために、対象のユーザを Read 権限のあるチームに追加させ、そのチームをプロジェクトに登録する、という分かりにくい作業が必要でした）。</p>
+
+<h3 id="設定方法-1">設定方法</h3>
+<ol>
+  <li>Organization のトップページから Settings を選択</li>
+  <li>Member privileges を選択</li>
+  <li>Default repository permission の項目を None から Read に変更</li>
+</ol>
+
+<p>全メンバが全プロジェクトの開発に関わっているような Organization では、デフォルトのパーミッションとして Write を設定しておけば、アクセス権限管理のためにチームを作成する必要はなくなります。</p>
+
+<h2 id="チームをまたいだコラボレーションが可能">チームをまたいだコラボレーションが可能</h2>
+
+<p>Organization 内の別のチームのメンバに対しても自由にコメントできるようになりました（推奨設定: ON）。
+PullRequest や Issue などで議論する際に、別のチームのメンバに対しても <a href="https://help.github.com/articles/writing-on-github/#name-and-team-mentions-autocomplete">@name の形式で通知</a> できます。</p>
+
+<h3 id="設定方法-2">設定方法</h3>
+<p>既存のチームの Visible 設定は Secret になっているので、チーム間のコラボレーションを可能にするために、Visible 設定を Visible に変更する必要があります。</p>
+
+<ol>
+  <li>Organization のトップページから Teams を選択</li>
+  <li>対象のチームを選択</li>
+  <li>Settings ボタンをクリック</li>
+  <li>Team visibility 設定を Visible に変更</li>
+</ol>
+
+<p>既存のすべてのチームの Visible 設定をまとめて Visible にするには、Organization トップページの、<strong>Settings =&gt; Team privacy</strong> から変更できます。</p>
+
+<h2 id="メンバ一人ひとりのアクセス権限を確認可能">メンバ一人ひとりのアクセス権限を確認可能</h2>
+
+<p>各メンバが、それぞれのリポジトリに対してどのようなアクセス権限（Admin/Write/Read) を持っているかを、一覧で確認することができるようになりました。</p>
+
+<h3 id="設定方法-3">設定方法</h3>
+
+<ol>
+  <li>Organization のトップページから People を選択</li>
+  <li>対象のユーザの Manage Access ボタンをクリック</li>
+</ol>
+
+<ul>
+  <li>参考: <a href="https://help.github.com/articles/managing-an-individual-s-access-to-an-organization-repository-early-access-program/">Managing an individual’s access to an organization repository</a></li>
+</ul>
+
+<h2 id="organization-内のリポジトリの作成権限を追加">Organization 内のリポジトリの作成権限を追加</h2>
+
+<p>Owners メンバでなくても、Organization 内にプロジェクトを自由に作成することができるようになりました。</p>
+
+<h3 id="設定方法-4">設定方法</h3>
+<ol>
+  <li>Organization のトップページから Settings を選択</li>
+  <li>Member privileges を選択</li>
+  <li>Allow members to create repositories for this organization にチェック</li>
+</ol>
+
+<p>Billing information などの管理はさせたくないけれど、プロジェクト作成くらいは各メンバに自由にさせたいような場合に有効です。
+ただし、Private リポジトリも自由に作成できるようになってしまうので、Private リポジトリ数に制限があるような組織ではこの機能は有効にしない方がよいかもしれません。</p>
+
+<h2 id="organization-外のメンバをプロジェクトメンバに追加することが可能">Organization 外のメンバをプロジェクトメンバに追加することが可能</h2>
+
+<p>今までは、Organization 内のリポジトリ（プロジェクト）に対するアクセス権限は、Organization 内のチーム単位で与える仕組みでしたが、個人単位、かつ、Organization 外のユーザに対しても権限を与えることができるようになりました。</p>
+
+<h3 id="設定方法-5">設定方法</h3>
+<ol>
+  <li>Organization のトップページから対象のプロジェクトを選択</li>
+  <li>プロジェクトの Settings を選択</li>
+  <li>Collaborators &amp; teams を選択</li>
+  <li>Collaborators に GitHub のアカウント名やメールアドレスを指定して追加</li>
+</ol>
+
+<p>この機能を使用すると、Private なリポジトリに対しても外部のユーザからのアクセスを許すことができます。
+Confidential な情報を扱っている場合は、気を付けて設定する必要があります。
+ちなみに、Organization 外のメンバとして誰が登録されているかは、People 一覧のページの <strong>Outside collaborators</strong> というところから確認することができます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する&url=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/new-organization-permissions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/git/"><span class="xArticle_up_label">まくまくGitノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li class="xNav-focused"><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2015-10-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

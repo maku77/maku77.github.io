@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/wxpython/graphics.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="wxPython によるグラフィックス処理を理解する | まくまくPythonノート" />
+  <title>wxPython によるグラフィックス処理を理解する - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">wxPython によるグラフィックス処理を理解する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-04-18</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/wxpython/graphics.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython によるグラフィックス処理を理解する&url=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="wximage-と-wxbitmap">wx.Image と wx.Bitmap</h2>
+
+<dl>
+  <dt>wx.Image</dt>
+  <dd><code class="language-plaintext highlighter-rouge">wx.Image</code> はプラットフォーム非依存 (platform-independent) のイメージオブジェクトです。
+画像ファイルの読み込み、保存などの機能を持っており、ピクセルデータとしてメモリ上に展開します。
+どの形式の画像ファイルを読み込んでも、<code class="language-plaintext highlighter-rouge">wx.Image</code> オブジェクトとしてロードした時点で、抽象化された単純なピクセルデータとして扱えるようになります。
+イメージオブジェクトに対して複雑な描画（線や円の描画）を行う場合は、通常は <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトに変換してからデバイスコンテキスト (<code class="language-plaintext highlighter-rouge">wx.DC</code>) 経由で描画を行います。</dd>
+  <dt>wx.Bitmap</dt>
+  <dd><code class="language-plaintext highlighter-rouge">wx.Bitmap</code> はプラットフォーム依存 (platform-dependent) のイメージオブジェクトです。
+イメージをディスプレイ上に描画したり、イメージ自体を編集したりするときに使用します。
+これらの操作は、描画用の API をまとめたデバイスコンテキスト (<code class="language-plaintext highlighter-rouge">wx.DC</code>) 経由で行います。</dd>
+</dl>
+
+<h2 id="wximage-オブジェクトの生成方法いろいろ">wx.Image オブジェクトの生成方法いろいろ</h2>
+
+<h3 id="画像ファイルから-wximage-オブジェクトを作成する">画像ファイルから wx.Image オブジェクトを作成する</h3>
+
+<p>画像ファイルから <code class="language-plaintext highlighter-rouge">wx.Image</code> オブジェクトを作成するには、<code class="language-plaintext highlighter-rouge">wx.Image</code> のコンストラクタを使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="nb">long</span> <span class="nb">type</span><span class="o">=</span><span class="n">BITMAP_TYPE_ANY</span><span class="p">,</span> <span class="nb">int</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">name</code> パラメータでは、ロードする画像ファイルのパスを指定します。</p>
+
+<p><code class="language-plaintext highlighter-rouge">type</code> パラメータでは、画像ファイルを展開してピクセルデータに変換するためのイメージハンドラ (<code class="language-plaintext highlighter-rouge">wx.ImageHandler</code>) のタイプを指定します。
+例えば、<code class="language-plaintext highlighter-rouge">wx.BITMAP_TYPE_PNG</code> を指定すると、<code class="language-plaintext highlighter-rouge">wx.PNGHandler</code> という PNG ファイルを展開するためのイメージハンドラが使用されます。
+デフォルトの <code class="language-plaintext highlighter-rouge">BITMAP_TYPE_ANY</code> のままにしておけば、ファイルの内容に応じて適切なイメージハンドラを用いてロードしてくれるので、ほとんどの場合、このパラメータを指定する必要はありません。</p>
+
+<p><code class="language-plaintext highlighter-rouge">index</code> パラメータは、GIF や ICO、TIFF ファイルのように、ひとつの画像ファイルに複数のイメージを含んでいる場合に、どのイメージをロードするかを指定します（0-base 指定）。</p>
+
+<h4 id="例-png-イメージをロードする">例: PNG イメージをロードする</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">image</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="p">(</span><span class="s">'sample.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Image</code> のコンストラクタとして、画像の MIME タイプ（<code class="language-plaintext highlighter-rouge">image/jpeg</code> など）をテキストで指定してロードするものも用意されています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ImageFromMime</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">mimetype</span><span class="p">,</span> <span class="nb">int</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<h3 id="空の-wximage-オブジェクトを作成する">空の wx.Image オブジェクトを作成する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">EmptyImage</span><span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">clear</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<p>指定したサイズの空のイメージを作成します。全てのピクセルは黒で初期化されます。</p>
+
+<h3 id="テキストの-rgb-データから-wximage-オブジェクトを作成する">テキストの RGB データから wx.Image オブジェクトを作成する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ImageFromData</span><span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="p">,</span> <span class="nb">buffer</span> <span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span>
+</code></pre></div></div>
+
+<p>R,G,B の順で並んだ RGB データを元に <code class="language-plaintext highlighter-rouge">wx.Image</code> オブジェクトを作成します。
+データのサイズは width x height x 3 である必要があります。</p>
+
+<h3 id="wxbitmap-から-wximage-オブジェクトを作成する">wx.Bitmap から wx.Image オブジェクトを作成する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Bitmap</code> から <code class="language-plaintext highlighter-rouge">wx.Image</code> を作成するには、<code class="language-plaintext highlighter-rouge">wx.Image</code> のコンストラクタの <code class="language-plaintext highlighter-rouge">wx.ImageFromBitmap</code> を使用するか、<code class="language-plaintext highlighter-rouge">wx.Bitmap</code> のメソッド <code class="language-plaintext highlighter-rouge">ConvertToImage()</code> を使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ImageFromBitmap</span><span class="p">(</span><span class="n">Bitmap</span> <span class="n">bitmap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span>
+<span class="n">wx</span><span class="p">.</span><span class="n">Bitmap</span><span class="c1">#ConvertToImage() -&gt; Image
+</span></code></pre></div></div>
+
+<h2 id="wxbitmap-オブジェクトの生成方法いろいろ">wx.Bitmap オブジェクトの生成方法いろいろ</h2>
+
+<h3 id="画像ファイルから-wxbitmap-オブジェクトを作成する">画像ファイルから wx.Bitmap オブジェクトを作成する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Bitmap</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="nb">int</span> <span class="nb">type</span><span class="o">=</span><span class="n">BITMAP_TYPE_ANY</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bitmap</span>
+</code></pre></div></div>
+
+<p>パラメータは、<code class="language-plaintext highlighter-rouge">wx.Image</code> のコンストラクタと同様です。
+内部で <code class="language-plaintext highlighter-rouge">wx.Image</code> を作成し、<code class="language-plaintext highlighter-rouge">wx.Bitmap</code> インスタンスが生成されます。</p>
+
+<h3 id="空の-wxbitmap-オブジェクトを作成する">空の wx.Bitmap オブジェクトを作成する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">EmptyBitmap</span><span class="p">(</span><span class="nb">int</span> <span class="n">width</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="p">,</span> <span class="nb">int</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bitmap</span>
+</code></pre></div></div>
+
+<p>指定したサイズの空の <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトを作成します。
+<code class="language-plaintext highlighter-rouge">depth</code> パラメータでは、color depth（色のビット数）を指定することができます。
+デフォルトの -1 を指定すると、現在のディスプレイの color depth が使用されます。
+1 を指定すると、モノクロ画像になります。</p>
+
+<h3 id="wximage-から-wxbitmap-オブジェクトを作成する">wx.Image から wx.Bitmap オブジェクトを作成する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Image</code> から <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> を作成するには、<code class="language-plaintext highlighter-rouge">wx.Bitmap</code> のコンストラクタの <code class="language-plaintext highlighter-rouge">wx.BitmapFromImage</code> を使用するか、<code class="language-plaintext highlighter-rouge">wx.Image</code> のメソッド <code class="language-plaintext highlighter-rouge">ConvertToBitmap()</code> を使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">BitmapFromImage</span><span class="p">(</span><span class="n">Image</span> <span class="n">image</span><span class="p">,</span> <span class="nb">int</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bitmap</span>
+<span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#ConvertToBitmap(int depth=-1) -&gt; Bitmap
+</span></code></pre></div></div>
+
+<h2 id="wximage-でできること">wx.Image でできること</h2>
+
+<h3 id="イメージのサイズを取得する">イメージのサイズを取得する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Iamge</span><span class="c1">#GetWidth() -&gt; int
+</span><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#GetHeight() -&gt; int
+</span><span class="n">wx</span><span class="p">.</span><span class="n">Iamge</span><span class="c1">#GetSize() -&gt; Size
+</span></code></pre></div></div>
+
+<h3 id="指定した座標のピクセルの-rgb-値を得る">指定した座標のピクセルの RGB 値を得る</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#GetRed(int x, int y) -&gt; byte
+</span><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#GetGreen(int x, int y) -&gt; byte
+</span><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#GetBlue(int x, int y) -&gt; byte
+</span></code></pre></div></div>
+
+<p>これらのメソッドは 0 ～ 255 の範囲で Red, Green, Blue の値を取得します。</p>
+
+<h3 id="指定した座標のピクセルの-rgb-値を設定する">指定した座標のピクセルの RGB 値を設定する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#SetRGB(int x, int y, byte r, byte g, byte b)
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">r</code>, <code class="language-plaintext highlighter-rouge">g</code>, <code class="language-plaintext highlighter-rouge">b</code> パラメータには 0 ～ 255 の範囲で Red, Green, Blue の値を取得します。</p>
+
+<h3 id="すべてのピクセルデータを取得設定する">すべてのピクセルデータを取得、設定する</h3>
+
+<p>多くのピクセル値を操作する場合、すべてのピクセルに対して <code class="language-plaintext highlighter-rouge">wx.Image#GetRed()</code> や、<code class="language-plaintext highlighter-rouge">SetRGB()</code> メソッドを呼び出すと処理に時間がかかります。
+そのような場合は、<code class="language-plaintext highlighter-rouge">GetData()</code> メソッドですべてのピクセルデータを取得し、そのデータを編集後に <code class="language-plaintext highlighter-rouge">SetData()</code> メソッドで書き戻します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#GetData() -&gt; PyObject
+</span><span class="n">wx</span><span class="p">.</span><span class="n">Image</span><span class="c1">#SetData(buffer data)
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">SetData()</code> メソッドでは、<code class="language-plaintext highlighter-rouge">wx.ImageFromData()</code> と同様に、R,G,B の順で並んだ RGB データをセットします。
+データのサイズは width x height x 3 である必要があります。</p>
+
+<h2 id="デバイスコンテキスト-wxdc-とは">デバイス・コンテキスト (wx.DC) とは</h2>
+
+<p>wxPython では、色々な形式のイメージや、デバイスに対して共通の API で描画処理を行えるようにするために、デバイス・コンテキストのコンセプトが用いられています (<code class="language-plaintext highlighter-rouge">wx.DC</code>)。</p>
+
+<h3 id="wxdc-のサブクラス">wx.DC のサブクラス</h3>
+
+<p>実際に描画処理を行う場合は、以下のような <code class="language-plaintext highlighter-rouge">wx.DC</code> のサブクラスを用途によって使い分けます。
+<code class="language-plaintext highlighter-rouge">wx.DC</code> インスタンスは、ローカル変数として使用することを前提に設計されているため、グローバル変数やメンバ変数として保持してはいけません。</p>
+
+<ul>
+  <li>Screen-based device contexts
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.ClientDC</code>（widget のクライアント領域への描画用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.WindowDC</code>（widget の全体領域への描画用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.ScreenDC</code>（デスクトップ全体への描画用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.PaintDC</code>（EVT_PAINT イベント内での描画用（クライアント領域への描画））</li>
+    </ul>
+  </li>
+  <li>Non-screen device contexts
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.MemoryDC</code>（Bitmap オブジェクトへの描画用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.MetaFileDC</code>（Windows metafile 作成用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.PostscriptDC</code>（Encapsulated PostScript file (.eps) 作成用）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.PrinterDC</code>（プリンタ出力用 (for Windows)）</li>
+    </ul>
+  </li>
+  <li>Buffered device contexts
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.BufferedDC</code>（複数の描画処理をまとめて実行するアダプタ）</li>
+      <li><code class="language-plaintext highlighter-rouge">wx.BufferedPaintDC</code>（複数の描画処理をまとめて実行するアダプタ（wx.PaintDC 用））</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="wxclientdc">wx.ClientDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.ClientDC</code> は、ウィジェット (<code class="language-plaintext highlighter-rouge">wx.Window</code>) のクライアント領域へ描画を行うためのデバイス・コンテキストです。
+コンストラクタで、描画先の <code class="language-plaintext highlighter-rouge">wx.Window</code> オブジェクトを指定します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ClientDC</span><span class="p">(</span><span class="n">Window</span> <span class="n">win</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ClientDC</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Frame</code> オブジェクトを指定した場合、タイトルバー、ツールバー、ボーダーなどはクライアント領域に含まれません。</p>
+
+<h3 id="wxwindowdc">wx.WindowDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.WindowDC</code> は <code class="language-plaintext highlighter-rouge">wx.ClientDC</code> に似ていますが、対象となるウィジェット (<code class="language-plaintext highlighter-rouge">wx.Window</code>) の領域全体に描画を行うことができるデバイス・コンテキストです。
+そのため、<code class="language-plaintext highlighter-rouge">wx.Frame</code> オブジェクトを指定した場合は、タイトルバー、ツールバー、ボーダー領域など <code class="language-plaintext highlighter-rouge">wx.Frame</code> の領域すべてが描画対象となります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">WindowDC</span><span class="p">(</span><span class="n">Window</span> <span class="n">win</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WindowDC</span>
+</code></pre></div></div>
+
+<h3 id="wxscreendc">wx.ScreenDC</h3>
+
+<p>ディスプレイ全体（デスクトップ）に対して描画処理を行いたい場合は、デバイス・コンテキストとして  <code class="language-plaintext highlighter-rouge">wx.ScreenDC </code> を使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ScreenDC</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">ScreenDC</span>
+</code></pre></div></div>
+
+<h3 id="wxpaintdc">wx.PaintDC</h3>
+
+<p>クライアント領域の再描画タイミングで発生する ‘‘EVT_PAINT’’ イベントのハンドラの中では、<code class="language-plaintext highlighter-rouge">wx.ClientDC</code> の代わりに、<code class="language-plaintext highlighter-rouge">wx.PaintDC</code> インスタンスを生成する必要があります。
+ここで <code class="language-plaintext highlighter-rouge">wx.PaintDC</code> を使用しなければいけないのは、<code class="language-plaintext highlighter-rouge">wx.PaintDC</code> が <code class="language-plaintext highlighter-rouge">EVT_PAINT</code> イベント発生時に、再描画領域を考慮した最適な描画処理を行うようになっているからです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">PaintDC</span><span class="p">(</span><span class="n">Window</span> <span class="n">win</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PaintDC</span>
+</code></pre></div></div>
+
+<h3 id="wxmemorydc">wx.MemoryDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.MemoryDC</code> はメモリ上に確保した <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトに対して描画を行うためのデバイス・コンテキストです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">MemoryDC</span><span class="p">(</span><span class="n">Bitmap</span> <span class="n">bitmap</span><span class="o">=</span><span class="n">NullBitmap</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MemoryDC</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.MemoryDC</code> を用いて描画を行う前に、必ず描画先の <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトをセットしておく必要があります。
+<code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトは、コンストラクタか、<code class="language-plaintext highlighter-rouge">SetObject()</code> メソッドでセットできます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">MemoryDC</span><span class="c1">#SelectObject(Bitmap bitmap)
+</span></code></pre></div></div>
+
+<p>編集された <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> オブジェクトは、<code class="language-plaintext highlighter-rouge">wx.DC#DrawBitmap()</code> メソッドで別のデバイス・コンテキストへ描画したり、<code class="language-plaintext highlighter-rouge">wx.Bitmap#SaveFile()</code> メソッドで画像ファイルとして保存したりすることができます。</p>
+
+<h3 id="wxmetafiledc">wx.MetaFileDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.MetaFileDC</code> は、Microsoft Windows の <code class="language-plaintext highlighter-rouge">MetaFile</code> を作成するためのデバイス・コンテキストです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">MetaFileDC</span><span class="p">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">=</span><span class="n">EmptyString</span><span class="p">,</span> <span class="nb">int</span> <span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">String</span> <span class="n">description</span><span class="o">=</span><span class="n">EmptyString</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MetaFileDC</span>
+</code></pre></div></div>
+
+<p>描画後に <code class="language-plaintext highlighter-rouge">Close()</code> メソッドを呼び出すと、描画結果の <code class="language-plaintext highlighter-rouge">wx.Metafile</code> オブジェクトを取得することができ、その <code class="language-plaintext highlighter-rouge">SetClipboard()</code> メソッドを使って描画内容をクリップボードにコピーする、といったことができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">MetaFileDC</span><span class="c1">#Close(self) -&gt; MetaFile
+</span><span class="n">wx</span><span class="p">.</span><span class="n">MetaFile</span><span class="c1">#SetClipboard(int width=0, int height=0) -&gt; bool
+</span></code></pre></div></div>
+
+<h3 id="wxpostscriptdc">wx.PostScriptDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.PostScriptDC</code> は、Encapsulated PostScript ファイル (.eps) を作成するためのデバイス・コンテキストです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">PostScriptDC</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">PrintData</span> <span class="n">printData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PostScriptDC</span>
+</code></pre></div></div>
+
+<h3 id="wxprinterdc">wx.PrinterDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.PrinterDC</code> を使用すると、Windows のプリンタ・ドライバに対して描画処理を行うことができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">PrinterDC</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">PrintData</span> <span class="n">printData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PrinterDC</span>
+</code></pre></div></div>
+
+<h3 id="wxbuffereddc-wxbufferedpaintdc">wx.BufferedDC, wx.BufferedPaintDC</h3>
+
+<p><code class="language-plaintext highlighter-rouge">wx.BufferedDC</code> は、あるデバイス・コンテキストへの描画処理をバッファリングし、一度に描画内容を反映するようにします。
+例えば、<code class="language-plaintext highlighter-rouge">wx.ClientDC</code> への連続した描画を <code class="language-plaintext highlighter-rouge">wx.BufferedDC</code> でバッファリングすれば、画面上での描画のちらつきを防ぐことができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">BufferedDC</span><span class="p">(</span><span class="n">DC</span> <span class="n">dc</span><span class="p">,</span> <span class="n">Bitmap</span> <span class="nb">buffer</span><span class="o">=</span><span class="n">NullBitmap</span><span class="p">,</span> <span class="nb">int</span> <span class="n">style</span><span class="o">=</span><span class="n">BUFFER_CLIENT_AREA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BufferedDC</span>
+<span class="n">wx</span><span class="p">.</span><span class="n">BufferedDC</span><span class="p">(</span><span class="n">DC</span> <span class="n">dc</span><span class="p">,</span> <span class="n">Size</span> <span class="n">area</span><span class="p">,</span> <span class="nb">int</span> <span class="n">style</span><span class="o">=</span><span class="n">BUFFER_CLIENT_AREA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BufferedDC</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">EVT_PAINT</code> イベントのハンドラの中で描画処理をバッファリングしたい場合は、<code class="language-plaintext highlighter-rouge">wx.BufferedDC</code> の代わりに <code class="language-plaintext highlighter-rouge">wx.BufferedPaintDC</code> を使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">BufferedPaintDC</span><span class="p">(</span><span class="n">Window</span> <span class="n">window</span><span class="p">,</span> <span class="n">Bitmap</span> <span class="nb">buffer</span><span class="o">=</span><span class="n">NullBitmap</span><span class="p">,</span> <span class="nb">int</span> <span class="n">style</span><span class="o">=</span><span class="n">BUFFER_CLIENT_AREA</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BufferedPaintDC</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.BufferedDC</code>、<code class="language-plaintext highlighter-rouge">wx.BufferedPaintDC</code> は内部に描画内容のバッファリングのために <code class="language-plaintext highlighter-rouge">Bitmap</code> オブジェクトを保持しており、デバイス・コンテキストがスコープを外れるとき（ガーベジ・コレクトされるとき）に自動的に内部の <code class="language-plaintext highlighter-rouge">Bitmap</code> の内容を <code class="language-plaintext highlighter-rouge">Blit()</code> して実際の描画内容を反映するようになっています。</p>
+
+<h2 id="デバイスコンテキストの使用例">デバイス・コンテキストの使用例</h2>
+
+<h3 id="再描画処理を考慮したグラフィック描画">再描画処理を考慮したグラフィック描画</h3>
+
+<p><img src="/python/wxpython/image/20070419-redraw.png" alt="./image/20070419-redraw.png" /></p>
+
+<p>以下のコードは、描画用バッファとして空の <code class="language-plaintext highlighter-rouge">wx.Bitmap</code> を作成し、適切なタイミングで（<code class="language-plaintext highlighter-rouge">EVT_PAINT</code> イベント発生時に）その描画内容を画面に反映させるサンプルです。
+このような構成にすることで、ウィンドウの一部が他のウィンドウで隠れて再び表示された時に、必要な部分だけを再描画してくれます。
+さらに、多くの描画処理を行った場合のちらつきもなくなります。
+ウィンドウのサイズが変化した場合は、内部の描画用バッファ (<code class="language-plaintext highlighter-rouge">wx.Bitmap</code>) を新しいサイズで作成し直しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">InitBuffer</span><span class="p">()</span>
+        <span class="c1"># Bind events to redraw.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_PAINT</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnPaint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_SIZE</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnSize</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnPaint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BufferedPaintDC</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">InitBuffer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">InitBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">GetClientSize</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">EmptyBitmap</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">DrawToBuffer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">DrawToBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Create buffered device context.
+</span>        <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BufferedDC</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">ClientDC</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span><span class="p">)</span>
+        <span class="c1"># Clear the buffer.
+</span>        <span class="n">dc</span><span class="p">.</span><span class="n">SetBackground</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Brush</span><span class="p">(</span><span class="s">'white'</span><span class="p">))</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
+        <span class="c1"># Draw graphics.
+</span>        <span class="n">dc</span><span class="p">.</span><span class="n">DrawText</span><span class="p">(</span><span class="s">'Hoge hoge'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">DrawLine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">dw</span><span class="p">,</span> <span class="n">dh</span> <span class="o">=</span> <span class="n">dc</span><span class="p">.</span><span class="n">GetSize</span><span class="p">()</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">SetPen</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Pen</span><span class="p">(</span><span class="s">'blue'</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="n">dw</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dh</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="再描画処理用のコードをライブラリ化する">再描画処理用のコードをライブラリ化する</h3>
+
+<p>以下のコードは、上記のコードの描画用バッファを確保する部分を汎用的な <code class="language-plaintext highlighter-rouge">PaintBuffer</code> クラスとしてライブラリ化したものです。
+<code class="language-plaintext highlighter-rouge">PaintBuffer</code> クラスは、任意の <code class="language-plaintext highlighter-rouge">wx.Window</code> オブジェクト用の描画用バッファを作成します。</p>
+
+<h4 id="paintbufferpy">paintBuffer.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">PaintBuffer</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">paintHandler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">paintHandler</span> <span class="o">=</span> <span class="n">paintHandler</span>
+        <span class="c1"># Create drawing buffer.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">InitBuffer</span><span class="p">()</span>
+        <span class="c1"># Bind events to redraw.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_PAINT</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnPaint</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_SIZE</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnSize</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">SetPaintHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">paintHandler</span> <span class="o">=</span> <span class="n">handler</span>
+
+    <span class="k">def</span> <span class="nf">OnPaint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BufferedPaintDC</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">window</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnSize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">InitBuffer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">InitBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">window</span><span class="p">.</span><span class="n">GetClientSize</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">EmptyBitmap</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">DrawToBuffer</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">DrawToBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">paintHandler</span><span class="p">:</span>
+            <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BufferedDC</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">ClientDC</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">window</span><span class="p">),</span> <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">paintHandler</span><span class="p">(</span><span class="n">dc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="testpy">test.py</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">paintBuffer</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="mi">200</span><span class="p">))</span>
+        <span class="bp">self</span><span class="p">.</span><span class="nb">buffer</span> <span class="o">=</span> <span class="n">paintBuffer</span><span class="p">.</span><span class="n">PaintBuffer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">PaintHandler</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">PaintHandler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dc</span><span class="p">):</span>
+        <span class="c1"># Clear the buffer.
+</span>        <span class="n">dc</span><span class="p">.</span><span class="n">SetBackground</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Brush</span><span class="p">(</span><span class="s">'white'</span><span class="p">))</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
+        <span class="c1"># Draw graphics.
+</span>        <span class="n">dw</span><span class="p">,</span> <span class="n">dh</span> <span class="o">=</span> <span class="n">dc</span><span class="p">.</span><span class="n">GetSize</span><span class="p">()</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">SetPen</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Pen</span><span class="p">(</span><span class="s">'blue'</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="n">dw</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dh</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="encapsulated-postscript-ファイル-eps-を作成するサンプルコード">Encapsulated PostScript ファイル (.eps) を作成するサンプルコード</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PrintData</span><span class="p">()</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">SetFilename</span><span class="p">(</span><span class="s">'test.eps'</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">.</span><span class="n">SetPaperId</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">PAPER_LETTER</span><span class="p">)</span>
+    <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PostScriptDC</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">dc</span><span class="p">.</span><span class="n">StartDoc</span><span class="p">(</span><span class="s">''</span><span class="p">)</span>
+    <span class="n">dc</span><span class="p">.</span><span class="n">DrawCircle</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">dc</span><span class="p">.</span><span class="n">EndDoc</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="イメージ-wxbitmap-を描画する">イメージ (wx.Bitmap) を描画する</h2>
+
+<p><img src="/python/wxpython/image/20070420-draw_bitmap.png" alt="./image/20070420-draw_bitmap.png" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Bitmap</code> をデバイス・コンテキストで描画するには、<code class="language-plaintext highlighter-rouge">wx.DC</code> の以下のメソッドを使用します（<code class="language-plaintext highlighter-rouge">wx.Icon</code> も同様のメソッドで描画できます）。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DrawBitmap</span><span class="p">(</span><span class="n">Bitmap</span> <span class="n">bmp</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">,</span> <span class="nb">bool</span> <span class="n">useMask</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">DrawIcon</span><span class="p">(</span><span class="n">Icon</span> <span class="n">icon</span><span class="p">,</span> <span class="nb">int</span> <span class="n">x</span><span class="p">,</span> <span class="nb">int</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="サンプルコード">サンプルコード</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+        <span class="c1"># Load bitmap.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">bitmap</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Bitmap</span><span class="p">(</span><span class="s">'sample.png'</span><span class="p">)</span>
+        <span class="c1"># Bind events.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_PAINT</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnPaint</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnPaint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="n">dc</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PaintDC</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># Clear the buffer.
+</span>        <span class="n">dc</span><span class="p">.</span><span class="n">SetBackground</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Brush</span><span class="p">(</span><span class="s">'sky blue'</span><span class="p">))</span>
+        <span class="n">dc</span><span class="p">.</span><span class="n">Clear</span><span class="p">()</span>
+        <span class="c1"># Draw graphics.
+</span>        <span class="n">dc</span><span class="p">.</span><span class="n">DrawBitmap</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">bitmap</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython によるグラフィックス処理を理解する&url=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/graphics.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-04-18</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

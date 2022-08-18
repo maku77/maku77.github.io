@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/set/basic.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="セットを使用する（Set クラス） | まくまくRubyノート" />
+  <title>セットを使用する（Set クラス） - まくまくRubyノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/ruby/">
+    <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/ruby/">
+    <div class="xPageHeader_category">
+    まくまくRubyノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">セットを使用する（Set クラス）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2019-01-11</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/ruby/set/basic.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： セットを使用する（Set クラス）&url=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Ruby でセットオブジェクト（重複する値を許さないコレクション）を生成するには、標準ライブラリに含まれている <strong><code class="language-plaintext highlighter-rouge">Set</code></strong> クラスを使用します。
+配列やハッシュを扱うときは、Ruby の構文として <code class="language-plaintext highlighter-rouge">[]</code> や <code class="language-plaintext highlighter-rouge">{}</code> を使用できましたが、セットに関しては単純なクラスとして提供されています。</p>
+
+<h2 id="set-のインスタンスを生成する">Set のインスタンスを生成する</h2>
+
+<h3 id="空のセットを作成する">空のセットを作成する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Set</code> オブジェクトを生成するには、コンストラクタの <strong><code class="language-plaintext highlighter-rouge">Set.new()</code></strong> を使用します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="配列からセットを作成する">配列からセットを作成する</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Enumerable</code> なオブジェクト、例えば配列を <code class="language-plaintext highlighter-rouge">Set.new()</code> に渡して <code class="language-plaintext highlighter-rouge">Set</code> オブジェクトを生成することできます。
+この際、重複した要素は削除されます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {3, 1, 2}&gt;</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {1, 2, 3, 4, 5}&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Enumerable</code> には <strong><code class="language-plaintext highlighter-rouge">to_set()</code></strong> メソッドが用意されているので、これを呼び出して <code class="language-plaintext highlighter-rouge">Set</code> オブジェクトを生成することもできます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'aaa'</span><span class="p">,</span> <span class="s1">'bbb'</span><span class="p">,</span> <span class="s1">'ccc'</span><span class="p">,</span> <span class="s1">'bbb'</span><span class="p">].</span><span class="nf">to_set</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {"aaa", "bbb", "ccc"}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="任意の数のパラメータからセットを作成する">任意の数のパラメータからセットを作成する</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">Set[]</code></strong> を使用すると、任意の数の値を渡して <code class="language-plaintext highlighter-rouge">Set</code> オブジェクトを生成することができます。
+<code class="language-plaintext highlighter-rouge">Set.new()</code> で配列オブジェクトを渡すのと見た目は似てますが、こちらは配列オブジェクトを 1 つだけ渡しているわけではなく、複数の値を 1 ずつ引数として渡しています。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {3, 1, 2}&gt;</span>
+</code></pre></div></div>
+
+<h2 id="set-への要素の追加と削除">Set への要素の追加と削除</h2>
+
+<h3 id="要素の追加-add-merge">要素の追加 (add, merge)</h3>
+
+<p>既存のセットオブジェクトに 1 つの要素を追加するには <strong><code class="language-plaintext highlighter-rouge">add</code></strong> メソッド、あるいは <strong><code class="language-plaintext highlighter-rouge">&lt;&lt;</code></strong> 演算子を使用します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+</code></pre></div></div>
+
+<p>複数の要素を一度に追加したいときは、<strong><code class="language-plaintext highlighter-rouge">merge</code></strong> メソッドを使用してください（<code class="language-plaintext highlighter-rouge">add</code> メソッドに配列を渡してしまうと、1 つの配列要素としてセットに追加されてしまいます）。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">merge</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">merge</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {1, 2, 3, 4}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="要素の削除-delete-subtract-delete_if">要素の削除 (delete, subtract, delete_if)</h3>
+
+<p>既存のセットオブジェクトから 1 つの要素を取り除くには、<strong><code class="language-plaintext highlighter-rouge">delete</code></strong> メソッドを使用します。
+存在しない要素を取り除こうとした場合は何も起こりません。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {2, 4}&gt;</span>
+</code></pre></div></div>
+
+<p>複数の要素をまとめて取り除くには、<strong><code class="language-plaintext highlighter-rouge">subtract</code></strong> メソッドを使用してください（<code class="language-plaintext highlighter-rouge">delete</code> メソッドに配列を渡してしまうと、配列をセットから取り除こうとしてしまいます）。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">subtract</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>  <span class="c1"># 1 と 2 を取り除く</span>
+<span class="n">s</span><span class="p">.</span><span class="nf">delete</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># [3, 4] という配列は含まれていないので何もしない</span>
+<span class="nb">p</span> <span class="n">s</span>  <span class="c1">#=&gt; #&lt;Set: {3, 4}&gt;</span>
+</code></pre></div></div>
+
+<h2 id="set-にある値が含まれているかを調べる-include-subset">Set にある値が含まれているかを調べる (include?, subset?)</h2>
+
+<p><strong><code class="language-plaintext highlighter-rouge">Set#include?</code></strong> は、指定した値がその <code class="language-plaintext highlighter-rouge">Set</code> に含まれている場合に <code class="language-plaintext highlighter-rouge">true</code> を返します。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="s1">'aaa'</span><span class="p">,</span> <span class="s1">'bbb'</span><span class="p">,</span> <span class="s1">'ccc'</span><span class="p">]</span>
+<span class="nb">puts</span> <span class="n">s</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">)</span>  <span class="c1">#=&gt; true</span>
+<span class="nb">puts</span> <span class="n">s</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="s1">'ddd'</span><span class="p">)</span>  <span class="c1">#=&gt; false</span>
+</code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">Set#subset?</code></strong>（あるいは <strong><code class="language-plaintext highlighter-rouge">&lt;=</code></strong> 演算子）を使用すると、あるセットの要素が、もう一方のセットにすべて含まれているかどうかを調べることができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span>        <span class="c1">#=&gt; false</span>
+<span class="nb">p</span> <span class="n">s1</span><span class="p">.</span><span class="nf">subset?</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="c1">#=&gt; false</span>
+<span class="nb">p</span> <span class="n">s2</span> <span class="o">&lt;=</span> <span class="n">s1</span>        <span class="c1">#=&gt; true</span>
+<span class="nb">p</span> <span class="n">s2</span><span class="p">.</span><span class="nf">subset?</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>  <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">subset?</code> と似たメソッドとして <strong><code class="language-plaintext highlighter-rouge">proper_subset?</code></strong> （あるいは <strong><code class="language-plaintext highlighter-rouge">&lt;</code></strong> 演算子）がありますが、こちらは 2 つのセットの要素が完全に一致する場合に <code class="language-plaintext highlighter-rouge">false</code> を返すという特殊な振る舞いをします。
+通常は <code class="language-plaintext highlighter-rouge">subset?</code> の方を使うと覚えておけばよいでしょう。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">&lt;</span> <span class="n">s2</span>  <span class="c1">#=&gt; false</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">&lt;</span> <span class="n">s3</span>  <span class="c1">#=&gt; true</span>
+<span class="nb">p</span> <span class="n">s1</span><span class="p">.</span><span class="nf">proper_subset?</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="c1">#=&gt; false</span>
+<span class="nb">p</span> <span class="n">s1</span><span class="p">.</span><span class="nf">proper_subset?</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>  <span class="c1">#=&gt; true</span>
+</code></pre></div></div>
+
+<h2 id="set-の集合演算">Set の集合演算</h2>
+
+<h3 id="和集合">和集合</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">+</code></strong> 演算子、あるいは <strong><code class="language-plaintext highlighter-rouge">|</code></strong> 演算子、あるいは <strong><code class="language-plaintext highlighter-rouge">union</code></strong> メソッドを用いることで、セット同士の和集合（いずれかのセットに含まれている要素からなる集合）を求めることができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span>       <span class="c1">#=&gt; #&lt;Set: {1, 2, 3, 4, 5, 6}&gt;</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span>       <span class="c1">#=&gt; #&lt;Set: {1, 2, 3, 4, 5, 6}&gt;</span>
+<span class="nb">p</span> <span class="n">s1</span><span class="p">.</span><span class="nf">union</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="c1">#=&gt; #&lt;Set: {1, 2, 3, 4, 5, 6}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="共通集合">共通集合</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">&amp;</code></strong> 演算子を用いることで、セット同士の共通集合（両方のセットに含まれている要素からなる集合）を求めることができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span>  <span class="c1">#=&gt; #&lt;Set: {3, 4}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="排他的論理和-xor">排他的論理和 (XOR)</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">^</code></strong> 演算子を用いることで、いずれかのセットにしか含まれていない要素を調べることができます。
+つまり、要素の排他的論理和 (XOR) です。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span>  <span class="c1">#=&gt; #&lt;Set: {5, 6, 1, 2}&gt;</span>
+</code></pre></div></div>
+
+<h3 id="差集合セット1に含まれていてセット2には含まれていない要素を調べる">差集合（セット1に含まれていてセット2には含まれていない要素を調べる</h3>
+
+<p><strong><code class="language-plaintext highlighter-rouge">-</code></strong> 演算子、あるいは <strong><code class="language-plaintext highlighter-rouge">difference</code></strong> メソッドを用いることで、左辺に指定したセットにしか存在しない要素を調べることができます。
+左辺と右辺の値を入れ替えると結果が変わってくることに注意してください。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'set'</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="no">Set</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>  <span class="c1">#=&gt; #&lt;Set: {1, 2}&gt;</span>
+<span class="nb">p</span> <span class="n">s2</span> <span class="o">-</span> <span class="n">s1</span>  <span class="c1">#=&gt; #&lt;Set: {5, 6}&gt;</span>
+</code></pre></div></div>
+
+<p>言い換えると、「左辺のセットから右辺で指定した要素を削除したセットを作成する」とも言えます。</p>
+
+<p>ちなみに、セットではなく配列でもこのような演算を行うことができます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">arr1</span> <span class="o">-</span> <span class="n">arr2</span>  <span class="c1">#=&gt; [1, 4, 1, 4]</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： セットを使用する（Set クラス）&url=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/set/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/ruby/"><span class="xArticle_up_label">まくまくRubyノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2019-01-11</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

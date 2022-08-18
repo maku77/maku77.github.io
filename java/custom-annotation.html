@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/custom-annotation.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Java でカスタムアノテーションを作成する | まくまくJavaノート" />
+  <title>Java でカスタムアノテーションを作成する - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Java でカスタムアノテーションを作成する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2015-10-05</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/custom-annotation.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Java でカスタムアノテーションを作成する&url=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Java 5.0 Tiger では、標準のアノテーションとして <code class="language-plaintext highlighter-rouge">@Override</code>, <code class="language-plaintext highlighter-rouge">@Deprecated</code>, <code class="language-plaintext highlighter-rouge">@SuppressWarnings</code> などが定義されました。
+このようなアノテーションは、自由に定義することができます。</p>
+
+<h1 id="簡単なマーカーアノテーション">簡単なマーカーアノテーション</h1>
+
+<p>アノテーションを定義するには、<code class="language-plaintext highlighter-rouge">@interface</code> というキーワードを使用します。
+下記はシンプルなアノテーションの例で、単純にマーカーとしての役割を果たします。</p>
+
+<h4 id="nonnulljavaアノテーションの定義例">NonNull.java（アノテーションの定義例）</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.annotation</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Denotes that a parameter, field or method return value can never be null.
+ */</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">NonNull</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>上記のように定義したアノテーションは、標準のアノテーションと同様に使用することができます。</p>
+
+<h4 id="hellojavaアノテーションの使用例">Hello.java（アノテーションの使用例）</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.example.annotation.NonNull</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+    <span class="nd">@NonNull</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Hello</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Hello</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="アノテーションにメンバを追加する">アノテーションにメンバを追加する</h1>
+
+<h2 id="基本">基本</h2>
+<p>アノテーションには、任意の数のメンバを持たせることができます。
+アノテーションのメンバは、ちょっと特殊な構文で下記のように定義します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.annotation</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">ReviewedBy</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="nf">reviewer</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="nf">date</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>アノテーションを使用するときは、キー＆バリューの形でパラメータを指定します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.annotation.ReviewedBy</span><span class="o">;</span>
+
+<span class="nd">@ReviewedBy</span><span class="o">(</span><span class="n">reviewer</span> <span class="o">=</span> <span class="s">"maku"</span><span class="o">,</span> <span class="n">date</span> <span class="o">=</span> <span class="s">"2015-10-05"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h2 id="デフォルト値の指定">デフォルト値の指定</h2>
+<p>アノテーションのメンバには、デフォルト値を指定しておくこともできます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">ReviewedBy</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="nf">reviewer</span><span class="o">()</span> <span class="k">default</span> <span class="s">"maku"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="nf">date</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>デフォルト値が指定されている場合は、アノテーションを使用するときに、そのパラメータを省略することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ReviewedBy</span><span class="o">(</span><span class="n">date</span> <span class="o">=</span> <span class="s">"2015-10-05"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h2 id="配列メンバ">配列メンバ</h2>
+
+<p>アノテーションのメンバとして配列を持たせることもできます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">Author</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="nf">authors</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>配列メンバを持つアノテーションを使用するときは、下記のように <code class="language-plaintext highlighter-rouge">{ }</code> を使ってパラメータを渡します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Author</span><span class="o">(</span><span class="n">authors</span> <span class="o">=</span> <span class="o">{</span><span class="s">"maku"</span><span class="o">,</span> <span class="s">"moja"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<p>単一要素をパラメータとして渡す場合は、<code class="language-plaintext highlighter-rouge">{ }</code> を省略することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Author</span><span class="o">(</span><span class="n">authors</span> <span class="o">=</span> <span class="s">"maku"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h2 id="パラメータとして-enum-値を渡せるようにする">パラメータとして Enum 値を渡せるようにする</h2>
+
+<p>アノテーションの定義の中で、パラメータに使用する Enum 値を定義しておくことができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.annotation</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">NeedReview</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">enum</span> <span class="nc">Severity</span> <span class="o">{</span>
+        <span class="no">HIGH</span><span class="o">,</span> <span class="no">MIDDLE</span><span class="o">,</span> <span class="no">LOW</span>
+    <span class="o">};</span>
+
+    <span class="nc">String</span> <span class="nf">note</span><span class="o">();</span>
+
+    <span class="nc">Severity</span> <span class="nf">severity</span><span class="o">()</span> <span class="k">default</span> <span class="nc">Severity</span><span class="o">.</span><span class="na">MIDDLE</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>定義した Enum 値は、通常の Java コードと同じ感覚で使用することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.example.annotation.NeedReview</span><span class="o">;</span>
+
+<span class="nd">@NeedReview</span><span class="o">(</span>
+        <span class="n">note</span> <span class="o">=</span> <span class="s">"This code is dangerous!"</span><span class="o">,</span>
+        <span class="n">severity</span> <span class="o">=</span> <span class="nc">NeedReview</span><span class="o">.</span><span class="na">Severity</span><span class="o">.</span><span class="na">HIGH</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h2 id="value-フィールド">value フィールド</h2>
+
+<p>アノテーションのメンバ名として value という名前のフィールドをひとつだけ持つように定義しておくと、アノテーションを使用するときに、そのフィールド名を省略してパラメータを渡せるようになります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">Author</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="nf">value</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Author</span><span class="o">({</span><span class="s">"maku"</span><span class="o">,</span> <span class="s">"moja"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+</code></pre></div></div>
+
+<h1 id="メタアノテーション">メタアノテーション</h1>
+
+<p>アノテーションを定義するときに付加できるアノテーション（メタアノテーション）が用意されており、これを使用すると、アノテーションの特性や使い方を制御することができます。</p>
+
+<ul>
+  <li><strong>@Target</strong> – どのタイプの要素（クラスやメソッドなど）に対してアノテーションを付加できるかを制限できる。</li>
+  <li><strong>@Retention</strong> – アノテーション情報をどの段階まで保持するかを制御できる。</li>
+  <li><strong>@Documented</strong> – これを付けておくと、そのアノテーションは Javadoc API ドキュメントの出力にも表示されるようになる。</li>
+  <li><strong>@Inherited</strong> – アノテーションを付けたクラスを継承すると、サブクラスもそのアノテーションを付けられたかのように振る舞うようになる。</li>
+</ul>
+
+<h2 id="target-メタアノテーション">@Target メタアノテーション</h2>
+
+<p>独自のアノテーションを定義する際に、<strong>@Target</strong> メタアノテーションを指定しておくと、どのようなタイプの要素に対して、そのアノテーションを付加できるのかを制御することができます。
+タイプは <strong>java.lang.annotation.ElementType</strong> で定義されており、下記のようなものを指定することができます。</p>
+
+<ul>
+  <li>ElementType.ANNOTATION_TYPE – Annotation type declaration</li>
+  <li>ElementType.CONSTRUCTOR – Constructor declaration</li>
+  <li>ElementType.FIELD – Field declaration (includes enum constants)</li>
+  <li>ElementType.LOCAL_VARIABLE – Local variable declaration</li>
+  <li>ElementType.METHOD – Method declaration</li>
+  <li>ElementType.PACKAGE – Package declaration</li>
+  <li>ElementType.PARAMETER – Formal parameter declaration</li>
+  <li>ElementType.TYPE – Class, interface (including annotation type), or enum declaration</li>
+  <li>ElementType.TYPE_PARAMETER – Type parameter declaration</li>
+  <li>ElementType.TYPE_USE – Use of a type</li>
+</ul>
+
+<p>例えば、メソッドとパラメータ、フィールドにだけ付加できる <code class="language-plaintext highlighter-rouge">NonNull</code> アノテーションを定義するには、下記のようにします。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.lang.annotation.ElementType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.annotation.Target</span><span class="o">;</span>
+
+<span class="nd">@Target</span><span class="o">({</span><span class="nc">ElementType</span><span class="o">.</span><span class="na">METHOD</span><span class="o">,</span> <span class="nc">ElementType</span><span class="o">.</span><span class="na">PARAMETER</span><span class="o">,</span> <span class="nc">ElementType</span><span class="o">.</span><span class="na">FIELD</span><span class="o">})</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">NonNull</span> <span class="o">{}</span>
+</code></pre></div></div>
+
+<h2 id="retention-メタアノテーション">@Retention メタアノテーション</h2>
+
+<p>独自のアノテーションを定義する際に、<strong>@Retention</strong> メタアノテーションを指定しておくと、そのアノテーション情報をどの段階まで保持するかを制御できます。
+段階は、<strong>java.lang.annotation.RetentionPolicy</strong> で定義されており、下記のような値を指定することができます。</p>
+
+<ul>
+  <li><strong>RetentionPolicy.SOURCE</strong> - The marked annotation is retained only in the source level and is ignored by the compiler.</li>
+  <li><strong>RetentionPolicy.CLASS</strong> - The marked annotation is retained by the compiler at compile time, but is ignored by the Java Virtual Machine (JVM).</li>
+  <li><strong>RetentionPolicy.RUNTIME</strong> - The marked annotation is retained by the JVM so it can be used by the runtime environment.</li>
+</ul>
+
+<p>RetentionPolicy として <strong>SOURCE</strong> を指定すると、コンパイル時にアノテーション情報は破棄されます。
+<strong>CLASS（デフォルト）</strong>を指定すると、クラスファイルにアノテーション情報は含まれますが、実行時に VM で無視されます。
+<strong>RUNTIME</strong> を指定すると、実行時に VM から参照することができます。</p>
+
+<p>例えば、下記のように RetentionPolicy として RUNTIME を指定しておくと、</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Retention</span><span class="o">(</span><span class="nc">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">Author</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="nf">value</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Java プログラムの中から、下記のようにアノテーション情報にアクセスすることができるようになります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Author</span><span class="o">(</span><span class="s">"maku"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Annotation</span> <span class="n">anno</span> <span class="o">:</span> <span class="nc">Sample</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getAnnotations</span><span class="o">())</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">anno</span><span class="o">);</span>  <span class="c1">// @com.example.annotation.Author(value=[maku])</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="documented-アノテーション">@Documented アノテーション</h2>
+
+<p>デフォルトでは、独自アノテーションを付けたクラスの Javadoc API ドキュメントを出力しても、そこにはアノテーション情報は表示されません。
+アノテーション情報を API ドキュメントに含めるには、<strong>@Documented</strong> メタアノテーションを付加した状態で、独自アノテーションを定義する必要があります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Documented</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="nc">ToDo</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="nf">value</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Java でカスタムアノテーションを作成する&url=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/custom-annotation.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2015-10-05</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

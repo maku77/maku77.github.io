@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのWindowsノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/windows/excel/rank-sort.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-windows.jpg" />
+
+  <meta property="og:description" content="天才星人まくのWindowsノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Excel で順位セルの値通りに並び替えて表示する | まくまくWindowsノート" />
+  <title>Excel で順位セルの値通りに並び替えて表示する - まくまくWindowsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/windows/">
+    <img src="/assets/img/logo-windows.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/windows/">
+    <div class="xPageHeader_category">
+    まくまくWindowsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Excel で順位セルの値通りに並び替えて表示する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2018-11-13</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/windows/excel/rank-sort.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Excel で順位セルの値通りに並び替えて表示する&url=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Excel の <code class="language-plaintext highlighter-rouge">RANK.EQ</code> 関数を使用すると、点数など基準に順位を求めることができます。
+例えば、下記の順位のセルは、左の得点セルの値をもとに自動的に計算されています（Excel 関数によって自動計算されるセルは灰色で表示しています）。</p>
+
+<p><img src="/windows/excel/rank.png" alt="rank.png" class="center" /></p>
+
+<ul>
+  <li>参考: <a href="rank.html">Excel で点数などから順位を求める（RANK.EQ関数）</a></li>
+</ul>
+
+<p>ここではさらに、この順位計算結果でソートされた表を自動的に表示する方法を考えてみます（下図の右側）。</p>
+
+<p><img src="/windows/excel/rank-sort1.png" alt="rank-sort1.png" class="center" /></p>
+
+<p>左側の表には「名前」と「得点」を任意の順序で入力します（手動で入力するのはこの白色のセルのみです）。
+すると、右側の表に、1 位から順番に並び替えられて「名前」や「得点」が表示されます。</p>
+
+<p>左側の表の「順位」の計算は、最初の例と同様に <code class="language-plaintext highlighter-rouge">RANK.EQ</code> 関数を使って行うのですが、同じ得点に関しては同順位を返す（上記の例でいうと第 2 位が 2 つになる）という性質があり、このままでは右側の表を自動構成するときに都合が悪くなります。
+そのため、「順位」の値に対して<strong>小さな値の補正を入れてやることで、内部的に必ず一意の順位が設定されるようにします</strong>。
+具体的には、<code class="language-plaintext highlighter-rouge">C3</code> セルに下記のような式を設定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=RANK.EQ(B3, $B$3:$B$7)-0.4/ROW()
+</code></pre></div></div>
+
+<p>ポイントは、後ろの <code class="language-plaintext highlighter-rouge">-0.4/ROW()</code> という部分で、0.4 を行番号で割った数だけマイナスしています。
+ただし、このままだと小数点以下まで表示されてしまうので、「セルの書式設定」で表示形式を「数値」に設定し、小数点以下を表示しないようにしてやります。
+この補正を入ることで、表示上は四捨五入されて同じ順位だけど、内部的には数値が微妙に異なるという状態を実現できます。</p>
+
+<p><img src="/windows/excel/rank-sort2.png" alt="rank-sort2.png" class="center" /></p>
+
+<p>次に右側の表の「順位」の列ですが、ここには上から順番に次のような数式を設定してやります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=SMALL(C$3:C$7, 1)
+=SMALL(C$3:C$7, 2)
+=SMALL(C$3:C$7, 3)
+=SMALL(C$3:C$7, 4)
+=SMALL(C$3:C$7, 5)
+</code></pre></div></div>
+
+<p>これは、<code class="language-plaintext highlighter-rouge">C3</code>～<code class="language-plaintext highlighter-rouge">C7</code> セルの中から1番小さい値、2番目に小さい値、と小さい順に取り出して表示する指定です。
+参照先の順位は、内部的には実数で値が保持されているので、ここのセルに関しても「セルの書式設定」で数値表示（小数点以下の桁数0）にしてやる必要があります。</p>
+
+<p><img src="/windows/excel/rank-sort3.png" alt="rank-sort3.png" class="center" /></p>
+
+<p>最後に右側の表の「名前」と「得点」の列ですが、ここでは <code class="language-plaintext highlighter-rouge">INDEX</code> 関数と <code class="language-plaintext highlighter-rouge">MATCH</code> 関数を組み合わせて、左側の表の値を参照します。
+下記は、<code class="language-plaintext highlighter-rouge">F3</code> セルの式です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=INDEX(A$3:A$7, MATCH(E3, C$3:C$7, 0))
+</code></pre></div></div>
+
+<p>まず <code class="language-plaintext highlighter-rouge">MATCH</code> 関数で <code class="language-plaintext highlighter-rouge">E3</code> セルの値、つまり第 1 位という値が、左側の順位セル <code class="language-plaintext highlighter-rouge">C3</code>～<code class="language-plaintext highlighter-rouge">C7</code> の中で何番目に出てくるかを調べます。
+ここでは、4 という値が求められます。</p>
+
+<p>次に、<code class="language-plaintext highlighter-rouge">INDEX</code> 関数を使って、左側の名前セル <code class="language-plaintext highlighter-rouge">A3</code>～<code class="language-plaintext highlighter-rouge">A7</code> の中の 4 番目の値を参照しています。
+これで、「Dさん」という値が自動的に表示されます。</p>
+
+<p>得点の列に関しても同様で、例えば <code class="language-plaintext highlighter-rouge">G3</code> セルは次のように式が設定されています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=INDEX(B$3:B$7, MATCH(E3, C$3:C$7, 0))
+</code></pre></div></div>
+
+<p>Excel シートを <a href="/windows/excel/rank-sort.xlsx">こちら (rank-sort.xlsx)</a> に置いておきますので試してみてください。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： Excel で順位セルの値通りに並び替えて表示する&url=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/excel/rank-sort.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/windows/"><span class="xArticle_up_label">まくまくWindowsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li class="xNav-focused"><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2018-11-13</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

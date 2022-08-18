@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/gradle/gradle-for-android.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Android アプリ用の Gradle スクリプトの基本 | まくまくAndroidノート" />
+  <title>Android アプリ用の Gradle スクリプトの基本 - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Android アプリ用の Gradle スクリプトの基本</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2016-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/gradle/gradle-for-android.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Android アプリ用の Gradle スクリプトの基本&url=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Android アプリケーションのビルドには Gradle が採用されています（2016 年現在、Ant によるビルドはサポート外となりました）。
+Google が Gradle 用の Android プラグインを提供しており、このプラグインを各 Android プロジェクトの Gradle スクリプトから利用することで Android モジュールのビルドを行えるようになります。</p>
+
+<h2 id="android-アプリのディレクトリ構造">Android アプリのディレクトリ構造</h2>
+
+<p>Android プロジェクトのディレクトリ構成は、およそ下記のような感じになります。
+Android Studio によって新規作成する場合も、このようなディレクトリ構成で自動生成されます（正確には <code class="language-plaintext highlighter-rouge">library1</code> や <code class="language-plaintext highlighter-rouge">library2</code> といったサブプロジェクトのディレクトリは生成されませんが、ここではマルチプロジェクト構成の説明のために追加しています）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyApp/
+ +-- build.gradle（トップレベルのビルドスクリプト）
+ +-- settings.gradle（ビルドすべきサブプロジェクトの一覧）
+ +-- app/ （Application サブプロジェクト）
+ |    +-- build.gradle（サブプロジェクトのビルドスクリプト）
+ |    +-- build/（ビルド後の成果物）
+ |    +-- src/
+ |         +-- main/（main ソースセット）
+ |              +-- AndroidManifest.xml
+ |              +-- java/
+ |              +-- res/
+ +-- library1/（Library サブプロジェクト）
+ |    +-- build.gradle（サブプロジェクトのビルドスクリプト）
+ +-- library2/（Library サブプロジェクト）
+      +-- build.gradle（サブプロジェクトのビルドスクリプト）
+</code></pre></div></div>
+
+<p>この例では、３つのサブプロジェクト (app, library1, library2) によって全体のビルドが構成されています。</p>
+
+<h2 id="トップレベルに配置するビルドスクリプト-buildgradle--settingsgradle">トップレベルに配置するビルドスクリプト (build.gradle / settings.gradle)</h2>
+
+<p>トップレベルのディレクトリには、<code class="language-plaintext highlighter-rouge">build.gradle</code> と <code class="language-plaintext highlighter-rouge">settings.gradle</code> を配置します。</p>
+
+<h3 id="buildgradleトップレベル">build.gradle（トップレベル）</h3>
+
+<p>トップレベルの <code class="language-plaintext highlighter-rouge">build.gradle</code> ファイルでは、Gradle によるビルドプロセス自体の環境設定や、サブプロジェクト全体に適用する設定などを行います。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ビルドプロセス自体の設定</span>
+<span class="n">buildscript</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">jcenter</span><span class="o">()</span>
+    <span class="o">}</span>
+    <span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">classpath</span> <span class="s1">'com.android.tools.build:gradle:2.1.0'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>まず、<code class="language-plaintext highlighter-rouge">buildscript</code> ブロックでは、ビルド環境の設定を行います。
+ここでは、Maven リポジトリとしてメジャーな JCenter を使用することや、ビルド用にどのようなプラグインが必要であるかを指定します。
+上記の例では、Android アプリケーションをビルドするために必要な Android プラグイン (for Gradle 2.1.0) を使用することを示しています。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// すべてのサブプロジェクトに適用する設定</span>
+<span class="n">allprojects</span> <span class="o">{</span>
+    <span class="n">repositories</span> <span class="o">{</span>
+        <span class="n">jcenter</span><span class="o">()</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>さらに、上記のように <code class="language-plaintext highlighter-rouge">allprojects</code> ブロックを利用すると、すべてのプロジェクト（マルチプロジェクト構成の場合）に対して共通で適用する設定を記述しておくことができます。
+ここまでは、Gradle にもともと備わっている機能を利用しているだけで、Android プラグインが提供している機能は一切利用していないことに注意してください。
+Android プラグインが提供する機能は、各モジュール（サブプロジェクト）内の <code class="language-plaintext highlighter-rouge">build.gradle</code> で利用します（詳細は後述）。</p>
+
+<h3 id="settingsgradleトップレベル">settings.gradle（トップレベル）</h3>
+
+<p>Gradle はマルチプロジェクト構成のビルドをサポートしています。
+全体がどのようなサブプロジェクトから構成されているかを Gradle に教えてあげるために記述するのが <code class="language-plaintext highlighter-rouge">settings.gradle</code> ファイルです。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">include</span> <span class="s1">':app'</span>
+<span class="n">include</span> <span class="s1">':library1'</span>
+<span class="n">include</span> <span class="s1">':library2'</span>
+</code></pre></div></div>
+
+<p>上記のように記述しておくことで、Gradle はサブプロジェクトのビルドスクリプトとして <code class="language-plaintext highlighter-rouge">app/build.gradle</code>、<code class="language-plaintext highlighter-rouge">library1/build.gradle</code>、<code class="language-plaintext highlighter-rouge">library2/build.gradle</code> を読み込む必要があることを認識します。</p>
+
+<h2 id="サブプロジェクト内に配置するビルドスクリプト-buildgradle">サブプロジェクト内に配置するビルドスクリプト (build.gradle)</h2>
+
+<p>ビルドスクリプト (<code class="language-plaintext highlighter-rouge">build.gradle</code>) はトップレベルにも１つ配置されていますが、各サブプロジェクト（モジュール）にも１つずつ配置する必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyApp
+ +-- build.gradle（トップレベル）
+ +-- app/
+ |    +-- build.gradle（サブプロジェクト用）
+ +-- library1/
+ |    +-- build.gradle（サブプロジェクト用）
+ +-- library2/
+      +-- build.gradle（サブプロジェクト用）
+</code></pre></div></div>
+
+<p>トップレベルの <code class="language-plaintext highlighter-rouge">build.gradle</code> では Gradle のビルド環境自体の設定を行っていましたが、各サブプロジェクト内の <code class="language-plaintext highlighter-rouge">build.gradle</code> では、Android の各モジュール（Application プロジェクトや Library プロジェクト）ごとのビルド設定を行います。</p>
+
+<h3 id="buildgradleモジュールレベル">build.gradle（モジュールレベル）</h3>
+
+<p>各サブプロジェクトにおけるビルドスクリプトの中では、Android プラグインを適用し、その機能を利用して Android モジュール用のビルド設定を行っていきます。
+下記のように記述すると Android プラグインを適用できるのですが、Application プロジェクトの場合と Library プロジェクトの場合では指定方法が異なっているため、どちらか一方だけを指定する必要があります。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.application'</span>  <span class="c1">// 通常のアプリプロジェクトの場合</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.library'</span>      <span class="c1">// ライブラリプロジェクトの場合</span>
+</code></pre></div></div>
+
+<p>上記のいずれかの方法で Android プラグインを適用すると、内部で自動的に <code class="language-plaintext highlighter-rouge">android</code> ブロックが定義されるので、そのブロックの中で Android プロジェクト用のビルド設定を行っていきます。
+最低限、下記のように、ビルドに使用する SDK バージョンなどを設定しておく必要があります。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.application'</span>
+
+<span class="n">android</span> <span class="o">{</span>
+    <span class="n">compileSdkVersion</span> <span class="mi">23</span>
+    <span class="n">buildToolsVersion</span> <span class="s2">"23.0.2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<dl>
+  <dt>compileSdkVersion</dt>
+  <dd>Android モジュールをコンパイルするときに使用する API バージョンを指定します。</dd>
+  <dt>buildToolsVersion</dt>
+  <dd>使用する Android SDK（ビルドツール）のバージョンを指定します。ここで指定するバージョンの Android SDK を、SDK Manager を使ってあらかじめインストールしておく必要があります。通常は最新バージョンを指定すればよいですが、このバージョンを変更することによって Android Lint による警告方法が変わったり、Android ツールチェインの処理に微妙な変化が出てきます。</dd>
+</dl>
+
+<p><code class="language-plaintext highlighter-rouge">android</code> ブロックには、これまで <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> で指定していたアプリの基本情報を記述しておくこともできます。
+<code class="language-plaintext highlighter-rouge">build.gradle</code> 側で記述することで、より柔軟な構成が可能になっています。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="n">android</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="n">defaultConfig</span> <span class="o">{</span>
+       <span class="n">applicationId</span> <span class="s2">"com.example.myapp"</span>
+       <span class="n">minSdkVersion</span> <span class="mi">22</span>
+       <span class="n">targetSdkVersion</span> <span class="mi">23</span>
+       <span class="n">versionCode</span> <span class="mi">1</span>
+       <span class="n">versionName</span> <span class="s2">"1.0.0"</span>
+       <span class="n">testApplicationId</span> <span class="s2">"com.example.myapp.test"</span>
+       <span class="n">testInstrumentationRunner</span> <span class="s2">"android.test.InstrumentationTestRunner"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<dl>
+  <dt>applicationId</dt>
+  <dd>Google Play などで配信するときの識別子となるアプリケーションのパッケージ名 (ID) です。
+<code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> ではなく、<code class="language-plaintext highlighter-rouge">build.gradle</code> でパッケージ名を指定することによって、ビルド時に動的にパッケージ名を決定することができます。
+例えば、アプリケーションの無料バージョンと有料バージョンを Google Play で分けて配信したいということがあるかもしれません。
+そのような場合は、それぞれのアプリケーション (APK) に異なるパッケージ名を割り当てる必要があるのですが、Android プラグインの product flavor という仕組みを利用することで、異なるパッケージ名の APK（<code class="language-plaintext highlighter-rouge">com.example.myapp.free</code> など）を簡単に生成し分けることができます。
+一方で、Java のソースコード（R.java など）からは、相変わらず <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> の方で指定した <code class="language-plaintext highlighter-rouge">package</code> 名が参照されることに注意してください（実装コードの中では Java のパッケージ名がころころ変わっては困るからです）。</dd>
+  <dt>minSdkVersion / targetSdkVersion</dt>
+  <dd><code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> の <code class="language-plaintext highlighter-rouge">&lt;uses-sdk&gt;</code> 要素で指定していたものと同様です。
+<code class="language-plaintext highlighter-rouge">minSdkVersion</code> は、最低限この API Level をサポートした Android デバイス上で動作することを意味します。
+<code class="language-plaintext highlighter-rouge">targetSdkVersion</code> は、実際のテストをこの API Level で動作させて確認したことを意味します。</dd>
+</dl>
+
+<p>これらのパラメータを <code class="language-plaintext highlighter-rouge">build.gradle</code> 側で指定しておくことにより、<code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> 側で指定されている値よりも優先的に使用されるようになります（正確にはビルド時に内部的にその値に上書きされます）。<code class="language-plaintext highlighter-rouge">build.gradle</code> 側に指定されている項目については、<code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> 側に記述しておく必要はありませんが、パッケージ名だけは相変わらず <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> の <code class="language-plaintext highlighter-rouge">&lt;manifest&gt;</code> 要素の <code class="language-plaintext highlighter-rouge">package</code> 属性で記述しておく必要があります。<code class="language-plaintext highlighter-rouge">applicationId</code> はあくまで APK 自体の識別情報として扱われるもので、実装時の Java パッケージ名とは関係がありません。</p>
+
+<p>サブプロジェクト内の <code class="language-plaintext highlighter-rouge">build.gradle</code> の <code class="language-plaintext highlighter-rouge">dependencies</code> ブロックでは、そのモジュールをビルドするのに必要な依存モジュールを列挙します。
+<code class="language-plaintext highlighter-rouge">dependencies</code> ブロックは、もともと Gradle が提供している機能のため、<code class="language-plaintext highlighter-rouge">android</code> ブロックの外で定義することに注意してください。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">'com.android.support:multidex:1.0.1'</span>  <span class="c1">// Maven リポジトリからの取得</span>
+    <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">':library1'</span><span class="o">)</span>
+    <span class="n">compile</span> <span class="nf">project</span><span class="o">(</span><span class="s1">':library2'</span><span class="o">)</span>
+    <span class="n">compile</span> <span class="nf">fileTree</span><span class="o">(</span><span class="nl">dir:</span> <span class="s2">"$rootDir/lib"</span><span class="o">,</span> <span class="nl">include:</span> <span class="o">[</span><span class="s1">'*.jar'</span><span class="o">])</span>  <span class="c1">// Static JAR</span>
+    <span class="n">provided</span> <span class="nf">fileTree</span><span class="o">(</span><span class="nl">dir:</span> <span class="s2">"$rootDir/libs_ext"</span><span class="o">,</span> <span class="nl">include:</span> <span class="s1">'shared.jar'</span><span class="o">)</span>  <span class="c1">// Shared JAR</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ここには、依存する Library プロジェクト（別のサブプロジェクト）や、外部から提供されている JAR ファイルへの依存情報を記述します。
+ローカルに配置した JAR ファイルへの依存を指定することもできますし、Maven リポジトリで提供されている JAR ファイルへの依存を指定することもできます。
+APK ファイルに組み込むモジュールは <code class="language-plaintext highlighter-rouge">compile</code> のパラメータで指定しますが、ビルド時に参照するだけでよい JAR ファイルは <code class="language-plaintext highlighter-rouge">provided</code> のパラメータで指定します（デバイス側で提供される Shared JAR ライブラリを使用する場合など）。</p>
+
+<h2 id="android-プラグインによって提供されるタスク">Android プラグインによって提供されるタスク</h2>
+
+<p>Android プラグインは、APK をビルドするためのタスクや、テストを実行するためのタスクを提供しています。
+例えば下記のようなタスクを利用することができます。</p>
+
+<dl>
+  <dt>assembleDebug</dt>
+  <dd>デバッグビルドによって APK ファイルを作成</dd>
+  <dt>installDebug</dt>
+  <dd>物理デバイスやエミュレータに APK をインストール</dd>
+  <dt>check</dt>
+  <dd>物理デバイスやエミュレータでテストを実行</dd>
+  <dt>build</dt>
+  <dd>assemble と check タスクの両方を実行</dd>
+</dl>
+
+<p>例えば、APK をデバッグビルドする場合は下記のように実行することになります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gradle assembleDebug
+</code></pre></div></div>
+
+<p>ビルド結果の APK は、<code class="language-plaintext highlighter-rouge">app/build/outputs/apk/app-debug.apk</code> として出力されます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： Android アプリ用の Gradle スクリプトの基本&url=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/gradle/gradle-for-android.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li class="xNav-focused"><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2016-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

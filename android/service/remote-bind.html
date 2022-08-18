@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのAndroidノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/android/service/remote-bind.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+
+  <meta property="og:description" content="天才星人まくのAndroidノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="別プロセスのサービスへバインドする (Remote Bind) | まくまくAndroidノート" />
+  <title>別プロセスのサービスへバインドする (Remote Bind) - まくまくAndroidノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/android/">
+    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/android/">
+    <div class="xPageHeader_category">
+    まくまくAndroidノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">別プロセスのサービスへバインドする (Remote Bind)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2011-04-21</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/android/service/remote-bind.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： 別プロセスのサービスへバインドする (Remote Bind)&url=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>別のプロセスで動いているサービスに対してバインドを実行するには、サービス側とクライアント側でプロセス間通信 (IPC) を行う必要があります。</p>
+
+<ul>
+  <li>参考: <a href="http://developer.android.com/reference/android/app/Service.html#RemoteMessengerServiceSample">Service - Android Developers</a></li>
+</ul>
+
+<h2 id="aidl-で-ipc-用スタブを自動生成する">AIDL で IPC 用スタブを自動生成する</h2>
+
+<p>プロセス間通信を実現するためのスタブクラスのひな型を自動生成するために、Android では AIDL という言語を使用します。</p>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">echo</code> メソッドを提供する <code class="language-plaintext highlighter-rouge">EchoService</code> にアクセスするための AIDL は以下のようになります。
+<code class="language-plaintext highlighter-rouge">EchoService</code> が公開するインタフェースを表しているので、頭文字に <code class="language-plaintext highlighter-rouge">I</code> をつけて、<code class="language-plaintext highlighter-rouge">IEchoService</code> というインタフェース名にしています。
+クライアント側から見ると、サービス名は <code class="language-plaintext highlighter-rouge">IEchoService</code> として見えるようになります。</p>
+
+<h4 id="iechoserviceaidl">IEchoService.aidl</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.hello</span><span class="o">;</span>
+
+<span class="kd">interface</span> <span class="nc">IEchoService</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="nf">echo</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ADT プラグインのインストールされた Eclipse を使っている場合は、この AIDL ファイルをソースファイルと同じディレクトリ入れると、自動的に Java ファイルが生成されます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">src/com/example/hello/IEchoService.aidl</code>（手書きで作成する AIDL ファイル）</li>
+  <li><code class="language-plaintext highlighter-rouge">gen/com/example/hello/IEchoService.java</code>（自動生成される Java ファイル）</li>
+</ul>
+
+<p>自動生成される <code class="language-plaintext highlighter-rouge">IEchoService.java</code> の内容は以下のようになっています。</p>
+
+<h4 id="iechoservicejava自動生成">IEchoService.java（自動生成）</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.hello</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IEchoService</span> <span class="kd">extends</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">IInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Stub</span> <span class="kd">extends</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Binder</span>
+            <span class="kd">implements</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">hello</span><span class="o">.</span><span class="na">IEchoService</span> <span class="o">{</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="バインド先のサービスを実装する">バインド先のサービスを実装する</h2>
+
+<p>サービス本体の実装では、<code class="language-plaintext highlighter-rouge">onBind</code> メソッドで適切な <code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトを返す必要があります。
+AIDL から自動生成された <code class="language-plaintext highlighter-rouge">IEchoService.java</code> ファイルで、<code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトのひな型となる <code class="language-plaintext highlighter-rouge">Stub</code> のサブクラスが定義されているので、この <code class="language-plaintext highlighter-rouge">Stub</code> クラスを実装するだけで、プロセス間通信に対応した <code class="language-plaintext highlighter-rouge">Binder</code> クラスが完成します。
+実装しなければいけないメソッドは、AIDL で定義した公開 API です。</p>
+
+<h4 id="echoservicejava">EchoService.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.hello</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Service</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.RemoteException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EchoService</span> <span class="kd">extends</span> <span class="nc">Service</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">IEchoService</span><span class="o">.</span><span class="na">Stub</span> <span class="n">mBinder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">IEchoService</span><span class="o">.</span><span class="na">Stub</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="nf">echo</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">RemoteException</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">"EcoService: "</span> <span class="o">+</span> <span class="n">message</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">IBinder</span> <span class="nf">onBind</span><span class="o">(</span><span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">mBinder</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>独自のサービスを作成したら、<code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> にエントリを忘れずに追加します。
+Remote Bind の場合は、AIDL ファイルから自動生成されたクラス名を <code class="language-plaintext highlighter-rouge">intent-filter</code> で指定しておく必要があります。
+これにより、<code class="language-plaintext highlighter-rouge">IEchoService</code> のクラス名を使ってクライアント側からバインドすることができるようになります。</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">".EchoService"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"com.example.hello.IEchoService"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/service&gt;</span>
+</code></pre></div></div>
+
+<p>プロセス間通信に対応したバインドを行えるようにしたので、以下のようにサービスを別プロセスで動かすように指定することもできます。
+<code class="language-plaintext highlighter-rouge">EchoService</code> は別プロセスで動くようになり、プロセス名にサフィックスとして <code class="language-plaintext highlighter-rouge">:remote</code> が付くようになります。</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;service</span> <span class="na">android:name=</span><span class="s">".EchoService"</span> <span class="na">android:process=</span><span class="s">":remote"</span><span class="nt">&gt;</span>
+    ...
+<span class="nt">&lt;/service&gt;</span>
+</code></pre></div></div>
+
+<h2 id="バインド元のクライアントを実装する">バインド元のクライアントを実装する</h2>
+
+<p>サービスにバインドするクライアント側でも、<code class="language-plaintext highlighter-rouge">IEchoService.aidl</code> から自動生成された <code class="language-plaintext highlighter-rouge">IEchoService.java</code> を用意する必要があります。
+つまり、サービスの実装側となるアプリと、クライアントになるアプリの両方に <code class="language-plaintext highlighter-rouge">IEchoService.java</code> が必要です。
+もちろん同じアプリ内でサービスとクライアントを実装する場合は、<code class="language-plaintext highlighter-rouge">IEchoService.java</code> は 1 つだけになります。</p>
+
+<p>サービスにバインドするまでの流れは以下のようになります。
+クライアントがアクセスするときは、実際に <code class="language-plaintext highlighter-rouge">Service</code> クラスを実装している <code class="language-plaintext highlighter-rouge">EchoService</code> ではなく、<code class="language-plaintext highlighter-rouge">IEchoService</code> の名前を使ってサービス起動やバインド処理を記述するのがポイントです。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">IEchoService</code> のクラス名を使って <code class="language-plaintext highlighter-rouge">bindService</code> を実行。</li>
+  <li>バインドされると、<code class="language-plaintext highlighter-rouge">bindService</code> で指定した <code class="language-plaintext highlighter-rouge">ServiceConnection</code> オブジェクトの <code class="language-plaintext highlighter-rouge">onServiceConneted</code> が呼び出される。</li>
+  <li><code class="language-plaintext highlighter-rouge">onServiceConnected</code> メソッドで渡される <code class="language-plaintext highlighter-rouge">IBinder</code> オブジェクトから <code class="language-plaintext highlighter-rouge">IXxxService</code> オブジェクトを取得する。</li>
+  <li><code class="language-plaintext highlighter-rouge">IXxxService</code> オブジェクトを使ってサービスの API を呼び出す。</li>
+</ol>
+
+<h4 id="mainactivityjava">MainActivity.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.hello</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ComponentName</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Context</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.content.ServiceConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.IBinder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.RemoteException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.Toast</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="nc">Activity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">IEchoService</span> <span class="n">mEchoService</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">mIsBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+    <span class="cm">/** Called when the activity is first created. */</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+
+        <span class="c1">// Bind to EchoService.</span>
+        <span class="nc">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Intent</span><span class="o">(</span><span class="nc">IEchoService</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">bindService</span><span class="o">(</span><span class="n">intent</span><span class="o">,</span> <span class="n">connection</span><span class="o">,</span> <span class="nc">Context</span><span class="o">.</span><span class="na">BIND_AUTO_CREATE</span><span class="o">);</span>
+        <span class="n">mIsBound</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mIsBound</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">unbindService</span><span class="o">(</span><span class="n">connection</span><span class="o">);</span>
+            <span class="n">mIsBound</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nc">ServiceConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceConnection</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceConnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">,</span> <span class="nc">IBinder</span> <span class="n">binder</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mEchoService</span> <span class="o">=</span> <span class="nc">IEchoService</span><span class="o">.</span><span class="na">Stub</span><span class="o">.</span><span class="na">asInterface</span><span class="o">(</span><span class="n">binder</span><span class="o">);</span>
+
+            <span class="c1">// あとは echoService の public メソッドを呼び出せば OK.</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="nc">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">mEchoService</span><span class="o">.</span><span class="na">echo</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+                <span class="nc">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="nc">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="nc">Toast</span><span class="o">.</span><span class="na">LENGTH_SHORT</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RemoteException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceDisconnected</span><span class="o">(</span><span class="nc">ComponentName</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">mEchoService</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： 別プロセスのサービスへバインドする (Remote Bind)&url=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/service/remote-bind.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
+  <div class="xPageDate">2011-04-21</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

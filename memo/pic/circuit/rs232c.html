@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/pic/circuit/rs232c.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも | まくまくいろいろノート" />
+  <title>部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/pic/circuit/rs232c.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： 部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも&url=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="はじめに用語とか">はじめに（用語とか）</h2>
+
+<ul>
+  <li><strong>スペース状態</strong> ･･･ 信号 0。入力 +3V 以上。出力 +5V ～ +15V。</li>
+  <li><strong>マーク状態</strong> ･･･ 信号 1。入力 -3V 以下。出力 -5V ～ -15V。</li>
+  <li><strong>短絡時最大出力電流</strong> ･･･ 500mA。</li>
+  <li><strong>ハードウェアフローコントロール</strong> ･･･ RTS と CTS の信号線を使ったフロー制御。RTS／CTS とも記述されます。</li>
+  <li><strong>ソフトウェアフローコントロール</strong> ･･･ ソフトウェアによるフロー制御。アプリケーションで決められた特殊な記号を送信することでフロー制御を行います。RTS と CTS ワイヤは使用しません。Xon／Xoff とも記述されます。</li>
+  <li><strong>DTE デバイス</strong> ･･･ 通常は PC を示します。オスコネクタを持ちます。</li>
+  <li><strong>DCE デバイス</strong> ･･･ 通常は シリアルデバイスを示します。メスコネクタを持ちます。DTE デバイスと DCE デバイスをつなぐ時は通常ストレートケーブルを用います。</li>
+  <li><strong>ヌルモデムケーブル／ヌルアダプタ</strong> ･･･ 送信と受信の信号線をクロスさせたものです。TxD ⇔ RxD、DTR ⇔ DSR、RTS ⇔ CTS のようにクロスされます。</li>
+</ul>
+
+<h2 id="dsub-9-ピン">DSub 9 ピン</h2>
+
+<p><img src="/memo/pic/circuit/dsub9pin.png" alt="dsub9pin.png" class="center" /></p>
+
+<p>（DTE デバイス（PC 側）オス）</p>
+
+<table align="center">
+	<caption>9 ピンミニ DSUB コネクタ (PC 側オス)</caption>
+	<tr>
+		<th>ピン番号</th><th>表記</th><th>I/O</th><th>意味</th><th>説明</th>
+	</tr>
+	<tr>
+		<td class="namec">1</td>
+		<td class="namec2">DCD</td>
+		<td class="c">In</td>
+		<td>Data Carrier Detect（キャリア検出）</td>
+		<td>外部端末の送受信準備ができたことを知る</td>
+	</tr>
+	<tr>
+		<td class="namec">2</td>
+		<td class="namec2">RxD</td>
+		<td class="c">In</td>
+		<td>Receive Data（受信データ）</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="namec">3</td>
+		<td class="namec2">TxD</td>
+		<td class="c">Out</td>
+		<td>Transmit Data（送信データ）</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="namec">4</td>
+		<td class="namec2">DTR</td>
+		<td class="c">Out</td>
+		<td>Data Terminal Ready（データ端末準備）</td>
+		<td>PC が繋がっていることを認識させる（PC → 外部）</td>
+	</tr>
+	<tr>
+		<td class="namec">5</td>
+		<td class="namec2">GND</td>
+		<td class="c">---</td>
+		<td>Ground（信号用グラウンド）</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="namec">6</td>
+		<td class="namec2">DSR</td>
+		<td class="c">In</td>
+		<td>Data Set Ready（データセット準備）</td>
+		<td>端末が繋がっていることを認識する（PC ← 外部）</td>
+	</tr>
+	<tr>
+		<td class="namec">7</td>
+		<td class="namec2">RTS</td>
+		<td class="c">Out</td>
+		<td>Request To Send (DTE の送信要求)</td>
+		<td>PC の送信開始信号（フロー制御用）（PC → 外部）</td>
+	</tr>
+	<tr>
+		<td class="namec">8</td>
+		<td class="namec2">CTS</td>
+		<td class="c">In</td>
+		<td>Clear To Send（DCE の送信要求）</td>
+		<td>PC への受信開始要求（フロー制御用）（PC ← 外部）</td>
+	</tr>
+	<tr>
+		<td class="namec">9</td>
+		<td class="namec2">RI</td>
+		<td class="c">In</td>
+		<td>Ring Indication（被呼表示）</td>
+		<td>電話がかかってきたことを伝える／PC の電源を制御する</td>
+	</tr>
+</table>
+
+<p>PC からデータを送信するのに最低限必要なのは、TxD(3) と GND(5) です。
+データを受信する時は RxD(2) が必要です。
+出力の信号線は、デフォルトでマーク状態(-)かスペース状態(+)のどちらかを出力してます。</p>
+
+<table align="center">
+	<tr>
+		<th>信号線</th><th>COMポート接続時</th><th>COMポートオープン時</th>
+	</tr>
+	<tr>
+		<td class="namec">TxD (3)</td><td>mark(-)</td><td>mark(-)</td>
+	</tr>
+	<tr>
+		<td class="namec">DTR (4)</td><td>mark(-)</td><td>space(+)</td>
+	</tr>
+	<tr>
+		<td class="namec">RTS (7)</td><td>mark(-)</td><td>space(+)</td>
+	</tr>
+</table>
+
+<p>小さな回路なら、DTR(4) と RTS(7) から電源供給することができます。
+といっても電流量は少ないし、マシンによって供給量が多少異なるので、あまり信頼できません。
+DTR(4) と RTS(7) を並列に繋ぐと電流を増やせます。</p>
+
+<ul>
+  <li><strong>CD／DCD (1)</strong> ･･･ モデムが相手側のモデムと接続を確立した時や、キャリアトーンの検出を知らせます。この信号線はめったに使用されません。</li>
+  <li><strong>RD／RxD (2)</strong> ･･･ DCE から DTE へのデータ受信に使用されます。RD ワイヤは DTE デバイスがアイドル状態の時、マーク状態になります。</li>
+  <li><strong>TD／TxD (3)</strong> ･･･ DTE から DCE へのデータ送信に使用されます。TD ワイヤは DTE デバイスがアイドル状態の時、マーク状態になります。逆にバッファがいっぱいの時はスペース状態になります。</li>
+  <li><strong>DTR (4)</strong> ･･･ DTE デバイスの準備ができていることを示します。電源が入っていることを確かめるために使用したりしますが、あまり使われない信号線です。Windows で COM ポートを開くと 1 になり、閉じると 0 になります。</li>
+  <li><strong>DSR (6)</strong> ･･･ DCE デバイスの準備ができていることを示します。電源が入っていることを確かめるために使用したりしますが、あまり使われない信号線です。</li>
+  <li><strong>RTS (7)</strong> ･･･ DTE デバイスと DCE デバイス両方のハードウェアフローコントロールが ON の場合に使用されます。DTE がデータ受信可能（待機中）な時は、このワイヤがマーク状態になります。逆にバッファがいっぱいの時はスペース状態になります。</li>
+  <li><strong>CTS (8)</strong> ･･･ DTE デバイスと DCE デバイス両方のハードウェアフローコントロールが ON の場合に使用されます。DCE がデータ受信可能（待機中）な時は、このワイヤがマーク状態になります。</li>
+  <li><strong>RI (9)</strong> ･･･ モデムが呼び出し信号を受信したことを知らせます。つまり電話が鳴ったときに PC にそれを知らせます。この信号線はめったに使用されません。</li>
+</ul>
+
+<h2 id="非同期通信">非同期通信</h2>
+
+<p>Windows などの PC では主に非同期通信が使用されます。
+同期通信のように常に信号をやりとりしていないため、データの送信を示すためのスタートビットが必要になります。
+データを送信していない時（アイドル時）は TX はマーク状態 (1) になっているので、スタートビットは 0 の信号になります。
+1 つのデータの構造は次のようになります。</p>
+
+<table align="center">
+	<tr>
+		<td class="c">スタートビット<br />（1 bit）</td>
+		<td class="c">データ<br />（4 ～ 8 bits。主に 8 bits）</td>
+		<td class="c">ストップビット<br />（1 bit）</td>
+	</tr>
+</table>
+
+<h2 id="ケーブル長">ケーブル長</h2>
+
+<table align="center">
+	<caption>24 ゲージワイヤの実用的なケーブル長</caption>
+	<tr>
+		<th>Baud Rate</th>
+		<th>シールドケーブル</th><th>非シールドケーブル</th>
+	</tr>
+	<tr class="r">
+		<td class="namec">110</td><td>1500 m</td><td rowspan="2">300 m</td>
+	</tr>
+	<tr class="r">
+		<td class="namec">300</td><td>1200 m</td>
+	</tr>
+	<tr class="r">
+		<td class="namec">1200</td><td>900 m</td><td rowspan="2">150 m</td>
+	</tr>
+	<tr class="r">
+		<td class="namec">2400</td><td>600 m</td>
+	</tr>
+	<tr class="r">
+		<td class="namec">4800</td><td>150 m</td><td>75 m</td>
+	</tr>
+	<tr class="r">
+		<td class="namec">9600</td><td>75 m</td><td>30 m</td>
+	</tr>
+</table>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： 部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも&url=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/circuit/rs232c.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

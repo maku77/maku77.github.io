@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのVimノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/vim/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-vim.png" />
+
+  <meta property="og:description" content="天才星人まくのVimノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Vim ノート | 天才まくまくノート" />
+  <title>まくまく Vim ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-vim.svg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくVimノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        素敵なテキストエディタ Vim のメモ。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： Vim メモ&url=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="基本">基本</h2>
+<ul>
+  <li><a href="basic/help.html">ヘルプコマンドの使い方 (:help, :helpgrep)</a></li>
+  <li>移動
+    <ul>
+      <li><a href="basic/move-cursor.html">カーソル移動の方法いろいろ</a></li>
+      <li><a href="basic/cpp-jump.html">C/C++ の変数／マクロの定義位置にジャンプする</a></li>
+      <li><a href="basic/scroll.html">画面スクロールの方法いろいろ</a></li>
+      <li><a href="advanced/mark.html">カーソル位置にマーク（ブックマーク）してジャンプする</a></li>
+    </ul>
+  </li>
+  <li><a href="basic/delete.html">文字の削除方法いろいろ</a></li>
+  <li><a href="basic/substitute.html">文字の置換方法いろいろ (:substitute)</a></li>
+  <li><a href="basic/window.html">ウィンドウを分割する</a></li>
+  <li><a href="basic/undo-and-redo.html">アンドゥとリドゥ操作</a></li>
+  <li><a href="basic/visual-mode.html">ビジュアルモードの基本</a></li>
+</ul>
+
+<h3 id="コマンドモード">コマンドモード</h3>
+<ul>
+  <li><a href="basic/candidate.html">コマンドモードでコマンド入力を補完する</a></li>
+  <li><a href="basic/cursor-move-in-command.html">コマンドモードでのカーソル移動</a></li>
+  <li><a href="basic/line-range.html">ex コマンドの行範囲指定方法いろいろ</a></li>
+</ul>
+
+<h3 id="検索">検索</h3>
+<ul>
+  <li><a href="advanced/grep.html">Vim 内で grep を実行して見つかったファイルへジャンプする</a></li>
+  <li><a href="basic/search.html">ファイル内の文字列を検索する</a></li>
+  <li><a href="basic/search-current-word.html">カーソル位置の単語を検索する</a></li>
+  <li><a href="basic/keywordprg.html">カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (keywordprg)</a></li>
+  <li><a href="advanced/ignorecase.html">大文字と小文字を区別しないで検索する</a></li>
+  <li><a href="settings/search.html">検索に関する設定</a></li>
+</ul>
+
+<h3 id="コマンドライン">コマンドライン</h3>
+<ul>
+  <li><a href="file/command-line-options.html">Vim を起動するときに行番号を指定してファイルを開く</a></li>
+  <li><a href="file/silent-batch-mode.html">サイレントバッチモードで Ex スクリプトをファイルに適用する</a></li>
+</ul>
+
+<h2 id="ファイル">ファイル</h2>
+
+<h3 id="ファイルを開く">ファイルを開く</h3>
+<ul>
+  <li><a href="file/open-specified-file.html">ファイル名を指定してファイルを開く</a></li>
+  <li><a href="file/open-file-at-cursor.html">カーソル位置の単語をファイル名としてファイルを開く (gf)</a></li>
+  <li><a href="file/open-other-ext.html">編集中のファイルと拡張子だけが異なるファイルを開く (%&lt;)（Hello.cpp を編集中に Hello.h を開く）</a></li>
+  <li><a href="file/explore.html">ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)</a></li>
+  <li><a href="file/win-explorer.html">カレントディレクトリを Windows エクスプローラーで開く</a></li>
+</ul>
+
+<h3 id="ファイルを保存する">ファイルを保存する</h3>
+<ul>
+  <li><a href="file/save.html">ファイルへの保存コマンド :w、:x の基本</a></li>
+  <li><a href="file/save-lines.html">指定した行範囲だけ別のファイルに保存する</a></li>
+</ul>
+
+<h3 id="その他">その他</h3>
+<ul>
+  <li><a href="file/read.html">別ファイルの内容や外部コマンドの実行結果をカーソル位置に挿入する (:read)</a></li>
+  <li><a href="file/encoding.html">ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)</a></li>
+  <li><a href="file/recover.html">スワップファイルからファイルを復旧する (:recover)</a></li>
+  <li><a href="file/vimdiff.html">2 つのファイルの差分を取る・マージする (vimdiff, vim -d)</a></li>
+</ul>
+
+<h2 id="編集操作">編集操作</h2>
+
+<ul>
+  <li><a href="edit/insert-mode.html">挿入モード（インサートモード）のまま実行できる操作の一覧</a></li>
+  <li><a href="edit/xml-and-html.html">XML/HTML の編集に便利なコマンド</a></li>
+</ul>
+
+<h3 id="文字の追加">文字の追加</h3>
+<ul>
+  <li><a href="edit/complete.html">補完機能を使用してテキストを入力する</a></li>
+  <li><a href="edit/repeated-insert.html">同じテキストを指定した回数だけ繰り返し挿入する</a></li>
+  <li><a href="edit/insert-to-head.html">複数行の行頭に同じテキストを追加する</a></li>
+  <li><a href="edit/duplicate-chars.html">上の行の文字、下の行の文字をコピーする (CTRL-Y, CTRL-E)</a></li>
+</ul>
+
+<h3 id="削除">削除</h3>
+<ul>
+  <li><a href="edit/remove-empty-lines.html">空行（改行だけの行）を削除する</a></li>
+  <li><a href="edit/remove-trailing-spaces.html">行末の余分なスペースをまとめて削除する</a></li>
+  <li><a href="edit/remove-surrounded.html">記号（引用符など）で囲まれた範囲のテキストを削除する</a></li>
+  <li><a href="edit/remove-by-regexp.html">正規表現にマッチする行を削除する</a></li>
+</ul>
+
+<h3 id="整形変換">整形／変換</h3>
+<ul>
+  <li><a href="edit/join.html">行を連結する</a></li>
+  <li><a href="edit/swap-chars.html">文字を入れ替える、行を入れ替える（スワップ操作）</a></li>
+  <li><a href="edit/indent.html">インデント用のスペースを入力する（シフトコマンド）</a></li>
+  <li><a href="edit/re-indent.html">選択した範囲を自動インデントする</a></li>
+  <li><a href="edit/retab.html">すでに入力されているタブをスペースに変換する (:retab)</a></li>
+  <li><a href="edit/adjust.html">テキストを中央寄せ／左寄せ／右寄せする</a></li>
+  <li><a href="edit/uppercase-lowercase.html">大文字と小文字を変換する</a></li>
+  <li><a href="edit/increment.html">カーソル位置の数字をインクリメント／デクリメントする</a></li>
+  <li>ソート
+    <ul>
+      <li><a href="edit/unique-lines.html">行をソートして重複行を削除する</a></li>
+      <li><a href="edit/reverse-sort.html">行を逆順にソートする</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="カットペースト">カット＆ペースト</h3>
+<ul>
+  <li><a href="edit/paste-in-insert-mode.html">挿入モード、コマンドモードでの貼り付け</a></li>
+  <li><a href="edit/paste-register-0.html">最後にヤンクしたテキストを確実に貼り付ける</a></li>
+  <li><a href="edit/register.html">切り取り＆貼り付け操作、レジスタの扱いについて理解する</a></li>
+</ul>
+
+<h2 id="応用操作">応用操作</h2>
+<ul>
+  <li><a href="advanced/nerd-tree.html">Vim 上でディレクトリツリーを表示する (NERDTree)</a></li>
+  <li><a href="advanced/folding.html">折りたたみ機能 (folding) を使用する</a></li>
+  <li><a href="advanced/show-lines.html">指定した行範囲を一時的に表示する</a></li>
+  <li><a href="advanced/shell.html">一時的にシェル（ターミナルやコマンドプロンプト）を起動する</a></li>
+  <li><a href="advanced/macro.html">キーボードマクロを記録して一連のキー入力を繰り返し実行する</a></li>
+  <li><a href="advanced/hardcopy.html">プリンタで印刷する (hardcopy)</a></li>
+  <li><a href="advanced/line-info.html">行の情報を表示する</a></li>
+  <li><a href="advanced/run-ex-script.html">ファイルに保存した ex スクリプトを実行する</a></li>
+  <li>プログラマ向け操作
+    <ul>
+      <li><a href="advanced/tags.html">プログラムの関数定義などにジャンプする（tags ファイルの利用）</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="インストール環境">インストール／環境</h2>
+<ul>
+  <li><a href="install/kaoriya-gvim.html">MacOSX に香り屋版の GVim をインストールする</a></li>
+  <li><a href="install/vundle.html">Vundle をインストールして Vim のプラグイン環境を作る</a></li>
+  <li><a href="install/windows-right-click.html">Windows の右クリックから Vim を開けるようにする</a></li>
+  <li><a href="install/windows-open-tab.html">Windows でファイルを開くときに既存の GVim 内のタブで開く</a></li>
+</ul>
+
+<h2 id="vim-の設定">Vim の設定</h2>
+
+<h3 id="キーマップ設定">キーマップ設定</h3>
+<ul>
+  <li><a href="keymap/basic.html">キーマップの基本 (map, noremap)</a></li>
+  <li><a href="keymap/current-map.html">現在のキーマップの一覧を表示する (map)</a></li>
+  <li><a href="keymap/keycodes.html">map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)</a></li>
+  <li><a href="keymap/mapleader.html">Leader キーを使ったキーコンビネーションを定義する (mapleader)</a></li>
+  <li>キーマップの例
+    <ul>
+      <li><a href="settings/open-vimrc-quickly.html">ショートカットキーで設定ファイル (.vimrc) を開く</a></li>
+      <li><a href="keymap/insert-date.html">ショートカットキーで日時を挿入する</a></li>
+      <li><a href="keymap/tab.html">ショートカットキーでタブを切り替える</a></li>
+      <li><a href="keymap/open-folder.html">ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ファイルディレクトリに関する設定と操作">ファイル・ディレクトリに関する設定と操作</h3>
+<ul>
+  <li><a href="settings/reload-vimrc.html">設定ファイル (.vimrc) を開く、リロードする</a></li>
+  <li><a href="settings/rc-files.html">現在の環境で読み込まれる設定ファイルの一覧を確認する</a></li>
+  <li><a href="settings/modeline.html">モードラインでファイルごとに書式を設定する</a></li>
+  <li><a href="settings/backup.html">バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)</a></li>
+  <li><a href="settings/autochdir.html">ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)</a></li>
+</ul>
+
+<h3 id="autocmd自動コマンドによる設定">autocmd（自動コマンド）による設定</h3>
+<ul>
+  <li><a href="settings/autocmd.html">autocmd で自動コマンドを登録する</a></li>
+  <li><a href="settings/autocmd-exec.html">編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する</a></li>
+  <li><a href="settings/autocmd-cd.html">開いたファイルがあるディレクトリをカレントディレクトリにする</a></li>
+</ul>
+
+<h3 id="表示の設定">表示の設定</h3>
+<ul>
+  <li><a href="settings/number.html">行番号を表示する (number)</a></li>
+  <li><a href="settings/colorcolumn.html">80文字目に縦線を表示する (colorcolumn)</a></li>
+  <li><a href="settings/syntax.html">構文強調（シンタックスハイライト）を有効にする (syntax)</a></li>
+  <li><a href="settings/cursorline.html">カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)</a></li>
+  <li><a href="settings/font-dialog.html">フォント設定ダイアログを開いてフォントを設定する (guifont)</a></li>
+  <li><a href="settings/show-space.html">改行、タブ文字、行末のスペースを表示する (list, listchars)</a></li>
+  <li><a href="settings/show-double-byte-space.html">全角スペースを表示する</a></li>
+  <li><a href="settings/ambiwidth.html">■や※などの記号が重なって表示される問題の解決 (ambiwidth)</a></li>
+  <li><a href="settings/window-size.html">GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)</a></li>
+  <li><a href="settings/statusline.html">ステータスラインの表示内容を設定する (statusline, laststatus)</a></li>
+</ul>
+
+<h3 id="入力に関する設定">入力に関する設定</h3>
+<ul>
+  <li><a href="settings/backspace.html">インサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (backspace)</a></li>
+  <li><a href="settings/tab.html">タブ文字の設定 (tabstop, expandtab)</a></li>
+  <li><a href="settings/indent.html">インデント（シフトコマンド）の設定 (shiftwidth, shiftround)</a></li>
+  <li><a href="settings/abbreviate.html">省略形を用いたテキスト入力を行えるようにする (abbrevaite)</a></li>
+  <li><a href="settings/spell.html">スペルチェックを有効にする (spell)</a></li>
+  <li><a href="settings/auto-indent.html">自動インデントモードを有効にする (autoindent, cindent, smartindent)</a></li>
+  <li><a href="settings/formatoptions.html">Java や C/C++ のコメント記述に便利な formatoptions の設定</a></li>
+  <li><a href="settings/visual-indent.html">ビジュアルモードで簡単にインデントを行えるようにする</a></li>
+</ul>
+
+<h2 id="vim-プログラミングマクロ特殊用途">Vim プログラミング（マクロ）／特殊用途</h2>
+<ul>
+  <li><a href="http://learnvimscriptthehardway.stevelosh.com/">（外部サイト）Learn Vimscript the Hard Way</a></li>
+  <li><a href="misc/cword.html">カーソル位置の単語を取得する (cword)</a></li>
+  <li><a href="misc/ascii.html">カーソル位置の文字の文字コードを表示する (ascii)</a></li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： Vim メモ&url=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li class="xNav-focused"><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

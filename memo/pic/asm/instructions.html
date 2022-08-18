@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/pic/asm/instructions.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも | まくまくいろいろノート" />
+  <title>PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/pic/asm/instructions.html</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <STYLE>
+  TABLE.code TD {
+    font-family: monospace;
+  }
+  TABLE.code SPAN.strong {
+    color: black;
+    font-weight: bolder;
+  }
+  TD.c { text-align: center; }
+  TD { background: white; }
+  TH { background: #ddd; }
+  SPAN.lit { color: blue; font-weight: bolder; }
+  SPAN.dest { color: red; font-weight: bolder; }
+  SPAN.bit { color: green; font-weight: bolder; }
+</STYLE>
+
+
+<h2>PIC16Fxxx 命令セット (14bit)</h2>
+
+<TABLE class="code" align="center">
+	<TR>
+		<TH>カテゴリ</TH><TH>ニモニック</TH><TH colspan="2">意味</TH><TH>コード</TH>
+	</TR>
+	<TR>
+		<TD class="namec" rowspan="4">加算・減算</TD>
+		<TD><SPAN class="strong">ADDWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W + f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Add W and f</TD>
+		<TD>00 0111 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SUBWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - W → <SPAN class="dest">d</SPAN></TD>
+		<TD>Subtract W from f</TD>
+		<TD>00 0010 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">ADDLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W + <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Add literal and W</TD>
+		<TD>11 111x <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SUBLW</SPAN> <SPAN class="lit">k</SPAN></TD><TD><SPAN class="lit">k</SPAN> - W → W</TD>
+		<TD>Subtract W from literal</TD>
+		<TD>11 110x <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR class="line"></TR>
+
+	<TR>
+		<TD class="namec" rowspan="7">論理演算</TD>
+		<TD><SPAN class="strong">ANDWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W AND f → <SPAN class="dest">d</SPAN></TD>
+		<TD>AND W with f</TD>
+		<TD>00 0101 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">IORWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W OR f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Inclusive OR W with f</TD>
+		<TD>00 0100 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">XORWF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>W XOR f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Exclusive OR W with f</TD>
+		<TD>00 0110 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">ANDLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W AND <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>And literal with W</TD>
+		<TD>11 1001 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">IORLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W OR <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Inclusive OR literal with W</TD>
+		<TD>11 1000 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">XORLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD>W XOR <SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Exclusive OR literal with W</TD>
+		<TD>11 1010 <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">COMF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Complement f</TD>
+		<TD>00 1001 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">移動</TD>
+		<TD><SPAN class="strong">MOVF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f → <SPAN class="dest">d</SPAN></TD>
+		<TD>Move f</TD>
+		<TD>00 1000 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">MOVWF</SPAN> f</TD>
+		<TD>W → f</TD>
+		<TD>Move W to f</TD>
+		<TD>00 0000 1fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">MOVLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD><SPAN class="lit">k</SPAN> → W</TD>
+		<TD>Move litaral to W</TD>
+		<TD>11 00xx <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">クリア</TD>
+		<TD><SPAN class="strong">CLRF</SPAN> f</TD>
+		<TD>0 → f</TD>
+		<TD>Clear f</TD>
+		<TD>00 0001 1fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">CLRW</SPAN> W</TD>
+		<TD>0 → W</TD>
+		<TD>Clear W</TD>
+		<TD>00 0001 0xxx xxxx</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="4">インクリメント<BR>デクリメント</TD>
+		<TD><SPAN class="strong">DECF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - 1 → <SPAN class="dest">d</SPAN></TD>
+		<TD>Decrement f</TD>
+		<TD>00 0011 <SPAN class="dest">d</SPAN>fff ffff
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">INCF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f + 1 → <SPAN class="dest">d</SPAN></TD>
+		<TD>Increment f</TD>
+		<TD>00 1010 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">DECFSZ</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f - 1 → <SPAN class="dest">d</SPAN><BR>Skip if result = 0</TD>
+		<TD>Decrement f, Skip if 0</TD>
+		<TD>00 1011 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">INCFSZ</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>f + 1 → <SPAN class="dest">d</SPAN><BR>Skip if result = 0</TD>
+		<TD>Increment f, Skip if 0</TD>
+		<TD>00 1111 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">ビット操作</TD>
+		<TD><SPAN class="strong">BCF</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>0 → f[<SPAN class="bit">b</SPAN>]</TD>
+		<TD>Bit Clear f</TD>
+		<TD>01 00<SPAN class="bit">bb b</SPAN>fff ffff</SPAN>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">BSF</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>1 → f[<SPAN class="bit">b</SPAN>]</TD>
+		<TD>Bit set f</TD>
+		<TD>01 01<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="2">スキップ</TD>
+		<TD><SPAN class="strong">BTFSC</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>Skip if f[<SPAN class="bit">b</SPAN>] = 0</TD>
+		<TD>Bit Test f, Skip if Clear</TD>
+		<TD>01 10<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">BTFSS</SPAN> f, <SPAN class="bit">b</SPAN></TD>
+		<TD>Skip if f[<SPAN class="bit">b</SPAN>] = 1</TD>
+		<TD>Bit Test f, Skip if Set</TD>
+		<TD>01 11<SPAN class="bit">bb b</SPAN>fff ffff</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">シフト</TD>
+		<TD><SPAN class="strong">RLF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[n] → <SPAN class="dest">d</SPAN>[n+1]<BR>
+			f[7] → C → <SPAN class="dest">d</SPAN>[0]
+		</TD>
+		<TD>Rotate Left f through Carry<BR>(左巡回シフト)</TD>
+		<TD>00 1101 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RRF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[n] → <SPAN class="dest">d</SPAN>[n-1]<BR>
+			f[0] → c → <SPAN class="dest">d</SPAN>[7]
+		</TD>
+		<TD>Rotate Right f through Carry<BR>(右巡回シフト)</TD>
+		<TD>00 1100 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SWAPF</SPAN> f, <SPAN class="dest">d</SPAN></TD>
+		<TD>
+			f[0:3] → <SPAN class="dest">d</SPAN>[4:7]<BR>
+			f[4:7] → <SPAN class="dest">d</SPAN>[0:3]
+		</TD>
+		<TD>Swap nibbles in f<BR>(上位ビット ⇔ 下位ビット)</TD>
+		<TD>00 1110 <SPAN class="dest">d</SPAN>fff ffff</TD>
+	</TR>
+	<TR class="line"></TR>
+
+	<TR>
+		<TD class="namec" rowspan="5">ジャンプ</TD>
+		<TD><SPAN class="strong">GOTO</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Go to address</TD>
+		<TD>10 1<SPAN class="lit">kkk kkkk kkkk</SPAN>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">CALL</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Call subroutine</TD>
+		<TD>10 0<SPAN class="lit">kkk kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETFIE</SPAN></TD>
+		<TD></TD>
+		<TD>Return from interrupt</TD>
+		<TD>00 0000 0000 1001</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETLW</SPAN> <SPAN class="lit">k</SPAN></TD>
+		<TD></TD>
+		<TD>Return with literal in W</TD>
+		<TD>11 01xx <SPAN class="lit">kkkk kkkk</SPAN></TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">RETURN</SPAN></TD>
+		<TD></TD>
+		<TD>Return from Subroutine</TD>
+		<TD>00 0000 0000 1000</TD>
+	</TR>
+
+	<TR class="line"></TR>
+	<TR>
+		<TD class="namec" rowspan="3">その他</TD>
+		<TD><SPAN class="strong">CLRWDT</SPAN></TD>
+		<TD></TD>
+		<TD>Clear Watchdog Timer</TD>
+		<TD>00 0000 0110 0100</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">NOP</SPAN></TD>
+		<TD></TD>
+		<TD>No Operation</TD>
+		<TD>00 0000 0xx0 0000</TD>
+	</TR>
+	<TR>
+		<TD><SPAN class="strong">SLEEP</SPAN></TD>
+		<TD></TD>
+		<TD>Go into standby mode</TD>
+		<TD>00 0000 0110 0011</TD>
+	</TR>
+</TABLE>
+
+<TABLE align="center">
+  <caption>OPCODE フィールドの説明</caption>
+	<TR>
+		<TH>Field</TH><TH>Size</TH><TH>Description</TH>
+	</TR>
+	<TR>
+		<TD class="c">f</TD><TD class="c">7</TD>
+		<TD>ワーキングレジスタのアドレス (0x00 ～ 0x7F)</TD>
+	</TR>
+	<TR>
+		<TD class="c">W</TD><TD class="c">─</TD>
+		<TD>ワーキングレジスタ（アキュムレータ）</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="bit">b</SPAN></TD><TD class="c">3</TD>
+		<TD>8 ビットファイルレジスタ内のビットアドレス</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="lit">k</SPAN></TD><TD class="c">8/11</TD>
+		<TD>
+			リテラル、定数またはラベル<BR>
+			(0 ～ 255) or (-128 ～ 127) or (アスキーコード 'A' とか)
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c">x</TD><TD class="c">─</TD>
+		<TD>
+			無効 (0 or 1)<BR>
+      アセンブラは x=0 としてコードを生成します。<br>
+			すべてのソフトウェアツールとの互換性を確保するために x=0 を推奨します。
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN class="dest">d</SPAN></TD><TD class="c">1</TD>
+		<TD>
+			結果格納先指名子 (0 or 1)<BR>
+			0: W に格納<BR>
+			1: ファイルレジスタ f に格納 (Default)
+		</TD>
+	</TR>
+	<TR>
+		<TD class="c">PC</TD><TD class="c">─</TD>
+		<TD>プログラムカウンタ</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN style="text-decoration: overline;">TO</SPAN></TD><TD class="c">─</TD>
+		<TD>タイムアウトビット</TD>
+	</TR>
+	<TR>
+		<TD class="c"><SPAN style="text-decoration: overline;">PD</SPAN></TD><TD class="c">─</TD>
+		<TD>パワーダウンビット</TD>
+	</TR>
+</TABLE>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/instructions.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

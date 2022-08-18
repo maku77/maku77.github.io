@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/tool/make.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="make を使いこなすためのメモ | まくまくいろいろノート" />
+  <title>make を使いこなすためのメモ - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">make を使いこなすためのメモ</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2007-06-29</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/tool/make.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： make を使いこなすためのメモ&url=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="make-の種類あれこれ">make の種類あれこれ</h2>
+
+<p>一番よく使用されているのは GNU make ですが、いろいろな亜種があります。</p>
+
+<ul>
+  <li>System V make
+    <ul>
+      <li>Stuart I. Feldman によって作成されたオリジナルの make です</li>
+    </ul>
+  </li>
+  <li>GNU make
+    <ul>
+      <li>Linux の世界で一般的に使用されている make です</li>
+      <li>Implemented by Richard Stallman and Roland McGrath.</li>
+      <li>Development since Version 3.76 has been handled by Paul D. Smith.</li>
+    </ul>
+  </li>
+  <li>Microsoft 版 nmake
+    <ul>
+      <li>Microsoft C コンパイラ ver. 6.0A に付属</li>
+    </ul>
+  </li>
+  <li>Borland 版 make
+    <ul>
+      <li>Borland Turbo C++ コンパイラ ver.2 に付属</li>
+    </ul>
+  </li>
+</ul>
+
+<p>参考: MAKE の達人 (1992)</p>
+
+<h2 id="makefile-に記述する-rule-のフォーマット">Makefile に記述する rule のフォーマット</h2>
+
+<p>Makefile には、下記のようなフォーマットで rule を記述していきます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>targets : prerequisites
+	command
+	...
+</code></pre></div></div>
+
+<p>あるいは、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>targets : prerequisites ; command
+	command
+	...
+</code></pre></div></div>
+
+<p>それぞれ、下記のような内容を記述していきます。</p>
+
+<dl>
+  <dt>targets</dt>
+  <dd>更新（あるいは作成）する対象となるファイルを指定します。複数のファイル名を指定する場合はスペースで区切ります。ワイルドカードを使ってファイル名を指定することもできます。</dd>
+  <dt>prerequisites</dt>
+  <dd>targets の更新（あるいは作成）に必要なファイル郡を指定します。複数のファイル名を指定する場合はスペースで区切ります。ワイルドカードを使ってファイル名を指定することもできます。</dd>
+  <dt>command</dt>
+  <dd>targets を更新（あるいは作成）するためのコマンド郡を指定します。command 行は必ず TAB で始めること。複数のコマンドを指定する場合は、次の行に記述するか、セミコロン (<code class="language-plaintext highlighter-rouge">;</code>) で区切ります。</dd>
+</dl>
+
+<p>上記のような target の処理内容をまとめて <strong>rule</strong> と呼びます。
+１つの target を複数の rule に分けて記述することも可能ですが、そのような書き方は見通しが悪くなるため、おすすめはできません。</p>
+
+<h2 id="make-コマンドの振る舞い">make コマンドの振る舞い</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target ... : prerequisites ...
+	command
+	...
+</code></pre></div></div>
+
+<p>make コマンドを実行したとき、上記のように指定された command は以下のようなルールで実行されます。</p>
+
+<ol>
+  <li>target を指定せずに make を実行すると、Makefile の最初に出てくる target を処理する（ドット (<code class="language-plaintext highlighter-rouge">.</code>) で始まる target を除く）。この target のことを <strong>default goal</strong> と呼ぶ。</li>
+  <li>target に指定したファイルが存在しない場合、あるいは、target が prerequisites に指定したファイルより古い場合は command が実行される。prerequisites は空でもよく、その場合は、target と同じ名前のファイルがない場合だけ command が実行される。</li>
+  <li>prerequisites に指定したものと同じ名前の target がある場合は、その target を先に評価する。</li>
+</ol>
+
+<h4 id="makefile-の例">Makefile の例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app : main.o util.o
+	cc -o app main.o util.o
+
+main.o : main.c util.h
+	cc -c main.c
+
+util.o : util.c util.h
+	cc -c util.c
+
+.PHONY : clean
+clean :
+	rm app main.o util.o
+</code></pre></div></div>
+
+<h2 id="variables変数を使用する">Variables（変数）を使用する</h2>
+
+<p>Makefile 内に同じ内容を何度も記述しなければいけない場合は、その内容を変数に入れておくことで簡潔に記述できるようになります。
+例えば、オブジェクトファイル (<code class="language-plaintext highlighter-rouge">.o</code>) のリストはよく、<code class="language-plaintext highlighter-rouge">objects</code>、<code class="language-plaintext highlighter-rouge">OBJECTS</code>、<code class="language-plaintext highlighter-rouge">objs</code>、<code class="language-plaintext highlighter-rouge">OBJS</code>、<code class="language-plaintext highlighter-rouge">obj</code>、<code class="language-plaintext highlighter-rouge">OBJ</code> といった名前の変数で表現されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = obj1.o obj2.o obj3.o
+</code></pre></div></div>
+
+<p>変数の内容を取り出すには、<code class="language-plaintext highlighter-rouge">$(OBJECTS)</code> のように参照します。</p>
+
+<h4 id="variables変数を使った-makefile-の例">Variables（変数）を使った Makefile の例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>objects = main.o util.o
+
+app : $(OBJECTS)
+	cc -o app $(OBJECTS)
+
+main.o : main.c util.h
+	cc -c main.c
+
+util.o : util.c util.h
+	cc -c util.c
+
+.PHONY : clean
+clean :
+	rm app $(OBJECTS)
+</code></pre></div></div>
+
+<h2 id="オブジェクトファイル-o-を作る-rule-の省略記法">オブジェクトファイル (.o) を作る rule の省略記法</h2>
+
+<p>ソースファイル <code class="language-plaintext highlighter-rouge">util.c</code>、<code class="language-plaintext highlighter-rouge">util.h</code> をコンパイルして <code class="language-plaintext highlighter-rouge">util.o</code> ファイルを作る rule を記述する場合、<strong>implicit rules（暗黙のルール）</strong>を使用して rule 記述を省略することができます。
+ここでは、prerequisites から <code class="language-plaintext highlighter-rouge">.c</code> ファイルの記述を省略し、command の記述を省略することができます。例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>util.o : util.c util.h
+	cc -c util.c
+</code></pre></div></div>
+
+<p>このような rule は、implicit rules によって以下のように 1 行で記述することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>util.o : util.h
+</code></pre></div></div>
+
+<h4 id="長めのサンプル">長めのサンプル</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = main.o util.o
+
+app : $(OBJECTS)
+	cc -o app $(OBJECTS)
+
+main.o : main.c util.h
+	cc -c main.c
+
+util.o : util.c util.h
+	cc -c util.c
+</code></pre></div></div>
+
+<p>これを、以下のように省略することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = main.o util.o
+
+app : $(OBJECTS)
+	cc -o app $(OBJECTS)
+
+main.o : util.h
+util.o : util.h
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">main.o</code> と <code class="language-plaintext highlighter-rouge">util.o</code> は同じ prerequisites（ここでは <code class="language-plaintext highlighter-rouge">util.h</code>）を持つので、一行にまとめて以下のようにも書けます。
+ただし、このように target をまとめることを好まない人もいます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = main.o util.o
+
+app : $(OBJECTS)
+	cc -o app $(OBJECTS)
+
+$(OBJECTS) : util.h
+</code></pre></div></div>
+
+<h2 id="makefile-の名前">Makefile の名前</h2>
+
+<p>GNU make は、以下の順番で Makefile を探します。</p>
+
+<ol>
+  <li>GNUmakefile（GNU make 以外の make はこのファイルを検索しない）</li>
+  <li>makefile</li>
+  <li>Makefile（推奨）</li>
+</ol>
+
+<p>GNU make のマニュアルでは、<code class="language-plaintext highlighter-rouge">Makefile</code> という名前にすることを推奨しています。
+これは、ディレクトリ内のファイルリストを表示したときに、比較的前の方に表示され、<code class="language-plaintext highlighter-rouge">README</code> ファイルの近くに表示される可能性が高いからです。</p>
+
+<h2 id="別の-makefile-を-include-する">別の Makefile を include する</h2>
+
+<h3 id="include-の構文">include の構文</h3>
+
+<p>下記のような構文を使用すると、Makefile の中から別のファイルをインクルードすることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include filenames...
+</code></pre></div></div>
+
+<p>ファイル名にはシェルのファイル名パターンを使用することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include *.mk
+</code></pre></div></div>
+
+<p>ファイル名の中で変数 (variable) や関数 (function) を参照すると、展開されてからファイルを検索します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE = foo.mk bar.mk
+include $(HOGE)
+</code></pre></div></div>
+
+<h3 id="include-される-makefile-の検索パス">include される Makefile の検索パス</h3>
+
+<p>インクルードする Makefile を相対パスで指定した場合、以下のような順番で検索されます。</p>
+
+<ol>
+  <li>カレントディレクトリ</li>
+  <li><code class="language-plaintext highlighter-rouge">-I</code> または <code class="language-plaintext highlighter-rouge">--include-dir</code> オプションで指定したディレクトリ</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;prefix&gt;/include</code>（通常は <code class="language-plaintext highlighter-rouge">/usr/local/include</code>）</li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/gnu/include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/local/include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/include</code></li>
+</ol>
+
+<h3 id="インクルードする-makefile-が見つからなかったときのエラーを抑制する">インクルードする Makefile が見つからなかったときのエラーを抑制する</h3>
+
+<p>デフォルトでは、インクルードしようとしたファイルが見つからなかったときはエラーになります。
+ファイルが見つからなかった場合にエラーを出さないようにするには、<code class="language-plaintext highlighter-rouge">include</code> の前にハイフンを付けて、<code class="language-plaintext highlighter-rouge">-include</code> と記述します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-include filenames...
+</code></pre></div></div>
+
+<p>GNU make 以外の make 実装では、<code class="language-plaintext highlighter-rouge">-include</code> の代わりに <code class="language-plaintext highlighter-rouge">sinclude</code> を使用するものもあります。</p>
+
+<h2 id="どんなターゲット名にも一致する-">どんなターゲット名にも一致する %</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@echo all
+
+%:
+	@echo %
+</code></pre></div></div>
+
+<p>上記のように、ターゲット名に <code class="language-plaintext highlighter-rouge">%</code> を指定すると、任意のターゲット名に一致するものとみなされます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make       ⇒ ターゲット all を実行
+$ make all   ⇒ ターゲット all を実行
+$ make hoge  ⇒ ターゲット % を実行
+</code></pre></div></div>
+
+<h2 id="make-の２フェイズ処理変数の展開順序について">make の２フェイズ処理（変数の展開順序について）</h2>
+
+<p>make コマンドが Makefile を処理するとき、次のように２フェイズに分けて処理されます。</p>
+
+<ol>
+  <li><strong>Read-in phase (1st phase):</strong> make を実行すると、最初に Makefile の内容をすべて読み込み（インクルードしたファイルもすべて）、各ルールの依存関係や、変数の値などを内部に保持します。</li>
+  <li><strong>Target-update phase (2nd phase):</strong> 1st phase で構築された内部構造を用い、各ルールを処理します。</li>
+</ol>
+
+<p>この知識は、Makefile 内で変数がどのような順序で展開されるかを理解するために必要になってきます。
+例えば、以下のような Makefile を実行すると、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FOO = 100
+all:
+	@echo $(FOO)
+FOO = 200
+</code></pre></div></div>
+
+<p>Read-in phase では <code class="language-plaintext highlighter-rouge">$(FOO)</code> の値は展開されず、<code class="language-plaintext highlighter-rouge">echo</code> コマンドが実行される Target-update phase で <code class="language-plaintext highlighter-rouge">$(FOO)</code> の値が展開されるため、<code class="language-plaintext highlighter-rouge">echo</code> される値は <code class="language-plaintext highlighter-rouge">200</code> となります。</p>
+
+<p>変数の展開タイミングは、Makefile 内のどの位置で変数が使われているかによって変わってきます。
+以下は、Makefile 内で記述できるフォーマットを羅列したものですが、この中の <code class="language-plaintext highlighter-rouge">&lt;immediate&gt;</code> と書かれた部分は、1st phase で展開される（その時点で格納されている値が使用される）ことを表しています。
+<code class="language-plaintext highlighter-rouge">&lt;deferred&gt;</code> と書かれた部分は、1st phase では展開されない（Makefile を最後まで読んで再帰的に展開される）ことを表しています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;immediate&gt; = &lt;deferred&gt;
+&lt;immediate&gt; ?= &lt;deferred&gt;
+&lt;immediate&gt; := &lt;immediate&gt;
+&lt;immediate&gt; += &lt;deferred&gt; or &lt;immediate&gt;
+              （右辺に指定した変数が := で作成されたものなら &lt;immediate&gt; となる）
+
+define &lt;immediate&gt;
+	&lt;deferred&gt;
+endif
+
+&lt;immediate&gt; : &lt;immediate&gt; ; &lt;deferred&gt;
+	&lt;deferred&gt;
+</code></pre></div></div>
+
+<h2 id="ワイルドカードを使う">ワイルドカードを使う</h2>
+
+<h3 id="rule-の定義にワイルドカードを使う">rule の定義にワイルドカードを使う</h3>
+
+<p>target や prerequisite の指定には、Bourne シェルのワイルドカードを使用することができます。
+command でワイルドカードを使うと、そのコマンドを実行するシェルによって展開されます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">*</code> ==&gt; 任意の文字列</li>
+  <li><code class="language-plaintext highlighter-rouge">?</code> ==&gt; 任意の 1 文字</li>
+  <li><code class="language-plaintext highlighter-rouge">~</code> ==&gt; ホームディレクトリ（Windows の場合は <code class="language-plaintext highlighter-rouge">HOME</code> 環境変数の値）</li>
+  <li><code class="language-plaintext highlighter-rouge">~john</code> ==&gt; john のホームディレクトリ</li>
+</ul>
+
+<h4 id="例">例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clean:
+	rm -f *.o
+</code></pre></div></div>
+
+<h3 id="変数の定義にワイルドカードを使う">変数の定義にワイルドカードを使う</h3>
+
+<p>変数を定義するときにワイルドカードを展開したい場合は、<code class="language-plaintext highlighter-rouge">wildcard</code> 関数を使用します。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = *.o
+</code></pre></div></div>
+
+<p>とすると、<code class="language-plaintext highlighter-rouge">OBJECTS</code> の値は <code class="language-plaintext highlighter-rouge">*.o</code> のままになります。
+この <code class="language-plaintext highlighter-rouge">*.o</code> を展開したものを <code class="language-plaintext highlighter-rouge">OBJECTS</code> に代入したい場合は、次のように記述する必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS := $(wildcard *.o)
+</code></pre></div></div>
+
+<p>右辺の関数やワイルドカードを代入時に展開するために、代入演算子として <code class="language-plaintext highlighter-rouge">=</code> ではなく、<code class="language-plaintext highlighter-rouge">:=</code> を使用している点に注意してください。</p>
+
+<h3 id="ワイルドカードのエスケープ">ワイルドカードのエスケープ</h3>
+
+<p>ファイル名の中に <code class="language-plaintext highlighter-rouge">*</code> を含むものを指定したい場合は、バックスラッシュ (<code class="language-plaintext highlighter-rouge">\</code>) でエスケープします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo\*.c  ==&gt; 'foo*.c' というファイル名を示す
+</code></pre></div></div>
+
+<p>このエスケープ処理は、Windows のパス指定でバックスラッシュ (<code class="language-plaintext highlighter-rouge">/</code>) を含む場合にしばしば問題になります。
+例えば、<code class="language-plaintext highlighter-rouge">C:\foo</code> ディレクトリの下の <code class="language-plaintext highlighter-rouge">.cpp</code> ファイルをワイルドカードで示したい場合に、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\foo\*.cpp
+</code></pre></div></div>
+
+<p>のように記述すると、アスタリスク (<code class="language-plaintext highlighter-rouge">*</code>) をエスケープしようとして、<code class="language-plaintext highlighter-rouge">C:\foo*.cpp</code> というファイルを表すことになってしまいます。
+この問題を避けるためには、Windows のディレクトリ・セパレータとして、Unix と同様にスラッシュ (<code class="language-plaintext highlighter-rouge">/</code>) を使用するようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:/foo/*.cpp
+</code></pre></div></div>
+
+<h2 id="prerequisites-の検索パスを追加する-vpath-vpath">Prerequisites の検索パスを追加する (VPATH, vpath)</h2>
+
+<h3 id="vpath-変数">VPATH 変数</h3>
+
+<p>target や prerequisites の検索パスを追加したい時は、<code class="language-plaintext highlighter-rouge">VPATH</code> 変数にディレクトリのパスを設定します。
+複数のパスを指定したい場合は、コロン (<code class="language-plaintext highlighter-rouge">:</code>) かスペースで区切って指定します（Windows の場合はセミコロン (<code class="language-plaintext highlighter-rouge">;</code>) で区切ります）。
+カレントディレクトリはデフォルトで検索するので、指定する必要はありません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VPATH = src:../headers
+</code></pre></div></div>
+
+<p>上記のように設定すると、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo.o : foo.c
+</code></pre></div></div>
+
+<p>というルールを処理するとき、カレントディレクトリで foo.c が見つからない場合、<code class="language-plaintext highlighter-rouge">src/foo.c</code> が検索され、さらに見つからない場合に <code class="language-plaintext highlighter-rouge">../headers/foo.c</code> が検索されるようになります。</p>
+
+<h3 id="ファイルの種類ごとに検索パスを追加する-vpath-ディレクティブ">ファイルの種類ごとに検索パスを追加する vpath ディレクティブ</h3>
+
+<p><code class="language-plaintext highlighter-rouge">vpath</code> ディレクティブを使用すると、ファイル名に応じて別々の検索パスを設定することができます。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpath %.h   ../headers
+vpath %.cpp src
+vpath %     hoge
+</code></pre></div></div>
+
+<p>このようにすると、拡張子が <code class="language-plaintext highlighter-rouge">.h</code> のファイルの検索パスとして <code class="language-plaintext highlighter-rouge">../headers</code> ディレクトリが追加され、拡張子が <code class="language-plaintext highlighter-rouge">.cpp</code> のファイルの検索パスとして <code class="language-plaintext highlighter-rouge">src</code> ディレクトリが追加されます。
+さらに、すべてのファイルの検索パスとして <code class="language-plaintext highlighter-rouge">hoge</code> ディレクトリが追加されます。</p>
+
+<p>ディレクトリパスは <code class="language-plaintext highlighter-rouge">VPATH</code> の場合と同様に、コロンで区切って複数指定することができます。
+検索の順序は <code class="language-plaintext highlighter-rouge">vpath</code> ディレクティブの呼び出し順序に従います。例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpath %.cpp foo:bar
+vpath %.cpp hoge
+</code></pre></div></div>
+
+<p>と指定すると、<code class="language-plaintext highlighter-rouge">.cpp</code> ファイルが、カレントディレクトリ ⇒ <code class="language-plaintext highlighter-rouge">foo</code> ⇒ <code class="language-plaintext highlighter-rouge">bar</code> ⇒ <code class="language-plaintext highlighter-rouge">hoge</code> の順番で検索されます。</p>
+
+<p>検索パスをクリアしたい場合は、ディレクトリパスを指定せずに <code class="language-plaintext highlighter-rouge">vpath</code> ディレクティブを呼び出します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpath %       # すべてのファイルの検索パスを削除
+vpath %.cpp   # .cpp ファイルの検索パスを削除
+</code></pre></div></div>
+
+<h2 id="prerequisites-で指定したファイルを-command-行で参照するマクロ-">prerequisites で指定したファイルを command 行で参照するマクロ (＄＾、＄＜)</h2>
+
+<p>command 行で <code class="language-plaintext highlighter-rouge">$^</code> を使用すると、prerequisites で指定したすべてのファイル名に展開されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app : a.cpp b.cpp c.cpp
+	g++ $(CXXFLAGS) $^ -o $@
+</code></pre></div></div>
+
+<p>上記のように記載すると、下記のように展開されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$^ ⇒ a.cpp b.cpp c.cpp
+$@ ⇒ app
+</code></pre></div></div>
+
+<p>command 行で <code class="language-plaintext highlighter-rouge">$&lt;</code> を使用すると、prerequisites で指定した最初のファイル名に展開されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo.o : foo.cpp foo.h defs.h
+	g++ -c $(CXXFLAGS) $&lt; -o $@
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$^ ⇒ foo.cpp
+$@ ⇒ foo.o
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">$^</code> の <code class="language-plaintext highlighter-rouge">^</code> という記号が上を指す矢印、<code class="language-plaintext highlighter-rouge">$&lt;</code> の <code class="language-plaintext highlighter-rouge">&lt;</code> という記号が左を指す矢印だと考えると覚えやすいです。</p>
+
+<h2 id="リンクライブラリの検索パス">リンクライブラリの検索パス</h2>
+
+<p>prerequisistes に <code class="language-plaintext highlighter-rouge">-l&lt;name&gt;</code> という形式でリンクライブラリを指定しておくと、<code class="language-plaintext highlighter-rouge">lib&lt;name&gt;.so</code>、あるいは <code class="language-plaintext highlighter-rouge">lib&lt;name&gt;.a</code> が検索されます。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo : foo.c -lcurses
+	cc $^ -o $@
+</code></pre></div></div>
+
+<p>とすると、以下の順番で <code class="language-plaintext highlighter-rouge">libcurses.so</code> ファイルが検索されます。</p>
+
+<ul>
+  <li>カレントディレクトリ</li>
+  <li><code class="language-plaintext highlighter-rouge">vpath</code> に設定したディレクトリ</li>
+  <li><code class="language-plaintext highlighter-rouge">VPATH</code> に設定したディレクトリ</li>
+  <li><code class="language-plaintext highlighter-rouge">/lib</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/lib</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;prefix&gt;/lib</code> （通常は <code class="language-plaintext highlighter-rouge">/usr/local/lib</code>）</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">libcurses.so</code> ファイルが見つからなかった場合は、上記の順で <code class="language-plaintext highlighter-rouge">libcurses.a</code> ファイルが検索されます。</p>
+
+<p>prerequisites に <code class="language-plaintext highlighter-rouge">-l&lt;name&gt;</code> と指定した場合に、どんな名前のファイルを検索するかは、<code class="language-plaintext highlighter-rouge">.LIBPATTERNS</code> 変数に設定されたパターンによって決められます。
+デフォルトでは次のような値に設定されています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.LIBPATTERNS = lib%.so lib%.a
+</code></pre></div></div>
+
+<p>よって、<code class="language-plaintext highlighter-rouge">-lcurses</code> と指定したときに、<code class="language-plaintext highlighter-rouge">libcurses.so</code> と <code class="language-plaintext highlighter-rouge">libcurses.a</code> ファイルが検索されることになります。</p>
+
+<h2 id="phony-ターゲットの役割">.PHONY ターゲットの役割</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clean:
+	rm *.o temp
+</code></pre></div></div>
+
+<p>というルールが設定されているとき、通常は</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make clean
+</code></pre></div></div>
+
+<p>と実行すると、<code class="language-plaintext highlighter-rouge">rm</code> コマンドが実行されます。
+ただし、上記のルールは、基本的には <code class="language-plaintext highlighter-rouge">clean</code> というファイルを作成するためのルールとみなされるので、カレントディレクトリに <code class="language-plaintext highlighter-rouge">clean</code> というファイルが存在する場合は <code class="language-plaintext highlighter-rouge">rm</code> コマンドが実行されなくなってしまいます。</p>
+
+<p>カレントディレクトリに <code class="language-plaintext highlighter-rouge">clean</code> というファイルが存在する場合でも <code class="language-plaintext highlighter-rouge">rm</code> コマンドを実行するようにするには、<code class="language-plaintext highlighter-rouge">.PHONY</code> ターゲットの prerequisites に <code class="language-plaintext highlighter-rouge">clean</code> を指定するようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.PHONY: clean
+clean:
+	rm *.o temp
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">.PHONY</code> ターゲットに記述しておくことで、ファイル検索にかかる時間を省略できるというメリットもあります。
+「ターゲット名＝ファイル名」でないときは、<code class="language-plaintext highlighter-rouge">.PHONY</code> ターゲットに指定しておくとよいです。</p>
+
+<p><code class="language-plaintext highlighter-rouge">.PHONY</code> ターゲットが使用できない make 実装の場合は、空のターゲット <code class="language-plaintext highlighter-rouge">FORCE</code> を用意して以下のようにするのが慣例となっています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clean: FORCE
+	rm $(OBJECTS)
+FORCE:
+</code></pre></div></div>
+
+<h2 id="make-コマンドのパラメータで-make-変数を定義する">make コマンドのパラメータで make 変数を定義する</h2>
+
+<p>make コマンドを実行するときのパラメータで、make 変数を定義することができます。
+次のサンプルは、<code class="language-plaintext highlighter-rouge">HOGE</code> という make 変数の値を、コマンドラインパラメータで指定する例です。</p>
+
+<h4 id="makefile">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE=
+all:
+	@echo $(HOGE)
+</code></pre></div></div>
+
+<h4 id="実行例">実行例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make HOGE=aaa
+aaa
+</code></pre></div></div>
+
+<p>Makefile 内で定義された変数の値は、make コマンドのパラメータで上書きされます。</p>
+
+<h4 id="makefile-1">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE=100
+all:
+	@echo $(HOGE)
+</code></pre></div></div>
+
+<h4 id="実行例-1">実行例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+100
+
+$ make HOGE=200
+200
+</code></pre></div></div>
+
+<h2 id="static-pattern-rules-target-名から-prerequisites-を自動構成するためのルール">Static Pattern Rules: target 名から prerequisites を自動構成するためのルール</h2>
+
+<h3 id="static-pattern-rules-の構文">Static Pattern Rules の構文</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>targets ...: target-pattern: prereq-patterns ...
+	commands
+       ...
+</code></pre></div></div>
+
+<p>targets では、通常のルールと同様にワイルドカードを使用することができます。
+target-pattern には、一つの <code class="language-plaintext highlighter-rouge">%</code> を含めることができ、targets に指定したファイル名の一部にマッチするように指定します。</p>
+
+<h4 id="例-1">例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OBJECTS = foo.o bar.o
+
+all: $(OBJECTS)
+
+$(OBJECTS): %.o: %.c
+	$(CC) -c $(CFLAGS) $&lt; -o $@
+</code></pre></div></div>
+
+<p>上記の例では、<code class="language-plaintext highlighter-rouge">foo.o</code> がターゲットになったとき、target-pattern の <code class="language-plaintext highlighter-rouge">%.o</code> に一致します。
+この場合 <code class="language-plaintext highlighter-rouge">%</code> に一致する部分文字列は <code class="language-plaintext highlighter-rouge">foo</code> であり、自動的に <code class="language-plaintext highlighter-rouge">foo.c</code> という prerequisite が構成されます。
+この <code class="language-plaintext highlighter-rouge">%</code> に一致した部分文字列のことを <strong>stem</strong> と呼びます。</p>
+
+<p>この Static Pattern Rule により、自動的に以下のような <code class="language-plaintext highlighter-rouge">foo.o</code>、<code class="language-plaintext highlighter-rouge">bar.o</code> の構築ルールが生成されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo.o: foo.c
+	$(CC) -c $(CFLAGS) foo.c -o foo.o
+bar.o: bar.c
+	$(CC) -c $(CFLAGS) bar.c -o bar.o
+</code></pre></div></div>
+
+<h3 id="static-pattern-rules-の-command-で-stem-を参照する">Static Pattern Rules の command で stem を参照する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bigoutput littleoutput: %output: text.g
+	generate text.g -$* &gt; $@
+</code></pre></div></div>
+
+<p>command 行で stem（<code class="language-plaintext highlighter-rouge">%</code> に一致した部分文字列）を参照するには <code class="language-plaintext highlighter-rouge">$*</code> を使用します。
+上記の Static Pattern Rule では、<code class="language-plaintext highlighter-rouge">$*</code> の部分に <code class="language-plaintext highlighter-rouge">big</code>, <code class="language-plaintext highlighter-rouge">little</code> という文字列が展開されるので、結果として以下のように解釈されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bigoutput: text.g
+	generate text.g -big &gt; bigoutput
+littleoutput: text.g
+	generate text.g -little &gt; littleoutput
+</code></pre></div></div>
+
+<h2 id="command-行のあれこれ">command 行のあれこれ</h2>
+
+<h3 id="コマンド行の解釈に使用されるシェル">コマンド行の解釈に使用されるシェル</h3>
+
+<p>コマンドの解釈はデフォルトでは <code class="language-plaintext highlighter-rouge">/bin/sh</code> が使用されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@echo $$SHELL    # shell 変数
+	@echo $(SHELL)   # make 変数
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+/bin/sh
+/bin/sh
+</code></pre></div></div>
+
+<p>コマンドの解釈に使用するシェルを変更するには、make 変数の <code class="language-plaintext highlighter-rouge">SHELL</code> を設定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SHELL = /bin/bash
+all:
+	@echo $$SHELL    # shell 変数
+	@echo $(SHELL)   # make 変数
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+/bin/bash
+/bin/bash
+</code></pre></div></div>
+
+<h3 id="ms-dos-windows-の場合の-make-変数-shell-の解釈について">MS-DOS, Windows の場合の make 変数 SHELL の解釈について</h3>
+
+<p>MS-DOS, Windows 版の make ではデフォルトのシェルとして <strong>COMSPEC</strong> 環境変数に設定されているものが使用されます。
+<code class="language-plaintext highlighter-rouge">SHELL</code> 変数に Unix 形式のパスでシェルを指定すると、以下のようにシェルの実行ファイルが検索されます。</p>
+
+<ol>
+  <li>指定されたパス通りのファイル（<code class="language-plaintext highlighter-rouge">SHELL = /bin/sh</code> とした場合、カレントドライブが <code class="language-plaintext highlighter-rouge">C:</code> の場合は <code class="language-plaintext highlighter-rouge">C:\bin\sh</code>）</li>
+  <li>カレントディレクトリのファイル</li>
+  <li><code class="language-plaintext highlighter-rouge">PATH</code> 環境変数に指定されたディレクトリにあるファイル</li>
+</ol>
+
+<p>完全にファイル名が一致するファイルがない場合、実行可能な形式のファイルが検索されます（<code class="language-plaintext highlighter-rouge">.exe</code>, <code class="language-plaintext highlighter-rouge">.com</code>, <code class="language-plaintext highlighter-rouge">.bat</code>, <code class="language-plaintext highlighter-rouge">.btm</code>, <code class="language-plaintext highlighter-rouge">.sh</code>）。
+以上のようなルールにより、<code class="language-plaintext highlighter-rouge">SHELL = /bin/sh</code> と指定しておけば、<code class="language-plaintext highlighter-rouge">PATH</code> の通ったディレクトリに、<code class="language-plaintext highlighter-rouge">sh.exe</code> があればそれが使用されます。</p>
+
+<h3 id="command-行間の空白行コメントについて">command 行間の空白行、コメントについて</h3>
+
+<p>２つのコマンド行の間の空白行や、make のコメント行は無視されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@echo 100
+
+	@echo 200
+# Comment for make.
+	@echo 300
+</code></pre></div></div>
+
+<p>上記の Makefile を使って make コマンドを実行すると、以下のように表示されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+100
+200
+300
+</code></pre></div></div>
+
+<p>行頭がタブ文字で始まっている場合は、その後ろが空白であったとしても、必ずシェルによって処理されます。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@echo 100
+[TAB]
+	@echo 200
+	# Comment for shell.
+	@echo 300
+</code></pre></div></div>
+
+<p>とすると、シェルに空白行と、コメント行が渡されることになります。
+ただし、<code class="language-plaintext highlighter-rouge">/bin/sh</code> は渡された空白行とコメント行を無視するので、実際には何も実行されていないかのように見え、先の例と結果は同じになります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+100
+200
+300
+</code></pre></div></div>
+
+<h3 id="コマンド行での-make-変数の展開について">コマンド行での make 変数の展開について</h3>
+
+<p>コマンド行の変数は Makefile を全て読んだ後に展開されます。
+ただし、リビルド対象となったターゲットのコマンドに出てくる変数のみ展開されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE = aaa
+all:
+	@echo $(HOGE)
+HOGE = bbb
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+bbb
+</code></pre></div></div>
+
+<h3 id="コマンド行でのシェル変数の展開について">コマンド行でのシェル変数の展開について</h3>
+
+<p>コマンド行でシェル変数を使用するときは、make 変数を参照するときの <code class="language-plaintext highlighter-rouge">$</code> 記号と区別するために、変数名の前に <code class="language-plaintext highlighter-rouge">$$</code> を付けるようにします（<code class="language-plaintext highlighter-rouge">$$</code> を２つ並べることで、<code class="language-plaintext highlighter-rouge">$</code> がエスケープ処理されて、シェルコマンド本来の <code class="language-plaintext highlighter-rouge">$</code> 記号の振る舞いをするようになります）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LIST = one two three
+all:
+	for i in $(LIST); do \
+         echo $$i; \
+	done
+</code></pre></div></div>
+
+<p>command 行は各行ごとにサブシェルで実行されるので、上記のような for ループは、必ずバックスラッシュ (<code class="language-plaintext highlighter-rouge">\</code>) で各行を連結させる必要があります。</p>
+
+<h3 id="コマンド行は各行ごとにサブシェルで実行される">コマンド行は各行ごとにサブシェルで実行される</h3>
+
+<p>コマンド行は各行ごとにサブシェルか起動されて実行されます。
+たとえ、<code class="language-plaintext highlighter-rouge">cd</code> コマンドでカレントディレクトリを変更したとしても、次のコマンド行にはそのカレントディレクトリを引き継ぐことができません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	cd hoge
+	pwd       # hoge ディレクトリではない
+</code></pre></div></div>
+
+<p>この問題に対処するには、<code class="language-plaintext highlighter-rouge">&amp;&amp;</code> 演算子でコマンドを繋いでひとつのコマンド行にまとめてやる必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	cd hoge &amp;&amp; pwd    # pwd コマンドは hoge ディレクトリで実行される
+</code></pre></div></div>
+
+<p>注）MS-DOS ではカレントディレクトリがグローバルに保持されるため、上記のようにコマンドをまとめなくても <code class="language-plaintext highlighter-rouge">cd</code> コマンドの結果が次のコマンド行にも反映されます。</p>
+
+<h3 id="コマンドの実行でエラーが出ても処理を継続する">コマンドの実行でエラーが出ても処理を継続する</h3>
+
+<p>command の実行でエラー（終了ステータスが 0 以外）が発生した場合、make はそれ以降の command を実行しないで終了します。
+command の実行でエラーが発生しても処理を継続するには、command の前に <code class="language-plaintext highlighter-rouge">-</code> を付けます（この <code class="language-plaintext highlighter-rouge">-</code> はシェルに command 行が渡される時に削除されます）。</p>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">mkdir</code> コマンドは、既にディレクトリが存在する場合にはエラーで終了しますが、このエラーによって make の処理を終了しないようにするには以下のように記述します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	-mkdir hoge
+	@echo Hello
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">rm</code> コマンドなども同様です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clean:
+	-rm -f *.o
+</code></pre></div></div>
+
+<p>すべてのコマンドのエラーを無視するようにするには、make を実行するときのパラメータに <code class="language-plaintext highlighter-rouge">-i</code> (<code class="language-plaintext highlighter-rouge">--ignore-erros</code>) を指定するか、スペシャルターゲットの <code class="language-plaintext highlighter-rouge">.IGNORE</code> を prerequisites を指定せずに Makefile の中に記述します。
+ただし、それぞれのコマンドの振る舞いを明確にするために <code class="language-plaintext highlighter-rouge">-</code> を使うことが推奨されています。</p>
+
+<p>複数の prerequisites を処理している最中に、command の実行エラーが発生した場合に、残りの prerequisites の target の処理を継続させるには <code class="language-plaintext highlighter-rouge">-k</code> (<code class="language-plaintext highlighter-rouge">--keep-going</code>) オプションを指定して make を実行します。</p>
+
+<h2 id="再帰-make-recursive-make">再帰 make (recursive make)</h2>
+
+<h3 id="再起-make-とは">再起 make とは</h3>
+
+<p>コマンド行で make コマンドを実行することで、再帰的に make を実行することができます。
+例えば、大きなプロジェクトでは、ディレクトリごとに Makefile を置き、サブシステムごとのビルド方法を定義します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subsystem:
+	cd subdir &amp;&amp; $(MAKE)
+</code></pre></div></div>
+
+<p>あるいは</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subsystem:
+	$(MAKE) -C subdir
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">MAKE</code> 変数は、トップレベルの Makefile を読み出した make のパスに置き換えられます。</p>
+
+<p>make コマンドを <code class="language-plaintext highlighter-rouge">-t</code> (<code class="language-plaintext highlighter-rouge">--touch</code>) オプションを付けて起動した場合は、通常 command 行は処理されませんが、command 行に、上記のように <code class="language-plaintext highlighter-rouge">$(MAKE)</code> が含まれている場合、例外として command 行が処理されることになっています。
+この例外的処理のおかげで、<code class="language-plaintext highlighter-rouge">make -t</code> を実行した場合でも、再帰的な make 呼び出しを正しく実行することができます。
+ちなみに、<code class="language-plaintext highlighter-rouge">$(MAKE)</code> のない command 行でも、先頭に <code class="language-plaintext highlighter-rouge">+</code> 記号を付けることで処理のスキップを避けることができます。</p>
+
+<p>つまり、再帰 make において、make コマンドを実行するときは、以下のような理由で <code class="language-plaintext highlighter-rouge">$(MAKE)</code> を指定するべきだと言えます。</p>
+
+<ul>
+  <li>すべての make 処理で同一の make コマンドを利用できる（トップレベルで起動した make）。</li>
+  <li>make のオプションで <code class="language-plaintext highlighter-rouge">-t</code>、<code class="language-plaintext highlighter-rouge">-n</code>、<code class="language-plaintext highlighter-rouge">-q</code> を指定した場合にも、再帰 make 呼び出しを正しく実行することができる。</li>
+</ul>
+
+<h3 id="再帰-make-で-sub-make-に変数の値を渡す">再帰 make で sub-make に変数の値を渡す</h3>
+
+<p>デフォルトでは、呼び出し側の Makefile で定義した変数の値は、sub-make 側に渡されません。
+sub-make に対して変数の値を公開するには、<code class="language-plaintext highlighter-rouge">export</code> ディレクティブを使用します（各 command への <code class="language-plaintext highlighter-rouge">export</code> ではなく、あくまで sub-make への <code class="language-plaintext highlighter-rouge">export</code> です）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export &lt;variable&gt; ...
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">export</code> ディレクティブでは、値の代入を同時に行うことができます。</p>
+
+<h4 id="makefile-2">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export HOGE = 100
+all:
+	$(MAKE) -f sub.mk
+</code></pre></div></div>
+
+<h4 id="submk">sub.mk</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@echo $(HOGE)
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">export</code> の処理は、変数の定義と同様に Makefile の呼び出し時に行われます。
+よって、command 行よりも後ろに <code class="language-plaintext highlighter-rouge">export</code> が記述されている場合も、その定義は有効になります。</p>
+
+<p>すべての変数を sub-make 側に渡すには、パラメータなしで <code class="language-plaintext highlighter-rouge">export</code> を実行します。
+このとき、特定の変数の内容だけ渡さないようにするには <code class="language-plaintext highlighter-rouge">unexport</code> ディレクティブを使用します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export
+unexport FOO BAR
+</code></pre></div></div>
+
+<p>make 実行時に、コマンドライン・パラメータとして指定した変数は、デフォルトで sub-make にも引き渡されます。
+これらのパラメータは、内部的に <code class="language-plaintext highlighter-rouge">MAKEFLAGS</code> という変数に保持されています。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make -k HOGE=100
+</code></pre></div></div>
+
+<p>と実行すると、<code class="language-plaintext highlighter-rouge">$(MAKEFLAGS)</code> の値は <code class="language-plaintext highlighter-rouge">k -- HOGE=100</code> のような感じで、make が内部的に理解しやすい形に変換されて保持されます。
+オプションの性質上、<code class="language-plaintext highlighter-rouge">MAKEFLAGS</code> 変数に保持されないパラメータもあります（<code class="language-plaintext highlighter-rouge">-C</code>、<code class="language-plaintext highlighter-rouge">-f</code>、<code class="language-plaintext highlighter-rouge">-o</code>、<code class="language-plaintext highlighter-rouge">-W</code> など）。</p>
+
+<p>sub-make に対して、コマンドライン・パラメータを渡さないようにするには、以下のように <code class="language-plaintext highlighter-rouge">MAKEFLAGS</code> の値を空にします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>subsystem:
+	cd subdir &amp;&amp; $(MAKE) MAKEFLAGS=
+</code></pre></div></div>
+
+<p>似たような変数に、コマンドラインで指定したオプションのみを参照する <code class="language-plaintext highlighter-rouge">MFLAGS</code> 変数や、コマンドラインで指定した変数定義のみを参照する <code class="language-plaintext highlighter-rouge">MAKEOVERRIDES</code> 変数などがありますが、これらは互換性のために残されており、<code class="language-plaintext highlighter-rouge">MAKEFLAGS</code> 変数の使用が推奨されています。
+Makefile の中で、<code class="language-plaintext highlighter-rouge">MAKEFLAGS</code> 変数にオプションを追加して make の振る舞いを変更することもできますが、大きく動作が変わるようなオプションを指定することは避けるべきです。</p>
+
+<h3 id="top-level-の-make-か-sub-make-かを調べる">top-level の make か sub-make かを調べる</h3>
+
+<p>再帰 make において、何階層目の sub-make かを調べたいときは、<code class="language-plaintext highlighter-rouge">MAKELEVEL</code> 変数を参照します。
+トップレベルの make では、この値は 0 になります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+ifeq ($(MAKELEVEL), 0)
+	@echo top-level make.
+else
+	@echo not top-level make.
+endif
+</code></pre></div></div>
+
+<h2 id="複数の-command-呼び出しをまとめて使いまわす-canned-command-sequences">複数の command 呼び出しをまとめて使いまわす (Canned Command Sequences)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">define - endef</code> ディレクティブを使用すると、複数のコマンド呼び出しをひとつにまとめることができます (Canned Command Sequence)。</p>
+
+<p>ここで定義する command 行は、TAB 文字で初まっている必要はありません。
+command 行の中で使用した変数は、実際に command が実行されるときに展開されます。
+定義した Canned Command Sequence は、複数のターゲットで使いまわすことができます。</p>
+
+<h4 id="makefile-3">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>define greet-and-print-target
+  echo Hello.
+  @echo Target is $@.
+endef
+
+all:
+	$(greet-and-print-target)
+</code></pre></div></div>
+
+<h4 id="実行例-2">実行例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+echo Hello.
+Hello.
+Target is all.
+</code></pre></div></div>
+
+<p>Canned Command Sequence の呼び出し時に、<code class="language-plaintext highlighter-rouge">@</code> などのプレフィックスを付けた場合、すべての command 行にプレフィックスを付けた場合と同様の効果が現れます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all:
+	@($greet-and-print-target)
+
+$ make
+Hello.
+Target is all.
+</code></pre></div></div>
+
+<h2 id="makefile-内での条件分岐-condtional-parts">Makefile 内での条件分岐 (Condtional Parts)</h2>
+
+<p>Makefile の中で <code class="language-plaintext highlighter-rouge">ifeq</code> ディレクティブや <code class="language-plaintext highlighter-rouge">ifneq</code> ディレクティブを使用すると、変数同士の比較や、変数と文字列の比較を行って処理を分岐させることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE = aaa
+
+all:
+ifeq ($(HOGE), aaa)
+	@echo matched.
+else
+	@echo not matched.
+endif
+</code></pre></div></div>
+
+<p>これらの条件分岐は、もちろん command 行以外でも使用できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifeq ($(DEBUG), 1)
+  LIBS = $(LIBS_FOR_DEBUG)
+else
+  LIBS = $(LIBS_FOR_RELEASE)
+endif
+</code></pre></div></div>
+
+<p>上記の例では、変数定義部で分かりやすいようにインデントしています。
+command 行以外でのインデントには、<strong>TAB 文字ではなく、半角スペースを使う</strong>ようにしてください。
+TAB 文字を使用すると、command 行だとみなされてしまいます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">ifeq</code> のフォーマットは次のうちいずれかを使用することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifeq (arg1, arg2)
+ifeq 'arg1' 'arg2'
+ifeq "arg1" "arg2"
+ifeq 'arg1' "arg2"
+ifeq "arg2" 'arg2'
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ifeq</code> の代わりに、<code class="language-plaintext highlighter-rouge">ifneq</code> を使用すると、２つの引数が一致していないことを調べることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifneq ($(HOGE), aaa)
+	@echo Not matched.
+else
+	@echo Matched.
+endif
+</code></pre></div></div>
+
+<p>変数の内容が空かどうかを調べるには以下のようにします。
+この例では、<code class="language-plaintext highlighter-rouge">strip</code> 関数により、空白文字を削除してから変数の値が空かどうかをチェックしています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifeq ($(strip $(HOGE)),)
+	@echo Empty.
+else
+	@echo Not empty.
+endif
+</code></pre></div></div>
+
+<p>条件チェックは Makefile を読み込むときに行うので、変数の定義のタイミングによって動作が変化します。</p>
+
+<h4 id="makefile-4">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HOGE = 1
+
+all:
+ifeq ($(HOGE), 1)
+	@echo Hoge is one.
+endif
+
+HOGE = 2
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+Hoge is one.
+</code></pre></div></div>
+
+<h3 id="条件文での-or-や-and">条件文での OR や AND</h3>
+
+<p>バージョン 3.81（2006/04 リリース）からは、AND 条件や OR 条件を表現するための、<code class="language-plaintext highlighter-rouge">$(and)</code> や <code class="language-plaintext highlighter-rouge">$(or)</code> が使えるようになったようです。
+それ以前のバージョンだと、<code class="language-plaintext highlighter-rouge">ifeq</code> や <code class="language-plaintext highlighter-rouge">ifdef</code> をネストしてがんばります。</p>
+
+<p>参考: <a href="http://d.hatena.ne.jp/bopperjp/20060903">2006-09-03 - bopperjp の日記</a></p>
+
+<p>GNU Make document (Ver. 3.81) を読むと、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>条件
+  ...
+else 条件
+  ...
+else
+  ...
+endif
+</code></pre></div></div>
+
+<p>のように <code class="language-plaintext highlighter-rouge">else if</code> できるように書いてありますが、少なくとも Ver. 3.79.1 ではうまく動きませんでした。
+<code class="language-plaintext highlighter-rouge">else</code> の後ろにさらに条件を書こうとすると、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+Makefile:5: Extraneous text after `else' directive
+Makefile:7: *** only one `else' per conditional.  Stop.
+</code></pre></div></div>
+
+<p>みたいなエラーになっちゃいます。</p>
+
+<h2 id="変数の詳細">変数の詳細</h2>
+
+<h3 id="基本">基本</h3>
+
+<p>GNU make 以外の make では、変数のことをマクロと呼んでいるものもあります。
+変数の値を参照するときは、<code class="language-plaintext highlighter-rouge">$(foo)</code> あるいは、<code class="language-plaintext highlighter-rouge">${foo}</code> のように記述します。
+変数展開は Makefile の読み込み時に行われますが、command 行に記述された変数は、command が実行される段階で展開されます。</p>
+
+<p>変数名は C 言語と同様、大文字／小文字が区別されます。
+変数名は伝統的に大文字だけで構成されることが多いのですが、GNU make のマニュアルでは、ユーザ定義の変数は小文字だけで構成することを推奨しています。これは、implicit rule で使用される変数や、コマンドのオプションを定義するために用意されている変数と区別しやすくするためです。</p>
+
+<h4 id="例-変数のデフォルト値を確認してみる">例: 変数のデフォルト値を確認してみる</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.PHONY: all
+all:
+	@echo CC = $(CC)
+	@echo CFLAGS = $(CFLAGS)
+	@echo CXX = $(CXX)
+	@echo CXXFLAGS = $(CXXFLAGS)
+</code></pre></div></div>
+
+<h4 id="実行結果-1">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+CC = cc
+CFLAGS =
+CXX = g++
+CXXFLAGS =
+</code></pre></div></div>
+
+<h3 id="変数の定義">変数の定義</h3>
+
+<p>変数を定義するときに他の変数の値を参照する場合、その展開方法が大きく分けて２種類あります。
+展開方法は変数代入時に使用する演算子などで決定されます。</p>
+
+<p>１つ目の展開方法は、<strong>Recursively expanded variable（再帰展開変数）</strong>です。
+<code class="language-plaintext highlighter-rouge">=</code> 演算子や、<code class="language-plaintext highlighter-rouge">define</code> を使って変数を定義する場合、右辺の変数は再帰的に展開が行われます。
+つまり、Makefile を最後まで処理して、右辺の変数の値が最終的にどのような値になるかが決定されます。</p>
+
+<h4 id="makefile-5">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = $(b)
+b = $(c)
+c = foo
+c = bar
+
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-2">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+bar
+</code></pre></div></div>
+
+<p>変数が再帰的に展開されるため、次のように自分自身を参照しようとするとエラーになります。</p>
+
+<h4 id="makefile-6">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = foo
+a = $(a) bar
+
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-3">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+Makefile:4: *** Recursive variable `a' references itself (eventually).  Stop.
+</code></pre></div></div>
+
+<p>２つ目の展開方法は、<strong>Simply expanded variables（単純展開変数）</strong>です。
+<code class="language-plaintext highlighter-rouge">:=</code> 演算子を使用して変数を定義すると、代入時に格納されている値が、参照結果として使用されます。
+一般的な手続き型のプログラム言語の変数定義ような感覚で使用することができます。</p>
+
+<h4 id="makefile-7">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a := foo
+b := $(a)
+a := bar
+
+all:; @echo $(b)
+</code></pre></div></div>
+
+<h4 id="実行結果-4">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+foo
+</code></pre></div></div>
+
+<p>当然、まだ定義されていない変数を参照すると、その中身は空っぽです。</p>
+
+<h4 id="makefile-8">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a := $(b)
+
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-5">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+
+</code></pre></div></div>
+
+<h3 id="変数が未定義のときのみ定義する-conditional-variable-assignment-">変数が未定義のときのみ定義する Conditional variable assignment (?=)</h3>
+
+<p><code class="language-plaintext highlighter-rouge">?=</code> 演算子を使うと、その変数がまだ未定義のときのみ値を代入（定義）することができます。</p>
+
+<h4 id="例1-変数がすでに定義されているケース">例1: 変数がすでに定義されているケース</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a = 100
+a ?= 200
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-6">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+100
+</code></pre></div></div>
+
+<h4 id="例2-変数が未定義のケース">例2: 変数が未定義のケース</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a ?= 200
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-7">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+200
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">?=</code> による代入は、以下のような条件文と同様の効果を持ちます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifeq ($(origin FOO), undefined)
+  FOO = bar
+endif
+</code></pre></div></div>
+
+<p>変数に空文字が代入されている時は、その変数は未定義であるとはみなされません。</p>
+
+<h4 id="makefile-9">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a =
+a ?= 100
+all:; @echo $(a)
+</code></pre></div></div>
+
+<h4 id="実行結果-8">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+100
+</code></pre></div></div>
+
+<h3 id="変数のサフィックスを置換して展開する-substitution-references">変数のサフィックスを置換して展開する (Substitution References)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$(var:aaa=bbb)
+</code></pre></div></div>
+
+<p>という書式で変数を参照すると、変数中の文字列の <code class="language-plaintext highlighter-rouge">aaa</code> が <code class="language-plaintext highlighter-rouge">bbb</code> に置換されて展開されます。
+ただし、変換されるのは、文字列の末尾、あるいは空白文字の直前の <code class="language-plaintext highlighter-rouge">aaa</code> だけです。</p>
+
+<h4 id="例-2">例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foo := a.o b.o c.o.o
+bar := $(foo:.o=.c)
+
+all:; @echo $(bar)
+</code></pre></div></div>
+
+<h4 id="実行結果-9">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+a.c b.c c.o.c
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">c.o.o</code> の末尾の <code class="language-plaintext highlighter-rouge">.o</code> だけが <code class="language-plaintext highlighter-rouge">.c</code> に変換されているところに注目です。</p>
+
+<h3 id="変数の値の最後の空白は-strip-されない">変数の値の最後の空白は strip されない</h3>
+
+<p>変数を <code class="language-plaintext highlighter-rouge">=</code> や <code class="language-plaintext highlighter-rouge">:=</code> で定義するとき、<code class="language-plaintext highlighter-rouge">=</code> の直後の空白は無視されますが、行末の空白スペースは変数の値として格納されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge = aaa   # 3 spaces
+</code></pre></div></div>
+
+<p>とすると、<code class="language-plaintext highlighter-rouge">$(hoge)</code> の値は、<code class="language-plaintext highlighter-rouge">aaa___</code>（<code class="language-plaintext highlighter-rouge">_</code>はスペース）となります。
+行末に意図的にスペースを入れたい場合は、上記のように行末にコメントを入れることで、見た目でスペースがあることを判断できるようになります。</p>
+
+<h3 id="変数の値を追加する場合は--演算子を使うべし">変数の値を追加する場合は += 演算子を使うべし</h3>
+
+<h4 id="makefile-10">Makefile</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge = aaa bbb
+hoge += ccc
+
+all:
+	@echo $(hoge)
+</code></pre></div></div>
+
+<h4 id="実行結果-10">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+aaa bbb ccc
+</code></pre></div></div>
+
+<p>上記のように <code class="language-plaintext highlighter-rouge">+=</code> 演算子を使用すると、現在の変数の値を追加することができます。
+追加する値の前には、１つのスペースが入ります。</p>
+
+<p><code class="language-plaintext highlighter-rouge">+=</code> 演算子で値を追加しようとした場合に、その変数がまだ定義されていない場合は、<code class="language-plaintext highlighter-rouge">=</code> 演算子を使ったのと同じ振る舞いをします。</p>
+
+<p>Simply expand の行われる <code class="language-plaintext highlighter-rouge">:=</code> 演算子を使い、以下のように変数の値にテキストを追加することもできます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge := aaa bbb
+hoge := $(hoge) ccc    ※ $(hoge) → "aaa bbb ccc"
+</code></pre></div></div>
+
+<p>ただし、このような自己参照によって値を追加する方法は、Recursive expand（再帰展開）の行われる <code class="language-plaintext highlighter-rouge">=</code> 演算子と組み合わせた場合に若干問題となることがあります。例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CFLAGS = $(includes) -O
+CFLAGS := $(CFLAGS) -pg    ※(1)
+includes = header
+
+all:
+	echo $(CFLAGS)    ※ $(CFALGS) → "-O -pg"
+</code></pre></div></div>
+
+<p>のようにすると、(1) の代入部分で <code class="language-plaintext highlighter-rouge">CFLAGS</code> の値を参照すると、<code class="language-plaintext highlighter-rouge">$(includes) -O</code> となっていますが、この時点で <code class="language-plaintext highlighter-rouge">CFLAGS</code> は Recursive expanded variable として定義されているので、まだ <code class="language-plaintext highlighter-rouge">$(includes)</code> の内容は空の状態です（Makefile を最後まで読まないと、Recursive expanded variable はちゃんと展開されない）。
+にもかかわらず、<code class="language-plaintext highlighter-rouge">:=</code> 演算子を使った時点で Simply expand による展開（定義時の値決定）をしようとするため、最終的に <code class="language-plaintext highlighter-rouge">CFLAGS</code> 変数の値に <code class="language-plaintext highlighter-rouge">includes</code> 変数の値は含まれず、<code class="language-plaintext highlighter-rouge">-O -pg</code> となってしまいます。</p>
+
+<p>このようなケースでは、以下のように <code class="language-plaintext highlighter-rouge">+=</code> 演算子を使用すれば、すべての代入が Recursive expand（再帰展開）されるので、意図通りの結果を得ることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CFLAGS = $(includes) -O
+CFLAGS += -pg
+includes = header
+
+all:
+	echo $(CFLAGS)    ※ $(CFALGS) → "header -O -pg"
+</code></pre></div></div>
+
+<h3 id="make-のコマンドラインパラメータで指定した値を上書きする">make のコマンドライン・パラメータで指定した値を上書きする</h3>
+
+<p>make のコマンドライン引数で変数値を指定すると、通常は Makefile 内での定義よりも優先されます。</p>
+
+<h4 id="makefile-11">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge = 100
+all:; echo $(hoge)
+</code></pre></div></div>
+
+<h4 id="実行結果-11">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make hoge=200
+200
+</code></pre></div></div>
+
+<p>この優先度を変えて、Makefile 内の変数定義を有効にしたい場合は <code class="language-plaintext highlighter-rouge">override</code> ディレクティブを使用します。</p>
+
+<h4 id="makefile-12">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>override hoge = 100
+all:; echo $(hoge)
+</code></pre></div></div>
+
+<h4 id="実行結果-12">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make hoge=200
+100
+</code></pre></div></div>
+
+<p>この優先度は、<code class="language-plaintext highlighter-rouge">+=</code> 演算子による値の追加でも同様で、コマンドライン引数で変数値が指定されていると、その変数への <code class="language-plaintext highlighter-rouge">+=</code> での追加は通常無視されます。</p>
+
+<h4 id="makefile-13">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge = 100
+hoge += 200
+all:; echo $(hoge)
+</code></pre></div></div>
+
+<h4 id="実行結果-13">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make hoge=aaa
+aaa
+</code></pre></div></div>
+
+<h4 id="makefile-14">Makefile</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hoge = 100
+override hoge += 200
+all:; echo $(hoge)
+</code></pre></div></div>
+
+<h4 id="実行結果-14">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make hoge=aaa
+aaa 200
+</code></pre></div></div>
+
+<h3 id="変数の優先順位">変数の優先順位</h3>
+
+<p>変数定義の優先順位は、高い順に以下のようになっています。</p>
+
+<ol>
+  <li>makefile 内の変数定義（<code class="language-plaintext highlighter-rouge">override</code> ディレクティブ付き）</li>
+  <li>コマンドライン引数で指定した変数定義</li>
+  <li>makefile 内の変数定義（<code class="language-plaintext highlighter-rouge">override</code> ディレクティブなし）</li>
+  <li>環境変数</li>
+</ol>
+
+<p>環境変数の優先度が低くなっているおかげで、make 以外の用途で設定した環境変数によって make の振る舞いを大きく変えてしまうような危険性を軽減しています。
+例えば、make 内のコマンド解釈に使用するシェルを、Makefile 内の <code class="language-plaintext highlighter-rouge">SHELL</code> 変数定義で安心して変更することができます。</p>
+
+<h3 id="ターゲット内だけで有効な変数を定義する-target-specific-variable">ターゲット内だけで有効な変数を定義する (Target-specific Variable)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>target ... : variable-assignment
+</code></pre></div></div>
+
+<p>上記のような構文で変数を定義すると、そのターゲット内でのみ有効な変数を定義することができます。
+例えば、特定のターゲットでのみコマンドのオプションを変更したい場合などに有効です。</p>
+
+<h4 id="例-3">例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prog: CFLAGS = -g
+	...
+</code></pre></div></div>
+
+<p>Target-specific Variable は、そのターゲットの prerequisites の構築に対しても有効です。
+例えば、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prog: CFLAGS = -g
+prog: prog.o foo.o bar.o
+</code></pre></div></div>
+
+<p>のようにすると、<code class="language-plaintext highlighter-rouge">CFLAGS</code> 変数は <code class="language-plaintext highlighter-rouge">prog.o</code>、<code class="language-plaintext highlighter-rouge">foo.o</code>、<code class="language-plaintext highlighter-rouge">bar.o</code> ターゲットの構築においても有効です。</p>
+
+<p>ターゲットにパターンを使用した場合は、特に Pattern-specific Variable と呼びます。</p>
+
+<h4 id="例-4">例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%.o: CFLAGS = -O
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： make を使いこなすためのメモ&url=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/tool/make.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2007-06-29</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

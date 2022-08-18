@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGit/GitHubノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/git/github/github-rest-api.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-github.png" />
+
+  <meta property="og:description" content="天才星人まくのGit/GitHubノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="GitHub REST API を使用する | まくまくGitノート" />
+  <title>GitHub REST API を使用する - まくまくGitノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/git/">
+    <img src="/assets/img/logo-github.png" class="xPageHeader_logo">
+  </a>
+  <a href="/git/">
+    <div class="xPageHeader_category">
+    まくまくGitノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">GitHub REST API を使用する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2019-12-04</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/git/github/github-rest-api.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub REST API を使用する&url=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="github-の-rest-api-でできること">GitHub の REST API でできること</h2>
+
+<p>GitHub は Web API (REST API) を提供しており、コマンドラインや任意のアプリケーションから利用することで、GitHub の操作を自動化することができます。
+Linux の <code class="language-plaintext highlighter-rouge">curl</code> コマンドや、スクリプト（Python や Ruby など）から簡単に利用できるので、Organization やリポジトリを管理する立場にある人はぜひ使ってみてください。</p>
+
+<ul>
+  <li><a href="https://developer.github.com/v3/">GitHub - REST API v3</a></li>
+</ul>
+
+<p>例えば、下記のようなことを REST API によって自動化することができます。</p>
+
+<ul>
+  <li><a href="https://developer.github.com/v3/users/">Users</a>
+    <ul>
+      <li>指定したユーザの詳細情報を取得する</li>
+      <li>二要素認証が設定できていないユーザのリストを取得する</li>
+    </ul>
+  </li>
+  <li><a href="https://developer.github.com/v3/repos/">Repositories</a>
+    <ul>
+      <li>指定したオーナー（ユーザー or 組織）のリポジトリのリストを取得する</li>
+    </ul>
+  </li>
+  <li><a href="https://developer.github.com/v3/orgs/members/">Organizations/Members</a>
+    <ul>
+      <li>指定した組織のユーザーリストを取得する</li>
+    </ul>
+  </li>
+  <li><a href="https://developer.github.com/v3/pulls/">Pull Requests</a>
+    <ul>
+      <li>Pull Request のリストを取得する</li>
+    </ul>
+  </li>
+  <li><a href="https://developer.github.com/v3/issues/">Issues</a>
+    <ul>
+      <li>指定したリポジトリの Issue のリストを取得する</li>
+    </ul>
+  </li>
+  <li><a href="https://developer.github.com/v3/projects/">Projects</a>
+    <ul>
+      <li>指定したリポジトリのプロジェクト（かんばん）のリストを取得する</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="api-トークンを発行する">API トークンを発行する</h2>
+
+<p>REST API を呼び出すには、<strong>API トークン (HTTPS Access Token)</strong> が必要です。
+プライベートリポジトリに関する情報を取得するには、そのリポジトリへのアクセス権限を持つユーザが作成した API トークンを使用して REST API を呼び出す必要があります。</p>
+
+<p>GitHub の API トークンは下記のページで生成することができます。</p>
+
+<ul>
+  <li><a href="https://github.com/settings/tokens">GitHub - Personal access token</a></li>
+</ul>
+
+<p><samp>Generate new token</samp> のボタンを押せば、新しいトークンを発行できます。
+Select scope の項目で、そのトークンを使って使用できる機能 (API) の範囲を制御できるようになっているので、必要な機能のみにチェックを入れるようにしてください。</p>
+
+<p>API トークンは次のようなハッシュ値です。
+REST API を呼び出す際に必要になるので保存しておいてください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c647c084ed5f60ee7fd53a22537fd6602ace4ced
+</code></pre></div></div>
+
+<h2 id="rest-api-を呼び出す">REST API を呼び出す</h2>
+
+<p>REST API は単純な HTTP リクエストをベースに動作するため、Linux の <code class="language-plaintext highlighter-rouge">curl</code> コマンドなどを使って簡単に実行できます。</p>
+
+<h4 id="例-オープンな-pull-request-の一覧を取得する-github-apish">例: オープンな Pull Request の一覧を取得する (github-api.sh)</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">GITHUB_TOKEN</span><span class="o">=</span>9b671cc01a1d966f3a3d1dc3366867836aa19c5d
+<span class="nv">GITHUB_BASEURL</span><span class="o">=</span>https://api.github.com
+<span class="nv">GITHUB_API</span><span class="o">=</span>/repos/YourOrganization/YourProject/pulls?state<span class="o">=</span>open
+
+curl <span class="nt">-k</span> <span class="nt">-s</span> <span class="nt">-u</span> :<span class="nv">$GITHUB_TOKEN</span> <span class="nv">$GITHUB_BASEURL$GITHUB_API</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> 変数は自分で作成した API トークンに、<code class="language-plaintext highlighter-rouge">GITHUB_API</code> 変数は実行した API にそれぞれ置き換えて実行してください。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code></strong>: API トークン</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">GITHUB_API</code></strong>: 実行したい REST API</li>
+</ul>
+
+<p>上記のサンプルコードでは、指定した Organization あるいはユーザ（ここでは <code class="language-plaintext highlighter-rouge">YourOrganization</code>) の、指定したリポジトリ (ここでは <code class="language-plaintext highlighter-rouge">YourProject</code>) のうち、オープン状態 (<code class="language-plaintext highlighter-rouge">state=open</code>) になっている Pull リクエストの一覧を取得しています。
+結果は JSON 形式で出力されますが、長いのでここでは省略します。</p>
+
+<p><code class="language-plaintext highlighter-rouge">GITHUB_API</code> 変数は、他にも下記のような感じで置き換えて実行できます。
+詳細は <a href="https://developer.github.com/v3/">GitHub REST API</a> のサイトを参照してください。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">/users/MyName</code></strong>: 指定したユーザ (<code class="language-plaintext highlighter-rouge">MyName</code>) の詳細情報</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">/orgs/MyOrg/members</code></strong>: 指定した Organization (<code class="language-plaintext highlighter-rouge">MyOrg</code>) 内のメンバーリスト</li>
+</ul>
+
+<p>ちなみに、上記の <code class="language-plaintext highlighter-rouge">curl</code> コマンド実行時に指定しているオプションの意味は下記の通りです。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">-u USER:PASSWORD</code></strong>: Server user, password and login options</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-k</code></strong>: Allow connections to SSL sites without certs</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">-s</code></strong>: Silent mode. Don’t output anything</li>
+</ul>
+
+<h3 id="プロキシ環境から-curl-実行する場合">プロキシ環境から curl 実行する場合</h3>
+
+<p>プロキシ環境内から実行する場合は、<code class="language-plaintext highlighter-rouge">https_proxy</code> 環境変数でプロキシサーバのアドレスとポート番号を設定してから実行してください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ export https_proxy=https://proxy.example.com:10080
+$ ./github-api.sh
+</code></pre></div></div>
+
+<p>プロキシは、<code class="language-plaintext highlighter-rouge">curl</code> コマンドの <code class="language-plaintext highlighter-rouge">--proxy (-x)</code> オプションで指定する方法もあります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl --proxy http://proxy.example.com:10080 https://www.google.com/
+</code></pre></div></div>
+
+<h3 id="すべての結果が得られない場合">すべての結果が得られない場合</h3>
+
+<p>REST API の結果は、デフォルトでは<a href="https://developer.github.com/v3/#pagination">ページネーション</a>によって <strong>30件ずつ</strong> しか返されません。
+一度にたくさんの結果を取得するには、URL の末尾に <code class="language-plaintext highlighter-rouge">per_page</code> オプションを指定することで<strong>最大 100 件ずつ</strong>取得することができます。
+それ以上の件数を取得するときは、<code class="language-plaintext highlighter-rouge">page</code> オプションを使用して取得位置を切り替える必要があります。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GITHUB_API</span><span class="o">=</span>/user/repos?per_page<span class="o">=</span>100&amp;page<span class="o">=</span>1  <span class="c"># 1～100件目のリポジトリ情報</span>
+<span class="nv">GITHUB_API</span><span class="o">=</span>/user/repos?per_page<span class="o">=</span>100&amp;page<span class="o">=</span>2  <span class="c"># 101～200件目のリポジトリ情報</span>
+<span class="nv">GITHUB_API</span><span class="o">=</span>/user/repos?per_page<span class="o">=</span>100&amp;page<span class="o">=</span>3  <span class="c"># 201～300件目のリポジトリ情報</span>
+</code></pre></div></div>
+
+<p><a href="https://developer.github.com/v3/guides/traversing-with-pagination/">ページの切り替え処理</a>を自動化するのは若干面倒ですが、件数が多くても 500 件以下であることが分かっているのであれば、下記のように単純にループで取得してしまえば事足りるかもしれません。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GITHUB_API</span><span class="o">=</span>/user/repos?per_page<span class="o">=</span>100
+
+<span class="c"># 100件の取得を5ページ分繰り返す</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="sb">`</span><span class="nb">seq </span>1 5<span class="sb">`</span><span class="p">;</span> <span class="k">do
+  </span>curl <span class="nt">-k</span> <span class="nt">-s</span> <span class="nt">-u</span> :<span class="nv">$GITHUB_TOKEN</span> <span class="nv">$GITHUB_BASEURL$GITHUB_API</span><span class="se">\&amp;</span><span class="nv">page</span><span class="o">=</span><span class="nv">$i</span>
+<span class="k">done</span>
+</code></pre></div></div>
+
+<h2 id="おまけwindows-のバッチファイルで-github-rest-api">（おまけ）Windows のバッチファイルで GitHub REST API</h2>
+
+<p>Window 10 version 1803 (2018年4月) 以降には、デフォルトで <code class="language-plaintext highlighter-rouge">curl</code> コマンドがインストールされるようになったみたいです。
+これで、Windows のバッチファイルからも気兼ねなく <code class="language-plaintext highlighter-rouge">curl</code> コマンドを使えます。
+次の例では、バッチファイルから <code class="language-plaintext highlighter-rouge">curl</code> を使って、GitHub の REST API を呼び出すサンプルコードです。</p>
+
+<h4 id="例-membersbatyourorganization-のメンバー一覧を取得する">例: members.bat（YourOrganization のメンバー一覧を取得する）</h4>
+
+<div class="language-bat highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo <span class="na">off</span>
+<span class="nb">setlocal</span>
+
+<span class="c">REM ---------------</span>
+<span class="c">REM  User settings</span>
+<span class="c">REM ---------------</span>
+<span class="kd">set</span> <span class="kd">GITHUB_TOKEN</span><span class="o">=</span><span class="kd">b72209e0b0ed0ad32d7b8cc38b36cf71b416d0a0</span>
+<span class="kd">set</span> <span class="kd">GITHUB_API</span><span class="o">=</span><span class="na">/orgs/YourOrganization/members
+</span><span class="c">REM set GITHUB_API=/orgs/YourOrganization/repos</span>
+<span class="c">REM set GITHUB_API=/user/repos</span>
+<span class="c">REM set PROXY=-x http://proxy.example.com:10080</span>
+
+<span class="c">REM -----------------</span>
+<span class="c">REM  Call GitHub API</span>
+<span class="c">REM -----------------</span>
+<span class="kd">set</span> <span class="kd">GITHUB_BASEURL</span><span class="o">=</span><span class="kd">https</span>://api.github.com
+
+<span class="kd">FOR</span> <span class="na">/L </span><span class="vm">%%A</span> <span class="kd">IN</span> <span class="o">(</span><span class="m">1</span><span class="o">,</span> <span class="m">1</span><span class="o">,</span> <span class="m">5</span><span class="o">)</span> <span class="kd">DO</span> <span class="o">(</span>
+    <span class="nb">curl</span> <span class="na">-k -s </span><span class="nv">%PROXY%</span> <span class="na">-u </span>:<span class="nv">%GITHUB_TOKEN%</span> <span class="s2">"</span><span class="nv">%GITHUB_BASEURL%%</span><span class="s2">GITHUB_API</span><span class="err">%</span><span class="s2">?per_page=100&amp;page=</span><span class="vm">%%A</span><span class="s2">"</span>
+<span class="o">)</span>
+</code></pre></div></div>
+
+<p>FOR ループでページネーションを切り替えながら 100 件ずつ取得することで、1～500 件目までの情報を表示しています。
+プロキシ環境下で実行したい場合は、<code class="language-plaintext highlighter-rouge">PROXY</code> 変数の <code class="language-plaintext highlighter-rouge">REM</code> コメントアウトを外してください。</p>
+
+<p><code class="language-plaintext highlighter-rouge">GITHUB_API</code> 変数の部分を置き換えることで、取得する情報を切り替えることができます。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">set GITHUB_API=/orgs/YourOrganization/members</code> … 組織のメンバーリスト</li>
+  <li><code class="language-plaintext highlighter-rouge">set GITHUB_API=/orgs/YourOrganization/repos</code> … 組織のリポジトリリスト</li>
+  <li><code class="language-plaintext highlighter-rouge">set GITHUB_API=/user/repos</code> … 自分のリポジトリリスト</li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub REST API を使用する&url=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/github-rest-api.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/git/"><span class="xArticle_up_label">まくまくGitノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li class="xNav-focused"><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2019-12-04</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

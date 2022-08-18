@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Ruby ノート | 天才まくまくノート" />
+  <title>まくまく Ruby ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくRubyノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        日本で生まれたオブジェクト指向言語 Ruby の使い方。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby&url=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h1 id="はじめに">はじめに</h1>
+<ul>
+  <li><a href="basic/coding-style.html">Ruby のコーディングスタイル</a></li>
+  <li><a href="basic/ruby-tools.html">知っておくべき Ruby 関連ツール (bundler, rake, rvm, rdoc, yard, rspec, test-unit)</a></li>
+  <li><a href="basic/interactive-ruby.html">Ruby の対話型プログラムを起動する (irb, pry)</a></li>
+  <li><a href="basic/require.html">require で他のライブラリを読み込む</a></li>
+  <li><a href="basic/global-main.html">グローバルスコープな実行コードを記述しない</a></li>
+  <li><a href="basic/hello.html">Ruby の HelloWorld テンプレート</a></li>
+</ul>
+
+<h1 id="ruby-の構文">Ruby の構文</h1>
+
+<h2 id="制御構文">制御構文</h2>
+<ul>
+  <li><a href="syntax/true-and-false.html">Ruby の真偽値</a></li>
+  <li><a href="syntax/if.html">if と unless による分岐</a></li>
+  <li><a href="syntax/case.html">case による分岐</a></li>
+  <li><a href="syntax/loop.html">繰り返し処理（ループ） (while, until, times, for, each, step)</a></li>
+  <li><a href="syntax/multiple-assignment.html">複数の値を同時に代入する（多重代入）</a></li>
+  <li><a href="swap-values.html">2 つの変数の値をスワップする</a></li>
+</ul>
+
+<h2 id="クラス">クラス</h2>
+<ul>
+  <li><a href="define-class.html">クラスとメソッドを定義する</a></li>
+  <li><a href="constructor.html">コンストラクタを定義する</a></li>
+  <li><a href="pseudo-constructor.html">擬似コンストラクタを定義する</a></li>
+  <li><a href="attribute.html">属性を定義する（アクセサメソッド）</a></li>
+  <li><a href="class-method.html">クラスメソッドを定義する</a></li>
+  <li><a href="class-const.html">クラス定数を定義する</a></li>
+  <li><a href="method-visibility.html">メソッドの可視性を設定する（メソッドのアクセス制御）</a></li>
+  <li><a href="inherit-class.html">クラスを継承する</a></li>
+</ul>
+
+<h2 id="関数メソッド">関数／メソッド</h2>
+<ul>
+  <li><a href="method.html">関数定義の基本</a></li>
+  <li><a href="expand-array-parameter.html">配列を展開して関数に渡す</a></li>
+  <li><a href="variable-parameters.html">可変長引数を扱う関数を定義する</a></li>
+  <li><a href="multiple-value-function.html">複数の戻り値を返す関数を定義する</a></li>
+  <li><a href="yield.html">関数にコードブロックを渡す（yield による呼び出し）</a></li>
+  <li><a href="oneline-method.html">関数を一行で定義する</a></li>
+</ul>
+
+<h1 id="コレクション">コレクション</h1>
+
+<h2 id="配列">配列</h2>
+<ul>
+  <li><a href="array/create-array.html">配列を作成する</a></li>
+  <li><a href="array/add-element.html">配列要素の追加/配列に要素を追加する</a></li>
+  <li><a href="array/combine-arrays.html">配列要素の追加/配列を結合する</a></li>
+  <li><a href="array/copy-array.html">配列をコピーする</a></li>
+  <li><a href="array/loop-array.html">配列をループで処理する</a></li>
+  <li><a href="array/sort-array.html">配列をソートする（昇順ソート／降順ソート）(sort)</a></li>
+  <li><a href="array/sort-randomly.html">配列をランダムに並び替える (sort_by)</a></li>
+  <li><a href="array/collect-array.html">配列の各要素の値を変更する (collect)</a></li>
+</ul>
+
+<h3 id="要素の参照">要素の参照</h3>
+<ul>
+  <li><a href="array/slice.html">部分配列を取得する（配列スライシング）</a></li>
+  <li><a href="array/random.html">配列の要素をランダムに取得する</a></li>
+</ul>
+
+<h3 id="要素の削除">要素の削除</h3>
+<ul>
+  <li><a href="array/delete-at.html">指定した位置の要素を削除する</a></li>
+  <li><a href="array/delete-same-elements.html">指定した値と同じ値を持つ要素を削除する</a></li>
+  <li><a href="array/delete-if.html">条件を満たす要素を削除する</a></li>
+  <li><a href="array/drop.html">先頭から n 個の要素を削除する</a></li>
+  <li><a href="array/drop-while.html">先頭から条件を満たす間だけ要素を削除する</a></li>
+  <li><a href="array/uniq.html">重複する要素を削除する (uniq)</a></li>
+</ul>
+
+<h3 id="要素の検索">要素の検索</h3>
+<ul>
+  <li><a href="array/find.html">条件に一致する要素を検索する (find/find_all)</a></li>
+  <li><a href="array/partition.html">条件を満たす要素と満たさない要素の配列に分割する (partition)</a></li>
+  <li><a href="array/grep.html">文字列配列から正規表現に一致する要素を検索する (grep)</a></li>
+  <li><a href="array/take-while.html">先頭から条件を満たす範囲の配列を取得する (take_while)</a></li>
+</ul>
+
+<h2 id="ハッシュ-hash">ハッシュ (Hash)</h2>
+<ul>
+  <li><a href="hash/basic.html">ハッシュの基本</a></li>
+  <li><a href="hash/default-hash-value.html">ハッシュのデフォルト値を設定する</a></li>
+  <li><a href="hash/loop-hash.html">ハッシュをループで処理する</a></li>
+  <li><a href="hash/keys-values.html">ハッシュのキー、値のリストを取得する (keys, values)</a></li>
+</ul>
+
+<h2 id="セット">セット</h2>
+<ul>
+  <li><a href="set/basic.html">セットを使用する（Set クラス）</a></li>
+</ul>
+
+<h1 id="文字列数値">文字列／数値</h1>
+
+<h2 id="文字列">文字列</h2>
+<h3 id="生成">生成</h3>
+<ul>
+  <li><a href="string/dup.html">文字列をコピーする (dup)</a></li>
+  <li><a href="string/create-indent.html">インデント用の文字列を作成する</a></li>
+  <li><a href="string/rand-str.html">n 文字のランダム文字列を生成する</a></li>
+</ul>
+
+<h3 id="分割結合">分割／結合</h3>
+<ul>
+  <li><a href="string/concat.html">文字列を結合する</a></li>
+  <li><a href="string/split.html">文字列をデリミタで分割する</a></li>
+  <li><a href="string/each-char.html">文字列を１文字ずつに分割する</a></li>
+</ul>
+
+<h3 id="チェック">チェック</h3>
+<ul>
+  <li><a href="string/include.html">文字列内にある文字列が含まれているか調べる (String#include, =~)</a></li>
+</ul>
+
+<h3 id="抽出">抽出</h3>
+<ul>
+  <li><a href="string/extract.html">文字列から正規表現にマッチする部分を取り出す (String#slice, Regexp#match, String#scan)</a></li>
+</ul>
+
+<h3 id="置換削除変更">置換／削除／変更</h3>
+<ul>
+  <li><a href="string/replace.html">文字列を置換する (sub/gsub)</a></li>
+  <li><a href="string/template.html">テンプレート機能（プレースホルダ）で文字列の一部を置換する (%)</a></li>
+  <li><a href="string/tr.html">文字列内のある文字を指定した文字に置換する (tr)</a></li>
+  <li><a href="string/delete.html">文字列からある文字を取り除く (delete/gsub)</a></li>
+  <li><a href="string/reverse.html">文字列を逆順にする (reverse)</a></li>
+  <li><a href="string/succ.html">文字列をインクリメントする (succ/next)</a></li>
+</ul>
+
+<h3 id="変換文字列数値">変換（文字列⇔数値）</h3>
+<ul>
+  <li><a href="number/num-string.html">数値と文字列を変換する (to_i, to_f, to_s)</a></li>
+  <li><a href="number/ascii-char.html">ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)</a></li>
+</ul>
+
+<h2 id="数値">数値</h2>
+<ul>
+  <li><a href="number/max-and-min.html">最大値／最小値を求める (min/max/minmax)</a></li>
+  <li><a href="number/max-value-index.html">配列内で最大値を持つ要素のインデックスを取得する</a></li>
+  <li><a href="number/random.html">乱数（ランダムな数値）を生成する</a></li>
+  <li><a href="number/increment.html">数値のインクリメントとデクリメント</a></li>
+</ul>
+
+<h2 id="組み合わせ">組み合わせ</h2>
+<ul>
+  <li><a href="number/permutation.html">順列 (permutation) を作成する</a></li>
+</ul>
+
+<h2 id="日時time-オブジェクト">日時（Time オブジェクト）</h2>
+<ul>
+  <li><a href="time/parse.html">文字列から時刻オブジェクト (Time) に変換する</a></li>
+</ul>
+
+<h1 id="入出力-io">入出力 (I/O)</h1>
+<ul>
+  <li><a href="command-line-params.html">コマンドライン引数を扱う</a></li>
+  <li><a href="io/optparse.html">コマンドライン引数によるオプションに対応する (optparse)</a></li>
+  <li><a href="io/print-to-stdout.html">標準出力へ出力する (puts/print/printf)</a></li>
+  <li><a href="io/print-to-stderr.html">標準エラー出力へ出力する (STDERR)</a></li>
+  <li><a href="io/input-from-keyboard.html">キーボードからの入力を取得する (STDIN.gets/readline)</a></li>
+  <li><a href="io/input-from-stdin.html">標準入力から読み込む (gets)</a></li>
+  <li><a href="input-password-from-keyboard.html">キーボードからのパスワードの入力を取得する</a></li>
+  <li><a href="io/execute-external-command.html">外部プログラムを呼び出してその出力を取得する</a></li>
+  <li><a href="io/is_executable.html">外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する</a></li>
+  <li><a href="embed-data.html">ソースコード内にテキストデータを埋め込む</a></li>
+  <li><a href="io/oneliner.html">Ruby でワンライナープログラミング</a></li>
+</ul>
+
+<h2 id="ファイルディレクトリ">ファイル／ディレクトリ</h2>
+<ul>
+  <li><a href="read-text-file.html">テキストファイルを読み込む</a></li>
+  <li><a href="array/grep.html">テキストファイルを grep する</a></li>
+  <li><a href="get-dir-path.html">様々なディレクトリのパスを取得する／パスを加工する</a></li>
+  <li><a href="io/get-parent-directory.html">親ディレクトリのパスを取得する</a></li>
+  <li><a href="enum-files.html">ディレクトリ内のファイルを列挙する</a></li>
+  <li><a href="find-files.html">ディレクトリ内のファイルを検索する</a></li>
+  <li><a href="create-dir.html">ディレクトリを作成／削除する</a></li>
+  <li><a href="temporary-file.html">一時ディレクトリ／一時ファイルを使用する</a></li>
+  <li><a href="io/file-exist.html">ファイルやディレクトリが存在するか調べる (File.exist?, Dir.exist?)</a></li>
+</ul>
+
+<h2 id="xml">XML</h2>
+<ul>
+  <li><a href="rexml.html">REXML とは</a></li>
+  <li><a href="rexml-create-xml.html">REXML で XML ファイルを作成する</a></li>
+  <li><a href="rexml-read-xml.html">REXML で XML ファイルを読み込む</a></li>
+</ul>
+
+<h2 id="yaml">YAML</h2>
+<ul>
+  <li><a href="file/yaml.html">Ruby で YAML ファイルを扱う</a></li>
+</ul>
+
+<h2 id="mp3">mp3</h2>
+<ul>
+  <li><a href="ruby-mp3info.html">ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する</a></li>
+</ul>
+
+<h1 id="その他">その他</h1>
+<ul>
+  <li><a href="rvm.html">複数バージョンの Ruby をインストールする (RVM)</a></li>
+  <li><a href="load-path.html">ユーザライブラリの検索パスを調べる</a></li>
+  <li><a href="environment-variable.html">環境変数を扱う</a></li>
+  <li><a href="other/profiler.html">プロファイラを使用してボトルネックを探る</a></li>
+</ul>
+
+<h2 id="rubygems">RubyGems</h2>
+<ul>
+  <li><a href="gem/what-is-rubygems.html">RubyGems とは</a></li>
+  <li><a href="gem/gem-with-proxy.html">プロキシ経由で gem コマンドを使用する</a></li>
+  <li><a href="gem/gem-environment-gemdir.html">Gem パッケージのインストール先を調べる</a></li>
+  <li><a href="gem/create-gem.html">Gem パッケージを作成する (1) 基本</a></li>
+  <li><a href="gem/create-gem2.html">Gem パッケージを作成する (2) 実行可能コマンドを追加する</a></li>
+  <li><a href="gem/publish-gem.html">Gem パッケージを作成する (3) パッケージを公開する</a></li>
+  <li><a href="gem/fetch-gem.html">勉強用に Gem パッケージをダウンロードする</a></li>
+  <li><a href="gem/add-files-to-gemspec.html">Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ</a></li>
+</ul>
+
+<h2 id="ユニットテスト">ユニットテスト</h2>
+<ul>
+  <li><a href="test-unit.html">test-unit によるユニットテスト</a></li>
+</ul>
+
+<h2 id="トラブルシューティング">トラブルシューティング</h2>
+<ul>
+  <li><a href="trouble/invalid-byte-sequence.html">invalid byte sequence in Windows-31J というエラーが出る場合</a></li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby&url=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

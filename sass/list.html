@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Sass には、複数の値をまとめて管理するためのデータタイプとして list 型が用意されています。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sass/list.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-sass.png" />
+
+  <meta property="og:description" content="Sass には、複数の値をまとめて管理するためのデータタイプとして list 型が用意されています。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="リスト変数を使用する | まくまくSassノート" />
+  <title>リスト変数を使用する - まくまくSassノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sass/">
+    <img src="/assets/img/logo-sass.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/sass/">
+    <div class="xPageHeader_category">
+    まくまくSassノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">リスト変数を使用する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-18</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sass/list.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： リスト変数を使用する&url=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Sass には、複数の値をまとめて管理するためのデータタイプとして list 型が用意されています。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="リスト型の値の表現方法">リスト型の値の表現方法</h2>
+
+<p>リスト型の値を定義するときは、スペース区切り、あるいはカンマ区切りで複数の値を列挙します。
+リスト型の値は、例えば、次のようなプロパティの値を表現するために使用されます。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.sample</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">15px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+  <span class="py">font-face</span><span class="p">:</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記の値部分をリスト型の変数に入れて表現すると、下記のように記述できます。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$my-margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">15px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+<span class="nv">$my-font</span><span class="p">:</span> <span class="n">Helvetica</span><span class="o">,</span> <span class="n">Arial</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+
+<span class="nc">.sample</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="nv">$my-margin</span><span class="p">;</span>
+  <span class="na">font-face</span><span class="p">:</span> <span class="nv">$my-font</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="リストのリスト">リストのリスト</h3>
+
+<p>リストの要素にリストを含めることもできます。
+下記の例では、<code class="language-plaintext highlighter-rouge">1px 2px</code> と <code class="language-plaintext highlighter-rouge">3px 4px</code> の 2 つのリストを含むリスト変数を定義しています。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$my-list1</span><span class="p">:</span> <span class="m">1px</span> <span class="m">2px</span><span class="o">,</span> <span class="m">3px</span> <span class="m">4px</span><span class="p">;</span>
+<span class="nv">$my-list2</span><span class="p">:</span> <span class="p">(</span><span class="m">1px</span> <span class="m">2px</span><span class="p">)</span> <span class="p">(</span><span class="m">3px</span> <span class="m">4px</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="空リストと要素が1つだけのリスト">空リストと要素が1つだけのリスト</h3>
+
+<p>空のリストを定義するときは、<code class="language-plaintext highlighter-rouge">()</code> という表現方法を使用します。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$my-list</span><span class="p">:</span> <span class="p">();</span>
+</code></pre></div></div>
+
+<div class="note">
+Sass では、<code>()</code> は空のリストであり、空のマップでもあります。マップは実質的には、キー＆バリューのペア値を格納した「リスト」として扱われるためです。
+</div>
+
+<p>要素が 1 つだけのリストを表現するには、次のように、要素の後ろにカンマ (<code class="language-plaintext highlighter-rouge">,</code>) を記述します。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$my-list1</span><span class="p">:</span> <span class="p">(</span><span class="s2">"aaa"</span><span class="o">,</span><span class="p">);</span>  <span class="c1">// 要素として "aaa" を 1 つだけ含むリスト</span>
+<span class="nv">$my-list2</span><span class="p">:</span> <span class="p">(</span><span class="m">1</span> <span class="m">2</span> <span class="m">3</span><span class="o">,</span><span class="p">);</span>  <span class="c1">// 要素として 1 2 3 というリストを 1 つだけ含むリスト</span>
+</code></pre></div></div>
+
+<p>上記のような簡単な例では括弧 (<code class="language-plaintext highlighter-rouge">()</code>) は省略できますが、リストであることを明確にするためにも括弧は付けておいた方がよいでしょう。</p>
+
+<h2 id="リストをループ処理する-each">リストをループ処理する (@each)</h2>
+
+<h3 id="単純なリストのループ処理">単純なリストのループ処理</h3>
+
+<p>リストの要素をループ処理するには、<strong><code class="language-plaintext highlighter-rouge">@each</code></strong> ディレクティブを使用します。
+あるルールの定義内で、リストやマップの内容をループ処理しながらスタイルのセットを出力するために使用することができます。
+<code class="language-plaintext highlighter-rouge">@each</code> ディレクティブの構文は下記の通りです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@each $var in &lt;リストorマップ&gt; {
+  スタイル定義
+}
+</code></pre></div></div>
+
+<p>リスト内の要素を 1 つずつ <code class="language-plaintext highlighter-rouge">$var</code> 変数で参照しながらループ処理することができます。
+イテレータとして使用する変数の名前は <code class="language-plaintext highlighter-rouge">$var</code> でなくても構いません。</p>
+
+<p>次の例では、<code class="language-plaintext highlighter-rouge">$fruits</code> リスト変数に格納された要素をループ処理してスタイル定義を出力しています。</p>
+
+<h4 id="入力-scss">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$fruits</span><span class="p">:</span> <span class="s2">"apple"</span><span class="o">,</span> <span class="s2">"banana"</span><span class="o">,</span> <span class="s2">"orange"</span><span class="p">;</span>
+
+<span class="k">@each</span> <span class="nv">$x</span> <span class="n">in</span> <span class="nv">$fruits</span> <span class="p">{</span>
+  <span class="nc">.</span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="nc">-icon</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('/assets/images/</span><span class="si">#{</span><span class="nv">$x</span><span class="si">}</span><span class="sx">.png')</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.apple-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/apple.png")</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.banana-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/banana.png")</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.orange-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/orange.png")</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="リストのリストのループ処理">リストのリストのループ処理</h3>
+
+<p><code class="language-plaintext highlighter-rouge">@each</code> ディレクティブを使用して、リストのリストをループ処理することもできます。
+下記の例では、リストのリストを格納した <code class="language-plaintext highlighter-rouge">$fruits</code> 変数の値をループ処理しています。</p>
+
+<h4 id="入力-scss-1">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$fruits</span><span class="p">:</span> <span class="p">(</span><span class="s2">"apple"</span><span class="o">,</span> <span class="no">red</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="s2">"banana"</span><span class="o">,</span> <span class="no">yellow</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="s2">"orange"</span><span class="o">,</span> <span class="no">orange</span><span class="p">);</span>
+
+<span class="k">@each</span> <span class="nv">$x</span> <span class="n">in</span> <span class="nv">$fruits</span> <span class="p">{</span>
+  <span class="nv">$name</span><span class="p">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$x</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span>   <span class="c1">// 1番目の要素を取り出す（フルーツ名）</span>
+  <span class="nv">$color</span><span class="p">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$x</span><span class="o">,</span> <span class="m">2</span><span class="p">);</span>  <span class="c1">// 2番目の要素を取り出す（色）</span>
+  <span class="nc">.</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="nc">-icon</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('/assets/images/</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="sx">.png')</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">@each</code> によるループ処理では、<code class="language-plaintext highlighter-rouge">$fruits</code> 内の各リスト要素が順番に取り出されるため、さらに <strong><code class="language-plaintext highlighter-rouge">nth</code></strong> 関数を使って、それらの 1 番目の要素、2 番目の要素を取り出しています。</p>
+
+<h4 id="出力-css-1">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.apple-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/apple.png")</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.banana-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/banana.png")</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">yellow</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nc">.orange-icon</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("/assets/images/orange.png")</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">orange</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>このように、<code class="language-plaintext highlighter-rouge">@each</code> ディレクティブと <code class="language-plaintext highlighter-rouge">nth</code> 関数を組み合わせてリストのリストをループ処理してもよいのですが、<strong>多重代入 (Multiple assignment)</strong> の仕組みを使用すると、より簡潔にリストのリストをループ処理できます。</p>
+
+<h4 id="入力-scss--多重代入を使用する方法">入力 (SCSS) ─ 多重代入を使用する方法</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$fruits</span><span class="p">:</span> <span class="p">(</span><span class="s2">"apple"</span><span class="o">,</span> <span class="no">red</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="s2">"banana"</span><span class="o">,</span> <span class="no">yellow</span><span class="p">)</span><span class="o">,</span> <span class="p">(</span><span class="s2">"orange"</span><span class="o">,</span> <span class="no">orange</span><span class="p">);</span>
+
+<span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$color</span> <span class="n">in</span> <span class="nv">$fruits</span> <span class="p">{</span>
+  <span class="nc">.</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="nc">-icon</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('/assets/images/</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="sx">.png')</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記のように、<code class="language-plaintext highlighter-rouge">@each</code> の後ろに複数の変数を記述すると、2階層目の要素がそれらの変数に展開されながらループ処理されます。
+<code class="language-plaintext highlighter-rouge">nth</code> 関数で個々の要素を取り出す必要がなくなるので、簡潔かつ分かりやすいコードになります。</p>
+
+<h2 id="リスト用の関数一覧">リスト用の関数一覧</h2>
+
+<p>Sass のリストを操作するための関数として、下記のような組み込み関数が定義されています。
+Sass のリストは immutable （不変）であるため、パラメータとして渡したリストの内容は変更されることはなく、新しいリストが生成されて戻り値として返されることに注意してください。</p>
+
+<h3 id="lengthlist-リストの要素数を取得する">length($list): リストの要素数を取得する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>length(10px)  //=&gt; 1
+length(10px 20px 30px)  //=&gt; 3
+length((width: 10px, height: 20px))  //=&gt; 2
+length((1 2 3,))  //=&gt; 1
+</code></pre></div></div>
+
+<h3 id="nthlist-n-リストの指定した位置の要素を取得する">nth($list, $n): リストの指定した位置の要素を取得する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nth(10px 20px 30px, 1)  //=&gt; 10px
+nth(10px 20px 30px, -1)  //=&gt; 30px
+nth((Helvetica, Arial, sans-serif), 3)  //=&gt; sans-serif
+nth((width: 10px, length: 20px), 2)  //=&gt; length, 20px
+</code></pre></div></div>
+
+<p>Sass のインデックスは、0 始まりではなく 1 始まりであることに注意してください。
+インデックスとして負の値を指定すると、リストの末尾からの位置を示すことができます。</p>
+
+<h3 id="set-nthlist-n-value-指定した位置の要素を置換したリストを作成する">set-nth($list, $n, $value): 指定した位置の要素を置換したリストを作成する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$list: 1, 2, 3, 4, 5;
+$new-list: set-nth($list, 3, "AAA");  //=&gt; 1, 2, "AAA", 4, 5
+</code></pre></div></div>
+
+<p>元の <code class="language-plaintext highlighter-rouge">$list</code> 変数の値は変更されず、新しいリストを生成して返すことに注意してください。
+つまり、置換後のリストを扱いたい場合は、上記のように <code class="language-plaintext highlighter-rouge">set-nth</code> 関数の戻り値を変数で受け取ったり、そのままプロパティ値として出力したりして使用する必要があります。
+存在しないインデックスを指定すると、SyntaxError が発生します。</p>
+
+<h3 id="joinlist1-list2-separator-bracketed-2つのリストを結合したリストを作成する">join($list1, $list2, [$separator, $bracketed]): 2つのリストを結合したリストを作成する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>join(10px 20px, 30px 40px)  //=&gt; 10px 20px 30px 40px
+join((blue, red), (#abc, #def))  //=&gt; blue, red, #abc, #def
+join(10px, 20px)  //=&gt; 10px 20px
+join(10px, 20px, comma)  //=&gt; 10px, 20px
+join((blue, red), (#abc, #def), space)  //=&gt; blue red #abc #def
+join([10px], 20px)  //=&gt; [10px 20px]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">append</code> や <code class="language-plaintext highlighter-rouge">set-nth</code> 関数と同様に、<code class="language-plaintext highlighter-rouge">join</code> 関数は新しいリストを生成して戻り値として返すことに注意してください（<code class="language-plaintext highlighter-rouge">$list1</code> と <code class="language-plaintext highlighter-rouge">$list2</code> の内容は変化しません）。
+生成されるリストの各要素は、<code class="language-plaintext highlighter-rouge">$separator</code> で指定されたセパレータ (<code class="language-plaintext highlighter-rouge">space</code> or <code class="language-plaintext highlighter-rouge">comma</code>) で区切られます。
+<code class="language-plaintext highlighter-rouge">$separator</code> パラメータが省略された場合は、1つ目のリストに使用されているセパレータ（スペース or カンマ）がセパレータとして使用されます。
+<code class="language-plaintext highlighter-rouge">$bracketed</code> パラメータが省略された場合は、1つ目のリストがブラケット (<code class="language-plaintext highlighter-rouge">[]</code>) で囲まれたリストである場合に、ブラケットリストとして返します。</p>
+
+<h3 id="appendlist-val-separator-リストの末尾に1つの要素を追加したリストを作成する">append($list, $val, [$separator]): リストの末尾に1つの要素を追加したリストを作成する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>append(10px 20px, 30px)  //=&gt; 10px 20px 30px
+append((blue, red), green)  //=&gt; blue, red, green
+append(10px 20px, 30px 40px)  //=&gt; 10px 20px (30px 40px)
+append((), 10px)  //=&gt; 10px
+append(10px, 20px)  //=&gt; 10px 20px
+append(10px, 20px, comma)  //=&gt; 10px, 20px
+append((blue, red), green, space)  //=&gt; blue red green
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">$separator</code> が省略された場合は、元のリスト (<code class="language-plaintext highlighter-rouge">$list</code>) のセパレータが使用されますが、元のリストの要素数が 1 だった場合は、スペースがセパレータとして使用されます。</p>
+
+<h3 id="ziplists-複数のリストを結合し同じインデックスの要素をリスト化した要素を持つリストを作成する">zip($lists…): 複数のリストを結合し、同じインデックスの要素をリスト化した要素を持つリストを作成する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip(1px 1px 3px, solid dashed solid, red green blue)  //=&gt; 1px solid red, 1px dashed green, 3px solid blue
+zip((1px, 1px, 3px), (solid, dashed, solid), (red, green, blue))  //=&gt; 同上
+</code></pre></div></div>
+
+<p>生成されたリストの各要素は、スペースで区切られます（セパレータとしてカンマを指定できません）。</p>
+
+<h3 id="indexlist-value-指定した値がリストのどの位置にあるか調べる">index($list, $value): 指定した値がリストのどの位置にあるか調べる</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>index(1px solid red, solid)  //=&gt; 2
+index(1px solid red, dashed)  //=&gt; null
+index((width: 10px, height: 20px), (height 20px))  //=&gt; 2
+</code></pre></div></div>
+
+<p>先頭要素のインデックスは 0 ではなく 1 になることに注意してください。
+指定した値が見つからない場合は <code class="language-plaintext highlighter-rouge">null</code> を返します。</p>
+
+<h3 id="list-separatorlist-リストのセパレータ文字を取得する">list-separator($list): リストのセパレータ文字を取得する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list-separator(1px 2px 3px)  //=&gt; space
+list-separator((1px, 2px, 3px))  //=&gt; comma
+list-separator(((1 2), (3 4)))  //=&gt; comma
+list-separator(((1, 2) (3, 4)))  //=&gt; space
+list-separator('foo')  //=&gt; space
+list-separator(())  //=&gt; space
+list-separator(null)  //=&gt; space
+</code></pre></div></div>
+
+<p>要素数が 1 の場合と、空リストの場合は <code class="language-plaintext highlighter-rouge">space</code> を返します。</p>
+
+<h3 id="is-bracketedlist-ブラケットで囲まれたリストか調べる">is-bracketed($list): ブラケットで囲まれたリストか調べる</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is-bracketed(1px 2px 3px)  //=&gt; false
+is-bracketed([1px, 2px, 3px])  //=&gt; true
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： リスト変数を使用する&url=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/list.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sass/"><span class="xArticle_up_label">まくまくSassノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li class="xNav-focused"><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-18</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

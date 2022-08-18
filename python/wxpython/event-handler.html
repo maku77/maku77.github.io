@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/wxpython/event-handler.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="wxPython のイベントハンドラを理解する | まくまくPythonノート" />
+  <title>wxPython のイベントハンドラを理解する - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">wxPython のイベントハンドラを理解する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-03-29</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/wxpython/event-handler.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython のイベントハンドラを理解する&url=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="wxpython-のイベントのハンドリング方法">wxPython のイベントのハンドリング方法</h2>
+
+<p>wxPython アプリケーションの中で各種イベントが発生すると、そのイベントは適切な <code class="language-plaintext highlighter-rouge">wx.EvtHandler</code> オブジェクトに通知され、イベントタイプごとに設定されているイベントハンドラが呼び出されるようになっています。
+wxPython のすべてのウィジェット (<code class="language-plaintext highlighter-rouge">wx.Window</code>) クラスは、実はこの <code class="language-plaintext highlighter-rouge">wx.EvtHandler</code> クラスのサブクラスとして定義されており、各種のイベント通知を受け取ることができるようになっています。
+例えば、ボタンをクリックすると、対象となる <code class="language-plaintext highlighter-rouge">wx.Button</code> インスタンスに対して、<code class="language-plaintext highlighter-rouge">wx.EVT_BUTTON</code> という種類のイベントが通知されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ボタンをクリックする。
+  │
+  │(イベントタイプ: wx.EVT_BUTTON)
+  ↓
+wx.EvtHandler (この場合は wx.Button インスタンス) に通知される。
+  │
+  ↓
+その wx.EvtHandler オブジェクトの wx.EVT_BUTTON バインダに関連付けられたハンドラ・メソッドを実行。
+</code></pre></div></div>
+
+<p>ある <code class="language-plaintext highlighter-rouge">wx.EvtHandler</code> オブジェクトに対して、特定の種類のイベントが通知されたときに任意のハンドラ・メソッドを実行するようにするには、<code class="language-plaintext highlighter-rouge">wx.EvtHandler</code> の <code class="language-plaintext highlighter-rouge">Bind()</code> メソッドによって、イベントの種類と呼び出されるハンドラ・メソッドを関連付けます。
+例えば、<code class="language-plaintext highlighter-rouge">wx.Button</code> でボタンをクリックしたときに発生するイベント (<code class="language-plaintext highlighter-rouge">wx.EVT_BUTTON</code>) を、ユーザ定義の <code class="language-plaintext highlighter-rouge">OnButtonClick()</code> メソッドでハンドリングしたい場合は、次のようにハンドラ・メソッドをバインドします。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">button</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnButtonClick</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="wxevthandlerbind-メソッドの詳細">wx.EvtHandler#Bind() メソッドの詳細</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Bind</code> メソッドは下記のようなパラメータを取ります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bind</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">wx</span><span class="p">.</span><span class="n">ID_ANY</span><span class="p">,</span> <span class="n">id2</span><span class="o">=</span><span class="n">wx</span><span class="p">.</span><span class="n">ID_ANY</span><span class="p">)</span>
+</code></pre></div></div>
+
+<dl>
+  <dt>event パラメータ</dt>
+  <dd>ハンドリングするイベントの種類を表すイベントバインダを指定します。イベントバインダは、<code class="language-plaintext highlighter-rouge">wx.PyEventBinder</code> クラスのインスタンスです（例: <code class="language-plaintext highlighter-rouge">wx.EVT_BUTTON</code>）。</dd>
+  <dt>handler パラメータ</dt>
+  <dd>イベントが発生した時に呼び出されるハンドラ・メソッドを指定します。<code class="language-plaintext highlighter-rouge">None</code> を指定すると、現在関連付けられているハンドラ・メソッドを解除します。ハンドラ・メソッドには慣習として <code class="language-plaintext highlighter-rouge">On＜イベント名＞</code> という形の名前が付けられます。</dd>
+  <dt>source パラメータ（デフォルト値 None）</dt>
+  <dd>イベントの発生源を識別するためのウィジェットを指定します。</dd>
+</dl>
+
+<p><code class="language-plaintext highlighter-rouge">Bind()</code> メソッドを呼び出した <code class="language-plaintext highlighter-rouge">wx.EvtHandler</code> インスタンス自身が、そのイベントの発生源である場合は、<code class="language-plaintext highlighter-rouge">source</code> パラメータを省略することができます。
+例えば、複数のボタンを配置した <code class="language-plaintext highlighter-rouge">wx.Frame</code> の <code class="language-plaintext highlighter-rouge">__init__()</code> でボタンクリックのイベントを関連付けるには、以下のいずれかを実行します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnButtonClick</span><span class="p">,</span> <span class="n">button</span><span class="p">)</span>
+<span class="n">button</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnButtonClick</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>動作が異なってくるのは、<code class="language-plaintext highlighter-rouge">wx.Frame</code> に複数のボタンが配置されている状況で、次のように <code class="language-plaintext highlighter-rouge">source</code> パラメータを省略してボタンクリックのイベントを関連付けた場合です。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnButtonClick</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>このようにすると、イベントの発生源を識別する（どのボタンが押されたかを示す）ためのボタンオブジェクトが関連付けられないので、どのボタンをクリックしても、<code class="language-plaintext highlighter-rouge">OnButtonClick()</code> が呼び出されるようになります。</p>
+
+<dl>
+  <dt>id パラメータ、id2 パラメータ</dt>
+  <dd><code class="language-plaintext highlighter-rouge">id</code> で指定した ID が割り振られているウィジェットに対して、ハンドラ・メソッドを関連付けることができます。このパラメータを使用する場合は、<code class="language-plaintext highlighter-rouge">source</code> パラメータは使用しません。<code class="language-plaintext highlighter-rouge">id</code> と <code class="language-plaintext highlighter-rouge">id2</code> でウィジェットの ID の範囲を指定すると、複数のウィジェットに対して同一のハンドラ・メソッドを一度に関連付けることができます。</dd>
+</dl>
+
+<h2 id="独自のイベントを持つウィジェットを作成する">独自のイベントを持つウィジェットを作成する</h2>
+
+<p><img src="/python/wxpython/image/20070419-original_event.png" alt="./image/20070419-original_event.png" />
+<img src="/python/wxpython/image/20070419-original_event2.png" alt="./image/20070419-original_event2.png" /></p>
+
+<p>以下のサンプルでは、3 つのトグルボタンを持つ独自のコントロール <code class="language-plaintext highlighter-rouge">ThreeButtonPanel</code> を作成します。
+このトグルボタンは、ひとつのボタンしか ON 状態にすることができません。
+ボタンの状態が変化したときは、独自イベントの <code class="language-plaintext highlighter-rouge">EVT_THREE_BUTTON</code> が発生し、ON 状態になっているボタンのインデックス（0～2）を取得できます。
+どのボタンも OFF の状態の場合は、インデックスとして -1 を返すようにしています。</p>
+
+<h4 id="サンプルコード">サンプルコード</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">ThreeButtonEvent</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">PyCommandEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evtType</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">PyCommandEvent</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evtType</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">SetSelectedIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+    <span class="k">def</span> <span class="nf">GetSelectedIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">index</span>
+
+<span class="n">myEVT_THREE_BUTTON</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">NewEventType</span><span class="p">()</span>
+<span class="n">EVT_THREE_BUTTON</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PyEventBinder</span><span class="p">(</span><span class="n">myEVT_THREE_BUTTON</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">ThreeButtonPanel</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+        <span class="c1"># Create widgets.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">button1</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'1'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">button2</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'2'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">button3</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ToggleButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'3'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">button1</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">button2</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">button3</span><span class="p">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="c1"># Set event handlers.
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_TOGGLEBUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnToggleButton</span><span class="p">)</span>
+        <span class="c1"># Set sizer.
+</span>        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">button1</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">button2</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">button3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnToggleButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">GetEventObject</span><span class="p">()</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">button</span><span class="p">.</span><span class="n">index</span>
+        <span class="k">if</span> <span class="n">button</span><span class="p">.</span><span class="n">GetValue</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">button1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">button1</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">button2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">button2</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="bp">self</span><span class="p">.</span><span class="n">button3</span><span class="p">:</span>
+                <span class="bp">self</span><span class="p">.</span><span class="n">button3</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="c1"># Raise event.
+</span>        <span class="n">evt</span> <span class="o">=</span> <span class="n">ThreeButtonEvent</span><span class="p">(</span><span class="n">myEVT_THREE_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">GetId</span><span class="p">())</span>
+        <span class="n">evt</span><span class="p">.</span><span class="n">SetSelectedIndex</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">GetEventHandler</span><span class="p">().</span><span class="n">ProcessEvent</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+        <span class="n">panel</span> <span class="o">=</span> <span class="n">ThreeButtonPanel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">panel</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">EVT_THREE_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnThreeButton</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnThreeButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evt</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">'Selected index ='</span><span class="p">,</span> <span class="n">evt</span><span class="p">.</span><span class="n">GetSelectedIndex</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython のイベントハンドラを理解する&url=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/event-handler.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-03-29</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

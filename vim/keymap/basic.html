@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのVimノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/vim/keymap/basic.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-vim.png" />
+
+  <meta property="og:description" content="天才星人まくのVimノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="キーマップの基本 (map, noremap) | まくまくVimノート" />
+  <title>キーマップの基本 (map, noremap) - まくまくVimノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/vim/">
+    <img src="/assets/img/logo-vim.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/vim/">
+    <div class="xPageHeader_category">
+    まくまくVimノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">キーマップの基本 (map, noremap)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/vim/">Vim</a></div>
+  <div class="xPageDate">2013-07-18</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/vim/keymap/basic.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： キーマップの基本 (map, noremap)&url=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="キーマップに関するヘルプ">キーマップに関するヘルプ</h2>
+
+<p>キーマップに関するヘルプは、以下のコマンドで参照することができます。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">help</span> <span class="nb">map</span><span class="p">.</span>txt
+<span class="p">:</span><span class="k">help</span> <span class="nb">key</span><span class="p">-</span>mapping
+</code></pre></div></div>
+
+<h2 id="map-系コマンドによるキーマッピング">map 系コマンドによるキーマッピング</h2>
+
+<p>キーマップの設定を行うには、主に以下のようなコマンドを使用します。
+コマンドを使い分けることによって、特定のモードでだけ有効なマッピングを定義できます。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">map</code></strong>: ノーマルモード、ビジュアルモード用のキーマッピング</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">nmap</code></strong>: ノーマルモード用のキーマッピング</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">vmap</code></strong>: ビジュアルモード用のキーマッピング</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">imap</code></strong>: インサートモード用のキーマッピング</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">cmap</code></strong>: コマンドライン用のキーマッピング</li>
+</ul>
+
+<p>よく使用するのは、ノーマルモードのマップ定義を行う <code class="language-plaintext highlighter-rouge">nmap</code> と、インサートモードのマップ定義を行う <code class="language-plaintext highlighter-rouge">imap</code> です。</p>
+
+<p>マッピングの定義は、以下のような形式で行います。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>nmap ＜入力するキーシーケンス＞ ＜実行するコマンド＞
+<span class="p">:</span>imap ＜入力するキーシーケンス＞ ＜実行するコマンド＞
+</code></pre></div></div>
+
+<p>例えば、下記のように実行したあとで、インサートモードで <kbd>Ctrl</kbd> キーを押しながら <kbd>F10</kbd> キーを2回押すと、カーソル位置に Hello World と入力されます（別に単純に <kbd>F10</kbd> キー1つに割り当ててもよいのですが、ここではこんなキーシーケンスにマッピングできるということの説明のためにやっています）。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>imap <span class="p">&lt;</span>C<span class="p">-</span>F10<span class="p">&gt;&lt;</span>C<span class="p">-</span>F10<span class="p">&gt;</span> Hello World
+</code></pre></div></div>
+
+<p>同様のことをノーマルモードでも実行できるようにするには、下記のように先に <code class="language-plaintext highlighter-rouge">i</code> コマンドでインサートモードに入らないといけないことに注意してください。
+最後には <code class="language-plaintext highlighter-rouge">&lt;Esc&gt;</code> でノーマルモードに戻ってあげると行儀が良いです。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>nmap <span class="p">&lt;</span>C<span class="p">-</span>F10<span class="p">&gt;&lt;</span>C<span class="p">-</span>F10<span class="p">&gt;</span> iHello World<span class="p">&lt;</span>Esc<span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>下記はいろいろなキーマップ設定の例です。</p>
+
+<h4 id="キーマップ設定の例-vimrc">キーマップ設定の例 (~/.vimrc)</h4>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">" '-' キーでカーソル位置の単語を削除</span>
+nmap <span class="p">-</span> diw
+
+<span class="c">" 'F1' キーで 'Hello' を挿入</span>
+nmap <span class="p">&lt;</span>F1<span class="p">&gt;</span> iHello<span class="p">&lt;</span>Esc<span class="p">&gt;</span>
+
+<span class="c">" Ctrl+Tab で次のバッファへ切り替え</span>
+<span class="nb">map</span> <span class="p">&lt;</span>C<span class="p">-</span>Tab<span class="p">&gt;</span> <span class="p">:</span><span class="k">bn</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+
+<span class="c">" Ctrl+Shift+Tab で前のバッファへ切り替え</span>
+<span class="nb">map</span> <span class="p">&lt;</span>C<span class="p">-</span>S<span class="p">-</span>Tab<span class="p">&gt;</span> <span class="p">:</span><span class="k">bp</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="noremap-系コマンドによるキーマッピング">noremap 系コマンドによるキーマッピング</h2>
+
+<p>map 系コマンド（<code class="language-plaintext highlighter-rouge">map</code>, <code class="language-plaintext highlighter-rouge">nmap</code>, <code class="language-plaintext highlighter-rouge">vmap</code>, <code class="language-plaintext highlighter-rouge">imap</code>, <code class="language-plaintext highlighter-rouge">cmap</code> 等）によるマッピングは、右値に指定されたコマンドが既にマッピング定義されていると、そのマッピング値が使用されます。
+つまり、マッピング定義が伝播します。
+例えば、</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>imap <span class="p">&lt;</span>C<span class="p">-</span>T<span class="p">&gt;</span> Hello
+<span class="p">:</span>imap <span class="p">&lt;</span>F1<span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span>T<span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>と定義してあるときに、インサートモードで <code class="language-plaintext highlighter-rouge">F1</code> キーを入力すると、<code class="language-plaintext highlighter-rouge">F1</code> キーにマッピングされているコマンド <code class="language-plaintext highlighter-rouge">Ctrl-T</code> は既に <code class="language-plaintext highlighter-rouge">Hello</code> にマッピングされているので、<code class="language-plaintext highlighter-rouge">Hello</code> と入力されます。
+このような<strong>マッピングの伝播を防ぐには、<code class="language-plaintext highlighter-rouge">map</code> 系コマンドの代わりに、<code class="language-plaintext highlighter-rouge">noremap</code> 系コマンドを使用します</strong>。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span>imap <span class="p">&lt;</span>C<span class="p">-</span>T<span class="p">&gt;</span> Hello
+<span class="p">:</span>inoremap <span class="p">&lt;</span>F1<span class="p">&gt;</span> <span class="p">&lt;</span>C<span class="p">-</span>T<span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>上記のように設定すると、<code class="language-plaintext highlighter-rouge">F1</code> キーを入力したとき、Vim がデフォルトで <code class="language-plaintext highlighter-rouge">Ctrl-T</code> に割り当てている機能である「インデント」の振る舞いをします。
+下記は、<code class="language-plaintext highlighter-rouge">:help index</code> のヘルプページからの、<code class="language-plaintext highlighter-rouge">i_CTRL-T</code> キーに割り当てられたデフォルト機能の説明の抜粋です。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">i_CTRL-T</code>: 現在の行に shiftwidth 分のインデントを挿入する。</li>
+</ul>
+
+<p>map 系のコマンドと同様に、noremap 系のコマンドも各モード用にキーマップ定義を行うためのコマンドが用意されています。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>map 系コマンド</th>
+      <th>noremap 系コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">map</code></td>
+      <td><code class="language-plaintext highlighter-rouge">noremap</code></td>
+      <td>ノーマルモード、ビジュアルモード用のキーマッピング</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nmap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">nnoremap</code></td>
+      <td>ノーマルモード用のキーマッピング</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">vmap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">vnoremap</code></td>
+      <td>ビジュアルモード用のキーマッピング</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">imap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">inoremap</code></td>
+      <td>インサートモード用のキーマッピング</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cmap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cnoremap</code></td>
+      <td>コマンドライン用のキーマッピング</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><a href="keycodes.html">map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： キーマップの基本 (map, noremap)&url=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/keymap/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/vim/"><span class="xArticle_up_label">まくまくVimノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li class="xNav-focused"><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/vim/">Vim</a></div>
+  <div class="xPageDate">2013-07-18</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

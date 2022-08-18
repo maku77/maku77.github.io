@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaScriptノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/tool/static-analysis-tools.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaScriptノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint) | まくまくJavaScriptノート" />
+  <title>JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint) - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-04-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/tool/static-analysis-tools.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)&url=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="各ツールのトレンド">各ツールのトレンド</h2>
+
+<p>2015 年現在は <strong>JSHint</strong> が一番メジャーですが、これからは <strong>ESLint</strong> がよさげです。
+<strong>JSLint</strong> は使われなくなりつつあります。</p>
+
+<p><img src="/js/tool/static-analysis-tools.png" alt="static-analysis-tools.png" /></p>
+
+<h2 id="それぞれのツールの特徴">それぞれのツールの特徴</h2>
+
+<h3 id="jslint-httpjslintcom">JSLint (<a href="http://jslint.com/">http://jslint.com/</a>)</h3>
+
+<p>初期リリースは 2007 年頃。
+作者は Douglas Crockford で、著書に JavaScript Good Parts があり、JSON RFC4627 の仕様策定などを行っている人です。
+後出の <strong>JSHint</strong> に比べると、デフォルトのチェックが厳しいです。
+この厳しさは好き嫌いが分かれるところで、逆にチェックの緩い <strong>JSHint</strong> の方が好まれる理由にもなっています。</p>
+
+<h3 id="jshint-httpjshintcom">JSHint (<a href="http://jshint.com/">http://jshint.com/</a>)</h3>
+
+<p>初期リリースは 2011 年頃。
+作者は Anton Kovalyov（アントン・コバリャノフ）で、<strong>JSLint</strong> の fork として作られました。
+ベースとなった <strong>JSLint</strong> は便利である一方で、作者 Douglas Crockford の頑固な設定（<code class="language-plaintext highlighter-rouge">var</code> 宣言は 1 つにまとめないと必ずエラーなど）が強制されるため、開発者から敬遠される部分が多くありました。
+そこで、Anton は、より柔軟な設定を行える <strong>JSLint</strong> となることを目指して 2011 年に <strong>JSHint</strong> の開発を始めました。</p>
+
+<p><strong>JSLint</strong> と比べると、デフォルト設定におけるチェックが甘いため、有効活用するためには適切な設定を行う必要があります。
+設定は JSON 形式のファイル (<code class="language-plaintext highlighter-rouge">.jshintrc</code>) で行えます。
+<strong>JSHint</strong> は、インデントのスペース数などのコーディングスタイルに関するチェックを行うことは対象外とすることを決め、そういったチェックは <strong>JSCS</strong> を使ってくださいということになりました（そこまでやるのなら <strong>ESLint</strong> を使った方が楽かも）。</p>
+
+<h3 id="eslint-httpeslintorg">ESLint (<a href="http://eslint.org/">http://eslint.org/</a>)</h3>
+
+<p>初期リリースは 2013 年頃。
+作者は Nicholas C. Zakas です。
+ルールの拡張を自由に行えることが特徴で、これを Pluggable と読んでいます。
+<strong>JSLint</strong>/<strong>JSHint</strong> 互換のルールも、デフォルトで Pluggable なルールとして用意されています。
+実装的には、Esprima でパースした結果の AST (Abstract Syntax Tree) をそれぞれの Lint ルールに渡すようになっているため、<strong>ESLint</strong> の本体はクリーンな実装がキープされるようになっています（1-pass で実行されないため若干遅いところが欠点）。
+それぞれのルールはルール名で区別され、個別に ON/OFF することができます（0:無効、1:警告として検出、2:エラーとして検出）。</p>
+
+<p><strong>JSLint</strong> や <strong>JSHint</strong> よりも、ドキュメントがしっかりと書かれていて好感が持てます。
+<strong>JSHint</strong> よりも設定を分かりやすく柔軟に記述することができます。
+設定ファイルは JSON あるいは Yaml 形式の <code class="language-plaintext highlighter-rouge">.eslintrc</code> で記述します。
+Node.js アプリでは、<code class="language-plaintext highlighter-rouge">package.json</code> 内の <code class="language-plaintext highlighter-rouge">eslintConfig</code> フィールドに設定を書くことができます（こちらはもちろん JSON 形式で記述します）。
+出力結果もデフォルトで色付けされていたり、エラーメッセージとともにルール ID などが表示されるので、細かいところに手が届いている感じがします。</p>
+
+<h2 id="どのようなコードを検出してくれるか">どのようなコードを検出してくれるか？</h2>
+
+<p>ここでは、参考までに、JSLint と JSHint がどのようなコードに対して、どういった警告表示を行ってくれるかを示します。</p>
+
+<h3 id="jslint-と-jshint-共通の検出項目デフォルト設定時">JSLint と JSHint 共通の検出項目（デフォルト設定時）</h3>
+
+<ul>
+  <li>関数外で ‘use strict’ しているときに警告
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">Use the function form of 'use strict'.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">Use the function form of "use strict".</code></li>
+    </ul>
+  </li>
+  <li>未定義の変数、関数アクセスの警告
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">'xxx' was used before it was defined.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">'xxx' is not defined.</code></li>
+    </ul>
+  </li>
+  <li>未使用の変数、関数の検出
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">Unused 'xxx'.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">unused variable 'xxx'.</code></li>
+    </ul>
+  </li>
+  <li>eval は使用禁止
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">eval is evil.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">eval can be harmful.</code></li>
+    </ul>
+  </li>
+  <li>行末にセミコロンがない
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">Expected ';' and instead saw 'xxx'.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">Missing semicolon.</code></li>
+    </ul>
+  </li>
+  <li>case が break や return、throw で終わっていない
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">Missing 'break' after 'case'.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">Expected a 'break' statement before 'case'.</code></li>
+    </ul>
+  </li>
+  <li>コンストラクタ（new をつけて呼んだ関数）が大文字で始まっていない
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">A constructor name 'xxx' should start with an uppercase letter.</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">A constructor name should start with an uppercase letter.</code></li>
+    </ul>
+  </li>
+  <li>new Object() の代わりに {} を使う
+    <ul>
+      <li>JSLint: <code class="language-plaintext highlighter-rouge">Use the object literal notation {} or Object.create(null).</code></li>
+      <li>JSHint: <code class="language-plaintext highlighter-rouge">The object literal notation {} is preferable.</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="jslint-独自の検出項目デフォルト設定時">JSLint 独自の検出項目（デフォルト設定時）</h3>
+
+<ul>
+  <li>‘use strict’; がない場合に警告
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Missing 'use strict' statement.</code></li>
+    </ul>
+  </li>
+  <li>比較は == や != を使用せずに、=== や !== で行う
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Expected '===' and instead saw '=='.</code></li>
+    </ul>
+  </li>
+  <li>おかしな条件の検出（switch (1) など）
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Weired condition.</code></li>
+    </ul>
+  </li>
+  <li>++ によるインクリメント、– によるデクリメントはデフォルトで禁止
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Unexpected '++'.</code></li>
+    </ul>
+  </li>
+  <li>インデントのスペース数
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Expected 'var' at column 3, not column 5.</code></li>
+    </ul>
+  </li>
+  <li>無名関数の function と () の間にスペースがないことを検出
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Expected exactly one space between 'function' and '('.</code></li>
+    </ul>
+  </li>
+  <li>一行の最大文字数
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Line too long.</code></li>
+    </ul>
+  </li>
+  <li>if や for ステートメントは、必ず {} ブロックで囲む
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Expected '{' and instead saw 'xxx'.</code></li>
+    </ul>
+  </li>
+  <li>変数定義は関数の先頭でまとめて 1 つの var で行う
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Move 'var' declarations to the top of the function.</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Don't declare variables in a loop.</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Combine this with the previous 'var' statement.</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="jshint-独自の検出項目デフォルト設定時">JSHint 独自の検出項目（デフォルト設定時）</h3>
+
+<p>JSHint はデフォルトではほとんどチェックしてくれません。</p>
+
+<ul>
+  <li>変数と 0 の比較は ‘===’ で行う
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Use '===' to compare with '0'.</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="使い方">使い方</h2>
+
+<p>それぞれのツールの使い方は下記を参照してください。</p>
+
+<ul>
+  <li><a href="jslint.html">JSLint で JavaScript コードの静的解析を行う</a></li>
+  <li><a href="jshint.html">JSHint で JavaScript コードの静的解析を行う</a></li>
+  <li><a href="eslint.html">ESLint で JavaScript コードの静的解析を行う</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)&url=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/tool/static-analysis-tools.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-04-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

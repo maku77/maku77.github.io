@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのVimノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/vim/settings/auto-indent.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-vim.png" />
+
+  <meta property="og:description" content="天才星人まくのVimノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="自動インデントモードを有効にする | まくまくVimノート" />
+  <title>自動インデントモードを有効にする - まくまくVimノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/vim/">
+    <img src="/assets/img/logo-vim.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/vim/">
+    <div class="xPageHeader_category">
+    まくまくVimノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">自動インデントモードを有効にする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/vim/">Vim</a></div>
+  <div class="xPageDate">2007-11-16</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/vim/settings/auto-indent.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： 自動インデントモードを有効にする&url=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="3-種類のインデントモードの設定">3 種類のインデントモードの設定</h2>
+
+<p>Vim には、大きく分けて、以下のようなオートインデント設定があります。</p>
+
+<dl>
+  <dt>autoindent</dt>
+  <dd>カレント行のインデントをキープする。シンプル。</dd>
+  <dt>smartindent</dt>
+  <dd>C言語風のプログラミング言語向けの自動インデント。</dd>
+  <dt>cindent</dt>
+  <dd>C言語に特化したインデント（<code class="language-plaintext highlighter-rouge">smartindent</code> よりも厳密に文法を考慮）</dd>
+</dl>
+
+<h3 id="autoindent-を有効無効にする">autoindent を有効／無効にする</h3>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> <span class="nb">autoindent</span>    " <span class="nb">autoindent</span> を ON
+<span class="p">:</span><span class="k">set</span> <span class="nb">noautoindent</span>  " <span class="nb">autoindent</span> を OFF
+<span class="p">:</span><span class="k">set</span> <span class="nb">autoindent</span>?   " <span class="nb">autoindent</span> の設定を確認 <span class="p">(</span><span class="nb">autoindent</span> <span class="nb">or</span> <span class="nb">noautoindent</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">autoindent</code> の設定を有効にすると、新しい行を追加したときに、前の行のインデントが引き継がれるようになります。
+ただそれだけのシンプルなインデントモードです。
+新しい行の追加は例えば、以下のような入力があった場合が対象になります。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">o</code> コマンド（あるいは <code class="language-plaintext highlighter-rouge">O</code> コマンド）</li>
+  <li>インサートモード時の <kbd>Enter</kbd></li>
+</ul>
+
+<p>インサートモードのまま、インデントの量を変えるには <code class="language-plaintext highlighter-rouge">CTRL-T</code>、<code class="language-plaintext highlighter-rouge">CTRL-D</code> などのコマンドを使用します。
+下記は、<code class="language-plaintext highlighter-rouge">:help index</code> からのキーマップ説明の抜粋です。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">i_CTRL-T</code>: 現在の行に shiftwidth 分のインデントを挿入する。</li>
+  <li><code class="language-plaintext highlighter-rouge">i_CTRL-D</code>: 現在の行から shiftwidth 分のインデントを削除する。</li>
+</ul>
+
+<h3 id="smartindent-を有効無効にする">smartindent を有効／無効にする</h3>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> <span class="nb">smartindent</span>    " <span class="nb">smartindent</span> を ON
+<span class="p">:</span><span class="k">set</span> <span class="nb">nosmartindent</span>  " <span class="nb">smartindent</span> を OFF
+<span class="p">:</span><span class="k">set</span> <span class="nb">smartindent</span>?   " <span class="nb">smartindent</span> の設定を確認 <span class="p">(</span><span class="nb">smartindent</span> <span class="nb">or</span> <span class="nb">nosmartindent</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">smartindent</code> は、C-like な言語を編集するときに、下記のようにそれっぽく字下げや字上げを自動化してくれるインデントモードです。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{</code> ごとにインデントを深くし、<code class="language-plaintext highlighter-rouge">}</code> ごとにインデントを浅くする。</li>
+  <li>前の行が <code class="language-plaintext highlighter-rouge">cinwords</code> に設定されたキーワードで始まっているときにインデントを深くする（<code class="language-plaintext highlighter-rouge">cinwords</code> のデフォルト値は <code class="language-plaintext highlighter-rouge">if,else,while,do,for,switch</code>）。</li>
+</ul>
+
+<p>ただし、C言語風のプリプロセッサのために、<code class="language-plaintext highlighter-rouge">#</code> で始まる行はインデント数を 0 にするといった特殊ルールも設定されています。</p>
+
+<h3 id="cindent-を有効無効にする">cindent を有効／無効にする</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:set cindent   " cindent を ON
+:set noindent  " cindent を OFF
+:set cindent?  " cindent の設定を確認 (cindent or nocindent)
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">cindent</code> を有効にしておくと、C/C++ や Java などの言語構文をより厳密に考慮して、非常に賢いインデントを自動で行ってくれます。
+例えば、if ブロックを <code class="language-plaintext highlighter-rouge">{}</code> で囲まなかった場合に、次の一行だけインデントを深くする、といったことを行ってくれます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">cindent</code> が設定されている場合は、<code class="language-plaintext highlighter-rouge">smartindent</code> の設定は無効になります。
+<code class="language-plaintext highlighter-rouge">cindent</code> の詳しい設定方法は、以下のヘルプで参照できます。</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">help</span> C<span class="p">-</span>indenting
+</code></pre></div></div>
+
+<h2 id="cc-のソースファイルを開いたときに自動的に-cindent-モードを設定する">C/C++ のソースファイルを開いたときに自動的に cindent モードを設定する</h2>
+
+<p>以下のように設定しておくと、C/C++言語やJava言語のソースコードファイルを開いたときに、<code class="language-plaintext highlighter-rouge">cindent</code> モードが自動的に有効になります。
+ここでは、インデント量の設定もついでに行っています。</p>
+
+<h4 id="vimrc">~/.vimrc</h4>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">" ファイルタイプ検出を有効にする</span>
+<span class="k">filetype</span> <span class="k">on</span>
+
+augroup vimrc
+    <span class="c">" 以前の autocmd コマンドをクリア</span>
+    autocmd<span class="p">!</span>
+
+    <span class="c">" C/C++/Java 言語系のファイルタイプが設定されたら cindent モードを有効にする</span>
+    autocmd <span class="nb">FileType</span> <span class="k">c</span><span class="p">,</span><span class="nb">cpp</span><span class="p">,</span>java  <span class="k">setl</span> <span class="nb">cindent</span>
+    autocmd <span class="nb">FileType</span> <span class="k">c</span><span class="p">,</span><span class="nb">cpp</span><span class="p">,</span>java  <span class="k">setl</span> <span class="nb">expandtab</span> <span class="nb">tabstop</span><span class="p">=</span><span class="m">4</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span> <span class="nb">softtabstop</span><span class="p">=</span><span class="m">4</span> <span class="nb">shiftround</span>
+augroup END
+</code></pre></div></div>
+
+<h2 id="参考">参考</h2>
+<ul>
+  <li><a href="indent.html">インデント（シフトコマンド）の設定 (shiftwidth, shiftround)</a></li>
+  <li><a href="../edit/indent.html">インデント用のスペースを入力する（シフトコマンド）</a></li>
+  <li><a href="../edit/re-indent.html">選択した範囲を自動インデントする</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくVimノート： 自動インデントモードを有効にする&url=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/vim/settings/auto-indent.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/vim/"><span class="xArticle_up_label">まくまくVimノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li class="xNav-focused"><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/vim/">Vim</a></div>
+  <div class="xPageDate">2007-11-16</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

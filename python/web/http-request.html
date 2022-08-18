@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/web/http-request.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="urllib による HTTP リクエスト (1) GET/POST リクエスト (urllib.request.urlopen) | まくまくPythonノート" />
+  <title>urllib による HTTP リクエスト (1) GET/POST リクエスト (urllib.request.urlopen) - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">urllib による HTTP リクエスト (1) GET/POST リクエスト (urllib.request.urlopen)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2014-11-28</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/web/http-request.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： urllib による HTTP リクエスト (1) GET/POST リクエスト (urllib.request.urlopen)&url=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>ここでは、Python の組み込みモジュール <a href="https://docs.python.org/3/library/urllib.request.html"><code class="language-plaintext highlighter-rouge">urllib.request</code></a> を使った HTTP アクセスの例を示します。</p>
+
+<h2 id="urlopen-による-getpost-リクエストの基本">urlopen による GET/POST リクエストの基本</h2>
+
+<p><code class="language-plaintext highlighter-rouge">urllib.request.urlopen(...)</code> は、<strong><code class="language-plaintext highlighter-rouge">http.client.HTTPResponse</code></strong> オブジェクトを返します。
+<code class="language-plaintext highlighter-rouge">HTTPResponse</code> オブジェクトの <strong><code class="language-plaintext highlighter-rouge">read()</code></strong> メソッドを呼ぶことで、HTTP のレスポンスを取得することができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+
+<span class="k">with</span> <span class="n">urlopen</span><span class="p">(</span><span class="s">'https://example.com/'</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">read()</code> メソッドが返すデータはバイナリデータ (<code class="language-plaintext highlighter-rouge">bytes</code>) なので、テキストとして扱う場合は、エンコーディング形式（<code class="language-plaintext highlighter-rouge">utf-8</code> など）を指定してデコードする必要があります。</p>
+
+<p><code class="language-plaintext highlighter-rouge">urlopen()</code> で取得した <code class="language-plaintext highlighter-rouge">HTTPResponse</code> オブジェクトは、リソース解放のために明示的に <code class="language-plaintext highlighter-rouge">close()</code> することが推奨されているのですが、上記のように Python 3 の <code class="language-plaintext highlighter-rouge">with</code> 文を使用すると、<code class="language-plaintext highlighter-rouge">close()</code> 処理を自動化できます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">urlopen</code> の引数に、URL 文字列ではなく、<a href="https://docs.python.org/ja/3/library/urllib.request.html#urllib.request.Request">urllib.request.Request</a> オブジェクトを渡すこともできます。
+<code class="language-plaintext highlighter-rouge">Request</code> オブジェクトを使うと、ヘッダ情報やプロキシ、HTTP メソッド（GET や POST）の指定などを行えます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s">'http://example.com/'</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">'POST'</span><span class="p">)</span>
+<span class="n">req</span><span class="p">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'token %s'</span> <span class="o">%</span> <span class="s">'DUMMY_KEY'</span><span class="p">)</span>
+<span class="n">req</span><span class="p">.</span><span class="n">set_proxy</span><span class="p">(</span><span class="s">'proxy.example.com:8080'</span><span class="p">,</span> <span class="s">'http'</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>参考: <a href="./http-request-with-proxy.html">urllib による HTTP リクエスト (2) プロキシ経由でアクセスする</a></li>
+  <li>参考: <a href="./http-request-with-header.html">urllib による HTTP 通信 (5) ヘッダを付けてリクエストする</a></li>
+</ul>
+
+<h2 id="データ付きの-getpost-リクエスト">データ付きの GET/POST リクエスト</h2>
+
+<h3 id="get-リクエストにクエリ文字列を付加する">GET リクエストにクエリ文字列を付加する</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://example.com/?name=まく&amp;age=14
+</code></pre></div></div>
+
+<p>のように、URL 末尾のクエリ文字列の形でデータを送るときは、単純に URL をそのように加工します。
+ただし、日本語などの値は URL エンコードされている必要があるため、先に <a href="https://docs.python.org/ja/3/library/urllib.parse.html#urllib.parse.urlencode">urllib.parse.urlencode</a> を使ってデータをエンコードしてから付加します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">urllib.parse</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'まく'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">14</span> <span class="p">}</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'https://example.com/?%s'</span> <span class="o">%</span> <span class="n">urllib</span><span class="p">.</span><span class="n">parse</span><span class="p">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="post-リクエストで-json-データを送る">POST リクエストで JSON データを送る</h3>
+
+<p>POST リクエストの Body でデータを送るには、<code class="language-plaintext highlighter-rouge">urllib.request.Request</code> のコンストラクタの <code class="language-plaintext highlighter-rouge">data</code> パラメータに、送りたいデータをセットします（オブジェクト生成後に <code class="language-plaintext highlighter-rouge">data</code> プロパティでセットすることもできます）。
+<code class="language-plaintext highlighter-rouge">data</code> パラメータがセットされると、<code class="language-plaintext highlighter-rouge">method</code> パラメータは自動的に <code class="language-plaintext highlighter-rouge">POST</code> が指定されたものとして動作します。</p>
+
+<p>次の例では、POST メソッドで JSON データを送信しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://example.com/'</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'まく'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">14</span> <span class="p">}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span> <span class="p">}</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">).</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">),</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="urlopen-のエラーハンドル">urlopen のエラーハンドル</h2>
+
+<p>urlopen は次のようなエラーをスローすることがあります。</p>
+
+<ul>
+  <li><a href="https://docs.python.org/ja/3/library/urllib.error.html#urllib.error.URLError">urllib.error.URLError</a> … 指定した URL で Web サーバーと通信できなかった場合にスローされます。例えば、ドメイン名が間違っていたり、プロキシサーバーのアドレスが間違っていると発生します。</li>
+  <li><a href="https://docs.python.org/ja/3/library/urllib.error.html#urllib.error.HTTPError">urllib.error.HTTPError</a> … <code class="language-plaintext highlighter-rouge">404 Not Found</code> や、<code class="language-plaintext highlighter-rouge">500 Internal Server Error</code> など、Web サーバーから HTTP エラーが返された場合にスローされます。</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">HTTPError</code> は <code class="language-plaintext highlighter-rouge">URLError</code> のサブクラスなので、先にハンドルするようにしてください。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="c1"># ...
+</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Could not access: %s'</span> <span class="o">%</span> <span class="n">req</span><span class="p">.</span><span class="n">full_url</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>         <span class="c1"># HTTP Error 404: Not Found
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="n">code</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>    <span class="c1"># 404
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="n">reason</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>  <span class="c1"># Not Found
+</span>    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Could not access: %s'</span> <span class="o">%</span> <span class="n">req</span><span class="p">.</span><span class="n">full_url</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="n">reason</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>例えば、上記のコードで <code class="language-plaintext highlighter-rouge">404 Not Found</code> の <code class="language-plaintext highlighter-rouge">HTTPError</code> が発生した場合は次のように出力されます。
+最初の 2 行くらいを出力しておけばエラー表示としては十分かと思います。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not access: http://example.com/DUMMY
+HTTP Error 404: Not Found
+404
+Not Found
+</code></pre></div></div>
+
+<p>もう一方のエラーである <code class="language-plaintext highlighter-rouge">URLError</code> は、ドメイン名などの間違いで、サーバーと通信できなかった場合に発生します（<code class="language-plaintext highlighter-rouge">HTTPError</code> の親クラスなので、正確には <code class="language-plaintext highlighter-rouge">HTTPError</code> 発生時にも発生しています）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not access: http://MY-FAKE-DOMAIN.com/
+[Errno 8] nodename nor servname provided, or not known
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">HTTPError#code</code> などで HTTP ステータスコードを個別に取得する必要がないのであれば、親クラスの <code class="language-plaintext highlighter-rouge">URLError</code> だけでまとめてエラーハンドルしてしまっても OK です。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Could not access: %s'</span> <span class="o">%</span> <span class="n">req</span><span class="p">.</span><span class="n">full_url</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not access: http://example.com/DUMMY
+HTTP Error 404: Not Found
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： urllib による HTTP リクエスト (1) GET/POST リクエスト (urllib.request.urlopen)&url=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/web/http-request.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li class="xNav-focused"><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2014-11-28</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

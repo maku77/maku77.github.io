@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのBlenderノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/blender/3dview/move.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-blender.png" />
+
+  <meta property="og:description" content="天才星人まくのBlenderノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="オブジェクトを移動する (G) | まくまくBlenderノート" />
+  <title>オブジェクトを移動する (G) - まくまくBlenderノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/blender/">
+    <img src="/assets/img/logo-blender.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/blender/">
+    <div class="xPageHeader_category">
+    まくまくBlenderノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">オブジェクトを移動する (G)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/blender/">Blender</a></div>
+  <div class="xPageDate">2018-03-17</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/blender/3dview/move.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくBlenderノート： オブジェクトを移動する (G)&url=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="マニピュレータを使って移動する方法">マニピュレータを使って移動する方法</h2>
+
+<figure>
+  <img src="move-001.png" />
+  <figcaption>
+    <ol>
+      <li>オブジェクトを選択（オブジェクトモードで右クリック）</li>
+      <li>移動マニピュレータに切り替える（上図のピンク枠のアイコン）</li>
+      <li>中央の白い円、あるいは、3色（赤緑青）の矢印をドラッグして移動<br />（移動中に、右クリック or <kbd>ESC</kbd> でキャンセル）</li>
+    </ol>
+  </figcaption>
+</figure>
+
+<p>マニピュレータ中央の白い円をドラッグすると、オブジェクトを任意の方向に移動することができます。
+マニピュレータの3色の矢印をドラッグすると、オブジェクトをx軸方向（赤の矢印）、y軸方向（緑の矢印）、z軸方向（青の矢印）に移動することができます。</p>
+
+<p><kbd>Shift</kbd> キーを押しながら矢印をドラッグすると、その軸以外の方向に（その軸の位置だけ固定して）移動することができます。
+例えば、<kbd>Shift</kbd> キーを押しながら青の矢印（z軸）をドラッグすると、地面に水平な方向（x軸、y軸）方向にだけオブジェクトを移動することができます。</p>
+
+<h2 id="ショートカットキーを使って移動する方法">ショートカットキーを使って移動する方法</h2>
+
+<ol>
+  <li>オブジェクトを選択（オブジェクトモードで右クリック）</li>
+  <li><kbd>G</kbd> キーを押す</li>
+  <li>マウスを動かしてオブジェクトを移動させる</li>
+  <li>クリックで位置を決定<br />（右クリック or <kbd>ESC</kbd> でキャンセル）</li>
+</ol>
+
+<p>マウスを動かしてオブジェクトを移動させている最中に、<kbd>X</kbd> キー、<kbd>Y</kbd> キー、<kbd>Z</kbd> キーを押すと、移動方向をその軸だけに制限できます（マニピュレータの矢印をドラッグするのと同様）。</p>
+
+<p><kbd>Shift</kbd> を押しながら <kbd>X</kbd> キー、<kbd>Y</kbd> キー、<kbd>Z</kbd> キーを押すと、その軸以外の方向に移動することができます（マニピュレータの矢印を <kbd>Shift</kbd> キーを押しながらドラッグするのと同様）。</p>
+
+<div class="note">
+より具体的には、オブジェクトの移動中に <kbd>X</kbd> を押すと、グローバルなx軸上で移動するようになります。続けてもう一度 <kbd>X</kbd> を押すと、ローカルなx軸上で移動するようになります。
+</div>
+
+<h2 id="マウスでの移動量を大きくする小さくする">マウスでの移動量を大きくする／小さくする</h2>
+
+<p>オブジェクトを移動しているときに、<kbd>Ctrl</kbd> キーを押しながらマウス移動すると、移動の単位を大きくすることができます（基本的には、水平面などに表示されたグリットのサイズ単位で動くようになります）。
+例えば、Blender の初期状態では、中央に 2x2x2 のサイズの立方体が表示されているため、これをz軸方向に1単位だけ動かすと、地面に接地した立方体にすることができます。</p>
+
+<figure>
+  <img src="move-002.png" />
+  <figcaption>
+    <ol>
+      <li>右クリックで立方体を選択状態にする</li>
+      <li><kbd>G</kbd> キーで移動開始</li>
+      <li><kbd>Z</kbd> キーで移動方向をz軸に限定</li>
+      <li><kbd>Ctrl</kbd> キーを押しながらマウスを上へ動かす</li>
+      <li>z軸方向に1単位だけ動いたらクリックして位置決定</li>
+    </ol>
+  </figcaption>
+</figure>
+
+<p>上記は、テンキーの <kbd>1</kbd> を押して、正面からの視点に切り替えた画面で、z軸方向へ1単位だけオブジェクトを動かしています。
+実際には、このくらいの操作であれば、青色矢印を <kbd>Ctrl</kbd> キーを押しながらドラッグする操作の方が簡単ですね。</p>
+
+<div class="note">
+通常は、<kbd>Ctrl</kbd> キーを押しながらオブジェクトを移動させると 1 単位の移動になりますが、オブジェクトを大きくズームインした状態では 0.1 単位ずつの移動になったり、逆にズームアウトした状態では 10 単位ずつの移動になったりします。
+ただ、いずれのケースでも、<kbd>Ctrl</kbd> キーを押しながら移動させることで、通常より大きく移動するようになることは変わりありません。
+</div>
+
+<p>逆に、<kbd>Shift</kbd> キーを押しながら移動すると、通常より細かい単位で動かせるようになります。
+最終的な位置合わせで微調整するときに使用するとよいでしょう。</p>
+
+<h2 id="プロパティパネルで移動先の座標値を入力する">プロパティパネルで移動先の座標値を入力する</h2>
+
+<p>移動量があらかじめわかっている場合は、3Dエディタ内のプロパティパネルで座標値を直接入力してしまうのが簡単です。</p>
+
+<figure>
+  <img src="move-003.png" />
+</figure>
+
+<p>プロパティパネルが表示されていない場合は、3Dエディタの右上の [+] アイコンをクリックするか、3Dエディタ内にマウスカーソルがある状態で <kbd>N</kbd> キーを押すと表示されます。</p>
+
+<p>プロパティパネル内の座標値を、マウスのドラッグで調整しているときも、<kbd>Ctrl</kbd> キーや、<kbd>Shift</kbd> キーによって変化単位を調節することができます。</p>
+
+<h2 id="ショートカットキーで移動量を指定する">ショートカットキーで移動量を指定する</h2>
+
+<p>次のようにすると、ショートカットキーだけでオブジェクトを移動することができます。</p>
+
+<ol>
+  <li>オブジェクトを選択状態にする</li>
+  <li><kbd>G</kbd> キーで移動開始</li>
+  <li><kbd>X</kbd> or <kbd>Y</kbd> or <kbd>Z</kbd> キーで移動方向を指定する</li>
+  <li>数字キーで移動量を入力（1単位移動させるなら <kbd>1</kbd> と入力）</li>
+  <li><kbd>Enter</kbd> キーで決定</li>
+</ol>
+
+<p>移動量は、移動後の座標値ではなく、現在位置からのオフセットで入力することに注意してください。
+移動量にマイナスの値を入力することもできます。</p>
+
+<h4 id="例-z軸方向に-1-移動させる">例: Z軸方向に +1 移動させる</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>G Z 1 Enter
+</code></pre></div></div>
+
+<h4 id="例-y軸方向に--05-移動させる">例: Y軸方向に -0.5 移動させる</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>G Y -0.5 Enter
+</code></pre></div></div>
+
+<p>マイナス (<code class="language-plaintext highlighter-rouge">-</code>) は、数値の後から入力することもできます。
+つまり、上記の Y軸方向への -0.5 の移動は、次のようにも実行できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>G Y 0.5 - Enter
+</code></pre></div></div>
+
+<p>移動を取り消したいときは、<kbd>Esc</kbd> キーを押せばキャンセルできます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくBlenderノート： オブジェクトを移動する (G)&url=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/blender/3dview/move.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/blender/"><span class="xArticle_up_label">まくまくBlenderノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li class="xNav-focused"><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/blender/">Blender</a></div>
+  <div class="xPageDate">2018-03-17</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

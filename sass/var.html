@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのSassノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sass/var.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-sass.png" />
+
+  <meta property="og:description" content="天才星人まくのSassノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="SCSS で変数を使用する | まくまくSassノート" />
+  <title>SCSS で変数を使用する - まくまくSassノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sass/">
+    <img src="/assets/img/logo-sass.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/sass/">
+    <div class="xPageHeader_category">
+    まくまくSassノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">SCSS で変数を使用する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-17</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sass/var.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： SCSS で変数を使用する&url=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="変数定義の基本">変数定義の基本</h2>
+
+<p>SCSS ファイル内で変数を定義するには、下記のような構文を使用します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$変数名: 初期値;
+</code></pre></div></div>
+
+<p>下記はカラー値を変数として定義する簡単な例です。</p>
+
+<h4 id="入力-scss">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$main-color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$main-color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>変数の値をそのままプロパティの値として使用する場合は、上記のように <code class="language-plaintext highlighter-rouge">$変数名</code> の形で参照すればOKです。
+何らかのキーワードの一部（セレクタ名の一部など）や、コメントの中で変数の値を参照する場合は、インターポレーション（<code class="language-plaintext highlighter-rouge">#{$変数名}</code>）の形式で参照する必要があります。
+インターポレーションで文字列変数の値を参照すると、引用符は削除されて展開されます。</p>
+
+<h4 id="入力-scss-1">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$prefix</span><span class="p">:</span> <span class="s2">".maku"</span><span class="p">;</span>
+
+<span class="si">#{</span><span class="nv">$prefix</span><span class="si">}</span><span class="nt">-shout</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">larger</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-1">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.maku-shout</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">larger</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="変数のスコープローカル変数">変数のスコープ（ローカル変数）</h2>
+
+<p>入れ子になったルール定義の中で変数を定義すると、その変数はそのブロック内でのみ参照可能なローカル変数となります。
+グローバルに定義した変数と同じ名前のローカル変数を定義することもできます。
+その場合、そのブロック内ではローカル変数が参照されることになります。</p>
+
+<h4 id="入力-scss-2">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>  <span class="c1">// グローバル変数の定義</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>  <span class="c1">// グローバル変数の参照</span>
+<span class="p">}</span>
+
+<span class="nt">main</span> <span class="p">{</span>
+  <span class="nv">$color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>    <span class="c1">// ローカル変数の定義</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>  <span class="c1">// ローカル変数の参照</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-2">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="変数名のハイフンとアンダースコアは同一視される">変数名のハイフンとアンダースコアは同一視される</h2>
+
+<p>歴史的な理由により、SCSS の中で定義した変数名に含まれるハイフン (<code class="language-plaintext highlighter-rouge">-</code>) と、アンダースコア (<code class="language-plaintext highlighter-rouge">_</code>) は同一のものとして扱われます。
+例えば、<code class="language-plaintext highlighter-rouge">$main-color</code> という名前で定義した変数は、<code class="language-plaintext highlighter-rouge">$main_color</code> という名前でも参照できます。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$main-color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$main_color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このルールは、Mixin の名前や関数の名前でも同様に適用されます。</p>
+
+<h2 id="変数に値を代入する">変数に値を代入する</h2>
+
+<p>定義した変数に別の値を代入するには、変数の定義と同じ <code class="language-plaintext highlighter-rouge">$変数名: 値;</code> という構文を使用します。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">@while</code> ループのブロックの中で、<code class="language-plaintext highlighter-rouge">$i</code> 変数の値を 1 ずつデクリメントしています。</p>
+
+<h4 id="入力-scss-3">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$i</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+
+<span class="k">@while</span> <span class="nv">$i</span> <span class="o">&lt;=</span> <span class="m">5</span> <span class="p">{</span>
+  <span class="nt">h</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="mi">.6rem</span> <span class="nf">-</span> <span class="p">(</span><span class="m">0</span><span class="mi">.1rem</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nv">$i</span><span class="p">:</span> <span class="nv">$i</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-3">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5rem</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nt">h2</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.4rem</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nt">h3</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.3rem</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nt">h4</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.2rem</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nt">h5</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.1rem</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="変数のデータタイプ">変数のデータタイプ</h2>
+
+<p>Sass で扱える変数のデータタイプは、下記の8種類です。</p>
+
+<ul>
+  <li><b>number</b>: 単位なしの数値 (<code class="language-plaintext highlighter-rouge">13</code>, <code class="language-plaintext highlighter-rouge">0.3</code>) や単位ありの数値 (<code class="language-plaintext highlighter-rouge">5em</code>, <code class="language-plaintext highlighter-rouge">10px</code>)</li>
+  <li><b>string</b>: クォートされていない文字列 (<code class="language-plaintext highlighter-rouge">sans-serif</code>, <code class="language-plaintext highlighter-rouge">bar</code>) やクォートされた文字列 (<code class="language-plaintext highlighter-rouge">"foo"</code>, <code class="language-plaintext highlighter-rouge">"こんにちは"</code>)</li>
+  <li><b>color</b>: 色を表す値 (<code class="language-plaintext highlighter-rouge">red</code>, <code class="language-plaintext highlighter-rouge">#0cf2f9</code>, <code class="language-plaintext highlighter-rouge">rgba(255, 255, 0, 0.5)</code>)</li>
+  <li><b>boolean</b>: 真値あるいは偽値 (<code class="language-plaintext highlighter-rouge">true</code>, <code class="language-plaintext highlighter-rouge">false</code>)</li>
+  <li><b>null</b>: <code class="language-plaintext highlighter-rouge">null</code></li>
+  <li><b>list</b>: スペースやカンマで区切られた値のリスト (<code class="language-plaintext highlighter-rouge">1em 2em 1em 0.5em</code>, <code class="language-plaintext highlighter-rouge">Helvetica, Arial, sans-serif</code>)</li>
+  <li><b>map</b>: キー＆バリューのリスト。全体を括弧で囲んで定義する (<code class="language-plaintext highlighter-rouge">(key1:value1, key2:value2)</code></li>
+  <li><b>function</b>: <code class="language-plaintext highlighter-rouge">get-function("関数名")</code> で返される関数への参照。<code class="language-plaintext highlighter-rouge">call($func, $args...)</code> で呼び出せる</li>
+</ul>
+
+<p>Sass の <code class="language-plaintext highlighter-rouge">type-of</code> 関数を使用すると、ある変数がどのデータタイプとして扱われているかを調べることができます。</p>
+
+<h4 id="入力-scss-4">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+
+<span class="nn">#message</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s2">"red is "</span> <span class="o">+</span> <span class="nf">type-of</span><span class="p">(</span><span class="nv">$color</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-4">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#message</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s1">"red is color"</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： SCSS で変数を使用する&url=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/var.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sass/"><span class="xArticle_up_label">まくまくSassノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li class="xNav-focused"><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-17</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

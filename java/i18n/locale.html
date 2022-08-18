@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/i18n/locale.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Java アプリケーションの国際化 (i18n) と Locale クラス | まくまくJavaノート" />
+  <title>Java アプリケーションの国際化 (i18n) と Locale クラス - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Java アプリケーションの国際化 (i18n) と Locale クラス</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2010-05-16</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/i18n/locale.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Java アプリケーションの国際化 (i18n) と Locale クラス&url=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="locale-クラスについて">Locale クラスについて</h2>
+
+<ul>
+  <li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html">Locale (Java Platform SE 8)</a></li>
+  <li><a href="https://docs.oracle.com/javase/7/docs/api/java/util/Locale.html">Locale (Java Platform SE 7)</a></li>
+</ul>
+
+<p>Java の Locale クラスは、language と region のペアを表します。
+Locale オブジェクトを元に、数値の表示フォーマット (NumberFormat) や、文言リソース (ResourceBundle) オブジェクトを取得することで i18n 対応のアプリを開発できます。</p>
+
+<p>下記は、Locale クラスのコンストラクタのバリエーションです。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Locale</span><span class="o">(</span><span class="nc">String</span> <span class="n">language</span><span class="o">)</span>
+<span class="nc">Locale</span><span class="o">(</span><span class="nc">String</span> <span class="n">language</span><span class="o">,</span> <span class="nc">String</span> <span class="n">country</span><span class="o">)</span>
+<span class="nc">Locale</span><span class="o">(</span><span class="nc">String</span> <span class="n">language</span><span class="o">,</span> <span class="nc">String</span> <span class="n">country</span><span class="o">,</span> <span class="nc">String</span> <span class="n">variant</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>最後のオーバーロードバージョンでは、language、country の他に、3 番目のパラメータである variant を指定できます。
+これはアプリケーションが language、country の他にもロケールを区別しなければならない場合に自由に使用できます。
+例えば、Windows と Linux で言語リソースを切り替えたい場合などに使用できます。</p>
+
+<h2 id="現在のデフォルト-locale-を取得する">現在のデフォルト Locale を取得する</h2>
+
+<p>現在の（Java VM の）デフォルト Locale を取得するには、以下のメソッドを使用します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">Locale</span> <span class="nc">Locale</span><span class="o">.</span><span class="na">getDefault</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>Java VM のデフォルト Locale は、VM が立ち上がるときのホスト PC の環境変数などをもとに設定されます。
+VM のデフォルト Locale をプログラムから変更するには、以下の API を使用します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nc">Locale</span><span class="o">.</span><span class="na">setDefault</span><span class="o">(</span><span class="nc">Locale</span> <span class="n">newLocale</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="システムで利用可能な-locale-を列挙する">システムで利用可能な Locale を列挙する</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">Locale</span><span class="o">[]</span> <span class="nc">Locale</span><span class="o">.</span><span class="na">getAvailableLocales</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>を使うと、システムにインストールされているすべての Locale を取得することができます。
+Locale オブジェクトからは、言語、国を表す文字列を以下のような API で取得することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">lang</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="na">getDisplayLanguage</span><span class="o">();</span>     <span class="c1">// 例: "English"</span>
+<span class="nc">String</span> <span class="n">country</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="na">getDisplayCountry</span><span class="o">();</span>   <span class="c1">// 例: "United States"</span>
+</code></pre></div></div>
+
+<p>言語、国をセットにした文字列表現を取得することもできます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">();</span>  <span class="c1">// 例: "English (United States)"</span>
+</code></pre></div></div>
+
+<p>これらは引数なしで呼び出した場合は、現在のロケールの言語で表示用の文字列を返しますが、引数に Locale オブジェクトを指定することで、任意の言語で表示用の文字列を取得することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">nameInEnglish</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">(</span><span class="nc">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">);</span>    <span class="c1">// 例: "German"</span>
+<span class="nc">String</span> <span class="n">nameInJapanese</span> <span class="o">=</span> <span class="n">locale</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">(</span><span class="nc">Locale</span><span class="o">.</span><span class="na">JAPANESE</span><span class="o">);</span>  <span class="c1">// 例: "ドイツ語"</span>
+</code></pre></div></div>
+
+<p>下記のサンプルでは、すべての Locale を取得し、Language、Country 名をソートして表示します。</p>
+
+<h4 id="samplejava">Sample.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Locale</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">displayAllLocales</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">displayAllLocales</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Locale</span><span class="o">[]</span> <span class="n">locales</span> <span class="o">=</span> <span class="nc">Locale</span><span class="o">.</span><span class="na">getAvailableLocales</span><span class="o">();</span>
+        <span class="n">sortLocales</span><span class="o">(</span><span class="n">locales</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">Locale</span> <span class="n">loc</span> <span class="o">:</span> <span class="n">locales</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">loc</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">":\t"</span> <span class="o">+</span>
+                    <span class="n">loc</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">(</span><span class="nc">Locale</span><span class="o">.</span><span class="na">ENGLISH</span><span class="o">)</span> <span class="o">+</span> <span class="s">" / "</span> <span class="o">+</span>
+                    <span class="n">loc</span><span class="o">.</span><span class="na">getDisplayName</span><span class="o">(</span><span class="nc">Locale</span><span class="o">.</span><span class="na">JAPANESE</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sortLocales</span><span class="o">(</span><span class="nc">Locale</span><span class="o">[]</span> <span class="n">locales</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">locales</span><span class="o">,</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Comparator</span><span class="o">&lt;</span><span class="nc">Locale</span><span class="o">&gt;()</span> <span class="o">{</span>
+            <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">Locale</span> <span class="n">loc1</span><span class="o">,</span> <span class="nc">Locale</span> <span class="n">loc2</span><span class="o">){</span>
+                <span class="nc">String</span> <span class="n">a</span> <span class="o">=</span> <span class="n">loc1</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+                <span class="nc">String</span> <span class="n">b</span> <span class="o">=</span> <span class="n">loc2</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+                <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ar:     Arabic / アラビア語
+ar_AE:  Arabic (United Arab Emirates) / アラビア語 (アラブ首長国連邦)
+ar_BH:  Arabic (Bahrain) / アラビア語 (バーレーン)
+ar_DZ:  Arabic (Algeria) / アラビア語 (アルジェリア)
+ar_EG:  Arabic (Egypt) / アラビア語 (エジプト)
+ar_IQ:  Arabic (Iraq) / アラビア語 (イラク)
+ar_JO:  Arabic (Jordan) / アラビア語 (ヨルダン)
+ar_KW:  Arabic (Kuwait) / アラビア語 (クウェート)
+ar_LB:  Arabic (Lebanon) / アラビア語 (レバノン)
+ar_LY:  Arabic (Libya) / アラビア語 (リビア)
+ar_MA:  Arabic (Morocco) / アラビア語 (モロッコ)
+ar_OM:  Arabic (Oman) / アラビア語 (オマーン)
+ar_QA:  Arabic (Qatar) / アラビア語 (カタール)
+ar_SA:  Arabic (Saudi Arabia) / アラビア語 (サウジアラビア)
+ar_SD:  Arabic (Sudan) / アラビア語 (スーダン)
+ar_SY:  Arabic (Syria) / アラビア語 (シリア)
+ar_TN:  Arabic (Tunisia) / アラビア語 (チュニジア)
+ar_YE:  Arabic (Yemen) / アラビア語 (イエメン)
+be:     Belarusian / 白ロシア語
+be_BY:  Belarusian (Belarus) / 白ロシア語 (ベラルーシ)
+bg:     Bulgarian / ブルガリア語
+bg_BG:  Bulgarian (Bulgaria) / ブルガリア語 (ブルガリア)
+ca:     Catalan / カタロニア語
+ca_ES:  Catalan (Spain) / カタロニア語 (スペイン)
+cs:     Czech / チェコ語
+cs_CZ:  Czech (Czech Republic) / チェコ語 (チェコ)
+da:     Danish / デンマーク語
+da_DK:  Danish (Denmark) / デンマーク語 (デンマーク)
+de:     German / ドイツ語
+de_AT:  German (Austria) / ドイツ語 (オーストリア)
+de_CH:  German (Switzerland) / ドイツ語 (スイス)
+de_DE:  German (Germany) / ドイツ語 (ドイツ)
+de_LU:  German (Luxembourg) / ドイツ語 (ルクセンブルク)
+el:     Greek / ギリシア語
+el_CY:  Greek (Cyprus) / ギリシア語 (キプロス)
+el_GR:  Greek (Greece) / ギリシア語 (ギリシア)
+en:     English / 英語
+en_AU:  English (Australia) / 英語 (オーストラリア)
+en_CA:  English (Canada) / 英語 (カナダ)
+en_GB:  English (United Kingdom) / 英語 (イギリス)
+en_IE:  English (Ireland) / 英語 (アイルランド)
+en_IN:  English (India) / 英語 (インド)
+en_MT:  English (Malta) / 英語 (マルタ)
+en_NZ:  English (New Zealand) / 英語 (ニュージーランド)
+en_PH:  English (Philippines) / 英語 (フィリピン)
+en_SG:  English (Singapore) / 英語 (シンガポール)
+en_US:  English (United States) / 英語 (アメリカ合衆国)
+en_ZA:  English (South Africa) / 英語 (南アフリカ)
+es:     Spanish / スペイン語
+es_AR:  Spanish (Argentina) / スペイン語 (アルゼンチン)
+es_BO:  Spanish (Bolivia) / スペイン語 (ボリビア)
+es_CL:  Spanish (Chile) / スペイン語 (チリ)
+es_CO:  Spanish (Colombia) / スペイン語 (コロンビア)
+es_CR:  Spanish (Costa Rica) / スペイン語 (コスタリカ)
+es_DO:  Spanish (Dominican Republic) / スペイン語 (ドミニカ共和国)
+es_EC:  Spanish (Ecuador) / スペイン語 (エクアドル)
+es_ES:  Spanish (Spain) / スペイン語 (スペイン)
+es_GT:  Spanish (Guatemala) / スペイン語 (グアテマラ)
+es_HN:  Spanish (Honduras) / スペイン語 (ホンジュラス)
+es_MX:  Spanish (Mexico) / スペイン語 (メキシコ)
+es_NI:  Spanish (Nicaragua) / スペイン語 (ニカラグア)
+es_PA:  Spanish (Panama) / スペイン語 (パナマ)
+es_PE:  Spanish (Peru) / スペイン語 (ペルー)
+es_PR:  Spanish (Puerto Rico) / スペイン語 (プエルトリコ)
+es_PY:  Spanish (Paraguay) / スペイン語 (パラグアイ)
+es_SV:  Spanish (El Salvador) / スペイン語 (エルサルバドル)
+es_US:  Spanish (United States) / スペイン語 (アメリカ合衆国)
+es_UY:  Spanish (Uruguay) / スペイン語 (ウルグアイ)
+es_VE:  Spanish (Venezuela) / スペイン語 (ベネズエラ)
+et:     Estonian / エストニア語
+et_EE:  Estonian (Estonia) / エストニア語 (エストニア)
+fi:     Finnish / フィンランド語
+fi_FI:  Finnish (Finland) / フィンランド語 (フィンランド)
+fr:     French / フランス語
+fr_BE:  French (Belgium) / フランス語 (ベルギー)
+fr_CA:  French (Canada) / フランス語 (カナダ)
+fr_CH:  French (Switzerland) / フランス語 (スイス)
+fr_FR:  French (France) / フランス語 (フランス)
+fr_LU:  French (Luxembourg) / フランス語 (ルクセンブルク)
+ga:     Irish / アイルランド語
+ga_IE:  Irish (Ireland) / アイルランド語 (アイルランド)
+hi_IN:  Hindi (India) / ヒンディー語 (インド)
+hr:     Croatian / クロアチア語
+hr_HR:  Croatian (Croatia) / クロアチア語 (クロアチア)
+hu:     Hungarian / ハンガリー語
+hu_HU:  Hungarian (Hungary) / ハンガリー語 (ハンガリー)
+in:     Indonesian / インドネシア語
+in_ID:  Indonesian (Indonesia) / インドネシア語 (インドネシア)
+is:     Icelandic / アイスランド語
+is_IS:  Icelandic (Iceland) / アイスランド語 (アイスランド)
+it:     Italian / イタリア語
+it_CH:  Italian (Switzerland) / イタリア語 (スイス)
+it_IT:  Italian (Italy) / イタリア語 (イタリア)
+iw:     Hebrew / ヘブライ語
+iw_IL:  Hebrew (Israel) / ヘブライ語 (イスラエル)
+ja:     Japanese / 日本語
+ja_JP:  Japanese (Japan) / 日本語 (日本)
+ja_JP_JP_#u-ca-japanese:        Japanese (Japan,JP) / 日本語 (日本,JP)
+ko:     Korean / 韓国語
+ko_KR:  Korean (South Korea) / 韓国語 (大韓民国)
+lt:     Lithuanian / リトアニア語
+lt_LT:  Lithuanian (Lithuania) / リトアニア語 (リトアニア)
+lv:     Latvian / ラトビア語 (レット語)
+lv_LV:  Latvian (Latvia) / ラトビア語 (レット語) (ラトビア)
+mk:     Macedonian / マケドニア語
+mk_MK:  Macedonian (Macedonia) / マケドニア語 (マケドニア)
+ms:     Malay / マライ語
+ms_MY:  Malay (Malaysia) / マライ語 (マレーシア)
+mt:     Maltese / マルタ語
+mt_MT:  Maltese (Malta) / マルタ語 (マルタ)
+nl:     Dutch / オランダ語
+nl_BE:  Dutch (Belgium) / オランダ語 (ベルギー)
+nl_NL:  Dutch (Netherlands) / オランダ語 (オランダ)
+no:     Norwegian / ノルウェー語
+no_NO:  Norwegian (Norway) / ノルウェー語 (ノルウェー)
+no_NO_NY:       Norwegian (Norway,Nynorsk) / ノルウェー語 (ノルウェー,Nynorsk)
+pl:     Polish / ポーランド語
+pl_PL:  Polish (Poland) / ポーランド語 (ポーランド)
+pt:     Portuguese / ポルトガル語
+pt_BR:  Portuguese (Brazil) / ポルトガル語 (ブラジル)
+pt_PT:  Portuguese (Portugal) / ポルトガル語 (ポルトガル)
+ro:     Romanian / ルーマニア語
+ro_RO:  Romanian (Romania) / ルーマニア語 (ルーマニア)
+ru:     Russian / ロシア語
+ru_RU:  Russian (Russia) / ロシア語 (ロシア)
+sk:     Slovak / スロバキア語
+sk_SK:  Slovak (Slovakia) / スロバキア語 (スロバキア)
+sl:     Slovenian / スロベニア語
+sl_SI:  Slovenian (Slovenia) / スロベニア語 (スロベニア)
+sq:     Albanian / アルバニア語
+sq_AL:  Albanian (Albania) / アルバニア語 (アルバニア)
+sr:     Serbian / セルビア語
+sr_BA:  Serbian (Bosnia and Herzegovina) / セルビア語 (ボスニア・ヘルツェゴビナ)
+sr_BA_#Latn:    Serbian (Latin,Bosnia and Herzegovina) / セルビア語 (ラテン文字,ボスニア・ヘルツェゴビナ)
+sr_CS:  Serbian (Serbia and Montenegro) / セルビア語 (セルビア・モンテネグロ)
+sr_ME:  Serbian (Montenegro) / セルビア語 (モンテネグロ)
+sr_ME_#Latn:    Serbian (Latin,Montenegro) / セルビア語 (ラテン文字,モンテネグロ)
+sr_RS:  Serbian (Serbia) / セルビア語 (セルビア)
+sr_RS_#Latn:    Serbian (Latin,Serbia) / セルビア語 (ラテン文字,セルビア)
+sr__#Latn:      Serbian (Latin) / セルビア語 (ラテン文字)
+sv:     Swedish / スウェーデン語
+sv_SE:  Swedish (Sweden) / スウェーデン語 (スウェーデン)
+th:     Thai / タイ語
+th_TH:  Thai (Thailand) / タイ語 (タイ)
+th_TH_TH_#u-nu-thai:    Thai (Thailand,TH) / タイ語 (タイ,TH)
+tr:     Turkish / トルコ語
+tr_TR:  Turkish (Turkey) / トルコ語 (トルコ)
+uk:     Ukrainian / ウクライナ語
+uk_UA:  Ukrainian (Ukraine) / ウクライナ語 (ウクライナ)
+vi:     Vietnamese / ベトナム語
+vi_VN:  Vietnamese (Vietnam) / ベトナム語 (ベトナム)
+zh:     Chinese / 中国語
+zh_CN:  Chinese (China) / 中国語 (中華人民共和国)
+zh_HK:  Chinese (Hong Kong) / 中国語 (香港)
+zh_SG:  Chinese (Singapore) / 中国語 (シンガポール)
+zh_TW:  Chinese (Taiwan) / 中国語 (台湾)
+</code></pre></div></div>
+
+<h2 id="resourcebundle-による多言語化">ResourceBundle による多言語化</h2>
+
+<ul>
+  <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html">ResourceBundle (Java Platform SE 8)</a></li>
+  <li><a href="http://docs.oracle.com/javase/7/docs/api/java/util/ResourceBundle.html">ResourceBundle (Java Platform SE 7)</a></li>
+</ul>
+
+<p>言語、国を表す <code class="language-plaintext highlighter-rouge">Locale</code> オブジェクトを元に <code class="language-plaintext highlighter-rouge">ResourceBundle</code> オブジェクトを取得し、キーから表示用の文字列を取得するようにすると、アプリケーションの文字列表示を多言語化することができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Locale</span> <span class="n">locale</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Locale</span><span class="o">(</span><span class="s">"en"</span><span class="o">,</span> <span class="s">"US"</span><span class="o">)</span>
+<span class="nc">ResouceBundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="nc">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">"strings"</span><span class="o">,</span> <span class="n">locale</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">hello</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"hello"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>上記のようにすると、<code class="language-plaintext highlighter-rouge">strings_en_US.properties</code> という名前のプロパティファイルが読み込まれます。プロパティファイルの中には、キーと値のペアを以下のように記述しておきます。</p>
+
+<h4 id="strings_en_usproperties">strings_en_US.properties</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello = Hello!
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ResouceBundle.getBundle()</code> で指定した <code class="language-plaintext highlighter-rouge">Locale</code> に対応するプロパティファイルが見つからない場合は、デフォルトのプロパティファイルがロードされます。
+デフォルトのプロパティファイル名は、言語名、国名のサフィックスを除いたもので、上記の場合は、<code class="language-plaintext highlighter-rouge">strings.properties</code> になります。</p>
+
+<h3 id="複数の言語に対応した例">複数の言語に対応した例</h3>
+
+<h4 id="samplejava-1">Sample.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Locale</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ResourceBundle</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Locale</span> <span class="n">localeJp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Locale</span><span class="o">(</span><span class="s">"jp"</span><span class="o">);</span>
+        <span class="nc">Locale</span> <span class="n">localeUs</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Locale</span><span class="o">(</span><span class="s">"en"</span><span class="o">,</span> <span class="s">"US"</span><span class="o">);</span>
+        <span class="nc">Locale</span> <span class="n">localeFr</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Locale</span><span class="o">(</span><span class="s">"fr"</span><span class="o">);</span>
+
+        <span class="nc">ResourceBundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="nc">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">"strings"</span><span class="o">,</span> <span class="n">localeJp</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bundle</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"hello"</span><span class="o">));</span>
+
+        <span class="n">bundle</span> <span class="o">=</span> <span class="nc">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">"strings"</span><span class="o">,</span> <span class="n">localeUs</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bundle</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"hello"</span><span class="o">));</span>
+
+        <span class="n">bundle</span> <span class="o">=</span> <span class="nc">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">"strings"</span><span class="o">,</span> <span class="n">localeFr</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bundle</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"hello"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="stringsproperties">strings.properties</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello = Default Hello!
+</code></pre></div></div>
+
+<h4 id="strings_jpproperties">strings_jp.properties）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello = \u3053\u3093\u306b\u3061\u306f\uff01
+</code></pre></div></div>
+
+<p>“こんにちは！” と書いたファイルを <code class="language-plaintext highlighter-rouge">native2ascii</code> コマンドを使って Unicode に変換してあります。</p>
+
+<h4 id="strings_en_usproperties-1">strings_en_US.properties</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello = Hello!
+</code></pre></div></div>
+
+<h4 id="実行結果-1">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>こんにちは！
+Hello!
+Default Hello!
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Java アプリケーションの国際化 (i18n) と Locale クラス&url=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/i18n/locale.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2010-05-16</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

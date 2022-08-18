@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのDockerノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/docker/cheatsheet.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-docker.png" />
+
+  <meta property="og:description" content="天才星人まくのDockerノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Docker チートシート | まくまくDockerノート" />
+  <title>Docker チートシート - まくまくDockerノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/docker/">
+    <img src="/assets/img/logo-docker.png" class="xPageHeader_logo">
+  </a>
+  <a href="/docker/">
+    <div class="xPageHeader_category">
+    まくまくDockerノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Docker チートシート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-15</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/docker/cheatsheet.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker チートシート&url=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="registry--repository--image--tag-の概念">Registry / Repository / Image / Tag の概念</h2>
+
+<p><img src="/docker/cheatsheet.png" alt="cheatsheet.png" /></p>
+
+<ul>
+  <li>DockerHub などのレジストリ上では、複数のリポジトリが管理されている。</li>
+  <li>Top-level リポジトリでは、ubuntu や devian といった有名どころなものが管理されている。</li>
+  <li>Top-level リポジトリ以外に、ユーザリポジトリがあり、こちらは <code class="language-plaintext highlighter-rouge">&lt;user&gt;/</code> というプレフィックスが付く。</li>
+  <li>各リポジトリ内には複数のイメージがあり、イメージ ID やタグで指定できる。</li>
+  <li>1 つのイメージに対しては唯一の ID が付けられるが、タグは複数付けられていることがある。</li>
+</ul>
+
+<h2 id="docker-imageイメージ関連のコマンド">docker image（イメージ関連のコマンド）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>旧コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image build</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker build</code></td>
+      <td>Dockerfile からイメージをビルドする<br />Build an image from a Dockerfile</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image history</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker history</code></td>
+      <td>イメージのレイヤ構造を表示する<br />Show the history of an image</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image import</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker import</code></td>
+      <td>tar ファイルからファイルシステムイメージを作成する<br />Import the contents from a tarball to create a filesystem image</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image inspect</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker inspect</code></td>
+      <td>イメージの詳細を表示する<br />Display detailed information on one or more images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image load</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker load</code></td>
+      <td>tar ファイルや標準入力からイメージをロードする<br />Load an image from a tar archive or STDIN</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image ls</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker images</code></td>
+      <td>イメージの一覧を表示する<br />List images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image prune</code></td>
+      <td>なし</td>
+      <td>使用していないイメージを削除する<br />Remove unused images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image pull</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker pull</code></td>
+      <td>レジストリからイメージを取得する<br />Pull an image or a repository from a registry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image push</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker push</code></td>
+      <td>イメージをリポジトリにプッシュする<br />Push an image or a repository to a registry</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image rm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker rmi</code></td>
+      <td>イメージを削除する<br />Remove one or more images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image save</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker save</code></td>
+      <td>tar ファイルにイメージを保存する<br />Save one or more images to a tar archive (streamed to STDOUT by default)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker image tag</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker tag</code></td>
+      <td>イメージにタグを付ける<br />Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-containerコンテナ関連のコマンド">docker container（コンテナ関連のコマンド）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>旧コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container attach</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker attach</code></td>
+      <td>動作中のコンテナに標準入力や標準出力を接続する<br />Attach local standard input, output, and error streams to a running container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container commit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker commit</code></td>
+      <td>コンテナの変更内容から新しいイメージを作成する<br />Create a new image from a container’s changes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container cp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker cp</code></td>
+      <td>コンテナとホスト間でファイルをコピーする<br />Copy files/folders between a container and the local filesystem</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container create</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker create</code></td>
+      <td>新しいコンテナを作成する<br />Create a new container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container diff</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker diff</code></td>
+      <td>Inspect changes to files or directories on a container’s filesystem</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container exec</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker exec</code></td>
+      <td>動作中のコンテナで新しいプロセスを起動する<br />Run a command in a running container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container export</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker export</code></td>
+      <td>Export a container’s filesystem as a tar archive</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container inspect</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker inspect</code></td>
+      <td>Display detailed information on one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container kill</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker kill</code></td>
+      <td>Kill one or more running containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container logs</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker logs</code></td>
+      <td>Fetch the logs of a container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container ls</code><br /><code class="language-plaintext highlighter-rouge">docker container list</code><br /><code class="language-plaintext highlighter-rouge">docker container pm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker ps</code></td>
+      <td>コンテナの一覧を表示する<br />List containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container pause</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker pause</code></td>
+      <td>Pause all processes within one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container port</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker port</code></td>
+      <td>List port mappings or a specific mapping for the container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container prune</code></td>
+      <td>なし</td>
+      <td>Remove all stopped containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container rename</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker rename</code></td>
+      <td>Rename a container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container restart</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker restart</code></td>
+      <td>Restart one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container rm</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker rm</code></td>
+      <td>Remove one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container run</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker run</code></td>
+      <td>「イメージの取得」「コンテナの作成」「コンテナの起動」を連続して行う<br />Run a command in a new container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container start</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker start</code></td>
+      <td>作成済みのコンテナを起動する<br />Start one or more stopped containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container stats</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker stats</code></td>
+      <td>Display a live stream of container(s) resource usage statistics</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container stop</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker stop</code></td>
+      <td>Stop one or more running containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container top</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker top</code></td>
+      <td>Display the running processes of a container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container unpause</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker unpause</code></td>
+      <td>Unpause all processes within one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container update</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker update</code></td>
+      <td>Update configuration of one or more containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container wait</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker wait</code></td>
+      <td>Block until one or more containers stop, then print their exit codes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-networkネットワーク関連のコマンド">docker network（ネットワーク関連のコマンド）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network connect</code></td>
+      <td>コンテナをネットワークに接続する<br />Connect a container to a network</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network create</code></td>
+      <td>ネットワークを作成する<br />Create a network</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network disconnect</code></td>
+      <td>コンテナをネットワークから切り離す<br />Disconnect a container from a network</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network inspect</code></td>
+      <td>ネットワークの詳細情報を表示する<br />Display detailed information on one or more networks</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network ls</code></td>
+      <td>ネットワークの一覧を表示する<br />List networks</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network prune</code></td>
+      <td>未使用のネットワークをすべて削除する<br />Remove all unused networks</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker network rm</code></td>
+      <td>ネットワークを削除する<br />Remove one or more networks</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-volumeボリューム関連のコマンド">docker volume（ボリューム関連のコマンド）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker volume create</code></td>
+      <td>ボリュームを作成する<br />Create a volume</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker volume inspect</code></td>
+      <td>ボリュームの詳細情報を表示する<br />Display detailed information on one or more volumes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker volume ls</code></td>
+      <td>ボリュームの一覧を表示する<br />List volumes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker volume prune</code></td>
+      <td>使用していないボリュームを削除する<br />Remove all unused local volumes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker volume rm</code></td>
+      <td>ボリュームを削除する<br />Remove one or more volumes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-compose複数コンテナのコントロール">docker compose（複数コンテナのコントロール）</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose build</code></td>
+      <td>Build or rebuild services</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose config</code></td>
+      <td>Validate and view the Compose file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose convert</code></td>
+      <td>Converts the compose file to platform’s canonical format</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose cp</code></td>
+      <td>Copy files/folders between a service container and the local filesystem</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose create</code></td>
+      <td>Creates containers for a service</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose down</code></td>
+      <td>Stop and remove containers, networks</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose events</code></td>
+      <td>Receive real time events from containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose exec</code></td>
+      <td>Execute a command in a running container</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose images</code></td>
+      <td>List images used by the created containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose kill</code></td>
+      <td>Force stop service containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose logs</code></td>
+      <td>View output from containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose ls</code></td>
+      <td>List running compose projects</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose pause</code></td>
+      <td>Pause services</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose port</code></td>
+      <td>Print the public port for a port binding</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose ps</code></td>
+      <td>List containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose pull</code></td>
+      <td>Pull service images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose push</code></td>
+      <td>Push service images</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose restart</code></td>
+      <td>Restart containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose rm</code></td>
+      <td>Removes stopped service containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose run</code></td>
+      <td>Run a one-off command on a service</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose start</code></td>
+      <td>Start services</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose stop</code></td>
+      <td>Stop services</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose top</code></td>
+      <td>Display the running processes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose unpause</code></td>
+      <td>Unpause services</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose up</code></td>
+      <td>Create and start containers</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker compose version</code></td>
+      <td>Show the Docker Compose version information</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="その他のコマンド">その他のコマンド</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker builder prune</code></td>
+      <td>ビルドキャッシュを削除する<br />Remove build cache</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker search</code></td>
+      <td>Docker Hub 上のイメージを検索する<br />Search the Docker Hub for images</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-ファイルの命令">Docker ファイルの命令</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>命令</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge"># &lt;comment&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">#</code> で始まる行はコメント</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ADD</code></td>
+      <td>ファイルをイメージ上にコピーする（URL 指定でのダウンロードや、tar ファイルの展開を行う）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CMD</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> が未指定、かつ <code class="language-plaintext highlighter-rouge">docker container run</code> で何も指定されなかったときに実行するコマンド</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">COPY</code></td>
+      <td>ファイルをイメージ上にコピーする</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ENTRYPOINT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">docker container run</code> 時に実行するコマンド</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ENV &lt;name&gt; &lt;value&gt;</code></td>
+      <td>環境変数を設定する<br />例: <code class="language-plaintext highlighter-rouge">ENV http_proxy http://proxy.example.com:8888/</code><br />例: <code class="language-plaintext highlighter-rouge">ENV PATH $PATH:/foo/bar</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EXPOSE &lt;port&gt;</code></td>
+      <td>ポートを公開する</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FROM &lt;repo&gt;:&lt;tag&gt;</code></td>
+      <td>ベースイメージを指定する</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LABEL</code></td>
+      <td>イメージのメタデータとしてラベルを追加する</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAINTAINER &lt;name&gt; "&lt;email&gt;"</code></td>
+      <td>イメージのメタデータとしてメンテナ名を追加する（非推奨）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RUN &lt;command&gt;</code></td>
+      <td>コマンドを実行する（<code class="language-plaintext highlighter-rouge">/bin/sh -c</code> による実行）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RUN ["&lt;arg1&gt;", "&lt;arg2&gt;", "&lt;arg3&gt;"]</code></td>
+      <td>コマンドを実行する（シェルを使わない）</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">USER</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RUN</code>、<code class="language-plaintext highlighter-rouge">CMD</code>、<code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> のコマンドを実行するユーザー</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VOLUME</code></td>
+      <td>共有可能ボリュームをマウントする</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">WORKDIR &lt;path&gt;</code></td>
+      <td>作業ディレクトリを設定する。<code class="language-plaintext highlighter-rouge">RUN</code>、<code class="language-plaintext highlighter-rouge">CMD</code>、<code class="language-plaintext highlighter-rouge">ENTRYPOINT</code>、<code class="language-plaintext highlighter-rouge">ADD</code>、<code class="language-plaintext highlighter-rouge">COPY</code> 実行時のベースディレクトリとなる。<code class="language-plaintext highlighter-rouge">RUN cd</code> では次の命令に引き継がれないので注意</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker チートシート&url=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/docker/cheatsheet.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/docker/"><span class="xArticle_up_label">まくまくDockerノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li class="xNav-focused"><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-15</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

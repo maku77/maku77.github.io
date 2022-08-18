@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/collection/create-sequence.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="配列とリストの生成方法まとめ（連番からなる配列やリストを作成する） | まくまくKotlinノート" />
+  <title>配列とリストの生成方法まとめ（連番からなる配列やリストを作成する） - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2020-02-26</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/collection/create-sequence.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）&url=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="空の配列やリスト">空の配列やリスト</h2>
+
+<p>リストや配列のファクトリ関数である <code class="language-plaintext highlighter-rouge">listOf</code> や <code class="language-plaintext highlighter-rouge">arrayOf</code> の引数に何も指定しないと、空の配列やリストを作成することができます。</p>
+
+<h3 id="空の-listsetmap-を生成">空の List/Set/Map を生成</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>                <span class="c1">//=&gt; List&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">mutableListOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>         <span class="c1">//=&gt; MutableList&lt;Int&gt;</span>
+
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">setOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>                 <span class="c1">//=&gt; Set&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">mutableSetOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>          <span class="c1">//=&gt; MutableSet&lt;Int&gt;</span>
+
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">mapOf</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;()</span>         <span class="c1">//=&gt; Map&lt;String, Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">mutableMapOf</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;()</span>  <span class="c1">//=&gt; MutableMap&lt;String, Int&gt;</span>
+</code></pre></div></div>
+
+<p>Java の可変配列である <code class="language-plaintext highlighter-rouge">ArrayList</code> を生成する <code class="language-plaintext highlighter-rouge">arrayListOf()</code> という関数も存在しますが、通常は <code class="language-plaintext highlighter-rouge">MutableList</code> の方を使えばいいので、上記の例には含めていません。</p>
+
+<h3 id="空の配列を生成">空の配列を生成</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ジェネリック型配列</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>     <span class="c1">//=&gt; Array&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">arrayOf</span><span class="p">&lt;</span><span class="nc">Double</span><span class="p">&gt;()</span>  <span class="c1">//=&gt; Array&lt;Double&gt;</span>
+
+<span class="c1">// プリミティブ型配列</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nf">intArrayOf</span><span class="p">()</span>       <span class="c1">//=&gt; IntArray</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nf">doubleArrayOf</span><span class="p">()</span>    <span class="c1">//=&gt; DoubleArray</span>
+</code></pre></div></div>
+
+<h3 id="emptyxxx-メソッドを使う">emptyXxx メソッドを使う</h3>
+
+<p>immutable（不変）かつ empty（要素数 0）な配列やリストを、<code class="language-plaintext highlighter-rouge">arrayOf</code> や <code class="language-plaintext highlighter-rouge">listOf</code> で個別に作成するのはあまり意味がありません（要素を追加できないのでどのインスタンスも同様のものになってしまう）。
+このような場合は、次のような <code class="language-plaintext highlighter-rouge">emptyXxx</code> 系メソッドを使うと効率がよいです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">emptyArray</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>        <span class="c1">//=&gt; Array&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">emptyList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>         <span class="c1">//=&gt; List&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">emptySet</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;()</span>          <span class="c1">//=&gt; Set&lt;Int&gt;</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">emptyMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;()</span>  <span class="c1">//=&gt; Map&lt;String, Int&gt;</span>
+</code></pre></div></div>
+
+<p>これらのメソッドは、Kotlin が定義しているシングルトンインスタンス（<code class="language-plaintext highlighter-rouge">EmptyList</code> など）を返すので、空のコレクションインスタンスがいくつも作られるのを防ぐことができます。</p>
+
+<p>ちなみに、空のプリミティブ型配列を作る <code class="language-plaintext highlighter-rouge">emptyIntArray()</code> のような関数はないみたいです（なので <code class="language-plaintext highlighter-rouge">intArrayOf()</code> で代用）。</p>
+
+<h2 id="各要素の初期値を明示する">各要素の初期値を明示する</h2>
+
+<p>リストや配列のファクトリ関数の引数には、任意の要素数の初期値を指定することができます。</p>
+
+<h3 id="初期値を指定して-listsetmap-を生成">初期値を指定して List/Set/Map を生成</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableListOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Set</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">setOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">MutableSet</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableSetOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Map</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"one"</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span> <span class="n">to</span> <span class="mi">2</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">MutableMap</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">,</span> <span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">mutableMapOf</span><span class="p">(</span><span class="s">"one"</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"two"</span> <span class="n">to</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="初期値を指定して配列を生成">初期値を指定して配列を生成</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">arrayOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">IntArray</span> <span class="p">=</span> <span class="nf">intArrayOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="サイズだけ指定するデフォルト値で初期化">サイズだけ指定する（デフォルト値で初期化）</h2>
+
+<p>プリミティブ型配列のコンストラクタの引数に整数を 1 つだけ指定すると、そのサイズの配列が生成されます。
+各要素の値はデフォルト値の 0 で初期化されます（<code class="language-plaintext highlighter-rouge">CharArray</code> の場合は null 文字を表す <code class="language-plaintext highlighter-rouge">\u0000</code> になります）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">ByteArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1">//=&gt; [0, 0, 0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">ShortArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1">//=&gt; [0, 0, 0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">IntArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">//=&gt; [0, 0, 0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">LongArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1">//=&gt; [0, 0, 0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">FloatArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   <span class="c1">//=&gt; [0.0, 0.0, 0.0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">DoubleArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1">//=&gt; [0.0, 0.0, 0.0]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">CharArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1">//=&gt; ['\u0000', '\u0000', '\u0000']</span>
+</code></pre></div></div>
+
+<p>デフォルト値の 0 を使ってすべての要素を初期化する仕組みがあるのは、このようなプリミティブ型配列のみです。
+<code class="language-plaintext highlighter-rouge">List&lt;Int&gt;</code> や <code class="language-plaintext highlighter-rouge">Array&lt;Int&gt;</code> で、すべての要素を 0 に初期化する場合は、次のようにラムダ式で各要素に  0 を設定してやる必要があります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">List</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span>    <span class="c1">//=&gt; [0, 0, 0]</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span>  <span class="c1">//=&gt; [0, 0, 0]</span>
+</code></pre></div></div>
+
+<p>ちょっと特殊な例として、すべての要素を null で初期化した配列を作るユーティリティ関数として <code class="language-plaintext highlighter-rouge">arrayOfNulls()</code> というのも用意されています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nf">arrayOfNulls</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1">//=&gt; [null, null, null]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">Int</span><span class="err">?</span><span class="p">&gt;(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="k">null</span> <span class="p">}</span>       <span class="c1">//=&gt; 同上</span>
+</code></pre></div></div>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">ArrayList</code> クラスのコンストラクタにも整数値を 1 つ指定することができますが、これは初期キャパシティ (<code class="language-plaintext highlighter-rouge">initialCapacity</code>) を示すもので、要素数を指定するものではありません（要素数は 0 になります）。</p>
+
+<h2 id="ラムダによる初期化連番からなる配列やリストを生成する">ラムダによる初期化（連番からなる配列やリストを生成する）</h2>
+
+<p>コレクション系クラスのコンストラクタには、各要素の初期値を設定するためのラムダ式を渡すことができます。
+ラムダ式のパラメータ (<code class="language-plaintext highlighter-rouge">it</code>) で各要素のインデックス番号 (0, 1, 2 …) を参照できるので、この値を使って連番からなる配列やリストを生成することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ジェネリック型コレクション</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">List</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="n">it</span> <span class="p">}</span>  <span class="c1">//=&gt; [0, 1, 2]</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">MutableList</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">MutableList</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="n">it</span> <span class="p">+</span> <span class="mi">1</span> <span class="p">}</span>  <span class="c1">//=&gt; [1, 2, 3]</span>
+<span class="kd">val</span> <span class="py">x</span><span class="p">:</span> <span class="nc">Array</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;</span> <span class="p">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="s">"ID-${it + 1}"</span> <span class="p">}</span> <span class="c1">// =&gt; ["ID-1", "ID-2", "ID-3"]</span>
+
+<span class="c1">// プリミティブ型配列も同様</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">IntArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="n">it</span> <span class="p">*</span> <span class="mi">2</span> <span class="p">}</span>  <span class="c1">//=&gt; [0, 2, 4]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">DoubleArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="nc">Math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="nf">toDouble</span><span class="p">())</span> <span class="p">}</span>  <span class="c1">//=&gt; [0.0, 1.0, 1.414213]</span>
+<span class="kd">val</span> <span class="py">x</span> <span class="p">=</span> <span class="nc">CharArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="sc">'A'</span> <span class="p">+</span> <span class="n">it</span> <span class="p">}</span>  <span class="c1">// =&gt; ['A', 'B', 'C']</span>
+</code></pre></div></div>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">Set</code> や <code class="language-plaintext highlighter-rouge">Map</code> の初期化はこのようなラムダ式では行えないようです（ラムダを受け取るコンストラクタが存在しない）。</p>
+
+<ul>
+  <li>参考: <a href="./primitive-array.html">プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）&url=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/collection/create-sequence.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2020-02-26</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .titleBox {
+      position: relative; /* 子要素の aboslute 配置用 */
+      height: 200px;
+      background: #597380;
+    }
+
+    .titleBox > * {
+      /* 子要素をすべて上下に中央寄せする */
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .titleBox .titleBox_imageLeft {
+      left: 0;
+    }
+
+    .titleBox .titleBox_imageRight {
+      right: 0;
+    }
+
+    .titleBox h1 {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+      color: #eee;
+      text-shadow: 2px 2px 3px black;
+    }
+
+  </style>
+  <title>画像や div 要素を両端に表示するデモ (3)</title>
+</head>
+<body>
+
+<div class="titleBox">
+  <img class="titleBox_imageLeft"  src="images-at-both-ends.png">
+  <img class="titleBox_imageRight" src="images-at-both-ends.png">
+  <h1>これはウェブサイトのタイトルです</h1>
+</div>
+
+</body>
+</html>

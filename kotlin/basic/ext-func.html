@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Kotlin の拡張関数 (extension functions) の仕組みを利用すると、既存のクラスにメソッドやプロパティを追加することができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/basic/ext-func.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="Kotlin の拡張関数 (extension functions) の仕組みを利用すると、既存のクラスにメソッドやプロパティを追加することができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="既存のクラスに関数やプロパティを追加する（拡張関数） | まくまくKotlinノート" />
+  <title>既存のクラスに関数やプロパティを追加する（拡張関数） - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">既存のクラスに関数やプロパティを追加する（拡張関数）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-05-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/basic/ext-func.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 既存のクラスに関数やプロパティを追加する（拡張関数）&url=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Kotlin の拡張関数 (extension functions) の仕組みを利用すると、既存のクラスにメソッドやプロパティを追加することができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="クラスに拡張関数を追加する">クラスに拡張関数を追加する</h2>
+
+<p>拡張関数を使うと、自分で作成したクラスではなくてもメソッドを追加することができます。
+例えば、Java のコアライブラリの <code class="language-plaintext highlighter-rouge">String</code> クラスや、Android SDK が提供するクラスなどを拡張することができます。
+やりすぎると分かりにくくなってしまいますが、効果的に導入すると、簡潔で分かりやすいコードを記述できるようになります。</p>
+
+<p>次の例では、<code class="language-plaintext highlighter-rouge">String</code> クラスに拡張関数を追加し、ある文字列が <code class="language-plaintext highlighter-rouge">0x</code> あるいは <code class="language-plaintext highlighter-rouge">0X</code> で始まっているかを調べる <code class="language-plaintext highlighter-rouge">isHex</code> メソッドを定義しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">String</span><span class="p">.</span><span class="nf">isHex</span><span class="p">():</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">startsWith</span><span class="p">(</span><span class="s">"0x"</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"0x123"</span><span class="p">.</span><span class="nf">isHex</span><span class="p">())</span>  <span class="c1">//=&gt; true</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"12345"</span><span class="p">.</span><span class="nf">isHex</span><span class="p">())</span>  <span class="c1">//=&gt; false</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>拡張関数の中で <code class="language-plaintext highlighter-rouge">this</code> を参照すると、レシーバオブジェクトを参照する</strong>ことができます。
+つまり、<code class="language-plaintext highlighter-rouge">s.isHex()</code> と呼び出した場合、<code class="language-plaintext highlighter-rouge">this</code> はオブジェクト <code class="language-plaintext highlighter-rouge">s</code> を参照します。</p>
+
+<p>拡張関数の実装は、普通のメソッド実装と同じ感覚で記述することができるので、拡張関数の中からメンバメソッドを呼び出すときは、通常  <code class="language-plaintext highlighter-rouge">this</code> を省略することができます。
+よって、上記の <code class="language-plaintext highlighter-rouge">String.isHex()</code> 関数は下記のように記述できます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">String</span><span class="p">.</span><span class="nf">isHex</span><span class="p">():</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="nf">startsWith</span><span class="p">(</span><span class="s">"0x"</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>このように、拡張関数の中から別のメンバメソッドを呼び出すことができるのですが、<strong>呼び出せるのは public なメンバメソッドだけ</strong>であることに注意してください。
+private メソッドや、protected メソッドを呼び出すことはできません。
+これは、拡張関数を追加することによって、カプセル化されたクラス構造を破壊してしまわないようにするための Kotlin の配慮です。</p>
+
+<h2 id="int-などの基本型に拡張関数を追加する">Int などの基本型に拡張関数を追加する</h2>
+
+<p>Kotlin の <code class="language-plaintext highlighter-rouge">Int</code> などの基本型に拡張関数を追加する場合、その値自身は <code class="language-plaintext highlighter-rouge">this</code> で参照することができます。
+下記の例では、<code class="language-plaintext highlighter-rouge">Int</code> 値を 2 乗した値を返す <code class="language-plaintext highlighter-rouge">square</code> メソッドを <code class="language-plaintext highlighter-rouge">Int</code> 型に追加しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">square</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="k">this</span> <span class="p">*</span> <span class="k">this</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="mi">20</span><span class="p">.</span><span class="nf">square</span><span class="p">())</span>  <span class="c1">//=&gt; 400</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="拡張関数をパッケージ化する">拡張関数をパッケージ化する</h2>
+
+<p>あるパッケージ内で定義された拡張関数は、パッケージのトップレベルに定義された関数と同様にインポートできます。
+例えば、下記のように <code class="language-plaintext highlighter-rouge">com.example.ext.strings</code> パッケージで <code class="language-plaintext highlighter-rouge">String</code> クラスの拡張関数が定義されているとします。</p>
+
+<h4 id="stringutilkt">StringUtil.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.ext.strings</span>
+
+<span class="k">fun</span> <span class="nc">String</span><span class="p">.</span><span class="nf">isHex</span><span class="p">():</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="nf">startsWith</span><span class="p">(</span><span class="s">"0x"</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>この <code class="language-plaintext highlighter-rouge">isHex</code> 関数を使用するには、下記のようにトップレベルの関数をインポートするかのようにインポートします。</p>
+
+<h4 id="mainkt">main.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">com.example.ext.strings.isHex</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"0x123"</span><span class="p">.</span><span class="nf">isHex</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>複数の拡張関数をインポートするときは、ワイルドカードを使ってまとめてインポートすることができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">com.example.ext.strings.*</span>
+</code></pre></div></div>
+
+<p>インポート時に <strong><code class="language-plaintext highlighter-rouge">as</code></strong> を使って、拡張関数に別名を付けることもできます。
+複数のライブラリで定義された拡張関数名が衝突している場合は、この方法で解決できます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">com.example.ext.strings.isHex</span> <span class="k">as</span> <span class="n">hex</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"0x123"</span><span class="p">.</span><span class="nf">hex</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="クラスに拡張プロパティを追加する">クラスに拡張プロパティを追加する</h2>
+
+<p>既存のクラスに拡張プロパティ (extension properties) を追加することもできます。
+拡張関数とほぼ同様ですが、最初のキーワードが <code class="language-plaintext highlighter-rouge">fun</code> ではなく、<strong><code class="language-plaintext highlighter-rouge">val</code></strong> になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">String</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"ABC"</span><span class="p">.</span><span class="n">lastChar</span><span class="p">)</span>  <span class="c1">//=&gt; 'C'</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>もともとフィールド（メンバ変数）としての実体のないところにプロパティを追加することになるので、必ず上記のように getter メソッドとして定義することになります（既存のフィールドの値などを参照する形で getter を実装するしかない）。</p>
+
+<p>書き込み可能な拡張プロパティを定義するには、下記のように setter を実装します。
+対象となるクラスは mutable（変更可能）でなければいけないので、ここでは <code class="language-plaintext highlighter-rouge">String</code> ではなく <code class="language-plaintext highlighter-rouge">StringBuilder</code> に拡張プロパティを定義していることに注意してください。
+変更可能なプロパティであることを示すため、最初のキーワードは <code class="language-plaintext highlighter-rouge">val</code> ではなく <strong><code class="language-plaintext highlighter-rouge">var</code></strong> にします。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** 末尾の文字を取得・設定します */</span>
+<span class="kd">var</span> <span class="py">StringBuilder</span><span class="p">.</span><span class="n">lastChar</span><span class="p">:</span> <span class="nc">Char</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">get</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">set</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">Char</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">setCharAt</span><span class="p">(</span><span class="n">length</span> <span class="p">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">sb</span> <span class="p">=</span> <span class="nc">StringBuilder</span><span class="p">(</span><span class="s">"ABC"</span><span class="p">)</span>
+    <span class="n">sb</span><span class="p">.</span><span class="n">lastChar</span> <span class="p">=</span> <span class="sc">'X'</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">sb</span><span class="p">)</span>  <span class="c1">//=&gt; "ABX"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="コレクションクラスを拡張関数で拡張する">コレクションクラスを拡張関数で拡張する</h2>
+
+<p>Generics を利用して定義されたコレクションクラスにも、拡張関数を追加することができます。
+下記の例では、<code class="language-plaintext highlighter-rouge">Map</code> インタフェースに <code class="language-plaintext highlighter-rouge">findKey</code> メソッドを追加して、値からキーを取得できるように拡張しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * マップ要素の値からキーを検索します。
+ * 見つからない場合は null を返します。
+ */</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;</span> <span class="nf">Map</span><span class="p">&lt;</span><span class="nc">K</span><span class="p">,</span> <span class="nc">V</span><span class="p">&gt;.</span><span class="nf">findKey</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nc">V</span><span class="p">)</span> <span class="p">=</span>
+    <span class="n">entries</span><span class="p">.</span><span class="nf">firstOrNull</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">value</span> <span class="p">==</span> <span class="n">value</span> <span class="p">}</span><span class="o">?.</span><span class="n">key</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">map</span> <span class="p">=</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"AAA"</span> <span class="n">to</span> <span class="mi">100</span><span class="p">,</span> <span class="s">"BBB"</span> <span class="n">to</span> <span class="mi">200</span><span class="p">,</span> <span class="s">"CCC"</span> <span class="n">to</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="nf">findKey</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1">//=&gt; "AAA"</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="nf">findKey</span><span class="p">(</span><span class="mi">777</span><span class="p">))</span>  <span class="c1">//=&gt; null</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>特定の型の要素を持つコレクション専用の拡張関数を定義することもできます。
+次の例では、<code class="language-plaintext highlighter-rouge">String</code> 要素を保持するコレクションに対してだけ実行できる <code class="language-plaintext highlighter-rouge">tsv</code> メソッドを定義しています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** すべての要素をタブ文字で結合した文字列を作成します。 */</span>
+<span class="k">fun</span> <span class="nf">Collection</span><span class="p">&lt;</span><span class="nc">String</span><span class="p">&gt;.</span><span class="nf">tsv</span><span class="p">()</span> <span class="p">=</span> <span class="nf">joinToString</span><span class="p">(</span><span class="s">"\t"</span><span class="p">)</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">tsv</span><span class="p">())</span>  <span class="c1">//=&gt; "A   B   C"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Kotlin の標準ライブラリには、配列やコレクションを便利に使用するための拡張関数がいろいろ定義されています。
+例えば、<code class="language-plaintext highlighter-rouge">last()</code> 拡張関数は、配列やコレクションの最後の要素を返します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">Array</span><span class="p">&lt;</span><span class="k">out</span> <span class="nc">T</span><span class="p">&gt;.</span><span class="nf">last</span><span class="p">():</span> <span class="nc">T</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">Iterable</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">last</span><span class="p">():</span> <span class="nc">T</span>
+<span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="nf">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">last</span><span class="p">():</span> <span class="nc">T</span>
+</code></pre></div></div>
+
+<p>次のように直感的に使用できます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">arr</span> <span class="p">=</span> <span class="nf">intArrayOf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">list</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">,</span> <span class="s">"C"</span><span class="p">)</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="nf">last</span><span class="p">())</span>  <span class="c1">//=&gt; 3</span>
+<span class="nf">println</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="nf">last</span><span class="p">())</span>  <span class="c1">//=&gt; "C"</span>
+</code></pre></div></div>
+
+<h2 id="拡張関数を-java-のコードから参照する">拡張関数を Java のコードから参照する</h2>
+
+<p>Kotlin で定義した拡張関数を Java のコードから利用する場合は、ファイル名に基づくクラス名を使用してアクセスします（トップレベルに定義した関数を Java から呼び出す場合と同様です）。</p>
+
+<p>例えば、下記のように <code class="language-plaintext highlighter-rouge">StringUtil.kt</code> ファイル内で <code class="language-plaintext highlighter-rouge">String</code> クラスの拡張関数 <code class="language-plaintext highlighter-rouge">isHex</code> が定義されているとします。</p>
+
+<h4 id="stringutilkt-1">StringUtil.kt</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example.ext.strings</span>
+
+<span class="k">fun</span> <span class="nc">String</span><span class="p">.</span><span class="nf">isHex</span><span class="p">():</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="nf">startsWith</span><span class="p">(</span><span class="s">"0x"</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>この関数を Java のコードから使用する場合は、<code class="language-plaintext highlighter-rouge">StringUtilKt.isHex</code> という static メソッドとして参照します。
+操作の対象となるレシーバオブジェクトは第一引数で渡します。</p>
+
+<h4 id="mainjava">Main.java</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.example.ext.strings.StringUtilKt</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">StringUtilKt</span><span class="o">.</span><span class="na">isHex</span><span class="o">(</span><span class="s">"0x123"</span><span class="o">));</span>  <span class="c1">//=&gt; true</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>このように、Kotlin の拡張関数は内部的には static なメソッドとして扱われているため、拡張関数として追加したメソッドは override できないという制約があります（パラメータが異なる overload を定義することは可能）。</p>
+
+<ul>
+  <li>参考: <a href="../package/top-level.html">パッケージのトップレベルに関数、プロパティ、定数を定義する</a></li>
+</ul>
+
+<h2 id="既存メソッドは拡張関数で上書きできない">既存メソッドは拡張関数で上書きできない</h2>
+
+<p>既存のメソッドと同じシグネチャの拡張関数を定義した場合は、既存のメソッドの方が優先されて呼び出されます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">greet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"I am $name"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Person オブジェクトの動きを強引に変えてみる</span>
+<span class="k">fun</span> <span class="nc">Person</span><span class="p">.</span><span class="nf">greet</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Hehehe"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">p</span> <span class="p">=</span> <span class="nc">Person</span><span class="p">(</span><span class="s">"Maku"</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">.</span><span class="nf">greet</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I am Maku
+</code></pre></div></div>
+
+<p>この動作も、既存クラスの振る舞いが破壊されないようにするための Kotlin の配慮です。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： 既存のクラスに関数やプロパティを追加する（拡張関数）&url=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/ext-func.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-05-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

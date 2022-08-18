@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/misc/readability.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは） | まくまくKotlinノート" />
+  <title>Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは） - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-10-31</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/misc/readability.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）&url=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Effective Kotlin という電子書籍に、Kotlin コードの可読性に関していろいろためになることが書いてあるのでメモメモ。</p>
+
+<h2 id="読みやすさのためのデザイン-design-for-readability">読みやすさのためのデザイン (Design for readability)</h2>
+
+<h3 id="昔ながらの実装-vs-kotlin-的な実装">昔ながらの実装 vs Kotlin 的な実装</h3>
+
+<p>下記の実装 A と B はどちらが読みやすいでしょうか？</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 実装 A</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">person</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">person</span><span class="p">.</span><span class="n">isAdult</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">view</span><span class="p">.</span><span class="nf">showPerson</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">view</span><span class="p">.</span><span class="nf">showError</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="c1">// 実装 B</span>
+<span class="n">person</span><span class="o">?.</span><span class="nf">takeIf</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">isAdult</span> <span class="p">}</span>
+    <span class="o">?.</span><span class="nf">let</span><span class="p">(</span><span class="n">view</span><span class="o">::</span><span class="n">showPerson</span><span class="p">)</span>
+    <span class="o">?:</span> <span class="n">view</span><span class="p">.</span><span class="nf">showError</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>どちらが読みやすいかは読む人のスキルによりますが、A の方が変更しやすく、デバッグしやすいです。
+条件分岐を増やそうとすると、B の方は全体を考え直さないといけないので、頭が疲れます。
+A と B は一見同じ振る舞いをするように見えますが、実際には異なる動作をします。
+<code class="language-plaintext highlighter-rouge">let</code> はラムダ式の評価結果を返すので、<code class="language-plaintext highlighter-rouge">view::showPerson</code> が <code class="language-plaintext highlighter-rouge">null</code> を返すと、<code class="language-plaintext highlighter-rouge">showError()</code> が実行されてしまいます！
+<code class="language-plaintext highlighter-rouge">let</code> などはしっかり仕様を理解して使わないと危険だということです。</p>
+
+<p>一般ルールとしては、<strong>認知負荷を下げる</strong> ようにコードを記述することを考えるとよいです。
+つまり、<strong>どう動作するかがそのままコードに表現されている</strong> ように書くということです。</p>
+
+<p>「短いコード＝読みやすいコード」ではないということですね。
+一般的に、コンパクトなコードを書ける人は、技術的にはどんなコードでも書ける人だと思います。
+あとはその人がどれだけ思いやりを持って書けるかにかかっています。</p>
+
+<h3 id="やりすぎはダメよ-do-not-get-extreme">やりすぎはダメよ (Do not get extreme)</h3>
+
+<p>これはよくある safe call let イディオムなんですが、、、</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">person</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これはどうですか？</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">students</span>
+    <span class="p">.</span><span class="nf">filter</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">pointsInSemester</span> <span class="p">&gt;</span> <span class="mi">15</span> <span class="p">&amp;&amp;</span> <span class="n">it</span><span class="p">.</span><span class="n">result</span> <span class="p">&gt;=</span> <span class="mi">50</span> <span class="p">}</span>
+    <span class="p">.</span><span class="nf">sortedWith</span><span class="p">(</span><span class="nf">compareBy</span><span class="p">({</span> <span class="n">it</span><span class="p">.</span><span class="n">surname</span> <span class="p">},</span> <span class="p">{</span> <span class="n">it</span><span class="p">.</span><span class="n">name</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">separator</span> <span class="p">=</span> <span class="s">"\n"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="s">"${it.name} ${it.surname}, ${it.result}"</span>
+    <span class="p">}</span>
+    <span class="p">.</span><span class="nf">let</span><span class="p">(</span><span class="o">::</span><span class="n">print</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="py">obj</span> <span class="p">=</span> <span class="nc">FileInputStream</span><span class="p">(</span><span class="s">"/file.gz"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">let</span><span class="p">(</span><span class="o">::</span><span class="nc">BufferedInputStream</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">let</span><span class="p">(</span><span class="o">::</span><span class="nc">ZipInputStream</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">let</span><span class="p">(</span><span class="o">::</span><span class="nc">ObjectInputStream</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">readObject</span><span class="p">()</span> <span class="k">as</span> <span class="nc">SomeObject</span>
+</code></pre></div></div>
+
+<p>後者のようなコードの問題点は、デバッグが難しくなることと、Kotlin に慣れていない人にとって理解しにくいことです。
+こういった Kotlin 的な<strong>イディオムの組み合わせは、単独で順番に呼び出した時よりも何倍も複雑になってしまう</strong>ということを意識しておかなければいけません。</p>
+
+<h2 id="演算子の振る舞いと関数名との一貫性-operator-meaning-should-be-consistent-with-its-function-name">演算子の振る舞いと関数名との一貫性 (Operator meaning should be consistent with its function name)</h2>
+
+<p>演算子のオーバーロードはとってもパワフル！でもとってもデンジャラス！</p>
+
+<p>下記はある数の階乗を求めるプログラムです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">Iterable</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="nf">product</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="nf">fold</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="n">acc</span><span class="p">,</span> <span class="n">i</span> <span class="p">-&gt;</span> <span class="n">acc</span> <span class="p">*</span> <span class="n">i</span> <span class="p">}</span>
+<span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">factorial</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="k">this</span><span class="p">).</span><span class="nf">product</span><span class="p">()</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="mi">6</span><span class="p">.</span><span class="nf">factorial</span><span class="p">())</span>  <span class="c1">// 720</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>階乗は数学の世界では <code class="language-plaintext highlighter-rouge">10・6!</code> と書けるので、こんな風に定義したくなるかもしれません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">operator</span> <span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">not</span><span class="p">()</span> <span class="p">=</span> <span class="nf">factorial</span><span class="p">()</span>
+
+<span class="nf">print</span><span class="p">(!</span><span class="mi">6</span><span class="p">)</span>  <span class="c1">// 720</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">!6</code> という表現が、<code class="language-plaintext highlighter-rouge">6!</code> に似ててエレガント！と思うかもしれません。
+でもこれは <code class="language-plaintext highlighter-rouge">not()</code> という関数を定義しているのであり、下記のシンタックスシュガーでしかありません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="mi">6</span><span class="p">.</span><span class="nf">not</span><span class="p">())</span>  <span class="c1">// 720</span>
+</code></pre></div></div>
+
+<p>これは意味的におかしいですよね？
+だから、演算子をオーバーロードするときは、その<strong>演算子の本質的な意味を変えるような実装をしてはいけません</strong>。</p>
+
+<h3 id="関数を整数倍-times-するとは">関数を整数倍 (times) するとは？</h3>
+
+<p>下記はどんな処理を表現しているのでしょうか？</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span> <span class="p">*</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>ある人は、関数をその場で 3 回呼び出すことを意味していると思うかもしれません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">operator</span> <span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">times</span><span class="p">(</span><span class="n">operation</span><span class="p">:</span> <span class="p">()-&gt;</span><span class="nc">Unit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">repeat</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span> <span class="nf">operation</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="mi">3</span> <span class="p">*</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="p">}</span>  <span class="c1">// HelloHelloHello</span>
+</code></pre></div></div>
+
+<p>またある人は、関数を 3 回呼び出す関数を定義していると思うかもしれません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">operator</span> <span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">times</span><span class="p">(</span><span class="n">operation</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">):</span> <span class="p">()-&gt;</span><span class="nc">Unit</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="nf">repeat</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span> <span class="nf">operation</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">val</span> <span class="py">tripledHello</span> <span class="p">=</span> <span class="mi">3</span> <span class="p">*</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="p">}</span>
+<span class="nf">tripledHello</span><span class="p">()</span>  <span class="c1">// HelloHelloHello</span>
+</code></pre></div></div>
+
+<p>このように、演算子のオーバーロードによって曖昧さを発生させる恐れがある場合は、わかりやすい名前の <strong>拡張関数</strong> を定義すべきです。
+どうしても演算子のように呼び出せるようにしたいのであれば、<code class="language-plaintext highlighter-rouge">infix</code> を使いましょう。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">infix</span> <span class="k">fun</span> <span class="nc">Int</span><span class="p">.</span><span class="nf">timesRepeated</span><span class="p">(</span><span class="n">operation</span><span class="p">:</span> <span class="p">()-&gt;</span><span class="nc">Unit</span><span class="p">)</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="nf">repeat</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span> <span class="nf">operation</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">val</span> <span class="py">tripledHello</span> <span class="p">=</span> <span class="mi">3</span> <span class="nf">timesRepeated</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="p">}</span>
+<span class="nf">tripledHello</span><span class="p">()</span>  <span class="c1">// HelloHelloHello</span>
+</code></pre></div></div>
+
+<p>でも、このように処理を繰り返したいときは、素直にトップレベル関数をそのまま使っちゃえば OK です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>例外として、DSL (Domain Specific Language) を定義する場合は、意図的に特殊なオーバーライドをすることがあります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">body</span> <span class="p">{</span>
+    <span class="nf">div</span> <span class="p">{</span>
+        <span class="p">+</span><span class="s">"Some text"</span>  <span class="c1">// String.unaryPlus の呼び出し</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="unit-型の戻り値は便利-avoid-returning-or-operating-on-unit">Unit? 型の戻り値は便利？ (Avoid returning or operating on Unit?)</h2>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">keyIsCorrect</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="cm">/* ... */</span>
+<span class="k">if</span> <span class="p">(!</span><span class="nf">keyIsCorrect</span><span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="k">return</span>
+</code></pre></div></div>
+
+<p>こーゆーのは、戻り値を <code class="language-plaintext highlighter-rouge">Unit?</code> にしておけば、Elvis operator で簡潔に記述できるのでは？という主張があります。</p>
+
+<p>こんな感じに <code class="language-plaintext highlighter-rouge">if</code> を省略できる。。。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">verifyKey</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Unit</span><span class="p">?</span> <span class="p">=</span> <span class="cm">/* ... */</span>
+<span class="nf">verifyKey</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">?:</span> <span class="k">return</span>
+</code></pre></div></div>
+
+<p>確かにこれは書いている人にとっては快適かもしれないけど、読む人にとっては混乱のもとです。
+素直に Boolean を使いましょう！</p>
+
+<p>特に問題になるのは、ちょっと前にも出てきた次のような呼び出し方をした場合です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">getData</span><span class="p">()</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">view</span><span class="p">.</span><span class="nf">showData</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span> <span class="o">?:</span> <span class="n">view</span><span class="p">.</span><span class="nf">showError</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>万が一、ラムダ式で呼び出している <code class="language-plaintext highlighter-rouge">showData()</code> が <code class="language-plaintext highlighter-rouge">null</code> を返すような実装をしていたら、<code class="language-plaintext highlighter-rouge">showError()</code> まで呼ばれてしまいます。これは恐ろしい。。。
+<code class="language-plaintext highlighter-rouge">Unit?</code> の方が有用なケースってあまりないはずなので、結論としては、<code class="language-plaintext highlighter-rouge">Unit?</code> なんて使うなということです。</p>
+
+<h2 id="型が明確でないときは省略しない-specify-the-variable-type-when-it-is-not-clear">型が明確でないときは省略しない (Specify the variable type when it is not clear)</h2>
+
+<p>Kotlin の型推論機能 (type inference) はよいよねー。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">num</span> <span class="p">=</span> <span class="mi">10</span>
+<span class="kd">val</span> <span class="py">name</span> <span class="p">=</span> <span class="s">"Marcin"</span>
+<span class="kd">val</span> <span class="py">ids</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">554</span><span class="p">,</span> <span class="mi">997</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>こーゆーのはシンプルでとてもよい。</p>
+
+<p>でも下記のように、関数の戻り値を受ける場合はどうでしょう？</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">data</span> <span class="p">=</span> <span class="nf">getSomeData</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>確かに Kotlin の型推論によって、変数 <code class="language-plaintext highlighter-rouge">data</code> の型指定は省略できます。
+でも、このコードを見ただけでは、<code class="language-plaintext highlighter-rouge">data</code> はどんな型なのかがわかりません。
+読み手はいちいち関数の定義を見なければ理解することができません。</p>
+
+<p>IDE の機能を使ったり、関数を辿っていけば分かるじゃん、とは言いますが、GitHub 上でレビューすることはよくあるでしょう？
+言語的に型を省略できる場合でも、この例のような場合はちゃんと型を明示した方が読みやすくなります（最近の Android Studio は、このようなケースで型名を省略すると suggestion を出してくれるようになりました）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">data</span><span class="p">:</span> <span class="nc">UserData</span> <span class="p">=</span> <span class="nf">getSomeData</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>特にプラットフォーム型（言語的には <code class="language-plaintext highlighter-rouge">xxx!</code> と示される内部表現） を返すメソッドを呼び出す場合は、必ずその場で受け取る型を宣言しましょう。
+NotNull な値として扱うのか、Nullable な値として扱うのかを早めに指定することで、<code class="language-plaintext highlighter-rouge">null</code> まわりの不具合を見つけやすくなります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">text</span> <span class="p">=</span> <span class="n">javaObj</span><span class="p">.</span><span class="nf">getUserName</span><span class="p">()</span>  <span class="c1">// これはダメ！深いところでヌルポになるバグのもと</span>
+<span class="kd">val</span> <span class="py">text</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="n">javaObj</span><span class="p">.</span><span class="nf">getUserName</span><span class="p">()</span>   <span class="c1">// OK: NotNull な値として扱う</span>
+<span class="kd">val</span> <span class="py">text</span><span class="p">:</span> <span class="nc">String</span><span class="p">?</span> <span class="p">=</span> <span class="n">javaObj</span><span class="p">.</span><span class="nf">getUserName</span><span class="p">()</span>  <span class="c1">// OK: Nullable な値として扱う</span>
+</code></pre></div></div>
+
+<p>仮に本当は Nullable にすべき戻り値を NotNull な型で受けるように実装してしまっても、早い段階で NullPointerException が発生するので、潜在的なバグの混入は防ぐことができます。</p>
+
+<h2 id="レシーバーオブジェクトの明示-consider-referencing-receivers-explicitly">レシーバーオブジェクトの明示 (Consider referencing receivers explicitly)</h2>
+
+<h3 id="拡張関数における-this-の明示">拡張関数における this の明示</h3>
+
+<p>下記はクイックソートを拡張関数として実装する例です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span> <span class="p">:</span> <span class="nc">Comparable</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;&gt;</span> <span class="nf">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">quickSort</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span>
+    <span class="kd">val</span> <span class="py">pivot</span> <span class="p">=</span> <span class="nf">first</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">smaller</span><span class="p">,</span> <span class="py">bigger</span><span class="p">)</span> <span class="p">=</span> <span class="nf">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">partition</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&lt;</span> <span class="n">pivot</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="n">smaller</span><span class="p">.</span><span class="nf">quickSort</span><span class="p">()</span> <span class="p">+</span> <span class="n">pivot</span> <span class="p">+</span> <span class="n">bigger</span><span class="p">.</span><span class="nf">quickSort</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>どれがレシーバーのプロパティかわかりにくいかもしれません。
+このような場合は、レシーバー (<code class="language-plaintext highlighter-rouge">this</code>) を明示的に記述した方が理解しやすくなることがあります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="p">&lt;</span><span class="nc">T</span> <span class="p">:</span> <span class="nc">Comparable</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;&gt;</span> <span class="nf">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;.</span><span class="nf">quickSort</span><span class="p">():</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">T</span><span class="p">&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">size</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span>
+    <span class="kd">val</span> <span class="py">pivot</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">first</span><span class="p">()</span>
+    <span class="kd">val</span> <span class="p">(</span><span class="py">smaller</span><span class="p">,</span> <span class="py">bigger</span><span class="p">)</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">partition</span> <span class="p">{</span> <span class="n">it</span> <span class="p">&lt;</span> <span class="n">pivot</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="n">smaller</span><span class="p">.</span><span class="nf">quickSort</span><span class="p">()</span> <span class="p">+</span> <span class="n">pivot</span> <span class="p">+</span> <span class="n">bigger</span><span class="p">.</span><span class="nf">quickSort</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="たくさんレシーバーがいるとき">たくさんレシーバーがいるとき</h3>
+
+<p><code class="language-plaintext highlighter-rouge">apply</code> や <code class="language-plaintext highlighter-rouge">with</code> や <code class="language-plaintext highlighter-rouge">run</code> などを使うとき、レシーバーが複数混在することがあります。
+そのようなケースでは、ちゃんとレシーバーを明示しないと危険です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Node</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">makeChild</span><span class="p">(</span><span class="n">childName</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">=</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s">"$name.$childName"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">apply</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Created ${name}"</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Node</span><span class="p">?</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">node</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="s">"parent"</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="nf">makeChild</span><span class="p">(</span><span class="s">"child"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記を実行すると何が表示されるでしょう？
+（答え → <span style="background: white; color: white">Created parent</span>）</p>
+
+<p>次に、レシーバーとして <code class="language-plaintext highlighter-rouge">this</code> を明示してみるとどうなるでしょう？</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lass</span> <span class="nc">Node</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">makeChild</span><span class="p">(</span><span class="n">childName</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">=</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s">"$name.$childName"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">apply</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Created ${this?.name}"</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Node</span><span class="p">?</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">node</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="s">"parent"</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="nf">makeChild</span><span class="p">(</span><span class="s">"child"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>（答え → <span style="background: white; color: white">Created parent.child</span>）</p>
+
+<p>これは <code class="language-plaintext highlighter-rouge">apply</code> の間違った使い方の一つです。
+こーゆー場合は、レシーバーをパラメータとして受け取る <code class="language-plaintext highlighter-rouge">also</code> や <code class="language-plaintext highlighter-rouge">let</code> を使えば、パラメータに名前を付けることができるし、<code class="language-plaintext highlighter-rouge">this</code> の意味がラムダ式 <code class="language-plaintext highlighter-rouge">{}</code> の内側と外側で変わってしまうのを防ぐことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Node</span><span class="p">(</span><span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">makeChild</span><span class="p">(</span><span class="n">childName</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">=</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s">"$name.$childName"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">also</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Created ${it?.name} in $name"</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">create</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nc">String</span><span class="p">):</span> <span class="nc">Node</span><span class="p">?</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">node</span> <span class="p">=</span> <span class="nc">Node</span><span class="p">(</span><span class="s">"parent"</span><span class="p">)</span>
+    <span class="n">node</span><span class="p">.</span><span class="nf">makeChild</span><span class="p">(</span><span class="s">"child"</span><span class="p">)</span>  <span class="c1">// Created parent.child in parent</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">also</code> と <code class="language-plaintext highlighter-rouge">let</code> の違いは、<code class="language-plaintext highlighter-rouge">also</code> が自分自身を戻り値とするのに対し、<code class="language-plaintext highlighter-rouge">let</code> は戻り値が任意であるという点です。</p>
+
+<p>よい例ではないですが、仮に <code class="language-plaintext highlighter-rouge">apply</code> を使ったときに外側の <code class="language-plaintext highlighter-rouge">name</code> パラメータを参照したい場合は、次のように <code class="language-plaintext highlighter-rouge">this</code> をラベリングして参照する必要があります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">makeChild</span><span class="p">(</span><span class="n">childName</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">=</span>
+    <span class="nf">create</span><span class="p">(</span><span class="s">"$name.$childName"</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">apply</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Created ${this?.name} in ${this@Node.name}"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="プロパティは振る舞いではなく状態を表す-properties-should-represent-state-not-behavior">プロパティは振る舞いではなく状態を表す (Properties should represent state, not behavior)</h2>
+
+<p>Kotlin のプロパティと Java のフィールドが大きく異なるのは、Kotlin ではカスタムゲッターとしてプロパティの実装ができるところです（Kotlin のプロパティはフィールドではなくアクセッサーです）。
+プロパティは実際のところ関数なので、どんな実装でもできてしまいますが、アルゴリズム的な振る舞いを実装すべきではありません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// DON’T DO THIS!</span>
+<span class="kd">val</span> <span class="py">Tree</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="n">sum</span><span class="p">:</span> <span class="nc">Int</span>
+    <span class="k">get</span><span class="p">()</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="nc">Leaf</span> <span class="p">-&gt;</span> <span class="n">value</span>
+        <span class="k">is</span> <span class="nc">Node</span> <span class="p">-&gt;</span> <span class="n">left</span><span class="p">.</span><span class="n">sum</span> <span class="p">+</span> <span class="n">right</span><span class="p">.</span><span class="n">sum</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記のようなプロパティ実装は、要素を再帰的に走査するため、コレクションのサイズによって計算量が莫大になり得ます。
+getter メソッドは、暗黙的に高速に値を返すと想定されるので、このような大きなアルゴリズムはプロパティとして実装してはいけません。
+代わりに、次のように関数として実装すべきです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">Tree</span><span class="p">&lt;</span><span class="nc">Int</span><span class="p">&gt;.</span><span class="nf">sum</span><span class="p">():</span> <span class="nc">Int</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">is</span> <span class="nc">Leaf</span> <span class="p">-&gt;</span> <span class="n">value</span>
+    <span class="k">is</span> <span class="nc">Node</span> <span class="p">-&gt;</span> <span class="n">left</span><span class="p">.</span><span class="nf">sum</span><span class="p">()</span> <span class="p">+</span> <span class="n">right</span><span class="p">.</span><span class="nf">sum</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>標準ライブラリも <code class="language-plaintext highlighter-rouge">sum</code> は関数として提供しますね。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">s</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">).</span><span class="nf">sum</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="プロパティと関数のどちらで定義すべきか">プロパティと関数のどちらで定義すべきか？</h3>
+
+<ul>
+  <li>メソッドにしたときに、<code class="language-plaintext highlighter-rouge">setXxx()/getXxx()</code> と命名できるもののみプロパティとして定義する資格がある</li>
+  <li>プロパティは O(1) のオーダーで完了するべき</li>
+  <li>ビジネスロジックを含むものはプロパティにしてはいけない（例外: ロギング、リスナへの通知、結合された要素値の変更）</li>
+  <li>呼び出しの順序によって振る舞いが変わるもの、複数回呼び出すと振る舞いが変わるものはプロパティにしてはいけない</li>
+  <li>自身の値を全体的に変換するものは、慣例としてメソッドとして提供する（例: <code class="language-plaintext highlighter-rouge">Int.toDouble()</code>）</li>
+</ul>
+
+<p>一言でいうなら、プロパティは「状態」であり、関数は「振舞い」であるということ。</p>
+
+<h2 id="名前付き引数を活用する-consider-naming-arguments">名前付き引数を活用する (Consider naming arguments)</h2>
+
+<p>名前付き引数を使って、パラメータの意味を分かりやすくしましょう。
+下記は名前付き引数 (named arguments) のよい例です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">text</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">separator</span> <span class="p">=</span> <span class="s">"|"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>下記は似ているけど、変数名で意味を示そうとしています（named values というらしい）。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">separator</span> <span class="p">=</span> <span class="s">"|"</span>
+<span class="kd">val</span> <span class="py">text</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>後者は、開発者のミスが入りうるので前者の名前付き引数を使った方がベターです。
+後者の実装では、関数の利用者が変数名を付け間違えることがあるし、関数側のパラメータの順序が変更された場合に気付くことができません。</p>
+
+<p>引数名と同じような名前の変数を下記のように渡すのは、一見冗長に見えますが、上記のような理由から有用です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">separator</span> <span class="p">=</span> <span class="s">"|"</span>
+<span class="kd">val</span> <span class="py">text</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="nf">joinToString</span><span class="p">(</span><span class="n">separator</span> <span class="p">=</span> <span class="n">separator</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="時間の単位ミリ秒-or-秒を明確にする">時間の単位（ミリ秒 or 秒）を明確にする</h3>
+
+<p>時間の単位があいまいな値を記述するのは避けましょう。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1">// 100秒？</span>
+</code></pre></div></div>
+
+<p>これでは、100 という値が 100 秒なのか 100 ミリ秒なのかが伝わりません。
+次のような書き方をすれば、「ミリ秒」単位の指定であることが一目瞭然になります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">sleep</span><span class="p">(</span><span class="n">timeMillis</span> <span class="p">=</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1">// 名前付き引数で示す</span>
+<span class="nf">sleep</span><span class="p">(</span><span class="nc">Millis</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>       <span class="c1">// 関数名で示す</span>
+<span class="nf">sleep</span><span class="p">(</span><span class="mi">100</span><span class="p">.</span><span class="n">ms</span><span class="p">)</span>            <span class="c1">// 拡張関数で示す</span>
+</code></pre></div></div>
+
+<h3 id="同じ型の変数が複数ある場合は名前付き引数で指定する">同じ型の変数が複数ある場合は名前付き引数で指定する</h3>
+
+<p>同じ型のパラメータを複数取る関数は、呼び出し時にパラメータの順序を間違えるミスが発生します。
+次の関数は、String 型のパラメータを 2 つ受け取ります。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">sendEmail</span><span class="p">(</span><span class="n">to</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>このような関数を呼び出す場合は、次のように <strong>名前付き引数</strong> の形で呼び出せば、パラメータの指定順序のミスはなくすことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">sendEmail</span><span class="p">(</span>
+    <span class="n">to</span> <span class="p">=</span> <span class="s">"contact@example.com"</span><span class="p">,</span>
+    <span class="n">message</span> <span class="p">=</span> <span class="s">"Hello, ..."</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="絶対に名前付き引数で呼び出した方がいいケース">絶対に名前付き引数で呼び出した方がいいケース</h3>
+
+<p>次のように、関数型パラメータを複数もつ関数を呼び出すケースでは、必ず名前付き引数で呼び出すようにした方がよいです。
+同じような呼び出し方をしているのに、振る舞いが変わってしまうことがあるからです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">call</span><span class="p">(</span><span class="n">before</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span> <span class="p">=</span> <span class="p">{},</span> <span class="n">after</span><span class="p">:</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span> <span class="p">=</span> <span class="p">{})</span> <span class="p">{</span>
+    <span class="nf">before</span><span class="p">()</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">" MIDDLE "</span><span class="p">)</span>
+    <span class="nf">after</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="nf">call</span><span class="p">({</span> <span class="nf">print</span><span class="p">(</span><span class="s">"CALL"</span><span class="p">)</span> <span class="p">})</span>  <span class="c1">//=&gt; CALL MIDDLE</span>
+<span class="nf">call</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"CALL"</span><span class="p">)</span> <span class="p">}</span>   <span class="c1">//=&gt; MIDDLE CALL</span>
+</code></pre></div></div>
+
+<p>名前付き引数で、次のように呼び出せば間違えることがありません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">call</span><span class="p">(</span><span class="n">before</span> <span class="p">=</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"CALL"</span><span class="p">)</span> <span class="p">})</span>  <span class="c1">//=&gt; CALL MIDDLE</span>
+<span class="nf">call</span><span class="p">(</span><span class="n">after</span> <span class="p">=</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"CALL"</span><span class="p">)</span> <span class="p">})</span>   <span class="c1">//=&gt; MIDDLE CALL</span>
+</code></pre></div></div>
+
+<p>3rd パーティライブラリを使う場合も、このような名前付き引数は活用できるケースはよくあります。
+例えば、Java 言語で RxJava の <code class="language-plaintext highlighter-rouge">Observable</code> を使う場合、次のように処理内容をチェーンさせて記述します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">observable</span><span class="p">.</span><span class="nf">getUsers</span><span class="p">()</span>
+    <span class="p">.</span><span class="nf">subscribe</span><span class="p">((</span><span class="nc">List</span><span class="p">&lt;</span><span class="nc">User</span><span class="p">&gt;</span> <span class="n">users</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">{</span>  <span class="c1">// onNext</span>
+        <span class="c1">// ...</span>
+    <span class="p">},</span> <span class="p">(</span><span class="nc">Throwable</span> <span class="n">throwable</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">{</span>  <span class="c1">// onError</span>
+        <span class="c1">// ...</span>
+    <span class="p">},</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="p">{</span>  <span class="c1">// onCompleted</span>
+        <span class="c1">// ...</span>
+    <span class="p">});</span>
+</code></pre></div></div>
+
+<p>いちいちコメントで何の処理かを記述しているところがかっこ悪いです。
+Kotlin の名前付き引数で記述すれば、次のようにスッキリ読みやすく書けるし、パラメータの順序を間違えることもありません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">observable</span><span class="p">.</span><span class="nf">getUsers</span><span class="p">()</span>
+    <span class="p">.</span><span class="nf">subscribeBy</span><span class="p">(</span>
+        <span class="n">onNext</span> <span class="p">=</span> <span class="p">{</span> <span class="n">users</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">User</span><span class="p">&gt;</span> <span class="p">-&gt;</span>
+            <span class="c1">// ...</span>
+        <span class="p">},</span>
+        <span class="n">onError</span> <span class="p">=</span> <span class="p">{</span> <span class="n">throwable</span><span class="p">:</span> <span class="nc">Throwable</span> <span class="p">-&gt;</span>
+            <span class="c1">// ...</span>
+        <span class="p">},</span>
+        <span class="n">onCompleted</span> <span class="p">=</span> <span class="p">{</span>
+            <span class="c1">// ...</span>
+        <span class="p">})</span>
+</code></pre></div></div>
+
+<p>ちなみに名前付き引数バージョンで呼び出せるようにするため、RxJava オリジナルの <code class="language-plaintext highlighter-rouge">subscribe()</code> ではなく、Kotlin ラッパー（拡張関数）として定義されている <code class="language-plaintext highlighter-rouge">subscribeBy()</code> を呼び出さなければいけないことに注意してください。</p>
+
+<h2 id="コーディング規約に従おう-respect-coding-conventions">コーディング規約に従おう (Respect coding conventions)</h2>
+
+<h3 id="公式のコーディング規約">公式のコーディング規約</h3>
+
+<p>Kotlin 標準のコーディング規約は公式サイトでちゃんと定義されているので、できるだけこれに従いましょう。
+これは読んでおかなければいけないドキュメントです。</p>
+
+<ul>
+  <li><a href="https://kotlinlang.org/docs/reference/coding-conventions.html">Coding Conventions - Kotlin Programming Language</a></li>
+</ul>
+
+<p>もちろん、社内プロジェクトのすべてがこのコーディング規約に従う必要はないけれど、オープンなコミュニティで使用するプロジェクトでは従うべきです。
+誰にとっても読みやすくなるし、コードをプロジェクト間で移動させるのも容易になります。</p>
+
+<p>今 Kotlin を使っている人は、Java から移行してきた人が多いので、間違って Java のコーディング規約で書いている人が多いです。
+特に、クラス定義や関数定義のパラメータ部分に改行を入れる場合に、次のような間違った記述方法をよく見かけます。</p>
+
+<h4 id="間違った例java-の世界では-ok-だがkotlin-の世界では-ng">間違った例（Java の世界では OK だが、Kotlin の世界では NG）</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span><span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+             <span class="kd">val</span> <span class="py">surname</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">)</span> <span class="p">:</span> <span class="nc">Human</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// body</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Kotlin では次のように改行するのが標準のルールで、最初の開き括弧 <code class="language-plaintext highlighter-rouge">(</code> の後ろですぐに改行し、1 パラメータずつ改行していきます。</p>
+
+<h4 id="関数-body-の直前の行開き中括弧--の行はインデントしない">関数 body の直前の行（開き中括弧 <code class="language-plaintext highlighter-rouge">{</code> の行）はインデントしない</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Person</span><span class="p">(</span>  <span class="c1">// 一行目にはパラメータを記述しない</span>
+    <span class="kd">val</span> <span class="py">id</span><span class="p">:</span> <span class="nc">Int</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="py">name</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span><span class="p">,</span>
+    <span class="kd">val</span> <span class="py">surname</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span>
+<span class="p">)</span> <span class="p">:</span> <span class="nc">Human</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// ここで一度インデントをリセットする</span>
+    <span class="c1">// body</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>とはいえ、Effective Kotlin の著者は、関連度の強いパラメータ（<code class="language-plaintext highlighter-rouge">x</code>、<code class="language-plaintext highlighter-rouge">y</code> など）は、同じ行に書いてしまいたいとも言っています。</p>
+
+<h3 id="コーディング規約に従うためのツール">コーディング規約に従うためのツール</h3>
+
+<p>Kotlin 標準のコーディング規約に従う場合は、下記のようなツールを活用しましょう。</p>
+
+<ul>
+  <li>IntelliJ/Android Studio の<strong>フォーマット設定</strong>
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Setting</code> → <code class="language-plaintext highlighter-rouge">Editor</code> → <code class="language-plaintext highlighter-rouge">Code Style</code> → <code class="language-plaintext highlighter-rouge">Kotlin</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Set from...</code> のリンクをクリック</li>
+      <li><code class="language-plaintext highlighter-rouge">Predefined Style</code> → <code class="language-plaintext highlighter-rouge">Kotlin style guide</code> を選択</li>
+    </ol>
+  </li>
+  <li><strong>ktlint</strong> - Kotlin 用の Lint ツール
+    <ul>
+      <li><a href="https://github.com/pinterest/ktlint">https://github.com/pinterest/ktlint</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>コーディング規約はとても重要なものなのに、軽視している開発者もいます。
+プロジェクトをよりよいものにするために、コーディング規約を守りましょう！</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）&url=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/misc/readability.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-10-31</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

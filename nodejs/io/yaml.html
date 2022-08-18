@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="NPM のパッケージとして公開されている js-yaml を使用すると、Node.js のプログラムから簡単に Yaml ファイルを扱うことができるようになります。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/nodejs/io/yaml.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-nodejs.png" />
+
+  <meta property="og:description" content="NPM のパッケージとして公開されている js-yaml を使用すると、Node.js のプログラムから簡単に Yaml ファイルを扱うことができるようになります。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Yaml ファイルを読み書きする (js-yaml) | まくまくNode.jsノート" />
+  <title>Yaml ファイルを読み書きする (js-yaml) - まくまくNode.jsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/nodejs/">
+    <img src="/assets/img/logo-nodejs.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/nodejs/">
+    <div class="xPageHeader_category">
+    まくまくNode.jsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Yaml ファイルを読み書きする (js-yaml)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2019-04-05</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/nodejs/io/yaml.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Yaml ファイルを読み書きする (js-yaml)&url=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">NPM のパッケージとして公開されている js-yaml を使用すると、Node.js のプログラムから簡単に Yaml ファイルを扱うことができるようになります。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="js-yaml-パッケージのインストール">js-yaml パッケージのインストール</h2>
+
+<p><code class="language-plaintext highlighter-rouge">js-yaml</code> パッケージは、<code class="language-plaintext highlighter-rouge">npm</code> を使ってインストールすることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install js-yaml
+$ npm install js-yaml --save  # package.json に依存情報を追記する場合
+</code></pre></div></div>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/js-yaml">js-yaml (YAML1.2 parser/writer) - npm</a></li>
+</ul>
+
+<h2 id="js-yaml-で-yaml-ファイルを読み込む">js-yaml で Yaml ファイルを読み込む</h2>
+
+<p>例えば、ここでは下記のような Yaml ファイルを読み込んでみます（出典は<a href="https://en.wikipedia.org/wiki/YAML">こちら</a>）。</p>
+
+<div class="note">
+YAML ファイルの拡張子は、<code>.yaml</code> が使われていたり、<code>.yml</code> が使われていたりしますが、<a target="_blank" href="https://yaml.org/faq.html">YAML 公式サイト</a>では <code>.yaml</code> を使うことを推奨しているようです。
+</div>
+
+<h4 id="datayaml">data.yaml</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">receipt</span><span class="pi">:</span>     <span class="s">Oz-Ware Purchase Invoice</span>
+<span class="na">date</span><span class="pi">:</span>        <span class="s">2012-08-06</span>
+<span class="na">customer</span><span class="pi">:</span>
+    <span class="na">first_name</span><span class="pi">:</span>   <span class="s">Dorothy</span>
+    <span class="na">family_name</span><span class="pi">:</span>  <span class="s">Gale</span>
+
+<span class="na">items</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">part_no</span><span class="pi">:</span>   <span class="s">A4786</span>
+      <span class="na">descrip</span><span class="pi">:</span>   <span class="s">Water Bucket (Filled)</span>
+      <span class="na">price</span><span class="pi">:</span>     <span class="m">1.47</span>
+      <span class="na">quantity</span><span class="pi">:</span>  <span class="m">4</span>
+
+    <span class="pi">-</span> <span class="na">part_no</span><span class="pi">:</span>   <span class="s">E1628</span>
+      <span class="na">descrip</span><span class="pi">:</span>   <span class="s">High Heeled "Ruby" Slippers</span>
+      <span class="na">size</span><span class="pi">:</span>      <span class="m">8</span>
+      <span class="na">price</span><span class="pi">:</span>     <span class="m">133.7</span>
+      <span class="na">quantity</span><span class="pi">:</span>  <span class="m">1</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">js-yaml</code> モジュールの <strong><code class="language-plaintext highlighter-rouge">safeLoad</code></strong> 関数を使用すると、パラメータで渡した Yaml テキストを JavaScript のオブジェクトに変換することができます。
+<strong><code class="language-plaintext highlighter-rouge">safeLoad</code> 関数には、ファイル名を渡すのではなく、Yaml 形式のテキストを渡す必要がある</strong>ことに注意してください。
+下記のサンプルでは、Yaml ファイルの内容を <code class="language-plaintext highlighter-rouge">fs.readFileSync()</code> で取得し、その結果を <code class="language-plaintext highlighter-rouge">js-yaml</code> の <code class="language-plaintext highlighter-rouge">safeLoad</code> 関数でパースしています。</p>
+
+<h4 id="mainjs-yaml-ファイルの読み込み">main.js （Yaml ファイルの読み込み）</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 指定されたパスの Yaml ファイルを読み込みます。
+ */</span>
+<span class="kd">function</span> <span class="nx">loadYamlFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">yaml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">js-yaml</span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">yamlText</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nx">yaml</span><span class="p">.</span><span class="nx">safeLoad</span><span class="p">(</span><span class="nx">yamlText</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Entry point</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">require</span><span class="p">.</span><span class="nx">main</span> <span class="o">===</span> <span class="nx">module</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">path</span><span class="dl">'</span><span class="p">);</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">loadYamlFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">data.yaml</span><span class="dl">'</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">price</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node main.js
+{ receipt: 'Oz-Ware Purchase Invoice',
+  date: 2012-08-06T00:00:00.000Z,
+  customer: { first_name: 'Dorothy', family_name: 'Gale' },
+  items:
+   [ { part_no: 'A4786',
+       descrip: 'Water Bucket (Filled)',
+       price: 1.47,
+       quantity: 4 },
+     { part_no: 'E1628',
+       descrip: 'High Heeled "Ruby" Slippers',
+       size: 8,
+       price: 133.7,
+       quantity: 1 } ] }
+133.7
+</code></pre></div></div>
+
+<p>Yaml ファイルの内容が、正しく JavaScript のオブジェクトに変換されていることがわかります。</p>
+
+<h2 id="js-yaml-で-yaml-ファイルを書き出す">js-yaml で Yaml ファイルを書き出す</h2>
+
+<p><code class="language-plaintext highlighter-rouge">js-yaml</code> モジュールの、<strong><code class="language-plaintext highlighter-rouge">dump</code></strong> 関数を利用すると、任意の JavaScript オブジェクトを Yaml 形式のテキストに変換することができます。
+変換したテキストをそのままテキストファイルとして出力すれば、Yaml ファイルができあがります。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">books</code> オブジェクトの内容を Yaml 形式のテキストに変換し、<code class="language-plaintext highlighter-rouge">books.yaml</code> ファイルに保存しています。</p>
+
+<h4 id="mainjs-yaml-ファイルへの保存">main.js （Yaml ファイルへの保存）</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">yaml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">js-yaml</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">タイトル1</span><span class="dl">'</span><span class="p">,</span> <span class="na">authors</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">著者A</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">著者B</span><span class="dl">'</span><span class="p">]</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">タイトル2</span><span class="dl">'</span><span class="p">,</span> <span class="na">authros</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">著者C</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">著者D</span><span class="dl">'</span><span class="p">]</span> <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">yamlText</span> <span class="o">=</span> <span class="nx">yaml</span><span class="p">.</span><span class="nx">dump</span><span class="p">(</span><span class="nx">books</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="dl">'</span><span class="s1">books.yaml</span><span class="dl">'</span><span class="p">,</span> <span class="nx">yamlText</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Yaml ファイルを保存しました</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// 同期書き込みなら</span>
+<span class="c1">// const yamlText = yaml.dump(books);</span>
+<span class="c1">// try {</span>
+<span class="c1">//   fs.writeFileSync('books.yaml', yamlText, 'utf8');</span>
+<span class="c1">// } catch (err) {</span>
+<span class="c1">//   console.error(err.message);</span>
+<span class="c1">//   process.exit(1);</span>
+<span class="c1">// }</span>
+</code></pre></div></div>
+
+<h4 id="booksyaml-作成された-yaml-ファイル">books.yaml （作成された Yaml ファイル）</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">タイトル1</span>
+  <span class="na">authors</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">著者A</span>
+    <span class="pi">-</span> <span class="s">著者B</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">タイトル2</span>
+  <span class="na">authros</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">著者C</span>
+    <span class="pi">-</span> <span class="s">著者D</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくNode.jsノート： Yaml ファイルを読み書きする (js-yaml)&url=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/nodejs/io/yaml.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/nodejs/"><span class="xArticle_up_label">まくまくNode.jsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li class="xNav-focused"><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/nodejs/">Node.js</a></div>
+  <div class="xPageDate">2019-04-05</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

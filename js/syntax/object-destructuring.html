@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaScriptノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/syntax/object-destructuring.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaScriptノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring) | まくまくJavaScriptノート" />
+  <title>分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring) - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2020-07-18</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/syntax/object-destructuring.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： 分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)&url=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="オブジェクトの分割代入-object-destructuring">オブジェクトの分割代入 (Object destructuring)</h2>
+
+<p>ECMAScript 2015 で追加された分割代入の構文を使用すると、あるオブジェクトの特定のプロパティのみを、それぞれ単独の変数で参照することができます。
+分割代入を効果的に使用すると、コードの見通しをよくすることができます。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">obj</code> のプロパティ <code class="language-plaintext highlighter-rouge">a</code>、<code class="language-plaintext highlighter-rouge">b</code> を、それぞれ同じ名前の変数 <code class="language-plaintext highlighter-rouge">a</code>、<code class="language-plaintext highlighter-rouge">b</code> に取得しています。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kd">const</span> <span class="p">{</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>  <span class="c1">//=&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>  <span class="c1">//=&gt; 2</span>
+</code></pre></div></div>
+
+<p>通常、変数の名前は、上記のようにオブジェクトのプロパティ名に合わせておく必要がありますが、次のようにすれば別名を付けることも可能です（<code class="language-plaintext highlighter-rouge">a</code> プロパティの値を変数 <code class="language-plaintext highlighter-rouge">newA</code>へ、<code class="language-plaintext highlighter-rouge">b</code> プロパティの値を変数 <code class="language-plaintext highlighter-rouge">newB</code> に代入しています）。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kd">const</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">newA</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="nx">newB</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newA</span><span class="p">);</span>  <span class="c1">//=&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newB</span><span class="p">);</span>  <span class="c1">//=&gt; 2</span>
+</code></pre></div></div>
+
+<p>つまり、最初の例ででてきた分割代入は、下記のようなコードのショートカットとみなせます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kd">const</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">a</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="nx">b</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>  <span class="c1">// const {a, b} = obj; と省略できる</span>
+</code></pre></div></div>
+
+<p>分割代入時にデフォルト値を指定することもできます。
+分割しようとしているオブジェクトに、プロパティが存在しない (<code class="language-plaintext highlighter-rouge">undefined</code>) 場合、デフォルト値が使用されます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kd">const</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="nx">newA</span><span class="p">,</span> <span class="na">x</span><span class="p">:</span> <span class="nx">newX</span><span class="o">=</span><span class="mi">999</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newA</span><span class="p">);</span>  <span class="c1">//=&gt; 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newX</span><span class="p">);</span>  <span class="c1">//=&gt; 999</span>
+</code></pre></div></div>
+
+<h2 id="使用例-定数フィールドのショートカット">使用例: 定数フィールドのショートカット</h2>
+
+<p>分割代入の仕組みを利用すると、あるクラスが提供しているプロパティを、クラス名のプレフィックスを省略した形で参照できるようになります。
+下記の例では、<code class="language-plaintext highlighter-rouge">Math.PI</code> 定数（円周率）を <code class="language-plaintext highlighter-rouge">PI</code> という短い名前で参照できるようにしています。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">PI</span><span class="p">}</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">//=&gt; 6.283185307179586</span>
+</code></pre></div></div>
+
+<h2 id="使用例-for-ループでのオブジェクト分割代入">使用例: for ループでのオブジェクト分割代入</h2>
+
+<p>分割代入は for ループでも使用できます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">books</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Title1</span><span class="dl">'</span><span class="p">,</span> <span class="na">author</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Author1</span><span class="dl">'</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Title2</span><span class="dl">'</span><span class="p">,</span> <span class="na">author</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Author2</span><span class="dl">'</span><span class="p">},</span>
+  <span class="p">{</span><span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Title3</span><span class="dl">'</span><span class="p">,</span> <span class="na">author</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Author3</span><span class="dl">'</span><span class="p">},</span>
+<span class="p">];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">{</span><span class="nx">title</span><span class="p">,</span> <span class="nx">author</span><span class="p">}</span> <span class="k">of</span> <span class="nx">books</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">title</span><span class="p">}</span><span class="s2">, </span><span class="p">${</span><span class="nx">author</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="使用例-複雑な構造のオブジェクトからプロパティを取り出す">使用例: 複雑な構造のオブジェクトからプロパティを取り出す</h2>
+
+<p>分割代入は、複雑な構造のオブジェクトから必要なプロパティだけを個別の変数に取り出したいときに使用できます。
+例えば、Web API などで取得した JSON データには、必要のないデータがたくさん含まれていたりしますが、そこから必要なプロパティだけを分割代入で取り出すと、後のコードがシンプルになります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 複雑な構造のデータ（例えば REST API で取得したデータなど）</span>
+<span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">userName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Maku</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">avatar</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="dl">'</span><span class="s1">avatar123</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">http://example.com/sample.png</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="c1">// 必要なプロパティだけを個別の変数に取り出す</span>
+<span class="kd">const</span> <span class="p">{</span>
+  <span class="nx">userName</span><span class="p">,</span>
+  <span class="na">avatar</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="nx">avatarId</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">userName</span><span class="p">}</span><span class="s2">, </span><span class="p">${</span><span class="nx">avatarId</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>  <span class="c1">//=&gt; Maku, avatar123</span>
+</code></pre></div></div>
+
+<p>上記の例では、<code class="language-plaintext highlighter-rouge">avatar.id</code> の方のみ <code class="language-plaintext highlighter-rouge">avatarId</code> という別名の変数に取り出しています。</p>
+
+<h2 id="使用例-export-されたプロパティを別々に参照">使用例: export されたプロパティを別々に参照</h2>
+
+<p>Node.js などの <code class="language-plaintext highlighter-rouge">require</code> で外部モジュールをロードする際にオブジェクト代入の仕組みを利用すると、公開 (export) されているプロパティをそれぞれ別の変数で参照することができます。</p>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">mylib</code> モジュールが <code class="language-plaintext highlighter-rouge">Class1</code> と <code class="language-plaintext highlighter-rouge">Class2</code> を公開しているとします。
+それらのクラスは通常、下記のように参照します。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">mylib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">mylib</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mylib</span><span class="p">.</span><span class="nx">Class1</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mylib</span><span class="p">.</span><span class="nx">Class2</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>ここで、<code class="language-plaintext highlighter-rouge">require</code> の戻り値のオブジェクトを受け取る際に、下記のように分割代入の仕組みを使用すると、export されたプロパティを別々の変数で参照することができます。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">Class1</span><span class="p">,</span> <span class="nx">Class2</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">mylib</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class1</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class2</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h2 id="変数をオブジェクトにまとめる">変数をオブジェクトにまとめる</h2>
+
+<p>複数の変数を 1 つのオブジェクトにまとめる場合、単純に記述すると次のようなコードになります。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 変数 title、author を 1 つのオブジェクトにまとめる</span>
+<span class="kd">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Title1</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">author</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Author1</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">title</span><span class="p">:</span> <span class="nx">title</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">:</span> <span class="nx">author</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>このように、変数名と同じ名前のプロパティを持つオブジェクトを生成する場合は、次のように省略して記述することができます（分割代入とは逆に、個々の変数をまとめる構文です）。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">title</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Title1</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">author</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Author1</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">title</span><span class="p">,</span> <span class="nx">author</span><span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+  <li><a href="../array/destructuring.html">配列の分割代入で複数の値を同時に代入する (Array destructuring)</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring">MDN - Destructuring assignment - Object destructuring</a></li>
+  <li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E5%88%86%E5%89%B2%E4%BB%A3%E5%85%A5">MDN - 分割代入 - オブジェクトの分割代入</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： 分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)&url=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/syntax/object-destructuring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2020-07-18</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

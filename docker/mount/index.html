@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのDockerノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/docker/mount/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-docker.png" />
+
+  <meta property="og:description" content="天才星人まくのDockerノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント） | まくまくDockerノート" />
+  <title>Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント） - まくまくDockerノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/docker/">
+    <img src="/assets/img/logo-docker.png" class="xPageHeader_logo">
+  </a>
+  <a href="/docker/">
+    <div class="xPageHeader_category">
+    まくまくDockerノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-01-25</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/docker/mount/index.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント）&url=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="docker-の-3-種類のマウント">Docker の 3 種類のマウント</h2>
+
+<p>Docker コンテナ内で作成・編集した作業ファイルは、コンテナを停止 (<code class="language-plaintext highlighter-rouge">docker container stop</code>) しても消えてしまうことはありませんが、コンテナを削除 (<code class="language-plaintext highlighter-rouge">docker container rm</code>) した場合には消えてしまいます。
+これは、コンテナ内のファイル群が、コンテナ内に閉じて存在しているからです（だからこそコンテナなのですが）。</p>
+
+<p>Docker のマウント機能を用いると、コンテナ内の特定のディレクトリパス（の中のファイル群）をホスト PC 上のファイルシステムに関連付けることができるため、コンテナのライフサイクルとは切り離して作業ファイルを管理できるようになります。
+マウントには下記で説明する 3 種類がありますが、作業ファイルをホスト PC 側に永続化したい場合は、「ボリュームマウント」か「バインドマウント」というマウントタイプを使用します。
+もうひとつの「tmpfs マウント」は、その名のとおりテンポラリファイルにのみ使用できます。</p>
+
+<p><img src="/docker/mount/img-001.png" alt="img-001.png" /></p>
+
+<p>（図は Docker 公式サイトより抜粋）</p>
+
+<dl>
+  <dt>ボリュームマウント</dt>
+  <dd><strong>ホスト PC 上にコンテナ用のデータファイルを作成</strong> し、コンテナ内の特定のディレクトリパスにマッピングします。
+このデータファイルはポータビリティが高く、クラウド上に保存するということもできます（ボリュームドライバーが必要）。
+複数のコンテナから 1 つのボリュームを共有することも可能です。
+コンテナ内で作成したファイルの永続化には、このボリュームの使用が推奨されています。</dd>
+  <dt>バインドマウント</dt>
+  <dd><strong>ホスト PC の特定のディレクトリ（絶対パス指定）</strong> を、コンテナ内の特定のディレクトリパスにマッピングします。
+ボリュームと比べてポータビリティが低いため、名前付きボリュームの使用が推奨されてます。例えば、バインドマウントでは、ホスト側の多数のファイルとマッピングされてしまうため別環境に移しにくいとか、マウント時のパス表現が OS に依存してしまうといった欠点があります。
+ホスト側からコンテナで操作したファイルをささっと覗いて見たいときはバインドマウントは便利ですが、これはコンテナ内で作成した危険なファイルが、そのままホスト上にも作られてしまうということを示しています。</dd>
+  <dt>tmpfs マウント</dt>
+  <dd><strong>ホスト PC のメモリ領域</strong> を、コンテナ内の特定のディレクトリパスにマッピングします。コンテナ上でファイル生成を行うと、実際には一時的なメモリ領域に保存されることになるので、ここに保存されたファイルはコンテナを停止すると消えてしまいます。一時的なファイルを格納するディレクトリを tmpfs マウントすることで、コンテナサイズの増加を防ぐことができ（書き込みレイヤーに出力されない）、パフォーマンスの向上を見込めます。</dd>
+</dl>
+
+<p>上記で、「ホスト PC」といっているのは Docker コンテナの実行環境のことであり、Windows や macOS で Docker Desktop を使用している場合は、正確には Linux VM のことを示します。</p>
+
+<h2 id="ボリュームマウント-volume-mount-の使い方">ボリュームマウント (volume mount) の使い方</h2>
+
+<p>コンテナ内での作業内容（生成したファイル）をホスト PC 側に永続化したいときに最初に検討すべきは「ボリューム」の使用です。
+ボリュームの実体はホスト PC 上のファイルシステム（Docker 管轄下）に永続化されたファイルであり、コンテナ側から見ると「ディレクトリ」として見えます。</p>
+
+<h3 id="ボリュームを作成する-docker-volume-create">ボリュームを作成する (docker volume create)</h3>
+
+<p>ボリュームを明示的に作成するには次のように実行します（コンテナ実行時に自動生成することも可能です）。
+ボリューム名を明示するので、名前付きボリューム (named volume) と呼ばれます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker volume create my-vol
+</code></pre></div></div>
+
+<h3 id="ボリュームの一覧を表示する-docker-volume-ls">ボリュームの一覧を表示する (docker volume ls)</h3>
+
+<p>Docker ホスト上に存在しているボリュームの一覧を表示するには、次のように実行します。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker volume <span class="nb">ls</span>
+<span class="go">DRIVER    VOLUME NAME
+local     e61a091c345b2b969dd288f984be...
+local     my-vol  ← 今回作成したボリューム
+local     out
+</span></code></pre></div></div>
+
+<p>（ボリューム名がランダムな記号列になっているものは、匿名マウント時に自動生成されたボリュームです）</p>
+
+<h3 id="ボリュームの詳細情報を表示する-docker-volume-inspect">ボリュームの詳細情報を表示する (docker volume inspect)</h3>
+
+<p>指定したボリュームの詳細情報を確認するには次のようにします。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker volume inspect my-vol
+<span class="go">[
+    {
+        "CreatedAt": "2022-01-25T07:18:24Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+</span></code></pre></div></div>
+
+<h3 id="ボリュームを削除する-docker-volume-rmprune">ボリュームを削除する (docker volume rm/prune)</h3>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="c">## ボリューム名を指定して削除</span>
+<span class="gp">$</span><span class="w"> </span>docker volume <span class="nb">rm </span>my-vol
+<span class="go">
+</span><span class="gp">#</span><span class="c">## 未使用のボリューム（どのコンテナからも参照されていないもの）をすべて削除</span>
+<span class="gp">$</span><span class="w"> </span>docker volume prune
+</code></pre></div></div>
+
+<h3 id="ボリュームマウントしてコンテナを起動する">ボリュームマウントしてコンテナを起動する</h3>
+
+<p>コンテナ側の <code class="language-plaintext highlighter-rouge">/volume</code> というパスに、上記で作成した <code class="language-plaintext highlighter-rouge">my-vol</code> ボリュームをマウントして使ってみます。
+ここでは、軽量の Alpine Linux イメージ (<code class="language-plaintext highlighter-rouge">alpine:latest</code>) を使ってコンテナを作成します。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="c">## コンテナ (my-alpine) の作成</span>
+<span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--mount</span> <span class="nv">src</span><span class="o">=</span>my-vol,dst<span class="o">=</span>/volume <span class="nt">--name</span> my-alpine alpine:latest
+<span class="go">
+</span><span class="gp">#</span><span class="c">## コンテナが作成できているか確認</span>
+<span class="gp">$</span><span class="w"> </span>docker container <span class="nb">ls</span> <span class="nt">-a</span>
+</code></pre></div></div>
+
+<p><strong><code class="language-plaintext highlighter-rouge">--mount</code></strong> オプションの <code class="language-plaintext highlighter-rouge">src</code> や <code class="language-plaintext highlighter-rouge">dst</code> でボリューム名やマウント先のパスを指定します。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">src=&lt;ボリューム名&gt;</code></strong> … <code class="language-plaintext highlighter-rouge">src</code> ではなく <code class="language-plaintext highlighter-rouge">source</code> でも OK。存在しないボリューム名を指定すると、その名前のボリュームが自動的に生成されます。<code class="language-plaintext highlighter-rouge">src</code> パラメーターを省略すると、ランダムな16進文字列の名前のボリュームが生成されます。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">dst=&lt;コンテナ側のパス&gt;</code></strong> … <code class="language-plaintext highlighter-rouge">dst</code> ではなく <code class="language-plaintext highlighter-rouge">destination</code> や <code class="language-plaintext highlighter-rouge">target</code> でも OK。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">type=&lt;マウントタイプ&gt;</code></strong> … ボリュームマウントの場合は省略できます。マウントタイプとして <code class="language-plaintext highlighter-rouge">volume</code>、<code class="language-plaintext highlighter-rouge">bind</code>、<code class="language-plaintext highlighter-rouge">tmpfs</code> を指定します。</li>
+</ul>
+
+<p>（過去の記事には、<strong><code class="language-plaintext highlighter-rouge">-v</code></strong> オプションを使っているものもありますが、現在は公式に <code class="language-plaintext highlighter-rouge">--mount</code> オプションの使用が推奨されています（挙動がわかりにくく問題が発生しやすいなどの理由があります）。特別な事情がない限り、<strong><code class="language-plaintext highlighter-rouge">--mount</code></strong> オプションの方を使うようにしてください）</p>
+
+<p>コンテナを作成したら、次のようにして起動してシェル接続できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker start <span class="nt">-ai</span> my-alpine
+</code></pre></div></div>
+
+<p>コンテナ側の <code class="language-plaintext highlighter-rouge">/volume</code> というディレクトリが見えているかを確認してください。
+この中にファイルを作成すると、ホスト OS 側のボリューム領域に内容が保存されるので、次回コンテナを起動 (<code class="language-plaintext highlighter-rouge">docker start</code>) したときにファイル編集作業の続きを行えます。
+<code class="language-plaintext highlighter-rouge">my-volume</code> ボリュームを他のコンテナにマウントして共有するということもできます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span><span class="nb">ls</span> /volume  <span class="c"># 初期状態は空っぽ</span>
+<span class="gp">#</span><span class="w"> </span><span class="nb">echo </span>Hello <span class="o">&gt;</span> /volume/hello.txt
+<span class="gp">#</span><span class="w"> </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<h3 id="ボリュームファイルの格納場所">ボリュームファイルの格納場所</h3>
+
+<p>ボリュームのデータファイルは具体的にはホスト PC の <code class="language-plaintext highlighter-rouge">/var/lib/docker/volumes</code> に生成されますが、ボリュームは <code class="language-plaintext highlighter-rouge">docker volume</code> コマンドを介して操作するので、通常は保存先のパスを意識する必要はありません。
+Windows や macOS で Docker Desktop を使用している場合は、Volumes タブでボリュームの一覧を確認することができます（Docker Desktop のバックエンドとして使われる Linux VM 上に格納されているため、Windows や macOS 上で上記のパスを探しても見つからないことに注意してください）。</p>
+
+<p><img src="/docker/mount/img-002.png" alt="img-002.png" /></p>
+
+<h2 id="バインドマウント-bind-mount-の使い方">バインドマウント (bind mount) の使い方</h2>
+
+<p>バインドマウントは、ホスト OS 上のディレクトリをコンテナ側のディレクトリにマッピングします。
+つまり、お互いのファイルシステム上で同じディレクトリ／ファイルを参照できるようになります。
+次の例では、ホスト OS 上のカレントディレクトリにある <code class="language-plaintext highlighter-rouge">data</code> ディレクトリを、コンテナ側の <code class="language-plaintext highlighter-rouge">/data</code> にマウントしています。
+ホスト OS 側のディレクトリは、存在するディレクトリを絶対パスで指定する必要があります（次の例では、<code class="language-plaintext highlighter-rouge">"$(pwd)/data"</code> で絶対パスを生成しています）。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">mkdir </span>data
+<span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,src<span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">/data"</span>,dst<span class="o">=</span>/data <span class="nt">--name</span> my-alpine alpine:latest
+</code></pre></div></div>
+
+<p>バインドマウントするときは、上記のように <code class="language-plaintext highlighter-rouge">--mount</code> オプションで <strong><code class="language-plaintext highlighter-rouge">type=bind</code></strong> と指定する必要があります。</p>
+
+<p>コンテナを起動してシェル接続し、適当なファイルを <code class="language-plaintext highlighter-rouge">/data</code> ディレクトリ以下に作成してみます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container start <span class="nt">-ai</span> my-alpine
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span><span class="nb">echo </span>Hello <span class="o">&gt;</span> /data/hello.txt
+<span class="gp">#</span><span class="w"> </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>ホスト OS 側で <code class="language-plaintext highlighter-rouge">data</code> ディレクトリを見ると、コンテナで作成したファイルが存在していることを確認できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">ls </span>data
+<span class="go">hello.txt
+</span></code></pre></div></div>
+
+<h2 id="tmpfs-マウントの使い方">tmpfs マウントの使い方</h2>
+
+<p>tmpfs マウントを使用すると、ホスト OS 上のメモリ領域を一時ファイルシステムとして、コンテナ側のディレクトリにマッピングすることができます。
+結果として、そのディレクトリ内に保存したファイルは、コンテナを停止したときに削除されます。
+一時的にしか使用しないファイルは、tmpfs マウントしたディレクトリ内に作成することで、Docker イメージの肥大化を防ぐことができます。
+また、そのファイルはメモリ上に生成されるため、パフォーマンス的にも有利です。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span>tmpfs,dst<span class="o">=</span>/sandbox <span class="nt">--name</span> my-alpine alpine:latest
+</code></pre></div></div>
+
+<p>tmpfs マウントするときは、上記のように <code class="language-plaintext highlighter-rouge">--mount</code> オプションで <strong><code class="language-plaintext highlighter-rouge">type=tmpfs</code></strong> と指定する必要があります。
+この例では、コンテナ側の <code class="language-plaintext highlighter-rouge">/sandbox</code> ディレクトリを tmpfs マウントのターゲットとしています。</p>
+
+<p>コンテナを起動して <code class="language-plaintext highlighter-rouge">/sandbox</code> 内にファイルを作成し、コンテナを停止してみます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker start <span class="nt">-ai</span> my-alpine
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span><span class="nb">echo </span>Hello <span class="o">&gt;</span> /sandbox/hello.txt
+<span class="gp">#</span><span class="w"> </span><span class="nb">exit</span>
+</code></pre></div></div>
+
+<p>再度コンテナを起動して <code class="language-plaintext highlighter-rouge">/sandbox</code> の中を見ると、上記で作成した <code class="language-plaintext highlighter-rouge">hello.txt</code> は消えていることがわかります。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker start <span class="nt">-ai</span> my-alpine
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span><span class="nb">ls</span> /sandbox
+<span class="gp">#</span><span class="w">
+</span></code></pre></div></div>
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント）&url=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/docker/mount/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/docker/"><span class="xArticle_up_label">まくまくDockerノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li class="xNav-focused"><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-01-25</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

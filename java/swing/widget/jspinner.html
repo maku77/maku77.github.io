@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/swing/widget/jspinner.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Swing - JSpinner を使って上下矢印で値を入力できるようにする | まくまくJavaノート" />
+  <title>Swing - JSpinner を使って上下矢印で値を入力できるようにする - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Swing - JSpinner を使って上下矢印で値を入力できるようにする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-02-02</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/swing/widget/jspinner.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JSpinner を使って上下矢印で値を入力できるようにする&url=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="数値を選択するための-jspinner-を使用する-spinnernumbermodel">数値を選択するための JSpinner を使用する (SpinnerNumberModel)</h2>
+
+<p><img src="/java/swing/widget/jspinner-number.png" alt="jspinner-number.png" /></p>
+
+<p>JSpinner で数値を選択できるようにするには、JSpinner のモデルとして SpinnerNumberModel をセットします。</p>
+
+<h4 id="例-デフォルト値-0">例: デフォルト値 0</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>値の取得は以下のようにします。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Integer</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">model</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+<span class="nc">Integer</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="任意のリストから選択するための-jspinner-を使用する-spinnerlistmodel">任意のリストから選択するための JSpinner を使用する (SpinnerListModel)</h2>
+
+<p><img src="/java/swing/widget/jspinner-list.png" alt="jspinner-list.png" /></p>
+
+<p>JSpinner 任意の値のリストから値を取得できるようにするには、JSpinner のモデルとして SpinnerListModel をセットします。</p>
+
+<h4 id="例-string-のリストを選択項目としてセットする例">例: String のリストを選択項目としてセットする例</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"one"</span><span class="o">);</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"two"</span><span class="o">);</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"three"</span><span class="o">);</span>
+
+<span class="nc">SpinnerListModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerListModel</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>ここでは、選択項目として String 型のリストを設定したので、選択された値は以下のように String 型で取得します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">model</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+<span class="nc">String</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>SpinnerListModel のコンストラクタに、List オブジェクトを渡した場合、そのオブジェクトは内部でコピーされません。
+なので、外で List の内容を変更した場合は、JSpinner が表示する内容に反映されます。</p>
+
+<p>SpinnerListModel には、List オブジェクトではなく配列を扱うコンストラクタも用意されており、こちらの場合は内部で List オブジェクトに値がコピーされるので、外部で配列の内容を変更しても JSpinner の表示する項目は変更されません。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">};</span>
+
+<span class="nc">SpinnerListModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerListModel</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="jspinner-で日時を選択する-spinnerdatemodel">JSpinner で日時を選択する (SpinnerDateModel)</h2>
+
+<p><img src="/java/swing/widget/jspinner-date1.png" alt="jspinner-date1.png" />
+<img src="/java/swing/widget/jspinner-date2.png" alt="jspinner-date2.png" /></p>
+
+<p>JSpinner で日時を選択できるようにするには、JSpinner のモデルとして SpinnerDateModel? をセットします。デフォルト値は現在日時になります。</p>
+
+<h4 id="例-デフォルトフォーマット">例: デフォルトフォーマット</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerDateModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerDateModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h4 id="例-任意の日付フォーマットを指定する">例: 任意の日付フォーマットを指定する</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerDateModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerDateModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="nc">JComponent</span> <span class="n">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">.</span><span class="na">DateEditor</span><span class="o">(</span><span class="n">spinner</span><span class="o">,</span> <span class="s">"yyyy-MM-dd HH:mm:ss"</span><span class="o">);</span>
+<span class="n">spinner</span><span class="o">.</span><span class="na">setEditor</span><span class="o">(</span><span class="n">editor</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>設定された日時は、以下のように Date オブジェクトとして取得します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Date</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+<span class="nc">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Date</span><span class="o">)</span> <span class="n">model</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="jspinner-で扱う数値の初期値最小値最大値ステップ幅を設定する">JSpinner で扱う数値の初期値、最小値、最大値、ステップ幅を設定する。</h2>
+
+<p>JSpinner で扱う値のデフォルト設定は以下のようになっています。</p>
+
+<ul>
+  <li>初期値: 0</li>
+  <li>最小値: 制限なし（実際には <code class="language-plaintext highlighter-rouge">Integer.MIN_VALUE</code> (-2,147,483,648)）</li>
+  <li>最大値: 制限なし（実際には <code class="language-plaintext highlighter-rouge">Integer.MAX_VALUE</code> (2,147,483,647)）</li>
+  <li>ステップ幅: 1</li>
+</ul>
+
+<p>これを変更するには以下のようにします。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">();</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setValue</span><span class="o">(</span><span class="mi">50</span><span class="o">);</span>     <span class="c1">// 初期値</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setMinimum</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>    <span class="c1">// 選択可能な最小値</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setMaximum</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>  <span class="c1">// 選択可能な最大値</span>
+<span class="n">model</span><span class="o">.</span><span class="na">setStepSize</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>  <span class="c1">// ステップ幅</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>コンストラクタでも指定できます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">(</span><span class="mi">50</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">100</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>SpinnerNumberModel で、double 型のパラメータを扱うコンストラクタを呼び出すと、浮動小数点数を扱うことができます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mf">0.25</span><span class="o">);</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>SpinnerNumberModel に Double 値を設定する場合は、<code class="language-plaintext highlighter-rouge">model.getValue()</code> で取得するオブジェクトを、Integer 型ではなく、Double 型で扱う必要があります。</p>
+
+<h2 id="jspinner-で選択されている値を取得する">JSpinner で選択されている値を取得する</h2>
+
+<p>JSpinner で選択中の項目を取得するには、JSpinner あるいは、セットした SpinnerModel の <code class="language-plaintext highlighter-rouge">getValue()</code> メソッドを使用します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span> <span class="nc">JSpinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span>
+<span class="nc">Object</span> <span class="nc">SpinnerModel</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>で現在選択中の項目を取得することができます。
+実際に返される Object は、ListModel の <code class="language-plaintext highlighter-rouge">getValue()</code> で返しているオブジェクトによって決まります。</p>
+
+<p>例えば、SpinnerNumberModel を JSpinner のモデルとしてセットしている場合は、<code class="language-plaintext highlighter-rouge">getValue()</code> で返されるオブジェクトの型は Interger あるいは Double になります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="nc">Integer</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h2 id="jspinner-の選択項目が変更されたときのイベントをハンドルする">JSpinner の選択項目が変更されたときのイベントをハンドルする</h2>
+
+<p>JSpinner に ChangeListener を登録することで、選択項目が変更されたときのイベントをハンドルできます。</p>
+
+<p>このイベントは、以下のような操作を行ったときに発生します。</p>
+
+<ul>
+  <li>Spinner の上下ボタンを押して値が変わったとき。</li>
+  <li>キーボードの上下キーを押してで値が変わったとき。</li>
+  <li>キーボードから値を直接入力して Enter キーを押したとき。</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// import javax.swing.JSpinner;</span>
+<span class="c1">// import javax.swing.SpinnerNumberModel;</span>
+<span class="c1">// import javax.swing.event.ChangeEvent;</span>
+<span class="c1">// import javax.swing.event.ChangeListener;</span>
+
+<span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="nc">ChangeListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ChangeListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stateChanged</span><span class="o">(</span><span class="nc">ChangeEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="o">(</span><span class="nc">JSpinner</span><span class="o">)</span> <span class="n">e</span><span class="o">.</span><span class="na">getSource</span><span class="o">();</span>
+        <span class="nc">Integer</span> <span class="n">val</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+<span class="n">spinner</span><span class="o">.</span><span class="na">addChangeListener</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="jspinner-に数値以外の値を設定できないようにする">JSpinner に数値以外の値を設定できないようにする</h2>
+
+<p>デフォルトではキーボードから値を入力すると、JSpinner に無効な値も入力できてしまいます（値変更のイベントは発生しませんが）。
+無効な値の入力を禁止するには以下のようにします。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">SpinnerNumberModel</span> <span class="n">model</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SpinnerNumberModel</span><span class="o">();</span>
+<span class="nc">JSpinner</span> <span class="n">spinner</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSpinner</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="n">disableInvalidInput</span><span class="o">(</span><span class="n">spinner</span><span class="o">);</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">disableInvalidInput</span><span class="o">(</span><span class="nc">JSpinner</span> <span class="n">spinner</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">JSpinner</span><span class="o">.</span><span class="na">DefaultEditor</span> <span class="n">editor</span> <span class="o">=</span>
+        <span class="o">(</span><span class="nc">JSpinner</span><span class="o">.</span><span class="na">DefaultEditor</span><span class="o">)</span> <span class="n">spinner</span><span class="o">.</span><span class="na">getEditor</span><span class="o">();</span>
+    <span class="nc">DefaultFormatter</span> <span class="n">formatter</span> <span class="o">=</span>
+        <span class="o">(</span><span class="nc">DefaultFormatter</span><span class="o">)</span> <span class="n">editor</span><span class="o">.</span><span class="na">getTextField</span><span class="o">().</span><span class="na">getFormatter</span><span class="o">();</span>
+    <span class="n">formatter</span><span class="o">.</span><span class="na">setAllowsInvalid</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JSpinner を使って上下矢印で値を入力できるようにする&url=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jspinner.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-02-02</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

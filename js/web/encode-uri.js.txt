@@ -1,0 +1,13 @@
+'use strict';
+
+const RESERVED = "あ A;,/?:@&=+$#-_.!~*'()[]";
+
+console.log('| ch | encodeURI(ch) | encodeURIComponent(ch) |');
+console.log('| ---- | ---- | ---- |');
+
+for (let i = 0; i < RESERVED.length; ++i) {
+  let c = RESERVED.charAt(i);
+  let note = (c == ' ') ? ' (スペース)' : '';
+  console.log('| `' + c + '`' + note + ' | `' + encodeURI(c) + '` | `' + encodeURIComponent(c) + '` |');
+}
+

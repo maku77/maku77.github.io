@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/tool/faceswap.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="faceswap/ffmpeg で動画の顔を好きな顔に置き換える | まくまくいろいろノート" />
+  <title>faceswap/ffmpeg で動画の顔を好きな顔に置き換える - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">faceswap/ffmpeg で動画の顔を好きな顔に置き換える</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2018-04-28</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/tool/faceswap.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： faceswap/ffmpeg で動画の顔を好きな顔に置き換える&url=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="概要">概要</h2>
+
+<p><a href="https://github.com/deepfakes/faceswap">faceswap</a> というツールを使用すると、機械学習の技術を使用して2人の画像の顔を入れ替えることができます。</p>
+
+<p>このツール自体は静止画を対象としているので、動画の顔を入れ替えることはできないのですが、</p>
+
+<ol>
+  <li><a href="https://www.ffmpeg.org/">ffmpeg</a> を使って動画から静止画を生成</li>
+  <li>faceswap を使って静止画の顔を入れ替える</li>
+  <li>ffmpeg を使って静止画を結合して動画を生成</li>
+</ol>
+
+<p>というステップを踏むことによって、結果的に動画内の顔を入れ替えるということができます。</p>
+
+<h2 id="faceswap-環境のインストール">faceswap 環境のインストール</h2>
+
+<h3 id="faceswap-のダウンロード">faceswap のダウンロード</h3>
+
+<p>まずは、下記サイトの Clone or download ボタンを押して、zip ファイルをダウンロードします（約100MB）。</p>
+
+<ul>
+  <li><a href="https://github.com/deepfakes/faceswap">https://github.com/deepfakes/faceswap</a></li>
+</ul>
+
+<p>faceswap は Python 製のツールであり、tensorflow などパッケージをインストールする必要があります。
+Dockerfile が用意されていますので、<a href="/docker/">Docker の実行環境</a> がインストールされているのであれば、比較的簡単に faceswap の実行環境を整えることができます。
+Python 製のツールなので、<a href="/python/env/virtualenv.html">Virtualenv</a> を使って仮想環境を整えることもできます。</p>
+
+<p>以下、Docker による環境構築方法と、Virtualenv による環境構築方法をそれぞれ示します（本家の <a href="https://github.com/deepfakes/faceswap/blob/master/INSTALL.md">INSTALL ドキュメントはこちら</a>の情報が元になっています）。</p>
+
+<h3 id="docker-コンテナで-faceswap-環境を作る場合">Docker コンテナで faceswap 環境を作る場合</h3>
+
+<p>Docker がインストールされていない (<code class="language-plaintext highlighter-rouge">docker</code> コマンドが使えない) 場合は、まずは Docker をインストールします。</p>
+
+<ul>
+  <li><a href="https://docs.docker.com/install/">Install Docker</a></li>
+</ul>
+
+<p>例えば Mac であれば、下記から docker.dmg をダウンロードして簡単にインストールできます。</p>
+
+<ul>
+  <li><a href="https://store.docker.com/editions/community/docker-ce-desktop-mac">Docker Community Edition for Mac</a></li>
+</ul>
+
+<p>Docker 環境のインストールができたら、faceswap に付属している Dockerfile を使用して、Docker コンテナをビルドします（10分程度かかります）。
+ここでは、CPU 版のコンテナを作成します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd faceswap
+$ docker build -t deepfakes -f Dockerfile.cpu .
+</code></pre></div></div>
+
+<p>コンテナの作成が終わったら、シェルを起動します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --rm --name deepfakes -v $(pwd):/srv -it deepfakes bash
+</code></pre></div></div>
+
+<p>faceswap.py が実行できるようになっていれば成功です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@xxxxx:/srv# ./faceswap.py -h
+</code></pre></div></div>
+
+<h3 id="virtualenv-を使って-faceswap-環境を作る場合">Virtualenv を使って faceswap 環境を作る場合</h3>
+
+<p>ここでは、Virtualenv による faceswap 実行環境を構築してみます。
+MacBook Pro (A1398) で確認しています。
+必ずしも Virtualenv を使用する必要はないのですが、Virtualenv を使って実行環境を構築すると、faceswap のためにインストールした Python パッケージ群をその実行環境内に閉じて管理することができます（ディレクトリ削除すれば綺麗な環境に戻る）。
+Virtualenv の使い方に関しては、下記に詳しく記述されていますので、使用したことのない方は読んでみてください。
+faceswap に限らず、Python 製のツールを使用するときに活用できると思います。</p>
+
+<ul>
+  <li><a href="/python/env/virtualenv.html">Python の実行環境を切り替えて使用する (virtualenv)</a></li>
+</ul>
+
+<h4 id="1-python3-のインストール">1) Python3 のインストール</h4>
+
+<p>faceswap は Python スクリプトで作成されているので、Python 3 の処理系をインストールしておく必要があります。
+例えば、Mac では Homebrew を使用して下記のようにインストールできます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install python3
+</code></pre></div></div>
+
+<h4 id="2-virtualenv-で仮想環境を作成">2) Virtualenv で仮想環境を作成</h4>
+
+<p>Virtualenv で、faceswap 用の Python 実行環境を作成します。
+ここでは、ベタに <code class="language-plaintext highlighter-rouge">ENV</code> という名前で作成しましょう。
+間違いなく Python 3 の処理系が使われるように、<code class="language-plaintext highlighter-rouge">--python</code> オプションを指定しています。
+指定しなくても大丈夫かもしれません。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd faceswap
+$ virtualenv --python=python3 ENV
+</code></pre></div></div>
+
+<h4 id="3-仮想環境のセットアップ">3) 仮想環境のセットアップ</h4>
+
+<p>Virtualenv で作成した仮想環境内に入り、その中で必要なツール群をインストールしていきます。
+NVIDIA の GPU が搭載されていれば、GPU 版の環境を使用することができます。
+その場合は、CUDA（GPU 機能を使用するプラットフォーム）、cuDNN（CUDA 用の Deep Learning ライブラリ）をインストールしておく必要があります。</p>
+
+<ul>
+  <li><a href="https://developer.nvidia.com/cuda-downloads">CUDA Download</a></li>
+  <li><a href="https://developer.nvidia.com/cudnn">cuDNN Download</a></li>
+</ul>
+
+<p>faceswap には、pip 用の requirements ファイルが用意されているので、これを使って必要な Python パッケージをまとめてインストールできます。
+CPU 用、GPU 用という具合に別れていますので、環境に応じて使い分けてください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ENV/bin/activate
+(ENV)$ pip install -r requirements-python36.txt           （GPU 使えない場合）
+(ENV)$ pip install -r requirements-gpu-python36-cuda9.txt （GPU 使える場合）
+</code></pre></div></div>
+
+<p>Mac の場合、下記のような感じで tensorflow パッケージのインストールに失敗することがあります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not find a version that satisfies the requirement tensorflow-gpu==1.5.0
+</code></pre></div></div>
+
+<p>このような場合は、TensorFlow 公式サイトの指示にしたがって、明示的に URL 指定します（参考: <a href="https://www.tensorflow.org/install/install_mac">Installing TensorFlow on macOS</a>）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pip3 install --upgrade \
+  https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.7.0-py3-none-any.whl
+</code></pre></div></div>
+
+<p>pip によるパッケージインストール時に、cmake が入ってなくて、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No such file or directory: 'cmake'
+</code></pre></div></div>
+
+<p>というビルドできない感じのエラーが出たら、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install cmake
+</code></pre></div></div>
+
+<p>などで cmake をインストールしてから再チャレンジしてみてください。</p>
+
+<h2 id="faceswap-で静止画の画像を入れ替える">faceswap で静止画の画像を入れ替える</h2>
+
+<p>faceswap を使用すると、2人の画像の顔を置換することができます（本家の <a href="https://github.com/deepfakes/faceswap/blob/master/USAGE.md">USAGE ドキュメントはこちら</a>）。</p>
+
+<h3 id="写真から顔を抽出する-extract">写真から顔を抽出する (Extract)</h3>
+
+<p>ここでは、人物1の写真と人物2の写真をそれぞれ用意し、人物1の写真の中の顔を人物2の顔に入れ替えることを考えます。
+作業用の <code class="language-plaintext highlighter-rouge">data</code> ディレクトリを作成し、次のような構成で2人の写真を置いてください（少なくとも 64 ファイル以上ないと、スクリプト内で assert が発生するみたいです）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+-- faceswap/
+     +-- data/
+          +-- photos-person1/  （人物1の写真 - この顔を）
+          +-- photos-person2/  （人物2の写真 - この顔に入れ替える）
+</code></pre></div></div>
+
+<p>次のように実行すると、<code class="language-plaintext highlighter-rouge">data/photos-person1</code> の中の写真から顔だけを抽出した画像ファイルが、<code class="language-plaintext highlighter-rouge">data/faces-person1</code> に保存されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ./faceswap.py extract -i data/photos-person1 -o data/faces-person1
+</code></pre></div></div>
+
+<p>同様にして、人物2の写真 (<code class="language-plaintext highlighter-rouge">data/photos-person2</code>) からも顔画像を抽出すれば完了です。
+抽出した顔画像のサイズは、256x256 で統一されています。</p>
+
+<h3 id="機械学習で顔1から顔2への変換モデルを作成する-train">機械学習で顔1から顔2への変換モデルを作成する (Train)</h3>
+
+<p>2人分の顔画像が準備できたら、顔1 (<code class="language-plaintext highlighter-rouge">data/faces-person1</code>) を顔2 (<code class="language-plaintext highlighter-rouge">data/faces-person2</code>) に置き換えるためのモデルデータを作成します。</p>
+
+<!--
+まず、下記の学習済みモデル (Trained model) のアーカイブをダウンロードして、モデル格納用のディレクトリに展開します。
+
+- [https://anonfile.com/p7w3m0d5be/face-swap.zip](https://anonfile.com/p7w3m0d5be/face-swap.zip) （約300MB）
+
+~~~
++-- faceswap/
+     +-- data/
+          +-- models-person1-person2/  （人物1の顔を人物2の顔に置換するモデル）
+               +-- encoder.h5    （このファイルを配置）
+               +-- decoder_A.h5  （このファイルを配置）
+               +-- decoder_B.h5  （このファイルを配置）
+~~~
+
+下記の機械学習処理では、これらのモデルを強化していくため、ダウンロードした学習済みモデルのアーカイブは、バックアップしておくとよいでしょう。
+-->
+
+<p>次のように実行すると学習が始まり、<code class="language-plaintext highlighter-rouge">data/models-person1-person2</code> 以下にモデルデータが作成されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ./faceswap.py train -A data/faces-person1 -B data/faces-person2 -m data/models-person1-person2
+</code></pre></div></div>
+
+<p>この学習処理はものすごく時間がかかりますが、特に CPU で処理している場合は忍耐強く待つ必要があります。</p>
+
+<p>顔画像のファイル数が少なすぎると、以下のようなアサーションエラーが発生します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AssertionError: Number of images is lower than batch-size (Note that too few images may lead to bad training). # images: 13, batch-size: 64
+</code></pre></div></div>
+
+<p>メッセージの通り、デフォルトではバッチサイズが 64 となっており、顔画像が 64 ファイル以上ないと怒られます。
+バッチサイズは、下記のように <code class="language-plaintext highlighter-rouge">-bs (--batch-size)</code> オプションで2のべき乗の値 (64,128,256) を指定できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ./faceswap.py train -A data/faces-person1 -B data/faces-person2 -m data/models-person1-person2 -bs ＜2のべき乗＞
+</code></pre></div></div>
+
+<h3 id="顔を入れ替える">顔を入れ替える</h3>
+
+<p>作成したモデルデータ (<code class="language-plaintext highlighter-rouge">data/models-person1-person2</code>) を使って、人物1の写真 (<code class="language-plaintext highlighter-rouge">data/photos-person1</code>) の顔を入れ替えるには、下記のように実行します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ./faceswap.py convert -i data/photos-person1 -o data/photos-result -m data/models-person1-person2
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">data/photos-result</code> ディレクトリに、結果の写真が格納されます。</p>
+
+<h2 id="ffmpeg-で動画ファイルの顔を入れ替える">ffmpeg で動画ファイルの顔を入れ替える</h2>
+
+<p>ffmpeg を使うと、動画ファイルを静止画ファイルに分割したり、逆に、静止画ファイルから動画ファイルを作成したりすることができます。
+faceswap では、直接動画ファイル内の顔を置換することはできないので、まずは ffmpeg を使って、動画を静止画に変換しておく必要があります。</p>
+
+<h3 id="ffmpeg-のインストール">ffmpeg のインストール</h3>
+
+<p>ffmpeg は下記サイトからダウンロードすることができます。</p>
+
+<ul>
+  <li><a href="https://www.ffmpeg.org/">https://www.ffmpeg.org/</a></li>
+</ul>
+
+<p>それぞれのプラットフォーム用のパッケージをダウンロードして、<code class="language-plaintext highlighter-rouge">ffmpeg</code> ファイルを、パスの通ったディレクトリに置けば OK です。</p>
+
+<h3 id="動画を静止画ファイルに変換">動画を静止画ファイルに変換</h3>
+
+<p>ffmpeg を使って動画ファイルから静止画ファイルを生成するには以下のようにします。</p>
+
+<h4 id="例-videomp4-から静止画ファイルを生成する">例: video.mp4 から静止画ファイルを生成する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir data/photos-someone  # 出力先ディレクトリを作成しておく
+$ ffmpeg -i data/video.mp4 -vf fps=25 data/photos-someone/%06d.png
+</code></pre></div></div>
+
+<p>上記では <code class="language-plaintext highlighter-rouge">fps=25</code>（1 秒あたり 25 枚の静止画）で切り出していますが、学習用のファイルとしては、あまり似たような画像があってもしょうがないので、<code class="language-plaintext highlighter-rouge">fps=1</code> などに調整して作成するとよいでしょう。
+ただし、最終的に顔の置換対象とする画像ファイル群は、ある程度のフレーム数で切り出しておいて、動画ファイルの形に結合する必要があります。</p>
+
+<ul>
+  <li>学習用の静止画: 1fps</li>
+  <li>置換対象の静止画: 25fps</li>
+</ul>
+
+<p>という感じで作り分けるとよいかもしれません。</p>
+
+<h3 id="静止画ファイルから動画ファイルに変換">静止画ファイルから動画ファイルに変換</h3>
+
+<p>静止画ファイルができたら、faceswap を使用して顔の入れ替えなどの画像処理を行います。
+画像処理が終わったら、下記のようにして動画ファイルの形に結合することができます。</p>
+
+<h4 id="例-dataphotos-result-ディレクトリ内の静止画から動画ファイルを生成する">例: data/photos-result ディレクトリ内の静止画から動画ファイルを生成する</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ffmpeg -r 25 -i data/photos-result/%06d.png -vcodec libx264 -pix_fmt yuv420p -r 60 result.mp4
+</code></pre></div></div>
+
+<p>最初の <code class="language-plaintext highlighter-rouge">-r 25</code> は入力画像のフレームレート（何枚で1分になるか）を表しており、次の <code class="language-plaintext highlighter-rouge">-r 60</code> は出力される動画のフレームレートを表しています。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： faceswap/ffmpeg で動画の顔を好きな顔に置き換える&url=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/tool/faceswap.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2018-04-28</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

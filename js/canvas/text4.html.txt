@@ -1,0 +1,32 @@
+<canvas id="canvas" width="420" height="40" style="border:solid gray 1px;"></canvas>
+<script>
+window.onload = function() {
+  var canvas = document.getElementById('canvas');  // HTMLCanvasElement
+  var ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
+  ctx.font = '20pt sans-serif';
+
+  var params = [
+    ['start', 20, 30],
+    ['end', 150, 30],
+    ['left', 180, 30],
+    ['right', 300, 30],
+    ['center', 360, 30],
+  ];
+
+  for (var i = 0, n = params.length; i < n; ++i) {
+    var p = params[i];
+
+    // テキスト描画
+    ctx.fillStyle = '#06f';
+    ctx.textAlign = p[0];
+    ctx.fillText(p[0], p[1], p[2]);
+
+    // ドット描画
+    ctx.beginPath();
+    ctx.arc(p[1], p[2], 3, 0, Math.PI * 2, true);
+    ctx.fillStyle = '#f00';
+    ctx.fill();
+  }
+};
+</script>
+

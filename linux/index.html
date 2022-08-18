@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのLinux/Shellノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/linux/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-linux.png" />
+
+  <meta property="og:description" content="天才星人まくのLinux/Shellノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Linux/Shell ノート | 天才まくまくノート" />
+  <title>まくまく Linux/Shell ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-linux.svg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくLinux/Shellノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        Linux 全般のメモ。Bash や Linux シェルプログラミングなど。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Shell メモ&url=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="シェルスクリプト--bash-プログラミング">シェルスクリプト / Bash プログラミング</h2>
+
+<ul>
+  <li><a href="basic/coding-style.html">シェルスクリプトのコーディングスタイル</a></li>
+</ul>
+
+<h3 id="変数">変数</h3>
+<ul>
+  <li><a href="var/basic.html">変数の基本</a></li>
+  <li><a href="var/read-only.html">定数を定義する (readonly)</a></li>
+  <li><a href="var/check-if-var-is-set.html">シェル変数/環境変数がセットされているか調べる</a></li>
+  <li><a href="var/expansion.html">Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）</a></li>
+  <li>配列
+    <ul>
+      <li><a href="var/create-array.html">配列を作成する</a></li>
+      <li><a href="var/loop-array.html">配列をループ処理する</a></li>
+      <li><a href="var/array-size.html">配列のサイズ（要素数）を調べる</a></li>
+      <li><a href="var/add-elem-to-array.html">配列に要素を追加する</a></li>
+      <li><a href="var/concat-arrays.html">配列と配列を結合する</a></li>
+    </ul>
+  </li>
+  <li>数値
+    <ul>
+      <li><a href="var/add-and-sub.html">数値変数を加算／減算する</a></li>
+      <li><a href="number/random.html">ランダムな数値を取得する ($RANDOM)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="制御構文">制御構文</h3>
+<ul>
+  <li><a href="syntax/if.html">if-else による分岐処理</a></li>
+  <li><a href="syntax/case.html">case による分岐処理</a></li>
+  <li><a href="syntax/for.html">for/while によるループ処理</a>
+    <ul>
+      <li><a href="syntax/loop-output.html">ループ内での複数の出力をまとめてリダイレクト、パイプ処理する</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="起動時の処理">起動時の処理</h3>
+<ul>
+  <li><a href="startup/command-line-params.html">コマンドライン引数を取得する</a></li>
+  <li><a href="startup/check-param-count.html">コマンドライン引数の数が正しいかチェックする</a></li>
+  <li><a href="startup/check-env.html">ある環境変数が定義されているかチェックする</a></li>
+  <li><a href="startup/check-external-command.html">ある外部コマンドが使用できるかチェックする</a></li>
+</ul>
+
+<h3 id="関数">関数</h3>
+<ul>
+  <li><a href="syntax/function.html">関数を定義する (function)</a></li>
+  <li><a href="syntax/pass-params-to-function.html">関数へパラメータを渡す</a></li>
+  <li><a href="syntax/local-var-in-function.html">関数内でローカル変数を扱う</a></li>
+  <li><a href="syntax/return-value-from-function.html">関数から戻り値を返す</a></li>
+  <li><a href="syntax/default-params.html">関数のデフォルト引数を定義する</a></li>
+</ul>
+
+<h3 id="パス">パス</h3>
+<ul>
+  <li><a href="path/absolute-path-to-relative-path.html">絶対パスと相対パスの変換 (basename, dirname)</a></li>
+  <li><a href="path/absolute-path-of-file.html">指定したファイルの絶対パスを取得する</a></li>
+  <li><a href="path/absolute-path-of-current-dir.html">カレントディレクトリの絶対パスを取得する</a></li>
+  <li><a href="path/path-of-script.html">実行中のシェルスクリプトのファイル名を取得する</a></li>
+  <li><a href="path/absolute-path-of-script-dir.html">実行中のシェルスクリプトがあるディレクトリの絶対パスを取得する</a></li>
+  <li><a href="path/move-to-script-dir.html">実行中のシェルスクリプトがあるディレクトリに移動する</a></li>
+</ul>
+
+<h3 id="入出力-io">入出力 (I/O)</h3>
+<ul>
+  <li><a href="io/echo-spaces.html">echo で出力した文字列の中の連続するスペースが1つのスペースになってしまうのを防ぐ</a></li>
+  <li><a href="io/echo-color.html">echo で出力する文字の色を変える</a></li>
+  <li><a href="io/user-input.html">ユーザ入力を取得する (read)</a></li>
+  <li><a href="io/loop-files.html">ディレクトリ内のファイルを順に処理する</a></li>
+  <li><a href="io/external-command.html">外部コマンドの実行結果を一行ずつ処理する</a></li>
+  <li><a href="io/read-file.html">テキストファイルを読み込む</a></li>
+  <li><a href="io/expect.html">expect で ssh や rsync のパスワード入力を自動化する</a></li>
+</ul>
+
+<h3 id="日時">日時</h3>
+<ul>
+  <li><a href="time/date-string.html">今日の日付から YYYYMMDD のような文字列を作成する (date)</a></li>
+</ul>
+
+<h3 id="トラブルシューティング">トラブルシューティング</h3>
+<ul>
+  <li><a href="trouble/function-syntax-error.html">改行コードが原因の関数定義の syntax error</a></li>
+</ul>
+
+<h2 id="d-bus">D-Bus</h2>
+
+<h3 id="d-bus-全般">D-Bus 全般</h3>
+<ul>
+  <li><a href="dbus/words.html">D-Bus 関連用語</a></li>
+  <li><a href="dbus/links.html">D-Bus 関連リンクと関連ツール</a></li>
+  <li><a href="dbus/gdbus-and-dbus-glib.html">GDBus と dbus-glib</a></li>
+</ul>
+
+<h3 id="dbus-glib">dbus-glib</h3>
+<ul>
+  <li><a href="dbus/dbus-glib-1.html">dbus-glib 開発用ライブラリをインストールする</a></li>
+  <li><a href="dbus/dbus-glib-2.html">dbus-glib で method call を実装する（ヘッダファイルの生成）</a></li>
+  <li><a href="dbus/dbus-glib-3.html">dbus-glib で method call を実装する（サーバ側の実装）</a></li>
+  <li><a href="dbus/dbus-glib-4.html">dbus-glib で method call を実装する（クライアント側の実装）</a></li>
+</ul>
+
+<h3 id="gdbubs">GDBubs</h3>
+<ul>
+  <li><a href="dbus/gdbus.html">GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する</a></li>
+  <li><a href="dbus/gdbus-emit-signal.html">GDBus サーバから signal を発行する</a></li>
+  <li><a href="dbus/gdbus-receive-binary.html">GDBus でバイナリデータ（バイト配列）を受け取る方法</a></li>
+  <li><a href="dbus/gvariant.html">glib の GVariant を使ってみる</a></li>
+</ul>
+
+<h3 id="d-bus-java">D-Bus Java</h3>
+<ul>
+  <li><a href="dbus/dbus-java-install.html">D-Bus Java をインストールする</a></li>
+  <li><a href="dbus/dbus-java-session-bus.html">D-Bus Java で Session bus に接続してメソッドを呼び出す</a></li>
+  <li><a href="dbus/dbus-java-p2p-client.html">D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル</a></li>
+</ul>
+
+<h3 id="dbus-python">dbus-python</h3>
+<ul>
+  <li><a href="dbus/dbus-python/sample.html">dbus-python の公式サンプルコード</a></li>
+  <li><a href="dbus/dbus-python/server-and-client-1.html">dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）</a></li>
+  <li><a href="dbus/dbus-python/server-and-client-2.html">dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）</a></li>
+  <li><a href="dbus/dbus-python/p2p-client.html">dbus-python で D-Bus の P2P クライアントを実装する</a></li>
+</ul>
+
+<h2 id="linux-システム管理">Linux システム／管理</h2>
+<h3 id="コマンド">コマンド</h3>
+<ul>
+  <li><a href="linux-version.html">Linux カーネル／OS のバージョンを調べる</a></li>
+  <li><a href="bash-version.html">bash のバージョンを調べる ($BASH_VERSION)</a></li>
+  <li><a href="linux-ids.html">Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ</a></li>
+  <li><a href="kernel-params.html">カーネルに渡されたパラメータを調べる (/proc/cmdline)</a></li>
+  <li><a href="memory.html">Linux のメモリ情報を調べるコマンド</a></li>
+  <li><a href="settings/ntp.html">NTP でシステム時刻を設定する</a></li>
+  <li><a href="manage/backup.html">ディレクトリ内のファイルを zip ファイルにバックアップする</a></li>
+  <li><a href="manage/cpulimit.html">Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)</a></li>
+</ul>
+
+<h3 id="プログラミング">プログラミング</h3>
+<ul>
+  <li><a href="manage/setrlimit.html">Linux システムコールを使用して core dump を吐かないようにする (setrlimit)</a></li>
+</ul>
+
+<h2 id="linux-コマンド全般">Linux コマンド全般　</h2>
+<ul>
+  <li><a href="/p/hudubr8/">Linuxコマンド: ファイルやディレクトリを検索する (find, grep)</a></li>
+  <li><a href="basic/gow.html">Windows で Linux 系のコマンドを使用できるようにする (Gow)</a></li>
+  <li><a href="basic/rsync.html">rsync コマンドでディレクトリを同期する</a></li>
+  <li><a href="basic/cat-with-line-number.html">行番号付きでテキストファイルの内容を出力する (cat -b)</a></li>
+  <li><a href="basic/check-if-text-file.html">あるファイルがテキストファイルかどうか調べる (file)</a></li>
+  <li><a href="basic/redirect-and-pipe.html">リダイレクトとパイプ処理のまとめ</a></li>
+  <li><a href="basic/avoid-overridden-by-redirect.html">Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ</a></li>
+  <li><a href="basic/echo-instead-of-ls.html">ls コマンドが使えないときに echo コマンドで代用する</a></li>
+  <li><a href="basic/ls-with-pattern-matching.html">いずれかの文字列を含むファイルだけを列挙する</a></li>
+</ul>
+
+<h3 id="curl-コマンド">curl コマンド</h3>
+<ul>
+  <li><a href="tool/curl-via-proxy.html">プロキシ経由で curl コマンドを実行する</a></li>
+  <li><a href="tool/curl-response-header.html">curl で HTTP のレスポンスヘッダのみを確認する</a></li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Shell メモ&url=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li class="xNav-focused"><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

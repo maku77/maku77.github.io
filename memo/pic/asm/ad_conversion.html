@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/pic/asm/ad_conversion.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="A/D 変換を実行する ─ PIC めもめも | まくまくいろいろノート" />
+  <title>A/D 変換を実行する ─ PIC めもめも - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">A/D 変換を実行する ─ PIC めもめも</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/pic/asm/ad_conversion.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： A/D 変換を実行する ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="ad-変換モジュール">A/D 変換モジュール</h2>
+
+<p>PIC16F873/876 (28ピン)、PIC16F874/877 (40ピン) などには A/D 変換モジュールが付いています。
+28 ピンモジュールには 5 入力、40 ピンモジュールには 8 入力あります。
+5 入力全部使えば、3 軸加速度センサと 2 軸ジャイロセンサの出力を 1 つの PIC で A/D 変換することができます（入力が多いほど A/D 変換に時間はかかります）。</p>
+
+<p>A/D 変換モジュールには次の 4 つのレジスタがあります。</p>
+
+<ul>
+  <li>A/D 変換制御レジスタ 0 ･･･ <strong>ADCON0</strong></li>
+  <li>A/D 変換制御レジスタ 1 ･･･ <strong>ADCON1</strong></li>
+  <li>A/D 変換結果 High レジスタ ･･･ <strong>ADRESH</strong></li>
+  <li>A/D 変換結果 Low レジスタ ･･･ <strong>ADRESL</strong></li>
+</ul>
+
+<h2 id="ad-変換制御用レジスタ--adcon0-レジスタの構成">A/D 変換制御用レジスタ ─ ADCON0 レジスタの構成</h2>
+
+<p>ADCON0 レジスタ (1Fh : Bank0) は、クロック、チャンネルの指定、A/D 変換開始などに使用します。</p>
+
+<table>
+    <tr style="text-align:center">
+        <td width="12.5%">ADCS1<br />(7)</td>
+        <td width="12.5%">ADCS0<br />(6)</td>
+        <td width="12.5%">CHS2<br />(5)</td>
+        <td width="12.5%">CHS1<br />(4)</td>
+        <td width="12.5%">CHS0<br />(3)</td>
+        <td width="12.5%">GO/<span style="text-decoration: overline;">DONE</span><br />(2)</td>
+        <td width="12.5%">─<br />(1)</td>
+        <td width="12.5%">ADON<br />(0)</td>
+    </tr>
+</table>
+
+<h4 id="adcs17--adcs06-ad-変換クロックセレクトビット">ADCS1(7) ～ ADCS0(6): AD 変換クロックセレクトビット</h4>
+
+<ul>
+  <li>00 ･･･ Fosc/2</li>
+  <li>01 ･･･ Fosc/8</li>
+  <li>10 ･･･ Fosc/32</li>
+  <li>11 ･･･ F<small>RC</small> (RC 発振)</li>
+</ul>
+
+<h4 id="chs25--chs03-アナログチャネルセレクトビット">CHS2(5) ～ CHS0(3): アナログチャネルセレクトビット</h4>
+
+<ul>
+  <li>000 ･･･ channel 0, (RA0/AN0)</li>
+  <li>001 ･･･ channel 1, (RA1/AN1)</li>
+  <li>010 ･･･ channel 2, (RA2/AN2)</li>
+  <li>011 ･･･ channel 3, (RA3/AN3)</li>
+  <li>100 ･･･ channel 4, (RA5/AN4)</li>
+  <li>101 ･･･ channel 5, (RE0/AN5) (※ 28pin デバイスにはありません)</li>
+  <li>110 ･･･ channel 6, (RE1/AN6) (※ 28pin デバイスにはありません)</li>
+  <li>111 ･･･ channel 7, (RE2/AN7) (※ 28pin デバイスにはありません)</li>
+</ul>
+
+<p>A/D 変換は 1 度に 1 つのポートからの入力に対してしか行なえないので、この 3 bit でどのポートからの入力を変換するか切り替えます。</p>
+
+<h4 id="godone2-ad-変換ステータスビット">GO/<span style="text-decoration: overline;">DONE</span>(2): A/D 変換ステータスビット</h4>
+
+<ul>
+  <li>If ADON = 1
+    <ul>
+      <li>1 ･･･ A/D 変換中（このビットをセットすると A/D 変換が開始します）</li>
+      <li>0 ･･･ A/D 変換中ではない（このビットは A/D 変換が終了する自動的にハードウェアでクリアされます）</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A/D 変換の設定が終わったら、このビットをセットすることによって実際に A/D を開始します。
+A/D が終了すると、このビットは自動的にクリアされます。
+割り込みを使わなくても、このフラグをループで監視することで、A/D 変換が終了したことを知ることができます（A/D 変換にはほとんど時間がかからないので、割り込みを使う必要はないかも）。</p>
+
+<h4 id="なし1">なし(1)</h4>
+
+<p>このビットは常に 「0」 とリードされます。</p>
+
+<h4 id="adon0-ad-on-ビット">ADON(0): A/D ON ビット</h4>
+
+<ul>
+  <li>1 ･･･ A/D 変換器モジュールは動作中</li>
+  <li>0 ･･･ A/D 変換器モジュールはオフになり、消費電流無し</li>
+</ul>
+
+<p>A/D 変換器モジュールを動作させるかを指定します（実際に A/D 変換を開始する時は GO/<span style="text-decoration: overline;">DONE</span>(2) をセットします）。
+A/D 変換を行なう必要のない場合は、電力の消費を抑えるために停止しておくとよいです。</p>
+
+<h2 id="ad-変換制御用レジスタ--adcon1-レジスタの構成">A/D 変換制御用レジスタ ─ ADCON1 レジスタの構成</h2>
+
+<p>ADCON1 レジスタ (9Fh : Bank1) では、アナログ入力用ポートの指定を行います。</p>
+
+<table>
+    <tr style="text-align:center">
+        <td width="12.5%">ADFM<br />(7)</td>
+        <td width="12.5%">─<br />(6)</td>
+        <td width="12.5%">─<br />(5)</td>
+        <td width="12.5%">─<br />(4)</td>
+        <td width="12.5%">PCFG3<br />(3)</td>
+        <td width="12.5%">PCFG2<br />(2)</td>
+        <td width="12.5%">PCFG1<br />(1)</td>
+        <td width="12.5%">PCFG0<br />(0)</td>
+    </tr>
+</table>
+
+<h4 id="adfm7-ad-変換結果フォーマットセレクト">ADFM(7): A/D 変換結果フォーマットセレクト</h4>
+
+<ul>
+  <li>0 ･･･ 左詰。ADRESL の 6LSb は 「0」 とリードされる。</li>
+  <li>1 ･･･ 右詰。ADRESH の 6MSb は 「0」 とリードされる。</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     左詰の場合              右詰の場合
++--------+--------+    +--------+--------+
++xxxxxxxx|xx000000|    +000000xx|xxxxxxxx|
++--------+--------+    +--------+--------+
+  ADRESH   ADRESL        ADRESH   ADRESL
+</code></pre></div></div>
+
+<p>PIC16F87x では、A/D 変換後の値が 10bit で得られるので、ADRESH、ADRESL の計 16bit に右詰か左詰どちらで結果を格納するか指定します。
+あまり細かい精度まで求める必要がない場合は、左詰めにして ADRESH の 8bit だけ参照すればよいでしょう。</p>
+
+<h4 id="なし64">なし(6～4):</h4>
+
+<p>常に 「0」 とリードされます。</p>
+
+<h4 id="pcfg33--pcfg00-ad-ポート構成コントロールビット">PCFG3(3) ～ PCFG0(0): A/D ポート構成コントロールビット</h4>
+
+<p>省略。</p>
+
+<h2 id="ad-変換手順">A/D 変換手順</h2>
+
+<h3 id="設定">設定</h3>
+
+<ol>
+  <li>TRISA レジスタで AN0 ～ AN7 のピンの入出力モードを決定 (アナログ入力ピンを 1(入力) にする)</li>
+  <li>ADCON0 レジスタを設定
+    <ul>
+      <li>A/D 変換クロックの設定 (bit7-6) (ADCS1:ADCS0)</li>
+      <li>アナログチャネルをセレクト (bit5-3) (CHS2:CHS0)</li>
+      <li>A/D モジュールを使用するにセット (bit0) (ADON=1 にする)</li>
+    </ul>
+  </li>
+  <li>ADCON1 レジスタを設定
+    <ul>
+      <li>結果は左詰か右詰か (bit7) (ADFM)</li>
+      <li>A/D ポートの構成 (bit3-0) (PCFG3:PCFG0)</li>
+    </ul>
+  </li>
+  <li>割り込みを使うなら、割り込み設定
+    <ul>
+      <li>ADIF = 0</li>
+      <li>ADIE = 1</li>
+      <li>GIE = 1</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="変換実行">変換実行</h3>
+
+<ol>
+  <li>アクィジション時間待つ
+    <ul>
+      <li>8 ビット変換なら 12μsec</li>
+      <li>10 ビット変換なら 20μsec</li>
+    </ul>
+  </li>
+  <li>A/D 変換開始 (ADCON0&lt;GO/<span style="text-decoration: overline;">DONE</span>&gt; をセット)</li>
+  <li>A/D 変換の終了を待つ (次のどちらかの方法で)
+    <ul>
+      <li>GO/<span style="text-decoration: overline;">DONE</span> ビットがクリアされるまでループで待機する</li>
+      <li>A/D 割り込みを待つ</li>
+    </ul>
+  </li>
+  <li>結果 (ADRESH:ADRESL) をリードする (必要なら ADIF をクリア)</li>
+</ol>
+
+<p>以降の変換は、変換に使用したいアナログチャネルをセレクト (CHS2:CHS0) して繰り返します。</p>
+
+<h2 id="ad-変換のサンプルプログラム">A/D 変換のサンプルプログラム</h2>
+
+<p>AN0 からの入力を A/D 変換した結果を、USART を使ってシリアルで PC に送信するプログラムの例です。</p>
+
+<ul>
+  <li>デバイス : PIC16F873</li>
+  <li>通信スピード : 9600bps</li>
+  <li>データ長 : 8bit</li>
+  <li>ストップビット : 1bit</li>
+  <li>フロー制御 : なし</li>
+</ul>
+
+<h4 id="ad_convertasm">ad_convert.asm</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; AN0 からの入力を A/D 変換した結果を、
+; USART を使ってシリアルで PC に送信するサンプルプログラム
+;
+;   デバイス      : PIC16F873
+;   通信スピード  : 9600bps
+;   データ長      : 8bit
+;   ストップビット: 1bit
+;   フロー制御    : なし
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+    LIST        P=PIC16F873
+    INCLUDE     "P16F873.INC"
+
+;==============================================================================
+; Variable Definition
+;==============================================================================
+TEMP    EQU    020H
+TCNT    EQU    021H    ; 遅延サブルーチン用の変数
+
+    ORG     0
+;==============================================================================
+; 初期設定
+;==============================================================================
+INIT
+    BSF     STATUS, RP0         ; Bank1 に切り替え
+;**** 入出力ポートの設定 (TRISA) ****
+    MOVLW   B'00000001'         ; RA0 は入力(センサから)
+    MOVWF   TRISA               ;
+;**** アナログ入力にするポート、左詰右詰を決定 (ADCON1) ****
+    MOVLW   B'00000010'         ; 左詰、AN0～AN4 全部アナログ入力
+    MOVWF   ADCON1
+;**** USART 用入出力ポートの設定 (TRISC) ****
+    BCF     TRISC, 6            ; PortC&lt;6&gt; (TX) is an output
+;    BSF     TRISC, 7            ; PortC&lt;7&gt; (RX) is an input
+;**** USART 送信ステータスの設定 (TXSTA) ****
+    MOVLW   B'00100000'         ; Async mode
+    MOVWF   TXSTA               ;
+;**** USART ボーレートの設定 (SPBRG) ****
+    MOVLW   0FH                 ;9600bps 10MHz BRGH=0(低速)
+    MOVWF   SPBRG
+
+    BCF     STATUS, RP0         ; Bank0 に戻す
+;**** USART 受信ステータスの設定 (RCSTA) ****
+    MOVLW   B'10010000'         ;
+    MOVWF   RCSTA               ;
+;**** AD 変換クロックを指定。AD 変換を有効に (ADCON0) ****
+    MOVLW   B'10000001'         ; Fosc/32, CH0, ADON=1
+    MOVWF   ADCON0
+
+;==============================================================================
+; A/D 変換を行うアナログ入力ポートを選択
+;==============================================================================
+SELECT_AD_CHANNEL
+    ;今回は AN0 からの入力だけを変換するの切り替える必要なし
+
+;==============================================================================
+; セレクトしたポートに対して A/D 変換を実行
+; チャンネルをセレクトしてからCholdに電圧を蓄積するまで待機する必要がある
+;    8bit 変換の時 … 12μsec
+;   10bit 変換の時 … 20μsec
+;==============================================================================
+AD_CONVERT
+    CALL    WAIT20_10MHZ        ;コンデンサの充電まち (20μsec, 10MHz)
+    BSF     ADCON0, GO          ;A/D 変換スタート
+WAIT_AD_FINISH
+    BTFSC   ADCON0, GO          ;GO ビットがクリアされたら A/D 変換終了
+    GOTO    WAIT_AD_FINISH
+    MOVF    ADRESH, W            ;A/D 変換の結果を取得 (上位8bit)
+
+;==============================================================================
+; A/D 変換結果をシリアルで送信
+;==============================================================================
+    CALL    SEND_USART
+
+; 1 を送ってみる（テスト用）
+;    MOVLW   1
+;    CALL    SEND_USART
+;**** チャンネルセレクトへもどる ****
+    GOTO    SELECT_AD_CHANNEL
+
+;==============================================================================
+; シリアル送信サブルーチン
+; TXSTA&lt;TRMT(1)&gt; を監視し、W レジスタのデータ (8 bit) をシリアルで送信します。
+; （TEMP を Bank0 の汎用レジスタに指定してあることを前提とします。
+; 　このルーチンを呼び出す時は Bank0 に切り替えてから呼び出すこと）
+;==============================================================================
+SEND_USART
+    MOVWF   TEMP                ;W レジスタを保存
+    BSF     STATUS, RP0         ;Bank1 に切り替え
+SEND_USART_LOOP
+    BTFSS   TXSTA, TRMT         ;TXSTA&lt;TRMT(1)&gt;  が 1 になるまで待機
+    GOTO    SEND_USART_LOOP
+    BCF     STATUS, RP0         ;Bank0 に戻す
+    MOVF    TEMP, W             ;W レジスタの復旧
+    MOVWF   TXREG               ;TXREG レジスタにセット (実際の送信開始)
+    RETURN
+
+;==============================================================================
+; 20μsec の遅延時間 ─ 10MHz (周期 0.4μsec) の時
+;==============================================================================
+WAIT20_10MHZ
+    MOVLW  D'14'     ; 20 / 0.4 = 50
+    MOVWF  TCNT      ; (50 - 6) / 3 = 14 余り 2
+WAIT20_10MHZ_LOOP
+    DECFSZ TCNT, F   ;
+    GOTO   WAIT20_10MHZ_LOOP
+    NOP              ; 余り 2 だから NOP は 2 つ
+    NOP              ;
+    RETURN           ;
+
+;==============================================================================
+; End Program
+;==============================================================================
+    END
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： A/D 変換を実行する ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/ad_conversion.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

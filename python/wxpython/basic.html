@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/wxpython/basic.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="wxPython によるウィンドウ表示の基本 | まくまくPythonノート" />
+  <title>wxPython によるウィンドウ表示の基本 - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">wxPython によるウィンドウ表示の基本</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-02-06</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/wxpython/basic.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython によるウィンドウ表示の基本&url=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="wxpython-の-hello-worldシンプルなウィンドウを表示">wxPython の Hello World（シンプルなウィンドウを表示）</h2>
+
+<p>下記は、シンプルなウィンドウを表示するだけの wxPython アプリケーションのサンプルコードです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">App</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">OnInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello wxPython"</span><span class="p">)</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">SetSizeWH</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">SetTopWindow</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>  <span class="c1"># 省略可
+</span>        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>wxPython プログラムでは、まず、<code class="language-plaintext highlighter-rouge">wx.App</code> を継承してアプリケーションクラスを作成します。
+<code class="language-plaintext highlighter-rouge">wx.App</code> インスタンスが生成された後で呼び出される <code class="language-plaintext highlighter-rouge">wx.App#OnInit()</code> をオーバライドして、メインウィンドウ (<code class="language-plaintext highlighter-rouge">wx.Frame</code>) を作成します。
+<code class="language-plaintext highlighter-rouge">wx.Frame</code> インスタンスは <code class="language-plaintext highlighter-rouge">wx.App</code> によって管理されるため、<code class="language-plaintext highlighter-rouge">wx.App</code> インスタンスを生成するまで <code class="language-plaintext highlighter-rouge">wx.Frame</code> は生成することができません。
+<code class="language-plaintext highlighter-rouge">wx.App#OnInit()</code> は <code class="language-plaintext highlighter-rouge">wx.App</code> インスタンスが生成されてから呼び出されることが保証されているので、ここでメインウィンドウとなる <code class="language-plaintext highlighter-rouge">wx.Frame</code> をインスタンス化するのが一般的です。</p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.App#SetTopWindow()</code> でトップレベルウィンドウに設定したウィンドウ (<code class="language-plaintext highlighter-rouge">wx.Frame</code>) が、すべて閉じられたときにアプリケーションは終了します。
+ここでは 1 つのウィンドウをトップレベルに設定しているので、そのウィンドウを閉じたときにアプリケーションが終了します。
+<code class="language-plaintext highlighter-rouge">SetTopWindow()</code> を呼び出さなかった場合は、<code class="language-plaintext highlighter-rouge">wx.App</code> によって管理されている <code class="language-plaintext highlighter-rouge">wx.Frame</code> のうち少なくとも 1 つがトップレベルウィンドウとして自動的に設定されるので、上記のようにウィンドウがひとつしか存在しないアプリケーションの場合は、<code class="language-plaintext highlighter-rouge">SetTopWindow()</code> を省略することができます。</p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.App#OnInit()</code> の戻り値では通常 <code class="language-plaintext highlighter-rouge">True</code> を返しますが、リソースの初期化失敗などでアプリケーションの継続できない場合は、<code class="language-plaintext highlighter-rouge">False</code> を返すことでアプリケーションを終了させることができます。</p>
+
+<h2 id="独自の-frame-クラスを作る">独自の Frame クラスを作る</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello wxPython"</span><span class="p">,</span>
+            <span class="n">wx</span><span class="p">.</span><span class="n">DefaultPosition</span><span class="p">,</span> <span class="n">wx</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">App</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">OnInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">MyFrame</span><span class="p">()</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">SetTopWindow</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Frame</code> クラスを継承すると、独自の <code class="language-plaintext highlighter-rouge">Frame</code> クラスを作成することができます。
+<code class="language-plaintext highlighter-rouge">Frame</code> の表示サイズは、コンストラクタのパラメータで指定しなくても、後から <code class="language-plaintext highlighter-rouge">wx.Frame#SetSizeWH()</code> メソッドを使って変更することができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Hello wxPython"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">SetSizeWH</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="wxhtmlhtmlwindow">wx.html.HtmlWindow</h2>
+
+<p>HtmlWindow クラスを使用すると、HTML を用いて UI 表示を行うことができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+<span class="kn">import</span> <span class="nn">wx.html</span>
+
+<span class="k">class</span> <span class="nc">MyHtmlFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">html</span><span class="p">.</span><span class="n">HtmlWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">"gtk2"</span> <span class="ow">in</span> <span class="n">wx</span><span class="p">.</span><span class="n">PlatformInfo</span><span class="p">:</span>
+            <span class="n">html</span><span class="p">.</span><span class="n">SetStandardFonts</span><span class="p">()</span>
+        <span class="n">html</span><span class="p">.</span><span class="n">SetPage</span><span class="p">(</span>
+            <span class="s">"Here is some &lt;b&gt;formatted&lt;/b&gt; &lt;i&gt;&lt;u&gt;text&lt;/u&gt;&lt;/i&gt; "</span>
+            <span class="s">"loaded from a &lt;font color=</span><span class="se">\"</span><span class="s">red</span><span class="se">\"</span><span class="s">&gt;string&lt;/font&gt;."</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">frm</span> <span class="o">=</span> <span class="n">MyHtmlFrame</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s">"Simple HTML"</span><span class="p">)</span>
+    <span class="n">frm</span><span class="p">.</span><span class="n">Show</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="ウィジェットのウィンドウ-id-について">ウィジェットのウィンドウ ID について</h2>
+
+<p>wxPython の各ウィジェットには、そのフレーム内で一意のウィンドウ ID を割り当てる必要があります。
+ウィンドウ ID は次のような方法で決めます。</p>
+
+<h3 id="1-自動的に割り当てる">1. 自動的に割り当てる</h3>
+
+<p>ウィジェットのコンストラクタの <code class="language-plaintext highlighter-rouge">id</code> パラメータで -1（あるいは <code class="language-plaintext highlighter-rouge">wx.ID_ANY</code>）を指定すると、自動的に ID を割り当ててくれます。
+<code class="language-plaintext highlighter-rouge">id</code> パラメータのデフォルト値は -1 です。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frame</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">wx</span><span class="p">.</span><span class="n">ID_ANY</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 同じ
+</span></code></pre></div></div>
+
+<p>自動的に割り当てられたウィンドウ ID は、<code class="language-plaintext highlighter-rouge">GetId()</code> メソッドで取得することができます。</p>
+
+<h3 id="2-wxnewid-で-id-を作成する">2. wx.NewId() で ID を作成する</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">id</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">NewId</span><span class="p">()</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="3-明示的にウィンドウ-id-の数値を指定する">3. 明示的にウィンドウ ID の数値を指定する</h3>
+
+<p>ウィンドウ ID を手動で設定することもできますが、wxPython が内部で使用する <code class="language-plaintext highlighter-rouge">wx.ID_LOWEST</code> ～ <code class="language-plaintext highlighter-rouge">wx.ID_HIGHEST</code> の範囲の値は使わないように注意する必要があります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frame</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="ウィンドウにウィジェットを配置する">ウィンドウにウィジェットを配置する</h2>
+
+<p>ウィンドウにウィジェットを配置するには、各ウィジェットのコンストラクタで親ウィジェットを指定します。
+一般的に、<code class="language-plaintext highlighter-rouge">wx.Frame</code> の直下には <code class="language-plaintext highlighter-rouge">wx.Panel</code> を配置し、その下に <code class="language-plaintext highlighter-rouge">wx.Button</code> などのウィジェットを配置していきます。
+<code class="language-plaintext highlighter-rouge">wx.Panel</code> の下に複数の <code class="language-plaintext highlighter-rouge">wx.Button</code> を配置することで、TAB キーによりボタンのフォーカスを移動できるようになります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Sample"</span><span class="p">)</span>
+        <span class="n">panel</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">button1</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Button 1"</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">button2</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Button</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Button 2"</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">App</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">OnInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">MyFrame</span><span class="p">()</span>
+        <span class="n">frame</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">()</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">wx.Frame</code> の直下に 1 つだけウィジェットを配置すると、そのウィジェットのサイズは親ウィンドウのクライアントエリアと同じサイズに自動的に調整されます。
+その場合、ウィジェットのコンストラクタで指定した位置やサイズのパラメータは無視されます。
+上記の例では、<code class="language-plaintext highlighter-rouge">wx.Frame</code> の直下に <code class="language-plaintext highlighter-rouge">wx.Panel</code> を 1 つだけ配置しているので、<code class="language-plaintext highlighter-rouge">wx.Panel</code> のサイズは <code class="language-plaintext highlighter-rouge">wx.Frame</code> のクライアントエリアのサイズと同じになります。
+<code class="language-plaintext highlighter-rouge">wx.Button</code> は <code class="language-plaintext highlighter-rouge">wx.Frame</code> の直下ではなく、<code class="language-plaintext highlighter-rouge">wx.Panel</code> の下に配置しているので、コンストラクタで指定した位置、サイズが使用されます。
+複数のウィジェットの位置やサイズを自動調整するには、wxPython の <code class="language-plaintext highlighter-rouge">sizer</code> オブジェクトを使用します。</p>
+
+<h2 id="トップレベルウィンドウが全て閉じられても-mainloop-を終了しないようにする">トップレベル・ウィンドウが全て閉じられても MainLoop を終了しないようにする</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">App</span><span class="c1">#SetExitOnFrameDelete(False)
+</span></code></pre></div></div>
+
+<p>を実行しておくと、全てのトップレベル･ウィンドウが閉じられてもアプリケーションの MainLoop を抜けないようになります。
+つまり、<code class="language-plaintext highlighter-rouge">wx.App</code> インスタンスが破棄されなくなるので、新しいトップレベル・ウィンドウを生成できるようになります。
+このように設定されたアプリケーションを終了するには、グローバルな関数である <code class="language-plaintext highlighter-rouge">wx.Exit()</code> を呼び出します。</p>
+
+<h2 id="名前や-id-でウィジェットを取得する">名前や ID でウィジェットを取得する</h2>
+
+<ul>
+  <li>ウィンドウ ID で検索
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.FindWindowById(long id, Window parent=None) -&gt; Window</code></li>
+    </ul>
+  </li>
+  <li>ウィンドウに付けた名前で検索
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.FindWindowByName(String name, Window parent=None) -&gt; Window</code></li>
+    </ul>
+  </li>
+  <li>表示しているラベルで検索（ボタンやフレームのラベル）
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">wx.FindWindowByLabel(String label, Window parent=None) -&gt; Window</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">wx.FindWindowByName()</code> で検索して、ウィンドウ名が見つからない場合は、自動的に <code class="language-plaintext highlighter-rouge">wx.FindWindowByLabel()</code> による検索が行われます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython によるウィンドウ表示の基本&url=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-02-06</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

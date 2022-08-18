@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのC/C++ノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-cpp.png" />
+
+  <meta property="og:description" content="天才星人まくのC/C++ノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする | まくまくC/C++ノート" />
+  <title>値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする - まくまくC/C++ノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/cpp/">
+    <img src="/assets/img/logo-cpp.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/cpp/">
+    <div class="xPageHeader_category">
+    まくまくC/C++ノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/cpp/">C/C++</a></div>
+  <div class="xPageDate">2009-12-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/cpp/misc/avoid-default-copy-constructor.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくC/C++ノート： 値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする&url=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>コピーコンストラクタや、代入演算子を定義していないクラスのオブジェクトを以下のように <code class="language-plaintext highlighter-rouge">=</code> を使って作成しようとすると、デフォルトのコピーコンストラクタ、代入演算子が暗黙的に使用されます。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Hoge</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// デフォルトのコピーコンストラクタ</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="p">;</span>       <span class="c1">// デフォルトの代入演算子</span>
+</code></pre></div></div>
+
+<p>デフォルトの実装は、メンバフィールドを単純にコピーするだけなので、仮にポインタ変数を持っていると、同じアドレス値を 2 つのオブジェクトが持つことになってメモリの二重解放の原因になります。
+また、代入された側のオブジェクトが持っていたポインタが指していたメモリを解放するオブジェクトがなくなり、メモリリークの原因にもなります。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">m_pTitle</span><span class="p">;</span>  <span class="c1">// このアドレスがコピーされてしまう</span>
+    <span class="p">...</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>メンバー変数の単純なコピーが行われては困るクラスでは、コピーコンストラクタ、代入演算子を定義する必要があります。
+ポインタではなく、<strong>コピー演算子が定義されていないオブジェクトをメンバ変数として持っている場合も同様</strong>です。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// コピーコンストラクタを実装</span>
+<span class="n">Book</span><span class="o">::</span><span class="n">Book</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 新しいメモリを割り当てて内容をコピー</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">m_pTitle</span><span class="p">);</span>
+    <span class="n">m_pTitle</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">m_pTitle</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">m_pTitle</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// 代入演算子を実装</span>
+<span class="n">Book</span><span class="o">&amp;</span> <span class="n">Book</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 自分自身への代入を確認</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 古い値を削除</span>
+    <span class="k">delete</span> <span class="p">[]</span> <span class="n">m_pTitle</span><span class="p">;</span>
+
+    <span class="c1">// 新しいメモリを割り当てて内容をコピー</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">rhs</span><span class="p">.</span><span class="n">m_pTitle</span><span class="p">);</span>
+    <span class="n">m_pTitle</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">m_pTitle</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">rhs</span><span class="p">.</span><span class="n">m_pTitle</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>あるいは、コピーコンストラクタ、代入演算子を <code class="language-plaintext highlighter-rouge">private</code> にして、代入によるオブジェクト生成を禁止する方法もあります。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Book</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="nl">private:</span>
+    <span class="n">Book</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>  <span class="c1">// 実装しない</span>
+    <span class="n">Book</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Book</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">);</span>  <span class="c1">// 実装しない</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>以下のテストプログラムを実行すると、デフォルトの代入演算子を利用した場合に、各オブジェクトのコンストラクタ、デストラクタによってどのような処理が行われるかを調べることができます。</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+</span>
+<span class="k">class</span> <span class="nc">Data</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">m_name</span><span class="p">;</span>
+
+<span class="nl">public:</span>
+    <span class="n">Data</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">)</span> <span class="o">:</span> <span class="n">m_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor "</span> <span class="o">&lt;&lt;</span> <span class="n">m_name</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Data</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Destructor "</span> <span class="o">&lt;&lt;</span> <span class="n">m_name</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Data</span> <span class="n">a</span><span class="p">(</span><span class="s">"A"</span><span class="p">);</span>
+    <span class="n">Data</span> <span class="n">b</span><span class="p">(</span><span class="s">"B"</span><span class="p">);</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>  <span class="c1">// "Destructor A" は永遠に呼ばれなくなる ⇒ メモリリークの可能性</span>
+
+    <span class="c1">// a の破棄による "Destructor B"</span>
+    <span class="c1">// b の破棄による "Destructor B" ⇒ 二重開放の可能性</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="実行結果">実行結果</h4>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Constructor</span> <span class="n">A</span>
+<span class="n">Constructor</span> <span class="n">B</span>
+<span class="n">Destructor</span> <span class="n">B</span>
+<span class="n">Destructor</span> <span class="n">B</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくC/C++ノート： 値コピーできないメンバ変数を持つクラスでは、コピーコンストラクタと代入演算子をオーバーロードする&url=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/cpp/misc/avoid-default-copy-constructor.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/cpp/"><span class="xArticle_up_label">まくまくC/C++ノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li class="xNav-focused"><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/cpp/">C/C++</a></div>
+  <div class="xPageDate">2009-12-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

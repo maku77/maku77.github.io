@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのRubyノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/ruby/gem/create-gem.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
+
+  <meta property="og:description" content="天才星人まくのRubyノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Gem パッケージを作成する (1) 基本 | まくまくRubyノート" />
+  <title>Gem パッケージを作成する (1) 基本 - まくまくRubyノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/ruby/">
+    <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/ruby/">
+    <div class="xPageHeader_category">
+    まくまくRubyノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Gem パッケージを作成する (1) 基本</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2015-12-04</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/ruby/gem/create-gem.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Gem パッケージを作成する (1) 基本&url=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h1 id="作成する-gem-パッケージのゴール">作成する Gem パッケージのゴール</h1>
+<p>ここでは、<strong>hello_gem</strong> という名前の Gem パッケージを作成してみます。
+下記のようなことができることがゴールです。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">gem install</code> コマンドで Gem をインストールできる</li>
+  <li>Ruby スクリプトの中から <code class="language-plaintext highlighter-rouge">require 'hello_gem'</code> と読み込むと、<code class="language-plaintext highlighter-rouge">HelloGem</code> クラスを参照できるようになる</li>
+</ol>
+
+<p>Gem に関する命名規則などは、<a href="../basic/coding-style.html">Ruby のコーディングスタイル</a> を参照してください。</p>
+
+<h1 id="gem-パッケージを作成する">Gem パッケージを作成する</h1>
+
+<h2 id="gem-パッケージ内部の構成">Gem パッケージ内部の構成</h2>
+
+<p>Gem パッケージには、<code class="language-plaintext highlighter-rouge">xxx.gemspec</code> というファイルを作成しておく必要があります。
+Ruby のソースコード自体は <code class="language-plaintext highlighter-rouge">lib</code> ディレクトリに格納するので、プロジェクトのディレクトリには下記のようなファイルが作成されることになります。</p>
+
+<ul>
+  <li>hello_gem.gemspec</li>
+  <li>lib/hello_gem.rb</li>
+</ul>
+
+<p>上記のように <code class="language-plaintext highlighter-rouge">hello_gem.rb</code> を配置しておくことで、Gem のユーザは、<code class="language-plaintext highlighter-rouge">require 'hello_gem'</code> とロードできるようになります。</p>
+
+<h2 id="スクリプトを作成する">スクリプトを作成する</h2>
+
+<p>下記は、メインのライブラリとなる <code class="language-plaintext highlighter-rouge">hello_gem.rb</code> の内容です。
+単純に挨拶テキストを出力するだけの機能を提供します。</p>
+
+<h4 id="libhello_gemrb">lib/hello_gem.rb</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">HelloGem</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">greet</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"Hello </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>クラス名が複数の単語で構成される場合は、ファイル名の中ではアンダースコア (<code class="language-plaintext highlighter-rouge">_</code>) で単語を区切って表現するのが Gem の世界の慣例です。
+上記の場合では、クラス名が <code class="language-plaintext highlighter-rouge">HelloGem</code> なので、ファイル名は <code class="language-plaintext highlighter-rouge">hello_gem.rb</code> となっています。
+詳しいネーミングルールは<a href="../basic/coding-style.html">こちら</a>を参照してください。</p>
+
+<p>ライブラリを作成し終わったら、簡単にテストしておきましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ irb -Ilib
+irb(main):001:0&gt; require 'hello_gem'
+=&gt; true
+irb(main):002:0&gt; HelloGem.greet('maku')
+Hello maku!
+=&gt; nil
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">irb</code> コマンドのパラメータに、<code class="language-plaintext highlighter-rouge">-Ilib</code> を指定していることに注意してください。
+これは、<code class="language-plaintext highlighter-rouge">hello_gem.rb</code> の格納されている <code class="language-plaintext highlighter-rouge">lib</code> ディレクトリをロードパスに追加するためです。</p>
+
+<h2 id="gemspec-ファイルを作成する">gemspec ファイルを作成する</h2>
+
+<p>gemspec ファイルには、公開する Gem パッケージの情報として、下記のような内容を記述しておきます。
+詳細は <a href="http://guides.rubygems.org/specification-reference/">Specification Reference - RubyGems Guides</a> を参照してください。</p>
+
+<ul>
+  <li>Gem の名前 (name)</li>
+  <li>バージョン (version)</li>
+  <li>リリース日 (date)</li>
+  <li>概要 (summary)</li>
+  <li>詳細 (description)</li>
+  <li>作者の名前 (author / authors)</li>
+  <li>作者のメールアドレス (email)</li>
+  <li>Web サイト (homepage)</li>
+  <li>ライセンス (license)</li>
+  <li>パッケージングするファイル (files)</li>
+</ul>
+
+<h4 id="hello_gemgemspec">hello_gem.gemspec</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Gem</span><span class="o">::</span><span class="no">Specification</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">name</span>        <span class="o">=</span> <span class="s1">'hello_gem'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">version</span>     <span class="o">=</span> <span class="s1">'0.0.1'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">date</span>        <span class="o">=</span> <span class="s1">'2015-12-04'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">summary</span>     <span class="o">=</span> <span class="s2">"Hello Gem!"</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">description</span> <span class="o">=</span> <span class="s2">"The first Gem package for practice"</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">authors</span>     <span class="o">=</span> <span class="p">[</span><span class="s2">"Maku Makkuma"</span><span class="p">]</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">email</span>       <span class="o">=</span> <span class="s1">'maku@example.com'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">homepage</span>    <span class="o">=</span> <span class="s1">'http://example.com/hello_gem'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">license</span>     <span class="o">=</span> <span class="s1">'MIT'</span>
+  <span class="n">s</span><span class="p">.</span><span class="nf">files</span>       <span class="o">=</span> <span class="p">[</span><span class="s2">"lib/hello_gem.rb"</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>gemspec ファイルを作成したら、<code class="language-plaintext highlighter-rouge">gem build</code> コマンドでパッケージングできるようになります。
+下記のように、パラメータに gemspec ファイルを指定して実行してください。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem build hello_gem.gemspec
+  Successfully built RubyGem
+  Name: hello_gem
+  Version: 0.0.1
+  File: hello_gem-0.0.1.gem
+</code></pre></div></div>
+
+<p>これで、<code class="language-plaintext highlighter-rouge">hello_gem-0.0.1.gem</code> という Gem パッケージが完成しました！</p>
+
+<h1 id="作成した-gem-パッケージを使用する">作成した Gem パッケージを使用する</h1>
+
+<h2 id="gem-ファイルを使ってインストールする">gem ファイルを使ってインストールする</h2>
+
+<p>ここまでの作業で、ローカルディレクトリに <code class="language-plaintext highlighter-rouge">hello_gem-0.0.1.gem</code> という Gem パッケージが作成されました。
+この Gem パッケージをインストールするには、下記のように <code class="language-plaintext highlighter-rouge">gem install</code> のパラメータにファイル名を指定して実行します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install hello_gem-0.0.1.gem
+Successfully installed hello_gem-0.0.1
+Parsing documentation for hello_gem-0.0.1
+Installing ri documentation for hello_gem-0.0.1
+Done installing documentation for hello_gem after 0 seconds
+1 gem installed
+</code></pre></div></div>
+
+<p>ちゃんとインストールされたか確認してみます。
+ここでは、<code class="language-plaintext highlighter-rouge">hello</code> という名前で、ローカルの Gem を検索しています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem list -d hello
+
+*** LOCAL GEMS ***
+
+hello_gem (0.0.1)
+    Author: Maku Makkuma
+    Homepage: http://example.com/hello_gem
+    License: MIT
+    Installed at: C:/app/Ruby/lib/ruby/gems/2.2.0
+
+    Hello Gem!
+</code></pre></div></div>
+
+<h2 id="gem-を使用する">Gem を使用する</h2>
+
+<p>ちゃんとインストールされているみたいなので、このパッケージを Ruby スクリプトから利用してみます。</p>
+
+<h4 id="samplerb">sample.rb</h4>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'hello_gem'</span>
+
+<span class="no">HelloGem</span><span class="p">.</span><span class="nf">greet</span><span class="p">(</span><span class="s1">'maku'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="動作確認">動作確認</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ruby sample.rb
+Hello maku!
+</code></pre></div></div>
+
+<p>うまく動きました！</p>
+
+<h2 id="gem-のアンインストール">Gem のアンインストール</h2>
+
+<p>インストールした Gem が必要ない場合は、下記のように削除しておきましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem uninstall hello_gem
+Successfully uninstalled hello_gem-0.0.1
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Gem パッケージを作成する (1) 基本&url=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/gem/create-gem.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/ruby/"><span class="xArticle_up_label">まくまくRubyノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/ruby/">Ruby</a></div>
+  <div class="xPageDate">2015-12-04</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

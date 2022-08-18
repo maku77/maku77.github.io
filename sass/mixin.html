@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sass/mixin.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-sass.png" />
+
+  <meta property="og:description" content="Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Mixin でスタイルを組み合わせる (@mixin) | まくまくSassノート" />
+  <title>Mixin でスタイルを組み合わせる (@mixin) - まくまくSassノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sass/">
+    <img src="/assets/img/logo-sass.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/sass/">
+    <div class="xPageHeader_category">
+    まくまくSassノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Mixin でスタイルを組み合わせる (@mixin)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-19</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sass/mixin.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： Mixin でスタイルを組み合わせる (@mixin)&url=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="mixin-の基本">Mixin の基本</h2>
+
+<p>Sass の Mixin 機能は、ひとまとまりのスタイルを Mixin として定義 (<code class="language-plaintext highlighter-rouge">@mixin</code>) しておき、複数の場所からそのスタイルをインクルード (<code class="language-plaintext highlighter-rouge">@include</code>) して使用する仕組みです。
+Mixin は、スタイルセットを提供する関数のようなものと考えるとわかりやすいです。</p>
+
+<p>便利な Mixin を SCSS ファイルにまとめて定義しておけば、再利用可能な Sass ライブラリとして使用できます。
+定義した Mixin は <code class="language-plaintext highlighter-rouge">@include</code> して使用しない限り CSS に出力されることはないので、Sass ライブラリの中の Mixin 定義が増えても、最終的な CSS が肥大化する心配はありません。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">round-box</code> という名前の Mixin を定義して、<code class="language-plaintext highlighter-rouge">pre</code> 要素と <code class="language-plaintext highlighter-rouge">.ad-widget</code> クラスのスタイル定義からインクルードしています。</p>
+
+<h4 id="入力-scss">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">round-box</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">1px</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">pre</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">round-box</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="mi">.3</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.ad-widget</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">round-box</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="mh">#ccc</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">pre</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">1px</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.3</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.ad-widget</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">1px</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#ccc</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Mixin で定義したスタイルセットが、<code class="language-plaintext highlighter-rouge">@include</code> した位置に展開されていることが分かります。</p>
+
+<div class="note">
+同じコードが2か所に展開されているので、このようなシンプルな例では、<code>@extend</code> を使用した場合より非効率なコードになってしまいます。
+このあたりは Sass のバージョンアップによって改善されるかもしれません。
+とはいえ、Mixin には後述のような、引数を扱う仕組みなどがあり、<code>@extend</code> より使用する機会は多いでしょう。
+</div>
+
+<h2 id="mixin-の中で親セレクタの参照も可能">Mixin の中で親セレクタの参照も可能</h2>
+
+<p>Sass のコードの中で <code class="language-plaintext highlighter-rouge">&amp;</code> は親セレクタを参照するために使用することができますが、Mixin の定義の中でも <code class="language-plaintext highlighter-rouge">&amp;</code> を使用することができます。
+Mixin の定義のトップレベルで <code class="language-plaintext highlighter-rouge">&amp;</code> を参照すると、呼び出し元（<code class="language-plaintext highlighter-rouge">@include</code> したところ）のセレクタに置き換えられます。</p>
+
+<p>下記は、<code class="language-plaintext highlighter-rouge">::after</code> 疑似要素を使用した典型的な clearfix イディオムを、Mixin で定義する例です。</p>
+
+<h4 id="入力">入力</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">clearfix</span> <span class="p">{</span>
+  <span class="k">&amp;</span><span class="nd">::after</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nc">.breadcrumb</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">clearfix</span><span class="p">;</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-1">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.breadcrumb</span> <span class="p">{</span>
+  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.breadcrumb</span><span class="nd">::after</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span> <span class="s2">''</span><span class="p">;</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="ルートレベルでの-mixin-の-include">ルートレベルでの Mixin の @include</h2>
+
+<p>下記のように、入れ子スタイルで定義した Mixin は、ルートレベルで <code class="language-plaintext highlighter-rouge">@include</code> して使用することができます。</p>
+
+<h4 id="入力-scss-1">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">pretty-link</span> <span class="p">{</span>
+  <span class="nt">a</span> <span class="p">{</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+    <span class="k">&amp;</span><span class="nd">:link</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="mh">#36f</span><span class="p">;</span> <span class="p">}</span>  <span class="c1">// 未訪問</span>
+    <span class="k">&amp;</span><span class="nd">:visited</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="mh">#03c</span><span class="p">;</span> <span class="p">}</span>  <span class="c1">// 訪問済</span>
+    <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="mh">#def</span><span class="p">;</span> <span class="p">}</span>  <span class="c1">// マウスフォーカス</span>
+    <span class="k">&amp;</span><span class="nd">:focus</span> <span class="p">{</span> <span class="nl">background</span><span class="p">:</span> <span class="mh">#fdd</span><span class="p">;</span> <span class="p">}</span>  <span class="c1">// 選択中</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ルートレベルでインクルードできる</span>
+<span class="k">@include</span> <span class="nd">pretty-link</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-2">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="nd">:link</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#36f</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="nd">:visited</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#03c</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#def</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#fdd</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="引数付きの-mixin-を定義する">引数付きの Mixin を定義する</h2>
+
+<p>Mixin には任意の数の引数を渡すことができます。
+下記の <code class="language-plaintext highlighter-rouge">color-box</code> は、2つの引数 (<code class="language-plaintext highlighter-rouge">$color</code>、<code class="language-plaintext highlighter-rouge">$border-width</code>) を受け取るように定義しています。</p>
+
+<h4 id="入力-scss-2">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">color-box</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$border-width</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="m">45%</span><span class="p">);</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="nv">$color</span> <span class="nv">$border-width</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.5em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warn</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">color-box</span><span class="p">(</span><span class="no">darkorange</span><span class="o">,</span> <span class="m">3px</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">color-box</span><span class="p">(</span><span class="no">red</span><span class="o">,</span> <span class="m">3px</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-3">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">darkorange</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#fff4e6</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="no">darkorange</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#ffe6e6</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="no">red</span> <span class="m">3px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5em</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="デフォルト引数">デフォルト引数</h3>
+
+<p>Mixin の引数名の後ろに <code class="language-plaintext highlighter-rouge">: デフォルト値</code> と記述することで、引数ごとのデフォルト値を設定しておくことができます。</p>
+
+<h4 id="入力-scss-3">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">color-box</span><span class="p">(</span><span class="nv">$color</span><span class="o">:</span> <span class="no">black</span><span class="o">,</span> <span class="nv">$border-width</span><span class="o">:</span> <span class="m">1px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="m">45%</span><span class="p">);</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="nv">$color</span> <span class="nv">$border-width</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.5em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">color-box</span><span class="p">(</span><span class="no">red</span><span class="p">);</span>  <span class="c1">// 2番目のパラメータのみ省略</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-4">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#ffe6e6</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="no">red</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0.5em</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>すべてのパラメータを省略する場合は、下記のいずれの書き方でも OK です。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">color-box</span><span class="p">();</span>
+<span class="k">@include</span> <span class="nd">color-box</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="名前付き引数-keyword-arguments">名前付き引数 (Keyword arguments)</h3>
+
+<p>Mixin をインクルード (<code class="language-plaintext highlighter-rouge">@include</code>) するとき、パラメータの値を名前付きで指定することができます。
+名前付き引数として値を指定するときは、引数の指定順序は任意となります。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">color-box</span><span class="p">(</span><span class="nv">$border-width</span><span class="o">:</span> <span class="m">3px</span><span class="o">,</span> <span class="nv">$color</span><span class="o">:</span> <span class="no">red</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>名前付き引数を使用すると記述量は若干増えますが、それぞれのパラメータが何を表しているか明確になるというメリットがあります。</p>
+
+<p>また、名前付き引数を使用することで、任意の位置のデフォルト引数のみを省略することが可能になります。
+次の例では、1番目の引数 <code class="language-plaintext highlighter-rouge">$color</code> を省略し、2番目の引数 <code class="language-plaintext highlighter-rouge">$border-width</code> のみを指定して Mixin をインクルードしています。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@include</span> <span class="nd">color-box</span><span class="p">(</span><span class="nv">$border-width</span><span class="o">:</span> <span class="m">3px</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="可変長引数">可変長引数</h3>
+
+<p>Mixin の引数の末尾に <code class="language-plaintext highlighter-rouge">...</code> を付けると、その引数を可変長引数として扱うことができます。
+例えば、CSS の <code class="language-plaintext highlighter-rouge">box-shadow</code> プロパティはもともと可変長のパラメータを受け付けますが、このようなプロパティを扱う Mixin は次のように定義することができます。</p>
+
+<h4 id="入力-scss-4">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">box-shadow</span><span class="p">(</span><span class="nv">$shadows</span><span class="o">...</span><span class="p">)</span> <span class="p">{</span>
+  <span class="na">-moz-box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+  <span class="na">-webkit-box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">box-shadow</span><span class="p">(</span><span class="m">0px</span> <span class="m">4px</span> <span class="m">5px</span> <span class="mh">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="mh">#999</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-5">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.box</span> <span class="p">{</span>
+  <span class="nl">-moz-box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="p">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+  <span class="nl">-webkit-box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="p">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">4px</span> <span class="m">5px</span> <span class="m">#666</span><span class="p">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="m">#999</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記のように、<strong>Mixin はベンダープレフィックスの必要なプロパティをまとめて定義するためにも利用することができます</strong>。</p>
+
+<p>ちなみに、<code class="language-plaintext highlighter-rouge">...</code> というキーワードは、リスト変数の値を展開して、複数のパラメータとして Mixin や関数に渡すためにも使用します。</p>
+
+<h4 id="入力-scss-5">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">fancy-border</span><span class="p">(</span><span class="nv">$color</span><span class="o">,</span> <span class="nv">$width</span><span class="o">,</span> <span class="nv">$style</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nv">$width</span> <span class="nv">$style</span> <span class="nv">$color</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$value-list</span><span class="p">:</span> <span class="no">green</span><span class="o">,</span> <span class="m">1px</span><span class="o">,</span> <span class="nb">solid</span><span class="p">;</span>
+<span class="nv">$value-map</span><span class="p">:</span> <span class="p">(</span><span class="n">color</span><span class="o">:</span> <span class="no">red</span><span class="o">,</span> <span class="n">width</span><span class="o">:</span> <span class="m">3px</span><span class="o">,</span> <span class="n">style</span><span class="o">:</span> <span class="nb">dashed</span><span class="p">);</span>
+
+<span class="nc">.success</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">fancy-border</span><span class="p">(</span><span class="nv">$value-list</span><span class="o">...</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.failure</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">fancy-border</span><span class="p">(</span><span class="nv">$value-map</span><span class="o">...</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-6">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.success</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">green</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.failure</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">3px</span> <span class="nb">dashed</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="スタイルセットを-mixin-のパラメータとして渡すコンテントブロック-content">スタイルセットを Mixin のパラメータとして渡す（コンテントブロック） (@content)</h2>
+
+<p>Mixin の定義の中で <code class="language-plaintext highlighter-rouge">@content</code> を参照すると、呼び出し側から渡されたスタイル定義をそこに展開することができます。
+呼び出し側では、次のような構文でスタイル定義のブロックを Mixin に渡します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@include &lt;Mixin名&gt; {
+  スタイル定義
+}
+</code></pre></div></div>
+
+<p>この仕組みは、<strong>同じ条件のメディアクエリを複数のスタイルに対して適用するときに便利</strong>です。</p>
+
+<h4 id="入力-scss-6">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">media-large</span> <span class="p">{</span>
+  <span class="c1">// スクリーンの横幅が広い端末（PCなど）の場合</span>
+  <span class="k">@media</span> <span class="n">screen</span> <span class="nf">and</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="m">800px</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nt">main</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>  <span class="c1">// 幅が狭いときはマージンは小さく</span>
+  <span class="k">@include</span> <span class="nd">media-large</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>  <span class="c1">// 幅が広いときはマージンを大きく</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nn">#xMenu</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>  <span class="c1">// 幅が狭いときはメニューは表示しない</span>
+  <span class="k">@include</span> <span class="nd">media-large</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>  <span class="c1">// 幅が広いときはメニューを表示する</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">20rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-7">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">main</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nt">main</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">#xMenu</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">#xMenu</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">20rem</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>スクリーンサイズのブレイクポイントとする横幅などは、下記のように変数に定義しておくとメンテナンスしやすいかもしれません。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$LARGE_SCREEN_WIDTH</span><span class="p">:</span> <span class="m">800px</span><span class="p">;</span>
+
+<span class="k">@mixin</span> <span class="nf">media-large</span> <span class="p">{</span>
+  <span class="k">@media</span> <span class="n">screen</span> <span class="nf">and</span> <span class="p">(</span><span class="n">min-width</span><span class="o">:</span> <span class="nv">$LARGE_SCREEN_WIDTH</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@content</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ちなみに、Mixin の中で <code class="language-plaintext highlighter-rouge">content-exists()</code> 関数を使用すると、コンテントブロックが Mixin に渡されたかどうかを調べることができます。</p>
+
+<h2 id="mixin-名の中のハイフンとアンダースコアは同じ">Mixin 名の中のハイフンとアンダースコアは同じ</h2>
+
+<p>変数名や関数名も同様ですが、Mixin の名前の中で使用したハイフン (<code class="language-plaintext highlighter-rouge">-</code>) と、アンダースコア (<code class="language-plaintext highlighter-rouge">_</code>) は相互に置き換えが可能になっています。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">foo-bar</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">main</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">foo_bar</span><span class="p">;</span>  <span class="c1">// ハイフンをアンダースコアに変えても参照できる</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ただし、この振る舞いは歴史的な理由によるものなので、ハイフンで定義したものはハイフンを使って参照すべきでしょう。</p>
+
+<h2 id="mixin-と-extend-ディレクティブの違い">Mixin と @extend ディレクティブの違い</h2>
+
+<p>Sass の <a href="extend.html">@extend ディレクティブ</a>も似たような機能を提供していますが、<code class="language-plaintext highlighter-rouge">@extend</code> はあくまで<strong>セレクタを継承</strong>する機能であり、Mixin 機能より若干複雑な振る舞いをします。
+Mixin 機能は<strong>スタイルそのものを使いまわす</strong>ものであり、<code class="language-plaintext highlighter-rouge">@extend</code> ディレクティブの振る舞いよりシンプルです（機能としては強力ですが）。</p>
+
+<p>Mixin と <code class="language-plaintext highlighter-rouge">@extend</code> の違いをざっとあげると下記のような感じでしょうか。</p>
+
+<ul>
+  <li>Mixin は <code class="language-plaintext highlighter-rouge">@extend</code> とは異なり、セレクタの組み合わせによるルールが継承されない。</li>
+  <li>Mixin はパラメータを扱うことができる。</li>
+  <li>Mixin をインクルードした場所にスタイル定義がコピーされて展開されるため、出力後の CSS は <code class="language-plaintext highlighter-rouge">@extend</code> を使ったものよりも冗長になる可能性がある。</li>
+</ul>
+
+<h2 id="mixin-の利用例-ベンダープレフィックス">Mixin の利用例: ベンダープレフィックス</h2>
+
+<p>Mixin は、ベンダープレフィックスが必要なプロパティをまとめて指定するためにも活用できます。</p>
+
+<h4 id="border-radius-用の-mixin">border-radius 用の Mixin</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">border-radius</span><span class="p">(</span><span class="nv">$radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="na">-moz-border-radius</span><span class="p">:</span> <span class="nv">$radius</span><span class="p">;</span>
+  <span class="na">-webkit-border-radius</span><span class="p">:</span> <span class="nv">$radius</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="nv">$radius</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">border-radius</span><span class="p">(</span><span class="m">10px</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="box-shadow-用の-mixin">box-shadow 用の Mixin</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">box-shadow</span><span class="p">(</span><span class="nv">$shadows</span><span class="o">...</span><span class="p">)</span> <span class="p">{</span>
+  <span class="na">-moz-box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+  <span class="na">-webkit-box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="nv">$shadows</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.box</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">box-shadow</span><span class="p">(</span><span class="m">0px</span> <span class="m">4px</span> <span class="m">5px</span> <span class="mh">#666</span><span class="o">,</span> <span class="m">2px</span> <span class="m">6px</span> <span class="m">10px</span> <span class="mh">#999</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： Mixin でスタイルを組み合わせる (@mixin)&url=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/mixin.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sass/"><span class="xArticle_up_label">まくまくSassノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li class="xNav-focused"><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-19</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

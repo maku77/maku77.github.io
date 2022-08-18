@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのLinux/Shellノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/linux/memory.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-linux.png" />
+
+  <meta property="og:description" content="天才星人まくのLinux/Shellノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Linux のメモリ情報を調べるコマンド | まくまくLinux/Shellノート" />
+  <title>Linux のメモリ情報を調べるコマンド - まくまくLinux/Shellノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/linux/">
+    <img src="/assets/img/logo-linux.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/linux/">
+    <div class="xPageHeader_category">
+    まくまくLinux/Shellノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Linux のメモリ情報を調べるコマンド</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2011-01-20</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/linux/memory.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Linux のメモリ情報を調べるコマンド&url=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="free-コマンド">free コマンド</h2>
+
+<p><code class="language-plaintext highlighter-rouge">free</code> コマンドを使用して、Linux システム全体の空きメモリ容量 (KByte) を調べることができます。
+内部的には、<code class="language-plaintext highlighter-rouge">/proc/meminfo</code> の内容を整形して表示しています。</p>
+
+<h4 id="実行例ubuntu-1004-の場合">実行例（Ubuntu 10.04 の場合）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ free
+             total       used       free     shared    buffers     cached
+Mem:       4057716    3110204     947512          0     255708    2091224
+-/+ buffers/cache:     763272    3294444★ ←実質的な空き容量はここを見る
+Swap:     11884536      60600   11823936
+</code></pre></div></div>
+
+<p>Linux では、ディスクアクセスの負荷軽減のために、空きメモリをバッファ領域（ファイルのメタ情報などを保持）とキャッシュ領域（ファイルの内容そのものをキャッシュ）に割り当てています。
+上記の <strong>Mem:</strong> の行の <strong>free</strong> 値 <code class="language-plaintext highlighter-rouge">947512</code> は、空き容量からバッファ領域 (<strong>buffers</strong>) とキャッシュ領域 (<strong>cached</strong>) に割り当てた分を差し引いた値を示しているので、free の値はいつも小さくなります。
+実質的な空き容量を求めるには、free の値に buffers と cached の分を足してやる必要があります。
+その下の行の <strong>-/+ buffers/cache:</strong> というところがこの計算をした結果を示しており、一行目の <code class="language-plaintext highlighter-rouge">free</code>、<code class="language-plaintext highlighter-rouge">bufferes</code>、<code class="language-plaintext highlighter-rouge">cached</code> をすべて足した、実質的な空き容量が表示されています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3294444（実質 free） = 947512 (mem free) + 255708 (buffers) + 2091224 (cached)
+</code></pre></div></div>
+
+<h4 id="おまけ-free-コマンドの-help-やオプション">おまけ: free コマンドの help やオプション</h4>
+
+<p>下記は <code class="language-plaintext highlighter-rouge">free</code> コマンドのヘルプ説明です。</p>
+
+<blockquote>
+  <p>free - Display amount of free and used memory in the system
+free displays the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel.  The shared memory column should be ignored; it is obsolete.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">free</code> コマンドは、下記のようなオプションを組み合わせて使用することが多いです。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ free -m    （KByte ではなく MByte 単位で表示）
+$ free -s 5  （５秒間隔でポーリングして表示）
+</code></pre></div></div>
+
+<h4 id="参考">参考</h4>
+
+<ul>
+  <li><a href="https://linuxjm.osdn.jp/html/procps/man1/free.1.html">free - MAN PAGE</a></li>
+  <li><a href="http://www.atmarkit.co.jp/ait/articles/0810/01/news134_2.html">Linuxトラブルシューティング探偵団　番外編（1）：減り続けるメモリ残量！ 果たしてその原因は!? (2/3) - ＠IT</a></li>
+</ul>
+
+<h2 id="procmeminfo-を直接見る">/proc/meminfo を直接見る</h2>
+
+<p><code class="language-plaintext highlighter-rouge">free</code> コマンドなどは、<code class="language-plaintext highlighter-rouge">proc/meminfo</code> の内容を整形して出力していますが、<code class="language-plaintext highlighter-rouge">proc/meminfo</code> を直接参照すると下記のような情報を取得することができます。</p>
+
+<h4 id="実行例ubuntu-1004-の場合-1">実行例（Ubuntu 10.04 の場合）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /proc/meminfo
+MemTotal:        4057720 kB
+MemFree:         1622196 kB
+Buffers:          337768 kB
+Cached:          1236440 kB
+SwapCached:         1008 kB
+Active:           938236 kB
+Inactive:         861756 kB
+Active(anon):      26748 kB
+Inactive(anon):   205540 kB
+Active(file):     911488 kB
+Inactive(file):   656216 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:      11884536 kB
+SwapFree:       11883456 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        225056 kB
+Mapped:            76716 kB
+Shmem:              6504 kB
+Slab:             458988 kB
+SReclaimable:     435412 kB
+SUnreclaim:        23576 kB
+KernelStack:        2768 kB
+PageTables:        22020 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    13913396 kB
+Committed_AS:     630384 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      336908 kB
+VmallocChunk:   34359395836 kB
+HardwareCorrupted:     0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      190436 kB
+DirectMap2M:     4001792 kB
+</code></pre></div></div>
+
+<h2 id="procrank-コマンド">procrank コマンド</h2>
+
+<p><code class="language-plaintext highlighter-rouge">procrank</code> コマンドは、プロセスごとのメモリ使用状況を調べることができます。
+下記の項目がよく参照されます。</p>
+
+<dl>
+  <dt>PSS (Proportional Set Size)</dt>
+  <dd>そのプロセスが実質的に使用しているメモリ容量です。複数のプロセスで共有しているメモリが比例分配されて計算されているため、すべてのプロセスの PSS を合計すれば、システム全体の使用量になります。</dd>
+  <dt>USS (Unique Set Size)</dt>
+  <dd>そのプロセスのみが占有しているメモリ容量です。このサイズが時間とともに単調増加していくようですと、そのプロセスはメモリリークしているのだと判断できます。</dd>
+</dl>
+
+<h2 id="vmstat-コマンド">vmstat コマンド</h2>
+
+<p><code class="language-plaintext highlighter-rouge">vmstat</code> コマンドは、仮想メモリに関する統計情報を表示します。</p>
+
+<blockquote>
+  <p>vmstat reports information about processes, memory, paging, block IO, traps, disks and cpu activity.  The first report produced gives averages since the last reboot.  Additional reports give information on a sampling period of length delay.  The process and memory reports are instantaneous in either case.</p>
+</blockquote>
+
+<h4 id="実行例ubuntu-1004-の場合-2">実行例（Ubuntu 10.04 の場合）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  0   1080 1621568 337804 1236444    0    0     3     4   21   33  0  0 100  0
+</code></pre></div></div>
+
+<p>下記のようなオプションを指定すると、MByte 単位で、５秒間隔でポーリングして表示できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vmstat -SM 5
+procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  0      1   1583    329   1207    0    0     3     4   21   33  0  0 100  0
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">si</code>、<code class="language-plaintext highlighter-rouge">so</code> はスワップイン、スワップアウトを示しており、これが頻発する場合は、スラッシング（仮想メモリとのやりとりに CPU 処理時間のほとんどを割いてしまう状況）が発生している可能性があります。</p>
+
+<h2 id="pmap-コマンド">pmap コマンド</h2>
+
+<p><code class="language-plaintext highlighter-rouge">pmap</code> コマンドは、プロセスのメモリマップ情報を表示します。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Linux のメモリ情報を調べるコマンド&url=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/memory.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/linux/"><span class="xArticle_up_label">まくまくLinux/Shellノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li class="xNav-focused"><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2011-01-20</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

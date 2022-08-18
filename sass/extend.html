@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="@extend ディレクティブを使用すると、他のセレクタに適用されているスタイル定義を継承して使用することができます。">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sass/extend.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-sass.png" />
+
+  <meta property="og:description" content="@extend ディレクティブを使用すると、他のセレクタに適用されているスタイル定義を継承して使用することができます。">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="エクステンドでスタイルを継承する (@extend) | まくまくSassノート" />
+  <title>エクステンドでスタイルを継承する (@extend) - まくまくSassノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sass/">
+    <img src="/assets/img/logo-sass.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/sass/">
+    <div class="xPageHeader_category">
+    まくまくSassノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">エクステンドでスタイルを継承する (@extend)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-19</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sass/extend.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： エクステンドでスタイルを継承する (@extend)&url=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+        <div class="xPageDescription">@extend ディレクティブを使用すると、他のセレクタに適用されているスタイル定義を継承して使用することができます。</div>
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="extend-の基本">@extend の基本</h2>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">.sample</code> クラスのスタイル定義の中で下記のように <strong><code class="language-plaintext highlighter-rouge">@extend</code></strong> ディレクティブを使用すると、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.sample {
+  @extend &lt;セレクタ名&gt;;
+}
+</code></pre></div></div>
+
+<p>指定したセレクタに設定されているスタイル定義を、<code class="language-plaintext highlighter-rouge">.sample</code> クラスに継承させることができます。
+セレクタ名には、クラス名 (<code class="language-plaintext highlighter-rouge">.foo</code>) や HTML のタグ名 (<code class="language-plaintext highlighter-rouge">em</code>) などを引用符で囲まずに指定します。</p>
+
+<p>下記の例では、<code class="language-plaintext highlighter-rouge">.warn</code> クラスに対して設定したスタイルを、<code class="language-plaintext highlighter-rouge">.error</code> に継承させています。</p>
+
+<h4 id="入力-scss">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.warn</span><span class="p">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span><span class="o">,</span> <span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これで、<code class="language-plaintext highlighter-rouge">.warn</code> に適用したスタイルが、<code class="language-plaintext highlighter-rouge">.error</code> クラスにも適用されるようになります。
+<code class="language-plaintext highlighter-rouge">.error</code> クラスは <code class="language-plaintext highlighter-rouge">.warn</code> クラスの性質を備えているので、<code class="language-plaintext highlighter-rouge">.error</code> クラスを使用するときに <code class="language-plaintext highlighter-rouge">.warn</code> クラスを同時に指定する必要がありません。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"warn"</span><span class="nt">&gt;</span>警告メッセージ<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"error"</span><span class="nt">&gt;</span>エラーメッセージ<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="extends-は親クラスのセレクタ構造も継承する">@extends は親クラスのセレクタ構造も継承する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">@extend</code> でスタイルを継承すると、そのスタイルが単純にコピーされたかのように振る舞うだけでなく、特殊化されたスタイル構成も同時に継承されます。
+これが、Extend（継承）という名前のディレクティブになっている理由です。</p>
+
+<p>例えば、下記の <code class="language-plaintext highlighter-rouge">.warn</code> クラスは、装飾用の <code class="language-plaintext highlighter-rouge">.large</code> クラスと同時に使用することで、追加のスタイルを付加できるようになっています（連結セレクタ <code class="language-plaintext highlighter-rouge">.warn.large</code> として定義）。
+このような構造があるときに、<code class="language-plaintext highlighter-rouge">.error</code> クラスから <code class="language-plaintext highlighter-rouge">@extend</code> ディレクティブを使って <code class="language-plaintext highlighter-rouge">.warn</code> クラスを継承すると、<code class="language-plaintext highlighter-rouge">.error</code> クラスの方も <code class="language-plaintext highlighter-rouge">.large</code> クラスと組み合わせて使用できるような構造が生成されます。</p>
+
+<h4 id="入力-scss-1">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warn.large</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">large</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nc">.warn</span><span class="p">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-1">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span><span class="o">,</span> <span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.warn.large</span><span class="o">,</span> <span class="nc">.large.error</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="nb">large</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.error</span> <span class="p">{</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>結果として、<code class="language-plaintext highlighter-rouge">.large</code> クラスは、<code class="language-plaintext highlighter-rouge">.warn</code> クラスだけでなく、<code class="language-plaintext highlighter-rouge">.error</code> クラスとも同時に使用できるようになります。</p>
+
+<h4 id="html">HTML</h4>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"warn large"</span><span class="nt">&gt;</span>大きな警告メッセージ<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"error large"</span><span class="nt">&gt;</span>大きなエラーメッセージ<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="extend-で継承できるセレクタと継承できないセレクタ">@extend で継承できるセレクタと継承できないセレクタ</h2>
+
+<p><code class="language-plaintext highlighter-rouge">@extend</code> ディレクティブの構文は、<code class="language-plaintext highlighter-rouge">@extend &lt;セレクタ名&gt;</code> ですが、この<b>セレクタ名</b>の部分に指定できるセレクタは種類が限られています。</p>
+
+<p>下記に、継承できるセレクタと、継承できないセレクタの種類の一覧を示します。</p>
+
+<h3 id="継承できるセレクタ">継承できるセレクタ</h3>
+
+<ul>
+  <li><b>型セレクタ（タイプセレクタ）</b> 例: <code class="language-plaintext highlighter-rouge">strong</code>、<code class="language-plaintext highlighter-rouge">ul</code></li>
+  <li><b>ID セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">#main</code></li>
+  <li><b>クラスセレクタ</b> 例: <code class="language-plaintext highlighter-rouge">.foo</code></li>
+  <li><b>連結セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">.foo.bar</code>、<code class="language-plaintext highlighter-rouge">p.note</code>、<code class="language-plaintext highlighter-rouge">#main.bar</code></li>
+  <li><b>属性セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">img[src$=".png"]</code>、<code class="language-plaintext highlighter-rouge">input[type="text"]</code>、<code class="language-plaintext highlighter-rouge">div[data-foo]</code></li>
+  <li><b>疑似クラス</b> 例: <code class="language-plaintext highlighter-rouge">a:hover</code>、<code class="language-plaintext highlighter-rouge">a:active</code>、<code class="language-plaintext highlighter-rouge">p:not(.sample)</code></li>
+  <li><b>疑似要素</b> 例: <code class="language-plaintext highlighter-rouge">p::first-line</code>、<code class="language-plaintext highlighter-rouge">blockquote::before</code></li>
+</ul>
+
+<h3 id="継承できないセレクタ">継承できないセレクタ</h3>
+
+<ul>
+  <li><b>子孫セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">p strong</code>、<code class="language-plaintext highlighter-rouge">.foo .bar</code></li>
+  <li><b>子セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">p &gt; strong</code>、<code class="language-plaintext highlighter-rouge">.foo &gt; .bar</code></li>
+  <li><b>隣接セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">h2 + h3</code>、<code class="language-plaintext highlighter-rouge">.foo + .bar</code></li>
+  <li><b>間接セレクタ</b> 例: <code class="language-plaintext highlighter-rouge">h3 ~ h3</code>、<code class="language-plaintext highlighter-rouge">.foo ~ .bar</code></li>
+</ul>
+
+<p>親子構造を示すようなセレクタシーケンスで定義されたルールは継承できないと覚えておけばよいでしょう。</p>
+
+<h2 id="extend-専用のプレースホルダーセレクタ-foo">@extend 専用のプレースホルダーセレクタ (%foo)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">@extends</code> ディレクティブからのみ使用するルールセットを作成するには、プレースホルダーセレクタの仕組みを使用します。
+下記のように、<strong><code class="language-plaintext highlighter-rouge">%</code></strong> で始まる名称のセレクタでスタイルを定義しておくと、そのルールセットは <code class="language-plaintext highlighter-rouge">@extend</code> ディレクティブからの継承専用のルールセットとなります（それ自身のルールセットとしては CSS に出力されません）。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">%foo</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このプレースホルダーセレクタの仕組みは、<code class="language-plaintext highlighter-rouge">@extend</code> 専用のスタイルを複数定義した Sass ライブラリを作成するときなどに便利です。
+また、部分的に共通のスタイルを適用したいセレクタが多い場合、この仕組みをうまく使用することで SCSS コードの可読性を上げることができます（プレースホルダーセレクタ名にいかに分かりやすい名前を付けるかがポイントです）。</p>
+
+<p>下記のサンプルでは、ボックスシャドウを設定するためのプレースホルダーセレクタ <code class="language-plaintext highlighter-rouge">%shadow</code> を定義し、そのスタイルを <code class="language-plaintext highlighter-rouge">button</code> 要素と <code class="language-plaintext highlighter-rouge">img</code> 要素に適用しています。</p>
+
+<h4 id="入力-scss-2">入力 (SCSS)</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">%shadow</span> <span class="p">{</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">2px</span> <span class="m">2px</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="mi">.29</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nt">button</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nv">%shadow</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">img</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nv">%shadow</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="出力-css-2">出力 (CSS)</h4>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">button</span><span class="o">,</span> <span class="nt">img</span> <span class="p">{</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0px</span> <span class="m">2px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.29</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="extend-対象のセレクタが存在しないときのエラーを抑制する-optional">@extend 対象のセレクタが存在しないときのエラーを抑制する (!optional)</h2>
+
+<p>例えば、下記のように <code class="language-plaintext highlighter-rouge">@extend</code> で <code class="language-plaintext highlighter-rouge">%shadow</code> セレクタを継承するように指定したときに、<code class="language-plaintext highlighter-rouge">%shadow</code> セレクタのルール定義が見つからない場合は、Sass プロセッサはエラーメッセージを表示します。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">button</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nv">%shadow</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error: "button" failed to @extend "%shadow".
+       The selector "%shadow" was not found.
+       Use "@extend %shadow !optional" if the extend should be able to fail.
+        on line 2 of input.scss
+  Use --trace for backtrace.
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">@extend</code> 対象のセレクタが見つからない場合にエラーが発生しないようにするには、<strong><code class="language-plaintext highlighter-rouge">!option</code></strong> フラグを付けて <code class="language-plaintext highlighter-rouge">@extend</code> するようにします。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">button</span> <span class="p">{</span>
+  <span class="k">@extend</span> <span class="nv">%shadow</span> <span class="o">!</span><span class="nt">optional</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上記の例では、プレースホルダ (<code class="language-plaintext highlighter-rouge">%shadow</code>) を継承していますが、普通のクラスセレクタ (<code class="language-plaintext highlighter-rouge">.foo</code>) の場合も同様です。</p>
+
+<h2 id="media-ディレクティブ内での-extend-の制約">@media ディレクティブ内での @extend の制約</h2>
+
+<p>メディアクエリを使用して環境別のスタイル定義を行っている場合、<code class="language-plaintext highlighter-rouge">@media</code> ブロックの中での <code class="language-plaintext highlighter-rouge">@extend</code> で継承できるセレクタは、同じ <code class="language-plaintext highlighter-rouge">@media</code> ブロック内で定義されているものに限定されます。</p>
+
+<p>例えば、下記の例では、<code class="language-plaintext highlighter-rouge">@media</code> ブロック内から、ブロックの外で定義された <code class="language-plaintext highlighter-rouge">.warn</code> セレクタのスタイルを継承しようとしているのでエラーになります。</p>
+
+<h4 id="間違った例">間違った例</h4>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.warn</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="nc">.error</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nc">.warn</span><span class="p">;</span>  <span class="c1">// エラー！</span>
+    <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error: You may not @extend an outer selector from within @media.
+       You may only @extend selectors within the same directive.
+</code></pre></div></div>
+
+<p>次のように、同じ <code class="language-plaintext highlighter-rouge">@media</code> ブロック内で定義されたセレクタであれば <code class="language-plaintext highlighter-rouge">@extend</code> を使って継承することができます。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@media</span> <span class="n">print</span> <span class="p">{</span>
+  <span class="nc">.warn</span> <span class="p">{</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bolder</span><span class="p">;</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="nb">solid</span> <span class="m">3px</span> <span class="no">orange</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">orange</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.error</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nc">.warn</span><span class="p">;</span>  <span class="c1">// OK</span>
+    <span class="nl">border-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これは、メディアクエリの文法による制約です。
+将来的な Sass のアップデートにより、<code class="language-plaintext highlighter-rouge">@media</code> ブロックの外のセレクタも継承できるようになるかもしれません。</p>
+
+<p>Sass でメディアクエリを使ったルール定義をスマートに行うには、<a href="mixin.html">Mixin の仕組み</a>で <code class="language-plaintext highlighter-rouge">@content</code> ディレクティブを組み合わせて使用する方法がお勧めです。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくSassノート： エクステンドでスタイルを継承する (@extend)&url=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sass/extend.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sass/"><span class="xArticle_up_label">まくまくSassノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li class="xNav-focused"><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sass/">Sass</a></div>
+  <div class="xPageDate">2018-12-19</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

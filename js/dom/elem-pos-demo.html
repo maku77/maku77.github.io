@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+    }
+    #header, #footer {
+      background: lightgray;
+      height: 50px;
+    }
+    #container {
+      height: 500px;
+    }
+    #container::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    #sidebar {
+      float: left;
+      height: 100%;
+      width: 50px;
+      background: lightyellow;
+    }
+    #main {
+      position: relative;
+      float: left;
+      width: calc(100% - 50px);
+      height: 100%;
+      background: #eee;
+    }
+    #box {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 70px;
+      height: 30px;
+      background: red;
+      color: white;
+    }
+    #msg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      width: 150px;
+      height: 100vh;
+      color: red;
+      padding: 60px 10px;
+      font-weight: bolder;
+    }
+  </style>
+  <title>HTML 要素の位置を取得する: デモページ</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="header">header (height = 50px)</div>
+<div id="container">
+  <div id="sidebar">sidebar
+  </div>
+  <div id="main">main
+    <div id="box">box</div>
+  </div>
+  <div id="msg"></div>
+</div>
+<div id="footer">footer</div>
+
+<div id="msg"></div>
+
+<script>
+$(function() {
+  var $window = $(window);
+  var $e = $('#box');
+  var $msg = $('#msg');
+  showPos();
+
+  function showPos() {
+    $msg.html('$e.offset().top = ' + Math.round($e.offset().top) +
+        '<br>$e.offset().left = ' + Math.round($e.offset().left) +
+        '<br>$e.position().top = ' + Math.round($e.position().top) +
+        '<br>$e.position().left = ' + Math.round($e.position().left));
+  }
+
+  $window.resize(showPos);
+  $window.scroll(showPos);
+});
+</script>
+
+</body>
+</html>

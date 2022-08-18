@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/wxpython/listbox.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="wxPython - ListBox（リストボックス） | まくまくPythonノート" />
+  <title>wxPython - ListBox（リストボックス） - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">wxPython - ListBox（リストボックス）</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-03-08</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/wxpython/listbox.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython - ListBox（リストボックス）&url=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="リストボックスを使う">リストボックスを使う</h2>
+
+<p><img src="/python/wxpython/image/20070410-list_box.png" alt="./image/20070410-list_box.png" />
+<img src="/python/wxpython/image/20070410-list_box2.png" alt="./image/20070410-list_box2.png" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.ListBox</code> は選択候補を示すリストボックスを提供します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wx</span><span class="p">.</span><span class="n">ListBox</span><span class="c1">#__init__(self, Window parent, int id=-1, Point pos=DefaultPosition,
+</span>    <span class="n">Size</span> <span class="n">size</span><span class="o">=</span><span class="n">DefaultSize</span><span class="p">,</span> <span class="n">wxArrayString</span> <span class="n">choices</span><span class="o">=</span><span class="n">wxPyEmptyStringArray</span><span class="p">,</span>
+    <span class="nb">long</span> <span class="n">style</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">Validator</span> <span class="n">validator</span><span class="o">=</span><span class="n">DefaultValidator</span><span class="p">,</span>
+    <span class="n">String</span> <span class="n">name</span><span class="o">=</span><span class="n">ListBoxNameStr</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>リストボックスに項目を追加するには、<code class="language-plaintext highlighter-rouge">Append()</code> メソッドや <code class="language-plaintext highlighter-rouge">InsertItem()</code> メソッドを使用します。各項目には、任意のオブジェクト (<code class="language-plaintext highlighter-rouge">clientData</code>) を関連付けて、別の場所から参照することができます。</p>
+
+<h3 id="項目を追加するためのメソッド">項目を追加するためのメソッド</h3>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#Append(String item, PyObject clientData=None) -&gt; int</code></dt>
+  <dd>末尾へ項目を追加する。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#Insert(self, String item, int pos, PyObject clientData=None)</code></dt>
+  <dd>指定した位置に項目を挿入する。</dd>
+</dl>
+
+<p>項目の選択状態が変化したことを知るには、<code class="language-plaintext highlighter-rouge">wx.EVT_LISTBOX</code> イベントを処理します。項目をダブルクリックした倍は <code class="language-plaintext highlighter-rouge">wx.EVT_LISTBOX_DCLICK</code> イベントが発生します。</p>
+
+<h3 id="選択中の項目を取得するためのメソッド">選択中の項目を取得するためのメソッド</h3>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#GetSelection()</code></dt>
+  <dd>選択されている項目のインデックスを取得する (0 base)。選択されていない場合は <code class="language-plaintext highlighter-rouge">wx.NOT_FOUND</code> を返す。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#GetString(n)</code></dt>
+  <dd>指定したインデックスの項目のラベルを取得する。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#GetClientData(n)</code></dt>
+  <dd>指定したインデックスの項目に関連付けられたクライアントデータを取得する。</dd>
+</dl>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">))</span>
+
+        <span class="c1"># Create widgets.
+</span>        <span class="n">panel</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">listBox</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ListBox</span><span class="p">(</span><span class="n">panel</span><span class="p">)</span>
+        <span class="n">listBox</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_LISTBOX</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnSelect</span><span class="p">)</span>
+
+        <span class="c1"># Append items, which have client data.
+</span>        <span class="n">listBox</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"Item 1"</span><span class="p">,</span> <span class="s">"Data 1"</span><span class="p">)</span>
+        <span class="n">listBox</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"Item 2"</span><span class="p">,</span> <span class="s">"Data 2"</span><span class="p">)</span>
+        <span class="n">listBox</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">"Item 3"</span><span class="p">,</span> <span class="s">"Data 3"</span><span class="p">)</span>
+
+        <span class="c1"># Set sizer.
+</span>        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">listBox</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wx</span><span class="p">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="p">.</span><span class="n">ALL</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">panel</span><span class="p">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">OnSelect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">listBox</span> <span class="o">=</span> <span class="n">event</span><span class="p">.</span><span class="n">GetEventObject</span><span class="p">()</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">listBox</span><span class="p">.</span><span class="n">GetSelection</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">wx</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">print</span> <span class="s">'Item: '</span> <span class="o">+</span> <span class="n">listBox</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">'Data: '</span> <span class="o">+</span> <span class="n">listBox</span><span class="p">.</span><span class="n">GetClientData</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="文字列のリストからリストボックスの項目を作成する">文字列のリストからリストボックスの項目を作成する</h2>
+
+<p><img src="/python/wxpython/image/20070410-list_box3.png" alt="./image/20070410-list_box3.png" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.ListBox</code> のコンストラクタの <code class="language-plaintext highlighter-rouge">choices</code> パラメータに、文字列のリストを指定すると、一度に複数の項目を追加することができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="n">listItems</span> <span class="o">=</span> <span class="p">[</span><span class="s">'item 1'</span><span class="p">,</span> <span class="s">'item 2'</span><span class="p">,</span> <span class="s">'item 3'</span><span class="p">,</span> <span class="s">'item 4'</span><span class="p">,</span> <span class="s">'item 5'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">))</span>
+
+        <span class="c1"># Create widgets.
+</span>        <span class="n">panel</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">listBox</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ListBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">listItems</span><span class="p">)</span>
+
+        <span class="c1"># Set sizer.
+</span>        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">listBox</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wx</span><span class="p">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="p">.</span><span class="n">ALL</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">panel</span><span class="p">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>以下のメソッドを使うことでも、複数の項目を追加することができます。</p>
+
+<h3 id="複数の項目を追加するためのメソッド">複数の項目を追加するためのメソッド</h3>
+
+<dl>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#AppendItems(self, List strings)</code></dt>
+  <dd>末尾に複数の項目を追加する。</dd>
+  <dt><code class="language-plaintext highlighter-rouge">ListBox#InsertItems(self, wxArrayString items, unsigned int pos)</code></dt>
+  <dd>指定した位置に複数の項目を挿入する。</dd>
+</dl>
+
+<h2 id="リストボックス内の項目を自動的にソートする">リストボックス内の項目を自動的にソートする</h2>
+
+<p><img src="/python/wxpython/image/20070410-list_box4.png" alt="./image/20070410-list_box4.png" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">wx.ListBox</code> のコンストラクタの <code class="language-plaintext highlighter-rouge">style</code> パラメータに、<code class="language-plaintext highlighter-rouge">wx.LB_SORT</code> フラグを設定すると、リストボックス内の項目が自動的にソートされて表示されるようになります。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">wx</span>
+
+<span class="k">class</span> <span class="nc">MyFrame</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">):</span>
+    <span class="n">listItems</span> <span class="o">=</span> <span class="p">[</span><span class="s">'one'</span><span class="p">,</span> <span class="s">'two'</span><span class="p">,</span> <span class="s">'three'</span><span class="p">,</span> <span class="s">'four'</span><span class="p">,</span> <span class="s">'five'</span><span class="p">,</span> <span class="s">'six'</span><span class="p">,</span> <span class="s">'seven'</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wx</span><span class="p">.</span><span class="n">Frame</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">150</span><span class="p">))</span>
+
+        <span class="c1"># Create widgets.
+</span>        <span class="n">panel</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">Panel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">listBox</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">ListBox</span><span class="p">(</span><span class="n">panel</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">listItems</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">wx</span><span class="p">.</span><span class="n">LB_SORT</span><span class="p">)</span>
+
+        <span class="c1"># Set sizer.
+</span>        <span class="n">sizer</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">BoxSizer</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">HORIZONTAL</span><span class="p">)</span>
+        <span class="n">sizer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">listBox</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">wx</span><span class="p">.</span><span class="n">EXPAND</span><span class="o">|</span><span class="n">wx</span><span class="p">.</span><span class="n">ALL</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">panel</span><span class="p">.</span><span class="n">SetSizer</span><span class="p">(</span><span class="n">sizer</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="p">.</span><span class="n">PySimpleApp</span><span class="p">()</span>
+    <span class="n">MyFrame</span><span class="p">().</span><span class="n">Show</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">MainLoop</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="setselectionindex-してもevt_listbox-イベントは発生しない">SetSelection(index) しても、EVT_LISTBOX イベントは発生しない</h2>
+
+<p><code class="language-plaintext highlighter-rouge">wx.ListBox</code> の項目をマウスやキーボードで選択すると <code class="language-plaintext highlighter-rouge">EVT_LISTBOX</code> イベントが発生しますが、<code class="language-plaintext highlighter-rouge">wx.ListBox#SetSelection(index)</code> でプログラム内からリスト項目を選択した場合にはイベントが発生しません。
+そのため、<code class="language-plaintext highlighter-rouge">SetSelection()</code> で選択項目を変更した場合は、<code class="language-plaintext highlighter-rouge">EVT_LISTBOX</code> イベント発生時と同様の処理を明示的に実行する必要があります。</p>
+
+<p>以下の例では、<code class="language-plaintext highlighter-rouge">EVT_LISTBOX</code> イベント発生時の処理と、<code class="language-plaintext highlighter-rouge">ListBox#SetSelection()</code> 実行後の処理を <code class="language-plaintext highlighter-rouge">ShowContent()</code> という関数で共通化しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="p">...</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">listBox</span><span class="p">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="p">.</span><span class="n">EVT_LISTBOX</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">OnSelect</span><span class="p">)</span>
+    <span class="p">...</span>
+
+<span class="k">def</span> <span class="nf">OnSelect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">ShowContent</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">SelectTopItem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">listItem</span><span class="p">.</span><span class="n">SetSelection</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">ShowContent</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">ShowContent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="p">...</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">listBox</span><span class="p">.</span><span class="n">GetSelection</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">wx</span><span class="p">.</span><span class="n">NOT_FOUND</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">listBox</span><span class="p">.</span><span class="n">GetClientData</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： wxPython - ListBox（リストボックス）&url=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/wxpython/listbox.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2007-03-08</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

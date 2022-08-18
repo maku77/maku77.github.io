@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/env/docstring.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Docstring でドキュメンテーションコメントを記述する | まくまくPythonノート" />
+  <title>Docstring でドキュメンテーションコメントを記述する - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Docstring でドキュメンテーションコメントを記述する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2021-11-03</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/env/docstring.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： Docstring でドキュメンテーションコメントを記述する&url=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="docstring-とは">Docstring とは？</h2>
+
+<p>Python のコードに <strong>docstring</strong> フォーマットでコメントを記述しておくと、いろいろなツールから API ドキュメントとして参照できるようになります。
+例えば、Python 用の統合開発環境 (IDE) におけるコード補完時に、ヒントとして関数の使用方法が表示されます。</p>
+
+<p>下記は <a href="https://www.python.org/dev/peps/pep-0257/">PEP 257 – Docstring Conventions</a> に記述されている docstring の書き方の例です。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">complex</span><span class="p">(</span><span class="n">real</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">imag</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="s">"""Form a complex number.
+
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+    """</span>
+    <span class="k">if</span> <span class="n">imag</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">real</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">complex_zero</span>
+    <span class="p">...</span>
+</code></pre></div></div>
+
+<p>docstring はこのように 3 つのクォート (<code class="language-plaintext highlighter-rouge">"""</code>) で囲んで記述します。
+docstring コメントは関数の内部に記述するところがポイントです。
+このあたりは、関数の外側にドキュメンテーションコメントを記述する Java や C# などとは異なっています。</p>
+
+<h2 id="docstring-の書き方">Docstring の書き方</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"""</code> で始まり <code class="language-plaintext highlighter-rouge">"""</code> で終わる。</li>
+  <li>一行目はサマリであり、ピリオドで終わるフレーズで記述する。</li>
+  <li>一行目は <code class="language-plaintext highlighter-rouge">"""</code> と同じ行に記述してもよいし、改行してから記述してもよい。</li>
+  <li>最後の <code class="language-plaintext highlighter-rouge">"""</code> は行末に書いてもよいし、単独の行に書いてもよい。</li>
+  <li>
+    <p>一行だけで記述する場合は、開始クォートと終了クォートを同じ行に記述してもよい。</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">complex</span><span class="p">(</span><span class="n">real</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">imag</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="s">"""Form a complex number."""</span>
+</code></pre></div>    </div>
+  </li>
+  <li>一行当たり <strong>72 文字</strong>以内で記述する。
+    <ul>
+      <li>クラスメソッドであれば、最初から 8 文字インデントして書き始めることになるので、結局、一行あたりのサイズを 80 文字にするということですね。</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">r"""</code> で始めると Raw docstring となり、バックスラッシュを含めることができる。</li>
+  <li>サマリは命令形で記述する。動詞で始め、<strong>三単現の s は付けない</strong>（例: “Return …“）。
+    <ul>
+      <li>これは、Javadoc が三単現の s を付けるのを慣例しているのとは対照的です。</li>
+      <li>以下、<a href="https://www.python.org/dev/peps/pep-0257/">PEP 257 – Docstring Conventions</a> からの抜粋です。
+        <blockquote>
+          <p>The docstring is a phrase ending in a period. It prescribes the function or method’s effect as a command (“Do this”, “Return that”), not as a description; e.g. don’t write “Returns the pathname …”.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>詳細なコメントを記述する場合は、一行目にサマリ、二行目は空行、三行目以降に詳細コメントを記述する。この場合も一行目のサマリは、<code class="language-plaintext highlighter-rouge">"""</code> と同じ行に記述してよい。</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">complex</span><span class="p">(</span><span class="n">real</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">imag</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="s">"""Form a complex number.
+
+    Keyword arguments:
+    real -- the real part (default 0.0)
+    imag -- the imaginary part (default 0.0)
+    """</span>
+</code></pre></div>    </div>
+  </li>
+  <li>パッケージのドキュメントは <strong><code class="language-plaintext highlighter-rouge">__init__.py</code></strong> に書く。自分が export するモジュールやサブパッケージをリスト化し、それぞれ一行のサマリを記述する。</li>
+</ul>
+
+<h2 id="docstring-の記述例">Docstring の記述例</h2>
+
+<h4 id="os-モジュールの例">os モジュールの例</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">normcase</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="s">"""Normalize case of pathname.
+
+    Makes all characters lowercase and all slashes into backslashes."""</span>
+</code></pre></div></div>
+
+<h4 id="urllibrequest-モジュールの例">urllib.request モジュールの例</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_open_generic_http</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection_factory</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="s">"""Make an HTTP connection using connection_class.
+
+    This is an internal method that should be called from
+    open_http() or open_https().
+
+    Arguments:
+    - connection_factory should take a host name and return an
+      HTTPConnection instance.
+    - url is the url to retrieval or a host, relative-path pair.
+    - data is payload for a POST request or None.
+    """</span>
+</code></pre></div></div>
+
+<h4 id="json-モジュールの例">json モジュールの例</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">parse_float</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">parse_int</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">parse_constant</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="s">"""Deserialize ``fp`` (a ``.read()``-supporting file-like object containing
+    a JSON document) to a Python object.
+
+    ``object_hook`` is an optional function that will be called with the
+    result of any object literal decode (a ``dict``). The return value of
+    ``object_hook`` will be used instead of the ``dict``. This feature
+    can be used to implement custom decoders (e.g. JSON-RPC class hinting).
+
+    ``object_pairs_hook`` is an optional function that will be called with the
+    result of any object literal decoded with an ordered list of pairs.  The
+    return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+    This feature can be used to implement custom decoders.  If ``object_hook``
+    is also defined, the ``object_pairs_hook`` takes priority.
+
+    To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
+    kwarg; otherwise ``JSONDecoder`` is used.
+    """</span>
+</code></pre></div></div>
+
+<h2 id="docstring-はなぜ-72-文字までなのか">Docstring はなぜ 72 文字までなのか？</h2>
+
+<p><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8 – Style Guide for Python Code</a> では、docstring コメントは一行あたり <strong>72 文字まで</strong> にすることを推奨しています。</p>
+
+<blockquote>
+  <p>For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to <strong>72</strong> characters.
+…</p>
+
+  <p>The Python standard library is conservative and requires limiting lines to 79 characters (and docstrings/comments to <strong>72</strong>).</p>
+</blockquote>
+
+<p>72 文字という数字は、パンチカードの印刷幅から来ているという説や、ツールでの出力を考慮しているという説などがあります。
+現実的にはツールの出力を考慮しているのだと考えるのが自然でしょう。
+例えば、Python 付属の <code class="language-plaintext highlighter-rouge">pydoc</code> コマンドで、<code class="language-plaintext highlighter-rouge">main.py</code> 内のドキュメンテーションコメントを表示すると下記のように表示されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pydoc main
+Help on module main:
+
+NAME
+    main
+
+FUNCTIONS
+    complex(real=0.0, imag=0.0)
+        Form a complex number.
+
+        Keyword arguments:
+        real -- the real part (default 0.0)
+        imag -- the imaginary part (default 0.0)
+
+FILE
+    /User/maku/main.py
+</code></pre></div></div>
+
+<p>関数のドキュメンテーション部分には 8 文字分のインデントが入っています。
+よって、ドキュメンテーションコメント自体は 72 文字に収めておかないと、合計で 80 文字を超えることになってしまいます。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： Docstring でドキュメンテーションコメントを記述する&url=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/env/docstring.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2021-11-03</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

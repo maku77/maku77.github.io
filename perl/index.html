@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPerlノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/perl/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-perl.png" />
+
+  <meta property="og:description" content="天才星人まくのPerlノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Perl ノート | 天才まくまくノート" />
+  <title>まくまく Perl ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-perl.svg" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくPerlノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        おそらくもうオワコンな言語、Perl。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerlノート： Perl&url=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="perl-ドキュメント">Perl ドキュメント</h2>
+<ul>
+  <li><a href="misc/perldoc.html">Perl のマニュアルページを表示する (perldoc)</a></li>
+  <li><code class="language-plaintext highlighter-rouge">perldoc perl</code> <strong>ドキュメントのリストを表示</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">perldoc XYZ</code>  <strong>XYZ のドキュメント</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">perldoc -f Func</code>  <strong>組み込み関数のドキュメント</strong></li>
+</ul>
+
+<h2 id="構文言語仕様">構文／言語仕様</h2>
+<ul>
+  <li><a href="syntax/logical-operator.html">論理演算子（短絡演算子）を利用したデフォルト値のイディオム</a></li>
+  <li><a href="syntax/integer-literal.html">整数リテラル</a></li>
+  <li><a href="syntax/string-literal.html">文字列リテラル</a></li>
+  <li><a href="syntax/bool.html">ブール値（真偽値）</a></li>
+  <li><a href="syntax/not-and-exclamation.html">not と ! の結合度の違い</a></li>
+  <li><a href="syntax/comparison.html">数値比較と文字列比較</a></li>
+  <li>制御構造
+    <ul>
+      <li><a href="syntax/if.html">if/unless による分岐処理</a></li>
+      <li><a href="syntax/while.html">while/until によるループ処理</a></li>
+      <li><a href="syntax/for.html">for/foreach によるループ処理</a></li>
+    </ul>
+  </li>
+  <li><a href="syntax/error.html">エラー変数 $! について</a></li>
+  <li><a href="syntax/undef-defined.html">undef と defined 演算子</a></li>
+  <li><a href="syntax/require.html">require で別ファイル（ライブラリ）をインクルードする</a></li>
+  <li><a href="syntax/namespace.html">パッケージによる名前空間の設定 (package, our)</a></li>
+  <li><a href="syntax/change-current-package.html">一時的にカレントパッケージを変更する</a></li>
+  <li><a href="syntax/constant.html">定数を定義する（constant プラグマ）</a></li>
+  <li><a href="syntax/reference-lifetime.html">リファレンス先のデータの生存期間</a></li>
+</ul>
+
+<h2 id="配列とリスト">配列とリスト</h2>
+<ul>
+  <li><a href="list/define-array-list.html">配列とリストを定義する</a></li>
+  <li><a href="list/get-array-size.html">配列のサイズを取得する</a></li>
+  <li><a href="list/shorten-array.html">配列のサイズを切り詰める</a></li>
+  <li><a href="list/undef.html">配列の範囲外アクセス</a></li>
+  <li><a href="list/get-last-element.html">配列の末尾の要素を取得する</a></li>
+  <li><a href="list/push-unshift.html">配列に要素を追加する／取り出す</a></li>
+  <li><a href="list/print-array.html">配列の要素を print で出力する</a></li>
+  <li><a href="list/loop-array.html">配列の要素をループで処理する</a></li>
+  <li><a href="list/copy-array.html">配列をコピーする</a></li>
+  <li><a href="list/concat-array.html">配列を連結する</a></li>
+  <li><a href="list/list-substitution.html">リスト代入</a></li>
+  <li><a href="list/grep-list.html">grep 演算子によるリスト要素のフィルタリング</a></li>
+  <li><a href="list/grep-count.html">条件に一致するリスト要素の数を調べる</a></li>
+  <li><a href="list/map-list.html">map 演算子を使ってリストの各要素を加工したリストを取得する</a></li>
+  <li><a href="list/list-slice.html">リストスライス、配列スライス、ハッシュスライス</a></li>
+  <li><a href="list/reference.html">配列へのリファレンスを取得する</a></li>
+  <li><a href="list/two-dimensional-array.html">配列の配列（二次元配列）を作成する</a></li>
+  <li><a href="list/sort-array.html">配列やリストをソートする</a></li>
+  <li><a href="list/misc.html">配列の添え字に小数を指定するとどうなるか？</a></li>
+  <li><a href="list/anonymous-array.html">無名配列コンストラクタ／無名ハッシュコンストラクタ</a></li>
+</ul>
+
+<h2 id="ハッシュ">ハッシュ</h2>
+<ul>
+  <li><a href="hash/define-hash.html">ハッシュを定義する</a></li>
+  <li><a href="hash/create-hash-by-map.html">キーのリストからハッシュを作成する</a></li>
+  <li><a href="hash/hash-key-value-list.html">ハッシュのキーや値のリストを取得する</a></li>
+  <li><a href="hash/check-if-hash-is-empty.html">ハッシュが空かどうか調べる</a></li>
+  <li><a href="hash/get-hash-size.html">ハッシュのサイズを取得する</a></li>
+  <li><a href="hash/copy-hash.html">ハッシュをコピーする</a></li>
+  <li><a href="hash/loop-hash.html">ハッシュの要素をループで処理する</a></li>
+  <li><a href="hash/sort-hash.html">ハッシュをソートする</a></li>
+  <li><a href="hash/check-key.html">ハッシュのキーが存在するか調べる</a></li>
+  <li><a href="hash/remove-key.html">ハッシュからキーを削除する</a></li>
+  <li><a href="hash/clear-hash.html">ハッシュを空にする（ハッシュの要素をすべて削除する）</a></li>
+  <li><a href="hash/expand-hash-to-list.html">ハッシュをリストに展開する</a></li>
+  <li><a href="hash/save-hash-into-file.html">ハッシュをファイルに保存する（DBMハッシュ）</a></li>
+  <li><a href="hash/reference-to-hash.html">ハッシュへのリファレンスを取得する</a></li>
+  <li><a href="hash/merge-hash.html">2 つのハッシュを合成する</a></li>
+  <li><a href="hash/history-of-name.html">（コラム）ハッシュと連想配列</a></li>
+</ul>
+
+<h2 id="サブルーチン">サブルーチン</h2>
+<ul>
+  <li><a href="subroutine/basic.html">サブルーチンの基本</a></li>
+  <li><a href="subroutine/variable-length-arguments.html">サブルーチンを可変長引数に対応させる</a></li>
+  <li><a href="subroutine/want-array.html">サブルーチンがリストコンテキストで呼び出されたか調べる</a></li>
+  <li><a href="subroutine/use-die-instead-of-exit.html">サブルーチン内では exit を使わずに die を使う</a></li>
+  <li><a href="subroutine/call-by-reference.html">サブルーチンの引数をリファレンスで渡す（参照渡し）</a></li>
+  <li><a href="subroutine/reference-to-subroutine.html">サブルーチンへのリファレンスを取得する</a></li>
+  <li><a href="subroutine/anonymous-subroutine.html">無名サブルーチンを定義する</a></li>
+</ul>
+
+<h2 id="モジュール">モジュール</h2>
+<ul>
+  <li><a href="module/import-module.html">use によるモジュールのインポート</a></li>
+  <li><a href="module/use-lib.html">モジュールの検索パスを追加する（use lib プラグマ）</a></li>
+  <li><a href="module/create-module.html">インポート可能なモジュールを作成する</a></li>
+  <li><a href="module/module-template.html">ディストリビューション用のテンプレートファイルを作成する (h2xs)</a></li>
+  <li><a href="module/cpan-readme.html">CPAN に登録されたディストリビューションの README ファイルを表示する</a></li>
+  <li><a href="module/install-directory.html">指定したディレクトリにモジュールをインストールする</a></li>
+  <li><a href="module/pod.html">POD フォーマットについて</a></li>
+</ul>
+
+<h2 id="クラスオブジェクト">クラス／オブジェクト</h2>
+<ul>
+  <li>マニュアルは <code class="language-plaintext highlighter-rouge">perldoc perlobj</code> で</li>
+  <li><a href="class/constructor.html">コンストラクタを定義する</a></li>
+  <li><a href="class/member.html">メンバ変数とメンバメソッドを定義する</a></li>
+  <li><a href="class/inherit.html">クラスを継承する</a></li>
+  <li><a href="class/destructor.html">デストラクタを定義する</a></li>
+  <li><a href="class/undef.html">オブジェクトを明示的に破棄する</a></li>
+  <li><a href="class/hybrid-method.html">クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する</a></li>
+  <li><a href="class/bulk-instantiation.html">複数のオブジェクトを一度に作成する</a></li>
+  <li><a href="class/universal.html">すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する</a></li>
+  <li><a href="class/check-inheritance.html">あるクラスを継承しているかどうか調べる</a></li>
+  <li><a href="class/check-method-existence.html">あるメソッドが存在するか調べる</a></li>
+</ul>
+
+<h2 id="文字列正規表現">文字列／正規表現</h2>
+
+<h3 id="基本的な文字列処理">基本的な文字列処理</h3>
+<ul>
+  <li><a href="string/concat.html">文字列を結合する (.)</a></li>
+  <li><a href="string/repeat.html">ある文字列を繰り返した文字列を作成する (x)</a></li>
+  <li><a href="string/expand-array.html">文字列リテラルの中で配列を展開する</a></li>
+  <li><a href="string/split.html">文字列をデリミタで分割する (split)</a></li>
+  <li><a href="string/split-into-chars.html">文字列を１文字ずつに分割する (split)</a></li>
+  <li><a href="string/join.html">リスト要素を結合して１つの文字列にする (join)</a></li>
+  <li><a href="string/chomp.html">文字列の末尾の改行を取り除く (chomp)</a></li>
+  <li><a href="string/index-rindex.html">部分文字列の位置を検索する (index, rindex)</a></li>
+  <li><a href="string/quote-char.html">文字列リテラルを囲むクォート文字に任意の記号を使用する</a></li>
+</ul>
+
+<h3 id="マッチングと抽出">マッチングと抽出</h3>
+<ul>
+  <li><a href="string/basics-of-regexp.html">正規表現による文字列マッチングの基本</a></li>
+  <li><a href="string/greedy-match.html">欲張りな量指定子と欲張りでない量指定子による文字列マッチング</a></li>
+  <li><a href="string/ignore-case.html">大文字と小文字を区別しない文字列マッチング</a></li>
+  <li><a href="string/multi-line-match.html">行をまたいだ文字列マッチング</a></li>
+  <li><a href="string/extract.html">正規表現パターンにマッチした部分文字列を抜き出す</a></li>
+  <li><a href="string/substr.html">インデックス指定で文字列を抜き出す (substr)</a></li>
+  <li><a href="string/indented-lines.html">サンプル: インデントされた行、インデントされていない行を抜き出す</a></li>
+</ul>
+
+<h3 id="置換">置換</h3>
+<ul>
+  <li><a href="string/replace-string.html">文字列を置換する</a></li>
+  <li><a href="string/replace-char.html">文字単位で置換する</a></li>
+  <li><a href="string/replace-case.html">大文字と小文字を置換する</a></li>
+  <li><a href="string/replace-by-index.html">インデックス指定で文字列を置換する (substr)</a></li>
+  <li><a href="string/number-with-comma.html">サンプル: 数値を３桁ごとにカンマを入れて表示する</a></li>
+  <li><a href="string/remove-comments.html">サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する</a></li>
+</ul>
+
+<h3 id="応用">応用</h3>
+<ul>
+  <li><a href="string/text-wrap.html">テキストの折り返し（改行）処理を自動で行う (Text::Wrap)</a></li>
+</ul>
+
+<h2 id="入出力-io">入出力 (I/O)</h2>
+<ul>
+  <li><a href="io/printf.html">printf のフォーマット出力を使いこなす</a></li>
+  <li><a href="io/read-from-stdio.html">標準入力を読み込む (STDIN)</a></li>
+  <li><a href="io/diamond-operator.html">ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する</a></li>
+  <li><a href="io/store.html">変数の内容をファイルに保存する／復元する</a></li>
+</ul>
+
+<h2 id="ファイルディレクトリ">ファイル・ディレクトリ</h2>
+<ul>
+  <li><a href="file/basic.html">ファイルのオープン・クローズと読み書きの基本</a></li>
+  <li><a href="file/autodie.html">ファイルがオープンできないとき自動で終了する（autodie プラグマ）</a></li>
+  <li><a href="file/glob.html">グロブよってファイル名のリストを取得する (glob)</a></li>
+  <li><a href="file/readdir.html">ディレクトリハンドルによってファイル名のリストを取得する (readdir)</a></li>
+  <li><a href="file/find.html">指定したディレクトリ以下のファイルを列挙する (find)</a></li>
+  <li><a href="file/mkdir.html">ディレクトリを作成する</a></li>
+  <li><a href="file/unlink-rmdir.html">ファイル・ディレクトリを削除する (unlink, rmdir)</a></li>
+  <li><a href="file/rename.html">ファイル名を変更する (rename)</a></li>
+  <li><a href="file/move.html">ファイルを移動する (rename)</a></li>
+  <li><a href="file/copy.html">ファイルをコピーする (copy)</a></li>
+  <li><a href="file/dir-size.html">ディレクトリ内のファイルの合計サイズを調べる</a></li>
+  <li><a href="file/in-place-editing.html">読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）</a></li>
+  <li><a href="file/embed-data.html">スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）</a></li>
+  <li><a href="file/redirect-stdout.html">標準出力 (STDOUT) の出力先をファイルに切り替える</a></li>
+  <li><a href="file/config.html">Config ファイル（key=value という行形式のファイル）を読み込むサンプル</a></li>
+  <li>ファイルテスト
+    <ul>
+      <li><a href="file/exist.html">ファイルが存在するかどうか調べる (if -e)</a></li>
+      <li><a href="file/last-mod.html">ファイルがしばらく更新されていないかどうか調べる (if -M)</a></li>
+      <li><a href="file/size.html">ファイルサイズを調べる (-s)</a></li>
+      <li><a href="file/find-text-files.html">ファイルがテキストファイルかどうか調べる (-T)</a></li>
+    </ul>
+  </li>
+  <li>パス
+    <ul>
+      <li><a href="file/cwd.html">カレントディレクトリのパスを取得する (cwd)</a></li>
+      <li><a href="file/chdir.html">カレントディレクトリを変更する (chdir)</a></li>
+      <li><a href="file/basename.html">フルパス（絶対パス）からファイル名やディレクトリ名を抽出する (basename, dirname)</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="プロセス">プロセス</h2>
+<ul>
+  <li><a href="process/fork.html">fork で子プロセスを作成する</a></li>
+  <li><a href="process/kill.html">あるプロセス ID のプロセスがまだ生きているかを確認する (kill)</a></li>
+  <li><a href="process/sigint.html">SIGINT シグナル (Ctrl-C) をハンドリングする</a></li>
+  <li><a href="process/pipe.html">子プロセス（外部プログラム）への入出力を取り込む（パイプ）</a></li>
+  <li><a href="process/backquote.html">子プロセス（外部プログラム）の出力を取り込む（バッククォート文字列）</a></li>
+</ul>
+
+<h2 id="その他">その他</h2>
+<ul>
+  <li><a href="misc/command-line-params.html">プログラムの起動パラメータ (-t filename) などを処理する</a></li>
+  <li><a href="misc/script-encoding.html">Perl スクリプトのエンコーディングを指定する</a></li>
+  <li><a href="misc/run-on-windows.html">Perl スクリプトが Windows で実行されているか調べる</a></li>
+  <li><a href="misc/var-prefix.html">Perl のスカラ変数と配列に $, @ というプレフィックスを付ける理由</a></li>
+  <li><a href="misc/env.html">環境変数を参照する (%ENV)</a></li>
+  <li><a href="misc/localtime.html">現在の日時を文字列で取得する (localtime, gmtime)</a></li>
+  <li><a href="misc/imgsize.html">画像ファイルの幅、高さを調べる (Image::Size)</a></li>
+  <li><a href="misc/getpwnam.html">ユーザー名、グループ名からユーザ ID、グループ ID を取得する (getpwnam, getgrnam)</a></li>
+  <li><a href="misc/make.html">現在の環境で使用可能な make ユーティリティの名前を確認する</a></li>
+  <li>デバッグ
+    <ul>
+      <li><a href="misc/dumper.html">Data::Dumper で複雑なデータをダンプする</a></li>
+      <li><a href="misc/debugger.html">Perl のデバッガを使用する</a></li>
+      <li><a href="misc/test-module.html">Perl で使用可能なテストモジュール</a></li>
+      <li><a href="misc/diagnostics.html">一時的にエラーメッセージを詳しくする（diagnostics プラグマ）</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerlノート： Perl&url=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/perl/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li class="xNav-focused"><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate"></div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

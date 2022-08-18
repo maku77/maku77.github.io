@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaScriptノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/js/tool/eslint.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-js.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaScriptノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="ESLint で JavaScript コードの静的解析を行う | まくまくJavaScriptノート" />
+  <title>ESLint で JavaScript コードの静的解析を行う - まくまくJavaScriptノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/js/">
+    <img src="/assets/img/logo-js.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/js/">
+    <div class="xPageHeader_category">
+    まくまくJavaScriptノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">ESLint で JavaScript コードの静的解析を行う</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-04-07</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/js/tool/eslint.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： ESLint で JavaScript コードの静的解析を行う&url=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="eslint-コマンドのインストール">eslint コマンドのインストール</h2>
+
+<p>ESLint のインストールは、JSHint と同様に Node.js の <code class="language-plaintext highlighter-rouge">npm</code> コマンドで簡単に行うことができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install -g eslint
+</code></pre></div></div>
+
+<p>インストールできたか確認します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint --version
+v0.18.0
+</code></pre></div></div>
+
+<p>JavaScript コードのチェックは下記のように実行します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ eslint sample.js
+</code></pre></div></div>
+
+<h2 id="eslint-の設定ファイル">ESLint の設定ファイル</h2>
+
+<p>ESLint の設定は、JSON or YAML 形式の <code class="language-plaintext highlighter-rouge">.eslintrc</code> ファイルで行います。
+以下のような構成で、前提とする実行環境、参照可能なグローバルオブジェクト、適用する Lint ルールの設定、を記述していきます。</p>
+
+<h4 id="eslintrc-ファイルの構成">.eslintrc ファイルの構成</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">env</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="nx">実行環境</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">globals</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="nx">参照するグローバルオブジェクト</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">rules</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="nx">Lint</span> <span class="nx">ルールの設定</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Node モジュールとして作成する JS ファイルに対しては、<code class="language-plaintext highlighter-rouge">package.json</code> の中に ESLint の設定を記述してしまうことができます。
+その場合は、下記のように、<code class="language-plaintext highlighter-rouge">eslintConfig</code> プロパティの中に同様の設定を記述します。</p>
+
+<h4 id="packagejson">package.json</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">myapp</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0.1</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">eslintConfig</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">env</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">browser</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">node</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>それでは、各項目の順番に設定方法を見ていきます。</p>
+
+<h3 id="1-environments---実行環境の指定">(1) Environments - 実行環境の指定</h3>
+
+<p>このセクションでは、その JS ファイルがどのような環境で実行されるかを指定します。
+例えば、「ブラウザ」上で実行する、「AMD モジュール」として作る、「Node モジュール」として作る、といった前提環境を指定します。
+ここで環境を指定することにより、その環境に合わせたグローバルオブジェクトの参照許可や、Lint ルールなどが自動的に設定されます。
+指定できる環境の一覧は、</p>
+
+<ul>
+  <li><a href="http://eslint.org/docs/user-guide/configuring">http://eslint.org/docs/user-guide/configuring</a></li>
+</ul>
+
+<p>の Specifying Environments の節に、次のように列挙されています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>browser - browser global variables.
+node - Node.js global variables and Node.js-specific rules.
+amd - defines require() and define() as global variables as per the amd spec.
+mocha - adds all of the Mocha testing global variables.
+jasmine - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+phantomjs - phantomjs global variables.
+jquery - jquery global variables.
+prototypejs - prototypejs global variables.
+shelljs - shelljs global variables.
+es6 - enable all ECMAScript 6 features except for modules.
+</code></pre></div></div>
+
+<p>例えば、ブラウザ上で実行する JavaScript コードであり、その中で jQuery と RequireJS を使用したいのであれば、下記のように定義します。</p>
+
+<h4 id="eslintrc-抜粋">.eslintrc 抜粋</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">env</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">amd</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>      <span class="c1">// Refer to define() and require() as AMD modules</span>
+    <span class="dl">"</span><span class="s2">browser</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">// Refer to document object etc. as web browser</span>
+    <span class="dl">"</span><span class="s2">jquery</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>    <span class="c1">// Refer to $ object to use jQuery library</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">globals</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">rules</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>このように環境設定しておくことで、jQuery オブジェクト (<code class="language-plaintext highlighter-rouge">$</code>) などのグローバルオブジェクトにアクセスしても、未定義エラーとして検出されないようにすることができます。</p>
+
+<h4 id="2-globals---参照するグローバルオブジェクト">(2) Globals - 参照するグローバルオブジェクト</h4>
+
+<p>このセクションでは、参照可能なグローバル変数を、ひとつずつ明示的に設定することが可能です。
+環境設定セクションに <code class="language-plaintext highlighter-rouge">"amd": true</code> と書いてあれば、<code class="language-plaintext highlighter-rouge">define()</code> と <code class="language-plaintext highlighter-rouge">require()</code> はアクセス可能になるのですが、下記のように明示的に指定することも可能です。</p>
+
+<h4 id="eslintrc-抜粋-1">.eslintrc 抜粋</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">env</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">globals</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">define</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">require</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">rules</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>JSLint と同様に、ソースコードの中で、参照可能なグローバルオブジェクトを定義しておくこともできます（変数名の後ろの <code class="language-plaintext highlighter-rouge">false</code> は、このファイルで代入を行わないということを示します）。</p>
+
+<h4 id="js-ファイルの中で">JS ファイルの中で</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*global var1:false, var2:false*/</span>
+</code></pre></div></div>
+
+<h3 id="3-rules---適用する-lint-ルールの設定">(3) Rules - 適用する Lint ルールの設定</h3>
+
+<p>ルールのセクションでは、実際に適用する Lint ルールの設定を行います（ここが設定が重要）。
+各ルールに対しての設定を、下記のようなプロパティの形でひとつずつ指定していきます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ルール名": 適用方法,
+</code></pre></div></div>
+
+<p>適用方法の部分には、そのルールをどう反映するかを表す、0、1、2 のいずれかの値を指定します。</p>
+
+<ul>
+  <li>適用方法
+    <ul>
+      <li>0 - off（ルールを無効にする）</li>
+      <li>1 - warning（警告として検出する）</li>
+      <li>2 - error（エラーとして検出する）</li>
+    </ul>
+  </li>
+</ul>
+
+<p>ルール設定には、追加のパラメータを持つものもあり、その場合は配列の形で設定値を記述します。
+配列の 1 番目の値として、上記と同様に 0、1、2 のいずれかの適用方法を指定します。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ルール名": [適用方法, 追加パラメータ1, 追加パラメータ2]
+</code></pre></div></div>
+
+<h4 id="eslintrc-抜粋-2">.eslintrc 抜粋</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">env</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">globals</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">rules</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="cm">/*
+     * Possible Errors
+     */</span>
+    <span class="dl">"</span><span class="s2">valid-jsdoc</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Ensure JSDoc comments are valid</span>
+    <span class="dl">"</span><span class="s2">no-duplicate-case</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Disallow a duplicate case label</span>
+    <span class="dl">"</span><span class="s2">no-empty</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Disallow empty statements</span>
+    <span class="dl">"</span><span class="s2">no-irregular-whitespace</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Disallow irregular whitespace</span>
+    <span class="dl">"</span><span class="s2">no-unreachable</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Disallow unreachable statements</span>
+    <span class="dl">"</span><span class="s2">use-isnan</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1">// Disallow comparisons with the value NaN</span>
+
+    <span class="cm">/*
+     * Stylistic Issues
+     */</span>
+    <span class="dl">"</span><span class="s2">camelcase</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1">// Require camel case names</span>
+    <span class="dl">"</span><span class="s2">indent</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="c1">// An indent should be two spaces</span>
+    <span class="dl">"</span><span class="s2">quotes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">single</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">avoid-escape</span><span class="dl">"</span><span class="p">],</span>  <span class="c1">// Surround a string with single quotation</span>
+
+    <span class="cm">/*
+     * Legacy
+     */</span>
+    <span class="dl">"</span><span class="s2">max-len</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>  <span class="c1">// The maximum length of a line</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>デフォルトで有効になっているルールに関しては、適用方法として 2（エラーとして検出）が設定されます。
+組み込みで用意されているルールの一覧は、下記のサイトで確認することができます。</p>
+
+<ul>
+  <li><a href="http://eslint.org/docs/rules/">ESLint - Rules (http://eslint.org/docs/rules/)</a></li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaScriptノート： ESLint で JavaScript コードの静的解析を行う&url=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/js/tool/eslint.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/js/"><span class="xArticle_up_label">まくまくJavaScriptノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li class="xNav-focused"><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/js/">JavaScript</a></div>
+  <div class="xPageDate">2015-04-07</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPythonノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/python/numstr/replace-string.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-python.png" />
+
+  <meta property="og:description" content="天才星人まくのPythonノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="文字列を置換する (str.replace, re.sub, re.subn) | まくまくPythonノート" />
+  <title>文字列を置換する (str.replace, re.sub, re.subn) - まくまくPythonノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/python/">
+    <img src="/assets/img/logo-python.png" class="xPageHeader_logo">
+  </a>
+  <a href="/python/">
+    <div class="xPageHeader_category">
+    まくまくPythonノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">文字列を置換する (str.replace, re.sub, re.subn)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2012-07-03</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/python/numstr/replace-string.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： 文字列を置換する (str.replace, re.sub, re.subn)&url=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="単純な置換-strreplace">単純な置換 (str.replace)</h2>
+
+<h4 id="すべての-aa-を-xx-に置換">すべての AA を xx に置換</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'AABBCCAABBCC'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'AA'</span><span class="p">,</span> <span class="s">'xx'</span><span class="p">)</span>  <span class="c1">#=&gt; 'xxBBCCxxBBCC'
+</span></code></pre></div></div>
+
+<p>置換した結果は戻り値として返されるので、元の文字列を変更したい場合は、自分自身に代入する必要があります。
+<strong>デフォルトではパターンに一致した全ての文字列が置換されます</strong>が、第３引数 (<code class="language-plaintext highlighter-rouge">count</code>) で、置換の最大数を指定することも可能です。
+下記の例では、<code class="language-plaintext highlighter-rouge">count=1</code> と設定することで、最初に一致した部分だけを置換しています。</p>
+
+<h4 id="1-つだけ-aa-を-xx-に置換">1 つだけ AA を xx に置換</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'AABBCCAABBCC'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'AA'</span><span class="p">,</span> <span class="s">'xx'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#=&gt; 'xxBBCCAABBCC'
+</span></code></pre></div></div>
+
+<h2 id="正規表現を使った置換-resub-resubn">正規表現を使った置換 (re.sub, re.subn)</h2>
+
+<p><code class="language-plaintext highlighter-rouge">re</code> モジュールを使うと、正規表現による置換を行えるようになります。
+正規表現を含む文字列リテラルを記述する場合は、<code class="language-plaintext highlighter-rouge">r</code> プレフィックス付けた raw string 記法 (<code class="language-plaintext highlighter-rouge">r'...'</code>) を使用することで、記号類のエスケープ処理が不要になります。</p>
+
+<h4 id="例--と--で囲まれた数値を--に置換">例: ‘&lt;’ と ‘&gt;’ で囲まれた数値を ‘#’ に置換</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'&lt;\d+&gt;'</span><span class="p">,</span> <span class="s">'#'</span><span class="p">,</span> <span class="s">'aaa&lt;100&gt;bbb&lt;200&gt;ccc'</span><span class="p">)</span>
+<span class="s">'aaa#bbb#ccc'</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">str.replace</code> と同様に、第３引数 (<code class="language-plaintext highlighter-rouge">count</code>) を指定することで、いくつまで置換するか制限することができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'&lt;\d+&gt;'</span><span class="p">,</span> <span class="s">'###'</span><span class="p">,</span> <span class="s">'aaa&lt;100&gt;bbb&lt;200&gt;ccc'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="s">'aaa###bbb&lt;200&gt;ccc'</span>
+</code></pre></div></div>
+
+<p>正規表現を使って置換するときに、マッチした文字列を置換後の文字列に反映させることができます。
+正規表現パターンを <code class="language-plaintext highlighter-rouge">(</code> と <code class="language-plaintext highlighter-rouge">)</code> で囲んでグルーピングしておくと、括弧で囲まれた部分に一致した文字列を <code class="language-plaintext highlighter-rouge">\1</code>、<code class="language-plaintext highlighter-rouge">\2</code>、<code class="language-plaintext highlighter-rouge">\3</code> などで参照できます（後方参照）。
+この後方参照を利用するときは、文字列リテラルの前に <code class="language-plaintext highlighter-rouge">r</code> を付ける必要があります。</p>
+
+<h4 id="例--で囲まれたテキストを-b-タグで囲まれたテキストに置換する">例: * で囲まれたテキストを &lt;b&gt; タグで囲まれたテキストに置換する</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'\*(.+)\*'</span><span class="p">,</span> <span class="sa">r</span><span class="s">'&lt;b&gt;\1&lt;/b&gt;'</span><span class="p">,</span> <span class="s">'AAA *BBB* CCC'</span><span class="p">)</span>
+<span class="s">'AAA &lt;b&gt;BBB&lt;/b&gt; CCC'</span>
+</code></pre></div></div>
+
+<p>実際にいくつ置換されたかを知る必要がある場合は、<code class="language-plaintext highlighter-rouge">re.subn()</code> を使用します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">result</span><span class="p">,</span> <span class="n">num</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">subn</span><span class="p">(</span><span class="sa">r</span><span class="s">'(\d+)'</span><span class="p">,</span> <span class="sa">r</span><span class="s">'&lt;\1&gt;'</span><span class="p">,</span> <span class="s">'aa11bb22cc'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1">#=&gt; 'aa&lt;11&gt;bb&lt;22&gt;cc'
+</span><span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>     <span class="c1">#=&gt; 2
+</span></code></pre></div></div>
+
+<h2 id="正規表現パターンをコンパイルして高速化する">正規表現パターンをコンパイルして高速化する</h2>
+
+<p>いろいろなパターンで <code class="language-plaintext highlighter-rouge">re.sub()</code> による置換を繰り返し実行する場合は、あらかじめ正規表現パターンを <code class="language-plaintext highlighter-rouge">re.compile()</code> を使用して正規表現オブジェクトにコンパイルしておくと高速に置換処理を行えるようになります（ただし、１つのパターンのみを連続して使用する場合は、内部でキャッシュが効くため、<code class="language-plaintext highlighter-rouge">re.compile()</code> の必要はありません）。</p>
+
+<p>下記の例では、HTML ファイル内の日付、時刻と思われる部分を見つけて強調表示する（em タグで囲む）ように置換しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># 正規表現パターンをコンパイル
+</span><span class="n">DATE_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="sa">r</span><span class="s">'(\d{4}-\d{2}-\d{2})'</span><span class="p">)</span>
+<span class="n">TIME_PATTERN</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="sa">r</span><span class="s">'(\d\d:\d\d:\d\d)'</span><span class="p">)</span>
+
+<span class="c1"># 置換処理の実行
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'input.html'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">'</span><span class="se">\r\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">DATE_PATTERN</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'&lt;em&gt;\1&lt;/em&gt;'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">TIME_PATTERN</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'&lt;em&gt;\1&lt;/em&gt;'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="文字列中の-1-文字を変更する">文字列中の 1 文字を変更する</h2>
+
+<p>Python の文字列は Java や C# と同様に immutable（不変）なので、以下のように文字列内の１文字だけを置き換えるということはできません。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDE'</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">'x'</span>  <span class="c1">#=&gt; TypeError: 'str' object does not support item assignment
+</span></code></pre></div></div>
+
+<p>文字列中の 1 文字を変更したい場合は、以下のように新しい文字列を作成します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s">'ABCDE'</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s">'x'</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>  <span class="c1">#=&gt; 'ABxDE'
+</span></code></pre></div></div>
+
+<p>あるいは、<code class="language-plaintext highlighter-rouge">bytearray</code> オブジェクトを変更可能な文字列のように扱うこともできます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="s">'ABCDE'</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s">'x'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">decode</span><span class="p">())</span>  <span class="c1">#=&gt; ABxDE
+</span></code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPythonノート： 文字列を置換する (str.replace, re.sub, re.subn)&url=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/python/numstr/replace-string.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/python/"><span class="xArticle_up_label">まくまくPythonノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li class="xNav-focused"><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/python/">Python</a></div>
+  <div class="xPageDate">2012-07-03</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGit/GitHubノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/git/github/github-rest-with-python.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-github.png" />
+
+  <meta property="og:description" content="天才星人まくのGit/GitHubノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="GitHub REST API を Python から使用する | まくまくGitノート" />
+  <title>GitHub REST API を Python から使用する - まくまくGitノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/git/">
+    <img src="/assets/img/logo-github.png" class="xPageHeader_logo">
+  </a>
+  <a href="/git/">
+    <div class="xPageHeader_category">
+    まくまくGitノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">GitHub REST API を Python から使用する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2020-05-30</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/git/github/github-rest-with-python.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub REST API を Python から使用する&url=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="何を作るか">何を作るか？</h2>
+
+<p>Python で GitHub API を利用するアプリケーションを作るときは、GitHub API を実行して情報取得する部分を、1 つのモジュールとして切り出しておくと全体のコードがすっきりします。
+ここでは、サンプルとして <code class="language-plaintext highlighter-rouge">GitHubApi</code> というクラスを作り、次のようなことを行えるようにします。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get_members()</code> や <code class="language-plaintext highlighter-rouge">get_issues()</code> といった直感的な API で GitHub の情報を取得できるようにする</li>
+  <li>オプションでプロキシや Personal Access Token を指定できるようにする</li>
+  <li>ページネーションによる連続アクセスで、多くの情報を一度に取得できるようにする</li>
+</ul>
+
+<p>GitHub の REST API 自体の説明は、下記の記事を参照してください。</p>
+
+<ul>
+  <li><a href="./github-rest-api">GitHub REST API を使用する</a></li>
+  <li><a href="./github-rest-api-issues.html">GitHub REST API で Issue 情報を取得する方法いろいろ</a></li>
+</ul>
+
+<h2 id="githubapi-クラスを実装する">GitHubApi クラスを実装する</h2>
+
+<p>ここで紹介する <code class="language-plaintext highlighter-rouge">GitHubApi</code> クラスを使うと、次のようなシンプルなコードで GitHub API を呼び出して、その結果を Python のオブジェクトとして取得することができます。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ユーザー情報を取得する
+</span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_user</span><span class="p">(</span><span class="s">'maku77'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s">'login'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="githubapi-クラス">GitHubApi クラス</h3>
+
+<h3 id="githubpy">github.py</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span><span class="p">,</span> <span class="n">urlencode</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+
+<span class="k">class</span> <span class="nc">GitHubApi</span><span class="p">:</span>
+    <span class="n">BASE_URL</span> <span class="o">=</span> <span class="s">'https://api.github.com'</span>
+    <span class="n">UNVERIFY_SSL</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">option</span> <span class="o">=</span> <span class="n">option</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">UNVERIFY_SSL</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">__unverify_ssl</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__unverify_ssl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">ssl</span>
+        <span class="n">ssl</span><span class="p">.</span><span class="n">_create_default_https_context</span> <span class="o">=</span> <span class="n">ssl</span><span class="p">.</span><span class="n">_create_unverified_context</span>
+
+    <span class="k">def</span> <span class="nf">__get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">paginate</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__create_request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+                <span class="n">json_text</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">().</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+                <span class="n">json_obj</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_text</span><span class="p">)</span>
+                <span class="c1"># ページネーションによる繰り返し取得
+</span>                <span class="k">if</span> <span class="n">paginate</span><span class="p">:</span>
+                    <span class="n">next_link</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_next_link</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">info</span><span class="p">())</span>
+                    <span class="k">if</span> <span class="n">next_link</span><span class="p">:</span>
+                        <span class="n">json_obj</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">next_link</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">json_obj</span>
+        <span class="k">except</span> <span class="n">urllib</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">URLError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'Could not access: %s'</span> <span class="o">%</span> <span class="n">req</span><span class="p">.</span><span class="n">full_url</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="p">.</span><span class="n">stderr</span><span class="p">)</span>
+            <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># ページネーションによる連続取得が必要な場合は、
+</span>    <span class="c1"># 次のアドレスを返す。必要ない場合は None を返す。
+</span>    <span class="k">def</span> <span class="nf">__get_next_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">):</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">response_headers</span><span class="p">[</span><span class="s">'Link'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">link</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">'&lt;(\S+)&gt;; rel="next"'</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">match</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__create_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">'token'</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">option</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">.</span><span class="n">add_header</span><span class="p">(</span><span class="s">'Authorization'</span><span class="p">,</span> <span class="s">'token %s'</span> <span class="o">%</span> <span class="bp">self</span><span class="p">.</span><span class="n">option</span><span class="p">[</span><span class="s">'token'</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s">'proxy'</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">option</span><span class="p">:</span>
+            <span class="n">req</span><span class="p">.</span><span class="n">set_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">option</span><span class="p">[</span><span class="s">'proxy'</span><span class="p">],</span> <span class="s">'http'</span><span class="p">)</span>
+            <span class="n">req</span><span class="p">.</span><span class="n">set_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">option</span><span class="p">[</span><span class="s">'proxy'</span><span class="p">],</span> <span class="s">'https'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">req</span>
+
+    <span class="c1"># 指定したユーザーの情報を取得します
+</span>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s">'/users/%s'</span> <span class="o">%</span> <span class="n">quote</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="c1"># 指定した組織のメンバーリストを取得します
+</span>    <span class="k">def</span> <span class="nf">get_members</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">org</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s">'/orgs/%s/members?per_page=100'</span> <span class="o">%</span> <span class="n">quote</span><span class="p">(</span><span class="n">org</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">paginate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># 指定した組織のリポジトリ一覧を取得します
+</span>    <span class="k">def</span> <span class="nf">get_org_repos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">org</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s">'/orgs/%s/repos?per_page=100'</span> <span class="o">%</span> <span class="n">quote</span><span class="p">(</span><span class="n">org</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">paginate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># 指定したユーザーのリポジトリ一覧を取得します
+</span>    <span class="k">def</span> <span class="nf">get_user_repos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s">'/users/%s/repos?per_page=100'</span> <span class="o">%</span> <span class="n">quote</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">paginate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># 指定したリポジトリの Issue 一覧を取得します
+</span>    <span class="k">def</span> <span class="nf">get_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">repo</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">BASE_URL</span> <span class="o">+</span> <span class="s">'/repos/%s/%s/issues?per_page=100'</span> <span class="o">%</span> <span class="p">(</span><span class="n">quote</span><span class="p">(</span><span class="n">owner</span><span class="p">),</span> <span class="n">quote</span><span class="p">(</span><span class="n">repo</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="s">'%s&amp;%s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">paginate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>最後の方にある <code class="language-plaintext highlighter-rouge">get_xxx</code> 系のメソッドが、GitHub API を呼び出すための public メソッドです。
+同じようにメソッドを追加していけば、いろいろな GitHub API に対応することができます。
+どのような API があるかは、<a href="https://developer.github.com/v3/">GitHub REST API v3 のサイト</a> を参照してください。</p>
+
+<h3 id="ページネーションですべての情報を取得する">ページネーションですべての情報を取得する</h3>
+
+<p>GitHub API v3 でリポジトリの一覧などを取得すると、デフォルトでは 30 件ずつしか結果を返してくれません。
+クエリ文字列で <code class="language-plaintext highlighter-rouge">per_page=100</code> と指定すれば 100 件までは一度に取得できるのですが、100 件を超えるすべての情報を取得したいときは、<a href="https://developer.github.com/v3/guides/traversing-with-pagination/">ページネーションの仕組み</a> を使って何度かに分けて取得する必要があります。</p>
+
+<p>次ページの情報を取得するときは、<code class="language-plaintext highlighter-rouge">page=2</code> のようにクエリ指定していけばよいのですが、次ページが存在する場合は HTTP レスポンスの <code class="language-plaintext highlighter-rouge">Link</code> ヘッダーに次ページのアドレスをセットしてくれるので、このアドレスを使って繰り返しアクセスするのがよいでしょう。</p>
+
+<p>上記のサンプルプログラムでは、<code class="language-plaintext highlighter-rouge">__get_json</code> メソッドの中で次のようにページネーションを処理しています。
+次のページがある場合は、再帰的に <code class="language-plaintext highlighter-rouge">__get_json</code> を呼び出し、その結果を <code class="language-plaintext highlighter-rouge">json_obj</code> 配列に結合しています。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ページネーションによる繰り返し取得
+</span><span class="k">if</span> <span class="n">paginate</span><span class="p">:</span>
+    <span class="n">next_link</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">__get_next_link</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">info</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">next_link</span><span class="p">:</span>
+        <span class="n">json_obj</span><span class="p">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__get_json</span><span class="p">(</span><span class="n">next_link</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="githubapi-クラスの使用例いろいろ">GitHubApi クラスの使用例いろいろ</h2>
+
+<p>下記は、上で実装した <code class="language-plaintext highlighter-rouge">GitHubApi</code> クラスを使って、いろいろな情報を取得するサンプルコードです。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">github</span> <span class="kn">import</span> <span class="n">GitHubApi</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">GitHubApi</span><span class="p">()</span>
+
+<span class="c1"># ユーザー情報を取得
+</span><span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_user</span><span class="p">(</span><span class="s">'maku77'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s">'login'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s">'blog'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s">'company'</span><span class="p">])</span>
+
+<span class="c1"># 指定した組織のリポジトリ一覧を取得します
+</span><span class="n">repos</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_org_repos</span><span class="p">(</span><span class="s">'sony'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repos</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="s">'name'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="s">'full_name'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="s">'description'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">repo</span><span class="p">[</span><span class="s">'html_url'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># 指定した組織のメンバーリストを取得
+</span><span class="n">members</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_members</span><span class="p">(</span><span class="s">'sony'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">members</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">member</span><span class="p">[</span><span class="s">'login'</span><span class="p">])</span>
+
+<span class="c1"># 指定したリポジトリの Issue 一覧を取得します（open 状態のもの）
+</span><span class="n">issues</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_issues</span><span class="p">(</span><span class="s">'sony'</span><span class="p">,</span> <span class="s">'nnabla'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">issues</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">issue</span><span class="p">[</span><span class="s">'title'</span><span class="p">])</span>
+
+<span class="c1"># 指定したリポジトリの Issue 一覧を取得します（close 状態のものも取得）
+</span><span class="n">issues</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">get_issues</span><span class="p">(</span><span class="s">'sony'</span><span class="p">,</span> <span class="s">'nnabla'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">'state'</span><span class="p">:</span> <span class="s">'all'</span><span class="p">})</span>
+<span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">issues</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">issue</span><span class="p">[</span><span class="s">'title'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>プロキシや Personal Access Token を指定してアクセスする必要がある場合は、<code class="language-plaintext highlighter-rouge">GitHubApi</code> コンストラクタのオプションで次のように指定します。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'proxy'</span><span class="p">:</span> <span class="s">'proxy.example.com:80'</span><span class="p">,</span>
+    <span class="s">'token'</span><span class="p">:</span> <span class="s">'a0709c8d0ac21812d9c4b8511298b33ec0fd2813'</span>
+<span class="p">}</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">GitHubApi</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>ここでは、取得した情報のうち、ごく一部のプロパティだけを参照していますが、GitHub API が返す値にはもっといろいろな情報が含まれています。
+これらの情報をうまく使えば、日々の業務を自動化できるかもしれません。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： GitHub REST API を Python から使用する&url=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/github/github-rest-with-python.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/git/"><span class="xArticle_up_label">まくまくGitノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li class="xNav-focused"><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/git/">Git</a></div>
+  <div class="xPageDate">2020-05-30</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのPHPノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/php/codeigniter/manage-login.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-php.png" />
+
+  <meta property="og:description" content="天才星人まくのPHPノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="CodeIgniter - ユーザのログイン状態を管理する | まくまくPHPノート" />
+  <title>CodeIgniter - ユーザのログイン状態を管理する - まくまくPHPノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/php/">
+    <img src="/assets/img/logo-php.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/php/">
+    <div class="xPageHeader_category">
+    まくまくPHPノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">CodeIgniter - ユーザのログイン状態を管理する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/php/">PHP</a></div>
+  <div class="xPageDate">2012-08-14</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/php/codeigniter/manage-login.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPHPノート： CodeIgniter - ユーザのログイン状態を管理する&url=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="何をやりたいか">何をやりたいか？</h2>
+
+<p>ここでは、以下のようなことを実現します。</p>
+
+<ul>
+  <li>ログインフォームの作成</li>
+  <li>入力されたユーザ名、パスワードの形式の検証 (Form Validation)</li>
+  <li>入力されたユーザ名、パスワードが登録済みのものであるかの確認</li>
+  <li>正しいパスワードなら、セッション情報に「ログイン済み」であることを保持</li>
+</ul>
+
+<p>説明をシンプルにするために、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ユーザ名: "admin"
+パスワード: "password"
+</code></pre></div></div>
+
+<p>という組み合わせだけでログイン可能なログインフォームを作ることにします。
+必要に応じてユーザ情報をデータベースで管理するように拡張すれば、ログイン可能なユーザ数をいくらでも増やすことができます。</p>
+
+<p>サンプルコードでは、</p>
+
+<ul>
+  <li>Form Validation ライブラリによる入力データの検証</li>
+  <li>Session ライブラリによるログイン情報の保持</li>
+</ul>
+
+<p>などの処理を行っているため、まずはこれらのライブラリの使い方を理解しておく必要があります。</p>
+
+<ul>
+  <li><a href="./form-validation.html">CodeIgniter - Form Validation クラスでフォームに入力された値を検査する</a></li>
+  <li><a href="./session.html">CodeIgniter - Session クラスでセッションデータを保持する</a></li>
+</ul>
+
+<h2 id="コードの作成">コードの作成</h2>
+
+<p>まずは、セッション情報としてログイン状態を管理する <code class="language-plaintext highlighter-rouge">login_session</code> ライブラリを作成します。</p>
+
+<p>このクラスの <code class="language-plaintext highlighter-rouge">is_logged_in()</code> メソッドを呼び出すことで、現在接続しているユーザがログイン済みであるかを調べることができます。
+コントローラ内や、ビュー内でこのメソッドを使って、ログイン済みの場合だけ行いたい処理を分岐して記述することができます。
+ログイン状態を変化させるためには、それぞれ、<code class="language-plaintext highlighter-rouge">login()</code> メソッド、<code class="language-plaintext highlighter-rouge">logout()</code> メソッドを呼び出します。</p>
+
+<h4 id="login_session-ライブラリ-applicationlibrarieslogin_sessionphp">login_session ライブラリ (application/libraries/login_session.php)</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nb">defined</span><span class="p">(</span><span class="s1">'BASEPATH'</span><span class="p">))</span> <span class="k">exit</span><span class="p">(</span><span class="s1">'No direct script access allowed'</span><span class="p">);</span>
+
+<span class="kd">class</span> <span class="nc">Login_session</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="no">LOGGED_IN</span> <span class="o">=</span> <span class="s1">'logged_in'</span><span class="p">;</span>
+    <span class="k">const</span> <span class="no">USER_ID</span> <span class="o">=</span> <span class="s1">'user_id'</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span> <span class="o">=&amp;</span> <span class="nf">get_instance</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">library</span><span class="p">(</span><span class="s1">'session'</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">is_logged_in</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="nf">userdata</span><span class="p">(</span><span class="k">self</span><span class="o">::</span><span class="no">LOGGED_IN</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">get_user_id</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="nf">userdata</span><span class="p">(</span><span class="k">self</span><span class="o">::</span><span class="no">USER_ID</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">login</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="nf">set_userdata</span><span class="p">(</span><span class="k">self</span><span class="o">::</span><span class="no">LOGGED_IN</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="nf">set_userdata</span><span class="p">(</span><span class="k">self</span><span class="o">::</span><span class="no">USER_ID</span><span class="p">,</span> <span class="nv">$user_id</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">logout</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">//$this-&gt;CI-&gt;session-&gt;unset_userdata(self::LOGGED_IN);</span>
+        <span class="c1">//$this-&gt;CI-&gt;session-&gt;unset_userdata(self::USER_ID);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="no">CI</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="nf">sess_destory</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>次に、入力されたユーザ名、パスワードが正しいものであるかを調べるための <code class="language-plaintext highlighter-rouge">users_model</code> モデルを作成します。</p>
+
+<p>このクラスの <code class="language-plaintext highlighter-rouge">check_password($user_id, $password)</code> が <code class="language-plaintext highlighter-rouge">TRUE</code> を返せば、ログイン可能であることを示します。
+ここでは簡単のため、admin/password の組み合わせだけでログイン可能にしていますが、本来は、データベース内のユーザ情報を参照して、ユーザ名とパスワードの確認をすることを意図しています。</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">Users_model</span> <span class="kd">extends</span> <span class="nc">CI_Model</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="nf">__construct</span><span class="p">();</span>
+        <span class="c1">//$this-&gt;load-&gt;database();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">check_password</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">,</span> <span class="nv">$password</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TODO: These should be in a DB.</span>
+        <span class="nv">$sha1_pass</span> <span class="o">=</span> <span class="nb">sha1</span><span class="p">(</span><span class="nv">$password</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$user_id</span> <span class="o">===</span> <span class="s1">'admin'</span> <span class="o">&amp;&amp;</span> <span class="nv">$sha1_pass</span> <span class="o">===</span> <span class="nb">sha1</span><span class="p">(</span><span class="s1">'password'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">TRUE</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>次に、入力フォームを表示するための <code class="language-plaintext highlighter-rouge">login_view</code> ビューを作成します。
+このビューは、入力にエラーが見つかった場合の再表示にも使われます。</p>
+
+<p>Form Validation クラスによる、入力フォーマットの検証にエラーが発生した場合は、<code class="language-plaintext highlighter-rouge">validations_errors()</code> の表示が行われます。
+入力フォーマットが正しいけれど、ユーザ名とパスワードの組み合わせが間違っている場合は、コントローラ側で <code class="language-plaintext highlighter-rouge">$login_error</code> 変数を <code class="language-plaintext highlighter-rouge">TRUE</code> にセットすることで、”Incorrect password” の表示を行えるようにしています。</p>
+
+<p>上記のどちらのエラーが発生した場合にも、ユーザ名の再入力を防ぐために、<code class="language-plaintext highlighter-rouge">user_id</code> フィールドの値は、<code class="language-plaintext highlighter-rouge">set_value()</code> の返す値を使って初期化しています。</p>
+
+<h4 id="login_view-ビュー-applicationviewslogin_viewphp">login_view ビュー (application/views/login_view.php)</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Log in<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        <span class="nc">.error</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nf">validation_errors</span><span class="p">(</span><span class="s1">'&lt;div class="error"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;/div&gt;'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$login_error</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"error"</span><span class="nt">&gt;</span>Incorrect password!<span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nf">form_open</span><span class="p">(</span><span class="s1">'user/login'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"user_id"</span><span class="nt">&gt;</span>User ID:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"user_id"</span> <span class="na">id=</span><span class="s">"user_id"</span> <span class="na">value=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nf">set_value</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="s">"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nf">form_close</span><span class="p">();</span> <span class="cp">?&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>最後にこれらを連携させるためのコントローラを見ていきます。</p>
+
+<p>ログインフォームを表示するためには、<code class="language-plaintext highlighter-rouge">http://your.site/user/login</code> のような URL でアクセスすることにします。
+つまり、<code class="language-plaintext highlighter-rouge">User</code> コントローラの <code class="language-plaintext highlighter-rouge">login</code> アクションが入り口になります。
+<code class="language-plaintext highlighter-rouge">login</code> アクションでは以下のような二段階のエラーチェックを行います。</p>
+
+<ol>
+  <li>Form Validation による「ユーザ名」「パスワード」の入力形式のチェック（URL 直指定の場合は Form Validation の <code class="language-plaintext highlighter-rouge">run()</code> は <code class="language-plaintext highlighter-rouge">FALSE</code> を返しますが、<code class="language-plaintext highlighter-rouge">validation_errors()</code> の返すメッセージは空になるという特殊な動きをします。これにより、一種類のビューを、初回アクセス時、エラー発生時の両方で使いまわせるようになっています）</li>
+  <li>users_model によるユーザ名とパスワードの組み合わせチェック</li>
+</ol>
+
+<p>両方のチェックを通過した場合だけ下記のコードが実行され、ユーザがログインした状態になります。</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">login_session</span><span class="o">-&gt;</span><span class="nf">login</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>ログインした後は、好きなコントローラ、アクションにリダイレクトして、ログイン後の表示を行うことができます。
+リダイレクト後のコントローラ内でも、以下のようにログイン済みであるかのチェックを忘れないようにしてください。
+ログインしていない場合は、ログインフォームにリダイレクトするのが親切でしょう。</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">login_session</span><span class="o">-&gt;</span><span class="nf">is_logged_in</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nf">redirect</span><span class="p">(</span><span class="s1">'/user/login'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>ユーザ操作（リンクのクリックなど）で意図的にログアウトさせたい場合は、コントローラ内で <code class="language-plaintext highlighter-rouge">login_session</code> ライブラリの <code class="language-plaintext highlighter-rouge">logout</code> メソッドを呼び出すか、以下のような URL へのリンクを貼っておきます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://your.site/user/logout
+</code></pre></div></div>
+
+<p>上記の URL へアクセスすると、結局はコントローラ内で <code class="language-plaintext highlighter-rouge">login_session</code> クラスの <code class="language-plaintext highlighter-rouge">logout</code> メソッドを呼び出します。
+ログアウト後は、ログインしていない状態でも表示可能なホームページか、ログインフォームにリダイレクトさせましょう。</p>
+
+<h4 id="user-コントローラー-applicationcontrollersuserphp">User コントローラー (application/controllers/user.php)</h4>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">User</span> <span class="kd">extends</span> <span class="nc">CI_Controller</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="nf">__construct</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">helper</span><span class="p">(</span><span class="s1">'form'</span><span class="p">);</span>  <span class="c1">// form_open, form_close</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">helper</span><span class="p">(</span><span class="s1">'url'</span><span class="p">);</span>  <span class="c1">// redirect</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">library</span><span class="p">(</span><span class="s1">'form_validation'</span><span class="p">);</span>
+
+        <span class="c1">// My libraries</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">model</span><span class="p">(</span><span class="s1">'users_model'</span><span class="p">);</span>  <span class="c1">// check_password</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">library</span><span class="p">(</span><span class="s1">'login_session'</span><span class="p">);</span>  <span class="c1">// login, logout</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">redirect</span><span class="p">(</span><span class="s1">'/user/login'</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">login</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">form_validation</span><span class="o">-&gt;</span><span class="nf">set_rules</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">,</span> <span class="s1">'User ID'</span><span class="p">,</span>
+            <span class="s1">'required|min_length[4]|max_length[20]|alpha_numeric'</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">form_validation</span><span class="o">-&gt;</span><span class="nf">set_rules</span><span class="p">(</span><span class="s1">'password'</span><span class="p">,</span> <span class="s1">'Password'</span><span class="p">,</span>
+            <span class="s1">'required|min_length[4]|max_length[20]'</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">form_validation</span><span class="o">-&gt;</span><span class="nf">run</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// Validation succeeded</span>
+            <span class="nv">$user_id</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">input</span><span class="o">-&gt;</span><span class="nf">post</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">);</span>
+            <span class="nv">$password</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">input</span><span class="o">-&gt;</span><span class="nf">post</span><span class="p">(</span><span class="s1">'password'</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="n">users_model</span><span class="o">-&gt;</span><span class="nf">check_password</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">,</span> <span class="nv">$password</span><span class="p">))</span> <span class="p">{</span>
+                <span class="c1">// Correct password</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">login_session</span><span class="o">-&gt;</span><span class="nf">login</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+                <span class="k">echo</span> <span class="s2">"Correct password"</span><span class="p">;</span>
+                <span class="c1">// redirect('/aaa/bbb');</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// Incorrect password</span>
+                <span class="nv">$data</span><span class="p">[</span><span class="s1">'login_error'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">;</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">view</span><span class="p">(</span><span class="s1">'login_view'</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// Validation failed</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">load</span><span class="o">-&gt;</span><span class="nf">view</span><span class="p">(</span><span class="s1">'login_view'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">logout</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="n">login_session</span><span class="o">-&gt;</span><span class="nf">logout</span><span class="p">();</span>
+        <span class="nf">redirect</span><span class="p">(</span><span class="s1">'/user/login'</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPHPノート： CodeIgniter - ユーザのログイン状態を管理する&url=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/php/codeigniter/manage-login.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/php/"><span class="xArticle_up_label">まくまくPHPノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li class="xNav-focused"><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/php/">PHP</a></div>
+  <div class="xPageDate">2012-08-14</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

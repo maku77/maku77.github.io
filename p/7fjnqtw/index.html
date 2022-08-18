@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのDockerノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/7fjnqtw/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-docker.png" />
+
+  <meta property="og:description" content="天才星人まくのDockerノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Docker のネットワークについて理解する (none, host, bridge) | まくまくDockerノート" />
+  <title>Docker のネットワークについて理解する (none, host, bridge) - まくまくDockerノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/docker/">
+    <img src="/assets/img/logo-docker.png" class="xPageHeader_logo">
+  </a>
+  <a href="/docker/">
+    <div class="xPageHeader_category">
+    まくまくDockerノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Docker のネットワークについて理解する (none, host, bridge)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-15</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/docker/network/basic/index.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/7fjnqtw/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker のネットワークについて理解する (none, host, bridge)&url=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Docker をインストールすると、デフォルトで <strong><code class="language-plaintext highlighter-rouge">bridge</code></strong>、<strong><code class="language-plaintext highlighter-rouge">host</code></strong>、<strong><code class="language-plaintext highlighter-rouge">none</code></strong> という 3 つのネットワークが生成されます。
+<code class="language-plaintext highlighter-rouge">docker network ls</code> の <code class="language-plaintext highlighter-rouge">NAME</code> カラムを見ると、これら 3 つの名前があることを確認できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">% docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+1d32c46c83f6   bridge    bridge    local
+a97adbf7b226   host      host      local
+7543afe52cd6   none      null      local
+</span></code></pre></div></div>
+
+<p>Docker コンテナを作成する際には、どのネットワークを使うかを <code class="language-plaintext highlighter-rouge">--net</code> オプションで指定します。
+指定しない場合はデフォルトで <code class="language-plaintext highlighter-rouge">bridge</code> が使われます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">--name</span> my-ubuntu <span class="nt">--net</span> none ubuntu:22.04
+</code></pre></div></div>
+
+<h3 id="none">none</h3>
+
+<p>Docker コンテナにネットワークインタフェースを持たせたくない場合に指定します。
+つまり、外部との通信が一切できないコンテナになります。</p>
+
+<h3 id="host">host</h3>
+
+<p>ホスト側のネットワークインタフェースを共有するときに指定します。
+つまり、ホストと同じ IP アドレスがコンテナに割り当てられます。</p>
+
+<h3 id="bridge">bridge</h3>
+
+<p>一番よく使用されるネットワークで、<code class="language-plaintext highlighter-rouge">bridge</code> という名前の仮想ブリッジに接続されたネットワーク環境であることを示します。
+<code class="language-plaintext highlighter-rouge">docker container create (run)</code> でコンテナを作成するときにネットワーク (<code class="language-plaintext highlighter-rouge">--net</code>) を指定しないと、デフォルトでこの <code class="language-plaintext highlighter-rouge">bridge</code> が使われます。</p>
+
+<p>Linux のブリッジ機能を利用しており、このネットワークに参加したコンテナからは、インターネットにアクセスすることができます。
+同じ <code class="language-plaintext highlighter-rouge">bridge</code> に接続するコンテナは、同じ仮想ブリッジで接続された状態（同じネットワークに所属する状態）になるため、相互に通信ができます（<code class="language-plaintext highlighter-rouge">ping</code> など）。</p>
+
+<h2 id="bridge-ネットワークのアドレスを確認してみる">bridge ネットワークのアドレスを確認してみる</h2>
+
+<p>デフォルトで作成される <code class="language-plaintext highlighter-rouge">bridge</code> には、<code class="language-plaintext highlighter-rouge">172.17.0.0/16</code> などのネットワークアドレスが割り当てられています。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker network inspect bridge <span class="nt">--format</span> <span class="s2">"{{.IPAM.Config}}"</span>
+<span class="go">[{172.17.0.0/16   map[]}]
+</span></code></pre></div></div>
+
+<p>このネットワークに参加させるコンテナには、<code class="language-plaintext highlighter-rouge">172.17.0.2</code> や <code class="language-plaintext highlighter-rouge">172.17.0.3</code> などの IP アドレスが割り当てられていきます。
+<code class="language-plaintext highlighter-rouge">172.17.0.1</code> など、末尾が 1 のアドレスは通常はデフォルトゲートウェイに割り当てられています。
+コンテナに割り当てられた IP アドレスを確認するには、次のようにコンテナ情報を表示します。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container inspect <span class="nt">--format</span> <span class="s2">"{{.NetworkSettings.IPAddress}}"</span> my-cont
+<span class="go">172.17.0.2
+</span></code></pre></div></div>
+
+<p>あるいは、次のようにネットワーク情報を表示して、<strong><code class="language-plaintext highlighter-rouge">Containers</code></strong> プロパティ以下の情報を参照すれば、そのネットワークに参加しているすべてのコンテナの IP アドレスを確認できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker network inspect bridge
+</code></pre></div></div>
+
+<p>新しいブリッジネットワークを作成すると、別のネットワークアドレス（<code class="language-plaintext highlighter-rouge">172.18.0.0/16</code> など）が割り当てられます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker network create my-net
+<span class="gp">$</span><span class="w"> </span>docker network inspect my-net <span class="nt">--format</span> <span class="s2">"{{.IPAM.Config}}"</span>
+<span class="go">[{172.18.0.0/16  172.18.0.1 map[]}]
+</span></code></pre></div></div>
+
+<p>Docker Compose を使えば、複数のコンテナを同一ネットワークに参加させるということをシンプルに表現できます。</p>
+
+<h3 id="format-オプションについて">format オプションについて</h3>
+
+<p>上記の例では、<code class="language-plaintext highlighter-rouge">--format</code> オプションで出力を絞り込んでいますが、ここで使われている書式は、<a href="https://golang.org/pkg/text/template">Go 言語の template パッケージ</a> に従っています。</p>
+
+<h2 id="コンテナ名による通信">コンテナ名による通信</h2>
+
+<p>Docker ネットワークを作成し、コンテナをそのネットワークに参加させると、各コンテナ同士が <strong>コンテナ名</strong> で通信できるようになります。
+つまり、各コンテナに割り当てられた IP アドレスを知る必要がありません。</p>
+
+<p><img src="/docker/network/basic/img-001.drawio.svg" alt="img-001.drawio.svg" /></p>
+
+<p>次のように実行すれば、コンテナ名で通信を行えることを確認できます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">（新しいネットワーク my-net を作成）
+</span><span class="gp">$</span><span class="w"> </span>docker network create my-net
+<span class="go">
+（1 つ目のコンテナ alpine1 を起動）
+</span><span class="gp">$</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">--net</span> my-net <span class="nt">--name</span> alpine1 alpine /bin/sh
+<span class="go">
+（別のターミナルから 2 つ目のコンテナ alpine2 を起動）
+</span><span class="gp">$</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">-it</span> <span class="nt">--net</span> my-net <span class="nt">--name</span> alpine2 alpine /bin/sh
+<span class="go">
+（コンテナ名で互いに ping できるか確認）　
+</span><span class="gp">#</span><span class="w"> </span>ping alpine1
+<span class="gp">#</span><span class="w"> </span>ping alpine2
+</code></pre></div></div>
+
+<h2 id="その他---bridge0">その他 - bridge0</h2>
+
+<p>Docker 用のブリッジは、ホスト側に <strong><code class="language-plaintext highlighter-rouge">bridge0</code></strong> という名前の仮想ブリッジとして作成されます。
+ちなみにこの <code class="language-plaintext highlighter-rouge">bridge0</code> は、Docker Desktop for Windows/macOS を使っている場合は直接は参照できないことに注意してください。
+Docker Desktop の場合は、その仮想マシン内に <code class="language-plaintext highlighter-rouge">bridge0</code> が作成されます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ifconfig bridge0
+<span class="gp">bridge0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt;</span><span class="w"> </span>mtu 1500
+<span class="gp">    options=63&lt;RXCSUM,TXCSUM,TSO4,TSO6&gt;</span><span class="w">
+</span><span class="go">    ether 36:f6:6f:f3:5a:c0
+    Configuration:
+        id 0:0:0:0:0:0 priority 0 hellotime 0 fwddelay 0
+        maxage 0 holdcnt 0 proto stp maxaddr 100 timeout 1200
+        root id 0:0:0:0:0:0 priority 0 ifcost 0 port 0
+        ipfilter disabled flags 0x0
+</span><span class="gp">    member: en1 flags=3&lt;LEARNING,DISCOVER&gt;</span><span class="w">
+</span><span class="go">            ifmaxaddr 0 port 10 priority 0 path cost 0
+</span><span class="gp">    member: en2 flags=3&lt;LEARNING,DISCOVER&gt;</span><span class="w">
+</span><span class="go">            ifmaxaddr 0 port 11 priority 0 path cost 0
+</span><span class="gp">    member: en3 flags=3&lt;LEARNING,DISCOVER&gt;</span><span class="w">
+</span><span class="go">            ifmaxaddr 0 port 12 priority 0 path cost 0
+    Address cache:
+</span><span class="gp">    nd6 options=201&lt;PERFORMNUD,DAD&gt;</span><span class="w">
+</span><span class="gp">    media: &lt;unknown type&gt;</span><span class="w">
+</span><span class="go">    status: inactive
+</span></code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker のネットワークについて理解する (none, host, bridge)&url=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/7fjnqtw/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/docker/"><span class="xArticle_up_label">まくまくDockerノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-15</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

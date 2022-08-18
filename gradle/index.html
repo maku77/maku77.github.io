@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGradleノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/gradle/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-gradle.png" />
+
+  <meta property="og:description" content="天才星人まくのGradleノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Gradle ノート | 天才まくまくノート" />
+  <title>まくまく Gradle ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-gradle.png" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくGradleノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate">2015-07-01</div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        Java の最新のビルドシステム Gradle の使い方。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGradleノート： Gradle&url=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h2 id="インストールと設定管理">インストールと設定／管理</h2>
+<ul>
+  <li><a href="settings/install-gradle-to-mac.html">Gradle をインストールする (Mac OSX)</a></li>
+  <li><a href="settings/install-gradle-to-win.html">Gradle をインストールする (Windows)</a></li>
+  <li><a href="settings/proxy-settings.html">Gradle のプロキシを設定する</a></li>
+  <li><a href="settings/gradle-daemon.html">Gradle デーモンを使って gradle コマンドを高速化する</a></li>
+  <li><a href="settings/profiling.html">Gradle によるビルドのボトルネックを探す（プロファイリング）</a></li>
+</ul>
+
+<h2 id="gradle-の基本">Gradle の基本</h2>
+<ul>
+  <li><a href="basics/project-and-task.html">プロジェクトとタスクとアクション</a></li>
+  <li><a href="basics/three-phases.html">Gradle 実行時の 3 つのフェーズ</a></li>
+  <li><a href="define-gradle-tasks.html">Gradle のタスクを定義する (task)</a></li>
+  <li><a href="default-task.html">Gradle でデフォルトタスクを指定する (defaultTasks)</a></li>
+  <li><a href="task-dependency.html">Gradle でタスクの依存関係を表現する (dependsOn)</a></li>
+  <li><a href="group-tasks.html">Gradle のタスクに説明を付け、グルーピングする (description, group)</a></li>
+  <li><a href="add-action-to-task.html">既存の Gradle タスクにアクションを追加する (doLast, doFirst)</a></li>
+  <li><a href="gradle-wrapper.html">Gradle Wrapper スクリプト (gradlew) を作成する</a></li>
+  <li><a href="gradle-wrapper-wrapper.html">Gradle Wrapper スクリプト (gradlew) をサブプロジェクトから簡単に呼び出せるようにする</a></li>
+</ul>
+
+<h3 id="maven-リポジトリ">Maven リポジトリ</h3>
+<ul>
+  <li><a href="repository/specify-maven-url.html">独自の Maven リポジトリを使用する</a></li>
+</ul>
+
+<h2 id="gradle-で-java-プロジェクトを扱う-java-プラグイン">Gradle で Java プロジェクトを扱う (java プラグイン)</h2>
+<ul>
+  <li><a href="build-java-project.html">Gradle で Java プロジェクトをビルドする</a></li>
+  <li><a href="javadoc.html">Gradle で Javadoc API Document を出力する</a></li>
+  <li><a href="executable-jar.html">Gradle で実行可能な JAR ファイルを作成する</a></li>
+  <li><a href="java-project-structure.html">Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する (sourceSets, buildDir)</a></li>
+</ul>
+
+<h2 id="gradle-でユニットテスト">Gradle でユニットテスト</h2>
+<ul>
+  <li><a href="test-junit.html">Gradle で JUnit によるユニットテストを実行する</a></li>
+  <li><a href="test-testng.html">Gradle で JUnit の代わりに TestNG でユニットテストを実行する</a></li>
+  <li><a href="test-coverage.html">Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)</a></li>
+  <li><a href="test-detail-log.html">Gradle でユニットテストの結果をコンソールに詳しく表示する</a></li>
+  <li><a href="test-parallel.html">Gradle でユニットテストを並列実行する</a></li>
+</ul>
+
+<h2 id="gradle-でマルチプロジェクトを扱う">Gradle でマルチプロジェクトを扱う</h2>
+<ul>
+  <li><a href="multi-project.html">Gradle によるマルチプロジェクトの基本</a></li>
+  <li><a href="multi-project-dependency.html">Gradle のマルチプロジェクトで依存関係を扱う</a></li>
+</ul>
+
+<h2 id="gradle-で静的解析-static-analysis-を行う">Gradle で静的解析 (static analysis) を行う</h2>
+<ul>
+  <li><a href="checkstyle.html">Gradle で Checkstyle による静的解析を実行する</a></li>
+  <li><a href="pmd/pmd.html">Gradle で PMD による静的解析を実行する</a></li>
+</ul>
+
+<h2 id="gradle-での-ioファイル入出力環境変数ユーザ入力">Gradle での I/O（ファイル入出力、環境変数、ユーザ入力）</h2>
+
+<h3 id="ファイル">ファイル</h3>
+<ul>
+  <li><a href="gradle-copy-files.html">Gradle でファイルをコピーするためのタスクを作成する</a></li>
+  <li><a href="gradle-rename-files.html">Gradle でファイルをリネームする</a></li>
+  <li><a href="gradle-template-engine.html">Gradle のテンプレート機能によりファイル内容を書き換える</a></li>
+  <li><a href="file/zip.html">Gradle でディレクトリ内のファイルを ZIP 圧縮する</a></li>
+</ul>
+
+<h3 id="プロパティ">プロパティ</h3>
+<ul>
+  <li><a href="property-file.html">Gradle でプロパティファイル (.properties) を読み込む</a></li>
+  <li><a href="envvar.html">Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する</a></li>
+</ul>
+
+<h2 id="gradle-のコマンド">Gradle のコマンド</h2>
+<ul>
+  <li><a href="gradle-tasks.html">Gradle タスクの一覧を表示する (tasks)</a></li>
+  <li><a href="gradle-properties.html">Gradle のプロジェクトで使用可能なプロパティの一覧を表示する (properties)</a></li>
+</ul>
+
+<h2 id="groovy-スクリプト">Groovy スクリプト</h2>
+<ul>
+  <li><a href="groovy/groovy-and-java.html">Groovy と Java の違い</a></li>
+  <li><a href="groovy/assert.html">Groovy で assert を使用する</a></li>
+  <li><a href="groovy/method.html">Groovy でメソッドを定義する</a></li>
+  <li><a href="groovy/class.html">Groovy でクラスを定義する</a></li>
+  <li><a href="groovy/string-literal.html">Groovy で文字列リテラルを扱う</a></li>
+  <li><a href="groovy/list.html">Groovy で List を扱う</a></li>
+  <li><a href="groovy/map.html">Groovy で Map を扱う</a></li>
+  <li><a href="groovy/closure.html">Groovy のクロージャ</a></li>
+  <li><a href="groovy/input-password.html">Groovy でパスワードなどをユーザに入力させる</a></li>
+</ul>
+
+<h2 id="独自の-gradle-プラグインを作成する">独自の Gradle プラグインを作成する</h2>
+
+<ul>
+  <li><a href="plugin/plugin-class.html">Gradle プラグインを作成する (1) Plugin クラスの基本</a></li>
+  <li><a href="plugin/packaging.html">Gradle プラグインを作成する (2) JAR へのパッケージング</a></li>
+</ul>
+
+<h2 id="android-開発における-gradle">Android 開発における Gradle</h2>
+
+<p>Android に関しては <a href="../android/">こちらを参照</a></p>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGradleノート： Gradle&url=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/gradle/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li class="xNav-focused"><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate">2015-07-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

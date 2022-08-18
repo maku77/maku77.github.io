@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="818" height="314" viewBox="0, 0, 818, 314">
+  <defs>
+    <clipPath id="Clip_1">
+      <path d="M54,664 L210,664 L210,728 L54,728 z M204,672 L60,672 L60,720 L204,720 L204,672 z"/>
+    </clipPath>
+    <filter id="Shadow_2">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_3">
+      <path d="M462,652 L618,652 L618,716 L462,716 z M612,660 L468,660 L468,708 L612,708 L612,660 z"/>
+    </clipPath>
+    <filter id="Shadow_4">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_5">
+      <path d="M258,688 L414,688 L414,752 L258,752 z M408,696 L264,696 L264,744 L408,744 L408,696 z"/>
+    </clipPath>
+    <filter id="Shadow_6">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_7">
+      <path d="M654,628 L810,628 L810,692 L654,692 z M804,636 L660,636 L660,684 L804,684 L804,636 z"/>
+    </clipPath>
+    <filter id="Shadow_8">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+  </defs>
+  <g id="レイヤー_1" transform="translate(-23, -587)">
+    <g>
+      <path d="M324.5,768.5 L816.5,768.5 L816.5,888.5 L324.5,888.5 L324.5,768.5 z" fill="#FFCEAA" fill-opacity="0.5"/>
+      <path d="M324.5,768.5 L816.5,768.5 L816.5,888.5 L324.5,888.5 L324.5,768.5 z" fill-opacity="0" stroke="#EE6600" stroke-width="3"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 156, 612)">
+      <tspan x="-114.016" y="4" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-72.004" y="4" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-67.003" y="4" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="-49.003" y="4" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="-44.002" y="4" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="20.026" y="4" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="25.027" y="4" font-family="HiraginoSans-W6" font-size="18" fill="#000000">＞</tspan>
+      <tspan x="43.027" y="4" font-family="Arial-BoldMT" font-size="18" fill="#000000"> </tspan>
+      <tspan x="48.028" y="4" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+    </text>
+    <g>
+      <path d="M84.5,648.5 L144.5,648.5 L144.5,732.5 L84.5,732.5 L84.5,648.5 z" fill="#3866FF"/>
+      <path d="M84.5,648.5 L144.5,648.5 L144.5,732.5 L84.5,732.5 L84.5,648.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M144.5,660.5 L180.5,660.5 L180.5,720.5 L144.5,720.5 L144.5,660.5 z" fill="#F42A79"/>
+      <path d="M144.5,660.5 L180.5,660.5 L180.5,720.5 L144.5,720.5 L144.5,660.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M204,672 L204,720 L60,720 L60,672 L204,672 z" clip-path="url(#Clip_1)" filter="url(#Shadow_2)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M60,672 L204,672 L204,720 L60,720 L60,672 z" fill="#00EE88"/>
+    </g>
+    <path d="M192,727.961 L186,723.971 L180,719.981 L186,715.99 L192,712 L192,719.981 z" fill="#FF862B"/>
+    <g>
+      <path d="M84.5,636.5 L180.5,636.5 L180.5,648.5 L84.5,648.5 L84.5,636.5 z" fill="#808080"/>
+      <path d="M84.5,636.5 L180.5,636.5 L180.5,648.5 L84.5,648.5 L84.5,636.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M84.5,732.5 L180.5,732.5 L180.5,744.5 L84.5,744.5 L84.5,732.5 z" fill="#808080"/>
+      <path d="M84.5,732.5 L180.5,732.5 L180.5,744.5 L84.5,744.5 L84.5,732.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 174, 819.5)">
+      <tspan x="-128.021" y="-11.478" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-86.01" y="-11.478" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B"> → position:static(sticky)</tspan>
+      <tspan x="-100.015" y="9.522" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-35.987" y="9.522" font-family="Arial-BoldMT" font-size="18" fill="#009916"> </tspan>
+      <tspan x="-30.986" y="9.522" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">→ </tspan>
+      <tspan x="-7.985" y="9.522" font-family="HiraginoSans-W6" font-size="18" fill="#EE6600">動的に動かす</tspan>
+    </text>
+    <path d="M24.5,588.5 L840.5,588.5 L840.5,900.5 L24.5,900.5 L24.5,588.5 z" fill-opacity="0" stroke="#2B2B2B" stroke-width="1"/>
+    <g>
+      <path d="M492.5,648.5 L552.5,648.5 L552.5,732.5 L492.5,732.5 L492.5,648.5 z" fill="#3866FF"/>
+      <path d="M492.5,648.5 L552.5,648.5 L552.5,732.5 L492.5,732.5 L492.5,648.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M552.5,660.5 L588.5,660.5 L588.5,720.5 L552.5,720.5 L552.5,660.5 z" fill="#F42A79"/>
+      <path d="M552.5,660.5 L588.5,660.5 L588.5,720.5 L552.5,720.5 L552.5,660.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M612,660 L612,708 L468,708 L468,660 L612,660 z" clip-path="url(#Clip_3)" filter="url(#Shadow_4)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M468,660 L612,660 L612,708 L468,708 L468,660 z" fill="#00EE88"/>
+    </g>
+    <path d="M600,667.962 L594,663.971 L588,659.981 L594,655.99 L600,652 L600,659.981 z" fill="#FF862B"/>
+    <g>
+      <path d="M492.5,636.5 L588.5,636.5 L588.5,648.5 L492.5,648.5 L492.5,636.5 z" fill="#808080"/>
+      <path d="M492.5,636.5 L588.5,636.5 L588.5,648.5 L492.5,648.5 L492.5,636.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M492.5,732.5 L588.5,732.5 L588.5,744.5 L492.5,744.5 L492.5,732.5 z" fill="#808080"/>
+      <path d="M492.5,732.5 L588.5,732.5 L588.5,744.5 L492.5,744.5 L492.5,732.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 574, 834)">
+      <tspan x="-234" y="-44" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+      <tspan x="-168.012" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#009916">下端</tspan>
+      <tspan x="-132.012" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">が</tspan>
+      <tspan x="-114.012" y="-44" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-49.983" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#F42A79">下端</tspan>
+      <tspan x="-13.983" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">を越えたら、</tspan>
+      <tspan x="94.017" y="-44" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="158.045" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#F42A79">下端</tspan>
+      <tspan x="194.045" y="-44" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">を</tspan>
+      <tspan x="-234" y="-15" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+      <tspan x="-168.012" y="-15" font-family="HiraginoSans-W6" font-size="18" fill="#009916">下端</tspan>
+      <tspan x="-132.012" y="-15" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">に揃える</tspan>
+      <tspan x="-60.732" y="-15" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(1)</tspan>
+      <tspan x="-38.733" y="-15" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">が、</tspan>
+      <tspan x="-2.733" y="-15" font-family="Arial-BoldMT" font-size="18" fill="#009916">window</tspan>
+      <tspan x="63.256" y="-15" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">がフッター領域まで</tspan>
+      <tspan x="-234" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">入ったら</tspan>
+      <tspan x="-162" y="14" font-family="Arial-BoldMT" font-size="18" fill="#F42A79">sidebar</tspan>
+      <tspan x="-97.972" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#F42A79">下端</tspan>
+      <tspan x="-61.972" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">は</tspan>
+      <tspan x="-43.972" y="14" font-family="Arial-BoldMT" font-size="18" fill="#3866FF">main</tspan>
+      <tspan x="-1.96" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#3866FF">下端</tspan>
+      <tspan x="34.04" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">と揃える</tspan>
+      <tspan x="105.32" y="14" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(2)</tspan>
+      <tspan x="127.319" y="14" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">。</tspan>
+      <tspan x="-234" y="43" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">反対方向に関しても同様</tspan>
+      <tspan x="-36.9" y="43" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(3)(4)</tspan>
+      <tspan x="7.098" y="43" font-family="HiraginoSans-W6" font-size="18" fill="#2B2B2B">。</tspan>
+    </text>
+    <g>
+      <path d="M288.5,648.5 L348.5,648.5 L348.5,732.5 L288.5,732.5 L288.5,648.5 z" fill="#3866FF"/>
+      <path d="M288.5,648.5 L348.5,648.5 L348.5,732.5 L288.5,732.5 L288.5,648.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M348.5,672.5 L384.5,672.5 L384.5,732.5 L348.5,732.5 L348.5,672.5 z" fill="#F42A79"/>
+      <path d="M348.5,672.5 L384.5,672.5 L384.5,732.5 L348.5,732.5 L348.5,672.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M408,696 L408,744 L264,744 L264,696 L408,696 z" clip-path="url(#Clip_5)" filter="url(#Shadow_6)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M264,696 L408,696 L408,744 L264,744 L264,696 z" fill="#00EE88"/>
+    </g>
+    <g>
+      <path d="M288.5,636.5 L384.5,636.5 L384.5,648.5 L288.5,648.5 L288.5,636.5 z" fill="#808080"/>
+      <path d="M288.5,636.5 L384.5,636.5 L384.5,648.5 L288.5,648.5 L288.5,636.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M288.5,732.5 L384.5,732.5 L384.5,744.5 L288.5,744.5 L288.5,732.5 z" fill="#808080"/>
+      <path d="M288.5,732.5 L384.5,732.5 L384.5,744.5 L288.5,744.5 L288.5,732.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M684.5,648.5 L744.5,648.5 L744.5,732.5 L684.5,732.5 L684.5,648.5 z" fill="#3866FF"/>
+      <path d="M684.5,648.5 L744.5,648.5 L744.5,732.5 L684.5,732.5 L684.5,648.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M744.5,648.5 L780.5,648.5 L780.5,708.5 L744.5,708.5 L744.5,648.5 z" fill="#F42A79"/>
+      <path d="M744.5,648.5 L780.5,648.5 L780.5,708.5 L744.5,708.5 L744.5,648.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g opacity="0.3">
+      <path d="M804,636 L804,684 L660,684 L660,636 L804,636 z" clip-path="url(#Clip_7)" filter="url(#Shadow_8)" fill="rgba(0,0,0,0.75)"/>
+      <path d="M660,636 L804,636 L804,684 L660,684 L660,636 z" fill="#00EE88"/>
+    </g>
+    <g>
+      <path d="M684.5,636.5 L780.5,636.5 L780.5,648.5 L684.5,648.5 L684.5,636.5 z" fill="#808080"/>
+      <path d="M684.5,636.5 L780.5,636.5 L780.5,648.5 L684.5,648.5 L684.5,636.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M684.5,732.5 L780.5,732.5 L780.5,744.5 L684.5,744.5 L684.5,732.5 z" fill="#808080"/>
+      <path d="M684.5,732.5 L780.5,732.5 L780.5,744.5 L684.5,744.5 L684.5,732.5 z" fill-opacity="0" stroke="#808080" stroke-width="1"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 59, 646.5)">
+      <tspan x="-11" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(1)</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 263, 646.5)">
+      <tspan x="-11" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(2)</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 467, 646.5)">
+      <tspan x="-11" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(3)</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 659, 646.5)">
+      <tspan x="-11" y="5.5" font-family="Arial-BoldMT" font-size="18" fill="#2B2B2B">(4)</tspan>
+    </text>
+    <path d="M396,739.962 L390,735.971 L384,731.981 L390,727.99 L396,724 L396,731.981 z" fill="#FF862B"/>
+    <path d="M792,655.962 L786,651.971 L780,647.981 L786,643.99 L792,640 L792,647.981 z" fill="#FF862B"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="90" height="38" viewBox="0, 0, 90, 38">
+  <defs>
+    <linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="60" y1="136" x2="68" y2="136">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <g id="レイヤー_1" transform="translate(-19, -115)">
+    <path d="M20.5,124.5 L36.5,116.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M36.5,116.5 L52.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M36.5,132.5 L52.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M36.5,132.5 L20.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M36.5,132.5 L36.5,152.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M36.5,152.5 L52.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M52.5,124.5 L52.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M20.5,124.5 L20.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M20.5,144.5 L36.5,152.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M60,128 L68,136 L60,144 z" fill="url(#Gradient_1)"/>
+    <path d="M76.5,124.5 L92.5,116.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M92.5,116.5 L108.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M92.5,132.5 L108.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M92.5,132.5 L76.5,124.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M92.5,132.5 L92.5,152.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M92.5,152.5 L108.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M108.5,124.5 L108.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M76.5,124.5 L76.5,144.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M76.5,144.5 L92.5,152.5" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-linecap="round"/>
+    <path d="M84.5,128.5 L84.5,148.5" fill-opacity="0" stroke="#EE6600" stroke-width="1" stroke-linecap="round"/>
+    <path d="M84.5,128.5 L100.5,120.5" fill-opacity="0" stroke="#EE6600" stroke-width="1" stroke-linecap="round"/>
+  </g>
+</svg>

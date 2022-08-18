@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/basic/handle-null.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="safe call (?.) や elvis operator (?:)、let で null をうまく扱う | まくまくKotlinノート" />
+  <title>safe call (?.) や elvis operator (?:)、let で null をうまく扱う - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">safe call (?.) や elvis operator (?:)、let で null をうまく扱う</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-09-24</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/basic/handle-null.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： safe call (?.) や elvis operator (?:)、let で null をうまく扱う&url=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="null-を扱うさまざまな演算子関数">null を扱うさまざまな演算子・関数</h2>
+
+<p>Kotlin には、<code class="language-plaintext highlighter-rouge">null</code> をうまく扱うための便利な演算子や関数が用意されています。
+代表的なものに下記があります。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">オブジェクト?.メソッド</code> (safe call)</strong> – オブジェクトが <code class="language-plaintext highlighter-rouge">null</code> でないならメソッドを呼び出す。<code class="language-plaintext highlighter-rouge">null</code> なら <code class="language-plaintext highlighter-rouge">null</code> を返す。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">式1 ?: 式2</code> (Elvis operator)</strong> – 式1が <code class="language-plaintext highlighter-rouge">null</code> でないならその値、<code class="language-plaintext highlighter-rouge">null</code> なら式2を評価する</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">オブジェクト!!</code> (not-null assertion / unsafe dereference)</strong> – nullable なオブジェクトを not-null なオブジェクトとして参照する。実際には <code class="language-plaintext highlighter-rouge">null</code> だった場合、<code class="language-plaintext highlighter-rouge">NullPoiterException</code> が発生する。</li>
+</ul>
+
+<h2 id="使用例">使用例</h2>
+
+<h3 id="オブジェクトが-null-じゃない場合のみメソッドを呼び出すプロパティを参照する">オブジェクトが null じゃない場合のみメソッドを呼び出す／プロパティを参照する</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">logger</span><span class="o">?.</span><span class="nf">log</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">logger</code> 変数が <code class="language-plaintext highlighter-rouge">null</code> でない場合のみ <code class="language-plaintext highlighter-rouge">log()</code> メソッドを実行します。
+<code class="language-plaintext highlighter-rouge">null</code> の場合は何も行いません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">label</span> <span class="p">=</span> <span class="n">book</span><span class="o">?.</span><span class="n">title</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">book</code> 変数が <code class="language-plaintext highlighter-rouge">null</code> でない場合に <code class="language-plaintext highlighter-rouge">title</code> プロパティの値を取得します。
+<code class="language-plaintext highlighter-rouge">book</code> 変数が <code class="language-plaintext highlighter-rouge">null</code> の場合は <code class="language-plaintext highlighter-rouge">null</code> が返されます。</p>
+
+<h3 id="オブジェクトが-null-だった場合にデフォルト値を設定処理を打ち切る">オブジェクトが null だった場合にデフォルト値を設定／処理を打ち切る</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">title</span> <span class="p">=</span> <span class="n">book</span><span class="o">?.</span><span class="n">title</span> <span class="o">?:</span> <span class="s">"Unknown title"</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">book</code> 変数が <code class="language-plaintext highlighter-rouge">null</code> でない場合は <code class="language-plaintext highlighter-rouge">book.title</code> の値を、<code class="language-plaintext highlighter-rouge">null</code> である場合は “Unknown title” を <code class="language-plaintext highlighter-rouge">title</code> に代入します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>book</th>
+      <th>book.title</th>
+      <th>結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>null</td>
+      <td>─</td>
+      <td>“Unkown title”</td>
+    </tr>
+    <tr>
+      <td>not null</td>
+      <td>null</td>
+      <td>“Unknown title”</td>
+    </tr>
+    <tr>
+      <td>not null</td>
+      <td>not null</td>
+      <td>book.title</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>下記も似たような使い方ですが、値が取得できないときにデフォルト値を設定する代わりに、return したり、例外を投げて処理を打ち切っています。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">title</span> <span class="p">=</span> <span class="n">book</span><span class="o">?.</span><span class="n">title</span> <span class="o">?:</span> <span class="k">return</span>
+<span class="kd">val</span> <span class="py">title</span> <span class="p">=</span> <span class="n">book</span><span class="o">?.</span><span class="n">title</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">Error</span><span class="p">(</span><span class="s">"Book must have a title"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="オブジェクトが-null-のときに一連の処理を行う">オブジェクトが null のときに一連の処理を行う</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">title</span> <span class="p">=</span> <span class="n">book</span><span class="p">.</span><span class="n">title</span> <span class="o">?:</span> <span class="nf">run</span> <span class="p">{</span>
+    <span class="nf">log</span><span class="p">(</span><span class="s">"Could not display the book because of lack of title"</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>あるオブジェクトやそのプロパティが <code class="language-plaintext highlighter-rouge">null</code> だった場合にのみ<strong>一連の処理</strong>を行いたい場合は、elvis operator (<code class="language-plaintext highlighter-rouge">?:</code>) と <code class="language-plaintext highlighter-rouge">run</code> を組み合わせて使用します。
+上記では、<code class="language-plaintext highlighter-rouge">book</code> は <code class="language-plaintext highlighter-rouge">null</code> でないことを想定していますが、<code class="language-plaintext highlighter-rouge">book</code> 自体が <code class="language-plaintext highlighter-rouge">null</code> であるケースも想定するのであれば、<code class="language-plaintext highlighter-rouge">book?.title ?: run {}</code> と、safe call を組み合わせれば OK です。</p>
+
+<h3 id="オブジェクトが-null-でないときに一連の処理を行う">オブジェクトが null でないときに一連の処理を行う</h3>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var book: Book? = null</span>
+
+<span class="n">book</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span>
+    <span class="c1">// let の中では it で non-null な book を参照できる</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="nf">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="n">author</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>safe call (<code class="language-plaintext highlighter-rouge">?.</code>) と <code class="language-plaintext highlighter-rouge">let</code> 関数を組み合わせた <strong>safe call let</strong> と呼ばれているイディオムです。
+上記の例では、変数 <code class="language-plaintext highlighter-rouge">book</code> が <code class="language-plaintext highlighter-rouge">null</code> でない場合に <code class="language-plaintext highlighter-rouge">book</code> のプロパティを参照する処理を実行します。
+<code class="language-plaintext highlighter-rouge">book</code> が <code class="language-plaintext highlighter-rouge">null</code> でない場合にメソッドを 1 つだけ呼び出したい場合は、単純に safe call で <code class="language-plaintext highlighter-rouge">book?.foo()</code> とすればよいのですが、上記のように連続してオブジェクトを参照したい場合や、そのオブジェクト自体をパラメータとして別の関数に渡したい場合などに利用します。
+別の関数のパラメータとして渡したい場合は次のように簡潔に記述することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book</span><span class="o">?.</span><span class="nf">let</span><span class="p">(</span><span class="n">display</span><span class="o">::</span><span class="n">showBookCover</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>これは、下記のように記述するのと同じです。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">display</span><span class="p">.</span><span class="nf">showBookCover</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="コラムlet-はラムダ式の評価結果を返すことに注意">（コラム）let はラムダ式の評価結果を返すことに注意</h2>
+
+<p><code class="language-plaintext highlighter-rouge">let</code> の戻り値の振る舞いをきちんと理解していないと、思わぬ不具合の元になります。
+次の safe call let イディオムを見てください。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book</span><span class="o">?.</span><span class="nf">let</span><span class="p">(</span><span class="n">logger</span><span class="o">::</span><span class="n">printTitle</span><span class="p">)</span> <span class="o">?:</span> <span class="n">logger</span><span class="p">.</span><span class="nf">showError</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>あるいは、下記でも同様。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">book</span><span class="o">?.</span><span class="nf">let</span> <span class="p">{</span> <span class="n">logger</span><span class="p">.</span><span class="nf">printTitle</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="p">}</span> <span class="o">?:</span> <span class="n">logger</span><span class="p">.</span><span class="nf">showError</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>このコードは、<code class="language-plaintext highlighter-rouge">book</code> が <code class="language-plaintext highlighter-rouge">null</code> でない場合に <code class="language-plaintext highlighter-rouge">printTitle(book)</code> を実行し、<code class="language-plaintext highlighter-rouge">null</code> である場合に <code class="language-plaintext highlighter-rouge">showError()</code> を実行するコードのように見えます。
+しかし、<code class="language-plaintext highlighter-rouge">let()</code> は実行したラムダ式の評価結果を返すため、<code class="language-plaintext highlighter-rouge">printTitle(book)</code> が <code class="language-plaintext highlighter-rouge">null</code> を返した場合にも <code class="language-plaintext highlighter-rouge">showError()</code> が実行されてしまいます。</p>
+
+<p>この振る舞いは意図したものと異なるかもしれません。
+正しくは、下記のように書くべきかもしれません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">book</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">printTitle</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">logger</span><span class="p">.</span><span class="nf">showError</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： safe call (?.) や elvis operator (?:)、let で null をうまく扱う&url=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/handle-null.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-09-24</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

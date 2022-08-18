@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/thread/lock-and-condition.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Lock と Condition による条件ごとのスレッド待機 | まくまくJavaノート" />
+  <title>Lock と Condition による条件ごとのスレッド待機 - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Lock と Condition による条件ごとのスレッド待機</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2014-08-20</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/thread/lock-and-condition.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Lock と Condition による条件ごとのスレッド待機&url=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="従来の-objectwait-によるスレッド待機">従来の Object#wait によるスレッド待機</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Object#wait()</code>、<code class="language-plaintext highlighter-rouge">Object#notifyAll()</code> のスレッド間通信の仕組みでは、ロック (<code class="language-plaintext highlighter-rouge">synchronized</code>) に使用するオブジェクトと、ウェイトセットに入る (<code class="language-plaintext highlighter-rouge">wait</code>) ためのオブジェクトが同一であるという条件がありました。</p>
+
+<h4 id="スレッド-a">スレッド A</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">synchronized</span> <span class="o">(</span><span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">obj</span><span class="o">.</span><span class="na">wait</span><span class="o">();</span>  <span class="c1">// ウェイトセットに入り、他のスレッドから通知があるまで待機</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="スレッド-b">スレッド B</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">synchronized</span> <span class="o">(</span><span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">obj</span><span class="o">.</span><span class="na">notifyAll</span><span class="o">()</span>  <span class="c1">// 他のスレッドに、待機状態から抜けていいよと通知する</span>
+<span class="o">}</span>
+<span class="c1">// スレッド B がここまで来てロックを解放すると、スレッド A が動き出す</span>
+</code></pre></div></div>
+
+<h2 id="condition-クラスによるスレッド待機">Condition クラスによるスレッド待機</h2>
+
+<p>Java 5.0 (Tiger) で導入された、<code class="language-plaintext highlighter-rouge">java.util.concurrent.locks.Lock</code> と、<code class="language-plaintext highlighter-rouge">Condition</code> クラスを使用すると、一つのロック (<code class="language-plaintext highlighter-rouge">Lock</code>) の中で、異なる種類の条件 (<code class="language-plaintext highlighter-rouge">Condition</code>) による通知が可能になります。
+まず、<code class="language-plaintext highlighter-rouge">Lock</code> インタフェースによるロックは以下のような流れになります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// private Lock myLock = new ReentrantLock();</span>
+
+<span class="n">myLock</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="o">...</span><span class="na">排他制御が必要な処理</span><span class="o">...</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="n">myLock</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>これは、従来の <code class="language-plaintext highlighter-rouge">synchronized</code> と同様のロックを提供します（<code class="language-plaintext highlighter-rouge">Lock</code> インタフェースには、より柔軟なロック方法を提供する API があります）。
+アンロックは、必ず <code class="language-plaintext highlighter-rouge">finally</code> ブロックで行い、ロック中に <code class="language-plaintext highlighter-rouge">Exception</code> が発生した場合でもアンロックされることを保証しなければいけません。</p>
+
+<p>スレッド間の通知を行うための <code class="language-plaintext highlighter-rouge">Condition</code> オブジェクトを生成するには、<code class="language-plaintext highlighter-rouge">Lock#newCondition()</code> を使用します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="nc">Lock</span> <span class="n">myLock</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ReentrantLock</span><span class="o">();</span>
+<span class="kd">private</span> <span class="n">condition1</span> <span class="o">=</span> <span class="n">myLock</span><span class="o">.</span><span class="na">newCondition</span><span class="o">();</span>
+<span class="kd">private</span> <span class="n">condition2</span> <span class="o">=</span> <span class="n">myLock</span><span class="o">.</span><span class="na">newCondition</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Lock</code> オブジェクトから <code class="language-plaintext highlighter-rouge">Condition</code> オブジェクトを生成していることからも分かるように、その <code class="language-plaintext highlighter-rouge">Lock</code> オブジェクトのロック中にだけ、その <code class="language-plaintext highlighter-rouge">Condition</code> オブジェクトの <code class="language-plaintext highlighter-rouge">wait()</code>、<code class="language-plaintext highlighter-rouge">notifyAll()</code> などの呼び出しが可能です。</p>
+
+<p>実際の使用例は、API ドキュメントのサンプルが分かりやすいでしょう。
+このサンプルでは、バッファクラスへの <code class="language-plaintext highlighter-rouge">put()</code> と <code class="language-plaintext highlighter-rouge">take()</code> を同じオブジェクトでロックし、その中で、バッファ空である通知、バッファが満杯である通知を同時に使用しています。</p>
+
+<ul>
+  <li>http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Condition.html</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">BoundedBuffer</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="nc">Lock</span> <span class="n">lock</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ReentrantLock</span><span class="o">();</span>
+    <span class="kd">final</span> <span class="nc">Condition</span> <span class="n">notFull</span> <span class="o">=</span> <span class="n">lock</span><span class="o">.</span><span class="na">newCondition</span><span class="o">();</span>
+    <span class="kd">final</span> <span class="nc">Condition</span> <span class="n">notEmpty</span> <span class="o">=</span> <span class="n">lock</span><span class="o">.</span><span class="na">newCondition</span><span class="o">();</span>
+
+    <span class="kd">final</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">items</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="mi">100</span><span class="o">];</span>
+    <span class="kt">int</span> <span class="n">putptr</span><span class="o">,</span> <span class="n">takeptr</span><span class="o">,</span> <span class="n">count</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">put</span><span class="o">(</span><span class="nc">Object</span> <span class="n">x</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="n">lock</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+                <span class="n">notFull</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>  <span class="c1">//★バッファに空きができるまで待機</span>
+            <span class="n">items</span><span class="o">[</span><span class="n">putptr</span><span class="o">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+            <span class="k">if</span> <span class="o">(++</span><span class="n">putptr</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+                <span class="n">putptr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+            <span class="n">notEmpty</span><span class="o">.</span><span class="na">signal</span><span class="o">();</span>  <span class="c1">//★バッファに何らかのデータがあるよと通知</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">lock</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">take</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="n">lock</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+                <span class="n">notEmpty</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>  <span class="c1">//★バッファに何らかのデータが入るまで待機</span>
+            <span class="nc">Object</span> <span class="n">x</span> <span class="o">=</span> <span class="n">items</span><span class="o">[</span><span class="n">takeptr</span><span class="o">];</span>
+            <span class="k">if</span> <span class="o">(++</span><span class="n">takeptr</span> <span class="o">==</span> <span class="n">items</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+                <span class="n">takeptr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+            <span class="o">--</span><span class="n">count</span><span class="o">;</span>
+            <span class="n">notFull</span><span class="o">.</span><span class="na">signal</span><span class="o">();</span>  <span class="c1">//★バッファは満杯ではないよと通知</span>
+            <span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="n">lock</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Lock と Condition による条件ごとのスレッド待機&url=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/thread/lock-and-condition.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2014-08-20</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

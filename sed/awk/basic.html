@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのSed/Awkノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/sed/awk/basic.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-text.png" />
+
+  <meta property="og:description" content="天才星人まくのSed/Awkノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="awk の基本的な使い方 | まくまくsed/awkノート" />
+  <title>awk の基本的な使い方 - まくまくsed/awkノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/sed/">
+    <img src="/assets/img/logo-text.png" class="xPageHeader_logo">
+  </a>
+  <a href="/sed/">
+    <div class="xPageHeader_category">
+    まくまくsed/awkノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">awk の基本的な使い方</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sed/">sed/awk</a></div>
+  <div class="xPageDate">2007-12-17</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/sed/awk/basic.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくsed/awkノート： awk の基本的な使い方&url=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h1 id="awk-について">awk について</h1>
+<p><strong>awk</strong> という名前は、作者の頭文字に由来しています (Aho, Weinberger, Kernighan)。
+特定のフォーマットのテキストファイルを一括して処理するのに適した言語です。
+sed と同じくストリーム指向で、テキストファイルを 1 行ずつ読み、結果を標準出力へ書き出すという動作をします。</p>
+
+<h2 id="sed-と-awk-の違い">sed と awk の違い</h2>
+<p>sed と awk の違いは、sed では <code class="language-plaintext highlighter-rouge">s/aaa/bbb/</code> のように決まった形式で置換処理を記述するのに対し、<strong>awk</strong> は簡単なプログラミング（手続き）機能を提供しているところです。
+<strong>awk</strong> では、処理対象となる行を指定するための <strong>/パターン/</strong> と、処理内容を指定するための <strong>{手続き}</strong> を分けて指定できるようになっています。
+プログラミング機能を本格的に使用する場合は、長いスクリプトを記述することになるので、awk スクリプトとしてファイルに保存することになります。</p>
+
+<h1 id="awk-コマンドの使い方">awk コマンドの使い方</h1>
+
+<h2 id="全ての行に対して処理する">全ての行に対して処理する</h2>
+
+<div class="language-awk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span> <span class="nx">awk</span> <span class="err">'</span><span class="p">{</span><span class="k">print</span> <span class="nv">$1</span><span class="p">}</span><span class="err">'</span> <span class="nx">input</span><span class="p">.</span><span class="nx">txt</span>    <span class="c1"># 1 番目のフィールドを出力</span>
+</code></pre></div></div>
+
+<p>上記のように、命令部分に <code class="language-plaintext highlighter-rouge">print</code> のような「手続き」だけを指定した場合は、すべての行に対してその手続きが適用されます。
+この例では、<code class="language-plaintext highlighter-rouge">input.txt</code> ファイル内のすべての行から 1 番目のフィールドを抜き出します（デフォルトのセパレータは、スペースやタブです）。
+ちなみに、Linux の <code class="language-plaintext highlighter-rouge">cut</code> コマンドを使った場合も、同様のこと（指定した位置のフィールドを抜き出す）を行えます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cut -d ' ' -f 1 input.txt    # 1 番目のフィールドを出力
+</code></pre></div></div>
+
+<h2 id="処理対象の行を絞り込んで処理する">処理対象の行を絞り込んで処理する</h2>
+
+<div class="language-awk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span> <span class="nx">awk</span> <span class="err">'</span><span class="o">/</span><span class="nx">ABC</span><span class="o">/</span> <span class="p">{</span><span class="k">print</span> <span class="nv">$3</span><span class="p">}</span><span class="err">'</span> <span class="nx">input</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div></div>
+
+<p>上記のようにすると、<code class="language-plaintext highlighter-rouge">ABC</code> という文字列を含む行の、3 番目のフィールドをすべて出力します。</p>
+
+<div class="language-awk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span> <span class="nx">awk</span> <span class="err">'</span><span class="o">/</span><span class="nx">AAA</span><span class="o">/</span><span class="p">,</span><span class="sr">/BBB/</span> <span class="p">{</span><span class="k">print</span><span class="p">}</span><span class="err">'</span> <span class="nx">input</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div></div>
+
+<p>上記のようにすると、<code class="language-plaintext highlighter-rouge">AAA</code> という文字列を含む行から、<code class="language-plaintext highlighter-rouge">BBB</code> という文字列を含む行までを出力します。
+この例からも分かるように、<code class="language-plaintext highlighter-rouge">print</code> のパラメータを省略すると、行全体を出力します（パラメータ <code class="language-plaintext highlighter-rouge">$0</code> を指定しても同様）。
+さらに、このように出力だけを目的として実行する場合は、<code class="language-plaintext highlighter-rouge">print</code> 命令自体を省略できます。</p>
+
+<div class="language-awk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$</span> <span class="nx">awk</span> <span class="err">'</span><span class="o">/</span><span class="nx">AAA</span><span class="o">/</span><span class="p">,</span><span class="sr">/BBB/</span><span class="err">'</span> <span class="nx">input</span><span class="p">.</span><span class="nx">txt</span>
+</code></pre></div></div>
+
+<h2 id="スクリプトファイルを指定する方法">スクリプトファイルを指定する方法</h2>
+
+<p>awk スクリプトが長くなってきた場合は、スクリプトファイルとして保存しておくと便利です。
+下記の例では <code class="language-plaintext highlighter-rouge">sample.awk</code> という awk スクリプトファイルを実行しています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ awk -f sample.awk input.txt
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくsed/awkノート： awk の基本的な使い方&url=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/sed/awk/basic.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/sed/"><span class="xArticle_up_label">まくまくsed/awkノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li class="xNav-focused"><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/sed/">sed/awk</a></div>
+  <div class="xPageDate">2007-12-17</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

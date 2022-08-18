@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのJavaノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/java/swing/widget/jlist-add-element.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
+
+  <meta property="og:description" content="天才星人まくのJavaノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Swing - JList に動的に要素を追加／削除する | まくまくJavaノート" />
+  <title>Swing - JList に動的に要素を追加／削除する - まくまくJavaノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/java/">
+    <div class="xPageHeader_category">
+    まくまくJavaノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Swing - JList に動的に要素を追加／削除する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-01-29</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/java/swing/widget/jlist-add-element.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JList に動的に要素を追加／削除する&url=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="listmodel-を利用した-jlist-への要素の動的な追加">ListModel を利用した JList への要素の動的な追加</h2>
+
+<p>JList は要素の表示のために、内部的なデータモデルとして ListModel オブジェクトを使用します。
+そのため、JList クラス自体には要素の追加、削除のためのメソッドは用意されていません。</p>
+
+<p>下記は JList のデータとなる ListModel インタフェースです。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ListModel</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="o">{</span>
+   <span class="kt">int</span> <span class="nf">getSize</span><span class="o">()</span>
+   <span class="no">E</span> <span class="nf">getElementAt</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">);</span>
+   <span class="kt">void</span> <span class="nf">addListDataListener</span><span class="o">(</span><span class="nc">ListDataListener</span> <span class="n">l</span><span class="o">)</span>
+   <span class="kt">void</span> <span class="nf">removeListDataListener</span><span class="o">(</span><span class="nc">ListDataListener</span> <span class="n">l</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ここで注目すべきは、データの追加、削除のためのメソッドは定義されていないということです。
+つまり、ListModel オブジェクトに対してデータを追加、削除するためのメソッドは自分で用意する必要があります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">MyListModel</span> <span class="kd">implements</span> <span class="nc">ListModel</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;</span> <span class="n">dataList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addData</span><span class="o">(</span><span class="nc">MyData</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">dataList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+        <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>もうひとつ気にしなければいけないのは、ListModel オブジェクトに対して要素を追加した場合に、JList はそれをどうやって知り、表示を更新するのかということです。
+このために使用されるのが、<code class="language-plaintext highlighter-rouge">ListModel.addListDataListener()</code> で追加される <code class="language-plaintext highlighter-rouge">ListDataListener</code> です。
+JList は、設定された ListModel オブジェクトに対して、自分自身を ListDataListener として登録します。
+これにより、JList は ListModel の変更を監視しています。</p>
+
+<p>ListModel に対して要素が追加されたとき、削除したとき、変更したときは、ListModel が保持している全ての ListDataListener に対して、以下のような通知を行う必要があります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ListDataListener</span> <span class="kd">extends</span> <span class="nc">EventListener</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">intervalAdded</span><span class="o">(</span><span class="nc">ListDataEvent</span> <span class="n">e</span><span class="o">);</span>    <span class="c1">// ListModel に要素を追加したときの通知</span>
+    <span class="kt">void</span> <span class="nf">intervalRemoved</span><span class="o">(</span><span class="nc">ListDataEvent</span> <span class="n">e</span><span class="o">);</span>  <span class="c1">// ListModel の要素を削除したときの通知</span>
+    <span class="kt">void</span> <span class="nf">contentsChanged</span><span class="o">(</span><span class="nc">ListDataEvent</span> <span class="n">e</span><span class="o">);</span>  <span class="c1">// ListModel の要素を変更したときの通知</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>よって、独自の ListModel に要素を追加するためのコードは、以下のような感じで実装することになります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">MyListModel</span> <span class="kd">implements</span> <span class="nc">ListModel</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;</span> <span class="n">dataList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;();</span>
+    <span class="kd">private</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">ListDataListener</span><span class="o">&gt;</span> <span class="n">listeners</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">ListDataListener</span><span class="o">&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addData</span><span class="o">(</span><span class="nc">MyData</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">dataList</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="n">dataList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+
+        <span class="c1">// Notify listeners a change event.</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">ListDataListener</span> <span class="n">l</span> <span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+            <span class="nc">ListDataEvent</span> <span class="n">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ListDataEvent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span>
+                    <span class="nc">ListDataEvent</span><span class="o">.</span><span class="na">INTERVAL_ADDED</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">index</span><span class="o">);</span>
+            <span class="n">l</span><span class="o">.</span><span class="na">intervalAdded</span><span class="o">(</span><span class="n">event</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">addListDataListener</span><span class="o">(</span><span class="nc">ListDataListener</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">listeners</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">l</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>このように ListDataListner への通知をちゃんと実装した ListModel に対して要素を追加すれば、JList の表示に自動的に反映されます。</p>
+
+<h2 id="abstractlistmodeldefaultlistmodel-を使う">AbstractListModel、DefaultListModel を使う</h2>
+
+<p>要素の動的な変更を可能にする ListModel を実装する場合は、要素を変更したあとに ListModel が保持しているすべての ListDataListener に対して変更通知を行う必要がありました。</p>
+
+<p>ListModel の実装するときに、AbstractListModel を継承するようにすると、このあたりの実装を簡単に行うことができます。
+AbstractListModel は以下の実装を提供してくれます。</p>
+
+<ul>
+  <li>ListDateListener のリストの実体</li>
+  <li>ListModel インタフェースの以下の実装
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">void addListDataListener(ListDataListener l)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void removeListDataListener(ListDataListener l)</code></li>
+    </ul>
+  </li>
+  <li>要素変更時の ListDataListener への変更通知のためのショートカットメソッド
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">void fireIntervalAdded(Object source, int index0, int index1)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void fireIntervalRemoved(Object source, int index0, int index1)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void fireContentsChanged(Object source, int index0, int index1)</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>つまり、AbstractListModel を利用して ListModel を実装することにより、ListDataListener に関する部分の実装はほとんどしなくてよくなります。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">MyListModel</span> <span class="kd">extends</span> <span class="nc">AbstractListModel</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;</span> <span class="n">dataList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vector</span><span class="o">&lt;</span><span class="nc">MyData</span><span class="o">&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addData</span><span class="o">(</span><span class="nc">MyData</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">dataList</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="n">dataList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+        <span class="n">fireIntervalAdded</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">index</span><span class="o">,</span> <span class="n">index</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>さらに、ListModel で内部的に保持するデータのリストが Vector でよい場合は、この実装まで提供する DefaultListModel クラスを使用することができます。
+DefaultListModel クラスは、内部で保持する Vector に対して要素を追加するためのメソッドを提供するので、そのままインスタンス化して使用することができます。
+DefaultListModel は AbstractListModel を継承して実装されています。</p>
+
+<h4 id="例-defaultlistmodel-の使用例">例: DefaultListModel の使用例</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// javax.swing.DefaultListModel;</span>
+
+<span class="nc">DefaultListModel</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">listModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultListModel</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="n">listModel</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">"AAA"</span><span class="o">);</span>
+<span class="n">listModel</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">"BBB"</span><span class="o">);</span>
+
+<span class="c1">// JList 作成後に要素を追加しても、動的に表示が更新される</span>
+<span class="nc">JList</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JList</span><span class="o">(</span><span class="n">model</span><span class="o">);</span>
+<span class="n">listModel</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">"CCC"</span><span class="o">);</span>
+<span class="n">listModel</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">"DDD"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>AbstractListModel と DefaultListModel は以下のように使い分ければよいでしょう。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">AbstractListModel</code> – すでに元になるデータコンテナが存在し、その内容を JList で表示したい場合。</li>
+  <li><code class="language-plaintext highlighter-rouge">DefaultListModel</code> – 元になるデータコンテナが存在せず、動的に要素を追加して JList で表示したい場合。</li>
+</ul>
+
+<p>例えば、JDBC でデータベースから取得するときに使用する ResultSet は一時的なオブジェクトなので、別の ArrayList か何かに取得内容を保存する必要があります。
+このような場合は、DefaultListModel を使用すれば以下のように簡単に表示できます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ResultSet</span> <span class="n">resultSet</span> <span class="o">=</span> <span class="n">statement</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span><span class="s">"SELECT name FROM mytable"</span><span class="o">);</span>
+<span class="nc">DefaultListModel</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">listModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultListModel</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">resultSet</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">listModel</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>DefaultListModel に対して要素を追加、削除、変更するためのメソッドとして以下のようなものが用意されています。</p>
+
+<ul>
+  <li>要素の追加
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">void addElement(E element)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void insertElementAt(E element, int index)</code></li>
+    </ul>
+  </li>
+  <li>要素の削除
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">boolean removeElement(Object obj)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void removeElementAt(int index)</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void removeAllElements()</code></li>
+      <li><code class="language-plaintext highlighter-rouge">void removeRange(int fromIndex, int toIndex)</code></li>
+    </ul>
+  </li>
+  <li>要素の変更
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">void setElementAt(E element, int index)</code></li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： Swing - JList に動的に要素を追加／削除する&url=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/java/swing/widget/jlist-add-element.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li class="xNav-focused"><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2011-01-29</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

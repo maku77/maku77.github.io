@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのLinux/Shellノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/linux/manage/cpulimit.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-linux.png" />
+
+  <meta property="og:description" content="天才星人まくのLinux/Shellノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit) | まくまくLinux/Shellノート" />
+  <title>Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit) - まくまくLinux/Shellノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/linux/">
+    <img src="/assets/img/logo-linux.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/linux/">
+    <div class="xPageHeader_category">
+    まくまくLinux/Shellノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2018-05-02</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/linux/manage/cpulimit.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)&url=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="概要">概要</h2>
+
+<p>普段使い用の PC 上でディープラーニングのプログラムを走らせたりすると、CPU の負荷が 100% になってしまい、別の作業に支障が出てしまうことがあります（特に計算処理に GPU を使えない環境の場合）。
+CPU の発熱量が半端なく、ファンが全力で回転してうるさくて集中できなくなってしまいます。
+長時間高温な状態で動作させると、ハードウェアへのダメージも大きくなってしまうでしょう。</p>
+
+<p>CPU 負荷を下げようとして、<code class="language-plaintext highlighter-rouge">nice</code> コマンドや <code class="language-plaintext highlighter-rouge">renice</code> コマンドを使用してプロセスの優先度（nice 値）の値を変更しても無駄です。
+なぜなら、プロセスの優先度設定は、あくまで別のプロセスと比較したときの CPU 使用率の割合を変更するものであり、システムをアイドル状態にすることを促すものではないからです。
+優先度の低いプロセスであっても、CPU に空きがあったら 100% まで使用してしまいます。</p>
+
+<p>このようなときは、<strong>cpulimit</strong> を使ってプロセスの CPU 使用率を制限してやることで、負荷の低い状態をキープすることができます。
+もちろん、そのプロセス内の処理には時間がかかるようになってしまいますが、ゆっくりでいいから処理が進めばいい、といったケースでは重宝すると思います。</p>
+
+<h2 id="cpulimit-のインストール方法">cpulimit のインストール方法</h2>
+
+<p>cpulimit はそれぞれの OS 用のパッケージを使ってインストールしてしまうのが手っ取り早いでしょう。</p>
+
+<h4 id="mac-の場合homebrew-を使用">Mac の場合（Homebrew を使用）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install cpulimit
+</code></pre></div></div>
+
+<h4 id="ubuntu-linux-の場合">Ubuntu (Linux) の場合</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install cpulimit
+</code></pre></div></div>
+
+<h2 id="cpulimit-の使い方">cpulimit の使い方</h2>
+
+<p>cpulimit の <code class="language-plaintext highlighter-rouge">-l (--limit)</code> オプションを使用して、特定のプロセスの CPU 使用率をパーセンテージ指定で制限することができます。</p>
+
+<h3 id="例-プロセス番号-12345-を-cpu-使用率50に制限">例: プロセス番号 12345 を CPU 使用率50％に制限</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cpulimit -l 50 -p 12345
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ps</code> コマンドなどで実行中のプロセスのプロセス ID を確認することができれば、その ID を指定して CPU 使用率に制限をかけることができます。
+上記のように CPU 使用率を制限した場合、cpulimit のプロセスの方を <code class="language-plaintext highlighter-rouge">Ctrl-C</code> で停止すれば制限が解除されます。</p>
+
+<h3 id="例-cpu-使用率を指定して任意のコマンドを起動">例: CPU 使用率を指定して任意のコマンドを起動</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cpulimit -l 50 ＜コマンド＞
+</code></pre></div></div>
+
+<p>上記のように実行すると、最初から CPU 使用率に制限をかけた状態で任意のコマンドを起動することができます。</p>
+
+<h2 id="マルチコア-cpu-の場合の-cpu-使用率">マルチコア CPU の場合の CPU 使用率</h2>
+
+<p>マルチコア CPU の環境を使用している場合、<code class="language-plaintext highlighter-rouge">-l (--limit)</code> オプションで指定可能なパーセンテージは、100 を超えます。
+例えば、8 コアの CPU の場合、<code class="language-plaintext highlighter-rouge">-l (--limit)</code> オプションで指定できる値は 0〜800 になります。
+現在の環境でどの範囲の値を指定することができるかは、下記のように <code class="language-plaintext highlighter-rouge">cpulimit</code> コマンドのヘルプの表示で確認することができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cpulimit -h | grep percentage
+      -l, --limit=N          percentage of cpu allowed from 0 to 800 (required)
+</code></pre></div></div>
+
+<p>例えば、下記の画面は Mac のアクティビティモニタ上で CPU の使用率を表示したものですが、先頭に表示されている Python プログラムは 8 コアの CPU すべてを使い、700% 前後の使用率で動作しています。</p>
+
+<figure>
+  <img src="cpulimit1.png" />
+  <figcaption>700% 近くの CPU 使用率</figcaption>
+</figure>
+
+<p>次のように実行すれば、このプロセスの CPU 使用率を 200% に制限できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cpulimit -p 32645 -l 200
+Process 32645 found
+</code></pre></div></div>
+
+<p>しばらくすると、アクティビティモニタ上の CPU 使用率も 200% 程度に下がっていることを確認できます。</p>
+
+<figure>
+  <img src="cpulimit2.png" />
+  <figcaption>CPU 使用率が 200% に制限された</figcaption>
+</figure>
+
+<h2 id="cpulimit-は内部で何をやっているか">cpulimit は内部で何をやっているか？</h2>
+
+<p>下記は <a href="https://github.com/opsengine/cpulimit">cpulimit の GitHub サイト</a>からの抜粋です。</p>
+
+<blockquote>
+  <p>The control of the used CPU amount is done sending SIGSTOP and SIGCONT POSIX signals to processes. All the children processes and threads of the specified process will share the same percentage of CPU.</p>
+</blockquote>
+
+<p>指定したプロセスの CPU 使用率が <code class="language-plaintext highlighter-rouge">-l (--limit)</code> オプションによる制限を超えた場合、<code class="language-plaintext highlighter-rouge">SIGSTOP</code> シグナルを送ってプロセスを一時停止、その後 <code class="language-plaintext highlighter-rouge">SIGCONT</code> シグナルで処理を再開、ということを行って CPU の使用率が上がらないように制御しているようです。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくLinux/Shellノート： Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)&url=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/linux/manage/cpulimit.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/linux/"><span class="xArticle_up_label">まくまくLinux/Shellノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li class="xNav-focused"><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/linux/">Linux/Shell</a></div>
+  <div class="xPageDate">2018-05-02</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

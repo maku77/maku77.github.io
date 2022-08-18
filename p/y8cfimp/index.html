@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのDockerノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/p/y8cfimp/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-docker.png" />
+
+  <meta property="og:description" content="天才星人まくのDockerノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach) | まくまくDockerノート" />
+  <title>Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach) - まくまくDockerノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/docker/">
+    <img src="/assets/img/logo-docker.png" class="xPageHeader_logo">
+  </a>
+  <a href="/docker/">
+    <div class="xPageHeader_category">
+    まくまくDockerノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-12</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/docker/run-container.md</b></div>
+
+<div style="color:red;">permalink: <span style="padding:0.2em 0.4em; background:red; color:white; font-weight:bolder;">p/y8cfimp/<span></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)&url=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="何をするか">何をするか？</h2>
+
+<p>ここでは、Ubuntu の Docker イメージを使ってコンテナを起動し、その上で実行した bash シェルに接続して自由にコマンドをたたける状態にします。
+<code class="language-plaintext highlighter-rouge">docker container run</code>、<code class="language-plaintext highlighter-rouge">start</code>、<code class="language-plaintext highlighter-rouge">attach</code>、<code class="language-plaintext highlighter-rouge">exec</code> など似たようなコマンドがたくさんありますが、用途はそれぞれ違うのでここでひととおり理解しておきます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>コマンド</th>
+      <th>意味</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container run</code></td>
+      <td>「イメージの取得」「コンテナの作成」「コンテナの起動」を連続して行う</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container start</code></td>
+      <td>作成済みのコンテナを「起動」する</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container attach</code></td>
+      <td>動作しているコンテナに「接続」する</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">docker container exec</code></td>
+      <td>動作しているコンテナで「プロセスを起動」する</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="docker-container-run-はコンテナの作成と起動">docker container run はコンテナの「作成」と「起動」</h2>
+
+<p><strong><code class="language-plaintext highlighter-rouge">docker container run</code></strong>（旧: <code class="language-plaintext highlighter-rouge">docker run</code>）は、もっとも頻繁に紹介されているコマンドですが、内部で複数のことを行うので <strong>一番分かりにくいコマンド</strong> かもしれません。
+<code class="language-plaintext highlighter-rouge">docker container run</code> は次のようなことを一度に実行します。</p>
+
+<ul>
+  <li>指定したイメージがなければダウンロード (<code class="language-plaintext highlighter-rouge">docker image pull</code>)</li>
+  <li>Docker コンテナを作成する (<code class="language-plaintext highlighter-rouge">docker container create</code>)</li>
+  <li>Docker コンテナを起動する (<code class="language-plaintext highlighter-rouge">docker container start</code>)</li>
+</ul>
+
+<p>例えば、次のコマンドを実行すると、Docker イメージ (ubuntu:20.04) のダウンロード、Docker コンテナ (mycon) の作成、そのコンテナの起動までを一気に実行します。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container run <span class="nt">--name</span> mycon <span class="nt">-it</span> ubuntu:20.04 /bin/bash
+</code></pre></div></div>
+
+<p>各オプションは次のような意味を持っています。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--name mycon</code> … 作成するコンテナに <code class="language-plaintext highlighter-rouge">mycon</code> という名前を付ける（省略するとランダムに単語を組み合わせた名前が付けられます。例: <code class="language-plaintext highlighter-rouge">cool_blackwell</code>）</li>
+  <li><code class="language-plaintext highlighter-rouge">-i</code> … 標準入力を有効にしたままにする（ようするに現在の端末上からキーボード入力できるようにする）</li>
+  <li><code class="language-plaintext highlighter-rouge">-t</code> … 起動するコマンドに対して TTY 端末を割り当てる（ようするに現在の端末上に bash のプロンプトを表示する）</li>
+</ul>
+
+<p>オプションで <code class="language-plaintext highlighter-rouge">-i</code> と <code class="language-plaintext highlighter-rouge">-t</code> を指定しないと、一瞬で Docker コンテナが終了してしまうので、シェル接続する場合はこれらのオプションを指定する必要があります。
+<code class="language-plaintext highlighter-rouge">-it</code> というオプション指定は、コンテナ起動してシェル接続する場合のおまじないと考えておけばよいです。</p>
+
+<p>さて、ここで Docker を始めたばかりの人がハマるのが、次のようにコンテナ停止後にふたたび <code class="language-plaintext highlighter-rouge">docker container run</code> した場合です。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">#</span><span class="w"> </span>次のようにシェルを終了すると、Docker コンテナが停止する
+<span class="gp">root@65da3272d493:/#</span><span class="w"> </span><span class="nb">exit</span>
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>再び run しようとするとエラー！どうして！！
+<span class="gp">$</span><span class="w"> </span>docker container run <span class="nt">--name</span> mycon <span class="nt">-it</span> ubuntu:20.04 /bin/bash
+<span class="go">docker: Error response from daemon: Conflict. The container name "/mycon" is already
+in use by container "65da3272d493c77c2034f58d9a6e0c80f302db3c058e8345e170dc72d67811f4".
+You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+</span></code></pre></div></div>
+
+<p>これは、すでに存在する <code class="language-plaintext highlighter-rouge">mycon</code> という名前のコンテナをもう一度作成しようとしているからです。
+<code class="language-plaintext highlighter-rouge">docker container run</code> コマンドが、<code class="language-plaintext highlighter-rouge">docker container create</code> を兼ねていることを思い出してください。
+コンテナで動作している bash シェルを終了すると Docker コンテナも「停止」するのですが、停止状態のコンテナは残ったままです。
+停止状態のコンテナ一覧は、次のようにして確認できます（<code class="language-plaintext highlighter-rouge">-a</code> オプションを付けないと、動作中のコンテナしか表示されません）。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container <span class="nb">ls</span> <span class="nt">-a</span>
+<span class="go">CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                        PORTS     NAMES
+65da3272d493   ubuntu:20.04   "/bin/bash"   12 minutes ago   Exited (0) 4 minutes ago                mycon
+</span></code></pre></div></div>
+
+<p>停止状態のコンテナがすでに存在するときに、コンテナの起動＆シェルへの接続だけを行うには、次のように <strong><code class="language-plaintext highlighter-rouge">docker container start</code></strong>（後述）を使用します。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container start <span class="nt">-ai</span> mycon
+<span class="gp">root@65da3272d493:/#</span><span class="w">
+</span></code></pre></div></div>
+
+<p>別の方法として、<code class="language-plaintext highlighter-rouge">docker container run</code> の <strong><code class="language-plaintext highlighter-rouge">--rm</code></strong> オプションを指定するという方法もあります。
+このオプションを指定すると、コンテナが停止したときに、自動的にコンテナが削除されます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container run <span class="nt">--rm</span> <span class="nt">--name</span> mycon <span class="nt">-it</span> ubuntu:20.04 /bin/bash
+</code></pre></div></div>
+
+<p>今回の例の場合、シェルから <code class="language-plaintext highlighter-rouge">exit</code> すると、<code class="language-plaintext highlighter-rouge">mycon</code> コンテナが停止してさらに削除まで行われます。
+よって、その後もう一度 <code class="language-plaintext highlighter-rouge">docker container run</code> を実行しようとすると、<code class="language-plaintext highlighter-rouge">mycon</code> コンテナの作成からやり直しになるので結果的にうまく動作します。
+つまり、1 コマンドだけ実行するための使い捨てのコンテナということですね。
+すぐに破棄されるので、<code class="language-plaintext highlighter-rouge">--name mycon</code> オプションでコンテナに名前を付ける必要はあまりないかもしれません。</p>
+
+<h2 id="docker-container-start-は存在するコンテナを起動する">docker container start は存在するコンテナを起動する</h2>
+
+<p>すでに上記で使いましたが、<strong><code class="language-plaintext highlighter-rouge">docker container start</code></strong> コマンド（旧: <code class="language-plaintext highlighter-rouge">docker start</code>）は「停止状態のコンテナ」を起動するためのコマンドです。
+<code class="language-plaintext highlighter-rouge">docker container run</code> とは異なり、コンテナの作成は行わないので、存在しないコンテナを起動しようとするとエラーになります。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container start mycon
+<span class="go">Error response from daemon: No such container: mycon
+</span></code></pre></div></div>
+
+<p>コンテナを起動するには、あらかじめ <code class="language-plaintext highlighter-rouge">docker container create</code> でコンテナを作成しておく必要があります。
+過去に <code class="language-plaintext highlighter-rouge">docker container run</code> で作成したコンテナでも大丈夫です。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--name</span> mycon ubuntu:20.04 /bin/bash
+<span class="go">327ad0cfd0047eb90a1ae4ec63769d0680697c48b074d640ed83b793c5d19beb
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">docker container create</code> で作成したコンテナは、次のように停止状態のコンテナの一覧に表示されます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container <span class="nb">ls</span> <span class="nt">-a</span>
+<span class="go">CONTAINER ID   IMAGE          COMMAND       CREATED          STATUS                        PORTS     NAMES
+327ad0cfd004   ubuntu:20.04   "/bin/bash"   23 seconds ago   Created                                 mycon
+</span></code></pre></div></div>
+
+<p>あとは、<code class="language-plaintext highlighter-rouge">docker container start</code> でこのコンテナを起動できます。
+起動と同時にシェルプロセスに接続するには、<strong><code class="language-plaintext highlighter-rouge">-ai</code></strong> オプションを付けます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container start <span class="nt">-ai</span> mycon
+<span class="gp">root@327ad0cfd004:/#</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="docker-container-attach-は動作しているコンテナに接続する">docker container attach は動作しているコンテナに接続する</h2>
+
+<p><strong><code class="language-plaintext highlighter-rouge">docker container attach</code></strong> コマンド（例: <code class="language-plaintext highlighter-rouge">docker attach</code>）は、ローカルの標準入出力をコンテナのプロセス (PID=1) にアタッチします。</p>
+
+<p>この振る舞いを調べるために、まずコンテナを起動してシェルに接続しておきます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--name</span> mycon ubuntu:20.04 /bin/bash
+<span class="gp">$</span><span class="w"> </span>docker container start <span class="nt">-ai</span> mycon
+<span class="gp">root@9bf22d6b0a5c:/#</span><span class="w">
+</span></code></pre></div></div>
+
+<p>ここで起動した bash シェルのプロセス ID (PID) は 1 になっています。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">root@9bf22d6b0a5c:/#</span><span class="w"> </span>ps
+<span class="go">  PID TTY          TIME CMD
+    1 pts/0    00:00:00 bash
+   10 pts/0    00:00:00 ps
+</span></code></pre></div></div>
+
+<p>別のローカル端末を起動して、次のように <code class="language-plaintext highlighter-rouge">docker container attach</code> すると、上記の PID=1 の bash プロセスの標準入出力に接続されます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container attach mycon
+<span class="gp">root@9bf22d6b0a5c:/#</span><span class="w">
+</span></code></pre></div></div>
+
+<p>2 つの端末で bash シェルを表示している状態になりますが、どちらも PID=1 の同じプロセスに接続しているため、一方で入力したコマンドの結果がもう一方にも表示されます。
+どちらかで <code class="language-plaintext highlighter-rouge">exit</code> すると、もう一方のシェルも閉じて Docker コンテナが終了します。</p>
+
+<p>一方の接続だけを切りたい場合は、<kbd>Ctrl + P</kbd> <kbd>Ctrl + Q</kbd> と入力します。
+こうすれば、もう一方のシェルプロセスは残ったままになり、コンテナも終了しません。</p>
+
+<h2 id="docker-container-exec-は動作しているコンテナでプロセスを起動する">docker container exec は動作しているコンテナでプロセスを起動する</h2>
+
+<p><strong><code class="language-plaintext highlighter-rouge">docker container exec</code></strong> コマンド（旧: <code class="language-plaintext highlighter-rouge">docker exec</code>）を使うと、動作しているコンテナ上で新しいプロセスを起動することができます。
+これを使うと、1 つのコンテナ上で <strong>2 つのシェルを起動して接続する</strong> ということができます。</p>
+
+<p>停止状態のコンテナを指定するとエラーになるので、まずはコンテナを起動してシェル接続しておきます。
+この bash シェルの PID は前述のように 1 です。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container create <span class="nt">-it</span> <span class="nt">--name</span> mycon ubuntu:20.04 /bin/bash
+<span class="gp">$</span><span class="w"> </span>docker container start <span class="nt">-ai</span> mycon
+<span class="gp">root@e3d9f66349d4:/#</span><span class="w"> </span>ps
+<span class="go">  PID TTY          TIME CMD
+    1 pts/0    00:00:00 bash
+   10 pts/0    00:00:00 ps
+</span></code></pre></div></div>
+
+<p>この状態で別の端末を起動して、<code class="language-plaintext highlighter-rouge">docker container exec</code> で新しい bash シェルを起動して接続します。
+この bash シェルは新しいプロセスとして起動するので、別の PID が割り当てられます。</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container <span class="nb">exec</span> <span class="nt">-it</span> mycon /bin/bash
+<span class="gp">root@e3d9f66349d4:/#</span><span class="w"> </span>ps
+<span class="go">  PID TTY          TIME CMD
+   11 pts/1    00:00:00 bash
+   20 pts/1    00:00:00 ps
+</span></code></pre></div></div>
+
+<p>これで、1 つのコンテナに 2 つのシェルを起動して接続できました。
+一方のシェルを <code class="language-plaintext highlighter-rouge">exit</code> で終了しても、もう一方のシェル（およびコンテナ）は実行されたままです。</p>
+
+<p><code class="language-plaintext highlighter-rouge">docker container attach</code> を使ってしまうと、同じプロセス (PID=1) に繋がってしまうので、<code class="language-plaintext highlighter-rouge">docker container exec</code> の方を使って新しいシェルのプロセスを作るのがポイントです。</p>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくDockerノート： Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)&url=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/y8cfimp/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/docker/"><span class="xArticle_up_label">まくまくDockerノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/docker/">Docker</a></div>
+  <div class="xPageDate">2022-06-12</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

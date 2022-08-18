@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      padding: 1rem;
+    }
+  </style>
+  <title>ページ内のヘッダ要素から自動的にメニュー (TOC) を生成する: デモページ1</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="menuStub">メニュー挿入位置</div>
+
+<main>
+  <h2>タイトル１</h2>
+  <p>
+    文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文
+  </p>
+  <h2>タイトル２</h2>
+  <p>
+    文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文
+  </p>
+  <h2>タイトル３</h2>
+  <p>
+    文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文<br>文
+  </p>
+</main>
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      $ul.append('<li><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('main', 'h2');
+  $('#menuStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>

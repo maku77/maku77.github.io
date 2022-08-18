@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのGit/GitHubノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/git/" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-github.png" />
+
+  <meta property="og:description" content="天才星人まくのGit/GitHubノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="まくまく Git ノート | 天才まくまくノート" />
+  <title>まくまく Git ノート - 天才まくまくノート</title>
+</head>
+<body>
+<div class="xPageHeader">
+  <img src="/assets/img/logo-github.png" class="xPageHeader_logo">
+  <div class="xPageHeader_titleLarge">まくまくGitノート</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate">2015-05-17</div>
+</div>
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- カテゴリ説明文 -->
+      <div class="xCategoryDesc">
+        Git によるバージョン管理と、GitHub 特有の話もあるよ。
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： Git と GitHub の記事&url=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      <div class="xCategoryContent">
+        <div class="xCategoryContent_toc">
+          <div class="xCategoryContent_toc_sticky" id="tocStub">
+          </div>
+        </div>
+        <div class="xCategoryContent_index"><h1 id="github">GitHub</h1>
+
+<ul>
+  <li><a href="github/auto-assign.html">Pull Request のコードレビューワーを自動でアサインする</a></li>
+  <li><a href="github/project-portal.html">GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)</a></li>
+  <li><a href="github/404-page.html">GitHub Pages で独自の 404 ページを用意する</a></li>
+  <li><a href="github/team-permission.html">GitHub の Organization を構成したときのチームの権限について理解する</a></li>
+  <li><a href="github/new-organization-permissions.html">GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する</a></li>
+  <li><a href="github/clones.html">GitHub のプランと GitHub ライクなツールの比較など</a></li>
+  <li><a href="github/email-address-in-markdown.html">GitHub の Markdown でメールアドレスへのリンクを記述する</a></li>
+  <li><a href="github/github-rest-api.html">GitHub REST API を使用する</a>
+    <ul>
+      <li><a href="github/github-rest-api-issues.html">GitHub REST API で Issue 情報を取得する方法いろいろ</a></li>
+      <li><a href="github/github-rest-with-python.html">GitHub REST API を Python から使用する</a></li>
+    </ul>
+  </li>
+  <li><a href="github/topics.html">GitHub で管理している社内リポジトリをトピックで分類する (topics)</a></li>
+  <li><a href="/p/ias8kt3/">GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)</a></li>
+</ul>
+
+<h1 id="gitlabgithub-クローン">GitLab（GitHub クローン）</h1>
+<ul>
+  <li><a href="gitlab/install.html">GitLab をインストールする</a></li>
+  <li><a href="gitlab/start-service.html">GitLab 関連サービスを起動／停止する</a></li>
+  <li><a href="gitlab/backup-and-restore.html">GitLab のデータをバックアップ／リストアする</a></li>
+  <li><a href="gitlab/service-list.html">起動中の GitLab 関連サービスを調べる</a></li>
+  <li><a href="gitlab/email-settings.html">GitLab からの通知メールを設定する</a></li>
+  <li><a href="gitlab/change-hostname.html">GitLab リポジトリの Clone URL として表示されるホスト名を変更する</a></li>
+  <li><a href="gitlab/nginx-conf-path.html">GitLab 用 nginx サーバの設定ファイルの場所</a></li>
+  <li><a href="gitlab/unicorn-port.html">GitLab が使用する Unicorn 用のポート番号を変更する</a></li>
+  <li><a href="gitlab/access-log.html">GitLab サーバのアクセスログを調べる</a></li>
+</ul>
+
+<h1 id="git">Git</h1>
+
+<h2 id="基本">基本</h2>
+<ul>
+  <li><a href="basic/init-and-clone.html">Git の作業ツリーを作成する (git init, git clone)</a></li>
+  <li><a href="basic/stage.html">Git でファイルの変更をステージする（コミットの印をつける）</a></li>
+  <li><a href="basic/commit.html">Git で変更をローカルリポジトリにコミットする</a></li>
+  <li><a href="basic/status.html">コミット対象になっているファイルを確認する (git status)</a></li>
+  <li><a href="basic/abbreviate-option.html">Git コマンドの長いオプション名を省略して入力する</a></li>
+</ul>
+
+<h2 id="設定">設定</h2>
+<ul>
+  <li><a href="settings/common.html">git config で設定すべき一般的な設定項目まとめ</a></li>
+  <li><a href="settings/local-global-system.html">Git の local 設定と global 設定と system 設定の違い</a></li>
+  <li><a href="settings/unset.html">git config による設定を削除する (config –unset)</a></li>
+  <li><a href="settings/user.html">コミット時に使用するユーザ名とメールアドレスを設定する (user.name, user.email)</a></li>
+  <li><a href="settings/autocrlf.html">コミット、チェックアウト時に改行コードを自動変換する (core.autocrlf, core.safecrlf)</a></li>
+  <li><a href="settings/editor.html">コミット時にコメント記述に使用するエディタを設定する (core.editor)</a></li>
+  <li><a href="settings/color.html">Git コマンドの出力をカラフルにする (color.ui)</a></li>
+  <li><a href="settings/alias.html">Git コマンドのエイリアスを作成する (alias.xxx)</a></li>
+  <li><a href="settings/proxy.html">Git コマンドで使用するプロキシを設定する (http.proxy)</a></li>
+  <li><a href="settings/show-origin.html">Git の設定値がどのファイルで設定されているか調べる (config –show-origin)</a></li>
+  <li><a href="settings/cr-at-eol.html">Windows の git diff で改行コードが “^M” で表示される問題を解決する (core.whitespace)</a></li>
+  <li><a href="settings/garbling.html">git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)</a></li>
+  <li><a href="settings/permission-diff.html">Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)</a></li>
+  <li><a href="settings/gitignore.html">.gitignore ファイルで Git にバージョン管理させないファイルを指定する</a></li>
+  <li><a href="settings/branch-name-on-prompt.html">bash のプロンプトにカレントブランチ名を表示する (PS1)</a></li>
+  <li><a href="settings/terminal-error.html">msysGit で “terminal is not fully functional” と怒られる場合の対策</a></li>
+  <li><a href="settings/https-instead-of-git.html">git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)</a></li>
+</ul>
+
+<h2 id="コミット履歴の書き換え">コミット／履歴の書き換え</h2>
+<ul>
+  <li><a href="git-modify-comment.html">Git やり直し: 直前のコミットのコメントを修正する</a></li>
+  <li><a href="commit/reset-prev-commit.html">Git やり直し: 直前のコミットを取り消す</a></li>
+  <li><a href="commit/move-commit.html">Git やり直し: main ブランチに入れてしまったコミットを別のブランチに移す</a></li>
+  <li><a href="commit/delete-recent-commits.html">Git やり直し: 最近のコミットを歴史から抹消する</a></li>
+  <li><a href="git-change-dir-hierarchy.html">Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する</a></li>
+  <li><a href="commit/commit-by-hunk.html">変更の一部だけをコミットする</a></li>
+</ul>
+
+<h2 id="ログ-git-log">ログ (git log)</h2>
+<ul>
+  <li><a href="log/basic.html">コミットログ表示の基本</a></li>
+  <li><a href="log/commit-log-rules.html">コミットログの書き方</a></li>
+  <li><a href="log/filter-logs.html">コミットログを絞り込んで表示する</a></li>
+  <li><a href="log/modified-lines.html">コミットログにファイル名や変更行数を表示する</a></li>
+  <li><a href="log/log-format.html">コミットログの出力形式をカスタマイズする (git log –pretty, –date)</a></li>
+  <li><a href="log/grep-log.html">コミットログにある文字列が含まれているコミットを検索する (git log –grep)</a></li>
+  <li><a href="log/pickaxe.html">変更内容にある文字列が含まれているコミットを検索する (git log -G/-S)</a></li>
+  <li><a href="log/dir-log.html">指定したディレクトリ以下の変更に関連するコミットログのみ表示する</a></li>
+  <li><a href="log/diff-between-branches.html">ブランチ間の差分を調べる</a></li>
+  <li><a href="log/diff-remote-and-local.html">リモートブランチとローカルブランチの差分を調べる</a></li>
+  <li><a href="log/output-to-stdout.html">コミットログを標準出力へ出力する</a></li>
+</ul>
+
+<h3 id="統計情報">統計情報</h3>
+<ul>
+  <li><a href="stats/shortlog.html">ユーザーごとのコミット統計を出力する (git shortlog)</a></li>
+  <li><a href="stats/count-changes.html">あるバージョン間の変更行数（追加＆削除）を集計する (git diff –stat, git log –numstat)</a></li>
+</ul>
+
+<h2 id="ブランチ-git-branch">ブランチ (git branch)</h2>
+<ul>
+  <li><a href="branch/create-branch.html">ブランチを作成する</a></li>
+  <li><a href="branch/checkout-branch.html">ブランチをチェックアウトする（作業対象のブランチを切り替える）</a></li>
+  <li><a href="branch/create-and-checkout-branch.html">ブランチの作成とチェックアウトを同時に行う</a></li>
+  <li><a href="branch/delete-branch.html">ブランチを削除する</a></li>
+  <li><a href="branch/delete-remote-branch.html">リモートブランチを削除する</a></li>
+  <li><a href="branch/rename-branch.html">ブランチ名を変更する</a></li>
+  <li><a href="branch/who-created-branch.html">ブランチやタグの作者を調べる</a></li>
+  <li><a href="branch/detached-head.html">detached HEAD 状態へのチェックアウトとは</a></li>
+  <li><a href="branch/checkout-pushed-branch.html">他の人が作成したブランチ上で作業する</a></li>
+  <li><a href="branch/copy-file-between-branches.html">他のブランチの最新ファイルを現在のブランチにコピーする</a></li>
+</ul>
+
+<h2 id="マージ-git-merge-git-cherry-pick">マージ (git merge, git cherry-pick)</h2>
+<ul>
+  <li><a href="merge/merge-branch.html">ブランチでの変更をマージする（直接マージ、スカッシュマージ、チェリーピック）
+</a></li>
+  <li><a href="merge/resolve-conflict.html">マージ時のコンフリクトを解決する</a></li>
+  <li><a href="merge/squash-merge.html">別ブランチへの複数のコミットを１つのコミットとしてマージする (squash merge)</a></li>
+  <li><a href="merge/revert-merge.html">マージのためのコミットを revert する（取り消す）</a></li>
+  <li><a href="merge/cancel-merge.html">マージ作業に失敗したときにやり直す</a></li>
+  <li><a href="merge/list-conflicted-files.html">マージで競合解決が必要なファイルを調べる</a></li>
+  <li><a href="merge/find-fast-forward.html">マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）</a></li>
+  <li><a href="merge/merge-repo.html">別の Git リポジトリの内容を強引にマージする</a></li>
+</ul>
+
+<h2 id="差分パッチファイル-git-diff--patch">差分・パッチファイル (git diff / patch)</h2>
+<ul>
+  <li><a href="git-diff.html">git diff でファイルの差分を調べる</a></li>
+  <li><a href="diff-ignore-linefeed.html">git diff で改行コードの違いを無視する</a></li>
+  <li><a href="diff-words.html">git diff で単語単位で差分を表示する</a></li>
+  <li><a href="git-diff-relative-path.html">git diff の出力で相対パスを使うようにする</a></li>
+  <li><a href="diff/node-diff.html">git diff で package-lock.json の差分が表示されるのを防ぐ</a></li>
+  <li><a href="git-patch.html">Git でパッチファイルを作成する</a></li>
+</ul>
+
+<h2 id="ファイル操作">ファイル操作</h2>
+<ul>
+  <li><a href="git-clean.html">git clean で追跡されていないファイルを削除する</a></li>
+  <li><a href="file/preclude-file-from-git.html">ファイルを削除せずに Git によるバージョン管理の対象から外す (git rm –cached)</a></li>
+  <li><a href="file/checkout-from-commit.html">コミットからファイルをチェックアウトする（ファイルを元に戻す）</a></li>
+  <li><a href="file/checkout-from-index.html">インデックスからファイルをチェックアウトする（ファイルを元に戻す）</a></li>
+  <li><a href="file/cat-file.html">特定のバージョンのファイルの内容を確認する (cat-file)</a></li>
+</ul>
+
+<h2 id="タグ-git-tag">タグ (git tag)</h2>
+<ul>
+  <li><a href="/p/y2cmv5d/">コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)</a></li>
+  <li><a href="/p/h4dnw6e/">タグの名前を変更する</a></li>
+</ul>
+
+<h2 id="リポジトリサーバーバックアップ">リポジトリ／サーバー／バックアップ</h2>
+<ul>
+  <li><a href="server/create-repository.html">共有リポジトリを作成する</a></li>
+  <li><a href="server/git-daemon.html">git-daemon による読み取り専用リポジトリの公開</a></li>
+  <li><a href="server/transfer-repository.html">Git リポジトリを移行する</a></li>
+  <li><a href="move-dir-to-another-repo.html">リポジトリ内のディレクトリを別リポジトリに切り出す</a></li>
+  <li><a href="server/dir-as-repository.html">ローカルディレクトリをリモートリポジトリとして使用する</a></li>
+  <li><a href="server/remote-alias.html">リモートリポジトリに略称を付ける</a></li>
+  <li><a href="server/fetch-and-push.html">共有リポジトリからの fetch と push</a></li>
+  <li><a href="create-src-archive.html">ソースコードのアーカイブを作成する</a></li>
+</ul>
+
+<h2 id="hook-スクリプト">hook スクリプト</h2>
+<ul>
+  <li><a href="update-hook.html">Git の update フックの基本</a></li>
+  <li><a href="limit-push-users.html">特定のユーザのみ git push できるように制限する</a></li>
+</ul>
+
+<h2 id="その他">その他</h2>
+<ul>
+  <li><a href="git-words.html">Git 関連用語</a></li>
+  <li><a href="other/represent-commit.html">Git で N 個前のコミットを表現する</a></li>
+  <li><a href="file-permission.html">Git で管理しているファイルの実行権限（パーミッション）を変更する</a></li>
+  <li><a href="other/remote-complement.html">git pull の引数省略の仕組み</a></li>
+  <li><a href="git-two-factor-auth-error.html">二要素認証を設定した後に git コマンドが Authentication failed になる場合</a></li>
+</ul>
+
+<h1 id="オワコン情報-subversion-とか-cvs-とか">オワコン情報 (Subversion とか CVS とか）</h1>
+<ul>
+  <li><a href="svn/git-svn.html">git-svn を使って Git と Subversion を連携する</a></li>
+  <li><a href="svn/cvs-file-permission.html">CVS のファイルのパーミッションの扱いについて</a></li>
+  <li><a href="svn/delete-all-svn-dirs.html">.svn ディレクトリをまとめて削除する</a></li>
+</ul>
+
+</div>
+      </div>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGitノート： Git と GitHub の記事&url=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/git/"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li class="xNav-focused"><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
+  <div class="xPageDate">2015-05-17</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+
+<script>
+$(function() {
+  /*
+   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
+   * メニュー要素 (ul) を生成する。
+   *
+   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
+   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
+   */
+  function createMenu(searchParent, headerTagNames) {
+    var $ul = $('<ul />');  // メニュー項目の親要素
+    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+
+    $(searchParent).find(headerTagNames).each(function (index, elem) {
+      var $e = $(elem);
+      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
+      var name = 'section' + (sectionNumber++);
+      $e.prepend('<a name="' + name + '"></a>');
+
+      // メニュー項目となる li 要素を追加する
+      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+    });
+
+    return $ul;
+  }
+
+  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #menuStub へと挿入する。
+  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  $('#tocStub').append(menuElem);
+});
+</script>
+
+</body>
+</html>
+

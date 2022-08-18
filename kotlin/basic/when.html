@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのKotlinノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/kotlin/basic/when.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-kotlin.png" />
+
+  <meta property="og:description" content="天才星人まくのKotlinノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="when 式による条件分岐 | まくまくKotlinノート" />
+  <title>when 式による条件分岐 - まくまくKotlinノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/kotlin/">
+    <img src="/assets/img/logo-kotlin.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/kotlin/">
+    <div class="xPageHeader_category">
+    まくまくKotlinノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">when 式による条件分岐</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-01-23</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/kotlin/basic/when.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： when 式による条件分岐&url=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="when-式の基本">when 式の基本</h2>
+
+<p>Kotlin の <strong><code class="language-plaintext highlighter-rouge">when</code></strong> 式は、Java の <code class="language-plaintext highlighter-rouge">switch</code> 文に相当するものです。
+Java の <code class="language-plaintext highlighter-rouge">switch</code> は、列挙型、文字列、数値しか扱えませんが、Kotlin の <code class="language-plaintext highlighter-rouge">when</code> では任意のオブジェクトで分岐を行うことができます。</p>
+
+<p>ポイントは式 (expression) であるというところで、条件分岐後の評価結果をそのまま変数に代入したり、関数の戻り値として使うことができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">n</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="kd">val</span> <span class="py">str</span> <span class="p">=</span> <span class="k">when</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="p">-&gt;</span> <span class="s">"one"</span>
+    <span class="mi">2</span> <span class="p">-&gt;</span> <span class="s">"two"</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="s">"other"</span>
+<span class="p">}</span>
+
+<span class="nf">println</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>  <span class="c1">//=&gt; one</span>
+</code></pre></div></div>
+
+<p>Java とは異なり、分岐後の処理は fall through されないので、<code class="language-plaintext highlighter-rouge">break</code> 文は不要です。
+デフォルトで、値が一致した部分のコードのみが実行されるようになっています。</p>
+
+<p>分岐後の処理を複数行にわたって記述したい場合は、次のように矢印 (<code class="language-plaintext highlighter-rouge">-&gt;</code>) の右側を括弧 <code class="language-plaintext highlighter-rouge">{</code> <code class="language-plaintext highlighter-rouge">}</code> で囲んでブロックを作ります。
+ブロックの中で最後に評価された式の値が、<code class="language-plaintext highlighter-rouge">when</code> 式全体の評価結果として使われます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="k">when</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="p">-&gt;</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"one"</span><span class="p">)</span>
+        <span class="nf">exec_one</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="mi">2</span> <span class="p">-&gt;</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"two"</span><span class="p">)</span>
+        <span class="nf">exec_two</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+        <span class="nf">println</span><span class="p">(</span><span class="s">"other"</span><span class="p">)</span>
+        <span class="nf">exec_other</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="列挙型の値で-when-分岐">列挙型の値で when 分岐</h2>
+
+<p>列挙型の値により <code class="language-plaintext highlighter-rouge">when</code> 分岐させる場合は、すべての項目を網羅するように記述するか、<code class="language-plaintext highlighter-rouge">else</code> でその他のケースをまとめて処理するように記述する必要があります（どちらかを満たさないとコンパイルエラーになります）。</p>
+
+<h4 id="例-colorwhite-がカバーされていないのでコンパイルエラー">例: Color.WHITE がカバーされていないのでコンパイルエラー</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="kd">class</span> <span class="nc">Color</span> <span class="p">{</span> <span class="nc">RED</span><span class="p">,</span> <span class="nc">GREEN</span><span class="p">,</span> <span class="nc">BLUE</span><span class="p">,</span> <span class="nc">WHITE</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">getRgbStr</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nc">Color</span><span class="p">)</span> <span class="p">=</span> <span class="k">when</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">RED</span> <span class="p">-&gt;</span> <span class="s">"#FF0000"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">GREEN</span> <span class="p">-&gt;</span> <span class="s">"#00FF00"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">BLUE</span> <span class="p">-&gt;</span> <span class="s">"#0000FF"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>複数の値で同じ処理を実行したい場合は、次のようにカンマで値を列挙します。</p>
+
+<h4 id="例-候補値を列挙">例: 候補値を列挙</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">when</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">RED</span><span class="p">,</span> <span class="nc">Color</span><span class="p">.</span><span class="nc">ORANGE</span><span class="p">,</span> <span class="nc">Color</span><span class="p">.</span><span class="nc">YELLOW</span> <span class="p">-&gt;</span> <span class="s">"暖色"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">BLUE</span><span class="p">,</span> <span class="nc">Color</span><span class="p">.</span><span class="nc">AQUA</span> <span class="p">-&gt;</span> <span class="s">"寒色"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">GREEN</span><span class="p">,</span> <span class="nc">Color</span><span class="p">.</span><span class="nc">PURPLE</span> <span class="p">-&gt;</span> <span class="s">"中性色"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="if-else-連鎖の代わりに-when-を使用する">if-else 連鎖の代わりに when を使用する</h2>
+
+<p><code class="language-plaintext highlighter-rouge">when</code> 式の矢印の左側に、直接条件式を記述する形で分岐させることもできます。
+この場合は、<code class="language-plaintext highlighter-rouge">when</code> の直後にパラメータを指定しません。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">a</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="kd">val</span> <span class="py">b</span> <span class="p">=</span> <span class="mi">2</span>
+
+<span class="k">when</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="p">==</span> <span class="mi">1</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"one"</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">b</span> <span class="p">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"two"</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="p">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"three"</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="s">"other"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>これは、連続する <code class="language-plaintext highlighter-rouge">if-else</code> を短く記述するためのショートカット記法だと考えることができます。
+上記の <code class="language-plaintext highlighter-rouge">when</code> による分岐は、下記のような <code class="language-plaintext highlighter-rouge">if-else</code> の連鎖と同様です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"one"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="p">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">b</span> <span class="p">==</span> <span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"two"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="n">a</span> <span class="p">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="p">==</span> <span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"three"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"other"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="in-による範囲指定との組み合わせ">in による範囲指定との組み合わせ</h2>
+
+<h4 id="例-文字コードの範囲">例: 文字コードの範囲</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nf">getCharType</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="nc">Char</span><span class="p">)</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">in</span> <span class="sc">'0'</span><span class="o">..</span><span class="sc">'9'</span> <span class="p">-&gt;</span> <span class="s">"Digit"</span>
+    <span class="k">in</span> <span class="sc">'a'</span><span class="o">..</span><span class="sc">'z'</span><span class="p">,</span> <span class="k">in</span> <span class="sc">'A'</span><span class="o">..</span><span class="sc">'Z'</span> <span class="p">-&gt;</span> <span class="s">"Letter"</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="s">"UNKNOWN"</span>
+<span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="nf">getCharType</span><span class="p">(</span><span class="sc">'X'</span><span class="p">))</span>  <span class="c1">//=&gt; Letter</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="例-値があるセットに含まれているか">例: 値があるセットに含まれているか</h4>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">SEGA</span> <span class="p">=</span> <span class="nf">setOf</span><span class="p">(</span><span class="s">"DreamCast"</span><span class="p">,</span> <span class="s">"Saturn"</span><span class="p">)</span>
+<span class="kd">val</span> <span class="py">NINTENDO</span> <span class="p">=</span> <span class="nf">setOf</span><span class="p">(</span><span class="s">"Switch"</span><span class="p">,</span> <span class="s">"DS"</span><span class="p">,</span> <span class="s">"NES"</span><span class="p">)</span>
+
+<span class="kd">val</span> <span class="py">message</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="s">"Saturn"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">in</span> <span class="nc">SEGA</span> <span class="p">-&gt;</span> <span class="s">"セガのハードです"</span>
+    <span class="k">in</span> <span class="nc">NINTENDO</span> <span class="p">-&gt;</span> <span class="s">"任天堂のハードです"</span>
+    <span class="k">else</span> <span class="p">-&gt;</span> <span class="s">"何それ？"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="expression-body-function-での-when-式の利用">expression-body function での when 式の利用</h2>
+
+<p>条件分岐が主な処理となる関数は、expression-body として <code class="language-plaintext highlighter-rouge">when</code> 式を使うことで簡潔に記述することができます。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="kd">class</span> <span class="nc">Color</span> <span class="p">{</span> <span class="nc">RED</span><span class="p">,</span> <span class="nc">GREEN</span><span class="p">,</span> <span class="nc">BLUE</span> <span class="p">}</span>
+
+<span class="k">fun</span> <span class="nf">getRgbStr</span><span class="p">(</span><span class="n">color</span><span class="p">:</span> <span class="nc">Color</span><span class="p">)</span> <span class="p">=</span> <span class="k">when</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">RED</span> <span class="p">-&gt;</span> <span class="s">"#FF0000"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">GREEN</span> <span class="p">-&gt;</span> <span class="s">"#00FF00"</span>
+    <span class="nc">Color</span><span class="p">.</span><span class="nc">BLUE</span> <span class="p">-&gt;</span> <span class="s">"#0000FF"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくKotlinノート： when 式による条件分岐&url=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/kotlin/basic/when.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/kotlin/"><span class="xArticle_up_label">まくまくKotlinノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li class="xNav-focused"><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/kotlin/">Kotlin</a></div>
+  <div class="xPageDate">2019-01-23</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

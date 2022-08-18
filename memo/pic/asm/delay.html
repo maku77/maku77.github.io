@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのごちゃまぜノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/memo/pic/asm/delay.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-program.svg" />
+
+  <meta property="og:description" content="天才星人まくのごちゃまぜノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="遅延時間 ─ PIC めもめも | まくまくいろいろノート" />
+  <title>遅延時間 ─ PIC めもめも - まくまくいろいろノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/memo/">
+    <img src="/assets/img/logo-program.svg" class="xPageHeader_logo">
+  </a>
+  <a href="/memo/">
+    <div class="xPageHeader_category">
+    まくまくいろいろノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">遅延時間 ─ PIC めもめも</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/memo/pic/asm/delay.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： 遅延時間 ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <h2 id="1-サイクル-1-命令-にかかる時間">1 サイクル (1 命令) にかかる時間</h2>
+
+<p>1 つの命令を実行するためにかかる時間（1 サイクル）は、<strong>クロックの周期(sec) * 4</strong>、あるいは、<strong>4 / クロックの周波数(Hz)</strong> となります。
+具体的な値は次のようになります。</p>
+
+<ul>
+  <li>10MHzの場合の1命令にかかる時間 ･･･ 0.1 (μsec) * 4 = <strong>0.4 (μsec)</strong></li>
+  <li>20MHzの場合の1命令にかかる時間 ･･･ 0.05 (μsec) * 4 = <strong>0.2 (μsec)</strong></li>
+</ul>
+
+<p>プログラムカウンタの値を変更する命令の場合は、2 サイクルの時間がかかります。
+このような命令には <strong>CALL, GOTO, RETFIE, RETLW, RETURN</strong> があります。
+また、<strong>DECFSZ, INCFSZ, BTFSC, BTFSS でスキップした場合</strong>も 2 サイクルかかります。</p>
+
+<h2 id="遅延時間を作るサブルーチン">遅延時間を作るサブルーチン</h2>
+
+<p>遅延を発生させるサブルーチンを作る場合は、次のような手順で作成します。</p>
+
+<h3 id="1-必要なサイクル数を求める">1. 必要なサイクル数を求める</h3>
+
+<p>サブルーチンに必要なサイクル数は、<strong>遅延時間 / 1 サイクルにかかる時間</strong>で求めることができます。
+例えば、10MHz (0.4μsec) で 100μsec の遅延を作りたい場合は、100 / 0.4 = 250 サイクルが必要になります。</p>
+
+<h3 id="2-ループ回数を決める">2. ループ回数を決める</h3>
+
+<p>ループ回数は、<strong>(1 で求めたサイクル数 - 6) / 3</strong> で求められます（余りは NOP で調整します）。
+<strong>-6</strong> の部分は、MOVLW, MOVWF, DECFSZ(2), RETURN のサイクルで、<strong>/3</strong> の部分は、DECFSZ(1), GOTO の部分の実行回数を求めています。
+以下にいくつかの遅延時間発生ルーチンの例を示します。</p>
+
+<ul>
+  <li>10MHz 用
+    <ul>
+      <li><a target="_blank" href="wait20_10mhz.txt">20μsec の遅延時間サブルーチン</a></li>
+      <li><a target="_blank" href="wait50_10mhz.txt">50μsec の遅延時間サブルーチン</a></li>
+      <li><a target="_blank" href="wait100_10mhz.txt">100μsec の遅延時間サブルーチン</a></li>
+      <li><a target="_blank" href="wait250_10mhz.txt">250μsec の遅延時間サブルーチン</a></li>
+    </ul>
+  </li>
+  <li>20MHz 用
+    <ul>
+      <li><a target="_blank" href="wait15_20mhz.txt">15μsec の遅延時間サブルーチン</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="長い遅延時間を作成する場合の注意">長い遅延時間を作成する場合の注意</h3>
+
+<p>1 秒などの長い遅延時間を作成する場合、ループ用カウンタのオーバーフローを避けるため、短い遅延時間のサブルーチンを何度も呼び出すことになります。
+この時、ループのカウントに使用する変数は別のものを使用することに注意してください。</p>
+
+<h2 id="遅延時間サブルーチン自動生成-script">遅延時間サブルーチン自動生成 Script</h2>
+
+<p>クロックの周波数と、作りたい遅延時間を入力して「作成」ボタンを押してください。
+遅延時間を発生するためのサブルーチンが表示されます。
+ただし、あまり大きな遅延時間は作成できません（カウンタ用の変数がオーバーフローするため）。</p>
+
+<ul>
+  <li>10MHz … 308μsec まで</li>
+  <li>20MHz … 154μsec まで</li>
+</ul>
+
+<script language="JavaScript">
+<!--
+function createRoutine() {
+	var str = "";
+	var freq = document.f.freq.value;  // クロック周波数 (MHz)
+	var delay = document.f.delay.value;  // 作りたい遅延時間 (μsec)
+	var cycles = delay * freq / 4;  // 必要なサイクル数
+	var odd = (cycles - 6) % 3;  // 余り (=NOPの数)
+	var loop = (cycles - 6 - odd) / 3;  // ループ数
+
+	// 結果格納
+	document.f.oneCycle.value = 4 / (freq * 1000000);  // 1サイクルに必要な時間
+	document.f.cycles.value = cycles;  // 必要なサイクル数
+	document.f.loop.value = loop;  // 必要なループ数
+	document.f.odd.value = odd;  // 必要な NOP 数
+
+	str = "wait_count    EQU  0x20    ; 遅延発生ルーチン用の変数をこんな感じで用意してください\r\n\r\n";
+	str += ";==============================================================================\r\n";
+	str += "; " + delay + "μsec の遅延発生ルーチン (クロック = " + freq + "MHz)\r\n";
+	str += ";==============================================================================\r\n";
+	str += "Wait" + delay + "_" + freq + "MHz\r\n";
+	str += "      movlw  D'" + loop + "'\r\n";
+	str += "      movwf  wait_count\r\n";
+	str += "Wait" + delay + "_" + freq + "MHzLoop\r\n";
+	str += "      decfsz wait_count, F\r\n";
+	str += "      goto   Wait" + delay + "_" + freq + "MHzLoop\r\n";
+	var i = 0;
+	for (; i < odd; i++) {
+		str += "      nop\r\n";
+	}
+	str += "      return\r\n";
+	document.f.textarea_1.value = str;
+}
+//-->
+</script>
+
+<CENTER>
+<form name="f">
+<input type="textfield" name="freq" size="4" value="10" />MHz　
+<input type="textfield" name="delay" size="4" value="100" />μsec　
+<input type="button" name="button1" value="作成" onclick="createRoutine()" />
+<br />
+<textarea name="textarea_1" cols="80" rows="13"></textarea>
+<br />
+
+<table>
+	<tr>
+		<td>1 サイクルに必要な時間は</td>
+		<td><input type="textfield" name="oneCycle" size="4" /></td>
+		<td>必要なサイクル数は</td>
+		<td><input type="textfield" name="cycles" size="4" /></td>
+	</tr>
+	<tr>
+		<td>必要なループ数は</td>
+		<td><input type="textfield" name="loop" size="4" /></td>
+		<td>必要な NOP の数は</td>
+		<td><input type="textfield" name="odd" size="4" /></td>
+	</tr>
+</table>
+&lt;/CENTER&gt;
+</form>
+
+</CENTER>
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくいろいろノート： 遅延時間 ─ PIC めもめも&url=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/memo/pic/asm/delay.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/memo/"><span class="xArticle_up_label">まくまくいろいろノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li class="xNav-focused"><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/memo/">いろいろ</a></div>
+  <div class="xPageDate">2002-08-01</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>

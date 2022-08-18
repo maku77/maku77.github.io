@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
+  
+
+  <meta charset="UTF-8">
+
+
+
+<!-- Google Search Console -->
+<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+  <meta name="description" content="天才星人まくのWindowsノート">
+
+<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
+
+<!-- You can use open graph tags to customize link previews.
+Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:site_name" content="天才まくまくノート" />
+<meta property="og:url"     content="https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html" />
+<meta property="og:type"    content="website" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-windows.jpg" />
+
+  <meta property="og:description" content="天才星人まくのWindowsノート">
+
+<meta property="fb:app_id"  content="447708168769292" />
+
+<link rel="stylesheet" href="/assets/css/default.css">
+<link rel="stylesheet" href="/assets/css/highlight.css">
+
+<!-- Favicons start -->
+  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <![endif]-->
+  <!-- Optional: Android & iPhone -->
+  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
+<!-- Favicons end -->
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+
+
+  <meta property="og:title" content="標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する | まくまくWindowsノート" />
+  <title>標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する - まくまくWindowsノート</title>
+
+  <!-- Ad (Google) -->
+  
+</head>
+<body>
+
+<div class="xPageHeader">
+  <a href="/windows/">
+    <img src="/assets/img/logo-windows.jpg" class="xPageHeader_logo">
+  </a>
+  <a href="/windows/">
+    <div class="xPageHeader_category">
+    まくまくWindowsノート
+    </div>
+  </a>
+  <div class="xPageHeader_title">標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する</div>
+</div>
+
+<div id="xBody">
+  
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2019-04-03</div>
+</div>
+
+  
+<div style="color:red;">/home/runner/work/maku77.github.io/maku77.github.io<b>/windows/io/redirect-stdout-and-stderr.md</b></div>
+
+
+
+  <form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+
+
+  <div id="xContainer">
+    <div id="xContainer_main">
+      <!-- SNS ボタン（上） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： 標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する&url=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+
+      <!-- 概要 -->
+      
+
+      <div class="xWidget">
+        
+
+      </div>
+
+      <div class="xContent">
+        <!-- 本文 -->
+        <p>Windows コマンドプロンプトからプログラムを実行するときに、末尾に下記のような指定を行うことで、標準出力 (stdout) や標準エラー (stderr) の出力先を変えることができます。</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">&gt; file</code></strong>: 標準出力をファイルへ</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">1&gt; file</code></strong>: （同上）</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">2&gt; file</code></strong>: 標準エラーをファイルへ</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">1&gt;&amp;2</code></strong>: 標準出力を標準エラーにマージする</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">2&gt;&amp;1</code></strong>: 標準エラーを標準出力にマージする</li>
+</ul>
+
+<h2 id="stdout-と-stderr-への出力を別々にファイルに保存する">stdout と stderr への出力を別々にファイルに保存する</h2>
+
+<p>下記のようにあるコマンド (<code class="language-plaintext highlighter-rouge">myprog</code>) の出力結果をファイルへリダイレクトすると、デフォルトでは標準出力 (stdout) への出力のみがファイルに保存され、標準エラー (stderr) への出力はコマンドプロンプトの画面に出力されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; myprog &gt; log.txt
+</code></pre></div></div>
+
+<p>標準エラー (stderr) に対して出力された内容をファイルに保存するには、下記のように <strong><code class="language-plaintext highlighter-rouge">2&gt; file</code></strong> を使って stderr の内容をリダイレクトします。</p>
+
+<h4 id="例-myprog-コマンドの標準出力を-stdouttxt-へ標準エラーを-stderrtxt-へ保存">例: myprog コマンドの標準出力を stdout.txt へ、標準エラーを stderr.txt へ保存</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; myprog &gt; stdout.txt 2&gt; stderr.txt
+</code></pre></div></div>
+
+<h2 id="stdout-と-stderr-への出力をまとめて-1-つのファイルへ保存する">stdout と stderr への出力をまとめて 1 つのファイルへ保存する</h2>
+
+<p>標準エラーまで含めてファイルに保存したいことがあります。
+<strong><code class="language-plaintext highlighter-rouge">2&gt;&amp;1</code></strong> というのは、stderr (2) の出力をリダイレクトして (<code class="language-plaintext highlighter-rouge">2&gt;</code>)、stdout (1) にマージする (<code class="language-plaintext highlighter-rouge">&amp;1</code>) ということを表しています。
+あとは、マージされた stdout への出力をファイルにリダイレクト (<code class="language-plaintext highlighter-rouge">&gt; file</code>) すれば、結果として stdout と stderr の内容がまとめてファイルに保存されることになります。</p>
+
+<h4 id="例-myprog-コマンドの標準出力と標準エラーをまとめて-logtxt-に保存">例: myprog コマンドの標準出力と標準エラーをまとめて log.txt に保存</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; myprog &gt; log.txt 2&gt;&amp;1
+</code></pre></div></div>
+
+<div class="note">
+ちなみに、Linux の bash で同様のことを行うには、<code>command &gt;&amp; log.txt</code> とします。
+Windows のコマンドプロンプトよりシンプルです。
+</div>
+
+<p>stdout (1) あるいは stderr (2) の出力を、もう一方にマージしてからファイルに出力するというメカニズムなので、下記のようにしても、stdout と stderr をまとめてファイルに出力できます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; myprog 1&gt; log.txt 2&gt;&amp;1
+C:\&gt; myprog 2&gt; log.txt 1&gt;&amp;2
+</code></pre></div></div>
+
+<p>どの場合でも、<strong>ファイルへのリダイレクト指定よりも後ろに <code class="language-plaintext highlighter-rouge">2&gt;&amp;1</code> を指定しなければいけない</strong>ことに注意してください。</p>
+
+<h2 id="echo-コマンドで標準エラーへ出力する">echo コマンドで標準エラーへ出力する</h2>
+
+<p>バッチファイルを作成しているときに、<code class="language-plaintext highlighter-rouge">echo</code> コマンドでエラー情報を出力したいことがあるかもしれません。
+そのような場合は、下記のように標準出力を標準エラーへマージする (<code class="language-plaintext highlighter-rouge">1&amp;&gt;2</code>) ことで、実質的に <code class="language-plaintext highlighter-rouge">echo</code> コマンドの出力が標準エラーに対して行われることになります。</p>
+
+<h4 id="samplebatエラー出力するバッチファイル">sample.bat（エラー出力するバッチファイル）</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@echo off
+echo この行は標準出力に出力されます
+echo この行は標準エラーに出力されます 1&gt;&amp;2
+</code></pre></div></div>
+
+<p>上記のようなバッチファイルの出力を下記のようにファイルに保存しようとすると、1 行目の echo 出力のみがファイルに保存され、2 行目の echo 出力はそのままコマンドプロンプト上に表示されます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; sample.bat &gt; log.txt
+この行は標準エラーに出力されます
+</code></pre></div></div>
+
+<h2 id="エラー出力を抑制する">エラー出力を抑制する</h2>
+
+<p>エラー出力 (stderr) への出力を <strong><code class="language-plaintext highlighter-rouge">nul</code></strong> へリダイレクトすることで、コマンドのエラー出力を抑制することができます。</p>
+
+<h4 id="例-コマンド-myprog-のエラーを表示しない">例: コマンド myprog のエラーを表示しない</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\&gt; myprog 2&gt; nul
+</code></pre></div></div>
+
+
+      </div>
+
+      <!-- Ad (楽天) -->
+      
+
+      <!-- SNS ボタン（下） -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+
+
+<ul class="xSnsButtons">
+  <!-- Twitter -->
+  <li class="xSnsButtons_twitter">
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくWindowsノート： 標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する&url=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
+    </a>
+  </li>
+
+  <!-- Facebook -->
+  <li class="xSnsButtons_facebook">
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
+    </a>
+  </li>
+
+  <!-- Pocket -->
+  <li class="xSnsButtons_pocket">
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/windows/io/redirect-stdout-and-stderr.html"
+        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
+        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
+      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
+    </a>
+  </li>
+</ul>
+
+
+
+      
+      <div class="xArticle_up">
+        <a href="/windows/"><span class="xArticle_up_label">まくまくWindowsノート</span><br>へ戻る</a>
+      </div>
+
+    </div>
+
+    <div id="xContainer_sidebar"><style>
+.local-logo {
+  position: relative;
+  border: none;
+  background: none;
+}
+.local-logo img {
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 15px;
+}
+.local-logo figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12pt;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+</style>
+
+<div id="xContainer_sidebar_notFixed">
+  <div data-sticky><nav class="xNav">
+  <div class="xNav_header">カテゴリ一覧</div>
+  <ul>
+        <li><a href="/memo/">いろいろ</a>
+        <li><a href="/android/">Android</a>
+        <li><a href="/ansible/">Ansible</a>
+        <li><a href="/blender/">Blender</a>
+        <li><a href="/cpp/">C/C++</a>
+        <li><a href="/docker/">Docker</a>
+        <li><a href="/git/">Git</a>
+        <li><a href="/go/">Go言語</a>
+        <li><a href="/gradle/">Gradle</a>
+        <li><a href="/web/">HTML/CSS</a>
+        <li><a href="/hugo/">Hugo</a>
+        <li><a href="/java/">Java</a>
+        <li><a href="/js/">JavaScript</a>
+        <li><a href="/kotlin/">Kotlin</a>
+        <li><a href="/linux/">Linux/Shell</a>
+        <li><a href="/mac/">Mac</a>
+        <li><a href="/middleman/">Middleman</a>
+        <li><a href="/mt/">Meta Trader</a>
+        <li><a href="/nodejs/">Node.js</a>
+        <li><a href="/octave/">Octave</a>
+        <li><a href="/p4/">Perforce</a>
+        <li><a href="/perl/">Perl</a>
+        <li><a href="/php/">PHP</a>
+        <li><a href="/python/">Python</a>
+        <li><a href="/r/">R</a>
+        <li><a href="/ruby/">Ruby</a>
+        <li><a href="/sass/">Sass</a>
+        <li><a href="/sed/">sed/awk</a>
+        <li><a href="/sql/">SQL</a>
+        <li><a href="/tradestation/">トレードステーション</a>
+        <li><a href="/vagrant/">Vagrant</a>
+        <li><a href="/vba/">VBA</a>
+        <li><a href="/vim/">Vim</a>
+        <li class="xNav-focused"><a href="/windows/">Windows</a>
+  </ul>
+</nav>
+
+</div>
+
+  
+
+  <div data-sticky class="xContainer_sidebar_ad">
+    <a href="/">
+      <figure class="local-logo">
+        <img src="/assets/img/kuma_inu.jpg">
+        <figcaption>天才まくまくノート</figcaption>
+      </figure>
+    </a>
+  </div>
+
+  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
+  <div class="xSearchBar">
+    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
+  </div>
+</form>
+
+</div>
+</div>
+<div id="xContainer_sidebar_fixed"></div>
+
+</div>
+  </div>
+
+  <!-- <div class="xPageFooter"> -->
+    
+
+<div class="xBreadCrumbContainer">
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/windows/">Windows</a></div>
+  <div class="xPageDate">2019-04-03</div>
+</div>
+
+  <!-- </div> -->
+</div>
+
+  <!-- MathJax -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
+
+<!-- maku-common.js -->
+<script>
+$(function() {
+  var $content = $('.xContent');
+  // 外部リンクを必ず新しいタブで開く
+  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
+  // 外部リンクにクラス属性を付加する
+  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+});
+</script>
+
+
+</body>
+</html>
