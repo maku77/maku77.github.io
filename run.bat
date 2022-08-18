@@ -1,1 +1,1 @@
-bundle exec jekyll serve --destination D:\y\temp-jekyll --incremental --limit_posts 1
+bundle exec jekyll serve --incremental --limit_posts 1
