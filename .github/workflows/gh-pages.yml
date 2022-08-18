@@ -1,0 +1,46 @@
+name: Build and deploy Jekyll with Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Install Ruby and Gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # Not needed with a .ruby-version file
+          bundler-cache: true  # Runs 'bundle install' and caches installed gems
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build  # Default destination is _site
+
+      # - name: Install Hugo
+      #   uses: peaceiris/actions-hugo@v2
+      #   with:
+      #     hugo-version: '0.101.0'
+      #     extended: true  # Enable scss
+
+      # - name: Build with Hugo
+      #   run: hugo --minify  # Default destination is public
+      #   working-directory: hugo-files
+
+      # - name: Merge build results without overriding
+      #   run: cp -RTn hugo-files/public _site
+
+      # - name: Rename and copy Hugo's sitemap.xml
+      #   run: cp hugo-files/public/sitemap.xml _site/sitemap-hugo.xml
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site  # Default is public
+
