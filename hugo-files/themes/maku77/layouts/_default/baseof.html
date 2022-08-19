@@ -1,0 +1,19 @@
+{{- $pageTitle := partial "functions/get-page-title" . -}}
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{{ $pageTitle }}</title>
+  {{ partial "head/analytics" . -}}
+  {{ partial "head/ogp" . -}}
+  {{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ partialCached "head/favicon" . -}}
+  {{ block "head" . }}{{ end -}}
+</head>
+<body>
+{{- block "header" . }}{{ end }}
+{{- block "article" . }}article ブロックが見つかりません。{{ end }}
+</body>
+</html>

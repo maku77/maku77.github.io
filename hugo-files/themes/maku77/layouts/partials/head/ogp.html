@@ -1,0 +1,36 @@
+{{- $pageTitle := partial "functions/get-page-title" . -}}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:title" content="{{ $pageTitle }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:locale" content="ja_JP" />
+
+{{- define "local-og-image" }}
+  {{- if .Params.image }}
+    {{- $imageRes := .Resources.GetMatch .Params.image -}}
+    <meta property="og:image" content="{{ $imageRes.Permalink }}" />
+    <meta property="og:image:width" content="{{ $imageRes.Width }}" />
+    <meta property="og:image:height" content="{{ $imageRes.Height }}" />
+  {{- else if .Parent }}
+    {{- template "local-og-image" .Parent }}
+  {{- else if .Site.Params.image }}
+    {{- $imageRes := resources.Get .Site.Params.image -}}
+    <meta property="og:image" content="{{ $imageRes.Permalink }}" />
+    <meta property="og:image:width" content="{{ $imageRes.Width }}" />
+    <meta property="og:image:height" content="{{ $imageRes.Height }}" />
+  {{- end }}
+{{- end -}}
+{{- template "local-og-image" . }}
+
+{{- if .Description }}
+  <meta property="og:description" content="{{ .Description }}" />
+{{- else if .Summary }}
+  <meta property="og:description" content="{{ .Summary }}" />
+{{- else if .Site.Params.description }}
+  <meta property="og:description" content="{{ .Site.Params.description }}" />
+{{- end }}
+
+{{- with .Site.Params.facebookAppId }}
+  <meta property="fb:app_id" content="{{ . }}" />
+{{- end -}}
+

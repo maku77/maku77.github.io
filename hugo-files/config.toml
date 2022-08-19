@@ -1,0 +1,13 @@
+baseURL = "https://maku77.github.io/"
+enableRobotsTXT = true
+googleAnalytics = "UA-63069513-1"
+languageCode = "ja-jp"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+relativeurls = true
+theme = "maku77"
+title = "天才まくまくノート"
+
+[markup.goldmark.renderer]
+  unsafe = true
+

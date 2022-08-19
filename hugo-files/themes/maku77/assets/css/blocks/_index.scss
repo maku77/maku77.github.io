@@ -1,0 +1,14 @@
+// このディレクトリには BEM の Block 定義ファイルを格納します。
+//
+// クラスの命名規則は MindBEMding をベースとしますが、
+// 可読性向上のため、次のように camelCase を使用します (CamelCase BEM)。
+//
+// - Block/Element/Modifier の名前は camelCase（例: blockName）
+// - Element のプレフィックスは 2 つのアンダースコア（例: blockName__elemName）
+// - Modifier のプレフィックスは 2 つのハイフン（例: blockName--modName）
+//
+// 結果的に、クラス名に 1 つのハイフンやアンダースコアは現れません。
+//
+@import "header.scss";
+@import "breadcrumb.scss";
+@import "page-date.scss";

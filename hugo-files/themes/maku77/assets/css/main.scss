@@ -1,0 +1,54 @@
+:root {
+  // Custom properties
+  --s1: 0.5rem;
+}
+
+$COLOR_PAGE_TITLE: #fdd;
+$COLOR_PAGE_TITLE_BG: darkred;
+$COLOR_PAGE_TITLE_CATEGORY: #faa;
+
+$COLOR_TEXT_LIGHT: gray;
+
+$COLOR_LINK: #36f;
+$COLOR_LINK_VISITED: #03c;
+$COLOR_LINK_HOVER_BG: #def;
+$COLOR_LINK_FOCUS_BG: #fdd;
+
+@import "blocks";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  line-height: 1.7;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: 100%;  // Keep font size when lotating screen in Android devices
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bolder;
+  &:link { // 未訪問
+    color: $COLOR_LINK;
+  }
+  &:visited { // 訪問済
+    color: $COLOR_LINK_VISITED;
+  }
+  &:hover { /* マウスフォーカス */
+    background-color: $COLOR_LINK_HOVER_BG;
+    text-decoration: none;
+  }
+  &:focus { /* 選択中 */
+    background-color: $COLOR_LINK_FOCUS_BG;
+  }
+}
+
+ul {
+  padding-left: 3em;
+}

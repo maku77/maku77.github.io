@@ -1,0 +1,8 @@
+{{- $url := .Params.categoryUrl }}
+{{- if $url }}
+{{- else if .Parent }}
+  {{- $url = partial "functions/get-category-url" .Parent }}
+{{- else }}
+  {{- errorf "ERROR: categoryUrl not found in section's _index.html" }}
+{{- end }}
+{{- return $url }}

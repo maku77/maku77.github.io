@@ -1,0 +1,9 @@
+{{ $title := "" }}
+{{ if .IsHome }}
+  {{ $title = .Site.Title }}
+{{ else if eq .Title "Tags" }}
+  {{ $title = print "タグの一覧 - " .Site.Title }}
+{{ else }}
+  {{ $title = printf "%s - まくまく %s ノート" .Title .CurrentSection.Title }}
+{{ end }}
+{{ return $title }}

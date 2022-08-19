@@ -1,0 +1,3 @@
+{{ $categoryName := partial "functions/get-category-name" . }}
+{{ $categoryUrl := partial "functions/get-category-url" . }}
+<div class="breadcrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="{{ $categoryUrl }}">{{ $categoryName }}</a></div>

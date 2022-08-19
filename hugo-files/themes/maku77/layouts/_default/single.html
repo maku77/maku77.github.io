@@ -1,0 +1,11 @@
+{{ define "header" }}
+  {{- partial "blocks/header" . }}
+{{ end }}
+{{ define "article" }}
+  <article class="xArticle" itemscope itemtype="https://schema.org/BlogPosting">
+    {{ partial "blocks/breadcrumb" . }}
+    {{ partial "blocks/page-date" . }}
+    {{ .Content }}
+    {{ partial "blocks/breadcrumb" . }}
+  </article>
+{{ end }}

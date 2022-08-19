@@ -1,0 +1,8 @@
+{{- $name := .Params.categoryName }}
+{{- if $name }}
+{{- else if .Parent }}
+  {{- $name = partial "functions/get-category-name" .Parent }}
+{{- else }}
+  {{- errorf "ERROR: categoryName not found in section's _index.html" }}
+{{- end }}
+{{- return $name }}
