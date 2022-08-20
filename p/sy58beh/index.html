@@ -286,7 +286,7 @@ time.Time
   <li><code class="language-plaintext highlighter-rouge">Jan 2, 2006 at 3:04pm (MST)</code></li>
 </ul>
 
-<p><code class="language-plaintext highlighter-rouge">time</code> パッケージには、下記のような layout string があらかじめ定義されています。</p>
+<p><code class="language-plaintext highlighter-rouge">time</code> パッケージには、下記のような layout string 定数があらかじめ定義されています。</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="p">(</span>
 	<span class="n">ANSIC</span>       <span class="o">=</span> <span class="s">"Mon Jan _2 15:04:05 2006"</span>
@@ -328,11 +328,11 @@ time.Time
 <p>月や曜日は単純な <code class="language-plaintext highlighter-rouge">int</code> ではなく、<code class="language-plaintext highlighter-rouge">time.Month</code> と <code class="language-plaintext highlighter-rouge">time.Weekday</code> という型で定義されており、それぞれの月や曜日を表す定数も定義されています（<code class="language-plaintext highlighter-rouge">time.January</code> や <code class="language-plaintext highlighter-rouge">time.Sunday</code>）。</p>
 
 <ul>
-  <li><a href="https://golang.org/pkg/time/#Month">time.Month 型</a></li>
-  <li><a href="https://golang.org/pkg/time/#Weekday">time.Weekday 型</a></li>
+  <li><a href="https://golang.org/pkg/time/#Month">time.Month 型</a> … <code class="language-plaintext highlighter-rouge">type Month int</code></li>
+  <li><a href="https://golang.org/pkg/time/#Weekday">time.Weekday 型</a> … <code class="language-plaintext highlighter-rouge">type Weekday int</code></li>
 </ul>
 
-<p>上記の型には <code class="language-plaintext highlighter-rouge">String()</code> メソッドが実装されているため、次のようにして文字列表現の月、曜日を取得することができます。</p>
+<p>上記の型には <code class="language-plaintext highlighter-rouge">String()</code> メソッド（<a href="https://pkg.go.dev/fmt#Stringer">fmt.Stringer インタフェース</a>）が実装されているため、次のようにして文字列表現の月、曜日を取得することができます。</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">:=</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span>
 <span class="n">month</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Month</span><span class="p">()</span><span class="o">.</span><span class="n">String</span><span class="p">()</span>      <span class="c">//=&gt; "September"</span>
@@ -342,8 +342,7 @@ time.Time
 <p>もちろん、<code class="language-plaintext highlighter-rouge">Printf</code> 系メソッドのフォーマットで <code class="language-plaintext highlighter-rouge">%s</code> を指定して文字列表現で出力することもできます。</p>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">:=</span> <span class="n">time</span><span class="o">.</span><span class="n">Now</span><span class="p">()</span>
-<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Month</span><span class="p">())</span>    <span class="c">//=&gt; "September"</span>
-<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Weekday</span><span class="p">())</span>  <span class="c">//=&gt; "Tuesday"</span>
+<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%s, %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">Month</span><span class="p">(),</span> <span class="n">t</span><span class="o">.</span><span class="n">Weekday</span><span class="p">)</span>  <span class="c">//=&gt; "September, Tuesday"</span>
 </code></pre></div></div>
 
 <h3 id="年月日データのみ時分秒データのみを取得する">年月日データのみ、時分秒データのみを取得する</h3>

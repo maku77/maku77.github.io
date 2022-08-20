@@ -12,18 +12,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-  <meta name="description" content="Go 言語で構造体用のコンストラクタを作成したいときは、通常の関数の形でファクトリ関数を実装します。">
+  <meta name="description" content="天才星人まくの Go 言語ノート">
 
 <meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
 
 <!-- You can use open graph tags to customize link previews.
 Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/p/6dhkoru/" />
+<meta property="og:url"     content="https://maku77.github.io/p/goruwy4/" />
 <meta property="og:type"    content="website" />
 <meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
 
-  <meta property="og:description" content="Go 言語で構造体用のコンストラクタを作成したいときは、通常の関数の形でファクトリ関数を実装します。">
+  <meta property="og:description" content="天才星人まくの Go 言語ノート">
 
 <meta property="fb:app_id"  content="447708168769292" />
 
@@ -90,8 +90,8 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
 
-  <meta property="og:title" content="構造体のコンストラクタ（ファクトリ関数）を定義する | まくまくGo言語ノート" />
-  <title>構造体のコンストラクタ（ファクトリ関数）を定義する - まくまくGo言語ノート</title>
+  <meta property="og:title" content="HTTP サーバーを作成する (net/http) | まくまくGo言語ノート" />
+  <title>HTTP サーバーを作成する (net/http) - まくまくGo言語ノート</title>
 
   <!-- Ad (Google) -->
   
@@ -107,7 +107,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
     まくまくGo言語ノート
     </div>
   </a>
-  <div class="xPageHeader_title">構造体のコンストラクタ（ファクトリ関数）を定義する</div>
+  <div class="xPageHeader_title">HTTP サーバーを作成する (net/http)</div>
 </div>
 
 <div id="xBody">
@@ -115,7 +115,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 <div class="xBreadCrumbContainer">
   <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2017-09-01</div>
+  <div class="xPageDate">2022-08-20</div>
 </div>
 
   
@@ -141,7 +141,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <ul class="xSnsButtons">
   <!-- Twitter -->
   <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 構造体のコンストラクタ（ファクトリ関数）を定義する&url=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： HTTP サーバーを作成する (net/http)&url=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
@@ -150,7 +150,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Facebook -->
   <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
@@ -159,7 +159,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Pocket -->
   <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
@@ -172,8 +172,6 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
       
 
       <!-- 概要 -->
-      
-        <div class="xPageDescription">Go 言語で構造体用のコンストラクタを作成したいときは、通常の関数の形でファクトリ関数を実装します。</div>
       
 
       <div class="xWidget">
@@ -194,52 +192,78 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p>Go 言語には構造体のコンストラクタ用の文法は用意されていません。
-簡単なプログラムであれば、下記のような初期化リストを使ったオブジェクト生成で間に合ってしまいます。</p>
+        <p>Hugo 標準ライブラリの <a href="https://pkg.go.dev/net/http">net/http パッケージ</a> (<a href="https://cs.opensource.google/go/go/+/master:src/net/http/">src</a>) は、HTTP クライアント／サーバーを作成するためのパッケージです。
+ここでは、この <code class="language-plaintext highlighter-rouge">net/http</code> パッケージを使って、簡単な Web サーバーを起動してみます。</p>
 
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">b</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span><span class="n">Title</span><span class="o">:</span> <span class="s">"Title"</span><span class="p">,</span> <span class="n">Price</span><span class="o">:</span> <span class="m">2500</span><span class="p">}</span>
-</code></pre></div></div>
+<h2 id="最小限の-http-サーバーを作る">最小限の HTTP サーバーを作る</h2>
 
-<p>任意のパラメータからオブジェクトを生成できるようにしたい場合は、<strong><code class="language-plaintext highlighter-rouge">New</code> で始まる名前のファクトリ関数を作成し、構造体のポインタを返す</strong> のが慣例となっています。</p>
-
-<h4 id="bookbookgo">book/book.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">book</span>
-
-<span class="k">type</span> <span class="n">Book</span> <span class="k">struct</span> <span class="p">{</span>
-	<span class="n">Title</span>  <span class="kt">string</span>
-	<span class="n">Author</span> <span class="kt">string</span>
-	<span class="n">Price</span>  <span class="kt">int</span>
-<span class="p">}</span>
-
-<span class="k">func</span> <span class="n">NewAuthorlessBook</span><span class="p">(</span><span class="n">title</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="n">Book</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">&amp;</span><span class="n">Book</span><span class="p">{</span>
-		<span class="n">Title</span><span class="o">:</span>  <span class="n">title</span><span class="p">,</span>
-		<span class="n">Author</span><span class="o">:</span> <span class="s">"Unknown Author"</span><span class="p">,</span>
-		<span class="n">Price</span><span class="o">:</span>  <span class="m">100</span><span class="p">,</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>上記では、<code class="language-plaintext highlighter-rouge">book</code> パッケージの中で <code class="language-plaintext highlighter-rouge">Book</code> 構造体とそのファクトリ関数を定義してみました。
-外部の <code class="language-plaintext highlighter-rouge">main</code> パッケージから使用する場合は、下記のような感じのコードになります。</p>
+<h3 id="全体のコード">全体のコード</h3>
 
 <h4 id="maingo">main.go</h4>
 
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-<span class="k">import</span> <span class="s">"fmt"</span>
-<span class="k">import</span> <span class="s">"local.packages/book"</span>
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"io"</span>
+	<span class="s">"log"</span>
+	<span class="s">"net/http"</span>
+<span class="p">)</span>
 
 <span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">b</span> <span class="o">:=</span> <span class="n">book</span><span class="o">.</span><span class="n">NewAuthorlessBook</span><span class="p">(</span><span class="s">"The World"</span><span class="p">)</span>
-	<span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s">"%+v</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+	<span class="c">// ハンドラー関数を定義する</span>
+	<span class="n">h1</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-1</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">h2</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-2</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c">// パスとハンドラー関数を結びつける</span>
+	<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">h1</span><span class="p">)</span>
+	<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/foo"</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>
+
+	<span class="c">// Web サーバーを起動する</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">ListenAndServe</span><span class="p">(</span><span class="s">":8080"</span><span class="p">,</span> <span class="no">nil</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h4 id="実行結果">実行結果</h4>
+<p>このプログラムを起動すると、簡単な Web サーバーが起動します。
+Web ブラウザなどで、<code class="language-plaintext highlighter-rouge">http://localhost:8080</code>にアクセスすると、<code class="language-plaintext highlighter-rouge">Hello-1</code> というレスポンスを返します。
+<code class="language-plaintext highlighter-rouge">http://localhost:8080/foo/</code> にアクセスすると、<code class="language-plaintext highlighter-rouge">Hello-2</code> というレスポンスを返します。</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;{Title:The World Author:Unknown Author Price:100}
+<p>サーバーを停止するときは、<kbd>Ctrl + C</kbd> を入力します。</p>
+
+<h3 id="コードの説明">コードの説明</h3>
+
+<p>Web サーバーにアクセスしたときに呼び出されるハンドラー関数は、次のようなシグネチャの関数として実装します。
+<code class="language-plaintext highlighter-rouge">http.ResponseWrite</code> と <code class="language-plaintext highlighter-rouge">http.Request</code> を受け取る関数です。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type HandlerFunc func(ResponseWriter, *Request)
+</code></pre></div></div>
+
+<p>今回は次のようなハンドラー関数を定義しています。
+レスポンスの内容（テキスト）を <code class="language-plaintext highlighter-rouge">http.ResponseWriter</code> に書き込むときには、<code class="language-plaintext highlighter-rouge">io.WriteString</code> や <code class="language-plaintext highlighter-rouge">fmt.Printf</code> を使用できます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h1</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-1</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">h2</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-2</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://pkg.go.dev/net/http#HandleFunc">http.HandleFunc 関数</a> を使って、ハンドラー関数を結びつけます。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">h1</span><span class="p">)</span>
+<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/foo"</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>あとは、<a href="https://pkg.go.dev/net/http#ListenAndServe">http.ListenAndServe 関数</a> で特定のアドレス（＋ポート）で待ち受けを開始します。
+ここではポート番号 8080 だけを指定しているため、<code class="language-plaintext highlighter-rouge">localhost:8080</code> で待ち受けることになります。</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span><span class="o">.</span><span class="n">ListenAndServe</span><span class="p">(</span><span class="s">":8080"</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
 </code></pre></div></div>
 
 
@@ -305,7 +329,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <ul class="xSnsButtons">
   <!-- Twitter -->
   <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： 構造体のコンストラクタ（ファクトリ関数）を定義する&url=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： HTTP サーバーを作成する (net/http)&url=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
@@ -314,7 +338,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Facebook -->
   <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
@@ -323,7 +347,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Pocket -->
   <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/6dhkoru/"
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/goruwy4/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
@@ -469,7 +493,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 <div class="xBreadCrumbContainer">
   <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2017-09-01</div>
+  <div class="xPageDate">2022-08-20</div>
 </div>
 
   <!-- </div> -->
