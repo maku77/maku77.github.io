@@ -56,6 +56,13 @@ Go の標準パッケージ <!-- lib -->
 * [時刻データを扱う (time)](/p/sy58beh/)
 * [ベンチマークを行う (testing.B)](/p/29dgjnq/)
 * [環境変数を扱う (os.Getenv, os.LookupEnv)](/p/4ox6dmu/)
+* [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
+
+
+応用
+----
+* [GraphQL サーバーを作成する (gqlgen)](/p/v48adgi/)
+
 
 Go 関連リンク
 ----

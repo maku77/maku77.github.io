@@ -46,8 +46,8 @@ func NewAuthorlessBook(title string) *Book {
 ```go
 package main
 
-import "book"
 import "fmt"
+import "local.packages/book"
 
 func main() {
 	b := book.NewAuthorlessBook("The World")

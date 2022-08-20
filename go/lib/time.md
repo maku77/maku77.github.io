@@ -112,7 +112,7 @@ layout string に指定する文字列は、**2006年1月2日 15時4分5秒 (MST
 - `2006-01-02 (Mon) 15:04:05`
 - `Jan 2, 2006 at 3:04pm (MST)`
 
-`time` パッケージには、下記のような layout string があらかじめ定義されています。
+`time` パッケージには、下記のような layout string 定数があらかじめ定義されています。
 
 ```go
 const (
@@ -157,10 +157,10 @@ fmt.Printf("%d\n", t.Second())  // 11（秒）
 
 月や曜日は単純な `int` ではなく、`time.Month` と `time.Weekday` という型で定義されており、それぞれの月や曜日を表す定数も定義されています（`time.January` や `time.Sunday`）。
 
-- [time.Month 型](https://golang.org/pkg/time/#Month)
-- [time.Weekday 型](https://golang.org/pkg/time/#Weekday)
+- [time.Month 型](https://golang.org/pkg/time/#Month) ... `type Month int`
+- [time.Weekday 型](https://golang.org/pkg/time/#Weekday) ... `type Weekday int`
 
-上記の型には `String()` メソッドが実装されているため、次のようにして文字列表現の月、曜日を取得することができます。
+上記の型には `String()` メソッド（[fmt.Stringer インタフェース](https://pkg.go.dev/fmt#Stringer)）が実装されているため、次のようにして文字列表現の月、曜日を取得することができます。
 
 ```go
 t := time.Now()
@@ -172,8 +172,7 @@ weekday := t.Weekday().String()  //=> "Tuesday"
 
 ```go
 t := time.Now()
-fmt.Printf("%s\n", t.Month())    //=> "September"
-fmt.Printf("%s\n", t.Weekday())  //=> "Tuesday"
+fmt.Printf("%s, %s\n", t.Month(), t.Weekday)  //=> "September, Tuesday"
 ```
 
 ### 年月日データのみ、時分秒データのみを取得する
