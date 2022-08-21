@@ -1,0 +1,37 @@
+{{/*
+  各 SVG アイコンは https://feathericons.com/?query=twitter
+  から Size 100px にしてダウンロードしたもので、
+  themes/maku77/assets/img ディレクトリ入れておく。
+
+  TODO: はてなも追加
+    https://b.hatena.ne.jp/add?url=ページURL&title=ページタイトル
+  TODO: Line も追加
+    https://line.me/R/msg/text/?ページURL
+*/}}
+
+{{ $pageTitle := partial "functions/get-page-title" . }}
+{{ $pageUrl := .Permalink }}
+
+<div class="snsButtons">
+  <!-- Twitter -->
+  <a rel="nofollow" target="_blank"
+    href="https://twitter.com/share?url={{ $pageUrl }}&text={{ $pageTitle }}">
+    <span class="snsButtons__icon snsButtons__icon--twitter">
+      {{ readFile "assets/img/sns-twitter.svg" | safeHTML }}
+    </span>
+  </a>
+  <!-- Facebook -->
+  <a rel="nofollow" target="_blank"
+    href="https://www.facebook.com/share.php?u={{ $pageUrl }}&t={{ $pageTitle }}">
+    <span class="snsButtons__icon snsButtons__icon--facebook">
+      {{ readFile "assets/img/sns-facebook.svg" | safeHTML }}
+    </span>
+  </a>
+  <!-- Pocket -->
+  <a rel="nofollow" target="_blank"
+    href="https://getpocket.com/edit?url={{ $pageUrl }}&title={{ $pageTitle }}">
+    <span class="snsButtons__icon snsButtons__icon--pocket">
+      {{ readFile "assets/img/sns-pocket.svg" | safeHTML }}
+    </span>
+  </a>
+</div>

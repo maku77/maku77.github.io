@@ -3,8 +3,7 @@
   background: $COLOR_PAGE_TITLE_BG;
   padding: 1rem var(--s1) 0.5rem;
 
-  /* グラデーション */
-  background: $COLOR_PAGE_TITLE_BG;
+  /* グラデーション（右、下、ぼかし、広がり） */
   box-shadow: 0px 0px 0.5rem 0.5rem $COLOR_PAGE_TITLE_BG;
 
   &__icon {
