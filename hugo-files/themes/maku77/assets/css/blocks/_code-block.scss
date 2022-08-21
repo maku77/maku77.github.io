@@ -1,0 +1,13 @@
+.codeBlock {
+  &__title {
+    background: darken($COLOR_CODE_BG, 10%);
+    display: inline-block;
+    border-radius: 0.5em 0.5em 0 0;
+    padding: 0.2em 0.8em;
+  }
+
+  // pre は基本的に角丸だが、上にタイトル表示がある場合は左上のみ角丸にしない
+  &__title + &__code pre {
+    border-radius: 0 0.5em 0.5em 0.5em;
+  }
+}

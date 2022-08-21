@@ -14,7 +14,7 @@ Go 言語で OS の環境変数を扱うには、標準ライブラリの [os �
 [os.Getenv 関数](https://pkg.go.dev/os#Getenv) を使うと、特定の環境変数を参照することができます。
 指定した名前の環境変数が設定されていない場合は、空文字列 (`""`) を返します。
 
-```go
+{{< code lang="go" title="main.go" >}}
 package main
 
 import (
@@ -30,7 +30,7 @@ func main() {
 	}
 	fmt.Printf("SHELL = %s\n", shell)
 }
-```
+{{< /code >}}
 
 環境変数の値として、明示的に空文字列が設定されていることを判別したい場合は、`os.Getenv` の代わりに [os.LookupEnv 関数](https://pkg.go.dev/os#LookupEnv) 関数を使用します。
 `os.LookupEnv` は、2 番目の `bool` 型戻り値で、環境変数が設定されているかどうかを返します。

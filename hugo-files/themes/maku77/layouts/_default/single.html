@@ -2,10 +2,18 @@
   {{- partial "blocks/header" . }}
 {{ end }}
 {{ define "article" }}
-  <article class="xArticle" itemscope itemtype="https://schema.org/BlogPosting">
-    {{ partial "blocks/breadcrumb" . }}
-    {{ partial "blocks/page-date" . }}
-    {{ .Content }}
-    {{ partial "blocks/breadcrumb" . }}
+  <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article__header">
+      {{ partial "blocks/breadcrumb" . }}
+      <div class="article__date">
+        {{ partial "blocks/page-date" . }}
+      </div>
+    </div>
+    <div class="article__body">
+      {{ .Content }}
+    </div>
+    <div class="article__footer">
+      {{ partial "blocks/breadcrumb" . }}
+    </div>
   </article>
 {{ end }}

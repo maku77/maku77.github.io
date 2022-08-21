@@ -8,13 +8,14 @@
   // gap: 1rem;
 
   &__sidebar {
-    padding: var(--s1);
+    @media print { display: none; }  // 印刷時は非表示
+    border-left: solid #ddd 1px;
+    padding: 1rem 0.5rem;
     flex-basis: 14rem;  // サイドバーの幅
     flex-grow: 1;
   }
 
   &__content {
-    border-right: solid #ddd 1px;
     padding: var(--s1);
     flex-basis: 0;
     flex-grow: 999;

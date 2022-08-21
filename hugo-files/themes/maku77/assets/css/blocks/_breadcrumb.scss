@@ -1,3 +1,4 @@
 .breadcrumb {
+  @media print { display: none; }  // 印刷時は非表示
 }
 

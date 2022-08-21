@@ -47,6 +47,50 @@ a {
   }
 }
 
+strong {
+  font-weight: bolder;
+  color: $COLOR_TEXT_STRONG;
+  > code {
+    color: $COLOR_TEXT_STRONG;
+    background: $COLOR_TEXT_STRONG_BG;
+  }
+}
+
+code {
+  font-family: $FONT_CODE;
+  color: $COLOR_CODE;
+  // pre によるコードブロックの背景色を上書きしてしまわないように、
+  // 文中で単独で code を使ったときだけ code の背景色を設定する。
+  :not(pre) > & {
+    background: $COLOR_CODE_BG;
+  }
+  padding: 0.2em 0.3em;
+  border-radius: 0.2em;
+}
+
+pre {
+  font-family: $FONT_CODE;
+  background: $COLOR_CODE_BG;
+  overflow-x: auto;
+
+  padding: 0.5em 0.8em;
+  line-height: 1.3;
+  border-radius: 0.5em;
+
+  // タブ文字がデフォルトの 8 文字では大きすぎるので調整（主に Go 言語用）
+  tab-size: 2;
+  @include screen-size-sm { tab-size: 4; }
+  @include screen-size-md { tab-size: 6; }
+  @include screen-size-lg { tab-size: 8; }
+
+  // 印刷時ははみ出たコードを折り返す
+  @media print {
+    white-space: pre-wrap;
+    tab-size: 2;
+    font-size: 80%;
+  }
+}
+
 ul {
   padding-left: 3em;
 }

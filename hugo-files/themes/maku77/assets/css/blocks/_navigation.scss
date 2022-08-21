@@ -14,10 +14,11 @@
 
   &__item {
     display: block;
+    padding: 0 0.5em;
+    border-radius: 1em;
   }
 
   &__item--focused {
     background: #eee;
-    padding-left: 0.5em;
   }
 }

@@ -1,18 +1,46 @@
-$COLOR_PAGE_TITLE: #fdd;
-$COLOR_PAGE_TITLE_BG: darkred;
+// スクリーンサイズ（分類とピクセル値は mui を参考）
+@mixin screen-size-xs {
+  @media (min-width: 0px) { @content; }
+}
+@mixin screen-size-sm {
+  @media (min-width: 600px) { @content; }
+}
+@mixin screen-size-md {
+  @media (min-width: 900px) { @content; }
+}
+@mixin screen-size-lg {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin screen-size-xl {
+  @media (min-width: 1536px) { @content; }
+}
+
+$COLOR_PRIMARY: darkred;
+$COLOR_PRIMARY_CONTRAST_TEXT: #fff0fc;
+
+$COLOR_PAGE_TITLE: $COLOR_PRIMARY_CONTRAST_TEXT;
+$COLOR_PAGE_TITLE_BG: $COLOR_PRIMARY;
 $COLOR_PAGE_TITLE_CATEGORY: #faa;
 
 $COLOR_TEXT: #333;
 $COLOR_TEXT_SUB: #666;
 $COLOR_TEXT_SUB_SUB: #999;
+$COLOR_TEXT_STRONG: #e48;
+$COLOR_TEXT_STRONG_BG: mix($COLOR_TEXT_STRONG, white, 15%);
 
 $COLOR_LINK: #36f;
 $COLOR_LINK_VISITED: #63c;
 $COLOR_LINK_HOVER_BG: #def;
 $COLOR_LINK_FOCUS_BG: #fdd;
 
+$COLOR_CODE: $COLOR_TEXT;
+$COLOR_CODE_BG: #f6f6f6;
+
+$FONT_CODE: Menlo, Monaco, Consolas, "Courier New", monospace;
+
 @import "_foundation.scss";
 @import "_layout.scss";
 @import "_util.scss";
+@import "_highlight-manni.scss";
 @import "blocks";
 

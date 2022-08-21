@@ -1,0 +1,32 @@
+.article {
+  &__header {
+  }
+
+  &__date {
+    text-align: right;
+  }
+
+  &__footer {
+    margin-top: 1.5rem;
+  }
+
+  &__body {
+    margin-top: 1.5rem;
+    h2 {
+      color: $COLOR_PRIMARY_CONTRAST_TEXT;
+      background: $COLOR_PRIMARY;
+      padding: 0.2em 0.5em;
+    }
+
+    // 記事内のブロック要素間の基本マージン
+    > * + * {
+      margin-top: 1em;
+    }
+
+    // h1 〜 h6 の上には広めにマージンを入れるが、
+    // h2 の直後に h3 があるような場合は通常のマージンとする。
+    > h1, h2:not(h1 + h2), h3:not(h2 + h3), h4:not(h3 + h4), h5:not(h4 + h5), h6:not(h5 + h6) {
+      margin-top: 1.5em;
+    }
+  }
+}
