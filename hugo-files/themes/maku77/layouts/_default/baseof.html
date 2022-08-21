@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ $pageTitle }}</title>
+  {{ partialCached "head/adsense" . -}}
+  {{ partialCached "head/favicon" . -}}
   {{ partial "head/analytics" . -}}
   {{ partial "head/ogp" . -}}
   {{ $style := resources.Get "css/all.scss" | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  {{ partialCached "head/favicon" . -}}
   {{ block "head" . }}{{ end -}}
 </head>
 <body>
