@@ -5,36 +5,34 @@ date: "2018-12-30"
 
 <style>
 .local-cells {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap; /* 子要素が右端に到達したら折り返す */
+  justify-content: center; /* 主軸（水平方向）に中央合わせ */
 }
-.local-cells > div {
-  display: inline-block;
-  text-align: left;
-  width: 170px;
-  height: 30px;
-  margin-bottom: 10px;
-}
+
+/* 色ボックス */
 .local-cells > div div:first-child {
   display: inline-block;
+  margin-right: 0.5em;
   width: 30px;
-  height: 30px;
+  height: 45px;
 }
+
+/* 色名テキスト */
 .local-cells > div div:nth-child(2) {
   display: inline-block;
   vertical-align: top;
-  margin: 0;
-  padding-left: 5px;
-  width: 140px;
+  width: 170px;
   line-height: 1.3;
 }
 </style>
 
 Sass スクリプトの中で色を表現する方法としては、`#ff00ff` のような16進数での指定方法以外にも、下記のように色を表す定数を使用する方法があります。
 
-~~~ scss
+```scss
 $my-color: magenta;  // Color型の変数を定義
 $my-color: #ff00ff;  // 同上
-~~~
+```
 
 色を表す定数には下記のようなものが用意されています。
 
@@ -180,7 +178,7 @@ $my-color: #ff00ff;  // 同上
 <div><div style="background: #008080"></div><div>teal<br>(0x008080FF)</div></div>
 <div><div style="background: #D8BFD8"></div><div>thistle<br>(0xD8BFD8FF)</div></div>
 <div><div style="background: #FF6347"></div><div>tomato<br>(0xFF6347FF)</div></div>
-<div><div style="background: #000000"></div><div>transparent<br>(0x00000000)</div></div>
+<div><div style="background: #00000000"></div><div>transparent<br>(0x00000000)</div></div>
 <div><div style="background: #40E0D0"></div><div>turquoise<br>(0x40E0D0FF)</div></div>
 <div><div style="background: #EE82EE"></div><div>violet<br>(0xEE82EEFF)</div></div>
 <div><div style="background: #F5DEB3"></div><div>wheat<br>(0xF5DEB3FF)</div></div>
@@ -193,7 +191,7 @@ $my-color: #ff00ff;  // 同上
 アルファ値に関しては、上記のようにすべて 0xff (255) の不透過になっています。
 アルファ値部分だけを変更したい場合は、下記のように `rgba` 関数で指定することができます。
 
-~~~ scss
+```scss
 $my-color: rgba(red, 0.3);  // アルファ30%
-~~~
+```
 

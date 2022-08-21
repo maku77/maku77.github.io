@@ -441,7 +441,7 @@ foo.o : foo.cpp foo.h defs.h
 ~~~
 
 ~~~
-$^ ⇒ foo.cpp
+$< ⇒ foo.cpp
 $@ ⇒ foo.o
 ~~~
 
