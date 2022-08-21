@@ -9,6 +9,7 @@
 //
 // 結果的に、クラス名に 1 つのハイフンやアンダースコアは現れません。
 //
-@import "header.scss";
-@import "breadcrumb.scss";
-@import "page-date.scss";
+@import "_breadcrumb.scss";
+@import "_header.scss";
+@import "_navigation.scss";
+@import "_page-date.scss";

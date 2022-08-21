@@ -1,0 +1,24 @@
+.l-pageHeader {
+  margin-bottom: var(--s1);
+}
+
+.l-withSidebar {
+  display: flex;
+  flex-wrap: wrap;
+  // gap: 1rem;
+
+  &__sidebar {
+    padding: var(--s1);
+    flex-basis: 14rem;  // サイドバーの幅
+    flex-grow: 1;
+  }
+
+  &__content {
+    border-right: solid #ddd 1px;
+    padding: var(--s1);
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: 73%;  // 要素の幅が狭くなったときに折り返す
+  }
+}
+

@@ -1,0 +1,23 @@
+.navigation {
+  &__header {
+    color: $COLOR_TEXT_SUB;
+    border-bottom: 1px $COLOR_TEXT_SUB solid;
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__item--focused {
+    background: #eee;
+    padding-left: 0.5em;
+  }
+}

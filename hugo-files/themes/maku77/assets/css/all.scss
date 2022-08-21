@@ -1,0 +1,18 @@
+$COLOR_PAGE_TITLE: #fdd;
+$COLOR_PAGE_TITLE_BG: darkred;
+$COLOR_PAGE_TITLE_CATEGORY: #faa;
+
+$COLOR_TEXT: #333;
+$COLOR_TEXT_SUB: #666;
+$COLOR_TEXT_SUB_SUB: #999;
+
+$COLOR_LINK: #36f;
+$COLOR_LINK_VISITED: #63c;
+$COLOR_LINK_HOVER_BG: #def;
+$COLOR_LINK_FOCUS_BG: #fdd;
+
+@import "_foundation.scss";
+@import "_layout.scss";
+@import "_util.scss";
+@import "blocks";
+

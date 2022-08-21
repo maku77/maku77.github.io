@@ -1,0 +1,49 @@
+{{ $categories := slice
+     (slice "memo" "いろいろ" "https://maku77.github.io/memo/")
+     (slice "android" "Android" "https://maku77.github.io/android/")
+     (slice "ansible" "Ansible" "https://maku77.github.io/ansible/")
+     (slice "blender" "Blender" "https://maku77.github.io/blender/")
+     (slice "cpp" "C/C++" "https://maku77.github.io/cpp/")
+     (slice "docker" "Docker" "https://maku77.github.io/docker/")
+     (slice "git" "Git" "https://maku77.github.io/git/")
+     (slice "golang" "Go言語" "https://maku77.github.io/go/")
+     (slice "gradle" "Gradle" "https://maku77.github.io/gradle/")
+     (slice "web" "HTML/CSS" "https://maku77.github.io/web/")
+     (slice "hugo" "Hugo" "https://maku77.github.io/hugo/")
+     (slice "java" "Java" "https://maku77.github.io/java/")
+     (slice "js" "JavaScript" "https://maku77.github.io/js/")
+     (slice "kotlin" "Kotlin" "https://maku77.github.io/kotlin/")
+     (slice "linux" "Linux/Shell" "https://maku77.github.io/linux/")
+     (slice "mac" "Mac" "https://maku77.github.io/mac/")
+     (slice "middleman" "Middleman" "https://maku77.github.io/middleman/")
+     (slice "mt" "Meta Trader" "https://maku77.github.io/mt/")
+     (slice "nodejs" "Node.js" "https://maku77.github.io/nodejs/")
+     (slice "octave" "Octave" "https://maku77.github.io/octave/")
+     (slice "p4" "Perforce" "https://maku77.github.io/p4/")
+     (slice "perl" "Perl" "https://maku77.github.io/perl/")
+     (slice "php" "PHP" "https://maku77.github.io/php/")
+     (slice "python" "Python" "https://maku77.github.io/python/")
+     (slice "r" "R" "https://maku77.github.io/r/")
+     (slice "ruby" "Ruby" "https://maku77.github.io/ruby/")
+     (slice "sass" "Sass" "https://maku77.github.io/sass/")
+     (slice "sed" "sed/awk" "https://maku77.github.io/sed/")
+     (slice "sql" "SQL" "https://maku77.github.io/sql/")
+     (slice "tradestation" "トレードステーション" "https://maku77.github.io/tradestation/")
+     (slice "vagrant" "Vagrant" "https://maku77.github.io/vagrant/")
+     (slice "vba" "VBA" "https://maku77.github.io/vba/")
+     (slice "vim" "Vim" "https://maku77.github.io/vim/")
+     (slice "windows" "Windows" "https://maku77.github.io/windows/")
+}}
+
+{{ $currentCategory := .Section }}
+<nav class="navigation">
+  <div class="navigation__header">カテゴリ一覧</div>
+  <ul>
+    {{- range $val := $categories }}
+      {{- $path := index $val 0 }}
+      {{- $label := index $val 1 }}
+      {{- $url := index $val 2 }}
+      <li><a class="navigation__item {{ if eq $currentCategory $path }}navigation__item--focused{{ end }}" href="{{ $url }}">{{ $label }}</a>
+    {{- end }}
+  </ul>
+</nav>

@@ -1,20 +1,11 @@
 :root {
+  // 基準となるフォントサイズは下記を想定すること
+  // font-size: 1rem;
+
   // Custom properties
-  --s1: 0.5rem;
+  --s1: 1rem;
+  --s2: calc(var(--s1) * 1.5);
 }
-
-$COLOR_PAGE_TITLE: #fdd;
-$COLOR_PAGE_TITLE_BG: darkred;
-$COLOR_PAGE_TITLE_CATEGORY: #faa;
-
-$COLOR_TEXT_LIGHT: gray;
-
-$COLOR_LINK: #36f;
-$COLOR_LINK_VISITED: #03c;
-$COLOR_LINK_HOVER_BG: #def;
-$COLOR_LINK_FOCUS_BG: #fdd;
-
-@import "blocks";
 
 * {
   margin: 0;
@@ -22,9 +13,16 @@ $COLOR_LINK_FOCUS_BG: #fdd;
   box-sizing: border-box;
 }
 
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.1rem; }
+
 html {
   font-size: 100%;
   font-family: 'ヒラギノ丸ゴ ProN W4', 'Hiragino Maru Gothic ProN';
+  color: $COLOR_TEXT;
   line-height: 1.7;
   word-wrap: break-word;
   -webkit-text-size-adjust: 100%;  // Keep font size when lotating screen in Android devices
@@ -52,3 +50,4 @@ a {
 ul {
   padding-left: 3em;
 }
+

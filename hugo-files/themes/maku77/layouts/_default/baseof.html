@@ -7,13 +7,25 @@
   <title>{{ $pageTitle }}</title>
   {{ partial "head/analytics" . -}}
   {{ partial "head/ogp" . -}}
-  {{ $style := resources.Get "css/main.scss" | toCSS | minify | fingerprint -}}
+  {{ $style := resources.Get "css/all.scss" | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ partialCached "head/favicon" . -}}
   {{ block "head" . }}{{ end -}}
 </head>
 <body>
-{{- block "header" . }}{{ end }}
-{{- block "article" . }}article ブロックが見つかりません。{{ end }}
+
+  <div class="l-pageHeader">
+    {{- block "header" . }}{{ end }}
+  </div>
+
+  <div class="l-withSidebar">
+    <div class="l-withSidebar__content">
+      {{- block "article" . }}article ブロックが見つかりません。{{ end }}
+    </div>
+    <div class="l-withSidebar__sidebar">
+      {{ partial "blocks/navigation" . }}
+    </div>
+  </div>
+
 </body>
 </html>
