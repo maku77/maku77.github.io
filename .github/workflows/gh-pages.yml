@@ -22,21 +22,21 @@ jobs:
       - name: Build with Jekyll
         run: JEKYLL_ENV=production bundle exec jekyll build
 
-      # - name: Install Hugo
-      #   uses: peaceiris/actions-hugo@v2
-      #   with:
-      #     hugo-version: '0.101.0'
-      #     extended: true  # Enable scss
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.101.0'
+          extended: true  # Enable scss
 
-      # - name: Build with Hugo
-      #   run: hugo --minify  # Default destination is public
-      #   working-directory: hugo-files
+      - name: Build with Hugo
+        run: hugo --minify --disableKinds home,section,taxonomy,term
+        working-directory: hugo-files
 
-      # - name: Merge build results without overriding
-      #   run: cp -RTn hugo-files/public _site
+      - name: Merge build results without overriding
+        run: cp -RTn hugo-files/public _site
 
-      # - name: Rename and copy Hugo's sitemap.xml
-      #   run: cp hugo-files/public/sitemap.xml _site/sitemap-hugo.xml
+      - name: Rename and copy Hugo's sitemap.xml
+        run: cp hugo-files/public/sitemap.xml _site/sitemap-hugo.xml
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
