@@ -43,7 +43,7 @@
       {{- $path := index $val 0 }}
       {{- $label := index $val 1 }}
       {{- $url := index $val 2 }}
-      <li><a class="navigation__item {{ if eq $currentCategory $path }}navigation__item--focused{{ end }}" href="{{ $url }}">{{ $label }}</a>
+      <li><a class="navigation__item{{ if eq $currentCategory $path }} navigation__item--focused{{ end }}" href="{{ $url }}">{{ $label }}</a>
     {{- end }}
   </ul>
 </nav>
