@@ -1,16 +1,18 @@
 .snsButtons {
+  font-size: 0; // ボタン間のスペース文字による隙間をなくす
 
   &__icon {
     display: inline-block;
     width: 35px;
     height: 35px;
     padding: 6px;
+    margin-left: 6px;
     border-radius: 20px;
 
     &:hover {
       transition-duration: 0.5s;
       transform: rotateX(360deg);
-      /* opacity: 0.8; */
+      // opacity: 0.8;
     }
 
     > svg {

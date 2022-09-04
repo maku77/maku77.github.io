@@ -1,5 +1,6 @@
 ---
-title: "ファイルからの読み出し／ファイルへの書き込みを行う (os, io)"
+title: "Golang でファイルを読み書きする (os, io)"
+linkTitle: "ファイルを読み書きする (os, io)"
 url: "p/6eimpsv/"
 permalink: "p/6eimpsv/"
 date: "2017-09-08"
@@ -223,4 +224,6 @@ func main() {
 	}
 }
 ```
+
+- 参考: [Golang で JSON 形式の文字列やファイルを扱う (encoding/json)](/p/dsbs9p5/)
 

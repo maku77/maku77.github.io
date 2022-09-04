@@ -51,7 +51,8 @@ Go の文法
 
 Go の標準パッケージ <!-- lib -->
 ----
-* [ファイルからの読み出し／ファイルへの書き込みを行う (os, io)](/p/6eimpsv/)
+* [ファイルを読み書きする (os, io)](/p/6eimpsv/)
+* [JSON 形式の文字列やファイルを扱う (encoding/json)](/p/dsbs9p5/)
 * [テンプレート機能を使用する (text/template, html/template)](/p/z8behko/)
 * [時刻データを扱う (time)](/p/sy58beh/)
 * [ベンチマークを行う (testing.B)](/p/29dgjnq/)

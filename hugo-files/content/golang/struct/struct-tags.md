@@ -112,5 +112,5 @@ type Book struct {
 }
 ```
 
-- 参考: https://pkg.go.dev/encoding/json#Marshal
+- 参考: [Golang で JSON 形式の文字列やファイルを扱う](/p/dsbs9p5/)
 
