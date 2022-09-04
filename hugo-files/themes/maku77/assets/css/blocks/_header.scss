@@ -23,7 +23,7 @@
     font-size: 1.1rem;
     a {
       color: $COLOR_PAGE_TITLE_CATEGORY;
-      background: none;
+      background: none !important // マウスホバー時に背景色が変わらないように
     }
   }
 

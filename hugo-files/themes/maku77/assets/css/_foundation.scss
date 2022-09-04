@@ -32,13 +32,14 @@ html {
 a {
   text-decoration: none;
   font-weight: bolder;
+
   &:link { // 未訪問
     color: $COLOR_LINK;
   }
   &:visited { // 訪問済
     color: $COLOR_LINK_VISITED;
   }
-  &:hover { /* マウスフォーカス */
+  &:hover:not(:has(img, svg)) { /* マウスフォーカス */
     background-color: $COLOR_LINK_HOVER_BG;
     text-decoration: none;
   }
@@ -63,8 +64,8 @@ code {
   // 文中で単独で code を使ったときだけ code の背景色を設定する。
   :not(pre) > & {
     background: $COLOR_CODE_BG;
+    padding: 0.2em 0.3em;
   }
-  padding: 0.2em 0.3em;
   border-radius: 0.2em;
 }
 
@@ -88,6 +89,10 @@ pre {
     white-space: pre-wrap;
     tab-size: 2;
     font-size: 80%;
+  }
+
+  li & {
+    margin: 0.5em 0;
   }
 }
 
