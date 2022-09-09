@@ -1,5 +1,6 @@
 ---
-title: "Go 言語で環境変数を扱う (os.Getenv, os.LookupEnv)"
+title: "Golang で環境変数を扱う (os.Getenv, os.LookupEnv)"
+linkTitle: "環境変数を扱う (os.Getenv, os.LookupEnv)"
 url: "p/4ox6dmu/"
 date: "2022-08-13"
 tags: ["Golang"]

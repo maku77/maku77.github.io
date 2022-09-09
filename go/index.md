@@ -51,6 +51,7 @@ Go の文法
 
 Go の標準パッケージ <!-- lib -->
 ----
+* [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
 * [ファイルを読み書きする (os, io)](/p/6eimpsv/)
 * [JSON 形式の文字列やファイルを扱う (encoding/json)](/p/dsbs9p5/)
 * [テンプレート機能を使用する (text/template, html/template)](/p/z8behko/)
