@@ -1,520 +1,124 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="天才星人まくの Go 言語ノート">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/p/goruwy4/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
-
-  <meta property="og:description" content="天才星人まくの Go 言語ノート">
-
-<meta property="fb:app_id"  content="447708168769292" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
-
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-63069513-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-  <meta property="og:title" content="HTTP サーバーを作成する (net/http) | まくまくGo言語ノート" />
-  <title>HTTP サーバーを作成する (net/http) - まくまくGo言語ノート</title>
-
-  <!-- Ad (Google) -->
-  
-</head>
-<body>
-
-<div class="xPageHeader">
-  <a href="/go/">
-    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
-  </a>
-  <a href="/go/">
-    <div class="xPageHeader_category">
-    まくまくGo言語ノート
-    </div>
-  </a>
-  <div class="xPageHeader_title">HTTP サーバーを作成する (net/http)</div>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2022-08-20</div>
-</div>
-
-  
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      <!-- SNS ボタン（上） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： HTTP サーバーを作成する (net/http)&url=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-
-      <!-- 概要 -->
-      
-
-      <div class="xWidget">
-        
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="8099671242"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-      </div>
-
-      <div class="xContent">
-        <!-- 本文 -->
-        <p>Hugo 標準ライブラリの <a href="https://pkg.go.dev/net/http">net/http パッケージ</a> (<a href="https://cs.opensource.google/go/go/+/master:src/net/http/">src</a>) は、HTTP クライアント／サーバーを作成するためのパッケージです。
-ここでは、この <code class="language-plaintext highlighter-rouge">net/http</code> パッケージを使って、簡単な Web サーバーを起動してみます。</p>
-
-<h2 id="最小限の-http-サーバーを作る">最小限の HTTP サーバーを作る</h2>
-
-<h3 id="全体のコード">全体のコード</h3>
-
-<h4 id="maingo">main.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="p">(</span>
-	<span class="s">"io"</span>
-	<span class="s">"log"</span>
-	<span class="s">"net/http"</span>
-<span class="p">)</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c">// ハンドラー関数を定義する</span>
-	<span class="n">h1</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-1</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="n">h2</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-2</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
-	<span class="p">}</span>
-
-	<span class="c">// パスとハンドラー関数を結びつける</span>
-	<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">h1</span><span class="p">)</span>
-	<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/foo"</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>
-
-	<span class="c">// Web サーバーを起動する</span>
-	<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">ListenAndServe</span><span class="p">(</span><span class="s">":8080"</span><span class="p">,</span> <span class="no">nil</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>このプログラムを起動すると、簡単な Web サーバーが起動します。
-Web ブラウザなどで、<code class="language-plaintext highlighter-rouge">http://localhost:8080</code>にアクセスすると、<code class="language-plaintext highlighter-rouge">Hello-1</code> というレスポンスを返します。
-<code class="language-plaintext highlighter-rouge">http://localhost:8080/foo/</code> にアクセスすると、<code class="language-plaintext highlighter-rouge">Hello-2</code> というレスポンスを返します。</p>
-
-<p>サーバーを停止するときは、<kbd>Ctrl + C</kbd> を入力します。</p>
-
-<h3 id="コードの説明">コードの説明</h3>
-
-<p>Web サーバーにアクセスしたときに呼び出されるハンドラー関数は、次のようなシグネチャの関数として実装します。
-<code class="language-plaintext highlighter-rouge">http.ResponseWrite</code> と <code class="language-plaintext highlighter-rouge">http.Request</code> を受け取る関数です。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type HandlerFunc func(ResponseWriter, *Request)
-</code></pre></div></div>
-
-<p>今回は次のようなハンドラー関数を定義しています。
-レスポンスの内容（テキスト）を <code class="language-plaintext highlighter-rouge">http.ResponseWriter</code> に書き込むときには、<code class="language-plaintext highlighter-rouge">io.WriteString</code> や <code class="language-plaintext highlighter-rouge">fmt.Printf</code> を使用できます。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h1</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-1</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="n">h2</span> <span class="o">:=</span> <span class="k">func</span><span class="p">(</span><span class="n">w</span> <span class="n">http</span><span class="o">.</span><span class="n">ResponseWriter</span><span class="p">,</span> <span class="n">_</span> <span class="o">*</span><span class="n">http</span><span class="o">.</span><span class="n">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">io</span><span class="o">.</span><span class="n">WriteString</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="s">"Hello-2</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><a href="https://pkg.go.dev/net/http#HandleFunc">http.HandleFunc 関数</a> を使って、ハンドラー関数を結びつけます。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">h1</span><span class="p">)</span>
-<span class="n">http</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"/foo"</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>あとは、<a href="https://pkg.go.dev/net/http#ListenAndServe">http.ListenAndServe 関数</a> で特定のアドレス（＋ポート）で待ち受けを開始します。
-ここではポート番号 8080 だけを指定しているため、<code class="language-plaintext highlighter-rouge">localhost:8080</code> で待ち受けることになります。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">http</span><span class="o">.</span><span class="n">ListenAndServe</span><span class="p">(</span><span class="s">":8080"</span><span class="p">,</span> <span class="no">nil</span><span class="p">)</span>
-</code></pre></div></div>
-
-
-      </div>
-
-      <!-- Ad (楽天) -->
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-
-      <!-- SNS ボタン（下） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： HTTP サーバーを作成する (net/http)&url=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/goruwy4/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-      <div class="xArticle_up">
-        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
-      </div>
-
-    </div>
-
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/mac/">Mac</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/mt/">Meta Trader</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li><a href="/r/">R</a>
-        <li><a href="/ruby/">Ruby</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2022-08-20</div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-$(function() {
-  var $content = $('.xContent');
-  // 外部リンクを必ず新しいタブで開く
-  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
-  // 外部リンクにクラス属性を付加する
-  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
-});
-</script>
-
-
-</body>
-</html>
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Golang で HTTP サーバーを作成する (net/http) - まくまく Golang ノート</title><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script>
+<link rel=icon sizes="16x16 32x32 48x48 64x64" href=../../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../../assets/img/favicon/180x180.png><script async src="https://www.googletagmanager.com/gtag/js?id=UA-63069513-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-63069513-1")</script><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="Golang で HTTP サーバーを作成する (net/http) - まくまく Golang ノート"><meta property="og:type" content="website"><meta property="og:url" content="https://maku77.github.io/p/goruwy4/"><meta property="og:locale" content="ja_JP"><meta property="og:description" content="Hugo 標準ライブラリの net/http パッケージ (src) は、HTTP クライアント／サーバーを作成するためのパッケージです。 ここでは、この net/http パッケージを使って、簡単な Web サーバーを実装してみます。
+最小限の HTTP サーバーを作る main.go package main import ( &#34;log&#34; &#34;net/http&#34; ) func main() { // ポート番号 8080 で待ち受けを開始 log.Fatal(http.ListenAndServe(&#34;:8080&#34;, nil)) } これがおそらく Golang における最小の HTTP サーバー実装です。 http.ListenAndServe 関数 で、指定したアドレスとポート番号で待ち受けを開始しています。 ここではポート番号 8080 だけを指定しているため、localhost:8080 で待ち受けることになります。
+☝️ log.Fatal で囲んでいるのはなぜ？ http.ListenAndServe 関数はサーバーの起動に失敗すると error オブジェクトを返します。 log.Fatal 関数で囲んでいるのは、エラーが発生した場合にその内容を出力してから終了するためです。 例えば、サーバーを 2 回続けて起動しようとしたときに、ポート番号が使用中であることを表示してくれます。 逆にサーバーの起動に成功した場合は、http.ListenAndServe 関数は戻ってこないので、log.Fatal 関数が実行されることはありません。 サーバーを Ctrl + C で終了したときも、log.Fatal 関数は実行されません。 このイディオムは、net/http パッケージのドキュメントでも使われています。 go run main."><link rel=stylesheet href=../../css/all.min.0e28a6135a913db9d1e079c1bcf6bacf70b09b75a0aacc665b65c2ee5bd66ce1.css></head><body><div class=l-pageHeader><header class=header><a href=../../go/><img class=header__icon src=../../p/axaju5e/_index.svg></a><div class=header__right><div class=header__category><a href=../../go/>まくまく Golang ノート</a></div><div class=header__title>Golang で HTTP サーバーを作成する (net/http)</div></div></header></div><div class=l-withSidebar><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&text=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&t=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&title=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2022-09-12</time></div></div><div class=article__body><p>Hugo 標準ライブラリの <a href=https://pkg.go.dev/net/http>net/http パッケージ</a> (<a href=https://cs.opensource.google/go/go/+/master:src/net/http/>src</a>) は、HTTP クライアント／サーバーを作成するためのパッケージです。
+ここでは、この <code>net/http</code> パッケージを使って、簡単な Web サーバーを実装してみます。</p><h2 id=最小限の-http-サーバーを作る>最小限の HTTP サーバーを作る</h2><figure class=codeBlock><figcaption class=codeBlock__title>main.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;net/http&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// ポート番号 8080 で待ち受けを開始
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=kc>nil</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>これがおそらく Golang における最小の HTTP サーバー実装です。
+<a href=https://pkg.go.dev/net/http#ListenAndServe>http.ListenAndServe 関数</a> で、指定したアドレスとポート番号で待ち受けを開始しています。
+ここではポート番号 <code>8080</code> だけを指定しているため、<strong><code>localhost:8080</code></strong> で待ち受けることになります。</p><div class=note><span class=note__title>☝️ log.Fatal で囲んでいるのはなぜ？</span>
+<span class=note__body><code>http.ListenAndServe</code> 関数はサーバーの起動に失敗すると <code>error</code> オブジェクトを返します。
+<code>log.Fatal</code> 関数で囲んでいるのは、エラーが発生した場合にその内容を出力してから終了するためです。
+例えば、サーバーを 2 回続けて起動しようとしたときに、ポート番号が使用中であることを表示してくれます。
+逆にサーバーの起動に成功した場合は、<code>http.ListenAndServe</code> 関数は戻ってこないので、<code>log.Fatal</code> 関数が実行されることはありません。
+サーバーを <kbd>Ctrl + C</kbd> で終了したときも、<code>log.Fatal</code> 関数は実行されません。
+このイディオムは、<code>net/http</code> パッケージのドキュメントでも使われています。</span></div><p><code>go run main.go</code> でプログラムを起動してから、Web ブラウザで <code>http://localhost:8080/</code> にアクセスするとレスポンスを確認できます。
+ただし、まだ何もコンテンツを返していないので、<code>404 page not found</code> エラーが返ってきます。
+サーバーを停止するときは、<kbd>Ctrl + C</kbd> と入力します。</p><h2 id=ハンドラー関数を登録する-httphandlefunc>ハンドラー関数を登録する (http.HandleFunc)</h2><p>Web サーバーがコンテンツを返すようにするには、リクエスト時の URL とレスポンスの内容を対応づける必要があります。
+ここでは、次のようにコンテンツを返すようにしてみます。</p><ul><li><code>http://localhost:8080/foo/</code> へのアクセス → <code>Hello-1</code> というレスポンスを返す</li><li><code>http://localhost:8080/bar/</code> へのアクセス → <code>Hello-2</code> というレスポンスを返す</li></ul><p>次のサンプルコードでは、特定のパスにアクセスされたときに呼び出されるハンドラー関数を設定しています。</p><figure class=codeBlock><figcaption class=codeBlock__title>main.go（全体のコード）</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;io&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;net/http&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// ハンドラー関数を定義する
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>handler1</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;Hello-1\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>handler2</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;Hello-2\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// パスとハンドラー関数を結びつける
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>http</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/foo/&#34;</span><span class=p>,</span> <span class=nx>handler1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>http</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/bar/&#34;</span><span class=p>,</span> <span class=nx>handler2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// Web サーバーを起動する
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=kc>nil</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>HTTP リクエストを処理するハンドラー関数は、次のようなシグネチャの関数として実装します。
+<strong><code>http.ResponseWriter</code></strong> と <strong><code>*http.Request</code></strong> を受け取る関数です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>HandlerFunc</span> <span class=kd>func</span><span class=p>(</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=o>*</span><span class=nx>Request</span><span class=p>)</span>
+</span></span></code></pre></div><p>今回は次のようなハンドラー関数を定義しています。
+レスポンスの内容（テキスト）を <code>http.ResponseWriter</code> に書き込むときには、<strong><code>io.WriteString</code></strong> や <strong><code>fmt.Fprint</code></strong>、<strong><code>fmt.Fprintf</code></strong> などを使用できます（これは、<code>http.ResponseWriter</code> が <code>io.Writer</code> インタフェースを実装しており、それを受け取る関数に渡せるようになっているからです）。
+2 番目のパラメーター (<code>*http.Request</code>) は参照していないので、変数名を <code>_</code> にしています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>handler1</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;Hello-1\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// fmt.Fprint(w, &#34;Hello-1\n&#34;)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>handler2</span> <span class=o>:=</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;Hello-2\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// fmt.Fprint(w, &#34;Hello-2\n&#34;)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span></code></pre></div><p>HTTP リクエストを受信したときにこれらのハンドラー関数が呼び出されるようにするには、<a href=https://pkg.go.dev/net/http#HandleFunc>http.HandleFunc 関数</a> を使用します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>http</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/foo/&#34;</span><span class=p>,</span> <span class=nx>handler1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>http</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/bar/&#34;</span><span class=p>,</span> <span class=nx>handler2</span><span class=p>)</span>
+</span></span></code></pre></div><h2 id=任意のオブジェクトをハンドラーとして登録する-httphandle>任意のオブジェクトをハンドラーとして登録する (http.Handle)</h2><p>前述の例では、<code>http.HandleFunc</code> 関数でハンドラー関数を登録しましたが、代わりに <a href=https://pkg.go.dev/net/http#Handle>http.Handle 関数</a> を使うと、任意のオブジェクトをハンドラーとして登録することができます。
+このオブジェクトは Web サーバーの起動中は破棄されないので、ステート（状態）を持ったハンドラーとして使用できます。
+ハンドラーとなる型は、次のようなシグネチャのメソッドを持っている必要があります（<code>http.Handler</code> インタフェースとして定義されています）。
+実装方法は、前述のハンドラー関数と同様です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nf>ServeHTTP</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>r</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span>
+</span></span></code></pre></div><p>次の <code>countHandler</code> は、呼び出されるたびに自身の <code>count</code> フィールドをインクリメントし、その値をレスポンスとして返します。</p><figure class=codeBlock><figcaption class=codeBlock__title>handler.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;net/http&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;sync&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// カウンターを持つ HTTP リクエストハンドラー
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>type</span> <span class=nx>countHandler</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>mutex</span> <span class=nx>sync</span><span class=p>.</span><span class=nx>Mutex</span> <span class=c1>// guards count
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>count</span> <span class=kt>int</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>h</span> <span class=o>*</span><span class=nx>countHandler</span><span class=p>)</span> <span class=nf>ServeHTTP</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>r</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>h</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>Lock</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=k>defer</span> <span class=nx>h</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>Unlock</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=nx>h</span><span class=p>.</span><span class=nx>count</span><span class=o>++</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;Count: %d\n&#34;</span><span class=p>,</span> <span class=nx>h</span><span class=p>.</span><span class=nx>count</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>このハンドラーを登録するには、次のようにします。</p><figure class=codeBlock><figcaption class=codeBlock__title>main.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;net/http&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>http</span><span class=p>.</span><span class=nf>Handle</span><span class=p>(</span><span class=s>&#34;/count&#34;</span><span class=p>,</span> <span class=nb>new</span><span class=p>(</span><span class=nx>countHandler</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=kc>nil</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p><code>http://localhost:8080/count/</code> にアクセスして、次のようなレスポンスが返って来れば成功です。
+Count の値はブラウザをリロードするたびに 1 つずつ増えていきます。</p><pre tabindex=0><code>Count: 1
+</code></pre><h2 id=ハンドラーはどこに登録されているのか>ハンドラーはどこに登録されているのか？</h2><p>これまでのサンプルコードでは、ハンドラーを登録するときに、<code>http.HandleFunc</code> 関数や <code>http.Handle</code> 関数を使ってきましたが、これらは単なる関数です。
+これらに渡したハンドラー関数やハンドラーオブジェクトが、どのように Web サーバーと結び付けられているのか疑問に感じたかもしれません。
+その謎は、<code>net/http</code> パッケージのコードを覗いてみると分かります。</p><figure class=codeBlock><figcaption class=codeBlock__title>net/http/server.go（抜粋）</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>Handle</span><span class=p>(</span><span class=nx>pattern</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>handler</span> <span class=nx>Handler</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>DefaultServeMux</span><span class=p>.</span><span class=nf>Handle</span><span class=p>(</span><span class=nx>pattern</span><span class=p>,</span> <span class=nx>handler</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>HandleFunc</span><span class=p>(</span><span class=nx>pattern</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>handler</span> <span class=kd>func</span><span class=p>(</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=o>*</span><span class=nx>Request</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>DefaultServeMux</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=nx>pattern</span><span class=p>,</span> <span class=nx>handler</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>どちらの関数も、内部的には <strong><code>DefaultServeMux</code></strong> という <a href=https://pkg.go.dev/net/http#ServeMux>http.ServeMux</a> オブジェクトにハンドラーを登録しています。
+<code>ServeMux</code> は、ハンドラーを束ねるハンドラーです（Composite パターン）。
+そして、次のように第 2 引数を <code>nil</code> にして Web サーバーを起動すると、この <code>DefaultServeMux</code> がハンドラーとして使われるようになっています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=kc>nil</span><span class=p>)</span>
+</span></span></code></pre></div><p>第 2 引数で別のハンドラーオブジェクトを指定してしまうと、<code>http.HandleFunc</code> 関数や <code>http.Handle</code> 関数で登録したハンドラーは呼び出されなくなってしまうので注意してください。</p><p>次のようにすれば、独自の <code>ServeMux</code> オブジェクトを作成して、Web サーバーの待ち受けを開始することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// 独自の ServeMux を作成してハンドラーを登録していく
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>mux</span> <span class=o>:=</span> <span class=nx>http</span><span class=p>.</span><span class=nf>NewServeMux</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=nx>mux</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/foo/&#34;</span><span class=p>,</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;I am foo&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>})</span>
+</span></span><span class=line><span class=cl>	<span class=nx>mux</span><span class=p>.</span><span class=nf>HandleFunc</span><span class=p>(</span><span class=s>&#34;/bar/&#34;</span><span class=p>,</span> <span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>io</span><span class=p>.</span><span class=nf>WriteString</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=s>&#34;I am bar&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// Web サーバーの待ち受けを開始
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=nx>mux</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div><div class=article__footer><div class=article__date><time class=pageDate>2022-09-12</time></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&text=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&t=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fgoruwy4%2f&title=Golang%20%e3%81%a7%20HTTP%20%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%92%e4%bd%9c%e6%88%90%e3%81%99%e3%82%8b%20%28net%2fhttp%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div></div></article></div><div class=l-withSidebar__sidebar><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku77.github.io/ansible/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku77.github.io/mac/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://maku77.github.io/mt/>Meta Trader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class=navigation__item href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class=navigation__item href=https://maku77.github.io/r/>R</a><li><a class=navigation__item href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav></div></div></body></html>
