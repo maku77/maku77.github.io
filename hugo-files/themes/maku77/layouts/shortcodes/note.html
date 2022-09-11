@@ -1,0 +1,6 @@
+{{- $title := .Get "title" | default "ワンポイント" -}}
+{{- $body := .Inner | markdownify -}}
+<div class="note">
+  <span class="note__title">{{ emojify ":point_up:" }} {{ $title }}</span>
+  <span class="note__body">{{ $body }}</span>
+</div>
