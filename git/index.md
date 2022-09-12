@@ -20,18 +20,6 @@ GitHub
 * [GitHub で管理している社内リポジトリをトピックで分類する (topics)](github/topics.html)
 * [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
 
-GitLab（GitHub クローン）
-====
-* [GitLab をインストールする](gitlab/install.html)
-* [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
-* [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
-* [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
-* [GitLab からの通知メールを設定する](gitlab/email-settings.html)
-* [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
-* [GitLab 用 nginx サーバの設定ファイルの場所](gitlab/nginx-conf-path.html)
-* [GitLab が使用する Unicorn 用のポート番号を変更する](gitlab/unicorn-port.html)
-* [GitLab サーバのアクセスログを調べる](gitlab/access-log.html)
-
 Git
 ====
 
@@ -46,15 +34,15 @@ Git
 設定
 ---
 * [git config で設定すべき一般的な設定項目まとめ](settings/common.html)
-* [Git の local 設定と global 設定と system 設定の違い](settings/local-global-system.html)
+* [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
+* [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](/p/msds6iv/)
 * [git config による設定を削除する (config --unset)](settings/unset.html)
 * [コミット時に使用するユーザ名とメールアドレスを設定する (user.name, user.email)](settings/user.html)
 * [コミット、チェックアウト時に改行コードを自動変換する (core.autocrlf, core.safecrlf)](settings/autocrlf.html)
-* [コミット時にコメント記述に使用するエディタを設定する (core.editor)](settings/editor.html)
+* [コミット時にコメント記述に使用するエディタを設定する (core.editor)](/p/cqjv7wv/)
 * [Git コマンドの出力をカラフルにする (color.ui)](settings/color.html)
 * [Git コマンドのエイリアスを作成する (alias.xxx)](settings/alias.html)
 * [Git コマンドで使用するプロキシを設定する (http.proxy)](settings/proxy.html)
-* [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](settings/show-origin.html)
 * [Windows の git diff で改行コードが "^M" で表示される問題を解決する (core.whitespace)](settings/cr-at-eol.html)
 * [git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)](settings/garbling.html)
 * [Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)](settings/permission-diff.html)
@@ -62,6 +50,7 @@ Git
 * [bash のプロンプトにカレントブランチ名を表示する (PS1)](settings/branch-name-on-prompt.html)
 * [msysGit で "terminal is not fully functional" と怒られる場合の対策](settings/terminal-error.html)
 * [git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)](settings/https-instead-of-git.html)
+* [Git ユーザーをディレクトリごとに自動で切り替える (.gitconfig, includeIf)](/p/hxyiu7g/)
 
 コミット／履歴の書き換え
 ---
@@ -160,6 +149,18 @@ hook スクリプト
 * [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
 * [git pull の引数省略の仕組み](other/remote-complement.html)
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
+
+GitLab（GitHub クローン）
+====
+* [GitLab をインストールする](gitlab/install.html)
+* [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
+* [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
+* [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
+* [GitLab からの通知メールを設定する](gitlab/email-settings.html)
+* [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
+* [GitLab 用 nginx サーバの設定ファイルの場所](gitlab/nginx-conf-path.html)
+* [GitLab が使用する Unicorn 用のポート番号を変更する](gitlab/unicorn-port.html)
+* [GitLab サーバのアクセスログを調べる](gitlab/access-log.html)
 
 オワコン情報 (Subversion とか CVS とか）
 ====
