@@ -183,19 +183,6 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <li><a href="/p/ias8kt3/">GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)</a></li>
 </ul>
 
-<h1 id="gitlabgithub-クローン">GitLab（GitHub クローン）</h1>
-<ul>
-  <li><a href="gitlab/install.html">GitLab をインストールする</a></li>
-  <li><a href="gitlab/start-service.html">GitLab 関連サービスを起動／停止する</a></li>
-  <li><a href="gitlab/backup-and-restore.html">GitLab のデータをバックアップ／リストアする</a></li>
-  <li><a href="gitlab/service-list.html">起動中の GitLab 関連サービスを調べる</a></li>
-  <li><a href="gitlab/email-settings.html">GitLab からの通知メールを設定する</a></li>
-  <li><a href="gitlab/change-hostname.html">GitLab リポジトリの Clone URL として表示されるホスト名を変更する</a></li>
-  <li><a href="gitlab/nginx-conf-path.html">GitLab 用 nginx サーバの設定ファイルの場所</a></li>
-  <li><a href="gitlab/unicorn-port.html">GitLab が使用する Unicorn 用のポート番号を変更する</a></li>
-  <li><a href="gitlab/access-log.html">GitLab サーバのアクセスログを調べる</a></li>
-</ul>
-
 <h1 id="git">Git</h1>
 
 <h2 id="基本">基本</h2>
@@ -210,15 +197,15 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <h2 id="設定">設定</h2>
 <ul>
   <li><a href="settings/common.html">git config で設定すべき一般的な設定項目まとめ</a></li>
-  <li><a href="settings/local-global-system.html">Git の local 設定と global 設定と system 設定の違い</a></li>
+  <li><a href="/p/af7q7n3/">Git 設定のスコープ (local/global/system) を理解する</a></li>
+  <li><a href="/p/msds6iv/">Git の設定値がどのファイルで設定されているか調べる (config –show-origin)</a></li>
   <li><a href="settings/unset.html">git config による設定を削除する (config –unset)</a></li>
   <li><a href="settings/user.html">コミット時に使用するユーザ名とメールアドレスを設定する (user.name, user.email)</a></li>
   <li><a href="settings/autocrlf.html">コミット、チェックアウト時に改行コードを自動変換する (core.autocrlf, core.safecrlf)</a></li>
-  <li><a href="settings/editor.html">コミット時にコメント記述に使用するエディタを設定する (core.editor)</a></li>
+  <li><a href="/p/cqjv7wv/">コミット時にコメント記述に使用するエディタを設定する (core.editor)</a></li>
   <li><a href="settings/color.html">Git コマンドの出力をカラフルにする (color.ui)</a></li>
   <li><a href="settings/alias.html">Git コマンドのエイリアスを作成する (alias.xxx)</a></li>
   <li><a href="settings/proxy.html">Git コマンドで使用するプロキシを設定する (http.proxy)</a></li>
-  <li><a href="settings/show-origin.html">Git の設定値がどのファイルで設定されているか調べる (config –show-origin)</a></li>
   <li><a href="settings/cr-at-eol.html">Windows の git diff で改行コードが “^M” で表示される問題を解決する (core.whitespace)</a></li>
   <li><a href="settings/garbling.html">git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)</a></li>
   <li><a href="settings/permission-diff.html">Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)</a></li>
@@ -226,6 +213,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <li><a href="settings/branch-name-on-prompt.html">bash のプロンプトにカレントブランチ名を表示する (PS1)</a></li>
   <li><a href="settings/terminal-error.html">msysGit で “terminal is not fully functional” と怒られる場合の対策</a></li>
   <li><a href="settings/https-instead-of-git.html">git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)</a></li>
+  <li><a href="/p/hxyiu7g/">Git ユーザーをディレクトリごとに自動で切り替える (.gitconfig, includeIf)</a></li>
 </ul>
 
 <h2 id="コミット履歴の書き換え">コミット／履歴の書き換え</h2>
@@ -336,6 +324,19 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <li><a href="file-permission.html">Git で管理しているファイルの実行権限（パーミッション）を変更する</a></li>
   <li><a href="other/remote-complement.html">git pull の引数省略の仕組み</a></li>
   <li><a href="git-two-factor-auth-error.html">二要素認証を設定した後に git コマンドが Authentication failed になる場合</a></li>
+</ul>
+
+<h1 id="gitlabgithub-クローン">GitLab（GitHub クローン）</h1>
+<ul>
+  <li><a href="gitlab/install.html">GitLab をインストールする</a></li>
+  <li><a href="gitlab/start-service.html">GitLab 関連サービスを起動／停止する</a></li>
+  <li><a href="gitlab/backup-and-restore.html">GitLab のデータをバックアップ／リストアする</a></li>
+  <li><a href="gitlab/service-list.html">起動中の GitLab 関連サービスを調べる</a></li>
+  <li><a href="gitlab/email-settings.html">GitLab からの通知メールを設定する</a></li>
+  <li><a href="gitlab/change-hostname.html">GitLab リポジトリの Clone URL として表示されるホスト名を変更する</a></li>
+  <li><a href="gitlab/nginx-conf-path.html">GitLab 用 nginx サーバの設定ファイルの場所</a></li>
+  <li><a href="gitlab/unicorn-port.html">GitLab が使用する Unicorn 用のポート番号を変更する</a></li>
+  <li><a href="gitlab/access-log.html">GitLab サーバのアクセスログを調べる</a></li>
 </ul>
 
 <h1 id="オワコン情報-subversion-とか-cvs-とか">オワコン情報 (Subversion とか CVS とか）</h1>
