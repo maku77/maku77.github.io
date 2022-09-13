@@ -1,6 +1,6 @@
 ---
-title: "Golang で HTTP サーバーを作成する (net/http)"
-linkTitle: "HTTP サーバーを作成する (net/http)"
+title: "Golang で HTTP サーバーを作成する (net/http, rs/cors)"
+linkTitle: "HTTP サーバーを作成する (net/http, rs/cors)"
 url: "p/goruwy4/"
 date: "2022-08-20"
 lastmod: "2022-09-12"
@@ -219,5 +219,98 @@ func main() {
 	// Web サーバーの待ち受けを開始
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }
+```
+
+
+CORS アクセス対応する
+----
+
+Web ブラウザ上で動作するクライアントサイド JavaScript から、別ドメインの Web サーバーにアクセスしてデータを取得するには、[CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 用のレスポンスヘッダーを返す必要があります。
+下記は、JSON データを返す簡単な Web サーバー実装です。
+
+{{< code lang="go" title="main.go（CORS 未対応）" >}}
+package main
+
+import (
+	"log"
+	"net/http"
+)
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte("{\"hello\": \"world\"}"))
+	})
+
+	log.Fatal(http.ListenAndServe(":8080", handler))
+}
+{{< /code >}}
+
+`http://localhost:8080/` にアクセスすると、`{"hello": "world"}` という JSON データが返ってくるはずなのですが、別ドメインの Web サーバーにより配信された JavaScript から次のようにアクセスすると、CORS ポリシーによりブラウザがアクセスをブロックしてしまいます。
+
+{{< code lang="js" title="クライアントサイド JS" >}}
+fetch('http://localhost:8080/')
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+{{< /code >}}
+
+アクセスがブロックされたことは、Web ブラウザのコンソールログを見るとわかります。
+
+> Access to fetch at 'http://localhost:8080/' from origin 'http://localhost:3000' has been __blocked by CORS policy__: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+Golang の [rs/cors パッケージ](https://pkg.go.dev/github.com/rs/cors) を使用すると、簡単に CORS 対応用の HTTP レスポンスヘッダーを返すことができます。
+
+{{< code lang="console" title="rs/cors の依存情報を追加" >}}
+$ go get github.com/rs/cors
+{{< /code >}}
+
+{{< code lang="go" title="main.go（CORS 対応版）" >}}
+package main
+
+import (
+	"log"
+	"net/http"
+
+	"github.com/rs/cors"
+)
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte("{\"hello\": \"world\"}"))
+	})
+
+	// CORS レスポンスヘッダーの追加
+	c := cors.Default()
+	handler := c.Handler(mux)
+
+	log.Fatal(http.ListenAndServe(":8080", handler))
+}
+{{< /code >}}
+
+追加したコードは、下記の部分です。
+
+```go
+c := cors.Default()
+handler := c.Handler(mux)
+```
+
+既存のハンドラー (`mux`) を、デフォルトの `cors.Cors` インスタンスが持つハンドラーでラップしています。
+これにより、次のようなクロスドメインアクセスを許可するレスポンスヘッダーが付加されるようになります。
+
+```yaml
+Access-Control-Allow-Origin: *
+```
+
+上記のように `cors.Default()` が返す `cors.Cors` インスタンスを使うと、すべてのドメインからの GET/POST アクセスを許可しますが、次のように独自の `cors.Cors` オブジェクトを作成して受け入れるドメインや HTTP メソッドを指定することができます。
+
+```go
+c := cors.New(cors.Options{
+	AllowedOrigins:   []string{"http://localhost:3000", "http://foo.com"},
+	AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete},
+	AllowCredentials: true,
+})
 ```
 

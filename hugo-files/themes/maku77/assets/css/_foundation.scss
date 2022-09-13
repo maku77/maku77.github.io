@@ -124,3 +124,19 @@ table {
   overflow-x: auto;
 }
 
+blockquote {
+  color: #555;
+  font-style: italic;
+  padding: 0 0.3em 0 0.5em;
+  border-left: solid 0.2em #555;
+
+  margin-left: 0;
+  @include screen-size-md { margin-left: 0.5em; }
+
+  blockquote {
+    margin-left: 0;
+    padding-right: 0;
+    margin: 0.5em 0;
+  }
+}
+
