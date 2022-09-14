@@ -34,7 +34,7 @@
     // h1 〜 h6 の上には広めにマージンを入れるが、
     // h2 の直後に h3 があるような場合は通常のマージンとする。
     > h1, h2:not(h1 + h2), h3:not(h2 + h3), h4:not(h3 + h4), h5:not(h4 + h5), h6:not(h5 + h6) {
-      margin-top: 2em;
+      margin-top: 1.5em;
     }
   }
 }

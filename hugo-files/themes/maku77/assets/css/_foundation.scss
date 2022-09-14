@@ -99,7 +99,9 @@ pre {
 }
 
 ul, ol {
-  padding-left: 3em;
+  padding-left: 1.5em;
+  @include screen-size-sm { padding-left: 2.0em }
+  @include screen-size-md { padding-left: 2.5em }
 }
 
 table {

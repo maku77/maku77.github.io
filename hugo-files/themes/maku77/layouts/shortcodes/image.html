@@ -1,0 +1,44 @@
+{{- $src := .Get "src" }}
+{{- $title := .Get "title" }}
+{{- $code := .Get "code" }}
+{{- $width := .Get "w" }}
+{{- $border := .Get "border" }}
+
+{{- $imageUrl := $src }}
+{{- /* Web 上の画像ファイル(URL)を指定すると $res は nil になることに注意 */}}
+{{- $res := .Page.Resources.GetMatch $src }}
+{{- /* img タグの height 属性用 */}}
+{{- $height := "auto" }}
+{{- $isSvg := strings.HasSuffix $src "svg" }}
+
+{{- if $res }}{{/* ローカルファイルの場合 */}}
+  {{- /* ページまたぎでリンク切れを防ぐおまじない */}}
+  {{- $src = $res.RelPermalink }}
+  {{- $imageUrl = $res.RelPermalink }}
+
+  {{- if not $isSvg }}
+    {{- if $width }}
+      {{- /* PNG/JPEG のリサイズ */}}
+      {{- $size := printf "%sx" $width }}
+      {{- $image_ := $res.Resize $size }}
+      {{- $imageUrl = $image_.RelPermalink }}
+      {{- $height = $image_.Height }}
+    {{- else }}
+      {{- /* PNG/JPEG のオリジナルサイズをそのまま使う */}}
+      {{- $width = $res.Width }}
+      {{- $height = $res.Height }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<figure class="image">
+  <a href="{{ $src }}" target="_blank">
+    <img style="{{ if eq $border "true" }}border: solid #ccc 2px;{{ end }}" width="{{ $width }}" height="{{ $height }}" src="{{ $imageUrl }}" alt="{{ $src }}" />
+  </a>
+  {{- if or $title $code }}
+    <figcaption class="image__caption">
+      {{- with $title }}図: {{ . }}{{ end }}
+      {{- with $code }} <span class="image__codeLink">≪<a href="{{ . }}">生成コード&#x1F4D6;</a>≫</span>{{ end -}}
+    </figcaption>
+  {{- end }}
+</figure>

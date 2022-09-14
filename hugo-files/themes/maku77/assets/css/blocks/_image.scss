@@ -1,0 +1,17 @@
+// キャプション付き画像
+.image {
+  display: block;
+  text-align: center;
+  img {
+    /* margin: 1rem auto 0.5rem auto; */
+    /* box-shadow: 0px 0px 3px 3px rgba(127, 127, 127, 0.5); */
+  }
+  .image__caption {
+    margin: 0.5rem 0 1rem 0;
+  }
+  .image__codeLink {
+    font-size: smaller;
+    a { font-weight: normal; }
+  }
+}
+
