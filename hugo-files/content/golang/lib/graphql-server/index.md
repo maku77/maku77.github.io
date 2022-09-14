@@ -1,8 +1,8 @@
 ---
-title: "GraphQL サーバーを作成する (gqlgen)"
+title: "Golang で GraphQL サーバーを作成する (gqlgen)"
 url: "p/v48adgi/"
-permalink: "p/v48adgi/"
 date: "2022-08-20"
+lastmod: "2022-09-15"
 tags: ["Golang", "GraphQL"]
 ---
 
@@ -31,9 +31,7 @@ $ go mod init example.com/myapp
 `gqlgen` コマンドは `github.com/99designs/gqlgen` という Go モジュールとして提供されています。
 Go 言語の慣例として、プロジェクトのビルドに必要なツールのモジュール依存情報は、__`tools.go`__ というファイルに記述すべしとされているので、次のような内容で作成しておきます（参考: [How can I track tool dependencies for a module?](https://github.com/golang/go/wiki/Modules#how-can-i-track-tool-dependencies-for-a-module)）。
 
-#### tools.go
-
-```go
+{{< code lang="go" title="tools.go" >}}
 //go:build tools
 
 package tools
@@ -41,7 +39,7 @@ package tools
 import (
 	_ "github.com/99designs/gqlgen"
 )
-```
+{{< /code >}}
 
 `go get` コマンドを実行して、プロジェクトの `go.mod` に `gqlgen` コマンド用のモジュール依存情報を追加します。
 指定可能なバージョンは [gqlgen の Release ページ](https://github.com/99designs/gqlgen/releases) で確認してください。
@@ -58,7 +56,7 @@ $ go run github.com/99designs/gqlgen version
 v0.17.14
 ```
 
-#### なぜ tools.go が必要？
+### なぜ tools.go が必要？
 
 `tools.go` ファイルがなくても、`go get` コマンドで `gqlgen` 関連の依存情報を追加することはできます。
 ただ、`go mod tidy` コマンドで依存情報を整理すると、Go コードから参照されていないモジュールの依存情報は `go.mod` ファイルから削除されてしまうので、何らかの Go コードで `gqlgen` コマンド用のモジュールをインポートしておかなければいけません。
@@ -102,9 +100,7 @@ __★__ が付いているのが `gqlgen init` で生成されたファイルで
 生成された GraphQL スキーマファイルを覗いてみると、どうやら TODO を管理する API のサンプルになっているようです。
 ルートクエリとして `todos`、mutation 用に `createTodo` が定義されています。
 
-#### graph/schema.graphqls
-
-```graphql
+{{< code lang="graphql" title="graph/schema.graphqls" >}}
 type Todo {
   id: ID!
   text: String!
@@ -129,13 +125,17 @@ input NewTodo {
 type Mutation {
   createTodo(input: NewTodo!): Todo!
 }
-```
+{{< /code >}}
 
 ちなみに、GraphQL スキーマファイルは、拡張子が __`.graphqls`__ であれば、複数のファイルに分割されていても大丈夫です（`gqlgen.yml` 設定ファイルで、`schema: [graph/*.graphqls]` のように指定されているからです）。
 
 ここで GraphQL サーバーを起動してみたいところですが、悲しいことに、スケルトンとして生成されたファイルはチュートリアル用で不完全なので、以下のようにリゾルバーの実装を少し修正する必要があります（サーバーの起動自体はできますが、クエリ時に panic が発生します）。
 
-#### graph/resolver.go
+
+GraphQL リゾルバーの実装
+----
+
+### graph/resolver.go
 
 `resolver.go` は、GraphQL リゾルバーのルート定義的なファイルです。
 GraphQL サーバーが利用する `Resolver` 構造体の型を定義しておきます。
@@ -157,7 +157,7 @@ type Resolver struct {
 肝心のリゾルバー関数の定義が見当たりませんが、それらは `graph/schema.resolvers.go` という別ファイルで定義するようになっています。
 Go 言語の仕様上、同じパッケージ内であればどのファイルで定義してもよいのですが、`graph/schema.graphqls` というスキーマファイル名に対応するリゾルバーファイル名になっているようです（このあたりのファイル構成は gqlgen のバージョンによって変わるかもしれません）。
 
-#### graph/schema.resolvers.go
+### graph/schema.resolvers.go
 
 mutation 操作用の `CreateTodo` 関数と、query 操作用の `Todos` 関数の実装が空っぽになっているので、次のような感じで実装します。
 
@@ -191,7 +191,7 @@ $ go run server.go
 
 Web ブラウザで `http://localhost:8080/` を開くと、次のように GraphiQL が起動して、任意のクエリをテストできます。
 
-![img-001.png](/go/lib/graphql-server/img-001.png){: .center }
+{{< image w="600" border="true" src="img-001.png" title="GraphiQL の画面" >}}
 
 初期状態では `Resolver` の `todos` スライスが空っぽなので、`todos` クエリをかけても何も返って来ません。
 次のように `createTodo` mutation で TODO を追加してから、
@@ -243,4 +243,36 @@ query findTodos {
 これでチュートリアル的な GraphQL サーバーの実装は完成です。
 上記の TODO 情報は、サーバーを起動している間のみ有効です。
 
+
+GraphQL サーバーを CORS 対応する
+----
+
+Web ブラウザ上で動作させる JavaScript（クライアントサイド JS）から、GraphQL サーバーにアクセスする場合、おそらく GraphQL サーバー側で CORS（クロスドメインアクセス）用の対応が必要になります。
+__`rs/cors`__ パッケージを使うと簡単に CORS 対応のための HTTP レスポンスを返すことができます。
+
+{{< code lang="console" title="rs/cors パッケージの依存を追加" >}}
+$ go get github.com/rs/cors
+{{< /code >}}
+
+具体的には、HTTP サーバーのミドルウェアとして、`cors.Cors` オブジェクトが提供するハンドラー実装を挟むようにします。
+
+{{< code lang="go" title="server.go（抜粋）" hl_lines="9-10" >}}
+// import "github.com/rs/cors"
+
+func main() {
+	// ...
+
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(
+		generated.Config{Resolvers: &graph.Resolver{}}
+	))
+	handler := cors.Default().Handler(srv) // ★CORS レスポンス対応
+	http.Handle("/query", handler)
+
+	log.Fatal(http.ListenAndServe(":"+port, nil))
+}
+{{< /code >}}
+
+CORS 対策はあくまで HTTP サーバーに必要なものであって、GraphQL サーバーを実装しているかどうかは本質的には関係ないことに注意してください。
+
+- 参考: [Golang で HTTP サーバーを作成する (net/http, rs/cors)](/p/goruwy4/)
 
