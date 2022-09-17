@@ -222,7 +222,44 @@ func main() {
 ```
 
 
-CORS アクセス対応する
+静的ファイルをホスティングする (http.FileServer)
+----
+
+ハンドラー実装として、[http.FileServer](https://pkg.go.dev/net/http#FileServer) を使うと、ローカルディレクトリに配置した静的ファイル（HTML ファイルなど）を簡単にホスティングできます。
+
+{{< code lang="go" title="public ディレクトリ内のファイルを公開する" >}}
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+const port = 8080
+const directory = "public"
+
+func main() {
+	// 指定したディレクトリをホスティングする
+	handler := http.FileServer(http.Dir(directory))
+	http.Handle("/", handler)
+
+	// サーバーの待ち受けを開始
+	log.Printf("Serving %s on HTTP port: %d\n", directory, port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), nil))
+}
+{{< /code >}}
+
+シンプルに書きたいのであれば、次のように 1 行で書くこともできます。
+
+```go
+func main() {
+	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("."))))
+}
+```
+
+
+CORS アクセス対応する (rs.cors)
 ----
 
 Web ブラウザ上で動作するクライアントサイド JavaScript から、別ドメインの Web サーバーにアクセスしてデータを取得するには、[CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 用のレスポンスヘッダーを返す必要があります。
