@@ -121,7 +121,29 @@ Count の値はブラウザをリロードするたびに 1 つずつ増えて�
 </span></span><span class=line><span class=cl>	<span class=c1>// Web サーバーの待ち受けを開始
 </span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=nx>mux</span><span class=p>))</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><h2 id=cors-アクセス対応する>CORS アクセス対応する</h2><p>Web ブラウザ上で動作するクライアントサイド JavaScript から、別ドメインの Web サーバーにアクセスしてデータを取得するには、<a href=https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>CORS (Cross-Origin Resource Sharing)</a> 用のレスポンスヘッダーを返す必要があります。
+</span></span></code></pre></div><h2 id=静的ファイルをホスティングする-httpfileserver>静的ファイルをホスティングする (http.FileServer)</h2><p>ハンドラー実装として、<a href=https://pkg.go.dev/net/http#FileServer>http.FileServer</a> を使うと、ローカルディレクトリに配置した静的ファイル（HTML ファイルなど）を簡単にホスティングできます。</p><figure class=codeBlock><figcaption class=codeBlock__title>public ディレクトリ内のファイルを公開する</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;net/http&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>const</span> <span class=nx>port</span> <span class=p>=</span> <span class=mi>8080</span>
+</span></span><span class=line><span class=cl><span class=kd>const</span> <span class=nx>directory</span> <span class=p>=</span> <span class=s>&#34;public&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// 指定したディレクトリをホスティングする
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>handler</span> <span class=o>:=</span> <span class=nx>http</span><span class=p>.</span><span class=nf>FileServer</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>Dir</span><span class=p>(</span><span class=nx>directory</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=nx>http</span><span class=p>.</span><span class=nf>Handle</span><span class=p>(</span><span class=s>&#34;/&#34;</span><span class=p>,</span> <span class=nx>handler</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// サーバーの待ち受けを開始
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>log</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Serving %s on HTTP port: %d\n&#34;</span><span class=p>,</span> <span class=nx>directory</span><span class=p>,</span> <span class=nx>port</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;:%d&#34;</span><span class=p>,</span> <span class=nx>port</span><span class=p>),</span> <span class=kc>nil</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>シンプルに書きたいのであれば、次のように 1 行で書くこともできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>ListenAndServe</span><span class=p>(</span><span class=s>&#34;:8080&#34;</span><span class=p>,</span> <span class=nx>http</span><span class=p>.</span><span class=nf>FileServer</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nf>Dir</span><span class=p>(</span><span class=s>&#34;.&#34;</span><span class=p>))))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=cors-アクセス対応する-rscors>CORS アクセス対応する (rs.cors)</h2><p>Web ブラウザ上で動作するクライアントサイド JavaScript から、別ドメインの Web サーバーにアクセスしてデータを取得するには、<a href=https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>CORS (Cross-Origin Resource Sharing)</a> 用のレスポンスヘッダーを返す必要があります。
 下記は、JSON データを返す簡単な Web サーバー実装です。</p><figure class=codeBlock><figcaption class=codeBlock__title>main.go（CORS 未対応）</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
