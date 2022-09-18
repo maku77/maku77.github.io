@@ -251,23 +251,34 @@ func (*sql.DB).BeginTx(ctx context.Context, opts *sql.TxOptions) (*sql.Tx, error
 ```
 
 レコードの更新を行うときに、`(*sql.DB) Exec` の代わりに __`(*sql.Tx) Exec`__ を呼び出すことで、その更新処理は 1 つのトランザクション内での処理とみなされます。
-一連の処理が終わったあとに、__`(*sql.Tx) Commit`__ メソッドか、__`(*sql.Tx) Rollback`__ メソッドを呼び出す必要があります。
 
 ```go
-tx, err := db.BeginTx(context.Background(), nil)
-if err != nil {
-	log.Fatal(err)
+func updateRecordsWithTransaction(db *sql.DB) error {
+	tx, err := db.BeginTx(context.Background(), nil)
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback() // コミットしなかった場合は自動でロールバック
+
+	// 関連する更新処理をトランザクション内で実行する
+	if _, err := tx.Exec("...省略..."); err != nil {
+		return err
+	}
+	if _, err := tx.Exec("...省略..."); err != nil {
+		return err
+	}
+
+	// トランザクション処理をコミット
+	if err := tx.Commit(); err != nil {
+		return err
+	}
+
+	return nil
 }
-if err := createTable(tx); err != nil {
-	tx.Rollback()
-	log.Fatal(err)
-}
-if err := insertRecords(tx); err != nil {
-	tx.Rollback()
-	log.Fatal(err)
-}
-tx.Commit() // トランザクション内の更新処理を一括で反映
 ```
+
+一連の処理が終わったあとに、__`(*sql.Tx) Commit`__ メソッドか、__`(*sql.Tx) Rollback`__ メソッドを呼び出す必要があります。
+上記のようにトランザクション開始直後に `Rollback` を `defer` 呼び出ししておけば、関数内で `Commit` が呼ばれなかったときに自動でロールバックしてくれます（`Commit` が呼ばれた場合は、`Rollback` は実行されません）。
 
 
 NULL 値を含むレコードを扱う
