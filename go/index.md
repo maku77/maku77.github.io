@@ -49,6 +49,7 @@ Go の文法
 * [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](/p/tbf357g/)
 * [構造体にタグ情報を追加する (struct tags)](/p/hxhzfbs/)
 
+
 Go の標準パッケージ <!-- lib -->
 ----
 * [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
@@ -59,6 +60,7 @@ Go の標準パッケージ <!-- lib -->
 * [ベンチマークを行う (testing.B)](/p/29dgjnq/)
 * [環境変数を扱う (os.Getenv, os.LookupEnv)](/p/4ox6dmu/)
 * [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
+* [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
 
 
 応用
