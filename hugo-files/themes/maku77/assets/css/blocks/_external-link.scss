@@ -1,0 +1,6 @@
+// 外部リンクアイコン
+.externalLinkIcon::after {
+  content: url("/img/external-icon.png");
+  padding-left: 0.2em;
+  vertical-align: middle;
+}
