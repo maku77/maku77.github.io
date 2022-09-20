@@ -174,6 +174,8 @@ func json.NewDecoder(r io.Reader) *json.Decoder
 func (*json.Decoder).Decode(v any) error
 ```
 
+### JSON のスキーマが完全に分かっている場合
+
 次の例では、`person.json` ファイルの内容を `Person` 構造体に変換しています。
 
 {{< code lang="json" title="person.json（入力ファイル）" >}}
@@ -205,7 +207,7 @@ func main() {
 	}
 	defer file.Close()
 
-	// JSON ファイルの内容を Go オブジェクトに変換
+	// JSON ファイルの内容を Person 構造体データとして読み出す
 	var p Person
 	decoder := json.NewDecoder(file)
 	if err := decoder.Decode(&p); err != nil {
@@ -215,6 +217,34 @@ func main() {
 	log.Printf("%+v\n", p) //=> {Name:まく Age:14}
 }
 {{< /code >}}
+
+### JSON のスキーマが不明な場合
+
+具体的な構造体の型を設定せずに、__`map[string]any`__ 型の変数に JSON ファイルの内容を読み出すこともできます。
+これは、キーの型が文字列で、値の型が不明 (`any` / `interface{}`) なマップです。
+この場合、少なくとも JSON ルート階層のフィールドはキー名で参照できますが、その値は `any` 型になるので、実際に値を扱う段階で型アサーションにより具体的な型を指定する必要があります。
+あるいは、リフレクションで各フィールドの情報を列挙することが可能です。
+
+```go
+// JSON ファイルの内容を map 型の Go オブジェクトとして読み出す
+var rawJson map[string]any
+decoder := json.NewDecoder(file)
+if err := decoder.Decode(&rawJson); err != nil {
+	log.Fatal(err)
+}
+
+// ルート階層のフィールドを参照する（値は any 型なので型アサーションして使う）
+name := rawJson["Name"].(string)
+age := rawJson["Age"].(float64)
+fmt.Println(name)
+fmt.Println(age)
+
+// リフレクションで内容を調べても OK
+refVal := reflect.ValueOf(rawJson)
+for it := refVal.MapRange(); it.Next(); {
+	fmt.Printf("key = %s\n", it.Key())
+}
+```
 
 - 参考: [Golang でファイルを読み書きする (os, io)](/p/6eimpsv/)
 

@@ -8,7 +8,7 @@ tags: ["Golang"]
 
 Golang でコマンドライン引数を扱うには、標準パッケージの `os` や `flags` を使用します。
 
-- [os.Args]() ... 文字列配列で参照する場合
+- `os.Args` ... 単純に文字列配列で参照する場合
 - [flags パッケージ](https://pkg.go.dev/flag) ... `-key value` スタイルのオプションを扱う場合
 
 
