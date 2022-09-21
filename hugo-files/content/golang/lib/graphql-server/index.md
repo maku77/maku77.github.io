@@ -45,7 +45,7 @@ import (
 指定可能なバージョンは [gqlgen の Release ページ](https://github.com/99designs/gqlgen/releases) で確認してください。
 
 ```console
-$ go get github.com/99designs/gqlgen@latest    # 最新バージョンを使う場合
+$ go get github.com/99designs/gqlgen@latest  # 最新バージョンを使う場合（go get . でも OK）
 $ go get github.com/99designs/gqlgen@v0.17.14  # バージョンを指定する場合
 ```
 
@@ -56,12 +56,12 @@ $ go run github.com/99designs/gqlgen version
 v0.17.14
 ```
 
-### なぜ tools.go が必要？
-
+{{% note title="なぜ tools.go が必要？" %}}
 `tools.go` ファイルがなくても、`go get` コマンドで `gqlgen` 関連の依存情報を追加することはできます。
 ただ、`go mod tidy` コマンドで依存情報を整理すると、Go コードから参照されていないモジュールの依存情報は `go.mod` ファイルから削除されてしまうので、何らかの Go コードで `gqlgen` コマンド用のモジュールをインポートしておかなければいけません。
 そのために使われるファイルが `tools.go` です。
 さらに、このファイルの先頭に、`//go:build tools` という特殊なタグ ([Build Constraints](https://pkg.go.dev/go/build#hdr-Build_Constraints)) を記述しておくことで、アプリ本体のビルド時には `tools.go` は無視してくれるようになります。
+{{% /note %}}
 
 
 gqlgen プロジェクトのスケルトンを生成する (gqlgen init)
