@@ -17,14 +17,15 @@ Go 言語の慣例として、プロジェクトのビルドに必要なツー�
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
 </span></span><span class=line><span class=cl>	<span class=nx>_</span> <span class=s>&#34;github.com/99designs/gqlgen&#34;</span>
 </span></span><span class=line><span class=cl><span class=p>)</span></span></span></code></pre></div></div></figure><p><code>go get</code> コマンドを実行して、プロジェクトの <code>go.mod</code> に <code>gqlgen</code> コマンド用のモジュール依存情報を追加します。
-指定可能なバージョンは <a href=https://github.com/99designs/gqlgen/releases>gqlgen の Release ページ</a> で確認してください。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go get github.com/99designs/gqlgen@latest    <span class=c1># 最新バージョンを使う場合</span>
+指定可能なバージョンは <a href=https://github.com/99designs/gqlgen/releases>gqlgen の Release ページ</a> で確認してください。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go get github.com/99designs/gqlgen@latest  <span class=c1># 最新バージョンを使う場合（go get . でも OK）</span>
 </span></span><span class=line><span class=cl><span class=gp>$</span> go get github.com/99designs/gqlgen@v0.17.14  <span class=c1># バージョンを指定する場合</span>
 </span></span></code></pre></div><p>次のように <code>gqlgen</code> コマンドを実行できるようになれば OK です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go run github.com/99designs/gqlgen version
 </span></span><span class=line><span class=cl><span class=go>v0.17.14
-</span></span></span></code></pre></div><h3 id=なぜ-toolsgo-が必要>なぜ tools.go が必要？</h3><p><code>tools.go</code> ファイルがなくても、<code>go get</code> コマンドで <code>gqlgen</code> 関連の依存情報を追加することはできます。
+</span></span></span></code></pre></div><div class=note><span class=note__title>☝️ なぜ tools.go が必要？</span>
+<span class=note__body><code>tools.go</code> ファイルがなくても、<code>go get</code> コマンドで <code>gqlgen</code> 関連の依存情報を追加することはできます。
 ただ、<code>go mod tidy</code> コマンドで依存情報を整理すると、Go コードから参照されていないモジュールの依存情報は <code>go.mod</code> ファイルから削除されてしまうので、何らかの Go コードで <code>gqlgen</code> コマンド用のモジュールをインポートしておかなければいけません。
 そのために使われるファイルが <code>tools.go</code> です。
-さらに、このファイルの先頭に、<code>//go:build tools</code> という特殊なタグ (<a href=https://pkg.go.dev/go/build#hdr-Build_Constraints>Build Constraints</a>) を記述しておくことで、アプリ本体のビルド時には <code>tools.go</code> は無視してくれるようになります。</p><h2 id=gqlgen-プロジェクトのスケルトンを生成する-gqlgen-init>gqlgen プロジェクトのスケルトンを生成する (gqlgen init)</h2><p><strong><code>gqlgen init</code></strong> コマンドを使用すると、gqlgen プロジェクトのスケルトンコードを生成することができます。
+さらに、このファイルの先頭に、<code>//go:build tools</code> という特殊なタグ (<a href=https://pkg.go.dev/go/build#hdr-Build_Constraints>Build Constraints</a>) を記述しておくことで、アプリ本体のビルド時には <code>tools.go</code> は無視してくれるようになります。</span></div><h2 id=gqlgen-プロジェクトのスケルトンを生成する-gqlgen-init>gqlgen プロジェクトのスケルトンを生成する (gqlgen init)</h2><p><strong><code>gqlgen init</code></strong> コマンドを使用すると、gqlgen プロジェクトのスケルトンコードを生成することができます。
 ここから先は、<a href=https://gqlgen.com/getting-started/>本家のチュートリアル</a> 通りにコードを修正していきます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go run github.com/99designs/gqlgen init
 </span></span><span class=line><span class=cl><span class=go>Creating gqlgen.yml
 </span></span></span><span class=line><span class=cl><span class=go>Creating graph/schema.graphqls
