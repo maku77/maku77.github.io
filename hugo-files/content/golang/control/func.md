@@ -1,13 +1,14 @@
 ---
-title: "関数を定義する (func)"
+title: "Golang で関数を定義する (func)"
+linkTitle: "関数を定義する (func)"
 url: "p/kswy47a/"
-permalink: "p/kswy47a/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。"
-redirect_from:
-  - /hugo/go/func
+aliases: /hugo/go/func
 ---
+
+Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。
 
 関数定義の基本
 ----
@@ -23,13 +24,11 @@ func 関数名(パラメータ) 戻り値の型 {
 パラメータや、戻り値を持たない場合は、それぞれ省略することができます。
 次の例は、メッセージを出力するだけの単純な関数の実装例です。
 
-#### パラメータも戻り値もない関数
-
-```go
+{{< code lang="go" title="パラメータも戻り値もない関数" >}}
 func hello() {
 	fmt.Println("Hello")
 }
-```
+{{< /code >}}
 
 次の関数は、２つの `int` 型パラメータを受け取り、足し合わせた結果を返します。
 
@@ -63,7 +62,7 @@ func main() {
 x := swap(10, 20)  // Error: multiple-value swap() in single-value context
 ```
 
-必要のない戻り値がある場合は、`_` を使って受け取ります。
+必要のない戻り値がある場合は、アンダースコア (__`_`__) を使って受け取ります。
 
 ```go
 x, _ := swap(10, 20)  // 1 つ目の戻り値のみ欲しい場合
@@ -90,7 +89,7 @@ func findMax(arr []int) (index int, value int) { ... }
 関数から `return` するときに、その時点で変数 `index` と変数 `value` に格納されている値が戻り値として扱われます。
 それぞれの変数の初期値は、その型のゼロ値になります（例えば `int` であれば 0）。
 
-```
+```go
 package main
 
 import "fmt"
@@ -138,7 +137,7 @@ defer f.Close()
 下記の例では、フィボナッチ数列の n 番目の値を返す `fibonacci` 関数を定義しています。
 パラメータに 1 より小さい値を指定された場合は、2 番目の戻り値でエラーを返すようにしています。
 
-```go
+{{< code lang="go" hl_lines="11" >}}
 package main
 
 import (
@@ -165,24 +164,24 @@ func main() {
 	}
 	fmt.Println(n)
 }
-```
+{{< /code >}}
 
 エラーメッセージを作成するときに、フォーマット文字列を指定したい場合は、`errors.New` 関数の代わりに __`fmt.Errorf`__ 関数を使用できます。
 
-```go
+{{< code lang="go" hl_lines="3" >}}
 func fibonacci(n int) (int, error) {
 	if n < 1 {
 		return 0, fmt.Errorf("fibonacci() cannot take a number %d", n)
 	}
 	//...
 }
-```
+{{< /code >}}
 
 
-可変長引数を扱う関数を定義する
+可変長引数
 ----
 
-関数のパラメータの定義で、__型名の前に `...`__ というプレフィックスを指定することで、可変長引数を表現することができます。
+関数のパラメータの定義で、__型名の前に `...` というプレフィックス__ を指定することで、可変長引数を表現することができます。
 
 渡された引数は、関数内部ではスライスとして参照することができます。
 

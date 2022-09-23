@@ -1,13 +1,14 @@
 ---
-title: "switch による条件分岐"
+title: "Golang の switch 条件分岐（switch の基本、便利な使い方、型スイッチ）"
+linkTitle: "switch による条件分岐（switch の基本、便利な使い方、型スイッチ）"
 url: "p/x6adgjn/"
-permalink: "p/x6adgjn/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の switch 文は、Java や C++ に比べて簡潔に記述できるようになっています。"
-redirect_from:
-  - /hugo/go/switch
+aliases: /hugo/go/switch
 ---
+
+Go 言語の __`switch`__ 文は、Java や C++ に比べて簡潔に記述できるようになっています。
 
 switch 文の基本
 ----
@@ -42,7 +43,8 @@ func shouldEscape(c byte) bool {
 }
 ```
 
-if 文と同様に、switch 文でも変数のスコープをブロック内に絞った変数定義を行うことができます。
+`if` 文と同様に、`switch` 文でも変数のスコープをブロック内に絞った変数定義を行うことができます。
+次の `os` 変数は、`switch` 文の中でのみ参照できます。
 
 ```go
 switch os := runtime.GOOS; os {
@@ -60,7 +62,7 @@ default:
 連続する if else の代わりとして switch 文を使用する
 ----
 
-__switch 文の条件部分を省略__ すると、`switch true` と記述するのと同様の振る舞いをします。
+__`switch` 文の条件部分を省略__ すると、`switch true` と記述するのと同様の振る舞いをします。
 この記述方法は、連続した `if else` を簡潔に記述するために使用することができます。
 典型的なのは、ある変数の値を大小比較したいケースです。
 
@@ -94,7 +96,7 @@ func greet() {
 }
 ```
 
-上記の変数 `t` のスコープを switch 文の内部に絞りたいのであれば、下記のように変数定義します（セミコロンの後ろの条件部分だけを省略します）。
+上記の変数 `t` のスコープを `switch` 文の内部に絞りたいのであれば、下記のように変数定義します（セミコロンの後ろの条件部分だけを省略します）。
 
 ```go
 switch t := time.Now(); {
@@ -107,7 +109,7 @@ default:
 }
 ```
 
-ちなみに上記の switch を if else を使って書き換えると次のようになります。
+ちなみに上記の `switch` を `if else` を使って書き換えると次のようになります。
 
 ```go
 if t := time.Now(); t.Hour() < 12 {
@@ -146,6 +148,9 @@ func checkType(value interface{}) {
 	}
 }
 ```
+
+上記の例では、`value` 変数の実際の型によって分岐処理を行っています。
+さらに、分岐後は `v` 変数をその型の値として参照することができます。
 
 型スイッチは、[型アサーション (Type Assertion)](/p/jruz369/) の特殊形態だと考えることができます。
 

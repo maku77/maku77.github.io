@@ -1,13 +1,14 @@
 ---
-title: "パニックによるエラー処理 (panic, recover)"
+title: "Golang のパニックによるエラー処理 (panic, recover)"
+linkTitle: "パニックによるエラー処理 (panic, recover)"
 url: "p/j47aswy/"
-permalink: "p/j47aswy/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語には try-catch による例外処理の仕組みは存在しませんが、panic という仕組みが用意されています。"
-redirect_from:
-  - /hugo/go/panic
+aliases: /hugo/go/panic
 ---
+
+Go 言語には `try ~ catch` による例外処理の仕組みは存在しませんが、__`panic`__ という仕組みが用意されています。
 
 パニックとは？
 ----
@@ -17,8 +18,8 @@ Go 言語では、関数呼び出し時に発生するエラーは、`error` オ
 
 ```go
 vals := []int{10, 20, 30}
-println(vals[3])  // panic: runtime error:
-                  // index out of range [3] with length 3
+println(vals[3])
+// panic: runtime error: index out of range [3] with length 3
 ```
 
 パニックが発生すると、デフォルトでは __プログラム全体が終了します__。
@@ -55,6 +56,7 @@ func foo() {
 }
 ```
 
+
 パニックから復帰する (recover)
 ----
 
@@ -85,15 +87,10 @@ func main() {
 }
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 2017/09/11 23:21:10 ぎゃー: runtime error: index out of range
 2017/09/11 23:21:10 パニックが発生してもここまで処理が継続される
-```
+{{< /code >}}
 
-
-参考リンク
-----
-- [https://golang.org/ref/spec#Handling_panics](https://golang.org/ref/spec#Handling_panics)
+- 参考: [Handling panics - The Go Programming Language](https://golang.org/ref/spec#Handling_panics)
 
