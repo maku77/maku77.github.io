@@ -1,6 +1,6 @@
 ---
 title: "Golang"
-url: "p/axaju5e/"
+url: "/go/"
 
 categoryName: "まくまく Golang ノート"
 categoryUrl: "/go/"

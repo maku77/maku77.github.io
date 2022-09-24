@@ -2,13 +2,13 @@
 title: "Golang でファイルを読み書きする (os, io)"
 linkTitle: "ファイルを読み書きする (os, io)"
 url: "p/6eimpsv/"
-permalink: "p/6eimpsv/"
 date: "2017-09-08"
 tags: ["Go"]
 description: "Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。"
-redirect_from:
-  - /hugo/go/file
+aliases: /hugo/go/file
 ---
+
+Go 言語でファイルの読み書きを行うには、__`os`__ パッケージや __`io`__ パッケージを使用します。
 
 ファイルからバイトデータを読み出す（Read）
 ----
@@ -21,7 +21,7 @@ file, err := os.Open("./input.txt")  // *os.File
 if err != nil {
 	log.Fatal(err)
 }
-defer file.Close()  // 関数脱出時に実行
+defer file.Close()  // 関数を抜けるときに自動実行
 ```
 
 __`defer`__ キーワードでクローズ処理を登録しておくことで、関数から抜けるときに自動的にファイルクローズを実行してくれるようになります。
@@ -60,17 +60,13 @@ for {
 下記は、サンプルの入力ファイルと、実行可能な全体のコード、実行結果です。
 ここでは、分かりやすさのために入力ファイルとしてテキストファイル (`input.txt`) を使用していますが、`Read` メソッドによる読み出しは、通常はバイナリファイルを扱うことを想定しています。
 
-#### input.txt
-
-```
+{{< code title="input.txt" >}}
 AAA BBB CCC
 DDD EEE FFF
 GGG HHH III
-```
+{{< /code >}}
 
-#### sample.go
-
-```go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import (
@@ -101,17 +97,15 @@ func main() {
 		fmt.Printf("%q\n", buf[:count])
 	}
 }
-```
+{{< /code >}}
 
-#### 実行結果
-
-```console
+{{< code lang="console" title="実行結果" >}}
 $ go run sample.go
 "AAA BBB CC"
 "C\nDDD EEE "
 "FFF\nGGG HH"
 "H III\n"
-```
+{{< /code >}}
 
 
 ファイルからテキストを 1 行ずつ読み出す (bufio.Scanner)
@@ -130,9 +124,7 @@ func bufio.NewScanner(r io.Reader) *Scanner
 
 下記に、テキストファイル `input.txt` を 1 行ずつ読み出すサンプルコードを示します。
 
-#### sample.go
-
-```go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import (
@@ -155,25 +147,30 @@ func main() {
 		line := scanner.Text()
 		fmt.Println(line)
 	}
+
+	// スキャン時のエラーをハンドル
+	if err := scanner.Err(); err != nil {
+		panic(err)
+	}
 }
-```
+{{< /code >}}
 
-#### 実行結果
+`scanner.Scan` のループ処理を抜けた後に、__`scanner.Err`__ メソッドでエラーの有無をチェックする必要があることに注意してください。
 
-```
+{{< code title="実行結果" >}}
 $ go run sample.go
 AAA BBB CCC
 DDD EEE FFF
 GGG HHH III
-```
+{{< /code >}}
 
 
 ファイルにバイトデータを書き込む (Write)
 ----
 
 ファイルを書き込み用にオープン（新規作成）するには、__`os.Create`__ 関数を使用します（読み出しのときは `os.Open`）。
-`os.Create` はファイルのオープンに成功すると `*os.File` を返します。
-`os.File` が実装する `Write([]byte)` 関数を使用して、バイトデータを書き込むことができます。
+`os.Create` はファイルのオープンに成功すると __`*os.File`__ を返します。
+`os.File` の `Write([]byte)` メソッドを使用して、バイトデータを書き込むことができます。
 
 ```go
 package main

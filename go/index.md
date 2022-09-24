@@ -50,7 +50,7 @@ Go の文法
 * [構造体にタグ情報を追加する (struct tags)](/p/hxhzfbs/)
 
 
-Go の標準パッケージ <!-- lib -->
+標準パッケージ／外部パッケージの利用
 ----
 * [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
 * [ファイルを読み書きする (os, io)](/p/6eimpsv/)
@@ -62,10 +62,8 @@ Go の標準パッケージ <!-- lib -->
 * [環境変数を扱う (os.Getenv, os.LookupEnv)](/p/4ox6dmu/)
 * [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
 * [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
-
-
-応用
-----
+* [カレントディレクトリのパスを取得する (os.Getwd)](/p/egs2bjt/)
+* [ランダム値（乱数）を扱う (math/rand, crypto/rand)](/p/graq8o5/)
 * [GraphQL サーバーを作成する (gqlgen)](/p/v48adgi/)
 
 
