@@ -186,8 +186,8 @@ $ go run main.go
 
 次の `RandomId` 関数は、指定した長さのランダムな文字列を生成します（例: `m6t2j7a`）。
 
-{{< code lang="go" title="util/util.go" >}}
-package util
+{{< code lang="go" title="strutil/strutil.go" >}}
+package strutil
 
 import (
 	cryptorand "crypto/rand"
@@ -206,7 +206,7 @@ func init() {
 func RandomId(length int) string {
 	const CANDIDATES = "23456789abcdefghijkmnopqrstuvwxyz"
 	const LEN_CAND = len(CANDIDATES)
-	bytes := make([]byte, length)
+	bytes := make([]byte, 0, length) // 必要な capacity は明確
 	for i := 0; i < length; i++ {
 		bytes = append(bytes, CANDIDATES[rand.Intn(LEN_CAND)])
 	}
@@ -229,11 +229,11 @@ package main
 
 import (
 	"fmt"
-	"hello/util"
+	"hello/strutil"
 )
 
 func main() {
-	fmt.Println(util.RandomId(7)) //=> "m6t2j7a"
+	fmt.Println(strutil.RandomId(7)) //=> "m6t2j7a"
 }
 {{< /code >}}
 
