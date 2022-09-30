@@ -2,8 +2,11 @@
 title: "Golang で GraphQL サーバーを作成する (gqlgen)"
 url: "p/v48adgi/"
 date: "2022-08-20"
-lastmod: "2022-09-15"
+lastmod: "2022-09-30"
 tags: ["Golang", "GraphQL"]
+changes:
+  - 2022-09-30 スキーマファイル更新時の作業
+  - 2022-09-15 CORS 対応方法
 ---
 
 Go 言語用の GraphQL ライブラリ [gqlgen](https://gqlgen.com) を使って、GraphQL サーバーを作ってみます。
@@ -275,4 +278,39 @@ func main() {
 CORS 対策はあくまで HTTP サーバーに必要なものであって、GraphQL サーバーを実装しているかどうかは本質的には関係ないことに注意してください。
 
 - 参考: [Golang で HTTP サーバーを作成する (net/http, rs/cors)](/p/goruwy4/)
+
+
+スキーマファイル更新時の作業
+----
+
+スキーマファイル (`graph/schema.graphqls`) を更新した場合は、次のコマンドを実行して、自動生成された各種 `.go` ファイルを更新する必要があります。
+
+{{< code lang="console" title="スキーマの更新を Go コードに反映" >}}
+$ go run github.com/99designs/gqlgen generate
+{{< /code >}}
+
+上記コマンド実行後は、主に下記のファイルを見直す必要があります。
+
+- `graph/model/models_gen.go` ... スキーマの各オブジェクト型に対応する Golang 構造体が想定通り生成されているかを確認します。
+- `graph/schema.resolvers.go` ... スキーマの `Query` 型や `Mutation` 型の各フィールドに対応するリゾルバー関数のひな形が追加されているはずなので、それらの関数の本体を実装します。
+
+スキーマファイルの更新のたびに、上記のような長い `go run` コマンドをタイプするのは面倒なので、`graph/resolver.go` あたりに、次のように __`//go:generate`__ ディレクティブを記述しておくと便利です。
+
+{{< code lang="go" title="graph/resolver.go" hl_lines="3" >}}
+package graph
+
+//go:generate go run github.com/99designs/gqlgen generate
+
+import "example.com/myapp/graph/model"
+
+type Resolver struct {
+	todos []*model.Todo
+}
+{{< /code >}}
+
+すると、次のように実行するだけで、`.go` ファイルの更新を行えるようになります（`//go:generate` ディレクティブは、Golang 標準の仕組みです）。
+
+```console
+$ go generate ./...
+```
 
