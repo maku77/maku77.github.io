@@ -13,17 +13,17 @@
     padding: var(--s1);
     min-width: 0;  // デフォルトの auto だとちゃんと縮まなくなってしまう
     @include screen-size-md {
-      flex: 1 1 85%; // grow, shrink, basis
+      flex: 1 1 80%; // grow, shrink, basis
     }
   }
 
   &__sidebarLeft {
     display: none;
     border-right: solid #ddd 1px;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0 1rem 0.5rem;
     @include screen-size-lg {
       display: inline;
-      flex: 1 1 15%; // grow, shrink, basis
+      flex: 1 1 20%; // grow, shrink, basis
     }
     @media print { display: none; }  // 印刷時は非表示
   }

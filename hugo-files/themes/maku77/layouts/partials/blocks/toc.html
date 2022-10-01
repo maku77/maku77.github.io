@@ -1,0 +1,94 @@
+<style>
+  #tocStub {
+    /* スクロール時に上端で固定 */
+    position: -webkit-sticky;  /* for Safari */
+    position: sticky;
+    top: 2rem; /* スティック時の画面上端オフセット */
+    margin-top: 2rem; /* 初期表示時の画面上端オフセット */
+    line-height: 1.5;
+
+    /* 縦方向のスクロールバーを表示 */
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* スマホ用の慣性スクロール */
+  }
+
+  #tocStub ul {
+    font-size: 0.9em;
+    list-style: none;
+    padding: 0;
+    border-top: solid 1px #ccc;
+  }
+
+  #tocStub li {
+    border: solid 1px #ccc;
+    border-right: none;
+    margin-top: -1px;
+  }
+
+  #tocStub a {
+    color: #666;
+    padding: 0.6em 0.3em 0.6em 0.5em;
+    display: block;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  /*
+  #tocStub li.level-1 a {
+    font-weight: bolder;
+  }
+  */
+
+  .level-2 {
+    margin-left: 0.8em;
+  }
+
+  .level-3 {
+    padding-left: 1.6em;
+  }
+</style>
+
+<div id="tocStub"></div>
+
+<script>
+  /*
+   * ヘッダー要素 (h2, h3) からサイドバーのメニューを生成する
+   */
+  document.addEventListener("DOMContentLoaded", () => {
+    // h2, h3 に挿入するアンカー要素 (a) を生成
+    function createAnchor(id) {
+      const el = document.createElement("a");
+      el.setAttribute("id", id);
+      return el;
+    }
+
+    // h2, h3 などの上にアンカー要素 (a) を追加
+    function insertAnchorBefore(id, h) {
+      h.parentNode.insertBefore(createAnchor(id), h);
+    }
+
+    // メニューの各項目 (li) を生成
+    function createMenuItem(level, id, title) {
+      const el = document.createElement("li");
+      el.classList.add("level-" + level);
+      el.innerHTML = '<a href="#' + id + '">' + title + "</a>";
+      return el;
+    }
+
+    // メニュー要素 (ul) を生成
+    function createMenu() {
+      const ul = document.createElement("ul");
+      document.querySelectorAll("h2, h3").forEach((h, idx) => {
+        const id = "section-" + idx;
+        insertAnchorBefore(id, h);
+        const level = h.tagName.charAt(1) - 1; // 'h2' などのタグ名からインデントレベルを判断
+        ul.appendChild(createMenuItem(level, id, h.textContent));
+      });
+      return ul;
+    }
+
+    // プレースホルダーに自動生成したメニューを追加
+    document.getElementById("tocStub").appendChild(createMenu());
+  });
+</script>

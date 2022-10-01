@@ -1,9 +1,6 @@
 {{ define "header" }}
   {{- partial "blocks/header" . }}
 {{ end }}
-{{- define "sidebar-left" }}
-  <div id="tocStub"></div>
-{{ end }}
 {{- define "article" }}
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article__header">
@@ -27,41 +24,4 @@
     {{- end }}
   </ul>
 </div>
-
-<script>
-  /*
-   * ヘッダー要素 (h2, h3) からサイドバーのメニューを生成する
-   */
-  document.addEventListener("DOMContentLoaded", () => {
-    // h2, h3 に挿入するアンカー要素 (a) を生成
-    function createAnchor(id) {
-      const el = document.createElement("a");
-      el.setAttribute("id", id);
-      return el;
-    }
-
-    // メニューの各項目 (li) を生成
-    function createMenuItem(level, id, title) {
-      const el = document.createElement("li");
-      el.classList.add("level-" + level);
-      el.innerHTML = '<a href="#' + id + '">' + title + "</a>";
-      return el;
-    }
-
-    // メニュー要素 (ul) を生成
-    function createMenu() {
-      const ul = document.createElement("ul");
-      document.querySelectorAll("h2, h3").forEach((h, idx) => {
-        const id = "section-" + idx;
-        h.prepend(createAnchor(id));
-        const level = h.tagName.charAt(0) - 1; // 'h2' などのタグ名からインデントレベルを判断
-        ul.appendChild(createMenuItem(level, id, h.textContent));
-      });
-      return ul;
-    }
-
-    // プレースホルダーに自動生成したメニューを追加
-    document.getElementById("tocStub").appendChild(createMenu());
-  });
-</script>
 {{- end }}

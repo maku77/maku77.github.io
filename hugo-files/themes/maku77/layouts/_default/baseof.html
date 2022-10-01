@@ -21,7 +21,7 @@
 
   <div class="l-withSidebar">
     <div class="l-withSidebar__sidebarLeft">
-      {{- block "sidebar-left" . }}{{ end }}
+      {{- partial "blocks/toc" . }}
     </div>
     <div class="l-withSidebar__content">
       {{- block "article" . }}article ブロックが見つかりません。{{ end }}
