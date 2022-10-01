@@ -314,3 +314,120 @@ type Resolver struct {
 $ go generate ./...
 ```
 
+
+GraphQL スキーマの型と Golang の型の対応
+----
+
+gqlgen が GraphQL スキーマから Golang のコード (`graph/model/models_gen.go`) を生成するときに、どのように型をマッピングするかのまとめです。
+
+### GraphQL 標準の型
+
+GraphQL 標準のスカラー型は `ID`、`String`、`Boolean`、`Int`、`Float` の 5 種類です。
+下記はそれらと Golang の型の対応です。
+
+| GraphQL の型 | Golang (gqlgen) | 意味 |
+| ---- | ---- | ---- |
+| `ID!` | `string` | ユニークな ID |
+| `ID` | `*string` | ユニークな ID (nullable) |
+| `String!` | `string` | 文字列 |
+| `String` | `*string` | 文字列 (nullable) |
+| `Boolean!` | `bool` | 真偽値 |
+| `Boolean` | `*bool` | 真偽値 (nullable) |
+| `Int!` | `int` | 整数 |
+| `Int` | `*int` | 整数 (nullable) |
+| `Float!` | `float64` | 浮動小数点数 |
+| `Float` | `*float64` | 浮動小数点数 (nullable) |
+| `[String!]!` | `[]string` | 文字列の配列 |
+| `[String!]` | `[]string` | 文字列の配列 (nullable) |
+| `[String]!` | `[]*string` | 文字列 (nullable) の配列 |
+| `[String]` | `[]*string` | 文字列 (nullable) の配列 (nullable) |
+
+Golang のスライス型（`[]string` など）は、`nil` になり得るので、GraphQL スキーマの `[String!]!` も `[String!]` も、Golang の型にしたときは同じ `[]string` になります（もちろん、GraphQL サーバーとしては、`nil` と空スライス `[]string{}` は別データとして扱います）。
+
+gqlgen パッケージの変換実装は [このあたり](https://github.com/99designs/gqlgen/tree/master/graphql) にあります。
+
+### カスタムスカラー型
+
+次のようにスキーマ内でカスタムスカラーを定義すると、デフォルトで Golang の `String` 型にマッピングされます。
+
+{{< code lang="graphql" title="GraphQL スキーマ" >}}
+"""
+The International Standard Book Number (ISBN) is a numeric
+commercial book identifier that is intended to be unique.
+"""
+scalar ISBN
+{{< /code >}}
+
+フォーマットの決まった文字列（日時、メールアドレス、URL など）は、とりあえずカスタムスカラー型としてスキーマ定義しておくとよさそうです。
+フォーマットの検証などをしたくなったら、カスタムスカラー型に `MarshalGQL` / `UnmarshalGQL` メソッドを追加することで対応できます（参考: [Custom scalars with user defined types — gqlgen](https://gqlgen.com/reference/scalars/#custom-scalars-with-user-defined-types)）。
+
+### Enum 型
+
+下記は、リストのソート順序を示す列挙型のスキーマ定義例です。
+
+{{< code lang="graphql" title="GraphQL スキーマ" >}}
+"""
+Specifies how items in a list are sorted.
+"""
+enum SortOrder {
+  "Unordered (arbitrary order)"
+  NONE
+
+  "Ascending order"
+  ASC
+
+  "Descending order"
+  DESC
+}
+{{< /code >}}
+
+これを gqlgen で Golang の型に変換すると、次のような `SortOrder` (≒ `String`) 型、および、その定数群として出力されます。
+Golang には列挙型 (enum) というものは存在しないのでこうなるのですが、`SortOrder` 型の型チェックが働くのでこれで十分なのです。
+
+{{< code lang="go" title="models_gen.go（自動生成された Go コード）" >}}
+// Specifies how items in a list are sorted.
+type SortOrder string
+
+const (
+	// Unordered (arbitrary order)
+	SortOrderNone SortOrder = "NONE"
+	// Ascending order
+	SortOrderAsc SortOrder = "ASC"
+	// Descending order
+	SortOrderDesc SortOrder = "DESC"
+)
+{{< /code >}}
+
+あと、次のようなマーシャリング用のメソッド (`MarshalGQL` / `UnmarshalGQL`) も出力されます。
+
+```go
+func (e SortOrder) IsValid() bool {
+	switch e {
+	case SortOrderNone, SortOrderAsc, SortOrderDesc:
+		return true
+	}
+	return false
+}
+
+func (e SortOrder) String() string {
+	return string(e)
+}
+
+func (e *SortOrder) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = SortOrder(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid SortOrder", str)
+	}
+	return nil
+}
+
+func (e SortOrder) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+```
+
