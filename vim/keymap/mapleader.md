@@ -86,10 +86,10 @@ E15: Invalid expression: mapleader
 Leader キーにスペースキーが割り当てられている場合は、空白文字が出力されるので、実際には何も表示されていないように見えます。
 
 
-（おまけ）VSCode での Leader キー設定
+（おまけ）VS Code での Leader キー設定
 ----
 
-VSCode (Visual Studio Code) の Vim プラグインでも、Leader キーの設定ができます。
+VS Code (Visual Studio Code) の Vim プラグインでも、Leader キーの設定ができます。
 
 ```
 "vim.leader" : "<space>",   // Leader キーの設定

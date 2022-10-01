@@ -1,7 +1,7 @@
 ---
-title: "VSCode で Kotlin の開発環境を構築する"
+title: "VS Code で Kotlin の開発環境を構築する"
 date: "2020-05-12"
-description: "統合開発環境として Visual Studio Code の人気が高まってきています。ここでは、VSCode 上で Kotlin コードのハイライト表示や、ショートカットキーでのビルドを行えるように環境構築します。"
+description: "統合開発環境として Visual Studio Code の人気が高まってきています。ここでは、VS Code 上で Kotlin コードのハイライト表示や、ショートカットキーでのビルドを行えるように環境構築します。"
 ---
 
 Kotlin 構築の構築
@@ -9,7 +9,7 @@ Kotlin 構築の構築
 
 ### kotlinc のインストール
 
-VSCode 自体は Kotlin コードのコンパイル機能を持っていないので、`kotlinc` コマンドはあらかじめインストールしておく必要があります。
+VS Code 自体は Kotlin コードのコンパイル機能を持っていないので、`kotlinc` コマンドはあらかじめインストールしておく必要があります。
 
 * [Kotlin をインストールする](install.html#kotlinc)
 
@@ -22,14 +22,14 @@ info: kotlinc-jvm 1.3.71 (JRE 1.8.0_212-release-1586-b04)
 
 ### Kotlin Language プラグインのインストール
 
-VSCode の Extensions タブから `kotlin` で検索して、 __`Kotlin Language`__ プラグインをインストールします。
+VS Code の Extensions タブから `kotlin` で検索して、 __`Kotlin Language`__ プラグインをインストールします。
 このプラグインにより、Kotlin コードのシンタックスハイライトなどが効くようになります。
 
 ![vscode-001.png](vscode-001.png)
 
 ### Code Runner プラグインのインストール
 
-VSCode の Extensions タブから `code` で検索して、 __`Code Runner`__ プラグインをインストールします。
+VS Code の Extensions タブから `code` で検索して、 __`Code Runner`__ プラグインをインストールします。
 このプラグインにより、ショートカットキー一発で Kotlin コードを実行できるようになります。
 
 ![vscode-002.png](vscode-002.png)
@@ -38,11 +38,11 @@ VSCode の Extensions タブから `code` で検索して、 __`Code Runner`__ �
 Kotlin プログラムを実行してみる
 ----
 
-VSCode への各種プラグインのインストールが済んだら、簡単な Kotlin プログラムを記述して実行してみます。
+VS Code への各種プラグインのインストールが済んだら、簡単な Kotlin プログラムを記述して実行してみます。
 
 ### コードの作成
 
-まず、VSCode を適当な空のディレクトリを起点にして起動します。
+まず、VS Code を適当な空のディレクトリを起点にして起動します。
 
 ```
 $ mkdir sample-kotlin
@@ -86,6 +86,6 @@ cd <作業ディレクトリ> && kotlinc main.kt -include-runtime -d main.jar &&
 
 ### kotlinc コマンドが見つからないというエラーが出るとき
 
-VSCode を起動した状態で `kotlinc` コマンドをインストールした場合は、環境変数 `PATH` の設定が反映されていない可能性があります。
-その場合は、VSCode を再起動すれば直ります。
+VS Code を起動した状態で `kotlinc` コマンドをインストールした場合は、環境変数 `PATH` の設定が反映されていない可能性があります。
+その場合は、VS Code を再起動すれば直ります。
 

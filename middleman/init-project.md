@@ -24,7 +24,7 @@ $ middleman init my_site
       create  my_site/source/images/middleman.png
 ```
 
-デフォルトでは上記のように、stylesheets ディレクトリ、javascripts ディレクトリ、images ディレクトリなどが生成されますが、これらのディレクトリ構成は、下記のように設定ファイル `config.rb` で定義されているので、自由に変更することができます。
+デフォルトでは上記のように、`stylesheets` ディレクトリ、`javascripts` ディレクトリ、`images` ディレクトリなどが生成されますが、これらのディレクトリ構成は、下記のように設定ファイル `config.rb` で定義されているので、自由に変更することができます。
 
 #### config.rb（抜粋）
 ```ruby

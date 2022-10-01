@@ -7,16 +7,16 @@ lastmod: "2022-03-13"
 Node.js とは
 ----
 
-Node.js は、Javascript によって記述されたプログラム（スクリプト）を実行するための実行環境です。
-Javascript は、元々は Web ブラウザ内のコンテキストで実行されるスクリプト言語として開発されたものですが、Node.js のランタイム (Windows の場合は `node.exe`) を使用すると、ネイティブな実行環境で、Javascript のプログラムを実行することができます。
-Python や Ruby のような実行環境が、Javascript 言語にも提供されたと考えると分かりやすいです。
+Node.js は、JavaScript によって記述されたプログラム（スクリプト）を実行するための実行環境です。
+JavaScript は、元々は Web ブラウザ内のコンテキストで実行されるスクリプト言語として開発されたものですが、Node.js のランタイム (Windows の場合は `node.exe`) を使用すると、ネイティブな実行環境で、JavaScript のプログラムを実行することができます。
+Python や Ruby のような実行環境が、JavaScript 言語にも提供されたと考えると分かりやすいです。
 例えば、Python によるプログラムは以下のように実行しますが、
 
 ```
 $ python sample.py
 ```
 
-同様に Javascript で記述したプログラムを、下記のように実行できます。
+同様に JavaScript で記述したプログラムを、下記のように実行できます。
 
 ```
 $ node sample.js

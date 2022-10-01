@@ -38,7 +38,7 @@ augroup END
 上記の例では、各言語のソースコードを編集中に `<F5>` キーを押すことで、次のようにコマンドを実行するように設定しています。
 
 * Java ファイル → `javac -encoding UTF-8 ファイル名` でビルドし、さらに `java` コマンドでそのクラスの main メソッドを起動。
-* Javascript ファイル → `node ファイル名` を実行。
+* JavaScript ファイル → `node ファイル名` を実行。
 * PHP ファイル → `php ファイル名` を実行。
 * Python ファイル → `python ファイル名` を実行。
 * Ruby ファイル → `ruby ファイル名` を実行。
