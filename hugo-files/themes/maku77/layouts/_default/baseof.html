@@ -20,11 +20,14 @@
   </div>
 
   <div class="l-withSidebar">
+    <div class="l-withSidebar__sidebarLeft">
+      {{- block "sidebar-left" . }}{{ end }}
+    </div>
     <div class="l-withSidebar__content">
       {{- block "article" . }}article ブロックが見つかりません。{{ end }}
       {{ partial "blocks/ad-rakuten" . }}
     </div>
-    <div class="l-withSidebar__sidebar">
+    <div class="l-withSidebar__sidebarRight">
       {{ partial "blocks/navigation" . }}
       {{ partial "blocks/ad-codoc" . }}
     </div>

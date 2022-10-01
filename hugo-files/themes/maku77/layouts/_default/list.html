@@ -1,6 +1,9 @@
 {{ define "header" }}
   {{- partial "blocks/header" . }}
 {{ end }}
+{{- define "sidebar-left" }}
+  <div id="tocStub"></div>
+{{ end }}
 {{- define "article" }}
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article__header">
@@ -16,19 +19,14 @@
   </div>
 </article>
 
-<br />
-<hr />
-メニュー
-<div id="tocStub"></div>
-
-<br />
-<hr />
-ページリスト
-<ul>
-  {{- range .Pages }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{- end }}
-</ul>
+<div style="color: red; padding: 0.3em; margin: 2em 0; border: dashed 1px red; border-radius: 1em;">
+  <b>ページリスト</b>
+  <ul>
+    {{- range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</div>
 
 <script>
   /*

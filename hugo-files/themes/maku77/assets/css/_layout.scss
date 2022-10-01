@@ -9,20 +9,31 @@
     // gap: 1rem;
   }
 
-  &__sidebar {
-    @media print { display: none; }  // 印刷時は非表示
-    border-left: solid #ddd 1px;
-    padding: 1rem 0.5rem;
-    @include screen-size-md {
-      flex: 0 0 14rem; // flex-grow, flex-shrink, flex-basis
-    }
-  }
-
   &__content {
     padding: var(--s1);
     min-width: 0;  // デフォルトの auto だとちゃんと縮まなくなってしまう
     @include screen-size-md {
-      flex: 1 1 auto; // flex-grow, flex-shrink, flex-basis
+      flex: 1 1 85%; // grow, shrink, basis
+    }
+  }
+
+  &__sidebarLeft {
+    display: none;
+    border-right: solid #ddd 1px;
+    padding: 1rem 0.5rem;
+    @include screen-size-lg {
+      display: inline;
+      flex: 1 1 15%; // grow, shrink, basis
+    }
+    @media print { display: none; }  // 印刷時は非表示
+  }
+
+  &__sidebarRight {
+    border-left: solid #ddd 1px;
+    padding: 1rem 0.5rem;
+    @media print { display: none; }  // 印刷時は非表示
+    @include screen-size-md {
+      flex: 0 0 13rem; // grow, shrink, basis
     }
   }
 }
