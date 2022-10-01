@@ -3,23 +3,27 @@
 }
 
 .l-withSidebar {
-  display: flex;
-  flex-wrap: wrap;
-  // gap: 1rem;
+  // ある程度画面が広ければ flex レイアウトでサイドバー表示
+  @include screen-size-md {
+    display: flex;
+    // gap: 1rem;
+  }
 
   &__sidebar {
     @media print { display: none; }  // 印刷時は非表示
     border-left: solid #ddd 1px;
     padding: 1rem 0.5rem;
-    flex-basis: 14rem;  // サイドバーの幅
-    flex-grow: 1;
+    @include screen-size-md {
+      flex: 0 0 14rem; // flex-grow, flex-shrink, flex-basis
+    }
   }
 
   &__content {
     padding: var(--s1);
-    flex-basis: 0;
-    flex-grow: 999;
-    min-width: 73%;  // 要素の幅が狭くなったときに折り返す
+    min-width: 0;  // デフォルトの auto だとちゃんと縮まなくなってしまう
+    @include screen-size-md {
+      flex: 1 1 auto; // flex-grow, flex-shrink, flex-basis
+    }
   }
 }
 
