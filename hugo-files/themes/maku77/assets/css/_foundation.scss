@@ -83,9 +83,8 @@ pre {
 
   // タブ文字がデフォルトの 8 文字では大きすぎるので調整（主に Go 言語用）
   tab-size: 2;
-  @include screen-size-sm { tab-size: 4; }
-  @include screen-size-md { tab-size: 6; }
-  @include screen-size-lg { tab-size: 8; }
+  @include screen-size-lg { tab-size: 4; }
+  @include screen-size-xl { tab-size: 6; }
 
   // 印刷時ははみ出たコードを折り返す
   @media print {
