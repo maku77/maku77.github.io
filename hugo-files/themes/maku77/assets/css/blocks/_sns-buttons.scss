@@ -1,4 +1,5 @@
 .snsButtons {
+  @media print { display: none; } // 印刷時は非表示
   font-size: 0; // ボタン間のスペース文字による隙間をなくす
 
   &__icon {

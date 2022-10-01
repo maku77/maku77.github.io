@@ -78,6 +78,7 @@ pre {
 
   padding: 0.5em 0.8em;
   line-height: 1.3;
+  border: solid 1px darken($COLOR_CODE_BG, 10%);
   border-radius: 0.5em;
 
   // タブ文字がデフォルトの 8 文字では大きすぎるので調整（主に Go 言語用）

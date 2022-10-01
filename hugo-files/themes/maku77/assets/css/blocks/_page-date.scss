@@ -1,4 +1,5 @@
 .pageDate {
+  @media print { display: none; } // 印刷時は非表示
   color: $COLOR_TEXT_SUB_SUB;
   font-size: smaller;
 }
