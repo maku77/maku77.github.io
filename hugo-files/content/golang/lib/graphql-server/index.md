@@ -431,3 +431,9 @@ func (e SortOrder) MarshalGQL(w io.Writer) {
 }
 ```
 
+
+参考リンク
+----
+
+- [gqlgen で子フィールドの情報を返すリゾルバーを実装する](/p/wdvdtap/)
+

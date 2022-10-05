@@ -16,6 +16,7 @@ layout: category-index
 * [（旧）GOPATH によるコードの一元管理](/p/u48bfim/)
 
 ### パッケージとモジュール
+
 * [パッケージの作成とインポート (import)](/p/t269cgj/)
 * [Go でコマンドラインツールを作って GitHub で公開する](/p/whs2bjt/)
 * [（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する](/p/xs3ahpw/)
@@ -25,6 +26,7 @@ Go の文法
 ----
 
 ### 型 <!-- type -->
+
 * [Go 言語の組込み型一覧](/p/as29hpw/)
 * [変数を定義する (var)／ゼロ値について](/p/5dhkoru/)
 * [配列とスライスを扱う](/p/cjosvz3/)
@@ -35,6 +37,7 @@ Go の文法
 * [型キャストと型アサーションによる型変換](/p/jruz369/)
 
 ### 制御構文 <!-- control -->
+
 * [if による条件分岐](/p/pw258be/)
 * [switch による条件分岐](/p/x6adgjn/)
 * [for によるループ処理](/p/v58cfik/)
@@ -42,6 +45,7 @@ Go の文法
 * [パニックによるエラー処理 (panic, recover)](/p/j47aswy/)
 
 ### 構造体（クラス） <!-- struct -->
+
 * [構造体を定義する (struct)](/p/8z2o63r/)
 * [構造体のコンストラクタ（ファクトリ関数）を定義する](/p/6dhkoru/)
 * [メソッドを定義する（レシーバ付き関数）](/p/4behkor/)
@@ -50,32 +54,36 @@ Go の文法
 * [構造体にタグ情報を追加する (struct tags)](/p/hxhzfbs/)
 
 ### その他
+
 * [ジェネリクスで複数の型を扱える関数を定義する (Generics)](/p/cp8o6m2/)
 
 
 標準パッケージ／外部パッケージの利用
 ----
-* [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
+
+### ファイル／ディレクトリ
+
 * [ファイルを読み書きする (os, io)](/p/6eimpsv/)
 * [JSON 形式の文字列やファイルを扱う (encoding/json)](/p/dsbs9p5/)
 * [CSV 形式の文字列やファイルを扱う (encoding/csv)](/p/6k5m3iz/)
 * [テンプレート機能を使用する (text/template, html/template)](/p/z8behko/)
+* [カレントディレクトリのパスを取得する (os.Getwd)](/p/egs2bjt/)
+
+### サーバー
+
+* [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
+* [GraphQL サーバーを作成する (gqlgen)](/p/v48adgi/)
+  * [gqlgen で子フィールドの情報を返すリゾルバーを実装する](/p/wdvdtap/)
+
+### データベース (DB)
+
+* [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
+
+### その他
+
+* [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
 * [時刻データを扱う (time)](/p/sy58beh/)
 * [ベンチマークを行う (testing.B)](/p/29dgjnq/)
 * [環境変数を扱う (os.Getenv, os.LookupEnv)](/p/4ox6dmu/)
-* [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
-* [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
-* [カレントディレクトリのパスを取得する (os.Getwd)](/p/egs2bjt/)
 * [ランダム値（乱数）を扱う (math/rand, crypto/rand)](/p/graq8o5/)
-* [GraphQL サーバーを作成する (gqlgen)](/p/v48adgi/)
-
-
-Go 関連リンク
-----
-* [Go 言語公式サイト (The Go Programming Language)](https://go.dev/)
-  * [Language Specification（Go 言語仕様）](https://go.dev/ref/spec/)
-  * [Command Documentation（コマンドラインツールの使い方）](https://go.dev/doc/cmd/)
-  * [Effective Go（よいコーディング指針）](https://go.dev/doc/effective_go/)
-* [パッケージの検索 (pkg.go.dev)](https://pkg.go.dev/)
-  * [Standard library（標準パッケージの一覧）](https://pkg.go.dev/std/)
 
