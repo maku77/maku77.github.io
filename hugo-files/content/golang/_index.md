@@ -29,7 +29,7 @@ categoryIcon: _index.svg
 Go の文法
 ----
 
-### 型 <!-- type -->
+### 型 <!-- grammer-type -->
 
 * [Go 言語の組込み型一覧](/p/as29hpw/)
 * [変数を定義する (var)／ゼロ値について](/p/5dhkoru/)
@@ -40,7 +40,7 @@ Go の文法
 * [組込み型に独自の型名を付ける (type)](/p/cuxyj8c/)
 * [型キャストと型アサーションによる型変換](/p/jruz369/)
 
-### 制御構文 <!-- control -->
+### 制御構文 <!-- grammer-control -->
 
 * [if による条件分岐](/p/pw258be/)
 * [switch による条件分岐](/p/x6adgjn/)
@@ -48,7 +48,7 @@ Go の文法
 * [関数を定義する (func)](/p/kswy47a/)
 * [パニックによるエラー処理 (panic, recover)](/p/j47aswy/)
 
-### 構造体（クラス） <!-- struct -->
+### 構造体（クラス） <!-- grammer-struct -->
 
 * [構造体を定義する (struct)](/p/8z2o63r/)
 * [構造体のコンストラクタ（ファクトリ関数）を定義する](/p/6dhkoru/)
@@ -57,7 +57,7 @@ Go の文法
 * [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](/p/tbf357g/)
 * [構造体にタグ情報を追加する (struct tags)](/p/hxhzfbs/)
 
-### その他
+### その他 <!-- grammer-other -->
 
 * [ジェネリクスで複数の型を扱える関数を定義する (Generics)](/p/cp8o6m2/)
 
@@ -65,7 +65,7 @@ Go の文法
 標準パッケージ／外部パッケージの利用
 ----
 
-### ファイル／ディレクトリ
+### ファイル／ディレクトリ <!-- file -->
 
 * [ファイルを読み書きする (os, io)](/p/6eimpsv/)
 * [JSON 形式の文字列やファイルを扱う (encoding/json)](/p/dsbs9p5/)
@@ -73,13 +73,13 @@ Go の文法
 * [テンプレート機能を使用する (text/template, html/template)](/p/z8behko/)
 * [カレントディレクトリのパスを取得する (os.Getwd)](/p/egs2bjt/)
 
-### サーバー
+### サーバー <!-- server -->
 
 * [HTTP サーバーを作成する (net/http)](/p/goruwy4/)
 * [GraphQL サーバーを作成する (gqlgen)](/p/v48adgi/)
   * [gqlgen で子フィールドの情報を返すリゾルバーを実装する](/p/wdvdtap/)
 
-### データベース (DB)
+### データベース (DB) <!-- database -->
 
 * [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
 
