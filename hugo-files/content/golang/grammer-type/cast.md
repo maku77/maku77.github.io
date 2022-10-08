@@ -1,13 +1,14 @@
 ---
 title: "型キャストと型アサーションによる型変換"
 url: "p/jruz369/"
-permalink: "p/jruz369/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。"
-redirect_from:
+aliases:
   - /hugo/go/cast
 ---
+
+Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。
 
 型キャスト
 ----
@@ -28,42 +29,34 @@ var f float64 = float64(i)  // OK
 
 下記は様々な型変換の例です。
 
-#### int8 → int32
-
-```go
+{{< code lang="go" title="int8 → int32" >}}
 var a uint8 = 100
 var b uint32 = uint32(a)
-```
+{{< /code >}}
 
-#### int32 → int8
-
-```go
+{{< code lang="go" title="int32 → int8" >}}
 var a uint32 = 1234567890
 var b uint8 = uint8(a)
 fmt.Println(b)  // 210（情報が欠落する）
-```
+{{< /code >}}
 
-#### string → []byte
+{{< code lang="go" title="string → []byte" >}}
+var str string = "ABC"
+var bytes []byte = []byte(str)
+fmt.Println(bytes)  // [65 66 67]
+{{< /code >}}
 
-```go
-var s string = "ABC"
-var arr []byte = []byte(s)
-fmt.Println(arr)  // [65 66 67]
-```
-
-#### []byte → string
-
-```go
-arr := []byte{65, 66, 67}
-s := string(arr)
-fmt.Println(s)  // "ABC"
-```
+{{< code lang="go" title="[]byte → string" >}}
+bytes := []byte{65, 66, 67}
+str := string(bytes)
+fmt.Println(str)  // "ABC"
+{{< /code >}}
 
 
 型アサーション (Type Assertion) による型変換
 ----
 
-Go 言語で任意の型の変数（型の定まっていない変数）は、空インタフェース型 (`interface{}`) として表現されます。
+Go 言語で任意の型の変数（型の定まっていない変数）は、空インタフェース型 (__`interface{}`__) として表現されます。
 このような値を、特定の型 `T` の変数に代入するには、__型アサーション (Type Assertion)__ という仕組みを使用する必要があります。
 型アサーションは、下記のような構文で実行します。
 
