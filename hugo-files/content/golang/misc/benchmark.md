@@ -1,11 +1,10 @@
 ---
 title: "ベンチマークを行う (testing.B)"
 url: "p/29dgjnq/"
-permalink: "p/29dgjnq/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には、ベンチマークを行うための仕組みが標準機能として搭載されています。"
-redirect_from:
+aliases:
   - /hugo/go/benchmark
 ---
 
@@ -60,9 +59,7 @@ func BenchmarkCallByPointer(b *testing.B) {
 ベンチマーク用の実装ファイルは、ファイル名のサフィックスを __`_test.go`__ としておく必要があります（あくまでベンチマークはテストの一部という位置付け）。
 下記に全体のコードを示しておきます。
 
-#### sample_test.go
-
-```go
+{{< code lang="go" title="sample_test.go" >}}
 package main
 
 import "testing"
@@ -92,7 +89,7 @@ func BenchmarkCallByPointer(b *testing.B) {
 		CallByPointer(&book)
 	}
 }
-```
+{{< /code >}}
 
 ベンチマークを実行するときは、__`go test`__ コマンドを __`-bench`__ オプション付きで実行します。
 
@@ -109,16 +106,14 @@ ok      /Users/maku/sandbox     5.060s
 この結果は、`CallByValue` と `CallByPointer` がそれぞれ 2000000000 回実行され、１回あたりの実行にかかった時間が 1.62 ns と、0.27 ns であったことを示しています（ポインタ渡しの方が高速だということ）。
 
 
-メモリの使用効率を調べる
+メモリの使用効率を調べる (benchmem)
 ----
 
 `go test -bench` でベンチマークを実行するときに、__`-benchmem`__ オプションを追加で指定すると、実行速度だけではなく、メモリ割り当ての統計情報も一緒に表示してくれます。
 下記のサンプルコードは、スライスの `append` 処理のベンチマークを取っています。
 `FuncA` の方は、初期サイズ 0 からの `append` の繰り返し、`FuncB` の方は、あらかじめ初期容量を確保しおいてからの `append` の繰り返しを行っています。
 
-#### sample_test.go
-
-```go
+{{< code lang="go" title="sample_test.go" >}}
 package main
 
 import "testing"
@@ -150,7 +145,7 @@ func BenchmarkFuncB(b *testing.B) {
 		FuncB()
 	}
 }
-```
+{{< /code >}}
 
 次のようにベンチマークを起動します。
 `-benchmem` オプションは最後に指定することに注意してください。
@@ -166,7 +161,7 @@ ok      /Users/maku/sandbox     3.807s
 ```
 
 ベンチマーク結果の `386296 B/op  20 allocs/op` というところは、386296 バイトのメモリを使用したということ、20 回のメモリアロケーションを行ったということを示しています。
-この結果、`FuncA` が 20 回もスライスの容量を拡張しているのに対し、`FuncB` は最初に `make` 関数で容量を確保してから一度も拡張されていないということが読み取れます。
+つまり、`FuncA` が 20 回もスライスの容量を拡張しているのに対し、`FuncB` は最初に `make` 関数で容量を確保してから一度も拡張されていないということが読み取れます。
 
 プログラムの実行速度が思わしくないときは、このように `-benchmem` オプションを追加してベンチマーク実行すれば、メモリ割り当てが影響しているかどうかを調べることができます。
 

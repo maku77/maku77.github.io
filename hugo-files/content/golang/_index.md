@@ -83,7 +83,7 @@ Go の文法
 
 * [RDB（リレーショナルデーターベース）を扱う (database/sql)](/p/kgzfwdt/)
 
-### その他
+### その他 <!-- misc -->
 
 * [コマンドライン引数を扱う (os.Args, flags)](/p/o8vbo2f/)
 * [時刻データを扱う (time)](/p/sy58beh/)
