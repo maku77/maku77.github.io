@@ -3,7 +3,7 @@ title: "Golang で環境変数を扱う (os.Getenv, os.LookupEnv)"
 linkTitle: "環境変数を扱う (os.Getenv, os.LookupEnv)"
 url: "p/4ox6dmu/"
 date: "2022-08-13"
-tags: ["Golang"]
+tags: ["Go"]
 ---
 
 Go 言語で OS の環境変数を扱うには、標準ライブラリの [os パッケージ](https://pkg.go.dev/os) を使用します。

@@ -1,13 +1,14 @@
 ---
 title: "インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)"
 url: "p/tbf357g/"
-permalink: "p/tbf357g/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には継承の仕組みはありませんが、埋め込み (Embedding) という仕組みによって型の拡張（結合）を行うことができます。"
-redirect_from:
+aliases:
   - /hugo/go/embedding
 ---
+
+Go 言語には継承の仕組みはありませんが、__埋め込み (Embedding)__ という仕組みによって型の拡張（結合）を行うことができます。
 
 インタフェース埋め込み (Interface Embedding)
 ----
@@ -86,13 +87,12 @@ fmt.Println(s.AdLabel())  //=> Printer (PR102)
 オブジェクト生成時は、埋め込んだ構造体のオブジェクトを生成して初期化しなければいけないことに注意してください（初期化すべきフィールドの名前も、埋め込んだ構造体の型名と同じになります）。
 次のように、埋め込んだ構造体のフィールドを直接初期化することはできません。
 
-```go
-// 間違った初期化例
+{{< code lang="go" title="間違った初期化方法" >}}
 s := &Stock{
 	Model: "PR102",  // 初期化時に Product のフィールドは参照できない
 	Name: "Printer", // 初期化時に Product のフィールドは参照できない
 	Price: 300,      // 初期化時に Product のフィールドは参照できない
 	Quantity: 100,
 }
-```
+{{< /code >}}
 

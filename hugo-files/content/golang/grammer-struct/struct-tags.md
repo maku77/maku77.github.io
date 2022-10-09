@@ -3,7 +3,7 @@ title: "Golang の構造体にタグ情報を追加する (struct tags)"
 linkTitle: "構造体にタグ情報を追加する (struct tags)"
 url: "p/hxhzfbs/"
 date: "2022-09-03"
-tags: ["Golang"]
+tags: ["Go"]
 ---
 
 構造体タグ (struct tags) の基本

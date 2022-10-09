@@ -4,7 +4,7 @@ linkTitle: "HTTP サーバーを作成する (net/http, rs/cors)"
 url: "p/goruwy4/"
 date: "2022-08-20"
 lastmod: "2022-09-12"
-tags: ["Golang"]
+tags: ["Go"]
 ---
 
 Hugo 標準ライブラリの [net/http パッケージ](https://pkg.go.dev/net/http) ([src](https://cs.opensource.google/go/go/+/master:src/net/http/)) は、HTTP クライアント／サーバーを作成するためのパッケージです。

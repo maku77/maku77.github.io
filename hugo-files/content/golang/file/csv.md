@@ -3,7 +3,7 @@ title: "Golang で CSV 形式の文字列やファイルを扱う (encoding/csv)
 linkTitle: "CSV 形式の文字列やファイルを扱う (encoding/csv)"
 url: "p/6k5m3iz/"
 date: "2022-09-20"
-tags: ["CSV", "Golang"]
+tags: ["CSV", "Go"]
 ---
 
 Golang 標準パッケージの [encoding/csv](https://pkg.go.dev/encoding/csv) を使用すると、CSV 形式のテキストやファイルを Golang の string 配列で読み書きできます。
