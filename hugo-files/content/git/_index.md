@@ -1,6 +1,6 @@
 ---
 title: "Git"
-url: "p/oorume4/"
+url: "/git/"
 
 categoryName: "まくまく Git ノート"
 categoryUrl: "/git/"
