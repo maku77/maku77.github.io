@@ -1,11 +1,10 @@
 ---
 title: "（旧）GitHub 上のパッケージを参照する／GitHub にパッケージを公開する"
 url: "p/xs3ahpw/"
-permalink: "p/xs3ahpw/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語には GitHub 上に公開されたパッケージを簡単にインポートして使用する仕組みが組み込まれています。"
-redirect_from:
+aliases:
   - /hugo/go/github
 ---
 
@@ -16,17 +15,13 @@ GitHub 上のパッケージをインポートする
 
 `go get` コマンドで、GitHub リポジトリのパスを下記のように指定すると、GitHub 上で公開されている Go パッケージ（ここでは `github.com/maku77/gosample`）のコードを、`$GOPATH/src` ディレクトリに取得することができます（`$GOPATH` については[こちらを参照](/p/u48bfim)）。
 
-#### github.com/maku77/gosample パッケージを取得する
-
-~~~
+{{< code lang="console" title="github.com/maku77/gosample パッケージを取得する" >}}
 $ go get github.com/maku77/gosample
-~~~
+{{< /code >}}
 
 取得したパッケージは、標準パッケージと同じようにインポートして使用することができます。
 
-#### sample.go
-
-~~~ go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import "github.com/maku77/gosample"
@@ -34,29 +29,25 @@ import "github.com/maku77/gosample"
 func main() {
 	gosample.Hello("Maku")
 }
-~~~
+{{< /code >}}
 
-#### ビルド＆実行
-
-~~~
+{{< code lang="console" title="ビルド＆実行" >}}
 $ go run sample.run
 Hello, Maku!
-~~~
+{{< /code >}}
 
 `go get` コマンドの面白いところは、GitHub 上で公開されているリポジトリ名そのものではなく、そのサブディレクトリで公開されている Go パッケージ名を指定してコードを取得できるところです（`git clone` コマンドではこのようなことはできませんね）。
 例えば、代表的な Pretty Print 系のパッケージである `github.com/davecgh/go-spew/spew` パッケージは、GitHub 上でのリポジトリ名は `https://github.com/davecgh/go-spew.git` ですが、そのサブディレクトリとして公開されているパッケージ名を指定して取得することができます。
 
-~~~
+```console
 $ go get github.com/davecgh/go-spew/spew
-~~~
+```
 
 実際には、`go-spew.git` リポジトリ以下のファイルがすべて取得されますが、その配下のパッケージを使用するユーザが特に意識する必要はありません。
 
 下記は `spew` パッケージの使用例です。
 
-#### sample.go
-
-~~~ go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import (
@@ -75,17 +66,15 @@ func main() {
 	}
 	spew.Dump(a)
 }
-~~~
+{{< /code >}}
 
-#### ビルド＆実行
-
-~~~
+{{< code lang="console" title="ビルド＆実行" >}}
 $ go run sample.go
 (main.Book) {
  Title: (string) (len=10) "Golang ABC",
  Author: (string) (len=4) "Maku"
 }
-~~~
+{{< /code >}}
 
 
 GitHub にパッケージを公開する
@@ -99,15 +88,13 @@ GitHub にパッケージを公開する
 GitHub 上で新規リポジトリを作成したら、ローカルでの作業用に `git clone` で取得します。
 取得先は、`$GOPATH/src/github.com/＜ユーザ名＞/＜リポジトリ名＞/` というディレクトリにします（`go get` コマンドの取得先に合わせる）。
 
-~~~
+```console
 $ git clone https://github.com/maku77/gosample.git $GOPATH/src/github.com/maku77/gosample
-~~~
+```
 
 次に、簡単な `Hello` 関数を実装してみます。
 
-#### $GOPATH/src/github.com/maku77/gosample/gosample.go
-
-~~~ go
+{{< code lang="go" title="$GOPATH/src/github.com/maku77/gosample/gosample.go" >}}
 package gosample
 
 import "fmt"
@@ -115,21 +102,19 @@ import "fmt"
 func Hello(name string) {
 	fmt.Printf("Hello, %s!\n", name)
 }
-~~~
+{{< /code >}}
 
 ビルドできるか確認します。
 
-~~~
+```console
 $ go build github.com/maku77/gosample
-~~~
+```
 
 何もエラーがでなければ成功です。
 
 GitHub にコミットする前に、ちゃんと動作するかテストプログラムを実行して確かめておきましょう。
 
-#### sample.go
-
-~~~ go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import "github.com/maku77/gosample"
@@ -137,22 +122,20 @@ import "github.com/maku77/gosample"
 func main() {
 	gosample.Hello("Maku")
 }
-~~~
+{{< /code >}}
 
-#### ビルド＆実行
-
-~~~
+{{< code lang="console" title="ビルド＆実行" >}}
 $ go run sample.go
 Hello, Maku!
-~~~
+{{< /code >}}
 
 正しく動作していることが確認できたら、コミットして GitHub へ公開します。
 
-~~~
+```console
 $ git add gosample.go
 $ git commit -m "Add Hello function"
 $ git push
-~~~
+```
 
 これで、他のユーザは `go get github.com/maku77/gosample` と実行するだけで、GitHub からパッケージ取得できるようになります。
 

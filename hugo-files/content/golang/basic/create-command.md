@@ -1,10 +1,9 @@
 ---
 title: "Go でコマンドラインツールを作って GitHub で公開する"
 url: "p/whs2bjt/"
-permalink: "p/whs2bjt/"
 date: "2022-04-10"
 tags: ["Go"]
-redirect_from:
+aliases:
   - /hugo/go/module
 ---
 
@@ -15,7 +14,7 @@ redirect_from:
 この手順が完了すると、世界中のユーザーが次のように `go-hello` コマンドをインストールできるようになります。
 
 ```console
-$ go install github.com/<User>/go-hello
+$ go install github.com/<User>/go-hello@latest
 ```
 
 
@@ -37,13 +36,11 @@ GitHub で公開するのであれば次のような感じで指定します（`
 $ go mod init github.com/maku77/go-hello
 ```
 
-#### 作成された go.mod の内容
-
-```
+{{< code title="作成された go.mod の内容" >}}
 module github.com/maku77/go-hello
 
 go 1.18
-```
+{{< /code >}}
 
 Go は、`go.mod` ファイルのあるディレクトリをモジュールルートとみなします。
 
@@ -53,12 +50,10 @@ go-hello コマンドの実装
 
 ### 実装
 
-Go 言語では実行可能なコマンドは main パッケージの `main` 関数として実装します。
+Go 言語では実行可能なコマンドは `main` パッケージの `main` 関数として実装します。
 ファイル名は何でもよいのですが、ここでは `main.go` として作成します。
 
-#### go-hello/main.go
-
-```go
+{{< code lang="go" title="go-hello/main.go" >}}
 package main
 
 import "fmt"
@@ -66,7 +61,7 @@ import "fmt"
 func main() {
 	fmt.Println("Hello, world!")
 }
-```
+{{< /code >}}
 
 ### 動作確認
 
@@ -101,7 +96,6 @@ Hello, world!
 $ rm `go env GOPATH`/bin/go-hello
 
 # GOBIN 環境変数を設定済みであれば下記でも OK
-
 $ rm `go env GOBIN`/go-hello
 ```
 
@@ -180,9 +174,7 @@ go-hello/
         +- hello2/main.go （hello2 コマンド用の main パッケージ）
 ```
 
-#### go-hello/cmd/hello1/main.go
-
-```go
+{{< code lang="go" title="go-hello/cmd/hello1/main.go" >}}
 package main
 
 import "fmt"
@@ -190,11 +182,9 @@ import "fmt"
 func main() {
 	fmt.Println("Hello 1")
 }
-```
+{{< /code >}}
 
-#### go-hello/cmd/hello2/main.go
-
-```go
+{{< code lang="go" title="go-hello/cmd/hello2/main.go" >}}
 package main
 
 import "fmt"
@@ -202,7 +192,7 @@ import "fmt"
 func main() {
 	fmt.Println("Hello 2")
 }
-```
+{{< /code >}}
 
 各コマンド用のディレクトリを `go run` で指定すれば実行できます。
 ディレクトリ名は `./` で始まる相対パスで指定することに注意してください。
