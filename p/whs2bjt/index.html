@@ -1,646 +1,95 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="天才星人まくの Go 言語ノート">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/p/whs2bjt/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
-
-  <meta property="og:description" content="天才星人まくの Go 言語ノート">
-
-<meta property="fb:app_id"  content="447708168769292" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
-
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-63069513-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-  <meta property="og:title" content="Go でコマンドラインツールを作って GitHub で公開する | まくまくGo言語ノート" />
-  <title>Go でコマンドラインツールを作って GitHub で公開する - まくまくGo言語ノート</title>
-
-  <!-- Ad (Google) -->
-  
-</head>
-<body>
-
-<div class="xPageHeader">
-  <a href="/go/">
-    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
-  </a>
-  <a href="/go/">
-    <div class="xPageHeader_category">
-    まくまくGo言語ノート
-    </div>
-  </a>
-  <div class="xPageHeader_title">Go でコマンドラインツールを作って GitHub で公開する</div>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2022-04-10</div>
-</div>
-
-  
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      <!-- SNS ボタン（上） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： Go でコマンドラインツールを作って GitHub で公開する&url=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-
-      <!-- 概要 -->
-      
-
-      <div class="xWidget">
-        
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="8099671242"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-      </div>
-
-      <div class="xContent">
-        <!-- 本文 -->
-        <h2 id="何をするか">何をするか？</h2>
-
-<p>ここでは、Go 言語の HelloWorld として、<code class="language-plaintext highlighter-rouge">go-hello</code> というコマンドを作って、GitHub で公開できるようにしてみます。
-この手順が完了すると、世界中のユーザーが次のように <code class="language-plaintext highlighter-rouge">go-hello</code> コマンドをインストールできるようになります。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/&lt;User&gt;/go-hello
-</code></pre></div></div>
-
-<h2 id="go-hello-プロジェクトの作成">go-hello プロジェクトの作成</h2>
-
-<p>まず、適当なディレクトリにプロジェクト用のディレクトリを作成します。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/go-hello
-<span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/go-hello
-</code></pre></div></div>
-
-<p><strong><code class="language-plaintext highlighter-rouge">go mod</code></strong> コマンドで、プロジェクトのルートディレクトリに <strong><code class="language-plaintext highlighter-rouge">go.mod</code></strong> ファイルを作成します。
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Go でコマンドラインツールを作って GitHub で公開する - まくまく Golang ノート</title><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script>
+<link rel=icon sizes="16x16 32x32 48x48 64x64" href=../../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../../assets/img/favicon/180x180.png><script async src="https://www.googletagmanager.com/gtag/js?id=UA-63069513-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-63069513-1")</script><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="Go でコマンドラインツールを作って GitHub で公開する - まくまく Golang ノート"><meta property="og:type" content="website"><meta property="og:url" content="https://maku77.github.io/p/whs2bjt/"><meta property="og:locale" content="ja_JP"><meta property="og:description" content="何をするか？ ここでは、Go 言語の HelloWorld として、go-hello というコマンドを作って、GitHub で公開できるようにしてみます。 この手順が完了すると、世界中のユーザーが次のように go-hello コマンドをインストールできるようになります。
+$ go install github.com/<User>/go-hello@latest go-hello プロジェクトの作成 まず、適当なディレクトリにプロジェクト用のディレクトリを作成します。
+$ mkdir -p ~/go-hello $ cd ~/go-hello go mod コマンドで、プロジェクトのルートディレクトリに go.mod ファイルを作成します。 引数として、モジュール名（モジュールパス）を指定します。 GitHub で公開するのであれば次のような感じで指定します（maku77 の部分は自分の GitHub ユーザー ID に変更してください）。
+$ go mod init github.com/maku77/go-hello 作成された go.mod の内容 module github.com/maku77/go-hello go 1.18 Go は、go.mod ファイルのあるディレクトリをモジュールルートとみなします。
+go-hello コマンドの実装 実装 Go 言語では実行可能なコマンドは main パッケージの main 関数として実装します。 ファイル名は何でもよいのですが、ここでは main.go として作成します。
+go-hello/main.go package main import &#34;fmt&#34; func main() { fmt."><link rel=stylesheet href=../../css/all.min.1cf32a3308d89a24c02646fa1ce9702559a2c7c4dcdcd2b1fb25786a57bb2808.css></head><body><div class=l-pageHeader><header class=header><a href=../../go/><img class=header__icon src=../../go/_index.svg></a><div class=header__right><div class=header__category><a href=../../go/>まくまく Golang ノート</a></div><div class=header__title>Go でコマンドラインツールを作って GitHub で公開する</div></div></header></div><div class=l-withSidebar><div class=l-withSidebar__sidebarLeft><style>#tocStub{position:-webkit-sticky;position:sticky;top:2rem;margin-top:2rem;line-height:1.5;max-height:calc(100vh - 4rem);overflow-y:auto;-webkit-overflow-scrolling:touch}#tocStub ul{font-size:.9em;list-style:none;padding:0;border-top:solid 1px #ccc}#tocStub li{border:solid 1px #ccc;border-right:none;margin-top:-1px}#tocStub a{color:#666;padding:.6em .3em .6em .5em;display:block;text-decoration:none;font-weight:400}.level-2{margin-left:.8em}.level-3{padding-left:1.6em}</style><div id=tocStub></div><script>document.addEventListener("DOMContentLoaded",()=>{function e(e){const t=document.createElement("a");return t.setAttribute("id",e),t}function t(t,n){n.parentNode.insertBefore(e(t),n)}function n(e,t,n){const s=document.createElement("li");return s.classList.add("level-"+e),s.innerHTML='<a href="#'+t+'">'+n+"</a>",s}function s(){const e=document.createElement("ul");return document.querySelectorAll("h2, h3").forEach((s,o)=>{const i="section-"+o;t(i,s);const a=s.tagName.charAt(1)-1;e.appendChild(n(a,i,s.textContent))}),e}document.getElementById("tocStub").appendChild(s())})</script></div><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&text=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&t=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&title=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2022-04-10</time></div></div><div class=article__body><h2 id=何をするか>何をするか？</h2><p>ここでは、Go 言語の HelloWorld として、<code>go-hello</code> というコマンドを作って、GitHub で公開できるようにしてみます。
+この手順が完了すると、世界中のユーザーが次のように <code>go-hello</code> コマンドをインストールできるようになります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install github.com/&lt;User&gt;/go-hello@latest
+</span></span></code></pre></div><h2 id=go-hello-プロジェクトの作成>go-hello プロジェクトの作成</h2><p>まず、適当なディレクトリにプロジェクト用のディレクトリを作成します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> mkdir -p ~/go-hello
+</span></span><span class=line><span class=cl><span class=gp>$</span> <span class=nb>cd</span> ~/go-hello
+</span></span></code></pre></div><p><strong><code>go mod</code></strong> コマンドで、プロジェクトのルートディレクトリに <strong><code>go.mod</code></strong> ファイルを作成します。
 引数として、モジュール名（モジュールパス）を指定します。
-GitHub で公開するのであれば次のような感じで指定します（<code class="language-plaintext highlighter-rouge">maku77</code> の部分は自分の GitHub ユーザー ID に変更してください）。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go mod init github.com/maku77/go-hello
-</code></pre></div></div>
-
-<h4 id="作成された-gomod-の内容">作成された go.mod の内容</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module github.com/maku77/go-hello
-
-go 1.18
-</code></pre></div></div>
-
-<p>Go は、<code class="language-plaintext highlighter-rouge">go.mod</code> ファイルのあるディレクトリをモジュールルートとみなします。</p>
-
-<h2 id="go-hello-コマンドの実装">go-hello コマンドの実装</h2>
-
-<h3 id="実装">実装</h3>
-
-<p>Go 言語では実行可能なコマンドは main パッケージの <code class="language-plaintext highlighter-rouge">main</code> 関数として実装します。
-ファイル名は何でもよいのですが、ここでは <code class="language-plaintext highlighter-rouge">main.go</code> として作成します。</p>
-
-<h4 id="go-hellomaingo">go-hello/main.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"fmt"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="動作確認">動作確認</h3>
-
-<p>この Hello World プログラムは、<strong><code class="language-plaintext highlighter-rouge">go run</code></strong> コマンドでファイル名かディレクトリパスを指定して直接実行できます。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go run <span class="nb">.</span>
-<span class="go">Hello, world!
-</span></code></pre></div></div>
-
-<p><strong><code class="language-plaintext highlighter-rouge">go build</code></strong> コマンドを実行すれば、実行ファイル (<code class="language-plaintext highlighter-rouge">go-hello</code>) を生成することができます。
-実行ファイル名は <code class="language-plaintext highlighter-rouge">go mod init</code> で指定したモジュール名にしたがって自動的につけられますが、<code class="language-plaintext highlighter-rouge">-o</code> オプションで明示することもできます。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go build
-<span class="gp">$</span><span class="w"> </span>./go-hello
-<span class="go">Hello, world!
-</span></code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">go install</code> コマンドを使うと、<code class="language-plaintext highlighter-rouge">go-hello</code> 実行ファイルが <strong><code class="language-plaintext highlighter-rouge">$GOPATH/bin</code></strong>（あるいは <code class="language-plaintext highlighter-rouge">$GOBIN</code> で指定したディレクトリ）にインストールされます（あらかじめ <code class="language-plaintext highlighter-rouge">go build</code> しておく必要はありません）。
-<a href="/p/s258beh/">Go 用の PATH 環境変数を設定</a> してあれば、どのディレクトリからでもインストールした <code class="language-plaintext highlighter-rouge">go-hello</code> コマンドを実行できるようになります。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install</span>
-<span class="gp">$</span><span class="w"> </span>go-hello
-<span class="go">Hello, world!
-</span></code></pre></div></div>
-
-<p>インストールしたコマンドが不要になった場合は、次のように単純に実行ファイルを削除すれば OK です。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">rm</span> <span class="sb">`</span>go <span class="nb">env </span>GOPATH<span class="sb">`</span>/bin/go-hello
-<span class="go">
-</span><span class="gp">#</span><span class="w"> </span>GOBIN 環境変数を設定済みであれば下記でも OK
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span><span class="nb">rm</span> <span class="sb">`</span>go <span class="nb">env </span>GOBIN<span class="sb">`</span>/go-hello
-</code></pre></div></div>
-
-<h2 id="github-で-go-hello-モジュールを公開する">GitHub で go-hello モジュールを公開する</h2>
-
-<p>作成した Go モジュールを GitHub で公開します。</p>
-
-<h3 id="リポジトリの作成">リポジトリの作成</h3>
-
-<p>まず、モジュール名に合わせて、<a href="https://github.com/new">GitHub にリポジトリを作成</a> します。
-ここでは、<code class="language-plaintext highlighter-rouge">&lt;User&gt;/go-hello</code> という名前で作成します。
-<code class="language-plaintext highlighter-rouge">README.md</code> と Go 言語用の <code class="language-plaintext highlighter-rouge">.gitignore</code> を自動生成しておくと便利です。</p>
-
-<h3 id="コミットプッシュ">コミット＆プッシュ</h3>
-
-<p>リポジトリを作成したら、適当な作業用ディレクトリに <code class="language-plaintext highlighter-rouge">git clone</code> します。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/gitwork
-<span class="gp">$</span><span class="w"> </span>git clone https://github.com/&lt;User&gt;/go-hello
-<span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/gitwork/go-hello
-</code></pre></div></div>
-
-<p>前のステップで作成した <code class="language-plaintext highlighter-rouge">go.mod</code> や <code class="language-plaintext highlighter-rouge">main.go</code> ファイルをこのディレクトリにコピーしてコミット、プッシュします。
-これで、GitHub への公開は完了です。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git add <span class="nb">.</span>
-<span class="gp">$</span><span class="w"> </span>git commit <span class="nt">-m</span> <span class="s2">"Add main function"</span>
-<span class="gp">$</span><span class="w"> </span>git push
-</code></pre></div></div>
-
-<h3 id="github-からコマンドをインストールしてみる">GitHub からコマンドをインストールしてみる</h3>
-
-<p>GitHub への Go モジュールのデプロイが完了したら、GitHub から直接 <code class="language-plaintext highlighter-rouge">go install</code> してみます。
+GitHub で公開するのであれば次のような感じで指定します（<code>maku77</code> の部分は自分の GitHub ユーザー ID に変更してください）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go mod init github.com/maku77/go-hello
+</span></span></code></pre></div><figure class=codeBlock><figcaption class=codeBlock__title>作成された go.mod の内容</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>module github.com/maku77/go-hello
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>go 1.18</span></span></code></pre></div></div></figure><p>Go は、<code>go.mod</code> ファイルのあるディレクトリをモジュールルートとみなします。</p><h2 id=go-hello-コマンドの実装>go-hello コマンドの実装</h2><h3 id=実装>実装</h3><p>Go 言語では実行可能なコマンドは <code>main</code> パッケージの <code>main</code> 関数として実装します。
+ファイル名は何でもよいのですが、ここでは <code>main.go</code> として作成します。</p><figure class=codeBlock><figcaption class=codeBlock__title>go-hello/main.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello, world!&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><h3 id=動作確認>動作確認</h3><p>この Hello World プログラムは、<strong><code>go run</code></strong> コマンドでファイル名かディレクトリパスを指定して直接実行できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go run .
+</span></span><span class=line><span class=cl><span class=go>Hello, world!
+</span></span></span></code></pre></div><p><strong><code>go build</code></strong> コマンドを実行すれば、実行ファイル (<code>go-hello</code>) を生成することができます。
+実行ファイル名は <code>go mod init</code> で指定したモジュール名にしたがって自動的につけられますが、<code>-o</code> オプションで明示することもできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go build
+</span></span><span class=line><span class=cl><span class=gp>$</span> ./go-hello
+</span></span><span class=line><span class=cl><span class=go>Hello, world!
+</span></span></span></code></pre></div><p><code>go install</code> コマンドを使うと、<code>go-hello</code> 実行ファイルが <strong><code>$GOPATH/bin</code></strong>（あるいは <code>$GOBIN</code> で指定したディレクトリ）にインストールされます（あらかじめ <code>go build</code> しておく必要はありません）。
+<a href=../../p/s258beh/>Go 用の PATH 環境変数を設定</a> してあれば、どのディレクトリからでもインストールした <code>go-hello</code> コマンドを実行できるようになります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install
+</span></span><span class=line><span class=cl><span class=gp>$</span> go-hello
+</span></span><span class=line><span class=cl><span class=go>Hello, world!
+</span></span></span></code></pre></div><p>インストールしたコマンドが不要になった場合は、次のように単純に実行ファイルを削除すれば OK です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> rm <span class=sb>`</span>go env GOPATH<span class=sb>`</span>/bin/go-hello
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>#</span> GOBIN 環境変数を設定済みであれば下記でも OK
+</span></span><span class=line><span class=cl><span class=gp>$</span> rm <span class=sb>`</span>go env GOBIN<span class=sb>`</span>/go-hello
+</span></span></code></pre></div><h2 id=github-で-go-hello-モジュールを公開する>GitHub で go-hello モジュールを公開する</h2><p>作成した Go モジュールを GitHub で公開します。</p><h3 id=リポジトリの作成>リポジトリの作成</h3><p>まず、モジュール名に合わせて、<a href=https://github.com/new>GitHub にリポジトリを作成</a> します。
+ここでは、<code>&lt;User>/go-hello</code> という名前で作成します。
+<code>README.md</code> と Go 言語用の <code>.gitignore</code> を自動生成しておくと便利です。</p><h3 id=コミットプッシュ>コミット＆プッシュ</h3><p>リポジトリを作成したら、適当な作業用ディレクトリに <code>git clone</code> します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> <span class=nb>cd</span> ~/gitwork
+</span></span><span class=line><span class=cl><span class=gp>$</span> git clone https://github.com/&lt;User&gt;/go-hello
+</span></span><span class=line><span class=cl><span class=gp>$</span> <span class=nb>cd</span> ~/gitwork/go-hello
+</span></span></code></pre></div><p>前のステップで作成した <code>go.mod</code> や <code>main.go</code> ファイルをこのディレクトリにコピーしてコミット、プッシュします。
+これで、GitHub への公開は完了です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> git add .
+</span></span><span class=line><span class=cl><span class=gp>$</span> git commit -m <span class=s2>&#34;Add main function&#34;</span>
+</span></span><span class=line><span class=cl><span class=gp>$</span> git push
+</span></span></code></pre></div><h3 id=github-からコマンドをインストールしてみる>GitHub からコマンドをインストールしてみる</h3><p>GitHub への Go モジュールのデプロイが完了したら、GitHub から直接 <code>go install</code> してみます。
 この際、取得するコードのバージョンをサフィックスとして指定する必要があります。
 これは想定外のコードを使わないようにするための安全策です。
-最新コードを信用してよいのであれば、次のように <strong><code class="language-plaintext highlighter-rouge">@latest</code></strong> を指定してインストールします。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/maku77/go-hello@latest
-</code></pre></div></div>
-
-<p>もう少しお行儀よくやるには、<a href="/p/y2cmv5d/">GitHub のコードにバージョンタグを付けておき</a>、次のようにバージョンを指定してインストールします。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/maku77/go-hello@v1.0.0
-</code></pre></div></div>
-
-<p>下記のように実行ファイルができていれば、うまくインストールできています。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">ls</span> <span class="sb">`</span>go <span class="nb">env </span>GOPATH<span class="sb">`</span>/bin
-<span class="go">go-hello
-
-</span><span class="gp">$</span><span class="w"> </span>go-hello
-<span class="go">Hello, world!
-</span></code></pre></div></div>
-
-<h2 id="複数のコマンドを提供する">複数のコマンドを提供する</h2>
-
-<p>前述の例では、モジュール名を <code class="language-plaintext highlighter-rouge">github.com/maku77/go-hello</code> として、<code class="language-plaintext highlighter-rouge">go-hello</code> という名前のコマンド作成しました。
-1 つのモジュールで複数のコマンドを提供したい場合は、コマンドごとにディレクトリを作成して、その中にそれぞれの <code class="language-plaintext highlighter-rouge">main</code> パッケージを構成します。
-<a href="https://github.com/golang-standards/project-layout/blob/master/README.md">典型的なディレクトリ構成</a> としては、<strong><code class="language-plaintext highlighter-rouge">cmd</code></strong> ディレクトリを作って、その中にコマンド名と同名のディレクトリを作成します。
-例えば、<code class="language-plaintext highlighter-rouge">go-hello</code> モジュール内に <code class="language-plaintext highlighter-rouge">hello1</code> コマンドと <code class="language-plaintext highlighter-rouge">hello2</code> コマンドを作成するには次のようなディレクトリ構成にします。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go-hello/
+最新コードを信用してよいのであれば、次のように <strong><code>@latest</code></strong> を指定してインストールします。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install github.com/maku77/go-hello@latest
+</span></span></code></pre></div><p>もう少しお行儀よくやるには、<a href=../../p/y2cmv5d/>GitHub のコードにバージョンタグを付けておき</a>、次のようにバージョンを指定してインストールします。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install github.com/maku77/go-hello@v1.0.0
+</span></span></code></pre></div><p>下記のように実行ファイルができていれば、うまくインストールできています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> ls <span class=sb>`</span>go env GOPATH<span class=sb>`</span>/bin
+</span></span><span class=line><span class=cl><span class=go>go-hello
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>$</span> go-hello
+</span></span><span class=line><span class=cl><span class=go>Hello, world!
+</span></span></span></code></pre></div><h2 id=複数のコマンドを提供する>複数のコマンドを提供する</h2><p>前述の例では、モジュール名を <code>github.com/maku77/go-hello</code> として、<code>go-hello</code> という名前のコマンド作成しました。
+1 つのモジュールで複数のコマンドを提供したい場合は、コマンドごとにディレクトリを作成して、その中にそれぞれの <code>main</code> パッケージを構成します。
+<a href=https://github.com/golang-standards/project-layout/blob/master/README.md>典型的なディレクトリ構成</a> としては、<strong><code>cmd</code></strong> ディレクトリを作って、その中にコマンド名と同名のディレクトリを作成します。
+例えば、<code>go-hello</code> モジュール内に <code>hello1</code> コマンドと <code>hello2</code> コマンドを作成するには次のようなディレクトリ構成にします。</p><pre tabindex=0><code>go-hello/
     +- go.mod
     +- cmd/
         +- hello1/main.go （hello1 コマンド用の main パッケージ）
         +- hello2/main.go （hello2 コマンド用の main パッケージ）
-</code></pre></div></div>
-
-<h4 id="go-hellocmdhello1maingo">go-hello/cmd/hello1/main.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"fmt"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello 1"</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="go-hellocmdhello2maingo">go-hello/cmd/hello2/main.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"fmt"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello 2"</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>各コマンド用のディレクトリを <code class="language-plaintext highlighter-rouge">go run</code> で指定すれば実行できます。
-ディレクトリ名は <code class="language-plaintext highlighter-rouge">./</code> で始まる相対パスで指定することに注意してください。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go run ./cmd/hello1
-<span class="go">Hello1
-
-</span><span class="gp">$</span><span class="w"> </span>go run ./cmd/hello2
-<span class="go">Hello2
-</span></code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">go run</code> の代わりに <code class="language-plaintext highlighter-rouge">go install</code> を使えば、システムにコマンドをインストールできます。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install</span> ./cmd/hello1
-<span class="gp">$</span><span class="w"> </span>go <span class="nb">install</span> ./cmd/hello2
-<span class="go">
-</span><span class="gp">#</span><span class="w"> </span>次のようにまとめてインストールすることも可能です
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>go <span class="nb">install</span> ./...
-</code></pre></div></div>
-
-<p>これらのコードを GitHub にプッシュして公開すれば、世界中の人が次のように簡単にコマンドをインストールできるようになります。</p>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/maku77/go-hello/cmd/hello1@v1.0.0
-<span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/maku77/go-hello/cmd/hello2@v1.0.0
-<span class="go">
-</span><span class="gp">#</span><span class="w"> </span>あるいは次のようにまとめてインストール
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>go <span class="nb">install </span>github.com/maku77/go-hello/cmd/...@v1.0.0
-</code></pre></div></div>
-
-
-      </div>
-
-      <!-- Ad (楽天) -->
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-
-      <!-- SNS ボタン（下） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： Go でコマンドラインツールを作って GitHub で公開する&url=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/whs2bjt/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-      <div class="xArticle_up">
-        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
-      </div>
-
-    </div>
-
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/mac/">Mac</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/mt/">Meta Trader</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li><a href="/r/">R</a>
-        <li><a href="/ruby/">Ruby</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2022-04-10</div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-$(function() {
-  var $content = $('.xContent');
-  // 外部リンクを必ず新しいタブで開く
-  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
-  // 外部リンクにクラス属性を付加する
-  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
-});
-</script>
-
-
-</body>
-</html>
+</code></pre><figure class=codeBlock><figcaption class=codeBlock__title>go-hello/cmd/hello1/main.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello 1&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>go-hello/cmd/hello2/main.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Hello 2&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p>各コマンド用のディレクトリを <code>go run</code> で指定すれば実行できます。
+ディレクトリ名は <code>./</code> で始まる相対パスで指定することに注意してください。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go run ./cmd/hello1
+</span></span><span class=line><span class=cl><span class=go>Hello1
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>$</span> go run ./cmd/hello2
+</span></span><span class=line><span class=cl><span class=go>Hello2
+</span></span></span></code></pre></div><p><code>go run</code> の代わりに <code>go install</code> を使えば、システムにコマンドをインストールできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install ./cmd/hello1
+</span></span><span class=line><span class=cl><span class=gp>$</span> go install ./cmd/hello2
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>#</span> 次のようにまとめてインストールすることも可能です
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>$</span> go install ./...
+</span></span></code></pre></div><p>これらのコードを GitHub にプッシュして公開すれば、世界中の人が次のように簡単にコマンドをインストールできるようになります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> go install github.com/maku77/go-hello/cmd/hello1@v1.0.0
+</span></span><span class=line><span class=cl><span class=gp>$</span> go install github.com/maku77/go-hello/cmd/hello2@v1.0.0
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>#</span> あるいは次のようにまとめてインストール
+</span></span><span class=line><span class=cl><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=gp>$</span> go install github.com/maku77/go-hello/cmd/...@v1.0.0
+</span></span></code></pre></div></div><div class=article__footer><div class=article__date><time class=pageDate>2022-04-10</time></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&text=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&t=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fwhs2bjt%2f&title=Go%20%e3%81%a7%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%20GitHub%20%e3%81%a7%e5%85%ac%e9%96%8b%e3%81%99%e3%82%8b%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div></div></article><script>var SIDEBAR_HIDE_THRESHOLD=800,SIDEBAR_WIDTH=250,OFFSET=10,w=window.innerWidth;w>=SIDEBAR_HIDE_THRESHOLD&&(w-=SIDEBAR_WIDTH),w-=OFFSET,w>=728?rakuten_size="728x200":w>=600?rakuten_size="600x200":w>=468?rakuten_size="468x160":w>=336?rakuten_size="336x280":w>=300?rakuten_size="300x250":w>=250?rakuten_size="250x250":rakuten_size="200x350",rakuten_design="slide",rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e",rakuten_items="ctsmatch",rakuten_genreId=0,rakuten_target="_blank",rakuten_theme="gray",rakuten_border="off",rakuten_auto_mode="on",rakuten_genre_title="off",rakuten_recommend="on",rakuten_txtColor="333333",rakuten_moverColor="30C030",rakuten_bgColor="FFFFFF",rakuten_captionColor="333333"</script><script src=https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js></script></div><div class=l-withSidebar__sidebarRight><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku77.github.io/ansible/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku77.github.io/mac/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://maku77.github.io/mt/>Meta Trader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class=navigation__item href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class=navigation__item href=https://maku77.github.io/r/>R</a><li><a class=navigation__item href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav><style>.codoc-support{display:inline-block;margin:0!important;padding:12px!important;width:200px!important;max-width:100%}.codoc-support .codoc-support-title{font-size:smaller!important;white-space:nowrap;margin-bottom:12px!important}.codoc-support .codoc-btn{width:160px!important}</style><script src=https://codoc.jp/js/cms.js data-css=black data-usercode=tp6ZPzTj3w defer></script><div id=codoc-entry-4gYwTntzzw class=codoc-entries data-without-body=1 data-support-button-text="（っ'-')╮シュッ🔴" data-show-like=0 data-show-about-codoc=0 data-show-powered-by=0 data-support-message=まくに投げ銭できます。></div></div></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll("a[href^=http]");for(let n=0;n<e.length;++n){const t=e[n];if(t.href.startsWith("https://maku77.github.io"))continue;const s=t.getElementsByTagName("img");if(s.length>0)continue;const o=t.getElementsByTagName("svg");if(o.length>0)continue;t.classList.add("externalLinkIcon"),t.setAttribute("target","_blank"),t.setAttribute("rel","noopener")}})</script></body></html>

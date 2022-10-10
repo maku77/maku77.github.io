@@ -1,715 +1,113 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/p/z8behko/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-go.png" />
-
-  <meta property="og:description" content="Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。">
-
-<meta property="fb:app_id"  content="447708168769292" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
-
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-63069513-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-
-
-  <meta property="og:title" content="テンプレート機能を使用する (text/template, html/template) | まくまくGo言語ノート" />
-  <title>テンプレート機能を使用する (text/template, html/template) - まくまくGo言語ノート</title>
-
-  <!-- Ad (Google) -->
-  
-</head>
-<body>
-
-<div class="xPageHeader">
-  <a href="/go/">
-    <img src="/assets/img/logo-go.svg" class="xPageHeader_logo">
-  </a>
-  <a href="/go/">
-    <div class="xPageHeader_category">
-    まくまくGo言語ノート
-    </div>
-  </a>
-  <div class="xPageHeader_title">テンプレート機能を使用する (text/template, html/template)</div>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2017-09-10</div>
-</div>
-
-  
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      <!-- SNS ボタン（上） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： テンプレート機能を使用する (text/template, html/template)&url=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-
-      <!-- 概要 -->
-      
-        <div class="xPageDescription">Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。</div>
-      
-
-      <div class="xWidget">
-        
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="8099671242"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-      </div>
-
-      <div class="xContent">
-        <!-- 本文 -->
-        <h2 id="２つのテンプレートパッケージ">２つのテンプレートパッケージ</h2>
-
-<p>Go 言語には、組込みのテンプレート・パッケージとして、<code class="language-plaintext highlighter-rouge">text/template</code> と <code class="language-plaintext highlighter-rouge">html/template</code> パッケージが搭載されています。
-Web ページの構築に使用する場合は、パラメータを HTML エスケープ処理してくれる <code class="language-plaintext highlighter-rouge">html/template</code> パッケージの方を利用します。</p>
-
-<ul>
-  <li><a href="https://golang.org/pkg/text/template/">text/template Package</a></li>
-  <li><a href="https://golang.org/pkg/html/template/">html/template Package</a></li>
-</ul>
-
-<h2 id="テンプレート機能の基本的な使い方">テンプレート機能の基本的な使い方</h2>
-
-<h3 id="template-オブジェクトの生成">Template オブジェクトの生成</h3>
-
-<p>テンプレート機能を使用するには、まずは <strong><code class="language-plaintext highlighter-rouge">Template</code></strong> オブジェクトを生成します。
-テンプレートファイルを使用する場合は <strong><code class="language-plaintext highlighter-rouge">template.ParseFiles</code></strong> 関数、文字列データをテンプレートとして使用する場合は <strong><code class="language-plaintext highlighter-rouge">template.Parse</code></strong> 関数を使用します。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">template</span><span class="o">.</span><span class="n">ParseFiles</span><span class="p">(</span><span class="s">"./template.html"</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>テンプレートファイルのパース処理が成功することが分かっている場合は、次のように <strong><code class="language-plaintext highlighter-rouge">template.Must</code></strong> 関数を組み合わせて使用することで、エラー処理の記述を省略することができます（エラーになった場合は panic が発生します）。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">:=</span> <span class="n">template</span><span class="o">.</span><span class="n">Must</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">ParseFiles</span><span class="p">(</span><span class="s">"./template.html"</span><span class="p">))</span>
-</code></pre></div></div>
-
-<h3 id="テンプレートへの値の埋め込み">テンプレートへの値の埋め込み</h3>
-
-<p>テンプレートへの値の埋め込みは、<code class="language-plaintext highlighter-rouge">Template</code> オブジェクトの <strong><code class="language-plaintext highlighter-rouge">Execute</code></strong> メソッドによって行います。
-第一引数には出力先、第二引数には埋め込むデータを渡します。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">:=</span> <span class="s">"Hello World"</span>
-<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>渡されたデータは、テンプレートファイル内の、<strong><code class="language-plaintext highlighter-rouge">{{ . }}</code></strong> という部分に展開されます。
-この構文は、<a href="/hugo/">Hugo</a> という静的サイトジェネレーターを使っている場合はおなじみかもしれません。</p>
-
-<p>下記はシンプルなテンプレートファイルの例です。</p>
-
-<h4 id="templatehtml">template.html</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>{{ . }}<span class="nt">&lt;/h1&gt;</span>
-</code></pre></div></div>
-
-<h4 id="出力結果">出力結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-</code></pre></div></div>
-
-<h3 id="全体のコード">全体のコード</h3>
-
-<h4 id="samplego">sample.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="p">(</span>
-	<span class="s">"html/template"</span>
-	<span class="s">"log"</span>
-	<span class="s">"os"</span>
-<span class="p">)</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c">// テンプレートの読み込み</span>
-	<span class="n">t</span> <span class="o">:=</span> <span class="n">template</span><span class="o">.</span><span class="n">Must</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">ParseFiles</span><span class="p">(</span><span class="s">"./template.html"</span><span class="p">))</span>
-
-	<span class="c">// 値の埋め込み</span>
-	<span class="n">data</span> <span class="o">:=</span> <span class="s">"Hello World"</span>
-	<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="テンプレートへの入力データとしてマップや構造体を使用する">テンプレートへの入力データとしてマップや構造体を使用する</h2>
-
-<p><code class="language-plaintext highlighter-rouge">Template</code> オブジェクトの <code class="language-plaintext highlighter-rouge">Execute</code> メソッドには、単純な文字列だけではなく、マップや構造体を渡すこともできます（こちらの方が一般的）。
-下記のコードでは、３つのキーを持つマップを渡しています。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">:=</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span>
-	<span class="s">"key1"</span><span class="o">:</span> <span class="m">100</span><span class="p">,</span>
-	<span class="s">"key2"</span><span class="o">:</span> <span class="m">200</span><span class="p">,</span>
-	<span class="s">"key3"</span><span class="o">:</span> <span class="m">300</span><span class="p">,</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>渡されたデータは、テンプレート内で <code class="language-plaintext highlighter-rouge">{{ .キー名 }}</code> で参照することができます。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-  <span class="nt">&lt;li&gt;</span>{{ .key1 }}
-  <span class="nt">&lt;li&gt;</span>{{ .key2 }}
-  <span class="nt">&lt;li&gt;</span>{{ .key3 }}
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<p>次のサンプルコードでは、構造体のオブジェクトをテンプレートに渡しています。</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">Book</span> <span class="k">struct</span> <span class="p">{</span>
-	<span class="n">Title</span>  <span class="kt">string</span>
-	<span class="n">Author</span> <span class="kt">string</span>
-<span class="p">}</span>
-<span class="n">data</span> <span class="o">:=</span> <span class="n">Book</span><span class="p">{</span><span class="n">Title</span><span class="o">:</span> <span class="s">"Golang"</span><span class="p">,</span> <span class="n">Author</span><span class="o">:</span> <span class="s">"Maku"</span><span class="p">}</span>
-
-<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-	<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>テンプレートに渡された構造体の各フィルードの値も、マップの場合と同様な形式でアクセスすることができます。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-  <span class="nt">&lt;li&gt;</span>{{ .Title }}
-  <span class="nt">&lt;li&gt;</span>{{ .Author }}
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<p>構造体のフィールドとして、構造体やマップを持っているようなケースでは、次のようにドットで連鎖させることで参照できます。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>{{ .Site.Title }}<span class="nt">&lt;/h1&gt;</span>
-</code></pre></div></div>
-
-<h2 id="テンプレート内でのループ処理">テンプレート内でのループ処理</h2>
-
-<p><code class="language-plaintext highlighter-rouge">range</code> キーワードを使用すると、テンプレートファイル内でループ処理を行うことができます。</p>
-
-<h4 id="templatehtml-1">template.html</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-  {{ range . }}
-    <span class="nt">&lt;li&gt;</span>{{ . }}
-  {{ end }}
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<h4 id="samplego-1">sample.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"html/template"</span>
-<span class="k">import</span> <span class="s">"os"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">t</span> <span class="o">:=</span> <span class="n">template</span><span class="o">.</span><span class="n">Must</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">ParseFiles</span><span class="p">(</span><span class="s">"./template.html"</span><span class="p">))</span>
-	<span class="n">data</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">"AAA"</span><span class="p">,</span> <span class="s">"BBB"</span><span class="p">,</span> <span class="s">"CCC"</span><span class="p">}</span>
-	<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="出力結果-1">出力結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-    <span class="nt">&lt;li&gt;</span>AAA
-    <span class="nt">&lt;li&gt;</span>BBB
-    <span class="nt">&lt;li&gt;</span>CCC
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<p>Go 言語のように、インデックスと値を取得しながらループ処理することもできます。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-  {{ range $i, $val := . }}
-    <span class="nt">&lt;ul&gt;</span>{{ $i }} : {{ $val }}
-  {{ end }}
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<h4 id="出力結果-2">出力結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-    <span class="nt">&lt;ul&gt;</span>0 : AAA
-    <span class="nt">&lt;ul&gt;</span>1 : BBB
-    <span class="nt">&lt;ul&gt;</span>2 : CCC
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></div></div>
-
-<h2 id="テンプレートの中からテンプレートをインクードする">テンプレートの中からテンプレートをインクードする</h2>
-
-<p>テンプレートファイルの中で、<code class="language-plaintext highlighter-rouge">template</code> 関数を使用すると、別のテンプレートファイルの内容をそこに展開することができます。</p>
-
-<h4 id="templatehtml-2">template.html</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;p&gt;</span>
-  {{ template "partial.html" . }}
-<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<h4 id="partialhtml">partial.html</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello, <span class="nt">&lt;b&gt;</span>{{ . }}<span class="nt">&lt;/b&gt;</span>
-</code></pre></div></div>
-
-<p>入れ子構造で読み込むテンプレートファイルも、<code class="language-plaintext highlighter-rouge">template.ParseFiles</code> 関数で指定しておく必要があります。</p>
-
-<h4 id="samplego-2">sample.go</h4>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"html/template"</span>
-<span class="k">import</span> <span class="s">"os"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">t</span> <span class="o">:=</span> <span class="n">template</span><span class="o">.</span><span class="n">Must</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">ParseFiles</span><span class="p">(</span><span class="s">"template.html"</span><span class="p">,</span> <span class="s">"partial.html"</span><span class="p">))</span>
-	<span class="k">if</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">t</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">Stdout</span><span class="p">,</span> <span class="s">"Maku"</span><span class="p">);</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-		<span class="nb">panic</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h4 id="実行結果">実行結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;p&gt;</span>
-  Hello, <span class="nt">&lt;b&gt;</span>Maku<span class="nt">&lt;/b&gt;</span>
-<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<h2 id="その他">その他</h2>
-
-<h3 id="コメント">コメント</h3>
-
-<p>テンプレートファイルの中で、<strong><code class="language-plaintext highlighter-rouge">{{/*</code></strong> と <strong><code class="language-plaintext highlighter-rouge">*/}}</code></strong> で囲んだ部分はコメントと見なされ、テンプレートのコンパイル時に削除されます。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{/* これはコメント */}}
-</code></pre></div></div>
-
-<h3 id="前後の空白を削除">前後の空白を削除</h3>
-
-<p>テンプレート内で値を出力するときに、<strong><code class="language-plaintext highlighter-rouge">{{-</code></strong> と <strong><code class="language-plaintext highlighter-rouge">-}}</code></strong> で囲むようにすると、前後のスペース（前のタグからそこまでと、そこから後ろのタグまでのスペース）を削除して出力することができます。</p>
-
-<h4 id="templatehtml置換部分の前後のスペースを削除">template.html（置換部分の前後のスペースを削除）</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
-  {{- . -}}
-<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<h4 id="出力結果-3">出力結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>Hello<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<p>前方のスペースのみ、あるいは、後方のスペースのみを削除することもできます。</p>
-
-<h4 id="templatehtml置換部分の前のスペースだけ削除">template.html（置換部分の前のスペースだけ削除）</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>
-  {{- . }}
-<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<h4 id="出力結果-4">出力結果</h4>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>Hello
-<span class="nt">&lt;/p&gt;</span>
-</code></pre></div></div>
-
-
-      </div>
-
-      <!-- Ad (楽天) -->
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-
-      <!-- SNS ボタン（下） -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくGo言語ノート： テンプレート機能を使用する (text/template, html/template)&url=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/z8behko/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-      <div class="xArticle_up">
-        <a href="/go/"><span class="xArticle_up_label">まくまくGo言語ノート</span><br>へ戻る</a>
-      </div>
-
-    </div>
-
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/mac/">Mac</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/mt/">Meta Trader</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li><a href="/r/">R</a>
-        <li><a href="/ruby/">Ruby</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/go/">Go言語</a></div>
-  <div class="xPageDate">2017-09-10</div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-$(function() {
-  var $content = $('.xContent');
-  // 外部リンクを必ず新しいタブで開く
-  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
-  // 外部リンクにクラス属性を付加する
-  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
-});
-</script>
-
-
-</body>
-</html>
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>テンプレート機能を使用する (text/template, html/template) - まくまく Golang ノート</title><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script>
+<link rel=icon sizes="16x16 32x32 48x48 64x64" href=../../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../../assets/img/favicon/180x180.png><script async src="https://www.googletagmanager.com/gtag/js?id=UA-63069513-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-63069513-1")</script><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="テンプレート機能を使用する (text/template, html/template) - まくまく Golang ノート"><meta property="og:type" content="website"><meta property="og:url" content="https://maku77.github.io/p/z8behko/"><meta property="og:locale" content="ja_JP"><meta property="og:description" content="Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。"><link rel=stylesheet href=../../css/all.min.1cf32a3308d89a24c02646fa1ce9702559a2c7c4dcdcd2b1fb25786a57bb2808.css></head><body><div class=l-pageHeader><header class=header><a href=../../go/><img class=header__icon src=../../go/_index.svg></a><div class=header__right><div class=header__category><a href=../../go/>まくまく Golang ノート</a></div><div class=header__title>テンプレート機能を使用する (text/template, html/template)</div></div></header></div><div class=l-withSidebar><div class=l-withSidebar__sidebarLeft><style>#tocStub{position:-webkit-sticky;position:sticky;top:2rem;margin-top:2rem;line-height:1.5;max-height:calc(100vh - 4rem);overflow-y:auto;-webkit-overflow-scrolling:touch}#tocStub ul{font-size:.9em;list-style:none;padding:0;border-top:solid 1px #ccc}#tocStub li{border:solid 1px #ccc;border-right:none;margin-top:-1px}#tocStub a{color:#666;padding:.6em .3em .6em .5em;display:block;text-decoration:none;font-weight:400}.level-2{margin-left:.8em}.level-3{padding-left:1.6em}</style><div id=tocStub></div><script>document.addEventListener("DOMContentLoaded",()=>{function e(e){const t=document.createElement("a");return t.setAttribute("id",e),t}function t(t,n){n.parentNode.insertBefore(e(t),n)}function n(e,t,n){const s=document.createElement("li");return s.classList.add("level-"+e),s.innerHTML='<a href="#'+t+'">'+n+"</a>",s}function s(){const e=document.createElement("ul");return document.querySelectorAll("h2, h3").forEach((s,o)=>{const i="section-"+o;t(i,s);const a=s.tagName.charAt(1)-1;e.appendChild(n(a,i,s.textContent))}),e}document.getElementById("tocStub").appendChild(s())})</script></div><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&text=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&t=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&title=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2017-09-10</time></div></div><div class=article__body><p>Go には標準パッケージとしてテンプレート機能が用意されています。
+テンプレート機能は、定型の Web ページ作成などに活用できます。</p><h2 id=２つのテンプレートパッケージ>２つのテンプレートパッケージ</h2><p>Go 言語には、組込みのテンプレート・パッケージとして、<code>text/template</code> と <code>html/template</code> パッケージが搭載されています。
+Web ページの構築に使用する場合は、パラメータを HTML エスケープ処理してくれる <code>html/template</code> パッケージの方を利用します。</p><ul><li><a href=https://golang.org/pkg/text/template/>text/template Package</a></li><li><a href=https://golang.org/pkg/html/template/>html/template Package</a></li></ul><h2 id=テンプレート機能の基本的な使い方>テンプレート機能の基本的な使い方</h2><h3 id=template-オブジェクトの生成>Template オブジェクトの生成</h3><p>テンプレート機能を使用するには、まずは <strong><code>Template</code></strong> オブジェクトを生成します。
+テンプレートファイルを使用する場合は <strong><code>template.ParseFiles</code></strong> 関数、文字列データをテンプレートとして使用する場合は <strong><code>template.Parse</code></strong> 関数を使用します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>t</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>template</span><span class=p>.</span><span class=nf>ParseFiles</span><span class=p>(</span><span class=s>&#34;./template.html&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>テンプレートファイルのパース処理が成功することが分かっている場合は、次のように <strong><code>template.Must</code></strong> 関数を組み合わせて使用することで、エラー処理の記述を省略することができます（エラーになった場合は panic が発生します）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>t</span> <span class=o>:=</span> <span class=nx>template</span><span class=p>.</span><span class=nf>Must</span><span class=p>(</span><span class=nx>template</span><span class=p>.</span><span class=nf>ParseFiles</span><span class=p>(</span><span class=s>&#34;./template.html&#34;</span><span class=p>))</span>
+</span></span></code></pre></div><h3 id=テンプレートへの値の埋め込み>テンプレートへの値の埋め込み</h3><p>テンプレートへの値の埋め込みは、<code>Template</code> オブジェクトの <strong><code>Execute</code></strong> メソッドによって行います。
+第一引数には出力先、第二引数には埋め込むデータを渡します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>data</span> <span class=o>:=</span> <span class=s>&#34;Hello World&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=nx>data</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>渡されたデータは、テンプレートファイル内の、<strong><code>{{ . }}</code></strong> という部分に展開されます。
+この構文は、<a href=../../hugo/>Hugo</a> という静的サイトジェネレーターを使っている場合はおなじみかもしれません。</p><p>下記はシンプルなテンプレートファイルの例です。</p><figure class=codeBlock><figcaption class=codeBlock__title>template.html</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>{{ . }}<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>出力結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello World<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><h3 id=全体のコード>全体のコード</h3><figure class=codeBlock><figcaption class=codeBlock__title>sample.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;html/template&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;os&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// テンプレートの読み込み
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>t</span> <span class=o>:=</span> <span class=nx>template</span><span class=p>.</span><span class=nf>Must</span><span class=p>(</span><span class=nx>template</span><span class=p>.</span><span class=nf>ParseFiles</span><span class=p>(</span><span class=s>&#34;./template.html&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// 値の埋め込み
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nx>data</span> <span class=o>:=</span> <span class=s>&#34;Hello World&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=nx>data</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><h2 id=テンプレートへの入力データとしてマップや構造体を使用する>テンプレートへの入力データとしてマップや構造体を使用する</h2><p><code>Template</code> オブジェクトの <code>Execute</code> メソッドには、単純な文字列だけではなく、マップや構造体を渡すこともできます（こちらの方が一般的）。
+下記のコードでは、３つのキーを持つマップを渡しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>data</span> <span class=o>:=</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;key1&#34;</span><span class=p>:</span> <span class=mi>100</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;key2&#34;</span><span class=p>:</span> <span class=mi>200</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;key3&#34;</span><span class=p>:</span> <span class=mi>300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=nx>data</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>渡されたデータは、テンプレート内で <strong><code>{{ .キー名 }}</code></strong> で参照することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ .key1 }}
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ .key2 }}
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ .key3 }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>次のサンプルコードでは、構造体のオブジェクトをテンプレートに渡しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>Book</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>Title</span>  <span class=kt>string</span>
+</span></span><span class=line><span class=cl>	<span class=nx>Author</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nx>data</span> <span class=o>:=</span> <span class=nx>Book</span><span class=p>{</span><span class=nx>Title</span><span class=p>:</span> <span class=s>&#34;Golang&#34;</span><span class=p>,</span> <span class=nx>Author</span><span class=p>:</span> <span class=s>&#34;Maku&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=nx>data</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>テンプレートに渡された構造体の各フィルードの値も、マップの場合と同様な形式でアクセスすることができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ .Title }}
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ .Author }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>構造体のフィールドとして、構造体やマップを持っているようなケースでは、次のようにドットで連鎖させることで参照できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>{{ .Site.Title }}<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span></code></pre></div><h2 id=テンプレート内でのループ処理>テンプレート内でのループ処理</h2><p><code>range</code> キーワードを使用すると、テンプレートファイル内でループ処理を行うことができます。</p><figure class=codeBlock><figcaption class=codeBlock__title>template.html</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  {{ range . }}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>{{ . }}
+</span></span><span class=line><span class=cl>  {{ end }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>sample.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;html/template&#34;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;os&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>t</span> <span class=o>:=</span> <span class=nx>template</span><span class=p>.</span><span class=nf>Must</span><span class=p>(</span><span class=nx>template</span><span class=p>.</span><span class=nf>ParseFiles</span><span class=p>(</span><span class=s>&#34;./template.html&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=nx>data</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>string</span><span class=p>{</span><span class=s>&#34;AAA&#34;</span><span class=p>,</span> <span class=s>&#34;BBB&#34;</span><span class=p>,</span> <span class=s>&#34;CCC&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=nx>data</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>出力結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>AAA
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>BBB
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>CCC
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><p>Go 言語のように、インデックスと値を取得しながらループ処理することもできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  {{ range $i, $val := . }}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>{{ $i }} : {{ $val }}
+</span></span><span class=line><span class=cl>  {{ end }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span></code></pre></div><figure class=codeBlock><figcaption class=codeBlock__title>出力結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>0 : AAA
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>1 : BBB
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>2 : CCC
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><h2 id=テンプレートの中からテンプレートをインクードする>テンプレートの中からテンプレートをインクードする</h2><p>テンプレートファイルの中で、<code>template</code> 関数を使用すると、別のテンプレートファイルの内容をそこに展開することができます。</p><figure class=codeBlock><figcaption class=codeBlock__title>template.html</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  {{ template &#34;partial.html&#34; . }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>partial.html</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>Hello, <span class=p>&lt;</span><span class=nt>b</span><span class=p>&gt;</span>{{ . }}<span class=p>&lt;/</span><span class=nt>b</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><p>入れ子構造で読み込むテンプレートファイルも、<code>template.ParseFiles</code> 関数で指定しておく必要があります。</p><figure class=codeBlock><figcaption class=codeBlock__title>sample.go</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;html/template&#34;</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;os&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>t</span> <span class=o>:=</span> <span class=nx>template</span><span class=p>.</span><span class=nf>Must</span><span class=p>(</span><span class=nx>template</span><span class=p>.</span><span class=nf>ParseFiles</span><span class=p>(</span><span class=s>&#34;template.html&#34;</span><span class=p>,</span> <span class=s>&#34;partial.html&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>t</span><span class=p>.</span><span class=nf>Execute</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdout</span><span class=p>,</span> <span class=s>&#34;Maku&#34;</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>実行結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>h1</span><span class=p>&gt;</span>Hello<span class=p>&lt;/</span><span class=nt>h1</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  Hello, <span class=p>&lt;</span><span class=nt>b</span><span class=p>&gt;</span>Maku<span class=p>&lt;/</span><span class=nt>b</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><h2 id=その他>その他</h2><h3 id=コメント>コメント</h3><p>テンプレートファイルの中で、<strong><code>{{/*</code></strong> と <strong><code>*/}}</code></strong> で囲んだ部分はコメントと見なされ、テンプレートのコンパイル時に削除されます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=p>{{</span><span class=cm>/* これはコメント */</span><span class=p>}}</span>
+</span></span></code></pre></div><h3 id=前後の空白を削除>前後の空白を削除</h3><p>テンプレート内で値を出力するときに、<strong><code>{{-</code></strong> と <strong><code>-}}</code></strong> で囲むようにすると、前後のスペース（前のタグからそこまでと、そこから後ろのタグまでのスペース）を削除して出力することができます。</p><figure class=codeBlock><figcaption class=codeBlock__title>template.html（置換部分の前後のスペースを削除）</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  {{- . -}}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>出力結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>Hello<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><p>前方のスペースのみ、あるいは、後方のスペースのみを削除することもできます。</p><figure class=codeBlock><figcaption class=codeBlock__title>template.html（置換部分の前のスペースだけ削除）</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  {{- . }}
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><figure class=codeBlock><figcaption class=codeBlock__title>出力結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>p</span><span class=p>&gt;</span>Hello
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure></div><div class=article__footer><div class=article__date><time class=pageDate>2017-09-10</time></div><div class=article__snsButtons><div class=snsButtons><a rel=nofollow target=_blank href="https://twitter.com/share?url=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&text=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--twitter"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></span></a><a rel=nofollow target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&t=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--facebook"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></span></a><a rel=nofollow target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fz8behko%2f&title=%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%88%e6%a9%9f%e8%83%bd%e3%82%92%e4%bd%bf%e7%94%a8%e3%81%99%e3%82%8b%20%28text%2ftemplate%2c%20html%2ftemplate%29%20-%20%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%20Golang%20%e3%83%8e%e3%83%bc%e3%83%88"><span class="snsButtons__icon snsButtons__icon--pocket"><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pocket"><path d="M4 3h16a2 2 0 012 2v6A10 10 0 0112 21 10 10 0 012 11V5a2 2 0 012-2z"/><polyline points="8 10 12 14 16 10"/></svg></span></a></div></div><div class=breadcrumb><a href=../../>&#x1F3E0;HOME</a> > <a href=../../go/>まくまく Golang ノート</a></div></div></article><script>var SIDEBAR_HIDE_THRESHOLD=800,SIDEBAR_WIDTH=250,OFFSET=10,w=window.innerWidth;w>=SIDEBAR_HIDE_THRESHOLD&&(w-=SIDEBAR_WIDTH),w-=OFFSET,w>=728?rakuten_size="728x200":w>=600?rakuten_size="600x200":w>=468?rakuten_size="468x160":w>=336?rakuten_size="336x280":w>=300?rakuten_size="300x250":w>=250?rakuten_size="250x250":rakuten_size="200x350",rakuten_design="slide",rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e",rakuten_items="ctsmatch",rakuten_genreId=0,rakuten_target="_blank",rakuten_theme="gray",rakuten_border="off",rakuten_auto_mode="on",rakuten_genre_title="off",rakuten_recommend="on",rakuten_txtColor="333333",rakuten_moverColor="30C030",rakuten_bgColor="FFFFFF",rakuten_captionColor="333333"</script><script src=https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js></script></div><div class=l-withSidebar__sidebarRight><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku77.github.io/ansible/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku77.github.io/mac/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://maku77.github.io/mt/>Meta Trader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class=navigation__item href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class=navigation__item href=https://maku77.github.io/r/>R</a><li><a class=navigation__item href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav><style>.codoc-support{display:inline-block;margin:0!important;padding:12px!important;width:200px!important;max-width:100%}.codoc-support .codoc-support-title{font-size:smaller!important;white-space:nowrap;margin-bottom:12px!important}.codoc-support .codoc-btn{width:160px!important}</style><script src=https://codoc.jp/js/cms.js data-css=black data-usercode=tp6ZPzTj3w defer></script><div id=codoc-entry-4gYwTntzzw class=codoc-entries data-without-body=1 data-support-button-text="（っ'-')╮シュッ🔴" data-show-like=0 data-show-about-codoc=0 data-show-powered-by=0 data-support-message=まくに投げ銭できます。></div></div></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll("a[href^=http]");for(let n=0;n<e.length;++n){const t=e[n];if(t.href.startsWith("https://maku77.github.io"))continue;const s=t.getElementsByTagName("img");if(s.length>0)continue;const o=t.getElementsByTagName("svg");if(o.length>0)continue;t.classList.add("externalLinkIcon"),t.setAttribute("target","_blank"),t.setAttribute("rel","noopener")}})</script></body></html>
