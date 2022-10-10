@@ -4,8 +4,7 @@ url: "p/z8behko/"
 date: "2017-09-10"
 tags: ["Go"]
 description: "Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。"
-aliases:
-  - /hugo/go/template
+aliases: /hugo/go/template.html
 ---
 
 Go には標準パッケージとしてテンプレート機能が用意されています。

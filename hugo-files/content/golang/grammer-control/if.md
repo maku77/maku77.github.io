@@ -5,7 +5,7 @@ url: "p/pw258be/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の if 文の構文は、Java や C++ とほぼ同じですが、括弧の使用ルールが微妙に異なります。"
-aliases: /hugo/go/if
+aliases: /hugo/go/if.html
 ---
 
 Go 言語の `if` 文の構文は、Java や C++ とほぼ同じですが、括弧の使用ルールが微妙に異なります。

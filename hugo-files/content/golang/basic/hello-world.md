@@ -5,8 +5,7 @@ date: "2017-08-30"
 lastmod: "2022-08-01"
 tags: ["Go"]
 description: "ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル、実行してみます。"
-aliases:
-  - /hugo/go/hello-world
+aliases: /hugo/go/hello-world.html
 ---
 
 ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル＆実行してみます。

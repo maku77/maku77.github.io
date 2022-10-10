@@ -5,8 +5,7 @@ date: "2017-09-01"
 lastmod: "2022-10-08"
 tags: ["Go"]
 description: "Go 言語の配列は固定長ですが、スライスを組み合わせて使用することで、可変長配列のように扱うことができます。"
-aliases:
-  - /hugo/go/array
+aliases: /hugo/go/array.html
 ---
 
 Go 言語の配列は固定長ですが、スライスを組み合わせて使用することで、可変長配列のように扱うことができます。

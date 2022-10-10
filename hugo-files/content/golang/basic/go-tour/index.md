@@ -5,8 +5,7 @@ date: "2017-08-31"
 lastmod: "2022-04-10"
 tags: ["Go"]
 description: "Go には、Go ツアーという Go 言語勉強用のツールが用意されています。まずはこれで Go の基本を一通り学んでみるのがよいです。"
-aliases:
-  - /hugo/go/go-tour
+aliases: /hugo/go/go-tour.html
 ---
 
 Go ツアーの Web サイトで学ぶ

@@ -4,8 +4,7 @@ url: "p/6dhkoru/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語で構造体用のコンストラクタを作成したいときは、通常の関数の形でファクトリ関数を実装します。"
-aliases:
-  - /hugo/go/constructor
+aliases: /hugo/go/constructor.html
 ---
 
 Go 言語には構造体のコンストラクタ用の文法は用意されていません。

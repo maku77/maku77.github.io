@@ -5,7 +5,7 @@ url: "p/6eimpsv/"
 date: "2017-09-08"
 tags: ["Go"]
 description: "Go 言語でファイルの読み書きを行うには、os パッケージや io パッケージを使用します。"
-aliases: /hugo/go/file
+aliases: /hugo/go/file.html
 ---
 
 Go 言語でファイルの読み書きを行うには、__`os`__ パッケージや __`io`__ パッケージを使用します。

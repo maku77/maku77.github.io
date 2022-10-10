@@ -4,8 +4,7 @@ url: "p/u48bfim/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語を用いた開発では、他のプログラミング言語とは異なり、1 つのワークスペース内ですべてのコードを管理するという慣習があります。"
-alises:
-  - /hugo/go/workspace
+aliases: /hugo/go/workspace.html
 ---
 
 Go 言語を用いた開発では、他のプログラミング言語とは異なり、1 つのワークスペース内ですべてのコードを管理するという慣習があります。

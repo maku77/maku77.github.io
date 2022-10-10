@@ -4,8 +4,7 @@ url: "p/4behkor/"
 date: "2017-09-05"
 tags: ["Go"]
 description: "Go 言語のメソッドの定義方法は、Java や C++ とは異なり、関数にレシーバを指定するという文法を使用します。"
-aliases:
-  - /hugo/go/method
+aliases: /hugo/go/method.html
 ---
 
 Go 言語にはクラスは存在しませんが、構造体型にメソッドを追加するという方法で同様のことを実現することができます。

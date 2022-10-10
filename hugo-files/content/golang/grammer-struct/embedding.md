@@ -4,8 +4,7 @@ url: "p/tbf357g/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には継承の仕組みはありませんが、埋め込み (Embedding) という仕組みによって型の拡張（結合）を行うことができます。"
-aliases:
-  - /hugo/go/embedding
+aliases: /hugo/go/embedding.html
 ---
 
 Go 言語には継承の仕組みはありませんが、__埋め込み (Embedding)__ という仕組みによって型の拡張（結合）を行うことができます。

@@ -4,8 +4,7 @@ url: "p/rz47adg/"
 date: "2017-08-30"
 tags: ["Go"]
 description: "Go 言語には、標準のコーディング規約が用意されています。"
-aliases:
-  - /hugo/go/coding-style
+aliases: /hugo/go/coding-style.html
 ---
 
 Go 言語には、標準のコーディング規約が用意されており、それに合わせた組み込みのコードフォーマッター (`go fmt`) も提供されています。

@@ -4,8 +4,7 @@ url: "p/5dhkoru/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語では明示的に型を指定した変数定義と、コンパイラによる型推論を利用した変数定義を行うことができます。"
-aliases:
-  - /hugo/go/var
+aliases: /hugo/go/var.html
 ---
 
 Go 言語では明示的に型を指定した変数定義と、コンパイラによる型推論を利用した変数定義を行うことができます。

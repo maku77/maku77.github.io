@@ -4,8 +4,7 @@ url: "p/as29hpw/"
 date: "2017-09-01"
 tags: ["Go"]
 description: Go 言語には次のような組込み型が定義されています。
-aliases:
-  - /hugo/go/types
+aliases: /hugo/go/types.html
 ---
 
 Go 言語には次のような組込み型が定義されています。

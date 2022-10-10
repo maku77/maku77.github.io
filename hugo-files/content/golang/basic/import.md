@@ -5,8 +5,7 @@ date: "2017-08-31"
 lastmod: "2022-04-10"
 tags: ["Go"]
 description: "Go 言語でパッケージを作る方法と、他のパッケージを参照する色々な方法を紹介します。"
-aliases:
-  - /hugo/go/import
+aliases: /hugo/go/import.html
 ---
 
 Go 言語でパッケージを作る方法と、他のパッケージを参照する色々な方法を紹介します。

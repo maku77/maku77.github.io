@@ -4,8 +4,7 @@ url: "p/xs3ahpw/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語には GitHub 上に公開されたパッケージを簡単にインポートして使用する仕組みが組み込まれています。"
-aliases:
-  - /hugo/go/github
+aliases: /hugo/go/github.html
 ---
 
 主要なプログラミング言語には、インターネット上のセントラルリポジトリでパッケージを配布する仕組みが提供されていることが多いのですが（Ruby の [RubyGems](https://rubygems.org/) など）、Go 言語では、Git リポジトリ上（主に GitHub）に公開されたソースコードを直接取得 (`go get`) してインポートする方法を採用しています。

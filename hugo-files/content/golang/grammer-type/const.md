@@ -4,8 +4,7 @@ url: "p/qqy9gok/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の定数は、変数を定義するのと同じ感覚で定義することができます。"
-aliases:
-  - /hugo/go/const
+aliases: /hugo/go/const.html
 ---
 
 Go 言語の定数は、変数を定義するのと同じ感覚で定義することができます。

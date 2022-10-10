@@ -5,7 +5,7 @@ url: "p/kswy47a/"
 date: "2017-09-01"
 tags: ["Go"]
 description: "Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。"
-aliases: /hugo/go/func
+aliases: /hugo/go/func.html
 ---
 
 Go 言語の関数定義はシンプルでありながら、複数の値を返すことができるなど、十分な機能を備えています。

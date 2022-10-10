@@ -3,8 +3,7 @@ title: "Go でコマンドラインツールを作って GitHub で公開する"
 url: "p/whs2bjt/"
 date: "2022-04-10"
 tags: ["Go"]
-aliases:
-  - /hugo/go/module
+aliases: /hugo/go/module.html
 ---
 
 何をするか？

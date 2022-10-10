@@ -4,8 +4,7 @@ url: "p/sy58beh/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語で日付や時刻の情報を扱うには time パッケージの time.Time 型を使用します。"
-aliases:
-  - /hugo/go/time
+aliases: /hugo/go/time.html
 ---
 
 Go 言語で日付や時刻の情報を扱うには、組み込みの __`time`__ パッケージを使用します。

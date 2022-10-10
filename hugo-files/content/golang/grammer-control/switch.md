@@ -5,7 +5,7 @@ url: "p/x6adgjn/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語の switch 文は、Java や C++ に比べて簡潔に記述できるようになっています。"
-aliases: /hugo/go/switch
+aliases: /hugo/go/switch.html
 ---
 
 Go 言語の __`switch`__ 文は、Java や C++ に比べて簡潔に記述できるようになっています。

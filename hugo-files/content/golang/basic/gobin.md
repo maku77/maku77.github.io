@@ -3,8 +3,7 @@ title: "Go のコマンドインストール先にパスを通す (GOBIN, GOPATH
 url: "p/s258beh/"
 date: "2022-04-10"
 tags: ["Go"]
-aliases:
-  - /hugo/go/gobin
+aliases: /hugo/go/gobin.html
 ---
 
 `go install` コマンドで Go の実行可能コマンドをインストールすると、次のようなディレクトリにコマンドがインストールされます。

@@ -4,8 +4,7 @@ url: "p/jruz369/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。"
-aliases:
-  - /hugo/go/cast
+aliases: /hugo/go/cast.html
 ---
 
 Go 言語では暗黙的な型キャストは許されていません。明示的な型変換関数を使用するか、Type Assertion という仕組みを使用して型の変換を行う必要があります。

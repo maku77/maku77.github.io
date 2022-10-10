@@ -4,8 +4,7 @@ url: "p/5cgjnqt/"
 date: "2017-09-05"
 tags: ["Go"]
 description: "Go 言語でマップを定義するには、map キーワードを使用します。"
-aliases:
-  - /hugo/go/map
+aliases: /hugo/go/map.html
 ---
 
 Go 言語でマップを定義するには、__`map`__ キーワードを使用します。

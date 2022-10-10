@@ -5,7 +5,7 @@ url: "p/v58cfik/"
 date: "2017-08-31"
 tags: ["Go"]
 description: "Go 言語では、for キーワード 1 つだけで while ループや無限ループを表現することができます。"
-aliases: /hugo/go/for
+aliases: /hugo/go/for.html
 ---
 
 Go 言語では、__`for`__ キーワード 1 つだけで `while` ループや無限ループを表現することができます。

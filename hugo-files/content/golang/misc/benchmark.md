@@ -4,8 +4,7 @@ url: "p/29dgjnq/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語には、ベンチマークを行うための仕組みが標準機能として搭載されています。"
-aliases:
-  - /hugo/go/benchmark
+aliases: /hugo/go/benchmark.html
 ---
 
 Go のベンチマーク機能の基本的な使い方

@@ -4,8 +4,7 @@ url: "p/aimpsvz/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語でインタフェースを実装するときは、Java などとは異なり、implements によるインタフェースの明示を行いません。Ruby や Python と同様に、ダックタイピングが採用されています。"
-aliases:
-  - /hugo/go/interface
+aliases: /hugo/go/interface.html
 ---
 
 Go 言語で、ある型にインタフェースを実装するときは、Java などとは異なり、`implements` キーワードを使ったインタフェースの明示は行いません。

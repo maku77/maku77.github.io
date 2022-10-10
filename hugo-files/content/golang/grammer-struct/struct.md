@@ -4,8 +4,7 @@ url: "p/8z2o63r/"
 date: "2017-09-05"
 tags: ["Go"]
 descrition: "Go 言語の構造体は、struct というキーワードを使って定義します。"
-aliases:
-  - /hugo/go/struct
+aliases: /hugo/go/struct.html
 ---
 
 Go 言語の構造体は、__`struct`__ というキーワードを使って定義します。

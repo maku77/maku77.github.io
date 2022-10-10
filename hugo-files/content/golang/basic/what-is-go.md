@@ -8,8 +8,7 @@ description: "Go 言語 (Golang) は、Google が 2009 年に発表したオー�
 changes:
   - 2022-10-10: go 1.19 について追記
   - 2022-04-08: go 1.18 について追記（ジェネリクス）
-aliases:
-  - /hugo/go/what-is-go
+aliases: /hugo/go/what-is-go.html
 ---
 
 Go 言語 (Golang) は、Google が 2009 年に発表したオープンソースのプログラミング言語です。
