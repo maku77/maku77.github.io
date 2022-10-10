@@ -3,7 +3,7 @@ title: "Golang で RDB（リレーショナルデーターベース）を扱う 
 linkTitle: "RDB（リレーショナルデーターベース）を扱う (database/sql)"
 url: "p/kgzfwdt/"
 date: "2022-09-17"
-tags: ["Golang", "データベース"]
+tags: ["Go", "データベース"]
 ---
 
 Golang の [database/sql パッケージ](https://pkg.go.dev/database/sql) を使用すると、Postgres、MariaDB (MySQL)、SQLite といった RDB 系のデータベースを共通のインタフェースで操作することができます。

@@ -3,7 +3,7 @@ title: "Golang で GraphQL サーバーを作成する (gqlgen)"
 url: "p/v48adgi/"
 date: "2022-08-20"
 lastmod: "2022-09-30"
-tags: ["Golang", "GraphQL"]
+tags: ["Go", "GraphQL"]
 changes:
   - 2022-09-30 スキーマファイル更新時の作業
   - 2022-09-15 CORS 対応方法

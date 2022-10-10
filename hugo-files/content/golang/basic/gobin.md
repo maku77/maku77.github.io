@@ -1,10 +1,9 @@
 ---
 title: "Go のコマンドインストール先にパスを通す (GOBIN, GOPATH/bin)"
 url: "p/s258beh/"
-permalink: "p/s258beh/"
 date: "2022-04-10"
 tags: ["Go"]
-redirect_from:
+aliases:
   - /hugo/go/gobin
 ---
 
@@ -18,22 +17,20 @@ redirect_from:
 Linux や macOS であれば、`~/.zlogin` や `~/.bash_profile` で次のような感じで設定できます。
 ここでは、`GOBIN` 環境変数を設定して、コマンドのインストール先を `~/bin` に設定しています。
 
-#### ~/.zlogin
-
-```sh
+{{< code lang="sh" title="~/.zlogin" >}}
 export GOBIN=~/bin
 export PATH=$PATH:$GOBIN
-```
+{{< /code >}}
 
-でも、なんだかんだ言って次のような標準的な構成にしておくとトラブルが少なくてよいかも。
+でも、なんだかんだ言って次のような標準的な構成にしておくとトラブルが少なくてよい気がします。
 
-```sh
+{{< code lang="sh" title="~/.zlogin" >}}
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
-```
+{{< /code >}}
 
-Windows なら、コントロールパネルの「環境変数を編集」から次のような感じで設定します（`%USERPROFILE%` 以外の変数を参照すると、うまく展開できなくて問題が出たりするので注意）。
+Windows の場合は、コントロールパネルの「環境変数を編集」から次のような感じで設定します（`%USERPROFILE%` 以外の変数を参照すると、うまく展開できなくて問題が出たりするので注意）。
 
 ```
 GOPATH → %USERPROFILE%\go
@@ -44,7 +41,7 @@ PATH   → %USERPROFILE%\go\bin （を PATH に追加）
 上記のようにパスを通しておけば、`go install` でインストールしたコマンドを、どこからでも実行できるようになります。
 
 ```console
-$ go install github.com/maku77/go-hello
+$ go install github.com/maku77/go-hello@latest
 $ go-hello
 Hello, world!
 ```

@@ -1,14 +1,15 @@
 ---
 title: "テンプレート機能を使用する (text/template, html/template)"
 url: "p/z8behko/"
-permalink: "p/z8behko/"
 date: "2017-09-10"
 tags: ["Go"]
 description: "Go には標準パッケージとしてテンプレート機能が用意されています。テンプレート機能は、定型の Web ページ作成などに活用できます。"
-redirect_from:
+aliases:
   - /hugo/go/template
 ---
 
+Go には標準パッケージとしてテンプレート機能が用意されています。
+テンプレート機能は、定型の Web ページ作成などに活用できます。
 
 ２つのテンプレートパッケージ
 ----
@@ -53,28 +54,22 @@ if err := t.Execute(os.Stdout, data); err != nil {
 }
 ```
 
-渡されたデータは、テンプレートファイル内の、__`{{ "{{" }} . }}`__ という部分に展開されます。
+渡されたデータは、テンプレートファイル内の、__`{{ . }}`__ という部分に展開されます。
 この構文は、[Hugo](/hugo/) という静的サイトジェネレーターを使っている場合はおなじみかもしれません。
 
 下記はシンプルなテンプレートファイルの例です。
 
-#### template.html
+{{< code lang="html" title="template.html" >}}
+<h1>{{ . }}</h1>
+{{< /code >}}
 
-```html
-<h1>{{ "{{" }} . }}</h1>
-```
-
-#### 出力結果
-
-```html
+{{< code lang="html" title="出力結果" >}}
 <h1>Hello World</h1>
-```
+{{< /code >}}
 
 ### 全体のコード
 
-#### sample.go
-
-```go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import (
@@ -93,7 +88,7 @@ func main() {
 		log.Fatal(err)
 	}
 }
-```
+{{< /code >}}
 
 
 テンプレートへの入力データとしてマップや構造体を使用する
@@ -114,13 +109,13 @@ if err := t.Execute(os.Stdout, data); err != nil {
 }
 ```
 
-渡されたデータは、テンプレート内で `{{ "{{" }} .キー名 }}` で参照することができます。
+渡されたデータは、テンプレート内で __`{{ .キー名 }}`__ で参照することができます。
 
 ```html
 <ul>
-  <li>{{ "{{" }} .key1 }}
-  <li>{{ "{{" }} .key2 }}
-  <li>{{ "{{" }} .key3 }}
+  <li>{{ .key1 }}
+  <li>{{ .key2 }}
+  <li>{{ .key3 }}
 </ul>
 ```
 
@@ -142,15 +137,15 @@ if err := t.Execute(os.Stdout, data); err != nil {
 
 ```html
 <ul>
-  <li>{{ "{{" }} .Title }}
-  <li>{{ "{{" }} .Author }}
+  <li>{{ .Title }}
+  <li>{{ .Author }}
 </ul>
 ```
 
 構造体のフィールドとして、構造体やマップを持っているようなケースでは、次のようにドットで連鎖させることで参照できます。
 
 ```html
-<h1>{{ "{{" }} .Site.Title }}</h1>
+<h1>{{ .Site.Title }}</h1>
 ```
 
 
@@ -159,19 +154,15 @@ if err := t.Execute(os.Stdout, data); err != nil {
 
 `range` キーワードを使用すると、テンプレートファイル内でループ処理を行うことができます。
 
-#### template.html
-
-```html
+{{< code lang="html" title="template.html" >}}
 <ul>
-  {{ "{{" }} range . }}
-    <li>{{ "{{" }} . }}
-  {{ "{{" }} end }}
+  {{ range . }}
+    <li>{{ . }}
+  {{ end }}
 </ul>
-```
+{{< /code >}}
 
-#### sample.go
-
-```go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import "html/template"
@@ -184,37 +175,33 @@ func main() {
 		log.Fatal(err)
 	}
 }
-```
+{{< /code >}}
 
-#### 出力結果
-
-```html
+{{< code lang="html" title="出力結果" >}}
 <ul>
     <li>AAA
     <li>BBB
     <li>CCC
 </ul>
-```
+{{< /code >}}
 
 Go 言語のように、インデックスと値を取得しながらループ処理することもできます。
 
 ```html
 <ul>
-  {{ "{{" }} range $i, $val := . }}
-    <ul>{{ "{{" }} $i }} : {{ "{{" }} $val }}
-  {{ "{{" }} end }}
+  {{ range $i, $val := . }}
+    <ul>{{ $i }} : {{ $val }}
+  {{ end }}
 </ul>
 ```
 
-#### 出力結果
-
-```html
+{{< code lang="html" title="出力結果" >}}
 <ul>
     <ul>0 : AAA
     <ul>1 : BBB
     <ul>2 : CCC
 </ul>
-```
+{{< /code >}}
 
 
 テンプレートの中からテンプレートをインクードする
@@ -222,26 +209,20 @@ Go 言語のように、インデックスと値を取得しながらループ�
 
 テンプレートファイルの中で、`template` 関数を使用すると、別のテンプレートファイルの内容をそこに展開することができます。
 
-#### template.html
-
-```html
+{{< code lang="html" title="template.html" >}}
 <h1>Hello</h1>
 <p>
-  {{ "{{" }} template "partial.html" . }}
+  {{ template "partial.html" . }}
 </p>
-```
+{{< /code >}}
 
-#### partial.html
-
-```html
-Hello, <b>{{ "{{" }} . }}</b>
-```
+{{< code lang="html" title="partial.html" >}}
+Hello, <b>{{ . }}</b>
+{{< /code >}}
 
 入れ子構造で読み込むテンプレートファイルも、`template.ParseFiles` 関数で指定しておく必要があります。
 
-#### sample.go
-
-```go
+{{< code lang="go" title="sample.go" >}}
 package main
 
 import "html/template"
@@ -253,60 +234,51 @@ func main() {
 		panic(err)
 	}
 }
-```
+{{< /code >}}
 
-#### 実行結果
-
-```html
+{{< code lang="html" title="実行結果" >}}
 <h1>Hello</h1>
 <p>
   Hello, <b>Maku</b>
 </p>
-```
+{{< /code >}}
+
 
 その他
 ----
 
 ### コメント
 
-テンプレートファイルの中で、__`{{ "{{/*" }}`__ と __`*/}}`__ で囲んだ部分はコメントと見なされ、テンプレートのコンパイル時に削除されます。
+テンプレートファイルの中で、__`{{/*`__ と __`*/}}`__ で囲んだ部分はコメントと見なされ、テンプレートのコンパイル時に削除されます。
 
-```html
-{{ "{{" }}/* これはコメント */}}
+```go
+{{/* これはコメント */}}
 ```
 
 ### 前後の空白を削除
 
-テンプレート内で値を出力するときに、__`{{ "{{-" }}`__ と __`-}}`__ で囲むようにすると、前後のスペース（前のタグからそこまでと、そこから後ろのタグまでのスペース）を削除して出力することができます。
+テンプレート内で値を出力するときに、__`{{-`__ と __`-}}`__ で囲むようにすると、前後のスペース（前のタグからそこまでと、そこから後ろのタグまでのスペース）を削除して出力することができます。
 
-#### template.html（置換部分の前後のスペースを削除）
-
-```html
+{{< code lang="html" title="template.html（置換部分の前後のスペースを削除）" >}}
 <p>
-  {{ "{{" }}- . -}}
+  {{- . -}}
 </p>
-```
+{{< /code >}}
 
-#### 出力結果
-
-```html
+{{< code lang="html" title="出力結果" >}}
 <p>Hello</p>
-```
+{{< /code >}}
 
 前方のスペースのみ、あるいは、後方のスペースのみを削除することもできます。
 
-#### template.html（置換部分の前のスペースだけ削除）
-
-```html
+{{< code lang="html" title="template.html（置換部分の前のスペースだけ削除）" >}}
 <p>
-  {{ "{{" }}- . }}
+  {{- . }}
 </p>
-```
+{{< /code >}}
 
-#### 出力結果
-
-```html
+{{< code lang="html" title="出力結果" >}}
 <p>Hello
 </p>
-```
+{{< /code >}}
 

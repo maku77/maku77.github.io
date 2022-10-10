@@ -1,13 +1,15 @@
 ---
 title: "Go 言語のインタフェースの扱いを理解する (interface)"
 url: "p/aimpsvz/"
-permalink: "p/aimpsvz/"
 date: "2017-09-11"
 tags: ["Go"]
 description: "Go 言語でインタフェースを実装するときは、Java などとは異なり、implements によるインタフェースの明示を行いません。Ruby や Python と同様に、ダックタイピングが採用されています。"
-redirect_from:
+aliases:
   - /hugo/go/interface
 ---
+
+Go 言語で、ある型にインタフェースを実装するときは、Java などとは異なり、`implements` キーワードを使ったインタフェースの明示は行いません。
+Ruby や Python と同様に、同じシグネチャのメソッドを実装した時点で、そのインタフェースを備えているとみなされます。
 
 インタフェースを定義する (type ... interface)
 ----
@@ -15,21 +17,17 @@ redirect_from:
 Go 言語でインタフェースを定義するときは、構造体 (struct) の定義と同様に __`type`__ キーワードを使用します。
 下記は Go 言語で定義されているインタフェースの例です。
 
-#### fmt.Stringer インタフェース
-
-```go
+{{< code lang="go" title="fmt.Stringer インタフェース" >}}
 type Stringer interface {
 	String() string
 }
-```
+{{< /code >}}
 
-#### io.Reader インタフェース
-
-```go
+{{< code lang="go" title="io.Reader インタフェース" >}}
 type Reader interface {
 	Read(p []byte) (n int, err error)
 }
-```
+{{< /code >}}
 
 上記の例からも想像できるように、Go 言語では、1 つのメソッドだけを持つインタフェースの名前は、__`メソッド名＋er`__ とする規約となっています。
 
@@ -39,7 +37,7 @@ type Reader interface {
 - `Format` 関数だけを持つ → `Formatter` インタフェース
 
 
-インタフェースの使用方法
+インタフェースを使用する
 ----
 
 インタフェースを引数として受け取る関数を定義すると、そのインタフェースが定義するメソッドを実装しているオブジェクトだけを渡せるようになります。
@@ -54,7 +52,7 @@ func PrintSomething(s fmt.Stringer) {
 Java などの言語では、あるクラスがあるインタフェースを実装していることを示すために `implements` キーワードを使用しますが、Go 言語では明示的にインタフェース名を指定して実装することはありません。
 ただ単純に、インタフェースによって示されているメソッドを実装するだけで、その型はそのインタフェースを備えている（実装している）とみなされます。
 このような思想は Ruby や Python でも採用されており、通称 __ダックタイピング__ と言われているものです（アヒルのように歩いて鳴けば、それはアヒルであるという考え方）。
-例えば、下記の `Book` 構造体は、`String()` メソッドを実装しているため、Go コンパイラは `fmt.Stringer` インタフェースとして扱えるとみなします。
+例えば、下記の `Book` 構造体は、`String()` メソッドを実装しているため、Go コンパイラは `fmt.Stringer` インタフェースを備えているとみなします。
 
 ```go
 type Book struct {

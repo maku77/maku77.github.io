@@ -1,23 +1,22 @@
 ---
 title: "Go 言語で Hello World をコンパイル、実行する"
 url: "p/nuz369c/"
-permalink: "p/nuz369c/"
 date: "2017-08-30"
 lastmod: "2022-08-01"
 tags: ["Go"]
 description: "ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル、実行してみます。"
-redirect_from:
+aliases:
   - /hugo/go/hello-world
 ---
+
+ここでは、Go 言語を使用して簡単な Hello World プログラムを作成し、コンパイル＆実行してみます。
 
 Go 言語で Hello World を実装する
 ----
 
-Go 言語のソースコードファイルの拡張子は、慣例として __`.go`__ を使用します。
+Go 言語のソースコードファイルの拡張子は、__`.go`__ を使用します。
 
-#### hello.go
-
-```go
+{{< code lang="go" title="hello.go" >}}
 package main
 
 import "fmt"
@@ -25,7 +24,7 @@ import "fmt"
 func main() {
 	fmt.Println("Hello Go")
 }
-```
+{{< /code >}}
 
 エントリポイントとなる Go プログラムは、__`main`__ パッケージとして作成し、__`main`__ 関数を含んでいる必要があります（`main.main` と表現します）。
 ファイル名は何でも構いません。
@@ -51,39 +50,35 @@ Hello Go
 
 作成された実行ファイルは、同じ環境（OS、アーキテクチャ）であれば、Go の処理系がインストールされていなくてもそのまま実行することができます。
 別の OS 用にビルドする場合は、クロスコンパイルの機能を使用します。
-Go のクロスコンパイルがサポートしている OS と CPU アーキテクチャは、[こちらのドキュメント](https://golang.org/doc/install/source#environment)に記述されています。
+Go のクロスコンパイルがサポートしている OS と CPU アーキテクチャは、[こちらのドキュメント](https://golang.org/doc/install/source#environment) に記述されています。
 
 
 （応用）モジュール対応モードでアプリを作成する
 ----
 
-いろいろな外部パッケージを活用して Go アプリを作る場合、モジュールとしてアプリを初期化します（module-aware mode と呼びます）。
+いろいろな外部パッケージを活用して Go アプリを作る場合、モジュールとしてアプリを初期化します（__module-aware mode__ と呼びます）。
 モジュールを初期化するには、モジュールルートにしたいディレクトリの下で __`go mod init <モジュールパス名>`__ を実行します。
 Node.js アプリの開発経験があるなら、`npm init` のようなものだと考えると分かりやすいです。
 
-```console
+{{< code lang="console" title="Go モジュールの初期化" >}}
 $ mkdir hello && hello
 $ go mod init hello  # GitHub で管理するなら github.com/maku77/hello など
 go: creating new go.mod: module hello
-```
+{{< /code >}}
 
 上記のように、モジュールのルートディレクトリ (`hello`) に __`go.mod`__ ファイルが作成されれば成功です。
 このファイルには、このモジュールの名前や、Go のバージョン、パッケージの依存情報 (dependency tracking) などが保存されます。
 
-#### hello/go.mod
-
-```
+{{< code title="hello/go.mod" >}}
 module hello
 
 go 1.18
-```
+{{< /code >}}
 
 シンプルな構成のアプリでは、モジュールのルートディレクトリに、__`main`__ パッケージとする `.go` ファイルを配置します。
 ファイル名は何でもいいですが、`main.go` としておきます。
 
-#### hello/main.go
-
-```go
+{{< code lang="go" title="hello/main.go" >}}
 package main
 
 import "fmt"
@@ -91,7 +86,7 @@ import "fmt"
 func main() {
 	fmt.Println("Hello Go")
 }
-```
+{{< /code >}}
 
 モジュールのディレクトリ構成は次のようになっています。
 

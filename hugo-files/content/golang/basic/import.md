@@ -1,14 +1,15 @@
 ---
 title: "パッケージの作成とインポート (import)"
 url: "p/t269cgj/"
-permalink: "p/t269cgj/"
 date: "2017-08-31"
 lastmod: "2022-04-10"
 tags: ["Go"]
 description: "Go 言語でパッケージを作る方法と、他のパッケージを参照する色々な方法を紹介します。"
-redirect_from:
+aliases:
   - /hugo/go/import
 ---
+
+Go 言語でパッケージを作る方法と、他のパッケージを参照する色々な方法を紹介します。
 
 パッケージとモジュール
 ----
@@ -19,7 +20,7 @@ Go 言語のパッケージは、1 つのディレクトリ内にまとめられ
 下記のディレクトリ構成では、`mymodule` というモジュール（後述）に、`pkg1` と `pkg2` という名前の 2 つのパッケージが含まれています。
 
 ```
-- mymodule
+- mymodule/
   - pkg1/
     - auth.go (package pkg1)
     - user.go (package pkg1)
@@ -64,10 +65,10 @@ Go 1.11 以降は __モジュール__ という考え方が導入され、Go 1.1
 github.com/<username>/<modulename>
 ```
 
-例えば、`github.com/maku77/go-modules` として公開されているモジュールの、`pkg1` パッケージを利用したい場合、次のようにインポートできます。
+例えば、`github.com/maku77/golibs` として公開されているモジュールの、`pkg1` パッケージを利用したい場合、次のようにインポートできます。
 
 ```go
-import "github.com/maku77/go-modules/pkg1"
+import "github.com/maku77/golibs/pkg1"
 ```
 
 上記のように、モジュール内の単一のパッケージをインポートする場合でも、モジュール全体がダウンロードされるため、初回のビルドには少し時間がかかります。
@@ -95,7 +96,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	import "github.com/ユーザー名/リポジトリ名/パッケージ名"
+	"github.com/ユーザー名/リポジトリ名/パッケージ名"
 )
 ```
 
@@ -147,21 +148,17 @@ Go 言語では、パッケージ名を階層構造で表現しない（潔い�
 同じパッケージ内（つまり、同じディレクトリ内）の Go ファイルで定義されている関数は、互いに参照することができます。
 下記は、プログラムのエントリポイントとなる `main.go` ファイルです。
 
-#### main.go
-
-```go
+{{< code lang="go" title="main.go" >}}
 package main
 
 func main(){
 	hello("Maku")
 }
-```
+{{< /code >}}
 
 `hello` 関数は、同じパッケージ（同じディレクトリ内）の別のファイルで定義しています。
 
-#### greet.go
-
-```go
+{{< code lang="go" title="greet.go" >}}
 package main
 
 import "fmt"
@@ -169,7 +166,7 @@ import "fmt"
 func hello(name string) {
 	fmt.Printf("Hello, %s\n", name)
 }
-```
+{{< /code >}}
 
 実行するときは、これらを一緒にビルドする必要があります。
 
@@ -224,21 +221,17 @@ $ go mod init myapp                    # ローカルでのテスト用ならこ
 `mymath` パッケージでは、簡単な足し算を行う `Add` 関数を提供することにします。
 パッケージ外部から参照できるようにするには、関数名を大文字で始める必要があります。
 
-#### mymath/mymath.go
-
-```go
+{{< code lang="go" title="mymath/mymath.go" >}}
 package mymath
 
 func Add(a, b int) int {
 	return a + b
 }
-```
+{{< /code >}}
 
 この `mymath.Add` 関数を、`main` パッケージの `main` 関数から参照するには次のようにします。
 
-#### main.go
-
-```go
+{{< code lang="go" title="main.go" >}}
 package main
 
 import "fmt"
@@ -247,7 +240,7 @@ import "github.com/maku77/myapp/mymath"
 func main() {
 	fmt.Println(mymath.Add(100, 200))
 }
-```
+{{< /code >}}
 
 `main` パッケージ（の `main` 関数）は次のように実行できます。
 

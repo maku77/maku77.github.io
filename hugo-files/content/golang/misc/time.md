@@ -1,13 +1,14 @@
 ---
 title: "時刻データを扱う (time)"
 url: "p/sy58beh/"
-permalink: "p/sy58beh/"
 date: "2017-09-12"
 tags: ["Go"]
 description: "Go 言語で日付や時刻の情報を扱うには time パッケージの time.Time 型を使用します。"
-redirect_from:
+aliases:
   - /hugo/go/time
 ---
+
+Go 言語で日付や時刻の情報を扱うには、組み込みの __`time`__ パッケージを使用します。
 
 時刻データ (time.Time) を作成する
 ----
@@ -23,12 +24,10 @@ fmt.Printf("%v\n", t)  // time.Time が保持する値を表示
 fmt.Printf("%T\n", t)  // 型名を表示
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 2017-09-12 21:23:23.7770078 +0900 JST m=+0.003000200
 time.Time
-```
+{{< /code >}}
 
 
 ### 日時を指定して作成する
@@ -47,7 +46,7 @@ Location には、ローカルタイムで設定することを表す `time.Loca
 ### 文字列表現から作成する
 
 [time.Parse 関数](https://golang.org/pkg/time/#Parse) を使用すると、日時を表す文字列から `time.Time` オブジェクトを作成することができます。
-第 1 パラメータに、日時文字列の形式を表す layout string、第 2 パラメータに、実際に変換する文字列を渡します。
+第 1 パラメータに、日時文字列の形式を表す layout string（後述）、第 2 パラメータに、実際に変換する文字列を渡します。
 
 ```go
 const layout = "2006-01-02"
@@ -187,15 +186,13 @@ hour, minute, second := t.Clock()
 ```
 
 
-日時を文字列表現で取得する
+文字列形式で出力する
 ----
 
 [time.Format 関数](https://golang.org/pkg/time/#Time.Format) を使用すると、`time.Time` オブジェクトを任意のフォーマットの文字列に変換することができます。
 `Format` 関数には、取得する文字列の形式を表す layout string を指定します。
 
-#### sample.go
-
-```go
+{{< code lang="go" title="main.go" >}}
 package main
 
 import "fmt"
@@ -206,13 +203,11 @@ func main() {
 	t := time.Now()
 	fmt.Println(t.Format(layout))
 }
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 2017-09-12 Tue 23:30:58 (JST)
-```
+{{< /code >}}
 
 ちなみに、`time.Time` 構造体の `String()` 関数は下記のようなフォーマットで、文字列を返すように実装されています。
 

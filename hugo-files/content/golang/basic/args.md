@@ -3,7 +3,7 @@ title: "Golang でコマンドライン引数を扱う (os.Args, flags)"
 linkTitle: "コマンドライン引数を扱う (os.Args, flags)"
 url: "p/o8vbo2f/"
 date: "2022-09-09"
-tags: ["Golang"]
+tags: ["Go"]
 ---
 
 Golang でコマンドライン引数を扱うには、標準パッケージの `os` や `flags` を使用します。
