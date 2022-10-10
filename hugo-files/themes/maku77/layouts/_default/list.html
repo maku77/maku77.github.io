@@ -16,6 +16,7 @@
   </div>
 </article>
 
+{{- if .Site.IsServer }}
 <div style="color: red; padding: 0.3em; margin: 2em 0; border: dashed 1px red; border-radius: 1em;">
   <b>ページリスト</b>
   <ul>
@@ -24,4 +25,6 @@
     {{- end }}
   </ul>
 </div>
+{{- end }}
+
 {{- end }}
