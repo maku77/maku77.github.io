@@ -1,6 +1,9 @@
 ---
 title: "Android アプリのパフォーマンス改善のためのチェックリスト"
+url: "p/sfqyajt/"
 date: "2021-03-08"
+tags: ["Android"]
+aliases: /android/tools/performance-checklist.html
 ---
 
 はじめに
@@ -35,19 +38,19 @@ date: "2021-03-08"
 1. FPS の確認（1 フレームあたり何ミリ秒かかっているか）
     - 開発者オプションから GPU バー表示を ON にして確認
         - [GPU レンダリング速度のプロファイリング](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja)
-        - [Profile HWUI rendering の設定は ADB で OFF/ON する](../tools/adb-debug-options.html) と素早く切り替えられる
+        - [Profile HWUI rendering の設定は ADB で OFF/ON する](/p/bn8q8o6/) と素早く切り替えられる
         - 何らかの操作をしているときに、__赤色のライン (16.6ms) を上回ることがないか__ を調べる
     - [Window.OnFrameMetricsAvailableListener](https://developer.android.com/reference/kotlin/android/view/Window.OnFrameMetricsAvailableListener?hl=ja) でフレームごとのメトリクス情報を取得できる
     - [Firebase](https://firebase.google.com/) などを使えるのであれば、メトリクス情報をサーバー集計することが可能
-    - [Choreographer を使ってプログラム内で FPS を確認する](../fw/fps.html) 方法もあり
-    - `adb shell dumpsys gfxinfo PKG名 | grep frames` で [ジャンクフレーム発生率を調べる](../tools/janky-frames.html)
+    - [Choreographer を使ってプログラム内で FPS を確認する](/p/imx8hr2/) 方法もあり
+    - `adb shell dumpsys gfxinfo PKG名 | grep frames` で [ジャンクフレーム発生率を調べる](/p/26hr2bk/)
 1. オーバードローの確認（Debug GPU overdraw で何度も重ねて描画している部分がないか確認）
 1. レイアウトの確認（[Layout Inspector](https://developer.android.com/studio/debug/layout-inspector?hl=ja) で無駄なネストを確認）
 1. 全般的なボトルネックの確認
     - [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler?hl=ja) でアプリ内のボトルネックを調査（Traceview はサポート終了）
         - 各スレッドのビジー状態や、__どのメソッドに時間がかかっているか__ を調べる → メソッド単位の最適化
         - __GC (Garbage Collection) が頻繁に発生していないか__ を調べる (Perfeto/SystraceAllocation Tracker)。
-    - [Perfetto でシステム全体のボトルネックを調査](../tools/perfetto.html)
+    - [Perfetto でシステム全体のボトルネックを調査](/p/ehu5eox/)
         - 他のプロセスとの Binder 通信などがボトルネックになっていなかを調べる
         - `adb shell perfetto` で計測開始するか、Perfetto の Web アプリから直接データ取得可能（要 Bluetooth/USB 接続）
         - 昔は [Systrace](https://developer.android.com/topic/performance/tracing/command-line?hl=ja) だったけど、Android 10 以降は Perfetto で。
@@ -114,7 +117,7 @@ date: "2021-03-08"
 - 本質的に遅いメソッドを見つけるには、__`Bottom Up`__ タブを選択 → __`Self`__ 時間でソートする
 - 先に main スレッドのチャート上でメソッドを選択しておくと、右側の分析ペーンの結果をフィルタできる
 
-![performance-checklist-001.png](performance-checklist-001.png){: .center }
+{{< image src="img-001.png" title="Android Studio の Profiler 機能" >}}
 
 ### Layout Inspector で無駄なレイアウト構成を見つける
 
@@ -128,7 +131,7 @@ Layout Inspector は 3D 表示にして角度をずらして、Layer spacing ス
 不透明な部分を重ねて描画していると完全に無駄です。
 
 - 参考: [GPU オーバードローの視覚化](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering?hl=ja#debug_overdraw)
-- この設定は開発者オプションの深いところにあるので、[ADB で OFF/ON](http://localhost:4000/android/tools/adb-debug-options.html) するのが早い
+- この設定は開発者オプションの深いところにあるので、[ADB で OFF/ON](/p/bn8q8o6/) するのが早い
 - 何らかの操作をしているときに、__赤や緑の矩形が表示されることがないか__ を調べる（できれば青の領域もない方がいい）
 - オーバードローされている部分は Layout Inspector でレイアウトを確認
 
@@ -136,15 +139,15 @@ Layout Inspector は 3D 表示にして角度をずらして、Layer spacing ス
 
 例えば、`RecyclerView.Adapter#onBindViewHolder` の中で次のようにリスナー登録していると、そのビューが表示されるごとにリスナーオブジェクトが生成されることになります。
 
-```
+```kotlin
 setOnClickListener {
-    ...
+    // ...
 }
 ```
 
 リスナー内の処理が共通であれば、共通のリスナーオブジェクトを使うようにします。
 
-```
+```kotlin
 setOnClickListener(handleClick)
 ```
 

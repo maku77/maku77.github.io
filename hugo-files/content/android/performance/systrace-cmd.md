@@ -1,8 +1,13 @@
 ---
 title: "Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)"
+url: "p/ycwfweu/"
 date: "2016-07-13"
 lastmod: "2019-10-02"
+tags: ["Android"]
+aliases: /android/tools/systrace-cmd.html
 ---
+
+__（追記）__ Android 10 (Q) 以降では、より洗練された [Perfetto](/p/ehu5eox/) を使ってパフォーマンス解析できます。
 
 systrace コマンドの基本
 ----
@@ -11,15 +16,12 @@ systrace コマンドの基本
 - [Android - Analyzing UI Performance with Systrace](https://developer.android.com/studio/profile/systrace.html)
 
 Android SDK に付属している `systrace.py` スクリプトを使用すると、Android デバイス全体のプロセスに関するプロファイリングを行うことができます（I/O アクセスや UI スレッドの状況など）。
-
 `systrace` は Python スクリプトとして提供されているため、実行するときは下記のような感じでパラメータを指定して実行します。
 
-#### 例: 10 秒間の systrace 実行する
-
-```
+{{< code lang="console" title="例: 10 秒間の systrace 実行する" >}}
 $ cd android-sdk/platform-tools/systrace
 $ python systrace.py --time=10 -o trace.html sched gfx view wm
-```
+{{< /code >}}
 
 プロファイルの取得が完了すると、プロファイル結果を表示するための HTML ファイルがカレントディレクトリに作成されます。
 
@@ -39,9 +41,7 @@ Web ブラウザ上で `?` キーを押すと、使用できるショートカ�
 
 `systrace` コマンドを実行するときに、同じようなパラメータを毎回指定するのは面倒ですし、Windows 環境ですと PATH を通したりするのも若干面倒ですので、下記のようなバッチファイルを作成しておくと便利です。
 
-#### systrace.cmd
-
-```bat
+{{< code lang="bat" title="systrace.cmd" >}}
 @echo off
 setlocal
 
@@ -53,7 +53,7 @@ set SYSTRACE=%ANDROID_SDK%\platform-tools\systrace\systrace.py
 
 @echo on
 %PYTHON% %SYSTRACE% --time=10 -o trace.html sched gfx view wm
-```
+{{< /code >}}
 
 ここでは、Android SDK のディレクトリパスが `ANDROID_SDK` 環境変数に設定されていると想定しています。
 環境変数の設定が面倒であれば、バッチファイル内の `SYSTRACE` 変数の内容を直接いじってしまっても OK です。
@@ -65,12 +65,13 @@ C:\> systrace
 Capturing trace..............................................Done.
 ```
 
+
 （応用）バッチファイルにパラメータを追加する
 ----
 
 下記は上記のバッチファイルをちょっと応用して、計測時間（秒）と、出力ファイル名をパラメータで指定できるようにしたものです。
 
-```bat
+{{< code lang="bat" title="systrace.cmd (2)" >}}
 @echo off
 setlocal
 
@@ -90,7 +91,7 @@ if "%OUT_FILE%"=="" (set OUT_FILE=trace.html)
 
 @echo on
 %PYTHON% %SYSTRACE% --time=%DURATION% -o %OUT_FILE% sched gfx view wm
-```
+{{< /code >}}
 
 例えば、5 秒間計測して、output.html というファイル名で保存するには次のように実行します。
 
@@ -98,9 +99,8 @@ if "%OUT_FILE%"=="" (set OUT_FILE=trace.html)
 C:\> systrace 5 output.html
 ```
 
-パラメータを省略した場合は、計測時間は 3 秒間、出力ファイル名は trace.html になるようにしています。
-
+パラメータを省略した場合は、計測時間は 3 秒間、出力ファイル名は `trace.html` になるようにしています。
 ちなみに、Windows バッチファイルのコマンドライン引数の扱い方は、下記の記事で詳しく説明しています。
 
-- [バッチファイルでコマンドライン引数を扱う｜まくまくWindowsノート](/windows/io/command-line-params.html)
+- [バッチファイルでコマンドライン引数を扱う｜まくまくWindowsノート](/p/s7r9r9p/)
 

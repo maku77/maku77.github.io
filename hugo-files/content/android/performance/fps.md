@@ -1,7 +1,10 @@
 ---
 title: "Choreographer で FPS を計測する（Fps クラスの実装）"
+url: "p/imx8hr2/"
 date: "2019-09-18"
 lastmod: "2020-03-04"
+tags: ["Android"]
+aliases: /android/fw/fps.html
 ---
 
 Choreographer クラスによる FPS 計測
@@ -35,7 +38,7 @@ FPS = 1秒あたりのナノ秒 / 描画にかかった時間（ナノ秒）
 下記の `Fps` クラスは、FPS を簡単に計測するためのクラスです。
 内部で Android の `Choreographer` を使っています。
 
-```kotlin
+{{< code lang="kotlin" title="Fps.kt" >}}
 import android.view.Choreographer
 import java.util.concurrent.TimeUnit
 
@@ -97,7 +100,7 @@ class Fps : Choreographer.FrameCallback {
         prevFrameTimeNanos = frameTimeNanos
     }
 }
-```
+{{< /code >}}
 
 `Choreographer#postFrameCallback()` で登録したコールバックは、一度しか呼び出されないことに注意してください。
 連続してフレーム描画のタイミングを取得するには、毎回同じコールバックを登録し直す必要があります（上記では、`doFrame()` メソッドの先頭で登録しています）。
@@ -118,9 +121,9 @@ Fps().startObserving { fps ->
 
 上記のサンプルコードでは、毎フレーム FPS を求めてコールバック関数を呼び出していましたが、これでは高頻度すぎるという場合は、下記のようにすれば約 1 秒ごとに呼び出すように軽量化できます。
 `FrameCallback.doFrame()` が呼び出されたときに、前回のコールバックから 1 秒以上経過している場合だけ、コールバックするようにしています。
-ここでは、**約 1 秒間のフレーム数を数えて平均 FPS を求めています**。
+ここでは、__約 1 秒間のフレーム数を数えて平均 FPS を求めています__。
 
-```kotlin
+{{< code lang="kotlin" title="Fps.kt (2)" >}}
 import android.view.Choreographer
 import java.util.concurrent.TimeUnit
 
@@ -204,7 +207,7 @@ class Fps : Choreographer.FrameCallback {
         }
     }
 }
-```
+{{< /code >}}
 
 
 （応用） 1 秒おきに最低 FPS を求める
@@ -213,13 +216,13 @@ class Fps : Choreographer.FrameCallback {
 上記の例では、1 秒間の描画フレーム数を数えることで秒間平均 FPS を求めていましたが、その方法だと、あるフレームが非常に遅くても、残りのフレームが高速であれば、FPS としては比較的高い値が出てしまいます。
 
 ここでは、もっとストイックに、過去 1 秒間で最も時間のかかったフレームの描画時間をもとに、FPS 計算するようにしてみます。
-つまり、 **秒間最低 FPS（秒間最悪 FPS）** です。
+つまり、 __秒間最低 FPS（秒間最悪 FPS）__ です。
 
 ```
 秒間最低FPS = 1秒あたりのns / 最も時間のかかったフレームの描画時間(ns)
 ```
 
-```kotlin
+{{< code lang="kotlin" title="Fps.kt (3)" >}}
 import android.view.Choreographer
 import java.lang.Long.max
 import java.util.concurrent.TimeUnit
@@ -307,5 +310,5 @@ class Fps : Choreographer.FrameCallback {
         prevFrameTimeNanos = frameTimeNanos
     }
 }
-```
+{{< /code >}}
 

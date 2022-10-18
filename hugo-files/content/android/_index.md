@@ -23,15 +23,15 @@ Tools
 * [Dex 形式の Shared library (JAR) を作成する (`dx`)](/p/huevdub/)
 
 ### パフォーマンス
-* [Android アプリのパフォーマンス改善のためのチェックリスト](tools/performance-checklist.html)
-* [dumpsys gfxinfo でジャンクフレームの発生率を調べる（60FPSの確認）](tools/janky-frames.html)
-* [Choreographer で FPS を計測する（Fps クラスの実装）](fw/fps.html)
-* [Android アプリのパフォーマンス改善に使用できるツール](tools/performance-tools.html)
-* [ADB で描画パフォーマンス計測のデバッグ機能を有効にする](tools/adb-debug-options.html)
-* [Perfetto でシステム全体のパフォーマンスを計測する](tools/perfetto.html)
-* [Traceview でプロファイル情報を表示する](tools/traceview.html)
-* [Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](tools/systrace-cmd.html)
-    * [トラブル: Systrace の画面が真っ白になる](tools/white-screen-on-systrace.html)
+* [Android アプリのパフォーマンス改善のためのチェックリスト](/p/sfqyajt/)
+* [dumpsys gfxinfo でジャンクフレームの発生率を調べる（60FPSの確認）](/p/26hr2bk/)
+* [Choreographer で FPS を計測する（Fps クラスの実装）](/p/imx8hr2/)
+* [Android アプリのパフォーマンス改善に使用できるツール](/p/39cfimo/)
+* [ADB で描画パフォーマンス計測のデバッグ機能を有効にする](/p/bn8q8o6/)
+* [Perfetto でシステム全体のパフォーマンスを計測する](/p/ehu5eox/)
+* [Traceview でプロファイル情報を表示する](/p/2wgxfwd/)
+* [旧）Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](/p/ycwfweu/)
+* [旧）Systrace の画面が真っ白になるときの対応方法](/p/u3n5m3j/)
 
 ### 外部ツールとの連携
 * [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
@@ -46,7 +46,7 @@ Tools
 * [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
 * [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
 * [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
-* [ADB からキー入力やテキスト入力を行う (input text, input keyevent)](adb/input-keyevent.html)
+* [ADB からキー入力やテキスト入力を行う (`input text`, `input keyevent`)](/p/gorux24/)
 * [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](/p/bg2g4bu/)
 * [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj/)
 * [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
@@ -55,7 +55,7 @@ Tools
 * [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
 * [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
 * [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
-* ADB 接続（旧記事）
+* 旧）各種デバイスの ADB 接続
   * [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
   * [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
   * [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
@@ -106,7 +106,7 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
 * [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
-* [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](vendor/getevent-and-sendevent.html)
+* [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](/p/gufweuc/)
 * [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
 
 Android Framework/SDK
