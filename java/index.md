@@ -29,7 +29,7 @@ layout: category-index
 ### JAR/ZIP
 * [jar コマンドで JAR ライブラリを作成する](jar/create-jar.html)
 * [jar コマンドで実行可能な JAR ファイルを作成する](jar/executable-jar.html)
-* [JAR ファイルの署名について](jar/jarsigner.html)
+* [JAR ファイルの署名について](/p/fht5eox/)
 * [Zip ファイル内の要素（ファイルとディレクトリ）を列挙する](zip/enum-entries.html)
 
 ### XML

@@ -1,6 +1,10 @@
 ---
 title: "JAR ファイルの署名について"
+url: "p/fht5eox/"
+permalink: "p/fht5eox/"
 date: "2012-09-27"
+redirect_from: /java/jar/jarsigner.html
+aliases: /java/jar/jarsigner.html
 ---
 
 署名は何に使われるか？
