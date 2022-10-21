@@ -45,9 +45,16 @@ func main() {
 {{< /code >}}
 
 Android 端末上で動く実行ファイルを生成するために、__`GOOS`__ 環境変数で `linux`、__`GOARCH`__ 環境変数で `arm` を指定してビルドします。
+ちなみに、エミュレーター用にビルドするのであれば、おそらくアーキテクチャの指定は必要ないです。
 
-{{< code lang="console" title="Anrdoid (ARM) 用にビルド" >}}
+{{< code lang="console" title="Anrdoid 用にビルド（Linux/macOS の場合）" >}}
 $ GOOS=linux GOARCH=arm go build -o hello hello.go
+{{< /code >}}
+
+{{< code lang="console" title="Anrdoid 用にビルド（Windows の場合）" >}}
+> set GOOS=linux
+> set GOARCH=arm
+> go build -o hello hello.go
 {{< /code >}}
 
 これで、実行ファイル `hello` が生成されます。
@@ -57,13 +64,14 @@ Android 端末上で実行ファイルを起動する
 ----
 
 作成した実行ファイル (`hello`) を __`adb push`__ で Android 端末に転送し、Android 端末上で実行してみます。
-転送先ディレクトリとしては、パーミッション制限の緩い __`/data/local/tmp`__ を使います。
+転送先ディレクトリとしては、アクセス制限の緩い __`/data/local/tmp`__ を使います。
 
 ```console
 # hello を転送する
 $ adb push hello /data/local/tmp
 
 # hello を実行する
+$ adb shell chmod +x /data/local/tmp/hello
 $ adb shell /data/local/tmp/hello
 Hello World
 ```
