@@ -1,6 +1,10 @@
 ---
 title: "Android"
-layout: category-index
+url: "/android/"
+
+categoryName: "まくまく Android ノート"
+categoryUrl: "/android/"
+categoryIcon: _index.svg
 ---
 
 Android アプリや Android デバイスの開発に役立つかもしれないノートです。

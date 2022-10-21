@@ -40,4 +40,12 @@
     //  margin-top: 2em;
     //}
   }
+
+  // インデックスページ用（リンクを横幅いっぱに伸ばす）
+  &__body-categoryIndex {
+    li a {
+      display: block;
+    }
+  }
 }
+

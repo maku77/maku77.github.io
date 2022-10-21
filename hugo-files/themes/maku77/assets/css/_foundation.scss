@@ -29,6 +29,13 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
+  vertical-align: bottom;
+}
+
 a {
   text-decoration: none;
   font-weight: bolder;
@@ -46,6 +53,18 @@ a {
   &:focus { /* 選択中 */
     background-color: $COLOR_LINK_FOCUS_BG;
   }
+}
+
+// 単語・用語定義
+dt {
+  font-weight: bolder;
+  margin-top: 1em;
+}
+dd {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  @include screen-size-lg { margin-left: 1.5em; }
+  @include screen-size-xl { margin-left: 2em; }
 }
 
 strong {
@@ -68,6 +87,16 @@ code {
   strong > & {
     color: $COLOR_TEXT_STRONG;
     background: $COLOR_TEXT_STRONG_BG;
+  }
+
+  // リンクテキスト内のコードには code 要素特有の色を付けない
+  a & {
+    // color: inherit;
+    // color: revert;
+    color: #333;
+    background: #eee;
+    font-weight: normal;
+    padding: 0 0.2em;
   }
 }
 

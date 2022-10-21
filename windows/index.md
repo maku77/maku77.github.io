@@ -19,7 +19,7 @@ Windows バッチファイル
 * [長いコマンドを複数行に分けて記述する](syntax/separate-long-line.html)
 
 ### 入出力 (I/O)
-* [バッチファイルでコマンドライン引数を扱う](io/command-line-params.html)
+* [バッチファイルでコマンドライン引数を扱う](/p/s7r9r9p/)
 * [標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する](io/redirect-stdout-and-stderr.html)
 * [echo で改行だけ出力する／改行しないで出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)

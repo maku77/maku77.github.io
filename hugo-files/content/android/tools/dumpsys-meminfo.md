@@ -1,14 +1,17 @@
 ---
-title: "メモリの使用状況を確認する (dumpsys)"
+title: "メモリの使用状況を確認する (dumpsys meminfo)"
+url: "p/t6wfxev/"
 date: "2014-07-29"
+tags: ["Android"]
+aliases: /android/dumpsys-meminfo.html
 ---
 
 各プロセスのメモリ使用状況を確認する
 ----
 
-`dumpsys` コマンドの `meminfo` のセクションでは、各プロセスのメモリ使用状況を確認することができます。
+__`dumpsys`__ コマンドの __`meminfo`__ セクションでは、各プロセスのメモリ使用状況を確認することができます。
 
-```
+```console
 $ adb shell dumpsys meminfo
 Applications Memory Usage (kB):
 Uptime: 169910958 Realtime: 170196415
@@ -25,12 +28,13 @@ Total PSS by process:
     ...
 ```
 
+
 プロセスを指定してメモリ使用状況を確認する
 ----
 
-上記で表示されたパッケージ名や pid を、`dumpsys meminfo` の後ろに続けて指定することで、そのプロセスにおける詳細なメモリ使用情報を調べられます。
+上記で表示されたパッケージ名や pid を、`dumpsys meminfo` コマンドの後ろに続けて指定することで、そのプロセスにおける詳細なメモリ使用情報を調べられます。
 
-```
+```console
 $ adb shell dumpsys meminfo com.android.phone
 Applications Memory Usage (kB):
 Uptime: 170096486 Realtime: 170381943
@@ -75,6 +79,8 @@ Uptime: 170096486 Realtime: 170381943
 プログラムからメモリ使用状況を確認する
 ----
 
+Android プログラムの実装からメモリ情報を取得するには、[android.os.Debug](https://developer.android.com/reference/android/os/Debug) クラスを使用します。
+
 ```java
 // Native ヒープの使用可能最大サイズ
 long total = Debug.getNativeHeapSize();
@@ -90,7 +96,10 @@ long alloc = Debug.getNativeHeapAllocatedSize();
 デバイス上で procrank が使用できる場合
 ----
 
-```
+Android デバイスを debug ビルドパッケージで開発しているときは、Linux の __`procrank`__ コマンドを使用できるかもしれません。
+`adb shell` で Android デバイスに接続して次のように実行します。
+
+```console
 # procrank
   PID      Vss      Rss      Pss      Uss  cmdline
   890   84456K   48668K   25850K   21284K  system_server

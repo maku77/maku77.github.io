@@ -1,6 +1,11 @@
 ---
 title: "バッチファイルでコマンドライン引数を扱う"
+url: "p/s7r9r9p/"
+permalink: "p/s7r9r9p/"
 date: "2019-10-02"
+tags: ["Windows"]
+redirect_from: /windows/io/command-line-params.html
+aliases: /windows/io/command-line-params.html
 ---
 
 コマンドライン引数の基本

@@ -1,15 +1,18 @@
 ---
-title: "APK ファイルの署名を確認する"
+title: "APK ファイルの署名を確認する (jarsigner, openssl)"
+url: "p/2x9it3c/"
 date: "2014-08-22"
+tags: ["Android"]
+aliases: /android/tools/verify-certs.html
 ---
 
 署名情報を確認する方法
 ----
 
-JDK に付属している `jarsigner` コマンドを使用して、APK ファイルの署名情報を確認することができます。
+JDK に付属している __`jarsigner`__ コマンドを使用して、APK ファイルの署名情報を確認することができます。
 
-~~~
-$ jarsigner -verify -certs -verbose YourApp.apk
+{{< code lang="console" title="MyApp.apk の署名を確認する" >}}
+$ jarsigner -verify -certs -verbose MyApp.apk
 
 ...
 sm     21632 Mon Sep 01 17:08:16 JST 2014 lib/libhoge.so
@@ -32,16 +35,16 @@ s      36381 Fri Oct 03 14:10:34 JST 2014 META-INF/MANIFEST.MF
   i = at least one certificate was found in identity scope
 
 jar verified.
-~~~
+{{< /code >}}
 
 
 証明書の公開鍵 (Subject Public Key Info) を確認する方法
 ----
 
-APK 内の証明書から、公開鍵情報を抽出するには、`openssl` ツールを使用して下記のように実行します。
+APK 内の証明書から、公開鍵情報を抽出するには、__`openssl`__ ツールを使用して下記のように実行します。
 
-~~~
-$ jar xvf YourApp.apk META-INF    # APK内の証明書を抽出
+```console
+$ jar xvf MyApp.apk META-INF  # APK内の証明書を抽出
 $ openssl pkcs7 -inform DER -in META-INF/CERT.RSA -noout -print_certs -text
 
 Certificate:
@@ -96,5 +99,5 @@ Certificate:
          f9:c0:5f:b4:0e:09:f8:f5:80:e3:54:49:c0:33:e4:36:88:42:
          34:fa:01:50:03:58:ca:20:0e:44:a1:eb:c2:c2:6e:e6:11:30:
          ec:77:71:b2
-~~~
+```
 

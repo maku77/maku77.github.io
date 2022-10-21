@@ -1,9 +1,12 @@
 ---
 title: "Traceview でプロファイル情報を表示する"
+url: "p/2wgxfwd/"
 date: "2011-01-14"
+tags: ["Android"]
+aliases: /android/tools/traceview.html
 ---
 
-参考: [Traceview - Android Developers](http://developer.android.com/guide/developing/tools/traceview.html)
+参考: [Traceview - Android Developers](https://developer.android.com/studio/profile/traceview)
 
 
 プロファイリングデータを取得する
@@ -36,7 +39,7 @@ Activity がそのアプリのエントリポイントとなっているのな�
 
 Android SDK に含まれている `traceview` コマンドを使用すると、プロファイリング結果をグラフィカルに表示することができます。
 
-![traceview.png](traceview.png)
+{{< image src="img-001.png" title="Traceview" >}}
 
 上記の図では、タイムラインに main スレッドが一本だけ表示されていますが、複数のスレッドが存在すれば、main 以外のスレッドもその下に表示されます。
 
@@ -57,7 +60,7 @@ C:\> traceview D:\z\dmtrace.trace
 プロファイリングデータからメソッドの呼び出しグラフを作成する
 ----
 
-```
+```console
 $ dmtracedump -g output.png dmtrace.trace
 ```
 
@@ -67,7 +70,7 @@ $ dmtracedump -g output.png dmtrace.trace
 プロファイリングデータを HTML で出力する
 ----
 
-```
+```console
 $ dmtracedump -h dmtrace.trace > output.html
 ```
 
