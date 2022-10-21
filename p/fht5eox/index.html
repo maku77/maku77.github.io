@@ -12,18 +12,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
-  <meta name="description" content="天才星人まくのAndroidノート">
+  <meta name="description" content="天才星人まくのJavaノート">
 
 <meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
 
 <!-- You can use open graph tags to customize link previews.
 Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/android/vendor/getevent-and-sendevent.html" />
+<meta property="og:url"     content="https://maku77.github.io/p/fht5eox/" />
 <meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-android.jpg" />
+<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-java.png" />
 
-  <meta property="og:description" content="天才星人まくのAndroidノート">
+  <meta property="og:description" content="天才星人まくのJavaノート">
 
 <meta property="fb:app_id"  content="447708168769292" />
 
@@ -90,8 +90,8 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
 
-  <meta property="og:title" content="getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う | まくまくAndroidノート" />
-  <title>getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う - まくまくAndroidノート</title>
+  <meta property="og:title" content="JAR ファイルの署名について | まくまくJavaノート" />
+  <title>JAR ファイルの署名について - まくまくJavaノート</title>
 
   <!-- Ad (Google) -->
   
@@ -99,23 +99,23 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <body>
 
 <div class="xPageHeader">
-  <a href="/android/">
-    <img src="/assets/img/logo-android.jpg" class="xPageHeader_logo">
+  <a href="/java/">
+    <img src="/assets/img/logo-java.svg" class="xPageHeader_logo">
   </a>
-  <a href="/android/">
+  <a href="/java/">
     <div class="xPageHeader_category">
-    まくまくAndroidノート
+    まくまくJavaノート
     </div>
   </a>
-  <div class="xPageHeader_title">getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う</div>
+  <div class="xPageHeader_title">JAR ファイルの署名について</div>
 </div>
 
 <div id="xBody">
   
 
 <div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
-  <div class="xPageDate">2010-11-15</div>
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2012-09-27</div>
 </div>
 
   
@@ -141,7 +141,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <ul class="xSnsButtons">
   <!-- Twitter -->
   <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う&url=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： JAR ファイルの署名について&url=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
@@ -150,7 +150,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Facebook -->
   <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
@@ -159,7 +159,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
   <!-- Pocket -->
   <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
@@ -192,49 +192,89 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <h2 id="getevent-により入力デバイスへの入力情報を監視する">getevent により入力デバイスへの入力情報を監視する</h2>
+        <h2 id="署名は何に使われるか">署名は何に使われるか？</h2>
 
-<p><code class="language-plaintext highlighter-rouge">adb shell</code> から以下のように実行します。</p>
+<p>JAR の署名は、各種リソースへのアクセス権を制御するために使用されます。</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># getevent
-add device 1: /dev/input/event0
-  name  "Xxx"
+<p>例:</p>
+
+<ul>
+  <li>JavaWebStart や Applet では署名することでローカルファイルにアクセスできるようになる。</li>
+  <li>Android の APK は署名によりコンポーネント間のアクセス権を制御できる。</li>
+</ul>
+
+<h2 id="keystore-ファイルの作成">keystore ファイルの作成</h2>
+
+<p>署名に必要な <strong>keystore ファイル</strong> (<code class="language-plaintext highlighter-rouge">*.jks</code> や <code class="language-plaintext highlighter-rouge">*.keystore</code>) は、JDK に付属している <code class="language-plaintext highlighter-rouge">keytool</code> コマンドで作成することができます。
+リリース用に作成した keystore ファイルは、厳重に管理する必要があります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ keytool -genkey -v -keystore &lt;キーストアファイル名&gt; -alias &lt;エイリアス名&gt; -keyalg RSA -keysize 2048 -validity &lt;有効日数&gt;
 </code></pre></div></div>
 
-<p>その後、入力待ち状態になるので、何かキーを入力すると以下のように表示されます。</p>
+<p>keystore ファイルには複数のキーを含むことができるので、どのキーかを表すエイリアス名を指定する必要があります。</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/input/event0: 001 0067 00000001
-/dev/input/event0: 001 0067 00000000
-/dev/input/event0: 001 006c 00000001
-/dev/input/event0: 001 006c 00000000
+<h4 id="実行例">実行例</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ keytool -genkey -v -keystore MyKeyStore.jks -alias myapp -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password:（キーストアのパスワードを入力）
+（名前や組織名などを聞かれるので順番に入力していく）
+（最後にキー（エイリアス）に対するパスワードを入力）
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">0067</code> や <code class="language-plaintext highlighter-rouge">006c</code> という部分が、key layout ファイルで定義されている値です。例えば、<code class="language-plaintext highlighter-rouge">reference.kl</code> といったファイルに以下のように定義されていたりします。</p>
+<h2 id="keystore-ファイルで-jar-ファイルに署名する">keystore ファイルで JAR ファイルに署名する</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Scancode  # Keycode
-...
-key 103     DPAD_UP       WAKE_DROPPED
-key 108     DPAD_DOWN     WAKE_DROPPED
-...
+<p>keystore ファイルには、非公開鍵と、それに関連付けられた X.509 証明書が含まれており、それらの情報を使用して JAR ファイルに署名を行うことができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore &lt;キーストアファイル名&gt; &lt;JAR名&gt; &lt;エイリアス名&gt;
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">103</code> の 16 進表記が <code class="language-plaintext highlighter-rouge">0067</code> と一致します。<code class="language-plaintext highlighter-rouge">WAKE_DROPPED</code> は、ディスプレイ OFF 状態からそのキーで復帰（ディスプレイ ON）することを示し、さらに、そのキーはアプリに届かずに捨てられることを示しています。</p>
+<h4 id="実行例-1">実行例</h4>
 
-<h2 id="sendevent-により入力デバイスへの入力を行う">sendevent により入力デバイスへの入力を行う</h2>
-
-<p><code class="language-plaintext highlighter-rouge">getevent</code> コマンドで例えば、上キーを押した場合に以下のように表示されたとします。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/input/event2: 0001 0067 00000001
-/dev/input/event2: 0001 0067 00000000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore MyKeyStore.jks myapp.jar myapp
+（キーストアのパスワードを入力）
+（エイリアスのパスワードを入力）
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">sendevent</code> コマンドを使用すると、上記のような入力をコマンドで再現することができます。</p>
+<h2 id="jar-ファイルの署名を確認する">JAR ファイルの署名を確認する</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># sendevent /dev/input/event2 1 103 1
-# sendevent /dev/input/event2 1 103 0
+<p>JAR ファイルに付けられた署名を確認するには以下のようにします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jarsigner -verify -verbose -certs signed.jar
 </code></pre></div></div>
 
-<p>2 行目のリリースコマンドを送らないと、キーを押したままの状態になってしまいますので注意してください。</p>
+<h2 id="jar-ファイルから署名を取り除く">JAR ファイルから署名を取り除く</h2>
+
+<p>JAR ファイルの署名の実体は、アーカイブ内の <code class="language-plaintext highlighter-rouge">META-INF</code> ディレクトリ内の下記のファイル群です。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">META-INF/xxx.SF</code>（署名）</li>
+  <li><code class="language-plaintext highlighter-rouge">META-INF/xxx.DSA</code> (or <code class="language-plaintext highlighter-rouge">xxx.RSA</code>)（署名ブロック）</li>
+</ul>
+
+<p>アーカイブからこれらのファイルを取り除き、再パッケージングすれば署名なしのアーカイブを作成できます。
+下記は、署名付きの <code class="language-plaintext highlighter-rouge">singed.jar</code> から、署名なしの <code class="language-plaintext highlighter-rouge">unsigned.jar</code> を作成する例です。</p>
+
+<h4 id="linux-の場合">Linux の場合</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir temp
+$ cd temp
+$ jar xvf ../signed.jar
+$ rm -rf META-INF
+$ cd ..
+$ jar cvf unsigned.jar -C temp .
+$ rm -rf temp
+</code></pre></div></div>
+
+<h4 id="windows-の場合">Windows の場合</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>D:\&gt; mkdir temp
+D:\&gt; cd temp
+D:\&gt; jar xf ../signed.jar
+D:\&gt; rmdir /S /Q META-INF
+D:\&gt; cd ..
+D:\&gt; jar cf unsigned.jar -C temp .
+D:\&gt; rmdir /S /Q temp
+</code></pre></div></div>
 
 
       </div>
@@ -299,7 +339,7 @@ key 108     DPAD_DOWN     WAKE_DROPPED
 <ul class="xSnsButtons">
   <!-- Twitter -->
   <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくAndroidノート： getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う&url=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://twitter.com/share?text=まくまくJavaノート： JAR ファイルの署名について&url=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
@@ -308,7 +348,7 @@ key 108     DPAD_DOWN     WAKE_DROPPED
 
   <!-- Facebook -->
   <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
@@ -317,7 +357,7 @@ key 108     DPAD_DOWN     WAKE_DROPPED
 
   <!-- Pocket -->
   <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/android/vendor/getevent-and-sendevent.html"
+    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/p/fht5eox/"
         onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
         'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
       <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
@@ -329,7 +369,7 @@ key 108     DPAD_DOWN     WAKE_DROPPED
 
       
       <div class="xArticle_up">
-        <a href="/android/"><span class="xArticle_up_label">まくまくAndroidノート</span><br>へ戻る</a>
+        <a href="/java/"><span class="xArticle_up_label">まくまくJavaノート</span><br>へ戻る</a>
       </div>
 
     </div>
@@ -364,7 +404,7 @@ key 108     DPAD_DOWN     WAKE_DROPPED
   <div class="xNav_header">カテゴリ一覧</div>
   <ul>
         <li><a href="/memo/">いろいろ</a>
-        <li class="xNav-focused"><a href="/android/">Android</a>
+        <li><a href="/android/">Android</a>
         <li><a href="/ansible/">Ansible</a>
         <li><a href="/blender/">Blender</a>
         <li><a href="/cpp/">C/C++</a>
@@ -462,8 +502,8 @@ key 108     DPAD_DOWN     WAKE_DROPPED
     
 
 <div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/android/">Android</a></div>
-  <div class="xPageDate">2010-11-15</div>
+  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a> &gt; <a href="/java/">Java</a></div>
+  <div class="xPageDate">2012-09-27</div>
 </div>
 
   <!-- </div> -->
