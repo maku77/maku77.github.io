@@ -29,7 +29,11 @@ Tools
 * [旧）Systrace をコマンド化して簡単に実行できるようにする (systrace.cmd)](/p/ycwfweu/)
 * [旧）Systrace の画面が真っ白になるときの対応方法](/p/u3n5m3j/)
 
+### エミュレーター
+* [Android エミュレーター内のサーバーに外部からアクセスする (`adb forward`)](/p/q6r98p8/)
+
 ### 外部ツールとの連携
+* [Golang で Android 上で動く CLI コマンドを作成する (`go build`)](/p/ftducta/)
 * [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
 
 ### 解析／デバッグ／ADB コマンド
