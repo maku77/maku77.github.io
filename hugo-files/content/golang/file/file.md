@@ -10,7 +10,7 @@ aliases: /hugo/go/file
 
 Go 言語でファイルの読み書きを行うには、__`os`__ パッケージや __`io`__ パッケージを使用します。
 
-ファイルからバイトデータを読み出す（Read）
+ファイルからバイトデータを読み出す（io.Reader）
 ----
 
 既存のファイルを読み込み用にオープンするには、__`os.Open`__ 関数を使用して下記のようにします。
@@ -34,7 +34,7 @@ __`defer`__ キーワードでクローズ処理を登録しておくことで�
 2017/09/08 23:43:40 open ./input.txt: The system cannot find the file specified.
 ```
 
-ファイルのオープンに成功したら、取得した `os.File` オブジェクトの __`Read`__ メソッドを使用して読み出し処理を行います。
+ファイルのオープンに成功したら、取得した `os.File` オブジェクトの __`Read`__ メソッドを使用して読み出し処理を行います（`Read` は `io.Reader` インタフェースで定義されているメソッドです）。
 `Read` メソッドは、引数で渡した `[]byte` スライスにファイルの内容を読み込みます。
 一度に読み込むサイズは、パラメータとして渡すスライスの長さ (`len(s)`) になるため、あらかじめ `make` 関数などを使ってスライス長を確保しておく必要があります。
 `Read` 関数は、ファイルの末尾まで読み込み終わると、__`0, io.EOF`__ を返します。
@@ -108,11 +108,48 @@ $ go run sample.go
 {{< /code >}}
 
 
-ファイルからテキストを 1 行ずつ読み出す (bufio.Scanner)
+ファイルを一度に読み出す (os.ReadFile)
+----
+
+`io.Reader` インタフェースで定義されている `Read` メソッドは、指定したサイズのバイトデータしか読み込めませんが、[os.ReadFile](https://pkg.go.dev/os#ReadFile) を使用すると、ファイル全体を一度に読み出すことができます。
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+)
+
+func main() {
+	bytes, err := os.ReadFile("./input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(bytes))
+	// os.Stdout.Write(bytes)
+}
+```
+
+ちなみに、`os.ReadFile` はファイルの読み出し専用ですが、代わりに [io.ReadAll](https://pkg.go.dev/io#ReadAll) を使用すると、`io.Reader` を実装した任意のインスタンスから全データを読み出すことができます。
+次の例では、`string.Reader` からすべてのテキストを読み出しています。
+
+```go
+r := strings.NewReader("AAA\nBBB\nCCC")
+bytes, err := io.ReadAll(r)
+if err != nil {
+	log.Fatal(err)
+}
+fmt.Printf("%s\n", bytes)
+```
+
+
+テキストファイルを 1 行ずつ読み出す (bufio.Scanner)
 ----
 
 `Read([]byte)` 関数を使ったファイルの読み出しは、byte スライスによる読み出しになってしまうため、テキストファイルを 1 行ずつ読み出したい場合などに不便です。
-テキストファイルを 1 行ずつ読み出すときは __`bufio.Scanner`__ を使用すると簡単です。
+テキストファイルを 1 行ずつ読み出すときは [bufio.Scanner](https://pkg.go.dev/bufio#Scanner) を使用すると簡単です。
 `bufio.Scanner` を使用すると、テキストファイルの内容を 1 行ごとに `string` オブジェクトの形で取得していくことができます。
 
 `bufio.Scanner` オブジェクトは、下記のファクトリ関数で生成することができます。
@@ -130,6 +167,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -137,7 +175,7 @@ func main() {
 	// ファイルを読み出し用にオープン
 	file, err := os.Open("./input.txt")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer file.Close()
 
@@ -150,7 +188,7 @@ func main() {
 
 	// スキャン時のエラーをハンドル
 	if err := scanner.Err(); err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
 {{< /code >}}
@@ -165,8 +203,10 @@ GGG HHH III
 {{< /code >}}
 
 
-ファイルにバイトデータを書き込む (Write)
+ファイルにバイトデータを書き込む (io.Writer, os.WriteFile)
 ----
+
+### io.Writer の Write メソッドを使う方法
 
 ファイルを書き込み用にオープン（新規作成）するには、__`os.Create`__ 関数を使用します（読み出しのときは `os.Open`）。
 `os.Create` はファイルのオープンに成功すると __`*os.File`__ を返します。
@@ -175,26 +215,49 @@ GGG HHH III
 ```go
 package main
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 func main() {
 	// ファイルを書き込み用にオープン (mode=0666)
 	file, err := os.Create("./output.txt")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer file.Close()
 
-	data := []byte("Hello")
+	data := []byte("Hello\nWorld")
 	_, err = file.Write(data)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
+	}
+}
+```
+
+### os.WriteFile 関数を使う方法
+
+[os.WriteFile](https://pkg.go.dev/os#WriteFile) 関数を使うと、ファイル名と書き込むバイトデータを指定するだけで、ファイルへの出力を一気に済ませることができます。
+
+```go
+package main
+
+import (
+	"log"
+	"os"
+)
+
+func main() {
+	bytes := []byte("Hello\nWorld")
+	if err := os.WriteFile("./output.txt", bytes, 0666); err != nil {
+		log.Fatal(err)
 	}
 }
 ```
 
 
-ファイルにテキストを書き込む (WriteString)
+ファイルに 1 行ずつテキストを書き込む (WriteString)
 ----
 
 `os.File` が実装している `io.Writer` インタフェースの `Write([]byte)` メソッドは、バイトデータの書き込みを想定しているため、テキストデータの書き込みには不便です（`string` を `[]byte` に変換する手間がかかります）。
@@ -204,20 +267,23 @@ func main() {
 ```go
 package main
 
-import "os"
+import (
+	"log"
+	"os"
+)
 
 func main() {
 	// ファイルを書き込み用にオープン (mode=0666)
 	file, err := os.Create("./output.txt")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 	defer file.Close()
 
 	// テキストを書き込む
 	_, err = file.WriteString("Hello\nWorld\n")
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 }
 ```
