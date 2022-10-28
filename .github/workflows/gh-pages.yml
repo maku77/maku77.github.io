@@ -29,8 +29,12 @@ jobs:
           extended: true  # Enable scss
 
       - name: Build with Hugo
-        run: hugo --minify --disableKinds home,section,taxonomy,term
+        run: hugo --minify --disableKinds home,taxonomy,term
         working-directory: hugo-files
+
+      # TODO: Delete from this file list each time a category page is completed
+      - name: Section pages in transition will not be used
+        run: rm -f hugo-files/public/git/index.html
 
       - name: Merge build results without overriding
         run: cp -RTnv hugo-files/public _site

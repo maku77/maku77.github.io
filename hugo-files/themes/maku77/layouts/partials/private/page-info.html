@@ -1,0 +1,31 @@
+{{- /* Markdown ファイルのパスやフロントマターの情報を表示 */}}
+{{- if .Site.IsServer -}}
+<style>
+.local-table {
+  margin: 0.2em 0;
+}
+.local-table th {
+  padding: 0 0.5em;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: left;
+  border: solid 0.5px black;
+}
+.local-table td {
+  padding: 0 0.5em;
+  background: rgba(255, 255, 255, 0.4);
+  border: solid 0.5px black;
+}
+</style>
+<div class="private">
+  {{- with .File }}<b>{{ .Filename }}</b>{{ end -}}
+  <table class="local-table">
+    <tbody>
+      <tr><th>title</th><td>{{ .Params.title }}</td></tr>
+      <tr><th>linkTitle</th><td>{{ .Params.linkTitle }}</td></tr>
+      <tr><th>tags</th><td>{{ .Params.tags }}</td></tr>
+      <tr><th>aliases</th><td>{{ .Params.aliases }}</td></tr>
+      <tr><th>description</th><td>{{ .Description }}</td></tr>
+    </tbody>
+  </table>
+</div>
+{{- end }}

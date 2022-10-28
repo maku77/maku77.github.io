@@ -31,5 +31,17 @@
     color: $COLOR_PAGE_TITLE;
     font-size: 1.5rem;
   }
+
+  &__categoryTitle {
+    font-size: 2.1rem;
+    margin-left: 0.3rem;
+    a {
+      font-weight: normal;
+      color: $COLOR_PAGE_TITLE;
+      &:hover {
+        background: transparent !important;
+      }
+    }
+  }
 }
 

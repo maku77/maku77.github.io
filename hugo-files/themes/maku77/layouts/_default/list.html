@@ -1,5 +1,5 @@
 {{ define "header" }}
-  {{- partial "blocks/header" . }}
+  {{- partial "blocks/list-header" . }}
 {{ end }}
 {{- define "article" }}
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
@@ -7,7 +7,7 @@
     {{ partial "blocks/breadcrumb" . }}
     <div class="article__snsButtons">{{ partial "blocks/sns-buttons" . }}</div>
   </div>
-  <div class="article__body">{{ .Content }}</div>
+  <div class="article__body article__body-categoryIndex">{{ .Content }}</div>
   <div class="article__footer">
     <div class="article__snsButtons">
       {{ partial "blocks/sns-buttons" . }}
@@ -16,6 +16,7 @@
   </div>
 </article>
 
+{{- if .Site.IsServer }}
 <div style="color: red; padding: 0.3em; margin: 2em 0; border: dashed 1px red; border-radius: 1em;">
   <b>ページリスト</b>
   <ul>
@@ -24,4 +25,6 @@
     {{- end }}
   </ul>
 </div>
+{{- end }}
+
 {{- end }}

@@ -3,7 +3,7 @@ title: "Golang で JSON 形式の文字列やファイルを扱う (encoding/jso
 linkTitle: "JSON 形式の文字列やファイルを扱う (encoding/json)"
 url: "p/dsbs9p5/"
 date: "2022-09-04"
-tags: ["Golang", "JSON"]
+tags: ["Go", "JSON"]
 ---
 
 {{% private %}}

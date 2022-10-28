@@ -1,0 +1,13 @@
+{{ $categoryIcon := partial "functions/get-category-icon" . }}
+{{ $categoryName := partial "functions/get-category-name" . }}
+
+<header class="header">
+  <a href="./">
+    <img class="header__icon" src="{{ $categoryIcon }}" />
+  <div class="header__right">
+    <div class="header__categoryTitle">
+      <a href="./">{{ $categoryName }}</a>
+    </div>
+  </div>
+  </a>
+</header>
