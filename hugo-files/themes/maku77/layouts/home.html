@@ -5,5 +5,17 @@
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{- end }}
   </ul>
+  <h2>Drafts</h2>
+  <ul>
+  {{- range (where .Site.Pages ".Draft" true) }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <small>
+      ({{ .Lastmod.Format "2006-01-02" }})
+      {{ range .Params.tags }}#{{ . }} {{ end }}
+    </small>
+  </li>
+  {{- end }}
+</ul>
 </html>
 {{ end }}
