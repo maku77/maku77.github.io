@@ -56,6 +56,7 @@ Go の文法
 * [Go 言語のインタフェースの扱いを理解する (interface)](/p/aimpsvz/)
 * [インタフェース埋め込みと構造体埋め込みによる拡張 (Embedding)](/p/tbf357g/)
 * [構造体にタグ情報を追加する (struct tags)](/p/hxhzfbs/)
+* [fmt.Println による構造体の出力をカスタマイズする (Stringer)](/p/kziyhzg/)
 
 ### その他 <!-- grammer-other -->
 
