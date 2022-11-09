@@ -1,6 +1,10 @@
 ---
-title: "Windows メモ"
-layout: category-index
+title: "Windows"
+url: "/windows/"
+
+categoryName: "まくまく Windows ノート"
+categoryUrl: "/windows/"
+categoryIcon: _index.svg
 ---
 
 Windows バッチファイル
@@ -20,6 +24,7 @@ Windows バッチファイル
 
 ### 入出力 (I/O)
 * [バッチファイルでコマンドライン引数を扱う](/p/s7r9r9p/)
+* [バッチファイルでプロンプトを表示してユーザー入力を促す (`set /p`)](/p/2dn6njw/)
 * [標準出力 (stdout) と標準エラー (stderr) への出力をファイルに保存する](io/redirect-stdout-and-stderr.html)
 * [echo で改行だけ出力する／改行しないで出力する](echo-newline.html)
 * [複数のコマンドの出力をまとめてリダイレクトする](io/collect-output.html)
