@@ -62,6 +62,24 @@ $ emulator -avd AVD_NAME
 ```
 
 ここで指定する AVD 名は、前述の `emulator -list-avds` コマンドで表示されたものの中から選択します。
+AVD 名の一覧を表示して、ユーザーに起動する AVD を選択させるバッチファイルなどを作っておくと便利です。
+
+{{% accordion title="emu.cmd（AVD を選択して起動するバッチファイル）" %}}
+```bat
+@echo off
+setlocal
+
+echo Available AVDs:
+emulator -list-avds
+
+set /p AvdName="Which AVD do you want to start? "
+if "%AvdName%"=="" (
+    echo ERROR: No AVD specified.
+    exit /b
+)
+emulator @%AvdName%
+```
+{{% /accordion %}}
 
 
 adb コマンドの使用例
