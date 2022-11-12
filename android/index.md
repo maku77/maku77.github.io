@@ -31,6 +31,7 @@ Tools
 
 ### エミュレーター
 * [Android エミュレーター内のサーバーに外部からアクセスする (`adb forward`)](/p/q6r98p8/)
+* [Android エミュレーターをコマンドラインから操作する (`emulator`, `adb emu`)](/p/zgyhygw/)
 
 ### 外部ツールとの連携
 * [Golang で Android 上で動く CLI コマンドを作成する (`go build`)](/p/ftducta/)
