@@ -149,6 +149,7 @@ hook スクリプト
 * [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
 * [git pull の引数省略の仕組み](other/remote-complement.html)
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
+* [Git サブモジュールで別リポジトリの内容を組み込む (`git submodule`)](/p/dsctaq7/)
 
 GitLab（GitHub クローン）
 ====
