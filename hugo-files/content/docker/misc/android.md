@@ -1,13 +1,14 @@
 ---
 title: "Android ビルド環境を構築するための Dockerfile"
+url: "p/ao8p7n4/"
 date: "2015-04-02"
+tags: ["Docker"]
+aliases: /docker/dockerfile-for-android.html
 ---
 
-下記の Dockerfile を使うと、Ubuntu 14.04 あるいは、Ubuntu 12.04 をベースにした Android ビルド用の Docker イメージを作成することができます。
+下記の `Dockerfile` を使うと、Ubuntu 14.04 あるいは、Ubuntu 12.04 をベースにした Android ビルド用の Docker イメージを作成することができます。
 
-#### Dockerfile (Ubuntu 14.04)
-
-```shell
+{{< code lang="docker" title="Dockerfile (Ubuntu 14.04)" >}}
 FROM ubuntu:14.04
 
 # Set the proxies if needed.
@@ -29,8 +30,9 @@ RUN apt-get install -y bison g++-multilib git gperf libxml2-utils make zlib1g-de
 
 # For the repo command
 RUN apt-get install -y curl python --no-install-recommends
+{{< /code >}}
 
-=== Dockerfile (Ubuntu 12.04) ===
+{{< code lang="docker" title="Dockerfile (Ubuntu 12.04)" >}}
 FROM ubuntu:12.04
 
 # Set the proxies if needed.
@@ -44,7 +46,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qq update
 RUN apt-get install -y openjdk-7-jdk --no-install-recommends
 RUN apt-get install -y git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 --no-install-recommends
-```
+{{< /code >}}
 
 やっていることは、ほぼ下記に記述されている通りです。
 
@@ -59,13 +61,13 @@ RUN apt-get install -y git gnupg flex bison gperf build-essential zip curl libc6
 
 実際に Docker イメージを作成するには、この `Dockerfile` がカレントディレクトリにある状態で、下記のように実行します。
 
-```
+```console
 $ sudo docker build android_ubuntu14 ./
 ```
 
-これで、android_ubuntu14 というイメージが作成されるので、あとは、Docker コンテナとして起動できます。
+これで、`android_ubuntu14` というイメージが作成されるので、あとは、Docker コンテナとして起動できます。
 
-```
+```console
 $ sudo docker run -it android_ubuntu14 /bin/bash
 ```
 

@@ -1,7 +1,10 @@
 ---
 title: "Docker コンテナの詳細情報を表示する (docker container inspect)"
+url: "p/47hs3ck/"
 date: "2015-03-11"
 lastmod: "2022-02-28"
+aliases: /docker/inspect-container.html
+tags: ["Docker"]
 ---
 
 __`docker container inspect`__（あるいは `docker inspect`）コマンドを使用すると、Docker コンテナの詳細情報を表示することができます。

@@ -1,16 +1,18 @@
 ---
-title: "Docker でコンテナイメージを作成する (docker image build, docker container commit)"
+title: "Docker のコンテナイメージを作成する (docker image build, docker container commit)"
+url: "p/5j4k3iy/"
 date: "2015-03-12"
 lastmod: "2022-02-28"
+tags: ["Docker"]
+aliases: /docker/create-image.html
 ---
 
 2 つのイメージ作成方法
 ----
 
-ここでは、Ubuntu の Docker イメージをカスタマイズして、独自の Docker イメージを作成してみます。
 Docker イメージの作成方法には、大きく下記の 2 つの方法があります。
 
-1. `Dockerfile` にイメージの作成手順を記載しておき、__`docker image build`__ で作成
+1. __`Dockerfile`__ にイメージの作成手順を記載しておき、__`docker image build`__ で作成
 2. OS イメージをインタラクティブモードで起動し、各種設定を行った後に __`docker container commit`__ で作成
 
 再現性、ポータビリティといった観点から、`Dockerfile` を扱うアプローチが推奨されています。
@@ -19,24 +21,22 @@ Docker イメージの作成方法には、大きく下記の 2 つの方法が�
 docker image build アプローチ
 ----
 
-__Dockerfile__ という、Docker イメージ作成のための手順書を作成しておくと、__`docker image build`__（あるいは `docker build`）コマンドを使って自動的にイメージを作成することができます。
+__`Dockerfile`__ という、Docker イメージ作成のための手順書を作成しておくと、__`docker image build`__（あるいは `docker build`）コマンドを使って自動的にイメージを作成することができます。
 下記は、Debian のイメージをベースにして、Python 3 をインストールしたイメージを作成する場合の `Dockerfile` の例です。
 
-#### Dockerfile
-
-```shell
+{{< code lang="docker" title="Dockerfile" >}}
 # Debian (Wheezy) のイメージをベースにする
 FROM debian:wheezy
 
 # コンテナ構築のためのコマンド実行
 RUN apt-get -qq update && apt-get -y install python3
-```
+{{< /code >}}
 
 この `Dockerfile` を元に Docker イメージを作成するには、下記のように `docker image build` を実行します。
 
-```console
+{{< code lang="console" title="コンテナイメージのビルド" >}}
 $ docker image build -t <イメージ名> <Dockerfileのあるディレクトリ>
-```
+{{< /code >}}
 
 `-t` の後ろに指定するイメージ名は __`<user>/<repo>:<tag>`__ という構成で指定します。
 末尾のタグ名 (`:<tag>`) を省略すると、自動的に `latest` というタグが付けられます。
@@ -49,17 +49,17 @@ $ docker build -t maku77/python3:v1 .
 `debian:wheezy` のイメージファイルが既に `docker pull` コマンドなどでローカルにキャッシュされている場合は、そのイメージが利用されるため、イメージ構築はより早く終わります。
 `docker image ls`（あるいは `docker images`）コマンドで、作成された Docker イメージを確認することができます。
 
-```
+```console
 $ docker image ls
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-maku77/python3      v1                  c3d5556730a9        4 minutes ago       93.88 MB
-debian              wheezy              d5570ef1464a        4 days ago          84.98 MB
+REPOSITORY       TAG      IMAGE ID       CREATED         VIRTUAL SIZE
+maku77/python3   v1       c3d5556730a9   4 minutes ago   93.88 MB
+debian           wheezy   d5570ef1464a   4 days ago      84.98 MB
 ...
 ```
 
 作成された Docker イメージ (`maku77/python3:v1`) からコンテナを起動し、`python3` コマンドを実行してみます。
 
-```
+```console
 $ docker container run -it maku77/python3:v1 python3
 Python 3.2.3 (default, Feb 20 2013, 14:44:27)
 [GCC 4.7.2] on linux2
@@ -79,15 +79,15 @@ $ docker mage build -t maku77/sample:v1 git@github.com:maku77/sample
 docker container commit アプローチ
 ----
 
-__`docker container commit`__（あるいは `docker commit`）コマンドによるアプローチでは、Docker イメージをインタラクティブに作成していくことができます。
-Docker コンテナ上でソフトウェアのインストールなどを行い、最後に `docker container commit` コマンドを実行することにより、Docker イメージを作成します。
-まずは、ベースイメージを指定して Docker コンテナを起動します。
+__`docker container commit`__（あるいは `docker commit`）コマンドによるアプローチでは、Docker のコンテナイメージをインタラクティブに作成していくことができます。
+コンテナ上でソフトウェアのインストールなどを行い、最後に `docker container commit` コマンドを実行することにより、コンテナイメージを作成します。
+まずは、ベースとなるイメージを指定して Docker コンテナを起動します。
 
 ```console
 $ docker container run -it ubuntu:14.04 /bin/bash
 ```
 
-Docker コンテナ上の bash プロンプトが表示されたら、その中で `apt-get` やファイルの作成などを行い、Docker イメージの構築作業を進めていきます。
+コンテナ上の bash プロンプトが表示されたら、その中で `apt-get` やファイルの作成などを行い、コンテナイメージの構築作業を進めていきます。
 下記の例では、Hello と表示するだけのシェルスクリプト (`/greet`) を作成しています。
 
 ```
@@ -104,8 +104,8 @@ root@c338a2f4c60e:/# exit
 
 ```console
 $ docker ps -a
-CONTAINER ID    IMAGE           COMMAND      CREATED          STATUS                           PORTS    NAMES
-c338a2f4c60e    ubuntu:14.04    /bin/bash    3 minutes ago    Exited (0) About a minute ago             loving_torvalds
+CONTAINER ID  IMAGE         COMMAND    CREATED        STATUS                         PORTS  NAMES
+c338a2f4c60e  ubuntu:14.04  /bin/bash  3 minutes ago  Exited (0) About a minute ago         loving_torvalds
 ```
 
 これで、先ほどインタラクティブに構成した Docker コンテナの ID が `c338a2`、名前が `loving_torvalds` だということが分かるので、`docker container commit` コマンドを実行して、コンテナからイメージを生成します。
@@ -124,20 +124,20 @@ $ docker commit -a 'Maku <maku77@example.com>' -m 'First commit' c338a2 maku77/s
 8a6608d7d353d966f5cdc044b48b89158943c2dc9fd08b7a4832b43a21b5df41
 ```
 
-Docker イメージの作成に成功すると、上記のように作成されたイメージの ID が表示されます。
+コンテナイメージの作成に成功すると、上記のように作成されたイメージの ID が表示されます。
 `docker image ls` コマンドで、実際に新しくイメージが作成されたことを確認できます。
 
-```
+```console
 $ docker image ls
-REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-maku77/sample       v1                  8a6608d7d353        7 minutes ago       188.3 MB
-ubuntu              14.04               2103b00b3fdf        43 hours ago        188.3 MB
+REPOSITORY      TAG     IMAGE ID       CREATED         VIRTUAL SIZE
+maku77/sample   v1      8a6608d7d353   7 minutes ago   188.3 MB
+ubuntu          14.04   2103b00b3fdf   43 hours ago    188.3 MB
 ...
 ```
 
 この Docker イメージを使って、先ほど作成した `/greet` コマンドを実行してみます。
 
-```
+```console
 $ docker container run maku77/sample:v1 /greet
 Hello
 ```

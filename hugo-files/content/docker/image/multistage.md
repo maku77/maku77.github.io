@@ -1,10 +1,9 @@
 ---
 title: "Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する"
 url: "p/z3n4hye/"
-permalink: "p/z3n4hye/"
 date: "2022-03-01"
 tags: ["Docker"]
-redirect_from: "/docker/multistage-build"
+aliases: "/docker/multistage-build"
 ---
 
 マルチステージビルドとは？
@@ -31,9 +30,7 @@ myapp/
 
 なお、アプリのソースコード (`src/hello.go`) には何を使ってもよいのですが、ここでは次のような簡単な Hello World コードを使うことにします。
 
-#### src/hello.go
-
-```go
+{{< code lang="go" title="src/hello.go" >}}
 package main
 
 import "fmt"
@@ -41,7 +38,7 @@ import "fmt"
 func main() {
     fmt.Printf("Hello World\n")
 }
-```
+{{< /code >}}
 
 
 シングルステージビルドの場合
@@ -49,9 +46,7 @@ func main() {
 
 マルチステージビルドの効果を実感するために、まずはシングルステージによるビルド（従来のビルド方法）で Docker コンテナをビルドしてみます。
 
-#### Dockerfile（シングルステージビルド）
-
-```docker
+{{< code lang="docker" title="Dockerfile（シングルステージビルド）" >}}
 FROM golang:1.17
 
 WORKDIR /work
@@ -59,7 +54,7 @@ COPY src .
 RUN go build hello.go
 
 CMD ["./hello"]
-```
+{{< /code >}}
 
 Go ソースコードのビルドを行うために、`golang:1.17` をベースイメージとして使用しています。
 ビルド手順はシンプルで、ホスト側の `src` ディレクトリ以下の Go ソースコードをコンテナ側の `/work` にコピーして、`go build` でビルドしているだけです。
@@ -124,9 +119,7 @@ FROM zzz
 Go 言語のビルドでは、対象 OS やアーキテクチャを指定できるので、ここでは Linux の AMD64 環境をターゲットとして指定しています (`GOOS=linux GOARCH=amd64`)。
 もちろん、実行環境のベースイメージはこのアーキテクチャに合わせる必要があります。
 
-#### Dockerfile マルチステージビルド
-
-```docker
+{{< code lang="docker" title="Dockerfile（マルチステージビルド）" >}}
 # 1st ステージ -- Go ソースコードをビルドするためのステージ
 FROM golang:1.17 AS builder
 WORKDIR /work
@@ -138,7 +131,7 @@ FROM amd64/alpine:3.15
 WORKDIR /bin
 COPY --from=builder /work/hello .
 CMD ["./hello"]
-```
+{{< /code >}}
 
 1st ステージは、`golang:1.17` イメージを使って Go ソースコードをビルドする役割を担います。
 `FROM` 命令で、次のように `AS builder` としてエイリアス名 (`builder`) を割り当てていますが、これは後段のステージで、1st ステージ内で生成したファイルを参照しやすくするためのものです。

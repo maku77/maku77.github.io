@@ -1,7 +1,10 @@
 ---
 title: "リポジトリ名のついていない Docker イメージをすべて削除する"
+url: "p/oziyhxf/"
 date: "2015-04-02"
 lastmod: "2022-06-12"
+tags: ["Docker"]
+aliases: /docker/remove-unnamed-images.html
 ---
 
 普通に Docker コンテナ上で編集作業などを行っていると、Docker イメージのキャッシュがどんどん増えていってしまいます。
@@ -20,4 +23,6 @@ REPOSITORY              TAG                 IMAGE ID            CREATED         
 ```console
 $ sudo docker rmi $(docker images | awk '/^<none>/ {print $3}')
 ```
+
+- 参考: [Docker のコンテナイメージを削除する (`docker image rm/prune`)](/p/8fjnqtw/)
 

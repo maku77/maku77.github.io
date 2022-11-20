@@ -1,12 +1,11 @@
 ---
-title: "Docker イメージを削除する (docker image rm/prune)"
+title: "Docker のコンテナイメージを削除する (docker image rm/prune)"
 url: "p/8fjnqtw/"
-permalink: "p/8fjnqtw/"
 date: "2022-06-12"
 tags: ["Docker"]
 ---
 
-docker image rm
+docker image rm （指定したコンテナイメージを削除する）
 ----
 
 ### 使い方
@@ -50,7 +49,7 @@ Options:
 ```
 
 
-docker image prune
+docker image prune （使用していないコンテナイメージを削除する）
 ----
 
 ### 使い方
@@ -82,4 +81,10 @@ Options:
       --filter filter   Provide filter values (e.g. 'until=<timestamp>')
   -f, --force           Do not prompt for confirmation
 ```
+
+
+参考
+----
+
+- [リポジトリ名のついていない Docker イメージをすべて削除する (`docker image rm`)](/p/oziyhxf/)
 

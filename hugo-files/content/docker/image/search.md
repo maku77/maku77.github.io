@@ -1,16 +1,15 @@
 ---
 title: "Docker Hub のイメージを検索する (docker search)"
 url: "p/4ohyhxe/"
-permalink: "p/4ohyhxe/"
 date: "2022-07-03"
 tags: ["Docker"]
 ---
 
-__`docker search`__ コマンドを使って、Docker Hub で公開されているイメージを検索することができます。
+__`docker search`__ コマンドを使って、Docker Hub（レジストリ）で公開されているイメージを検索することができます。
 次の例では、`ubuntu` というキーワードでイメージを検索しています。
 Docker Hub 上で付けられたスターの数や、公式イメージかどうかもチェックできます。
 
-```
+```container
 $ docker search ubuntu
 NAME                             DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
 ubuntu                           Ubuntu is a Debian-based Linux operating sys…   14524     [OK]

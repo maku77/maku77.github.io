@@ -1,6 +1,9 @@
 ---
-title: "Docker のマウント機能でファイルを永続化する（ボリューム、バインドマウント）"
+title: "Docker のマウント機能でファイルを永続化する（ボリュームマウント、バインドマウント、tmpfs マウント）"
 date: "2022-01-25"
+url: "p/hxhzgxf/"
+tags: ["Docker"]
+aliases: /docker/mount
 ---
 
 Docker の 3 種類のマウント
@@ -13,9 +16,7 @@ Docker のマウント機能を用いると、コンテナ内の特定のディ�
 マウントには下記で説明する 3 種類がありますが、作業ファイルをホスト PC 側に永続化したい場合は、「ボリュームマウント」か「バインドマウント」というマウントタイプを使用します。
 もうひとつの「tmpfs マウント」は、その名のとおりテンポラリファイルにのみ使用できます。
 
-![img-001.png](img-001.png)
-
-（図は Docker 公式サイトより抜粋）
+{{< image src="img-001.png" title="Docker の 3 種類のマウント（公式サイトより）" >}}
 
 ボリュームマウント
 : __ホスト PC 上にコンテナ用のデータファイルを作成__ し、コンテナ内の特定のディレクトリパスにマッピングします。
@@ -43,7 +44,7 @@ tmpfs マウント
 ### ボリュームを作成する (docker volume create)
 
 ボリュームを明示的に作成するには次のように実行します（コンテナ実行時に自動生成することも可能です）。
-ボリューム名を明示するので、名前付きボリューム (named volume) と呼ばれます。
+ボリューム名を明示するので、名前付きボリューム (named volume) と呼ばれています。
 
 ```console
 $ docker volume create my-vol
@@ -85,10 +86,10 @@ $ docker volume inspect my-vol
 ### ボリュームを削除する (docker volume rm/prune)
 
 ```console
-### ボリューム名を指定して削除
+# ボリューム名を指定して削除
 $ docker volume rm my-vol
 
-### 未使用のボリューム（どのコンテナからも参照されていないもの）をすべて削除
+# 未使用のボリューム（どのコンテナからも参照されていないもの）をすべて削除
 $ docker volume prune
 ```
 
@@ -98,18 +99,18 @@ $ docker volume prune
 ここでは、軽量の Alpine Linux イメージ (`alpine:latest`) を使ってコンテナを作成します。
 
 ```console
-### コンテナ (my-alpine) の作成
+# コンテナ (my-alpine) の作成
 $ docker container create -it --mount src=my-vol,dst=/volume --name my-alpine alpine:latest
 
-### コンテナが作成できているか確認
+# コンテナが作成できているか確認
 $ docker container ls -a
 ```
 
-__`--mount`__ オプションの `src` や `dst` でボリューム名やマウント先のパスを指定します。
+__`--mount`__ オプションの `src` や `dst` で、ボリューム名やマウント先のパスを指定します。
 
-- __`src=<ボリューム名>`__ ... `src` ではなく `source` でも OK。存在しないボリューム名を指定すると、その名前のボリュームが自動的に生成されます。`src` パラメーターを省略すると、ランダムな16進文字列の名前のボリュームが生成されます。
-- __`dst=<コンテナ側のパス>`__ ... `dst` ではなく `destination` や `target` でも OK。
-- __`type=<マウントタイプ>`__ ... ボリュームマウントの場合は省略できます。マウントタイプとして `volume`、`bind`、`tmpfs` を指定します。
+- {{< label-code "src=<ボリューム名>" >}} `src` ではなく `source` でも OK。存在しないボリューム名を指定すると、その名前のボリュームが自動的に生成されます。`src` パラメーターを省略すると、ランダムな16進文字列の名前のボリュームが生成されます。
+- {{< label-code "dst=<コンテナ側のパス>" >}} `dst` ではなく `destination` や `target` でも OK。
+- {{< label-code "type=<マウントタイプ>" >}} ボリュームマウントの場合は省略できます。マウントタイプとして `volume`、`bind`、`tmpfs` を指定します。
 
 （過去の記事には、__`-v`__ オプションを使っているものもありますが、現在は公式に `--mount` オプションの使用が推奨されています（挙動がわかりにくく問題が発生しやすいなどの理由があります）。特別な事情がない限り、__`--mount`__ オプションの方を使うようにしてください）
 
@@ -134,7 +135,7 @@ $ docker start -ai my-alpine
 ボリュームのデータファイルは具体的にはホスト PC の `/var/lib/docker/volumes` に生成されますが、ボリュームは `docker volume` コマンドを介して操作するので、通常は保存先のパスを意識する必要はありません。
 Windows や macOS で Docker Desktop を使用している場合は、Volumes タブでボリュームの一覧を確認することができます（Docker Desktop のバックエンドとして使われる Linux VM 上に格納されているため、Windows や macOS 上で上記のパスを探しても見つからないことに注意してください）。
 
-![img-002.png](img-002.png)
+{{< image w="1000" src="img-002.png" title="Docker Desktop によるボリュームの確認" >}}
 
 
 バインドマウント (bind mount) の使い方

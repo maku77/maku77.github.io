@@ -1,9 +1,12 @@
 ---
 title: "Docker で apt-get install するときに TERM 系のエラーが出る"
+url: "p/3i2iygw/"
 date: "2015-04-02"
+tags: ["Docker"]
+aliases: /docker/term-error.html
 ---
 
-`docker build` などで `apt-get install` を実行中に、下記のようなエラーが出ることがあります。
+`docker image build` などで `apt-get install` を実行中に、下記のようなエラーが出ることがあります。
 
 ```
 debconf: unable to initialize frontend: Dialog

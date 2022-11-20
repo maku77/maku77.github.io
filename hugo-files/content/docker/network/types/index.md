@@ -1,46 +1,44 @@
 ---
 title: "Docker のネットワークについて理解する (none, host, bridge)"
 url: "p/7fjnqtw/"
-permalink: "p/7fjnqtw/"
 date: "2022-06-15"
 tags: ["Docker"]
 ---
 
-Docker をインストールすると、デフォルトで __`bridge`__、__`host`__、__`none`__ という 3 つのネットワークが生成されます。
-`docker network ls` の `NAME` カラムを見ると、これら 3 つの名前があることを確認できます。
+Docker の 3 つのネットワーク
+----
+
+Docker をインストールすると、デフォルトで __`none`__、__`host`__、__`bridge`__ という 3 つのネットワークが生成されます。
+`docker network ls` コマンドの出力の `NAME` カラムを見ると、これら 3 つの名前があることを確認できます。
 
 ```console
-% docker network ls
+$ docker network ls
 NETWORK ID     NAME      DRIVER    SCOPE
 1d32c46c83f6   bridge    bridge    local
 a97adbf7b226   host      host      local
 7543afe52cd6   none      null      local
 ```
 
+none
+: Docker コンテナにネットワークインタフェースを持たせたくない場合に指定します。
+つまり、外部との通信が一切できないコンテナになります。
+
+host
+: ホスト側のネットワークインタフェースを共有するときに指定します。
+つまり、ホストと同じ IP アドレスがコンテナに割り当てられます。
+
+bridge
+: 一番よく使用されるネットワークで、`bridge` という名前の仮想ブリッジに接続されたネットワーク環境であることを示します。
+`docker container create (run)` でコンテナを作成するときにネットワーク (`--net`) を指定しないと、デフォルトでこの `bridge` が使われます。
+Linux のブリッジ機能を利用しており、このネットワークに参加したコンテナからは、インターネットにアクセスすることができます。
+同じ `bridge` に接続するコンテナは、同じ仮想ブリッジで接続された状態（同じネットワークに所属する状態）になるため、相互に通信ができます（`ping` など）。
+
 Docker コンテナを作成する際には、どのネットワークを使うかを `--net` オプションで指定します。
 指定しない場合はデフォルトで `bridge` が使われます。
 
-```console
+{{< code lang="console" title="例: ネットワーク接続できないコンテナを作成する" >}}
 $ docker container create --name my-ubuntu --net none ubuntu:22.04
-```
-
-### none
-
-Docker コンテナにネットワークインタフェースを持たせたくない場合に指定します。
-つまり、外部との通信が一切できないコンテナになります。
-
-### host
-
-ホスト側のネットワークインタフェースを共有するときに指定します。
-つまり、ホストと同じ IP アドレスがコンテナに割り当てられます。
-
-### bridge
-
-一番よく使用されるネットワークで、`bridge` という名前の仮想ブリッジに接続されたネットワーク環境であることを示します。
-`docker container create (run)` でコンテナを作成するときにネットワーク (`--net`) を指定しないと、デフォルトでこの `bridge` が使われます。
-
-Linux のブリッジ機能を利用しており、このネットワークに参加したコンテナからは、インターネットにアクセスすることができます。
-同じ `bridge` に接続するコンテナは、同じ仮想ブリッジで接続された状態（同じネットワークに所属する状態）になるため、相互に通信ができます（`ping` など）。
+{{< /code >}}
 
 
 bridge ネットワークのアドレスを確認してみる
@@ -49,7 +47,7 @@ bridge ネットワークのアドレスを確認してみる
 デフォルトで作成される `bridge` には、`172.17.0.0/16` などのネットワークアドレスが割り当てられています。
 
 ```console
-$ docker network inspect bridge --format "{{ "{{" }}.IPAM.Config}}"
+$ docker network inspect bridge --format "{{.IPAM.Config}}"
 [{172.17.0.0/16   map[]}]
 ```
 
@@ -58,7 +56,7 @@ $ docker network inspect bridge --format "{{ "{{" }}.IPAM.Config}}"
 コンテナに割り当てられた IP アドレスを確認するには、次のようにコンテナ情報を表示します。
 
 ```console
-$ docker container inspect --format "{{ "{{" }}.NetworkSettings.IPAddress}}" my-cont
+$ docker container inspect --format "{{.NetworkSettings.IPAddress}}" my-cont
 172.17.0.2
 ```
 
@@ -72,15 +70,15 @@ $ docker network inspect bridge
 
 ```console
 $ docker network create my-net
-$ docker network inspect my-net --format "{{ "{{" }}.IPAM.Config}}"
+$ docker network inspect my-net --format "{{.IPAM.Config}}"
 [{172.18.0.0/16  172.18.0.1 map[]}]
 ```
 
 Docker Compose を使えば、複数のコンテナを同一ネットワークに参加させるということをシンプルに表現できます。
 
-### format オプションについて
-
+{{% note title="format オプションについて" %}}
 上記の例では、`--format` オプションで出力を絞り込んでいますが、ここで使われている書式は、[Go 言語の template パッケージ](https://golang.org/pkg/text/template) に従っています。
+{{% /note %}}
 
 
 コンテナ名による通信
@@ -89,7 +87,7 @@ Docker Compose を使えば、複数のコンテナを同一ネットワーク�
 Docker ネットワークを作成し、コンテナをそのネットワークに参加させると、各コンテナ同士が __コンテナ名__ で通信できるようになります。
 つまり、各コンテナに割り当てられた IP アドレスを知る必要がありません。
 
-![img-001.drawio.svg](/docker/network/basic/img-001.drawio.svg)
+{{< image w="500" src="img-001.drawio.svg" title="Docker コンテナ間のコンテナ名での通信" >}}
 
 次のように実行すれば、コンテナ名で通信を行えることを確認できます。
 
@@ -109,12 +107,10 @@ $ docker run --rm -it --net my-net --name alpine2 alpine /bin/sh
 ```
 
 
-その他 - bridge0
+（コラム）仮想ブリッジ bridge0
 ----
 
 Docker 用のブリッジは、ホスト側に __`bridge0`__ という名前の仮想ブリッジとして作成されます。
-ちなみにこの `bridge0` は、Docker Desktop for Windows/macOS を使っている場合は直接は参照できないことに注意してください。
-Docker Desktop の場合は、その仮想マシン内に `bridge0` が作成されます。
 
 ```console
 $ ifconfig bridge0
@@ -137,4 +133,7 @@ bridge0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
     media: <unknown type>
     status: inactive
 ```
+
+ちなみにこの `bridge0` は、Docker Desktop for Windows/macOS を使っている場合は直接は参照できないことに注意してください。
+Docker Desktop の場合は、その仮想マシン内に `bridge0` が作成されます。
 
