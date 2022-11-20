@@ -1,9 +1,13 @@
 ---
-title: "Docker メモ"
-layout: category-index
+title: "Docker"
+url: "/docker/"
+
+categoryName: "まくまく Docker ノート"
+categoryUrl: "/docker/"
+categoryIcon: _index.svg
 ---
 
-Docker をはじめる（インストールと設定）
+Docker をはじめる（インストールと設定） <!-- start -->
 ----
 * [Docker をインストールする (Docker Desktop / Docker Engine)](/p/96o6n4j/)
 * [Docker のプロキシ設定](/p/w69cfim/)

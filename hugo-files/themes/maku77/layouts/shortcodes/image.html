@@ -1,9 +1,11 @@
 {{- $src := .Get "src" }}
 {{- $title := .Get "title" }}
+{{- $alt := .Get "alt" }}
 {{- $code := .Get "code" }}
 {{- $width := .Get "w" }}
 {{- $border := .Get "border" }}
 
+{{- $altText := $alt | default $title | default $src }}
 {{- $imageUrl := $src }}
 {{- /* Web 上の画像ファイル(URL)を指定すると $res は nil になることに注意 */}}
 {{- $res := .Page.Resources.GetMatch $src }}
@@ -33,7 +35,7 @@
 
 <figure class="image">
   <a href="{{ $src }}" target="_blank">
-    <img style="{{ if eq $border "true" }}border: solid #ccc 2px;{{ end }}" width="{{ $width }}" height="{{ $height }}" src="{{ $imageUrl }}" alt="{{ $src }}" />
+    <img style="{{ if eq $border "true" }}border: solid #ccc 2px;{{ end }}" width="{{ $width }}" height="{{ $height }}" src="{{ $imageUrl }}" alt="{{ $altText }}" />
   </a>
   {{- if or $title $code }}
     <figcaption class="image__caption">
