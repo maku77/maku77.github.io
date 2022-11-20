@@ -3,17 +3,15 @@ title: "Docker コンテナで起動したシェルに接続する (docker conta
 date: "2015-03-12"
 lastmod: "2022-06-12"
 url: "p/y8cfimp/"
-permalink: "p/y8cfimp/"
 tags: ["Docker"]
-redirect_from:
-  - /docker/run-container
+aliases: /docker/run-container
 ---
 
 何をするか？
 ----
 
-ここでは、Ubuntu の Docker イメージを使ってコンテナを起動し、その上で実行した bash シェルに接続して自由にコマンドをたたける状態にします。
-`docker container run`、`start`、`attach`、`exec` など似たようなコマンドがたくさんありますが、用途はそれぞれ違うのでここでひととおり理解しておきます。
+ここでは、Ubuntu の Docker イメージを使ってコンテナを起動し、その上で実行した bash シェルに接続して自由にコマンドを実行できるようにします。
+__`docker container run`__、__`start`__、__`attach`__、__`exec`__ など似たようなコマンドがたくさんありますが、用途はそれぞれ違うのでここでひととおり理解しておきましょう。
 
 | コマンド | 意味 |
 | ---- | ---- |
@@ -33,7 +31,7 @@ __`docker container run`__（旧: `docker run`）は、もっとも頻繁に紹�
 - Docker コンテナを作成する (`docker container create`)
 - Docker コンテナを起動する (`docker container start`)
 
-例えば、次のコマンドを実行すると、Docker イメージ (ubuntu:20.04) のダウンロード、Docker コンテナ (mycon) の作成、そのコンテナの起動までを一気に実行します。
+例えば、次のコマンドを実行すると、Docker イメージ (`ubuntu:20.04`) のダウンロード、Docker コンテナ (`mycon`) の作成、そのコンテナの起動までを一気に実行します。
 
 ```console
 $ docker container run --name mycon -it ubuntu:20.04 /bin/bash
@@ -41,20 +39,20 @@ $ docker container run --name mycon -it ubuntu:20.04 /bin/bash
 
 各オプションは次のような意味を持っています。
 
-- `--name mycon` ... 作成するコンテナに `mycon` という名前を付ける（省略するとランダムに単語を組み合わせた名前が付けられます。例: `cool_blackwell`）
-- `-i` ... 標準入力を有効にしたままにする（ようするに現在の端末上からキーボード入力できるようにする）
-- `-t` ... 起動するコマンドに対して TTY 端末を割り当てる（ようするに現在の端末上に bash のプロンプトを表示する）
+- {{< label-code "--name mycon" >}} 作成するコンテナに `mycon` という名前を付ける（省略するとランダムに単語を組み合わせた名前が付けられます。例: `cool_blackwell`）
+- {{< label-code "-i" >}} 標準入力を有効にしたままにする（ようするに現在の端末上からキーボード入力できるようにする）
+- {{< label-code "-t" >}} 起動するコマンドに対して TTY 端末を割り当てる（ようするに現在の端末上に bash のプロンプトを表示する）
 
 オプションで `-i` と `-t` を指定しないと、一瞬で Docker コンテナが終了してしまうので、シェル接続する場合はこれらのオプションを指定する必要があります。
 `-it` というオプション指定は、コンテナ起動してシェル接続する場合のおまじないと考えておけばよいです。
 
 さて、ここで Docker を始めたばかりの人がハマるのが、次のようにコンテナ停止後にふたたび `docker container run` した場合です。
 
-```console
+```
 # 次のようにシェルを終了すると、Docker コンテナが停止する
 root@65da3272d493:/# exit
 
-# 再び run しようとするとエラー！どうして！！
+# 再び run しようとするとエラー！ どうして！？
 $ docker container run --name mycon -it ubuntu:20.04 /bin/bash
 docker: Error response from daemon: Conflict. The container name "/mycon" is already
 in use by container "65da3272d493c77c2034f58d9a6e0c80f302db3c058e8345e170dc72d67811f4".
@@ -104,7 +102,7 @@ $ docker container start mycon
 Error response from daemon: No such container: mycon
 ```
 
-コンテナを起動するには、あらかじめ `docker container create` でコンテナを作成しておく必要があります。
+コンテナを起動するには、あらかじめ __`docker container create`__ でコンテナを作成しておく必要があります。
 過去に `docker container run` で作成したコンテナでも大丈夫です。
 
 ```console
@@ -196,6 +194,5 @@ root@e3d9f66349d4:/# ps
 
 これで、1 つのコンテナに 2 つのシェルを起動して接続できました。
 一方のシェルを `exit` で終了しても、もう一方のシェル（およびコンテナ）は実行されたままです。
-
-`docker container attach` を使ってしまうと、同じプロセス (PID=1) に繋がってしまうので、`docker container exec` の方を使って新しいシェルのプロセスを作るのがポイントです。
+ここで `docker container attach` を使うと、同じプロセス (PID=1) に接続されてしまうので、`docker container exec` の方を使って新しいシェルのプロセスを作るのがポイントです。
 

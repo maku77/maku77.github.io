@@ -12,10 +12,10 @@ Docker をはじめる（インストールと設定）
 
 Docker の基本的な使い方
 ----
-* [Docker で Hello World 〜 イメージの取得からコンテナの起動まで (docker image pull, docker container run)](/p/y2biqx6/)
+* [Docker でイメージを取得してコンテナを起動する (docker image pull, docker container run)](/p/y2biqx6/)
 * [Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)](/p/y8cfimp/)
 * [Docker コンテナをデーモンとして動作させる (docker container run -d, docker container logs)](/p/dmpsvz3/)
-* [Docker Compose の基本 (Hello World)](/p/qm5k2hx/)
+* [Docker Compose の基本（docker コマンドを使いやすくする）](/p/qm5k2hx/)
 
 Docker コマンドによる操作
 ----
@@ -45,8 +45,9 @@ Docker コマンドによる操作
 * [Docker コンテナとホスト PC の間でファイルをコピーする (docker cp)](docker-cp.html)
 
 ### Docker Compose
+* [Docker Compose の基本](/p/qm5k2hx/)
 * [Docker Compose をデタッチモードで起動する (docker compose up -d)](/p/94m3izf/)
-* [Compose ファイル (docker-compose.yml) 内で環境変数を参照する](/p/8r3cmu5/)
+* [Docker Compose で環境変数を使用する (env_file, environment)](/p/8r3cmu5/)
 
 トラブルシューティング
 ----

@@ -1,7 +1,6 @@
 ---
 title: "Docker Compose をデタッチモードで起動する (docker compose up -d)"
 url: "p/94m3izf/"
-permalink: "p/94m3izf/"
 date: "2022-07-03"
 tags: ["Docker"]
 ---
@@ -50,7 +49,7 @@ NAME             COMMAND                 SERVICE  STATUS   PORTS
 myproject-web-1  "/docker-entrypoint.…"  web      running  0.0.0.0:80->80/tcp
 ```
 
-デタッチモードで起動したコンテナをすべて停止／起動するには、__`docker compose stop`__ / __`start`__ コマンドを使います。
+デタッチモードで起動したコンテナをすべて停止するには __`docker compose stop`__ コマンド、停止されたコンテナを起動するには __`docker compose start`__ コマンドを使用します。
 
 ```console
 $ docker compose stop   # コンテナを停止

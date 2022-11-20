@@ -1,12 +1,10 @@
 ---
 title: "Docker コンテナをデーモンとして動作させる (docker container run -d, docker container logs)"
 url: "p/dmpsvz3/"
-permalink: "p/dmpsvz3/"
 date: "2015-03-11"
 lastmod: "2022-07-18"
 tags: ["Docker"]
-redirect_from:
-  - /docker/run-container-as-daemon
+aliases: /docker/run-container-as-daemon
 ---
 
 コンテナのバックグラウンド起動 (docker container run -d)
@@ -28,11 +26,12 @@ $ docker container run --rm -d --name mycon ubuntu:22.04 /bin/bash -c 'while tru
 57bf2e3edddf8dcc786ee42e9b2b5a1f50786d80bd45525afa21debcf108613b
 ```
 
-- 引数の意味
-  - __`--rm`__ ... コンテナ停止時にコンテナを自動で削除します
-  - __`-d (--detach)`__ ... コンテナをバックグラウンドで動作させます
-  - __`--name mycon`__ ... コンテナに `mycon` という名前を付けます
-  - __`ubuntu:22.04`__ ... イメージとして Ubuntu 22.04 を使用します
+引数の意味:
+
+- {{< label-code "--rm" >}} コンテナ停止時にコンテナを自動で削除します。
+- {{< label-code "-d (--detach)" >}} コンテナをバックグラウンドで動作させます。
+- {{< label-code "--name mycon" >}} コンテナに `mycon` という名前を付けます。
+- {{< label-code "ubuntu:22.04" >}} イメージとして Ubuntu 22.04 を使用します。
 
 すると、`docker container run` コマンドを実行した側には `HELLO` と表示されず、プログラムを実行中の __コンテナ ID__ のみが表示されます。
 実行中の Docker コンテナの一覧は、以下のように `docker container ps` コマンドで確認できます。

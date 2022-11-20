@@ -1,7 +1,6 @@
 ---
-title: "Compose ファイル (docker-compose.yml) 内で環境変数を参照する"
+title: "Docker Compose で環境変数を使用する (env_file, environment)"
 url: "p/8r3cmu5/"
-permalink: "p/8r3cmu5/"
 date: "2022-07-03"
 tags: ["Docker"]
 ---
@@ -11,13 +10,11 @@ tags: ["Docker"]
 
 Docker Compose の Compose ファイル (`docker-compose.yml`) 内では、次のように OS（シェル）の環境変数の値を参照することができます。
 
-#### 例: 環境変数 TAG の値を参照する
-
-```yaml
+{{< code lang="yaml" title="例: 環境変数 TAG の値を参照する" >}}
 services:
   web:
     image: "webapp:${TAG}"
-```
+{{< /code >}}
 
 この仕組みを利用すると環境に依存する値をハードコードしなくて済むようになるため、汎用的な `docker-compose.yml` を記述できるようになります。
 上記の例では、`${TAG}` のように記述していますが、多くのケースでは `$TAG` のようにカッコを省略することができます。
@@ -32,33 +29,29 @@ services:
 `docker compose up` コマンドは、プロジェクトディレクトリに置いてある環境ファイル __`.env`__ を読み込んでくれます。
 `.env` ファイルには、次のように複数の環境変数を定義しておくことができます。
 
-#### .env の記述例
-
-```env
+{{< code lang="ini" title=".env の記述例" >}}
+# この行はコメント
 MYAPP_PORT=3000
 DB_PASSWORD=mypassword
-
-# このようにコメントも記述可能
-```
+{{< /code >}}
 
 ### 別の .env ファイルを参照する
 
 `docker compose` コマンドの __`--env-file`__ オプションを指定すると、参照する `.env` ファイルを切り替えることができます。
 
-#### 例: .env ではなく .env.prod を参照する
-
-```console
+{{< code lang="console" title="例: .env ではなく .env.prod を参照する" >}}
 $ docker compose --env-file .env.prod up
-```
+{{< /code >}}
 
 ### 優先順位
 
 シェル環境で同じ名前の環境変数がセットされている場合（例: `export MYAPP_PORT=4000`）は、そちらが優先して使われます。
 つまり、`.env` ファイルで定義されている値は、シェル環境変数がセットされていない場合のデフォルト値のように扱われます。
 
-- 環境変数の優先順位
-  1. OS の環境変数（シェル環境）でセットした値。例えば、bash シェルであれば `export FOO=BAR` のように設定した値
-  2. プロジェクトディレクトリの `.env` ファイルで定義した値
+環境変数の優先順位:
+
+1. OS の環境変数（シェル環境）でセットした値。例えば、bash シェルであれば `export FOO=BAR` のように設定した値
+2. プロジェクトディレクトリの `.env` ファイルで定義した値
 
 
 環境変数が定義されていない場合の振る舞い
@@ -69,37 +62,37 @@ $ docker compose --env-file .env.prod up
 
 ### 環境変数が設定されていないときにデフォルト値を使用する
 
-- __`${VARIABLE:-default}`__ ... `VARIABLE` がセットされていないか空文字のときに `default` を使う
-- __`${VARIABLE-default}`__ ... `VARIABLE` がセットされていないときに `default` を使う（`VARIABLE` に空文字がセットされているときは空文字を使う）
+- {{< label-code "${VARIABLE:-default}" >}} 変数 `VARIABLE` がセットされていないか空文字のときに、`default` で指定された値を使用します。
+- {{< label-code "${VARIABLE-default}" >}} 変数 `VARIABLE` がセットされていないときに、`default` で指定された値を使用します（`VARIABLE` に空文字がセットされているときは、そのまま空文字を使います）。
 
-次の例では、web サービスのデフォルトのホストポート番号を 8000 番に設定しています。
+次の例では、web サービスのデフォルトのホスト側ポート番号を 8000 番に設定しています（コンテナ側のポート番号は 80 で固定です）。
 
-```yaml
+{{< code lang="yaml" title="docker-compose.yml" >}}
 services:
   web:
     image: nginx
     ports:
-      - ${APP_PORT:-8000}:80
-```
+      - "${APP_PORT:-8000}:80"
+{{< /code >}}
 
-```console
+{{< code lang="console" title="実行例" >}}
 $ docker compose up  # localhost:8000 でアクセスできるようになる
-```
+{{< /code >}}
 
-`APP_PORT` の値は次のようにオーバーライドできます。
+次のように `APP_PORT` の値を明示すると、ホスト側のポート番号は 8000 ではなく、3000 が使われるようになります。
 
 ```console
-$ APP_PORT=80 docker compose up  # localhost:80 でアクセスできるようになる
+$ APP_PORT=3000 docker compose up  # localhost:3000 でアクセスできるようになる
 ```
 
 ### 環境変数が設定されていないときにエラーにする
 
-- __`${VARIABLE:?err}`__ ... `VARIABLE` がセットされていないか空文字のときに、`err` メッセージを表示して終了する（実際には `err` を省略して `${VARIABLE:?}` と書くだけでもそれっぽいエラーメッセージが表示される）
-- __`${VARIABLE?err}`__ ... `VARIABLE` がセットされていないときに、`err` メッセージを表示して終了する（`VARIABLE` に空文字がセットされているときは空文字を使う）
+- {{< label-code "${VARIABLE:?err}" >}} 変数 `VARIABLE` がセットされていないか空文字のときに、`err` メッセージを表示して終了します（実際には `err` を省略して `${VARIABLE:?}` と書くだけでもそれっぽいエラーメッセージが表示されます）
+- {{< label-code "${VARIABLE?err}" >}} 変数 `VARIABLE` がセットされていないときに、`err` メッセージを表示して終了します（`VARIABLE` に空文字がセットされているときは空文字を使います）
 
 次の例では、PostgreSQL のパスワードを環境変数 `POSTGRES_PASSWORD` でセットしておくことを強制しています。
 
-```yaml
+{{< code lang="yaml" title="docker-compose.yml" >}}
 services:
   db:
     image: postgres
@@ -108,7 +101,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-root}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?}
       - POSTGRES_DB=${POSTGRES_DB:-mydb}
-```
+{{< /code >}}
 
 環境変数 `POSTGRES_PASSWORD` を設定せずにサービスを起動しようとすると、次のようにエラーになります。
 
@@ -132,17 +125,15 @@ Compose ファイル (`docker-compose.yml`) の中では OS（シェル）の環
 次の例では、`web` サービス（コンテナ）の環境変数 `DEBUG` の値を `1` にセットしています。
 これは、`docker run -e DEBUG=1 ...` のようにコンテナを起動するのと同じ効果があります。
 
-#### docker-compose.yml
-
-```yaml
+{{< code lang="yaml" title="docker-compose.yml" >}}
 services:
   web:
     image: nginx
     ports:
-      - 80:80
+      - "80:80"
     environment:
       - DEBUG=1
-```
+{{< /code >}}
 
 ホスト側の環境変数（`.env` で定義したものを含む）の値をそのままコンテナに渡したいときは、次のように環境変数名だけを記述します。
 これは、`docker run -e DEBUG ...` のようにコンテナを起動するのと同じ効果があります。
@@ -156,25 +147,21 @@ services:
 
 コンテナに渡す環境変数の一覧を `.env` ファイルに記述しておき、そのファイル名を __`env_file`__ プロパティで指定する、という方法もあります。
 
-#### web-vars.env
-
-```
+{{< code lang="ini" title="web-vars.env" >}}
 DB_NAME=mydb
 DB_USER=root
 DB_PASSWORD=mypassword
-```
+{{< /code >}}
 
-#### docker-compose.yml
-
-```yaml
+{{< code lang="yaml" title="docker-compose.yml" >}}
 services:
   web:
     image: nginx
     ports:
-      - 80:80
+      - "80:80"
     env_file:
       - web-vars.env
-```
+{{< /code >}}
 
 ### 優先度
 
@@ -185,7 +172,7 @@ services:
   web:
     image: nginx
     ports:
-      - 80:80
+      - "80:80"
     env_file:
       - web-vars.env
     environment:

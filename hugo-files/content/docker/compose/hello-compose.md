@@ -1,21 +1,20 @@
 ---
-title: "Docker Compose の基本 (Hello World)"
+title: "Docker Compose の基本"
 url: "p/qm5k2hx/"
-permalink: "p/qm5k2hx/"
 date: "2022-07-03"
 tags: ["Docker"]
 ---
 
-Docker Compose とは
+Docker Compose とは？
 ----
 
 Docker Compose (__`docker compose`__) を使うと、複数の Docker コンテナをまとめてコントロールすることができます。
 各コンテナの起動時に必要となるパラメーターや連携方法を __`docker-compose.yml`__ という YAML ファイルにまとめて記述できるため、すべてのコンテナの起動を __`docker compose up`__ というシンプルなコマンドで行うことができます。
 
-Docker Compose は複数のコンテナをコントロールすることを想定していますが、単一のコンテナを起動するときにも便利です。
+Docker Compose は複数のコンテナをコントロールすることを想定していますが、__単一のコンテナを起動するときにも便利__ です。
 例えば、`Dockerfile` を使ったイメージビルド、ポート番号のマッピング、ネットワークの定義などを `docker-compose.yml` で定義しておいて、`docker compose up` コマンド一発で実行できます。
 
-`docker-compose.yml` の中では環境変数の値を参照（`${APP_PORT}` など）できるため、環境ごとに異なる値をハードコードしなくて済みます。
+`docker-compose.yml` の中では[環境変数の値を参照できる](/p/8r3cmu5/)（例: `${APP_PORT}`）ため、環境ごとに異なる値をハードコードしなくて済みます。
 また、`docker compose up` コマンドは、環境変数を定義した `.env` ファイルを自動的に読み込んでくれます。
 
 
@@ -26,22 +25,20 @@ Docker Compose で簡単な nginx サーバーを立ち上げてみます。
 Docker Compose は、デフォルトで __カレントディレクトリ名をプロジェクト名として使用します__（`-p` オプションで任意のプロジェクト名を付けることもできます）。
 ここでは、`myproject` というディレクトリを作って、その中に Compose ファイル (`docker-compose.yml`) を配置することにします。
 
-```
+```console
 $ mkdir myproject
 $ cd myproject
 ```
 
 次のようなシンプルな Compose ファイルを作成します。
 
-#### docker-compose.yml
-
-```yaml
+{{< code lang="yaml" title="docker-compose.yml" >}}
 services:
   web:
     image: nginx
     ports:
       - "80:80"
-```
+{{< /code >}}
 
 各サービス（コンテナ）の定義は、__`services`__ プロパティの下に記述していきます。
 この例では、`web` という名前のサービスを 1 つだけ定義しており、その下の __`image`__ プロパティで `nginx` のイメージを使うよう指示しています。
