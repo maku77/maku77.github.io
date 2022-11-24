@@ -1,6 +1,11 @@
 ---
-title: "Best Practices メモ"
-layout: category-index
+title: "設計ノート"
+url: "/memo/"
+url: "p/watar8o/"
+
+categoryName: "まくまく設計ノート"
+categoryUrl: "/memo/"
+categoryIcon: _index.svg
 ---
 
 設計ノウハウ／ベストプラクティス
