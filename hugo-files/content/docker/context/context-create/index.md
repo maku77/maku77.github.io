@@ -144,6 +144,12 @@ $ docker --context default info     # デフォルトコンテキスト（ロー
 $ docker --context my-context info  # 今回作成したコンテキスト（リモートホスト）で実行
 {{< /code >}}
 
+本番環境用のコンテキストは常に選択していると危険なので、`--context` オプションでのみ使用した方がよいかもしれません。
+
+```console
+$ docker --context production compose up -d
+```
+
 
 Docker コンテキストを削除する
 ----
