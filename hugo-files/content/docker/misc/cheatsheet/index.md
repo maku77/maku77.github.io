@@ -75,13 +75,13 @@ docker network（ネットワーク関連のコマンド）
 
 | コマンド | 説明 |
 | ---- | --- |
-| `docker network connect` | コンテナをネットワークに接続する<br>Connect a container to a network |
-| `docker network create` | ネットワークを作成する<br>Create a network |
-| `docker network disconnect` | コンテナをネットワークから切り離す<br>Disconnect a container from a network |
-| `docker network inspect` | ネットワークの詳細情報を表示する<br>Display detailed information on one or more networks |
-| `docker network ls` | ネットワークの一覧を表示する<br>List networks |
-| `docker network prune` | 未使用のネットワークをすべて削除する<br>Remove all unused networks |
-| `docker network rm` | ネットワークを削除する<br>Remove one or more networks |
+| `docker network connect` | コンテナをネットワークに接続する <i>(Connect a container to a network)</i> |
+| `docker network create` | ネットワークを作成する <i>(Create a network)</i> |
+| `docker network disconnect` | コンテナをネットワークから切り離す <i>(Disconnect a container from a network)</i> |
+| `docker network inspect` | ネットワークの詳細情報を表示する <i>(Display detailed information on one or more networks)</i> |
+| `docker network ls` | ネットワークの一覧を表示する <i>(List networks)</i> |
+| `docker network prune` | 未使用のネットワークをすべて削除する <i>(Remove all unused networks)</i> |
+| `docker network rm` | ネットワークを削除する <i>(Remove one or more networks)</i> |
 
 
 docker volume（ボリューム関連のコマンド）
@@ -89,11 +89,11 @@ docker volume（ボリューム関連のコマンド）
 
 | コマンド | 説明 |
 | ---- | --- |
-| [docker volume create](/p/hxhzgxf/) | ボリュームを作成する<br>Create a volume |
-| [docker volume inspect](/p/hxhzgxf/) | ボリュームの詳細情報を表示する<br>Display detailed information on one or more volumes |
-| [docker volume ls](/p/hxhzgxf/) | ボリュームの一覧を表示する<br>List volumes |
-| [docker volume prune](/p/hxhzgxf/) | 使用していないボリュームを削除する<br>Remove all unused local volumes |
-| [docker volume rm](/p/hxhzgxf/) | ボリュームを削除する<br>Remove one or more volumes |
+| [docker volume create](/p/hxhzgxf/) | ボリュームを作成する <i>(Create a volume)</i> |
+| [docker volume inspect](/p/hxhzgxf/) | ボリュームの詳細情報を表示する <i>(Display detailed information on one or more volumes)</i> |
+| [docker volume ls](/p/hxhzgxf/) | ボリュームの一覧を表示する <i>(List volumes)</i> |
+| [docker volume prune](/p/hxhzgxf/) | 使用していないボリュームを削除する <i>(Remove all unused local volumes)</i> |
+| [docker volume rm](/p/hxhzgxf/) | ボリュームを削除する <i>(Remove one or more volumes)</i> |
 
 
 docker compose（複数コンテナのコントロール）
@@ -129,13 +129,33 @@ docker compose（複数コンテナのコントロール）
 | `docker compose version` | Show the Docker Compose version information |
 
 
+docker context（Docker コンテキストの切り替え）
+----
+
+| コマンド | 説明 |
+| ---- | ---- |
+| [docker context create](/p/qatbs9p/) | コンテキストを作成する <i>(Create new context)</i> |
+| `docker context export` | コンテキストをエクスポートする <i>(Export a context to a tar or kubeconfig file)</i> |
+| `docker context import` | コンテキストをインポートする <i>(Import a context from a tar or zip file)</i> |
+| `docker context inspect` | コンテキストの詳細情報を表示する <i>(Display detailed information on one or more contexts)</i> |
+| [docker context list](/p/qatbs9p/) | コンテキストの一覧を表示する <i>(List available contexts)</i> |
+| [docker context rm](/p/qatbs9p/) | コンテキストを削除する <i>(Remove one or more contexts)</i> |
+| [docker context show](/p/qatbs9p/) | 現在のコンテキストを表示する <i>(Print the current context)</i> |
+| `docker context update` | 既存のコンテキストの設定を変更する <i>(Update a context)</i> |
+| [docker context use](/p/qatbs9p/) | カレントコンテキストを切り替える <i>(Set the default context)</i> |
+
+
 その他のコマンド
 ----
 
 | コマンド | 説明 |
 | ---- | --- |
-| `docker builder prune` | ビルドキャッシュを削除する<br>Remove build cache |
-| [docker search](/p/4ohyhxe/) | Docker Hub 上のイメージを検索する<br>Search the Docker Hub for images |
+| [docker search](/p/4ohyhxe/) | Docker Hub 上のイメージを検索する <i>(Search the Docker Hub for images)</i> |
+| `docker system df` | Show docker disk usage |
+| `docker system events` | Get real time events from the server |
+| `docker system info` | Display system-wide information |
+| `docker system prune` | 使用していないデータをまとめて削除 <i>(Remove unused data)</i> |
+| `docker builder prune` | ビルドキャッシュを削除する <i>(Remove build cache)</i> |
 
 
 Docker ファイルの命令
