@@ -22,6 +22,8 @@ GitHub
     * [GitHub REST API を Python から使用する](github/github-rest-with-python.html)
 * [GitHub で管理している社内リポジトリをトピックで分類する (topics)](github/topics.html)
 * [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
+* GitHub Actions
+    * [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
 
 Git
 ====
