@@ -11,14 +11,16 @@ tags: ["GitHub/Actions"]
 GitHub で管理しているリポジトリに対してコミット＆プッシュが行われたときに、自動的に GitHub wiki 側のリポジトリの内容（Markdown ファイル）を更新するようにしてみます。
 例えば、プロダクトのソースコードからドキュメントを自動生成して、開発者がいつでも GitHub wiki ページで参照できるようにしておくと便利です。
 
-{{< image src="img-002.png" title="GitHub Wiki ページの自動生成" >}}
+{{< image src="img-002.png" title="GitHub wiki ページの自動生成" >}}
 
-Wiki ページの更新には GitHub Actions のワークフローを使い、次のように自動実行されるよう設定します。
+wiki ページの更新には GitHub Actions のワークフローを使い、次のように自動実行されるよう設定します。
 
 1. メインリポジトリを対象としたプッシュで GitHub Actions ワークフローを起動
-2. メインリポジトリと Wiki リポジトリのソースコードを取得
+2. メインリポジトリと wiki リポジトリのソースコードを取得
 3. 何らかの外部ツールを実行して Markdown ファイルを生成
-3. Markdown ファイルを Wiki リポジトリにコミット＆プッシュ
+4. Markdown ファイルを wiki リポジトリにコミット＆プッシュ
+
+ワークフローの中で GitHub wiki のリポジトリをチェックアウトしているので、あらかじめ対象リポジトリの wiki を作成しておいてください（トップページだけで OK）。
 
 
 ワークフローファイルの作成
@@ -82,10 +84,10 @@ jobs:
 ```
 
 公式の `actions/checkout` アクションを使って、メインリポジトリのコードをチェックアウトしておきます。
-実は今回のサンプルでは、メインリポジトリのコードは利用していないのですが、ソースコードをもとに Wiki ページを生成するのであれば必要になるでしょう。
+実は今回のサンプルでは、メインリポジトリのコードは利用していないのですが、ソースコードをもとに wiki ページを生成するのであれば必要になるでしょう。
 Markdown ファイルを生成するためのスクリプトが、メインリポジトリの `tools` ディレクトリなどに入っているかもしれません。
 
-### Wiki リポジトリのチェックアウト
+### wiki リポジトリのチェックアウト
 
 ```yaml
 - name: Check out wiki repo
@@ -95,18 +97,18 @@ Markdown ファイルを生成するためのスクリプトが、メインリ�
     path: .wiki
 ```
 
-Wiki リポジトリの名前は、__`${{ github.repository }}.wiki`__ で参照できるので、`actions/checkout` アクションでリポジトリ名を指定してチェックアウトします。
+wiki リポジトリの名前は、__`${{ github.repository }}.wiki`__ で参照できるので、`actions/checkout` アクションでリポジトリ名を指定してチェックアウトします。
 チェックアウト先として、__`.wiki`__ という名前の作業ディレクトリを作成しています。
 後のステップで、この中に Markdown ファイルを生成（修正）してコミットすることになります。
 
-### Wiki ページ（Markdown ファイル）更新
+### wiki ページ（Markdown ファイル）更新
 
 ```yaml
 - name: Update wiki pages
   run: echo -e "# Hello\n\n$(date)" > .wiki/hello.md
 ```
 
-ここが Wiki ページ生成の本質的なステップで、`.wiki` ディレクトリの中に Markdown ファイルを生成（修正）します。
+ここが wiki ページ生成の本質的なステップで、`.wiki` ディレクトリの中に Markdown ファイルを生成（修正）します。
 ここではシンプルに、Hello というタイトルと現在の日時が書き込まれた `hello.md` ファイルを作成していますが、通常はもっと複雑な更新作業になるので、外部ツールなどを呼び出して Markdown ファイルを生成することになります。
 例えば、次のようにメインリポジトリ側のシェルスクリプトを呼び出します（引数で出力先ディレクトリ `.wiki` の絶対パスを渡しておくと親切です）。
 
@@ -132,12 +134,12 @@ $ git update-index --add --chmod=+x tools/update-wiki.sh
     echo "NUM_OF_STAGED=$(git diff --staged --name-only | wc -l)" >> $GITHUB_OUTPUT
 ```
 
-前述のステップで生成した Markdown ファイルを、Wiki リポジトリの方にステージング (`git add`) します。
+前述のステップで生成した Markdown ファイルを、wiki リポジトリの方にステージング (`git add`) します。
 ここでのポイントは、いくつのファイルがステージング状態になったか（変更されたか）を、__`$GITHUB_OUTPUT`__ に出力しておくことです。
 例えば、3 つのファイルが変更されている場合は、`NUM_OF_STATE=3` のようなキー＆バリューを出力しておきます。
 この値は、次のステップで使用します。
 
-### Wiki リポジトリへのコミット＆プッシュ
+### wiki リポジトリへのコミット＆プッシュ
 
 ```yaml
 - name: Commit wiki pages
@@ -150,9 +152,9 @@ $ git update-index --add --chmod=+x tools/update-wiki.sh
     git push
 ```
 
-最後に、自動生成した Markdown ファイルを Wiki リポジトリへコミット＆プッシュします。
+最後に、自動生成した Markdown ファイルを wiki リポジトリへコミット＆プッシュします。
 このステップは、前段のステップでセットした出力内容 __`steps.staging.outputs.NUM_OF_STAGED`__ の値が 0 より大きいとき、つまり、コミットすべきファイルが存在するときのみ実行します。
-Wiki ページを変更する必要がない場合は、このステップはスキップされて、ワークフローの実行は終了します。
+wiki ページを変更する必要がない場合は、このステップはスキップされて、ワークフローの実行は終了します。
 
 上記のように自力で `git commit` コマンドを呼び出す場合は、Git の `user.email` と `user.name` を設定しておかないとエラーになることに注意してください。
 上記の例では、コミュニティで提案されている [`github-actions[bot]`](https://api.github.com/users/github-actions%5Bbot%5D) というユーザーを設定しています（参考: [Set git user and email](https://github.com/actions/checkout/issues/13#issuecomment-724415212)）。
@@ -164,9 +166,9 @@ Wiki ページを変更する必要がない場合は、このステップはス
 テスト
 ----
 
-ワークフローファイルを `main` ブランチにコミットし、GitHub へプッシュすると、自動的に Markdown ファイル (`hello.md`) が生成され、Wiki リポジトリ側にコミットされます。
+ワークフローファイルを `main` ブランチにコミットし、GitHub へプッシュすると、自動的に Markdown ファイル (`hello.md`) が生成され、wiki リポジトリ側にコミットされます。
 次のようなページが生成されていれば成功です。
 
-{{< image src="img-002.png" title="GitHub Actions で自動生成された Wiki ページ" >}}
+{{< image src="img-002.png" title="GitHub Actions で自動生成された wiki ページ" >}}
 
 できたー ٩(๑❛ᴗ❛๑)۶ わーぃ
