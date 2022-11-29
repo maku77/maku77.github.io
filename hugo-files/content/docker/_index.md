@@ -45,6 +45,7 @@ Docker コマンドによる操作
 ### ネットワーク (docker network)
 * [Docker のネットワークについて理解する (none, host, bridge)](/p/7fjnqtw/)
 * [Docker コンテナからホスト側のサーバーにアクセスする (`host.docker.internal`)](/p/najs2ah/)
+* [Docker Compose でリバースプロキシを立てて別の Docker Compose 内のコンテナに接続する](/p/5f2j2hz/)
 
 ### マウント（ボリューム、バインドマウント、tmpfs マウント）
 * [Docker のマウント機能でファイルを永続化する（ボリュームマウント、バインドマウント、tmpfsマウント）](/p/hxhzgxf/)
