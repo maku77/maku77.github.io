@@ -1,6 +1,10 @@
 ---
-title: "Shell メモ"
-layout: category-index
+title: "Linux/Shell"
+url: "/linux/"
+
+categoryName: "まくまく Linux/ShellScript ノート"
+categoryUrl: "/linux/"
+categoryIcon: _index.svg
 ---
 
 シェルスクリプト / Bash プログラミング
