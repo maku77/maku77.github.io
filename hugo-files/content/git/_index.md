@@ -149,9 +149,9 @@ hook スクリプト
 
 その他
 ----
-* [Git 関連用語](git-words.html)
+* [Git 用語集](/p/f844tkg/)
 * [Git で N 個前のコミットを表現する](other/represent-commit.html)
-* [Git で管理しているファイルの実行権限（パーミッション）を変更する](file-permission.html)
+* [Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（chmod +x 相当）](/p/xwxdv6y/)
 * [git pull の引数省略の仕組み](other/remote-complement.html)
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
 * [Git サブモジュールで別リポジトリの内容を組み込む (`git submodule`)](/p/dsctaq7/)
