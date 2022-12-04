@@ -133,7 +133,8 @@ nginx の設定ファイルは、バインドマウントで下記のファイ�
 
 {{< code lang="nginx" title="reverse-proxy/conf.d/example.com.conf" >}}
 server {
-    listen 80;
+    listen 80;       # IPv4
+    listen [::]:80;  # IPv6
     server_name app1.example.com;
     location / {
         proxy_pass http://app1-container/;
@@ -141,7 +142,8 @@ server {
 }
 
 server {
-    listen 80;
+    listen 80;       # IPv4
+    listen [::]:80;  # IPv6
     server_name app2.example.com;
     location / {
         proxy_pass http://app2-container/;
@@ -186,4 +188,77 @@ $ docker compose -p webapp2 down
 {{< /code >}}
 
 おつかれ様でしたー。
+
+
+（おまけ）コンテナ名ではなくポート番号で連携させる
+----
+
+上記の説明では、リバースプロキシとする nginx と、2 つの Web サーバーをコンテナ名で連携させましたが、Web サーバー側のポートを公開すれば、ポート番号で連携させることも可能です。
+各 Web サーバーを単独で立ち上げてアクセスするケースがある場合は、こちらの方が都合がよいかもしれません。
+
+例えば、2 つの Web サーバーをそれぞれ `8001` 番、`8002` 番ポートで公開すれば、リバースプロキシからは次のようなアドレスでアクセスできます（参考: [Docker コンテナからホスト側のサーバーにアクセスする (host.docker.internal)](/p/najs2ah/)）。
+
+- `host.docker.internal:8001`
+- `host.docker.internal:8002`
+
+この場合、リバースプロキシの設定は次のようになります。
+
+{{< code lang="nginx" title="reverse-proxy/conf.d/example.com.conf" >}}
+server {
+    listen 80;       # IPv4
+    listen [::]:80;  # IPv6
+    server_name app1.example.com;
+    location / {
+        proxy_pass http://host.docker.internal:8001/;
+    }
+}
+
+server {
+    listen 80;       # IPv4
+    listen [::]:80;  # IPv6
+    server_name app2.example.com;
+    location / {
+        proxy_pass http://host.docker.internal:8002/;
+    }
+}
+
+{{< /code >}}
+
+各コンテナ用の Compose ファイルは次のようになります。
+
+{{< code lang="yaml" title="reverse-proxy/docker-compose.yml" >}}
+services:
+  reverse-proxy:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+{{< /code  >}}
+
+{{< code lang="yaml" title="webapp1/docker-compose.yml" >}}
+services:
+  app:
+    image: nginx:alpine
+    volumes:
+      - ./public:/usr/share/nginx/html
+    ports:
+      - "${PORT:-8001}:80"
+{{< /code  >}}
+
+{{< code lang="yaml" title="webapp2/docker-compose.yml" >}}
+services:
+  app:
+    image: nginx:alpine
+    volumes:
+      - ./public:/usr/share/nginx/html
+    ports:
+      - "${PORT:-8002}:80"
+{{< /code  >}}
+
+{{% note title="Docker ポート公開に注意" %}}
+現時点での Docker (ver.20) では、公開ポートの設定で `8001:80` と指定すると、iptables 設定に穴が開いてインターネット上にポート 8001 番が公開されてしまうことに注意してください。
+内部的な設定の優先度の問題で、Ubuntu のファイアウォール (ufw) などで公開していないポートに関してもアクセス可能になってしまいます。
+確実にホスト内からのアクセスに限定するには、`ports` フィールドの指定で、__`127.0.0.1:8001:80`__ のようにループバックアドレスを合わせて指定します。
+{{% /note %}}
 
