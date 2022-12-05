@@ -33,9 +33,10 @@ categoryIcon: _index.svg
 * [for/while によるループ処理](syntax/for.html)
     * [ループ内での複数の出力をまとめてリダイレクト、パイプ処理する](syntax/loop-output.html)
 
-### 起動時の処理
+### 起動時の処理 <!-- startup -->
 * [コマンドライン引数を取得する (`$1`, `$@`, `$*`)](/p/c2kx7er/)
 * [コマンドライン引数の数が正しいかチェックする (`$#`)](/p/4tbzpyf/)
+* [名前付きのコマンドラインオプションを扱う (`getopts`)](/p/2fyizgw/)
 * [ある環境変数が定義されているかチェックする (`test -z`)](/p/r3myewb/)
 * [ある外部コマンドが使用できるかチェックする (`type -P`)](/p/xi5sjju/)
 
@@ -54,14 +55,15 @@ categoryIcon: _index.svg
 * [実行中のシェルスクリプトがあるディレクトリの絶対パスを取得する](path/absolute-path-of-script-dir.html)
 * [実行中のシェルスクリプトがあるディレクトリに移動する](path/move-to-script-dir.html)
 
-### 入出力 (I/O)
-* [echo で出力した文字列の中の連続するスペースが1つのスペースになってしまうのを防ぐ](io/echo-spaces.html)
-* [echo で出力する文字の色を変える](io/echo-color.html)
-* [ユーザ入力を取得する (read)](io/user-input.html)
-* [ディレクトリ内のファイルを順に処理する](io/loop-files.html)
-* [外部コマンドの実行結果を一行ずつ処理する](io/external-command.html)
-* [テキストファイルを読み込む](io/read-file.html)
-* [expect で ssh や rsync のパスワード入力を自動化する](io/expect.html)
+### 入出力 (I/O) <!-- io -->
+* [echo の結果を標準エラー出力 (stderr) に出力する (`1>&2`)](/p/q2k3j2h/)
+* [echo で出力した文字列の中の連続するスペースが 1 つのスペースになってしまうのを防ぐ](/p/25gqyai/)
+* [echo で出力する文字の色を変える](/p/fufwdub/)
+* [ユーザ入力を取得する (`read`)](/p/6m6n5k3/)
+* [ディレクトリ内のファイルを順に処理する (`for`, `while`)](/p/or3cmv6/)
+* [外部コマンドの実行結果を 1 行ずつ処理する (`for`, `while`, `read`)](/p/s9r9q7n/)
+* [テキストファイルを 1 行ずつ読み込む (`read`)](/p/co9p7nj/)
+* [expect で外部コマンドの出力を待機する](/p/3i3j2hx/)
 
 ### 日時
 * [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
