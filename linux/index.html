@@ -203,10 +203,11 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   </li>
 </ul>
 
-<h3 id="起動時の処理">起動時の処理</h3>
+<h3 id="起動時の処理-">起動時の処理 <!-- startup --></h3>
 <ul>
   <li><a href="/p/c2kx7er/">コマンドライン引数を取得する (<code class="language-plaintext highlighter-rouge">$1</code>, <code class="language-plaintext highlighter-rouge">$@</code>, <code class="language-plaintext highlighter-rouge">$*</code>)</a></li>
   <li><a href="/p/4tbzpyf/">コマンドライン引数の数が正しいかチェックする (<code class="language-plaintext highlighter-rouge">$#</code>)</a></li>
+  <li><a href="/p/2fyizgw/">名前付きのコマンドラインオプションを扱う (<code class="language-plaintext highlighter-rouge">getopts</code>)</a></li>
   <li><a href="/p/r3myewb/">ある環境変数が定義されているかチェックする (<code class="language-plaintext highlighter-rouge">test -z</code>)</a></li>
   <li><a href="/p/xi5sjju/">ある外部コマンドが使用できるかチェックする (<code class="language-plaintext highlighter-rouge">type -P</code>)</a></li>
 </ul>
@@ -230,15 +231,16 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <li><a href="path/move-to-script-dir.html">実行中のシェルスクリプトがあるディレクトリに移動する</a></li>
 </ul>
 
-<h3 id="入出力-io">入出力 (I/O)</h3>
+<h3 id="入出力-io-">入出力 (I/O) <!-- io --></h3>
 <ul>
-  <li><a href="io/echo-spaces.html">echo で出力した文字列の中の連続するスペースが1つのスペースになってしまうのを防ぐ</a></li>
-  <li><a href="io/echo-color.html">echo で出力する文字の色を変える</a></li>
-  <li><a href="io/user-input.html">ユーザ入力を取得する (read)</a></li>
-  <li><a href="io/loop-files.html">ディレクトリ内のファイルを順に処理する</a></li>
-  <li><a href="io/external-command.html">外部コマンドの実行結果を一行ずつ処理する</a></li>
-  <li><a href="io/read-file.html">テキストファイルを読み込む</a></li>
-  <li><a href="io/expect.html">expect で ssh や rsync のパスワード入力を自動化する</a></li>
+  <li><a href="/p/q2k3j2h/">echo の結果を標準エラー出力 (stderr) に出力する (<code class="language-plaintext highlighter-rouge">1&gt;&amp;2</code>)</a></li>
+  <li><a href="/p/25gqyai/">echo で出力した文字列の中の連続するスペースが 1 つのスペースになってしまうのを防ぐ</a></li>
+  <li><a href="/p/fufwdub/">echo で出力する文字の色を変える</a></li>
+  <li><a href="/p/6m6n5k3/">ユーザ入力を取得する (<code class="language-plaintext highlighter-rouge">read</code>)</a></li>
+  <li><a href="/p/or3cmv6/">ディレクトリ内のファイルを順に処理する (<code class="language-plaintext highlighter-rouge">for</code>, <code class="language-plaintext highlighter-rouge">while</code>)</a></li>
+  <li><a href="/p/s9r9q7n/">外部コマンドの実行結果を 1 行ずつ処理する (<code class="language-plaintext highlighter-rouge">for</code>, <code class="language-plaintext highlighter-rouge">while</code>, <code class="language-plaintext highlighter-rouge">read</code>)</a></li>
+  <li><a href="/p/co9p7nj/">テキストファイルを 1 行ずつ読み込む (<code class="language-plaintext highlighter-rouge">read</code>)</a></li>
+  <li><a href="/p/3i3j2hx/">expect で外部コマンドの出力を待機する</a></li>
 </ul>
 
 <h3 id="日時">日時</h3>
