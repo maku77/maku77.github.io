@@ -351,3 +351,10 @@ c := cors.New(cors.Options{
 })
 ```
 
+CORS アクセスの問題がどうしても解決できないときは、次のように、すべての接続を許可する CORS 設定 (`cors.AllowAll()`) を試してみるとよいです。
+
+```go
+c := cors.AllowAll()
+handler := c.Handler(mux)
+```
+
