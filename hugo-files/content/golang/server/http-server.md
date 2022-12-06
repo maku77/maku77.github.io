@@ -344,9 +344,11 @@ Access-Control-Allow-Origin: *
 上記のように `cors.Default()` が返す `cors.Cors` インスタンスを使うと、すべてのドメインからの GET/POST アクセスを許可しますが、次のように独自の `cors.Cors` オブジェクトを作成して受け入れるドメインや HTTP メソッドを指定することができます。
 
 ```go
+// CORS レスポンス対応（OPTIONS プリフライトリクエストなどに対応）
 c := cors.New(cors.Options{
 	AllowedOrigins:   []string{"http://localhost:3000", "http://foo.com"},
-	AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete},
+	AllowedMethods:   []string{http.MethodGet, http.MethodPost, http.MethodDelete, http.MethodOptions},
+	AllowedHeaders:   []string{"*"},
 	AllowCredentials: true,
 })
 ```
