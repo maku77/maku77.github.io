@@ -21,6 +21,7 @@ GitHub
 * [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
 * GitHub Actions
     * [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
+    * [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
 
 Git
 ====
