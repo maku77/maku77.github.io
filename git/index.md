@@ -83,16 +83,16 @@ Git
 
 ブランチ (git branch)
 ----
-* [ブランチを作成する](branch/create-branch.html)
-* [ブランチをチェックアウトする（作業対象のブランチを切り替える）](branch/checkout-branch.html)
-* [ブランチの作成とチェックアウトを同時に行う](branch/create-and-checkout-branch.html)
-* [ブランチを削除する](branch/delete-branch.html)
-* [リモートブランチを削除する](branch/delete-remote-branch.html)
-* [ブランチ名を変更する](branch/rename-branch.html)
-* [ブランチやタグの作者を調べる](branch/who-created-branch.html)
-* [detached HEAD 状態へのチェックアウトとは](branch/detached-head.html)
-* [他の人が作成したブランチ上で作業する](branch/checkout-pushed-branch.html)
-* [他のブランチの最新ファイルを現在のブランチにコピーする](branch/copy-file-between-branches.html)
+* [ブランチを作成する (`git branch`)](/p/x9s8k2e/)
+* [ブランチをチェックアウトする（作業対象のブランチを切り替える）(`git switch/checkout`)](/p/8cwbp3e/)
+* [ブランチの作成とチェックアウトを同時に行う (`git switch -c`, `git checkout -b`)](/p/ivbss76/)
+* [ブランチを削除する (`git branch -d/D`)](/p/stpfje9/)
+* [ブランチ名を変更する (`git branch -m`)](/p/9bh2ody/)
+* [ブランチやタグの作者を調べる (`git for-each-ref`)](/p/o2m2ft7/)
+* [他の人が作成したブランチ上で作業する](/p/ewvaoe3/)
+* [リモートブランチを削除する (`git push origin :xxx`, `git fetch --prune`)](/p/cv5pi7a/)
+* [他のブランチの最新ファイルを現在のブランチにコピーする (`git checkout`)](/p/6g8n3jw/)
+* [detached HEAD 状態へのチェックアウトとは](/p/whv8ues/)
 
 マージ (git merge, git cherry-pick)
 ----
