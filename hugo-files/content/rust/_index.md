@@ -8,6 +8,7 @@ categoryIcon: _index.svg
 ---
 
 - [Rust プログラミングを始める（`rustc` と `cargo` コマンド）](/p/96o6xfv/)
+- [Rust で自作したプログラムをシステムにインストールする (`cargo install`)](/p/owbo2dp/)
 - [10 分で学ぶ Rust 文法](/p/63m4k3i/)
 
 ## 標準ライブラリ
