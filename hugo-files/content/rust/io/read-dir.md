@@ -101,6 +101,7 @@ fn read_dir_entries<P: AsRef<Path>>(path: P) -> io::Result<Vec<PathBuf>> {
     entries.sort();
     Ok(entries)
 }
+
 fn main() {
     match read_dir_entries(".") {
         Ok(entries) => println!("{:?}", entries),

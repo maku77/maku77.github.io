@@ -32,6 +32,16 @@ if let Ok(v) = result_value {
 
 `Result#unwrap()` で `Ok` 値を取り出すことができるが、保持している値が `Err` の場合は panic になるのでプロダクトコードでは使わない方がよい。
 
+`expect` で `Ok` 値を取り出す方法。ほぼ `unwrap` と同じかも。
+
+```rust
+let entries = glob("img/**/*.png").expect("Failed to read glob pattern");
+```
+
+```rust
+let entries = glob("img/**/*.png").unwrap();
+```
+
 
 Option 型
 ----
