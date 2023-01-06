@@ -105,7 +105,7 @@ fn read_dir_entries<P: AsRef<Path>>(path: P) -> io::Result<Vec<PathBuf>> {
 fn main() {
     match read_dir_entries(".") {
         Ok(entries) => println!("{:?}", entries),
-        Err(e) => panic!("{}", e),
+        Err(e) => eprintln!("ERROR: {}", e),
     }
 }
 ```
