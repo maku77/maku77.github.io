@@ -6,74 +6,53 @@ tags: ["Rust"]
 draft: true
 ---
 
-文字列 → 数値
+トレイト
 ----
 
-- 参考: [str#parse メソッド](https://doc.rust-lang.org/std/primitive.str.html#method.parse)
-
-```rust
-let four: u32 = "4".parse().unwrap();
-assert_eq!(4, four);
-```
+- `Copy` トレイトを実装すると、その変数を別の変数へ代入しても、所有権が移動 (move) しなくなる。具体的には、ヒープ上のデータがコピーされ、それぞれの変数が異なるヒープ上のデータの所有者 (owner) となります。
 
 
-Result 型
+print / println マクロ
 ----
 
-- `is_err()` ... エラーの場合（値が `Err` variant の場合）に `true` を返します。
-
-`Result` が `Ok` 値を持つかをチェックしつつ、その値を取り出す `if let` 構文。
-
 ```rust
-if let Ok(v) = result_value {
-  println!("value = {}", v);
-}
-```
-
-`Result#unwrap()` で `Ok` 値を取り出すことができるが、保持している値が `Err` の場合は panic になるのでプロダクトコードでは使わない方がよい。
-
-`expect` で `Ok` 値を取り出す方法。ほぼ `unwrap` と同じかも。
-
-```rust
-let entries = glob("img/**/*.png").expect("Failed to read glob pattern");
+// 16 進表記
+let num = 0xff0000;
+println!("{:0x}", num);   //=> "ff0000"
+println!("{:0X}", num);   //=> "ff0000"
+println!("{:08x}", num);  //=> "00ff0000"
+println!("{:08X}", num);  //=> "00FF0000"
 ```
 
 ```rust
-let entries = glob("img/**/*.png").unwrap();
+let text_length: Option<usize> = text.as_ref().map(|s| s.len());
+println!("still can print text: {text:?}");
 ```
 
+- 変数名を先に指定して、`{err:?}` という書き方も可能。`{num:08x}` とも書ける。
 
-Option 型
+
+cargo
 ----
 
-`Option` が `Some` 値を持つかをチェックしつつ、その値を取り出す `if let` 構文。
+### cargo --list
 
-```rust
-if let Some(v) = option_value {
-  println!("value = {}", v);
-}
-```
+cargo のサブコマンドの一覧を表示する。
 
-`Option#unwrap()` で `Some` 値を取り出すことができるが、保持している値が `None` の場合は panic になるのでプロダクトコードでは使わない方がよい。
-
-
-cargo doc --open
-----
+### cargo doc --open
 
 全ての依存クレートが提供するドキュメントをローカルでビルドして、Web ブラウザーで開く。'
 
+### cargo new --bin xxx
 
-match による分岐処理
+バイナリトレイト用のプロジェクトを作成する。
+
+
+その他
 ----
 
-```rust
-let s = "123";
-let n: u32 = match s.parse() {
-    Ok(num) => num,
-    Err(_) => 0,
-};
-```
-
-文字列 `s` が数値としてパースできれば、変数 `n` にその数値が格納されます。
-パースに失敗した場合は、`0` が格納されます。
+- variance
+  - covariant .. 何らか型のサブタイプとして代用できるとき
+  - invariant
+  - contravariant
 

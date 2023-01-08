@@ -3,6 +3,7 @@ title: "10 分で理解する Rust 文法"
 url: "p/63m4k3i/"
 date: "2022-12-13"
 tags: ["Rust"]
+draft: true
 ---
 
 Rust 言語の文法をざっと理解するためのページです。
@@ -287,10 +288,6 @@ let arr = [0; N];  //=> [0, 0, 0, 0, 0]（型は [i32; 5]）
 {{< /code >}}
 
 
-タプル (tuple)
-----
-
-
 構造体 (struct)
 ----
 
@@ -361,7 +358,7 @@ fn build_user(email: String, name: String) -> User {
 
 ### 部分的に異なるインスタンスを生成する
 
-既存の構造体インスタンスがあるときに、一部のフィールドの値だけが異なる別のインスタンスを生成したいときは、次のように __`.. を使って残りのフィールドをコピーします。
+既存の構造体インスタンスがあるときに、一部のフィールドの値だけが異なる別のインスタンスを生成したいときは、次のように __`..`__ を使って残りのフィールドをコピーします。
 
 {{< code lang="rust" hl_lines="11" >}}
 let user1 = User {
@@ -378,7 +375,7 @@ let user2 = User {
 };
 {{< /code >}}
 
-`..user1` の後ろにカンマ (`,`) を付けてはいけないことに注意してください。
+`..user1` の後ろにはカンマ (`,`) を付けないことに注意してください。
 この構文もスプレッド演算子として TypeScript (JavaScript) に採用されています。
 
 ### タプル構造体 (tuple struct)
@@ -549,7 +546,7 @@ println!("{}", s);  //=> "AAABBB"
 ```rust
 fn create_message() -> String {
     let s = String::from("Hello");
-    s  // 呼び出し側に所有権が移動する (OK)
+    s  // 呼び出し側に所有権が移動する（想定通り）
 }
 ```
 
@@ -609,10 +606,27 @@ fn main() {
 Rust の列挙型 (enum) は、各列挙子 (variant) に任意の値を保持することができるので非常に強力です。
 列挙型にはメソッドを追加することさえできます。
 
-### 構造体の基本
+### enum の基本
 
 ```rust
+// enum 型の定義
+enum Fruit {
+    Apple,
+    Banana,
+    Orange,
+}
+
+// enum 型の使用例
+let fruit = Fruit::Banana;
+match fruit {
+    Fruit::Apple => println!("I like apples"),
+    Fruit::Banana => println!("I like bananas"),
+    Fruit::Orange => println!("I like oranges"),
+}
 ```
+
+### enum 型に値を持たせる
+
 
 
 
