@@ -66,7 +66,7 @@ fn main() {
 clap クレートを使う方法
 ----
 
-`-x` や `--xxx` といった形のコマンドライン引数を扱いたい場合は、clap クレートを使うと便利です。
+`-o` や `--output` といった形のコマンドライン引数を扱いたい場合は、clap クレートを使うと簡単に実装できます。
 
 - 参考: [Argument Parsing - Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/cli/arguments.html)
 
