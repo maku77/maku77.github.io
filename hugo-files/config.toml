@@ -11,3 +11,6 @@ title = "天才まくまくノート"
 [markup.goldmark.renderer]
   unsafe = true
 
+[params]
+  AmazonId = "maku04-22"
+
