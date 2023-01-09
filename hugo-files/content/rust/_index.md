@@ -45,18 +45,22 @@ categoryIcon: _index.svg
 入出力 (I/O) 処理、ファイル処理
 ----
 
-- [コマンドライン引数を扱う (`std::env::args`)](/p/wu6gqz9/)
-- [キーボードからの入力を取得する (`std::io::Stdin`)](/p/eamw7fp/)
-- [ディレクトリ内のファイルを列挙する (`std::fs::read_dir`)](/p/2kv6eub/)
-- [ファイルやディレクトリの名前を変更する (`std::fs::rename`)](/p/raiqzbr/)
-- [ディレクトリを作成・削除する (`std::fs::create_dir, create_dir_all, remove_dir, remove_dir_all`)](/p/zju5eow/)
-- [ファイルやディレクトリのパス文字列を構築／分割する (`std::io::Path`, `PathBuf`)](/p/36hr2bj/)
-- [ファイルやディレクトリの存在を調べる (`std::io::Path`, `PathBuf`)](/p/fbkt3ah/)
+- ユーザー入力
+  - [コマンドライン引数を扱う (`std::env::args`)](/p/wu6gqz9/)
+  - [キーボードからの入力を取得する (`std::io::Stdin`)](/p/eamw7fp/)
+- ファイル／ディレクトリ／パス
+  - [ディレクトリ内のファイルを列挙する (`std::fs::read_dir`)](/p/2kv6eub/)
+  - [ファイルやディレクトリの名前を変更（移動）する (`std::fs::rename`)](/p/raiqzbr/)
+  - [ディレクトリを作成・削除する (`std::fs::create_dir, create_dir_all, remove_dir, remove_dir_all`)](/p/zju5eow/)
+  - [ファイルやディレクトリのパス文字列を構築／分割する (`std::io::Path`, `PathBuf`)](/p/36hr2bj/)
+  - [ファイルやディレクトリの存在を調べる (`std::io::Path`, `PathBuf`)](/p/fbkt3ah/)
+- [Serde で JSON フォーマットを扱う](/p/xdyk5o8/)
 
 
 その他
 ----
 
+- [正規表現を扱う (regex)](/p/r7sdwgy/)
 - [型の名前を取得する (`std::any::type_name`)](/p/m9vdtaq/)
 
 

@@ -36,7 +36,7 @@ let none_val: Option<String> = None;
 
 ```rust
 type NullableString = Option<String>;
-let some_val: NullableString = Some(String::from("maku"));
+let some_val: NullableString = Some(String::from("Hello"));
 let none_val: NullableString = None;
 ```
 
@@ -47,10 +47,12 @@ let none_val: NullableString = None;
 Option 型の値を match で処理する
 ----
 
-次の関数は、渡された文字列に応じて `Some<i32>` あるいは `None` を返します。
+下記は `Option<i32>` 型の値を返す関数の実装例です。
+引数で渡された文字列に応じて、`Some<i32>` あるいは `None` を返します。
 うまくパースできない（想定外の）の文字列が渡されたときは、`None` を返すようにしています（Rust 以外の言語であれば、`null` を返したり、例外を発生させたりするところです）。
 
 ```rust
+/// 数値っぽい文字列を数値に変換します。
 fn parse_num_str(s: &str) -> Option<i32> {
     match s {
         "one" | "一" => Some(1),
@@ -79,8 +81,8 @@ Option 型の値を if let で処理する
 `Option` 型の値として `Some` バリアントが返された場合のみ何らかの処理をしたいときは、`match` の代わりに __`if let`__ 構文を使うとシンプルに記述できます。
 
 {{< code lang="rust" title="Some が返された場合のみ処理する" >}}
-let num = parse_num_str("三");
-if let Some(num) = num {
+let num_opt = parse_num_str("三");
+if let Some(num) = num_opt {
     // ここで num は i32 型の値になっている
     println!("The number is {}", num);
 }
@@ -89,8 +91,8 @@ if let Some(num) = num {
 `match` 構文と同様に、特定のリテラル値に一致するかどうかを調べることもできます。
 
 ```rust
-let num = parse_num_str("三");
-if let Some(3) = num {
+let num_opt = parse_num_str("三");
+if let Some(3) = num_opt {
     println!("Found: three");
 }
 ```
@@ -111,7 +113,7 @@ if num.is_none() {
 }
 ```
 
-`Option` 列挙型には、`Some` バリアントが保持するデータをダイレクトに取り出すための __`unwrap`__ というメソッドが用意されていますが、このメソッドは `None` バリアントに対して呼び出すと panic が発生するで危険です。
+`Option` 列挙型には、`Some` バリアントが保持するデータをダイレクトに取り出すための __`unwrap`__ というメソッドが用意されていますが、このメソッドは `None` バリアントに対して呼び出すと panic が発生するので危険です。
 ただ、上記のように `None` のケースを排除できていれば、安全に `unwrap` することができます。
 
 ```rust
@@ -148,21 +150,23 @@ println!("{}", id); //=> -1
 let id = opt_id.unwrap_or(get_default_id());
 ```
 
-この振る舞いを防ぐには、`unwrap_or` の代わりに __`unwrap_or_else`__ メソッドを使用します。
+この振る舞いを防ぐには、`unwrap_or` の代わりに __`unwrap_or_else`__ メソッドを使用して、`None` 時に呼び出す関数を渡すようにします。
+次の例では、関数名を指定する代わりに匿名関数（ラムダ式）を渡しています。
 
 ```rust
 // opt_id が None のときのみ get_default_id 関数が呼び出される
 let id = opt_id.unwrap_or_else(|| get_default_id());
 ```
 
-似たようなメソッドに、__`unwrap_or_default`__ がありますが、これは代替値としてその型のデフォルト値（`i32` なら `0`、`String` なら `""`）を返します。
+似たようなメソッドに、__`unwrap_or_default`__ がありますが、これは代替値としてその型のデフォルト値（`i32` なら `0`、`String` なら `""`、`Vec` なら `vec![]`）を返します。
 
 ```rust
 let opt_id = get_user_id("unknown");
 let id = opt_id.unwrap_or_default(); //=> 0
 ```
 
-よく考えると、`unwrap_or` 系のメソッドは、次のような `if let` のショートカットだったりします。
+`unwrap_or` 系のメソッドを使ったコードは、次のような `if let` でも同様のことを行えることに気がつくかもしれません。
+ただ、このようなコードは可読性が悪いので、`unwrap_or` 系のメソッドをうまく使いこなしたいところです。
 
 ```rust
 let id = if let Some(x) = opt_id { x } else { -1 };
@@ -174,10 +178,12 @@ let id = if let Some(x) = opt_id { x } else { -1 };
 
 以上のように、`Option` 型の値はいろいろなハンドル方法がありますが、どのようにハンドルするかは、次のような優先度で考慮すればよいと思います。
 
-1. `match` でハンドルする
+1. `match` で `Some` と `None` の両方のケースをハンドルする
    - `match` は `Option` のバリアントが包括的に処理されているかをコンパイル時に確認してくれるので安全です。
 2. `if let` でハンドルする
    - 特定の `Some` 値にしか興味がない場合は、`if let` でその値を取り出すことを考えます。ただし、想定外のバリアント値を見過ごすことがないように、`else` ブロックを配置しておくと安全です。
-3. その他の `Option` メソッドでハンドルする
+3. `unwrap_or` 系のメソッドでハンドルする
+   - データが存在しなかった場合にデフォルト値で済ませられる場合は、`unwrap_or` 系メソッドを使うと簡潔なコードになります。
+3. その他のメソッドでハンドルする
    - 十分に注意して `Option` 型のその他のメソッドを使用します。特に、panic を発生させる `unwrap()` メソッドなどは、プロダクトコードでは使わないようにするのが無難です。
 
