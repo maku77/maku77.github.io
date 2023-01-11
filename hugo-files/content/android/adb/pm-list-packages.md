@@ -1,13 +1,12 @@
 ---
 title: "ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)"
-permalink: "p/uh84kfj/"
+url: "p/uh84kfj/"
 date: "2022-04-21"
 tags: ["Android"]
-redirect_from:
-  - /android/adb/pm-list-packages
+aliases: /android/adb/pm-list-packages.html
 ---
 
-確認バージョン: Android 12 (S)
+（確認バージョン: Android 12 (S)）
 
 pm list packages コマンド
 ----

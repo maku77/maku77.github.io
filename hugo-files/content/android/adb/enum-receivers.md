@@ -1,17 +1,18 @@
 ---
 title: "ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)"
+url: "p/jfqtfyn/"
 date: "2016-07-15"
+tags: ["Android"]
+aliases: /android/adb/enum-receivers.html
 ---
 
-`dumpsys` コマンドを利用して、任意のブロードキャストインテントをハンドルするように登録しているレシーバの一覧を確認することができます。
+__`dumpsys`__ コマンドの __`activity broadcast`__ サブコマンドを実行すると、ブロードキャストインテントをハンドルするように登録しているレシーバーの一覧を確認することができます。
 
-```
+```console
 $ adb shell dumpsys activity broadcasts
 ```
 
-下記がその出力の抜粋です。
-
-```
+{{< code title="実行結果（抜粋）" >}}
 ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
   Registered Receivers:
   ...
@@ -28,11 +29,12 @@ ACTIVITY MANAGER BROADCAST STATE (dumpsys activity broadcasts)
       mPriority=1000, mHasPartialTypes=false
       AutoVerify=false
   ...
-```
+{{< /code >}}
 
-**Registered Receivers** のセクションには、アプリごとにどのようなフィルタでインテントを監視しているかが表示されます。上記の例では、`com.android.systemui` アプリが、`android.intent.action.TIME_TICK` インテントなどのブロードキャストを監視していること示しています。
+__`Registered Receivers`__ のセクションには、アプリごとにどのようなフィルタでインテントを監視しているかが表示されます。
+上記の例では、`com.android.systemui` アプリが、`android.intent.action.TIME_TICK` インテントなどのブロードキャストを監視していること示しています。
 
-さらに下のほうに、**Receiver Resolver Table** というセクションがあります。
+さらに下の方を見ると、__`Receiver Resolver Table`__ というセクションがあります。
 
 ```
   Receiver Resolver Table:

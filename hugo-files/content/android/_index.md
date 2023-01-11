@@ -48,11 +48,11 @@ Tools
 ### 解析／デバッグ／ADB コマンド
 
 * [APK のパッケージ依存関係やクラス依存関係を調べる (`jdeps`, `dex2jar`)](/p/w6ste5j/)
-* [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
-* [APK の情報を表示する (aapt)](aapt.html)
+* [APK ファイルを逆コンパイルする (apktool)](/p/xr3n5jk/)
+* [APK ファイルの情報を表示する (aapt)](/p/qqrxpjd/)
 * [ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)](/p/eezeq4g/)
-* [ADB で指定したアプリを強制終了する (am force-stop)](adb/adb-force-stop-app.html)
-* [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
+* [ADB で指定したアプリを強制終了する (am force-stop)](/p/9yse3iz/)
+* [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](/p/jfqtfyn/)
 * [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
 * [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
 * [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)

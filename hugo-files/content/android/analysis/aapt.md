@@ -1,9 +1,12 @@
 ---
-title: "APK の情報を表示する"
+title: "APK ファイルの情報を表示する (aapt)"
+url: "p/qqrxpjd/"
 date: "2011-09-11"
+tags: ["Android"]
+aliases: /android/aapt.html
 ---
 
-Android SDK に付属している **aapt (Android Asset Packaging Tool)** を使用すると、APK の情報を調べることができます。
+Android SDK に付属している __aapt (Android Asset Packaging Tool)__ を使用すると、APK の情報を調べることができます。
 主にリソースなどの Asset を対象としたツールですが、バージョン情報や、パーミッション情報なども調べることができます。
 
 `aapt` コマンドは、昔は `build-tools` ディレクトリ直下にありましたが、現在は `build-tools\23.0.2` のようなバージョン名のディレクトリ以下にインストールされるようです。
@@ -29,7 +32,7 @@ aapt コマンドのヘルプ
 
 パラメータなしで、`aapt` コマンドを実行すると、下記のようにヘルプが表示されます。
 
-```
+```console
 $ aapt
 Android Asset Packaging Tool
 
@@ -207,7 +210,7 @@ Usage:
        Do not automatically generate versioned copies of vector XML resources.
 ```
 
-aapt コマンドのバージョン情報。
+上記の表示は、下記の `aapt` のバージョンのものです。
 
 ```
 $ aapt v
