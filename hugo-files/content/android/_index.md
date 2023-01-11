@@ -11,6 +11,7 @@ Android アプリや Android デバイスの開発に役立つかもしれない
 
 Tools
 ----
+
 * [protection レベルが dangerous なパーミッションの一覧を表示する (`pm list permissions`)](/p/8x8qmy3/)
 * [パーミッショングループの一覧を表示する (`pm list permission-groups`)](/p/viry8fo/)
 * [ダウンロード可能な Android SDK コンポーネントの一覧を取得する (`android list sdk`)](/p/8k5m4k2/)
@@ -23,6 +24,7 @@ Tools
 * [Dex 形式の Shared library (JAR) を作成する (`dx`)](/p/huevdub/)
 
 ### パフォーマンス
+
 * [Android アプリのパフォーマンス改善のためのチェックリスト](/p/sfqyajt/)
 * [dumpsys gfxinfo でジャンクフレームの発生率を調べる（60FPSの確認）](/p/26hr2bk/)
 * [Choreographer で FPS を計測する（Fps クラスの実装）](/p/imx8hr2/)
@@ -34,18 +36,21 @@ Tools
 * [旧）Systrace の画面が真っ白になるときの対応方法](/p/u3n5m3j/)
 
 ### エミュレーター
+
 * [Android エミュレーター内のサーバーに外部からアクセスする (`adb forward`)](/p/q6r98p8/)
 * [Android エミュレーターをコマンドラインから操作する (`emulator`, `adb emu`)](/p/zgyhygw/)
 
 ### 外部ツールとの連携
+
 * [Golang で Android 上で動く CLI コマンドを作成する (`go build`)](/p/ftducta/)
-* [Ruby で adb コマンドの出力結果を処理する](tools/handle-adb-with-ruby.html)
+* [Ruby で adb コマンドの出力結果を処理する](/p/w6vao2e/)
 
 ### 解析／デバッグ／ADB コマンド
-* [APK のパッケージ依存関係やクラス依存関係を調べる](analyze/apk-dependencies.html)
+
+* [APK のパッケージ依存関係やクラス依存関係を調べる (`jdeps`, `dex2jar`)](/p/w6ste5j/)
 * [APK ファイルを逆コンパイルする (apktool)](decompile-apk.html)
 * [APK の情報を表示する (aapt)](aapt.html)
-* [ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)](adb/adb-am-start.html)
+* [ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)](/p/eezeq4g/)
 * [ADB で指定したアプリを強制終了する (am force-stop)](adb/adb-force-stop-app.html)
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](adb/enum-receivers.html)
 * [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
@@ -68,6 +73,7 @@ Tools
   * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
 
 ### Logcat
+
 * [Logcat のログ出力をフィルタする](filter-logcat.html)
 
 
@@ -75,6 +81,7 @@ Tools
 ----
 
 ### Gradle
+
 * [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
 * [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
 * [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
@@ -87,14 +94,17 @@ Tools
 * Gradle 全般の説明は [こちらを参照](../gradle/)
 
 ### Android Studio
+
 * [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
 * [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
 * [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
 * [Android Studio の便利なショートカット (1) コードの調査／メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
+
 Android デバイス開発者向け（ベンダ向け情報）
 ----
+
 * [root ユーザで adb 接続する](adb-with-root.html)
 * [Sleep モードに遷移する](go-to-sleep.html)
 * [現在の Configuration を変更する](change-configuration.html)
@@ -114,28 +124,35 @@ Android デバイス開発者向け（ベンダ向け情報）
 * [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](/p/gufweuc/)
 * [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
 
+
 Android Framework/SDK
 ----
+
 * [Jetpack Compose の宣言型 (declarative) の UI 定義とは？](fw/compose.html)
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
 * [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
 
 ### 設定 (SharedPreferences)
+
 * [SharedPreferences でアプリの設定値を保存する](fw/shared-preference.html)
 * [Preference フレームワークを使って設定画面を簡単に作成する](fw/preference-fw.html)
 
+
 Java レイヤ
 ----
+
 * [特殊ディレクトリの情報を取得する](special-dir-info.html)
 * [AsyncTask による非同期処理と UI 更新処理](async-task.html)
 
 ### I/O（入出力）
+
 * [キーイベント (KeyEvent) を見やすく出力する](io/print-keyevents.html)
 * [タッチイベントをハンドルする](io/handle-touch-events.html)
 * [Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する](io/keyboard-long-press.html)
 
 ### UI（描画）
+
 * [常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)](ui/always-top.html)
 * [Kotlin で OpenGL ES を使って 3D 表示するアプリを作る](ui/opengl.html)
 * [RecyclerView の基本](ui/recycler-view.html)
@@ -150,32 +167,42 @@ Java レイヤ
 * [Canvas への描画時にアンチエイリアスを有効にする](ui/antialias-on-canvas.html)
 
 ### 数値／文字列
+
 * [数値をある範囲内［min, max］に丸める (MathUtils.clamp)](numstr/clamp.html)
 
 ### Service（サービス）
+
 * [同じプロセス内のサービスへバインドする (Local Bind)](service/local-bind.html)
 * [別プロセスのサービスへバインドする (Remote Bind)](service/remote-bind.html)
 * [サービスからコールバックできるようにする](service/callback.html)
 
 ### 設定 (Settings)
+
 * [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
+
 
 Native レイヤ
 ----
+
 * [RefBase によるスマートポインタ](refbase-smart-pointer.html)
 * [ネイティブサービスの実装 (1) Binder 関連のクラス](native-service1.html)
 * [ネイティブサービスの実装 (2) サービスの実装から利用まで](native-service2.html)
 * [ネイティブサービスの実装 (3) サービスのインタフェースを定義する](native-service3.html)
 
 ### ServiceManager 関連
+
 * [ServiceManager に登録されたサービスを列挙する](list-services.html)
+
 
 トラブルシューティング
 ----
+
 * [repo init でエラーが出る場合](trouble/repo-init-error.html)
+
 
 その他
 ----
+
 * [ネイティブライブラリの展開先](install-path-of-native-libs.html)
 * [現在のスクリーンレイアウトサイズを取得する](screen-layout-size.html)
 * [ネットワーク関連の情報を取得する](network-info.html)

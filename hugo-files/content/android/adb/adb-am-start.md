@@ -1,7 +1,10 @@
 ---
 title: "ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)"
+url: "p/eezeq4g/"
 date: "2016-10-03"
 lastmod: "2022-04-21"
+tags: ["Android"]
+aliases: /android/adb/adb-am-start.html
 ---
 
 以下のコマンドは、`adb shell` でデバイスに接続した状態から実行することを想定しています。
@@ -53,40 +56,34 @@ Intent 引数（`<INTENT>` の部分）の指定方法は、[Specification for I
 
 ### Activity のクラス名（コンポーネント名）を直接指定して起動する
 
-```
-am start -n com.example.myapp/.MainActivity
+```console
+$ am start -n com.example.myapp/.MainActivity
 ```
 
 ### アクションを指定して起動する
 
-#### ブラウザを起動する（URL をハンドルするアプリを起動する）
+{{< code lang="console" title="ブラウザを起動する（URL をハンドルするアプリを起動する）" >}}
+$ am start -a android.intent.action.VIEW http://google.com/
+{{< /code >}}
 
-```
-am start -a android.intent.action.VIEW http://google.com/
-```
+{{< code lang="console" title="電話を掛ける" >}}
+$ am start -a android.intent.action.CALL tel:123456789
+{{< /code >}}
 
-#### 電話を掛ける
-
-```
-am start -a android.intent.action.CALL tel:123456789
-```
-
-#### 着信音の選択画面を表示する
-
-```
+{{< code lang="console" title="着信音の選択画面を表示する" >}}
 am start -a android.intent.action.RINGTONE_PICKER
-```
+{{< /code >}}
 
-#### HOME 画面を起動する
-
-```
-am start -a android.intent.action.MAIN
-am start -a android.intent.action.MAIN -c android.intent.category.HOME
-```
+{{< code lang="console" title="HOME 画面を起動する" >}}
+$ am start -a android.intent.action.MAIN
+$ am start -a android.intent.action.MAIN -c android.intent.category.HOME
+{{< /code >}}
 
 
 サービス (Service) を起動・停止する
 ----
+
+### サービスの起動
 
 __`am start-service`__ コマンドで任意のサービスを起動することができます。
 例えば、アプリのパッケージ名 (`com.example.myapp`) とサービスのクラス名 (`com.example.myapp.services.MyApp`) が分かっているのであれば、次のようにサービスを起動できます。
@@ -118,8 +115,9 @@ $ adb shell dumpsys activity s MyService | grep isForeground
 <service
   android:name="com.example.myapp.services.MyService"
   android:exported="true"
-  ...
 ```
+
+### サービスの停止
 
 サービスを停止するには、__`am stop-service`__ コマンドを使います。
 
@@ -154,14 +152,14 @@ stop-service [--user <USER_ID> | current] <INTENT>
 
 Intent をブロードキャストするには、`am start` の代わりに __`am broadcast`__ を使用します。
 
-```
-am broadcast -a android.intent.action.XXX
+```console
+$ am broadcast -a android.intent.action.XXX
 ```
 
 下記は、端末の起動時にブロードキャストされる `BOOT_COMPLETED` インテントを明治的に投げる例です（root ユーザで実行）。
 
-```
-am broadcast -a android.intent.action.BOOT_COMPLETED
+```console
+$ am broadcast -a android.intent.action.BOOT_COMPLETED
 ```
 
 （おまけ）`adb shell am help` によるヘルプ表示の抜粋です。
