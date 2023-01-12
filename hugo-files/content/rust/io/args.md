@@ -1,16 +1,18 @@
 ---
-title: "Rust でコマンドライン引数を扱う (std::env::args)"
+title: "Rust でコマンドライン引数を扱う (1) std::env::args"
 url: "p/wu6gqz9/"
 date: "2023-01-04"
 tags: ["Rust"]
 ---
 
+Rust プログラムに渡されたコマンドライン引数を扱う方法として、[std::env::args 関数](https://doc.rust-lang.org/stable/std/env/fn.args.html) を使う方法を説明します。
+この関数は標準で呼び出すことができるのでお手軽ですが、リッチなコマンドライン引数を提供したいときは、[clap クレートを使う方法](/p/bdp2doy/) がおすすめです。
+
 std::env::args の基本
 ----
 
-Rust プログラムに渡されたコマンドライン引数を参照するには、[std::env::args メソッド](https://doc.rust-lang.org/stable/std/env/fn.args.html) を使用します。
-この関数は、イテレート可能な [std::env::Args](https://doc.rust-lang.org/stable/std/env/struct.Args.html) オブジェクトを返します。
-1 番目の要素は実行したファイルの名前（相対パス）で、2 番目以降にコマンドライン引数が格納されています。
+`std::env::args` 関数は、イテレート可能な [std::env::Args](https://doc.rust-lang.org/stable/std/env/struct.Args.html) オブジェクトを返します。
+1 番目の要素には実行したファイルの名前（相対パス）が含まれており、2 番目以降にコマンドライン引数が格納されています。
 
 {{< code lang="rust" title="src/main.rs" >}}
 use std::env;
@@ -22,18 +24,20 @@ fn main() {
 }
 {{< /code >}}
 
-`cargo run` でコマンドを実行した場合も、コマンドライン引数を参照できます。
+`cargo run` でコマンドを実行する場合、プログラムに渡すコマンドライン引数は、次のように __`--`__ の後ろに指定します。
 
 {{< code lang="console" title="実行例" >}}
-$ cargo -q run 100 200 300
+$ cargo -q run -- --aaa 100 200
 target/debug/sample
+--aaa
 100
 200
-300
 {{< /code >}}
 
+`--` というセパレーターを入れないと、`--aaa` オプションが、`cargo` 側のオプションとして渡されてしまうので注意してください。
 
-Vec<String> 型で取得する (collect)
+
+ベクター型で処理する (collect)
 ----
 
 `std::env::args` 関数の戻り値 `Args` は、次のように __`Vec<String>`__ 型に変換してしまうと扱いやすいです。
@@ -63,10 +67,8 @@ fn main() {
 ```
 
 
-clap クレートを使う方法
+次のステップ
 ----
 
-`-o` や `--output` といった形のコマンドライン引数を扱いたい場合は、clap クレートを使うと簡単に実装できます。
-
-- 参考: [Argument Parsing - Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/cli/arguments.html)
+- [Rust でコマンドライン引数を扱う (2) clap クレート](/p/bdp2doy/)
 

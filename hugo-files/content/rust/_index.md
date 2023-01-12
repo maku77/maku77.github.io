@@ -46,7 +46,8 @@ categoryIcon: _index.svg
 ----
 
 - ユーザー入力
-  - [コマンドライン引数を扱う (`std::env::args`)](/p/wu6gqz9/)
+  - [コマンドライン引数を扱う (1) `std::env::args`](/p/wu6gqz9/)
+  - [コマンドライン引数を扱う (2) `clap` クレート](/p/bdp2doy/)
   - [キーボードからの入力を取得する (`std::io::Stdin`)](/p/eamw7fp/)
 - ファイル／ディレクトリ／パス
   - [ディレクトリ内のファイルを列挙する (`std::fs::read_dir`)](/p/2kv6eub/)
