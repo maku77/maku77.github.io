@@ -31,7 +31,7 @@ fi
 #!/bin/bash
 
 if [ ! "$1" ]; then
-  echo "Usage: $(basename $1) <file>" >&2
+  echo "Usage: $(basename $0) <file>" >&2
   exit -1
 fi
 
