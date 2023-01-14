@@ -18,6 +18,7 @@ std::env::args の基本
 use std::env;
 
 fn main() {
+    // std::env::Args を取得してループ処理
     for arg in env::args() {
         println!("{arg}");  // arg は単純な String 型
     }
@@ -35,6 +36,14 @@ target/debug/sample
 {{< /code >}}
 
 `--` というセパレーターを入れないと、`--aaa` オプションが、`cargo` 側のオプションとして渡されてしまうので注意してください。
+
+`Iterator` トレイトの [`nth` メソッド](https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.nth) を使って、インデックス指定で参照することもできます。
+ユーザーがコマンドライン引数を指定しなかった場合は、`Option::None` が返されることに注意してください。
+
+```rust
+let first_arg: String = std::env::args().nth(1).unwrap();
+let second_arg: String = std::env::args().nth(2).unwrap();
+```
 
 
 ベクター型で処理する (collect)

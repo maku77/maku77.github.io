@@ -91,3 +91,27 @@ let u8_val: u8 = "255".parse().unwrap_or(0);
 let f64_val: f64 = "1.23".parse().unwrap_or(0.);
 ```
 
+
+文字列の末尾の特定の文字列（文字）を削除する (trim_end_matches)
+----
+
+{{< code lang="rust" title="末尾の文字列 CCC を削除する" >}}
+let s1 = "AAABBBCCC";
+let s2 = s1.trim_end_matches("CCC");  //=> "AAABBB"
+{{< /code >}}
+
+{{< code lang="rust" title="末尾の文字 C をすべて削除する" >}}
+let s1 = "AAABBBCCC";
+let s2 = s1.trim_end_matches('C');  //=> "AAABBB"
+{{< /code >}}
+
+{{< code lang="rust" title="末尾の文字 B と C をすべて削除する" >}}
+let s1 = "AAABBBCCC";
+let s2 = s1.trim_end_matches(['B', 'C']);  //=> "AAA"
+{{< /code >}}
+
+{{< code lang="rust" title="末尾の条件に一致する文字をすべて削除する" >}}
+let s1 = "abcXYZ";
+let s2 = s1.trim_end_matches(|c: char| c.is_uppercase());  //=> "abc"
+{{< /code >}}
+

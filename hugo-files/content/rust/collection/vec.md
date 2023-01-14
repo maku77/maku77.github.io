@@ -232,3 +232,57 @@ v.swap(1, 2);
 println!("{:?}", v); //=> ['A', 'C', 'B']
 ```
 
+### 連続する要素を 1 つにまとめる (dedup)
+
+```rust
+let mut v: Vec<i32> = vec![5, 5, 2, 2, 2, 1, 4, 2];
+v.dedup();
+println!("{:?}", v); //=> [5, 2, 1, 4, 2]
+```
+
+### 条件に一致する要素だけ残して削除する (retain)
+
+{{< code lang="rust" title="3 の倍数だけ残す" >}}
+let mut v = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+v.retain(|x| x % 3 == 0);
+println!("{:?}", v); //=> [3, 6, 9]
+{{< /code >}}
+
+### 条件に一致する要素を抽出して別の Vec として取得する (filter)
+
+{{< code lang="rust" title="3 の倍数を抽出して Vec を作る" >}}
+let v1 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+let v2: Vec<i32> = v1.into_iter().filter(|x| x % 3 == 0).collect();
+println!("{:?}", v2); //=> [3, 6, 9]
+{{< /code >}}
+
+### ループしながら要素を編集する
+
+Vec の各要素に 100 を足すいろいろな方法です。
+
+{{< code lang="rust" title="for in を使う方法（&mut でループ）" >}}
+let mut v = vec![1, 2, 3];
+for x in &mut v {
+    *x += 100;
+}
+println!("{:?}", v); //=> [101, 102, 103]
+{{< /code >}}
+
+{{< code lang="rust" title="for in を使う方法（インデックスでループ）" >}}
+for i in 0..v.len() {
+    v[i] += 100;
+}
+{{< /code >}}
+
+{{< code lang="rust" title="iter_mut、for_each を使う方法" >}}
+let mut v = vec![1, 2, 3];
+v.iter_mut().for_each(|x| *x += 100);
+{{< /code >}}
+
+{{< code lang="rust" title="iter、map を使う方法" >}}
+let v1: Vec<i32> = vec![1, 2, 3];
+let v2: Vec<i32> = v1.iter().map(|x| x + 100).collect();
+{{< /code >}}
+
+`v1` は不変で、変換結果が `v2` に格納されます。
+

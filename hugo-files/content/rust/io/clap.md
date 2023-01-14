@@ -275,8 +275,34 @@ Options:
 ```
 
 
-ヘルプに表示する詳細説明
+ヘルプ表示のカスタマイズ
 ----
+
+### 値のプレースホルダー名 (value_name)
+
+値を持つパラメーターの場合、ヘルプ表示においてその値の部分は `<フィールド名>` というプレースホルダで表示されますが、その表示は __`value_name`__ でカスタマイズできます。
+
+{{< code lang="rust" hl_lines="4" >}}
+#[derive(Parser)]
+struct Args {
+  /// Input file name
+  #[arg(short, long, value_name = "PATH")]
+  input: PathBuf,
+}
+{{< /code >}}
+
+上記のように指定すると、ヘルプ表示で `--input <INPUT>` と表示されていた部分が、`--input <PATH>` という表示に変わります。
+
+{{< code lang="console" title="ヘルプ表示例" >}}
+$ cargo fmt && cargo -q run -- -h
+Usage: hello --input <PATH>
+
+Options:
+  -i, --input <PATH>  Input file name
+  -h, --help          Print help information
+{{< /code >}}
+
+### 詳細説明
 
 アプリケーションや各パラメーターの詳細説明は次のように記述します。
 
