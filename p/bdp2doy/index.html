@@ -139,7 +139,18 @@ src/main.rs use clap::Parser; /// ヘルプ出力の最初に表示されるテ�
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=go>Options:
 </span></span></span><span class=line><span class=cl><span class=go>  -f, --format &lt;FORMAT&gt;  Output format [default: json] [possible values: json, yaml, toml]
 </span></span></span><span class=line><span class=cl><span class=go>  -h, --help             Print help information
-</span></span></span></code></pre></div><h2 id=ヘルプに表示する詳細説明>ヘルプに表示する詳細説明</h2><p>アプリケーションや各パラメーターの詳細説明は次のように記述します。</p><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=sd>/// My app
+</span></span></span></code></pre></div><h2 id=ヘルプ表示のカスタマイズ>ヘルプ表示のカスタマイズ</h2><h3 id=値のプレースホルダー名-value_name>値のプレースホルダー名 (value_name)</h3><p>値を持つパラメーターの場合、ヘルプ表示においてその値の部分は <code>&lt;フィールド名></code> というプレースホルダで表示されますが、その表示は <strong><code>value_name</code></strong> でカスタマイズできます。</p><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=cp>#[derive(Parser)]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>struct</span> <span class=nc>Args</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=sd>/// Input file name
+</span></span></span><span class="line hl"><span class=cl><span class=sd></span><span class=w>  </span><span class=cp>#[arg(short, long, value_name = </span><span class=s>&#34;PATH&#34;</span><span class=cp>)]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=n>input</span>: <span class=nc>PathBuf</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span></span></span></code></pre></div></div></figure><p>上記のように指定すると、ヘルプ表示で <code>--input &lt;INPUT></code> と表示されていた部分が、<code>--input &lt;PATH></code> という表示に変わります。</p><figure class=codeBlock><figcaption class=codeBlock__title>ヘルプ表示例</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> cargo fmt <span class=o>&amp;&amp;</span> cargo -q run -- -h
+</span></span><span class=line><span class=cl><span class=go>Usage: hello --input &lt;PATH&gt;
+</span></span></span><span class=line><span class=cl><span class=go></span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=go>Options:
+</span></span></span><span class=line><span class=cl><span class=go>  -i, --input &lt;PATH&gt;  Input file name
+</span></span></span><span class=line><span class=cl><span class=go>  -h, --help          Print help information
+</span></span></span></code></pre></div></div></figure><h3 id=詳細説明>詳細説明</h3><p>アプリケーションや各パラメーターの詳細説明は次のように記述します。</p><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=sd>/// My app
 </span></span></span><span class="line hl"><span class=cl><span class=sd>///
 </span></span></span><span class="line hl"><span class=cl><span class=sd>/// Long long long description.
 </span></span></span><span class="line hl"><span class=cl><span class=sd>/// Long long long description.
