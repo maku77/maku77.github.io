@@ -56,7 +56,8 @@ categoryIcon: _index.svg
   - [ディレクトリを作成・削除する (`std::fs::create_dir, create_dir_all, remove_dir, remove_dir_all`)](/p/zju5eow/)
   - [ファイルやディレクトリのパス文字列を構築／分割する (`std::io::Path`, `PathBuf`)](/p/36hr2bj/)
   - [ファイルやディレクトリの存在を調べる (`std::io::Path`, `PathBuf`)](/p/fbkt3ah/)
-- [Serde で JSON フォーマットを扱う](/p/xdyk5o8/)
+- [JSON フォーマットを扱う (serde)](/p/xdyk5o8/)
+- [Excel ファイルを読み込む (calamine)](/p/4ye2eah/)
 
 
 その他

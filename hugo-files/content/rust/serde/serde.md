@@ -1,5 +1,5 @@
 ---
-title: "Rust の Serde で JSON フォーマットを扱う"
+title: "Rust で JSON フォーマットを扱う (serde)"
 url: "p/xdyk5o8/"
 date: "2023-01-09"
 tags: ["Rust"]
