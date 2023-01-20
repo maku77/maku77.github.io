@@ -18,6 +18,7 @@ categoryIcon: _index.svg
   - [Cargo で外部クレートの依存関係を管理する (`Cargo.toml`)](/p/4yj2hzf/)
   - [Rust の use の使い方](/p/9dpz9hr/)
 - ツール／エコシステム
+  - [クロスコンパイルして他の OS 用の実行ファイルを生成する](/p/uyqo7ze/)
 {{% /private %}}
 
 はじめに
