@@ -12,6 +12,9 @@ categoryIcon: _index.svg
 - [(DRAFT) Rust 未整理メモ](/p/jkv7gpz/)
 - コレクション
   - [ベクター型 (Vec) を扱う](/p/jku3biq/)
+  - [文字列型 (String) を扱う](/p/vakbzyc/)
+  - セット型 (HashSet) を扱う
+    - https://doc.rust-jp.rs/rust-by-example-ja/std/hash/hashset.html
 - 文字列／数値
   - [文字列処理いろいろ](/p/95o6n4k/)
 - クレート（ライブラリ）の依存管理
@@ -37,6 +40,8 @@ categoryIcon: _index.svg
   - [各種ライブラリのエラー型と Error トレイト](/p/8amv5eo/)
   - [Result のエイリアス型でコードを簡潔にする](/p/ez9gpw5/)
   - [Result オブジェクトを消費せずに参照する (as_ref, as_mut)](/p/z3gts64/)
+- コレクション
+  - [ハッシュマップ型 (HashMap) を扱う](/p/eefwaa3/)
 
 {{% private %}}
 - エラーを伝搬させる（? 演算子）

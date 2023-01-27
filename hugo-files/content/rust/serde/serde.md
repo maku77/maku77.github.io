@@ -55,6 +55,7 @@ struct Book {
 
 fn main() {
     // シリアライズ (構造体 → JSON 文字列)
+    // 整形したいときは to_string の代わりに to_string_pretty を使えば OK
     let book = Book { id: 1, title: String::from("Title-1") };
     let json = serde_json::to_string(&book).unwrap();
     println!("{}", json); //=> {"id":1,"title":"Title-1"}
@@ -299,5 +300,7 @@ attributes: HashMap<String, String>,
 ```
 
 
-シリアライズ時にフィールド名でソートする
-----
+{{% private %}}
+- シリアライズ時にフィールド名でソートする
+{{% /private %}}
+
