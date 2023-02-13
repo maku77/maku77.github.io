@@ -344,6 +344,17 @@ defaults:
       category_long_desc: "日本で生まれたオブジェクト指向言語 Ruby の使い方。"
   -
     scope:
+      path: "rust"
+      type: "pages"
+    values:
+      category_title: "Rust"
+      category_id: "rust"
+      category_logo: "logo-rust.svg"
+      category_og_image: "logo-rust.png"
+      category_desc: "天才星人まくのRustノート"
+      category_long_desc: "C/C++ からの乗り換えが進行中。"
+  -
+    scope:
       path: "sass"
       type: "pages"
     values:
