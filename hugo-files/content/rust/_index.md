@@ -11,7 +11,6 @@ categoryIcon: _index.svg
 - [10 分で理解する Rust 文法](/p/63m4k3i/)
 - [(DRAFT) Rust 未整理メモ](/p/jkv7gpz/)
 - コレクション
-  - [ベクター型 (Vec) を扱う](/p/jku3biq/)
   - [文字列型 (String) を扱う](/p/vakbzyc/)
   - セット型 (HashSet) を扱う
     - https://doc.rust-jp.rs/rust-by-example-ja/std/hash/hashset.html
@@ -34,13 +33,19 @@ categoryIcon: _index.svg
 基本
 ----
 
-- [列挙型 (enum) の定義と match, if let による照合](/p/ffqyajs/)
+- Rust の文法
+  - [制御構文 (if, while, loop, for)](/p/22cnw7f/)
+  - [配列 (array) とタプル (tuple)](/p/7r3cmv6/)
+  - [構造体 (struct) を定義する](/p/h8kw8ju/)
+  - [所有権 (ownership) と借用 (borrow)](/p/4nx8hqy/)
+  - [列挙型 (enum) の定義と match, if let による照合](/p/ffqyajs/)
 - [Option 型の基本 ─ 値の有無を表現する型](/p/9m6m5m3/)
 - [Result 型の基本 ─ 成功と失敗を表現する型](/p/us2ahpw/)
   - [各種ライブラリのエラー型と Error トレイト](/p/8amv5eo/)
   - [Result のエイリアス型でコードを簡潔にする](/p/ez9gpw5/)
   - [Result オブジェクトを消費せずに参照する (as_ref, as_mut)](/p/z3gts64/)
 - コレクション
+  - [ベクター型 (Vec) を扱う](/p/jku3biq/)
   - [ハッシュマップ型 (HashMap) を扱う](/p/eefwaa3/)
 
 {{% private %}}
@@ -48,7 +53,7 @@ categoryIcon: _index.svg
 {{% /private %}}
 
 
-入出力 (I/O) 処理、ファイル処理
+入出力 (I/O)、ファイル
 ----
 
 - ユーザー入力

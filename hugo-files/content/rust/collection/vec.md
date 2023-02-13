@@ -3,7 +3,6 @@ title: "Rust でベクター型 (Vec) を扱う"
 url: "p/jku3biq/"
 date: "2023-01-07"
 tags: ["Rust"]
-draft: true
 ---
 
 {{% private %}}
