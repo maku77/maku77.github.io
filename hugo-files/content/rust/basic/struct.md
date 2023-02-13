@@ -1,7 +1,7 @@
 ---
 title: "Rust の文法: 構造体 (struct) を定義する"
 url: "p/h8kw8ju/"
-date: "2023-02-14"
+date: "2023-02-13"
 tags: ["Rust"]
 ---
 

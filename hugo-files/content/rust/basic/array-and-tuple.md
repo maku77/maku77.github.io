@@ -1,7 +1,7 @@
 ---
 title: "Rust の文法: 配列 (array) とタプル (tuple)"
 url: "p/7r3cmv6/"
-date: "2023-02-14"
+date: "2023-02-13"
 tags: ["Rust"]
 ---
 

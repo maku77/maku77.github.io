@@ -1,7 +1,7 @@
 ---
 title: "Rust の文法: 所有権 (ownership) と借用 (borrow)"
 url: "p/4nx8hqy/"
-date: "2023-02-14"
+date: "2023-02-13"
 tags: ["Rust"]
 ---
 
