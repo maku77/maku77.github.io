@@ -22,8 +22,26 @@ categoryIcon: logo-hugo.png
 * [Hugo でドラフトページの一覧を簡単に確認できるようにする](/p/qpcvfzi/)
 * [Hugo のテーマを設定する](/p/h2cku5d/)
 
+hugo コマンドと設定ファイル
+----
+
+### hugo コマンド <!-- cli -->
+* [カレントディレクトリを気にせずに hugo コマンドを実行する (`hugo server -s`) ](/p/wdyk5n7/)
+* [ポート番号を指定して Hugo サーバーを起動する (`hugo server -p`)](/p/jj7rcvf/)
+* [Hugo サーバーで記事の変更内容が反映されない場合 (`hugo server --ignoreCache`)](/p/taxh3m7/)
+* [複数の Hugo サーバーを 1 つのコマンドプロンプト上で立ち上げる](/p/yg4o9rb/)
+
+### 設定ファイル (config) <!-- config -->
+* [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ (`hasCJKLanguage`, `isCJKLanguage`)](/p/rqcwgyj/)
+* [コンフィグファイルに設定した情報を参照する](/p/5m9tdwg/)
+* [Google アナリティクス用のトラッキングコードを埋め込む (`googleAnalytics`)](/p/zxk6pat/)
+* [ページ内に Tex 形式の数式を埋め込めるようにする (MathJax)](/p/dsfzi4n/)
+* [リンクをページからの相対パスで出力するようにする (`relativeurls`)](/p/32n9scv/)
+
 ショートコード (Shortcode) <!-- shortcode -->
 ----
+
+### ショートコードの使い方と作り方
 * [ショートコードで本文内に HTML スニペットを埋め込む](/p/tsfzj4n/)
 * [独自のショートコードを作成する](/p/ttfyk5o/)
 * [ショートコードの中からフロントマターのパラメータを参照する (`$.Page.Params`)](/p/t4sdxi3/)
@@ -33,25 +51,10 @@ categoryIcon: logo-hugo.png
 * [あるショートコードが使われている場合のみ JavaScript を読み込む (`.HasShortcode`)](/p/3j6qate/)
 
 ### ショートコードの例
-* [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
-* [ローカルサーバで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する](shortcode/private.html)
-* [SVGファイルをインラインで埋め込むショートコードを作成する](shortcode/inline-svg.html)
-* [クリックで開閉するアコーディオン・ショートコードを作成する](shortcode/accordion.html)
-
-hugo コマンド
-----
-* [カレントディレクトリを気にせずに hugo コマンドを実行する](command/source-dir.html)
-* [ポート番号を指定して Hugo サーバーを起動する](command/server-port.html)
-* [複数の Hugo サーバーを１つのコマンドプロンプト上で立ち上げる](command/multi-server.html)
-* [Hugo サーバーで記事の変更内容が反映されない場合](command/ignore-cache.html)
-
-設定/config ファイル
-----
-* [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ](settings/japanese.html)
-* [コンフィグファイルに設定した情報を参照する](settings/read-config.html)
-* [Google アナリティクス用のトラッキングコードを埋め込む](settings/google-analytics.html)
-* [ページ内に Tex 形式の数式を埋め込めるようにする (MathJax)](settings/math-jax.html)
-* [リンクをページからの相対パスで出力するようにする (relativeurls)](settings/relativeurls.html)
+* [ローカルサーバーで動作させているとき（開発時）のみ内容を出力する `private` ショートコードを作成する](/p/jbr6kzd/)
+* [SVG ファイルをインラインで埋め込む `svg` ショートコードを作成する](/p/kyn8rcv/)
+* [クリックで開閉する `accordion` ショートコードを作成する](/p/w5gs4ep/)
+* [Youtube の動画を表示する `youtube` ショートコード（Hugo 組み込み）](https://gohugo.io/content-management/shortcodes/#youtube)
 
 テンプレート／テーマ <!-- layout -->
 ----
@@ -59,7 +62,7 @@ hugo コマンド
 * [独自のテーマを作成する](basic/create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する (themesDir)](layout/same-theme-dir.html)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
-* [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (baseof)](template/base-template.html)
+* [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (`baseof.html`)](/p/bbxj5pa/)
 * [フロントマターの type、layout プロパティでレイアウトを指定する](layout/type-layout.html)
 * [Hugo Themes](https://themes.gohugo.io/) （色々な Hugo 用テーマが公開されています）
 
@@ -123,7 +126,7 @@ hugo コマンド
 * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
 * [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
 * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
-* [Sass/SCSS スタイルシートを使用する](advanced/sass.html)
+* [Sass/SCSS スタイルシートを使用する](/p/k7jv7hs/)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [Google カスタム検索を設置して記事を検索できるようにする](advanced/google-custom-search.html)
 * [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
@@ -135,7 +138,7 @@ hugo コマンド
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
 * [mermaid.js で Markdown 中に UML 図を埋め込む](/p/xg3n7qa/)
-* [Hugo のテンプレートやショートコードでランダムな文字列を生成する](misc/random.html)
+* [Hugo のテンプレートやショートコードでランダムな文字列を生成する](/p/9qexh2q/)
 * [記事ページで TypeScript ファイルをインクルードして使用する](/p/3adgjnq/)
 * [新しいページや別のサイトへ自動でリダイレクトする (aliases, redirectTo)](/p/oj3izfu/)
 
