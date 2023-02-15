@@ -10,19 +10,19 @@ categoryIcon: logo-hugo.png
 高速な静的サイトジェネレータ Hugo の使い方です。
 [Go 言語に関する記事はこちら](/go/)へ分離しました。
 
-はじめに
+はじめに <!-- basic -->
 ----
-* [Hugo とは／Hugo をインストールする](basic/install.html)
-* [Hugo で新規の Web サイトを作成する](basic/create-site.html)
+* [Hugo とは／Hugo をインストールする](/p/r8ufyk5/)
+* [Hugo で新規の Web サイトを作成する](/p/bt5enw6/)
 
-記事の作成
+記事の作成 <!-- basic -->
 ----
-* [Hugo で記事を作成する](basic/create-page.html)
-* [Hugo でドラフトページを作成する](basic/draft.html)
+* [Hugo で記事を作成する](/p/q7sdwgy/)
+* [Hugo でドラフトページを作成する](/p/m2oatdw/)
 * [Hugo でドラフトページの一覧を簡単に確認できるようにする](basic/draft-list.html)
-* [Hugo のテーマを設定する](basic/theme.html)
+* [Hugo のテーマを設定する](/p/h2cku5d/)
 
-ショートコード (Shortcode)
+ショートコード (Shortcode) <!-- shortcode -->
 ----
 * [ショートコードで本文内に HTML スニペットを埋め込む](shortcode/basic.html)
 * [独自のショートコードを作成する](shortcode/create-shortcode.html)
@@ -53,9 +53,9 @@ hugo コマンド
 * [ページ内に Tex 形式の数式を埋め込めるようにする (MathJax)](settings/math-jax.html)
 * [リンクをページからの相対パスで出力するようにする (relativeurls)](settings/relativeurls.html)
 
-テンプレート／テーマ
+テンプレート／テーマ <!-- layout -->
 ----
-* [レイアウト用のテンプレートの種類を理解する](layout/template-types.html)
+* [レイアウト用のテンプレートの種類を理解する](/p/zg4n7q9/)
 * [独自のテーマを作成する](basic/create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する (themesDir)](layout/same-theme-dir.html)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
