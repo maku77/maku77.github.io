@@ -19,18 +19,18 @@ categoryIcon: logo-hugo.png
 ----
 * [Hugo で記事を作成する](/p/q7sdwgy/)
 * [Hugo でドラフトページを作成する](/p/m2oatdw/)
-* [Hugo でドラフトページの一覧を簡単に確認できるようにする](basic/draft-list.html)
+* [Hugo でドラフトページの一覧を簡単に確認できるようにする](/p/qpcvfzi/)
 * [Hugo のテーマを設定する](/p/h2cku5d/)
 
 ショートコード (Shortcode) <!-- shortcode -->
 ----
-* [ショートコードで本文内に HTML スニペットを埋め込む](shortcode/basic.html)
-* [独自のショートコードを作成する](shortcode/create-shortcode.html)
-* [ショートコードの中からフロントマターのパラメータを参照する ($.Page.Params)](shortcode/frontmatter-params.html)
-* [ショートコードの中から設定ファイルのパラメータを参照する ($.Site.Params)](shortcode/site-params.html)
-* [ソースコードをハイライト表示する (highlight)](shortcode/highlight.html)
-* [ショートコードをエスケープ処理してそのまま表示する](shortcode/escape.html)
-* [あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)](shortcode/has-shortcode.html)
+* [ショートコードで本文内に HTML スニペットを埋め込む](/p/tsfzj4n/)
+* [独自のショートコードを作成する](/p/ttfyk5o/)
+* [ショートコードの中からフロントマターのパラメータを参照する (`$.Page.Params`)](/p/t4sdxi3/)
+* [ショートコードの中から設定ファイルのパラメータを参照する (`$.Site.Params`)](/p/53patex/)
+* [ソースコードをハイライト表示する (highlight)](/p/gxk6qat/)
+* [ショートコードをエスケープ処理してそのまま表示する](/p/9tg2m7q/)
+* [あるショートコードが使われている場合のみ JavaScript を読み込む (`.HasShortcode`)](/p/3j6qate/)
 
 ### ショートコードの例
 * [Youtube の動画を表示する（Hugo 組み込みショートコード）](https://gohugo.io/content-management/shortcodes/#youtube)
@@ -88,7 +88,7 @@ hugo コマンド
 * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
 * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
 * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
-* [ページリスト（記事一覧）に列挙されないページを作る (_build.list)](/p/4ziyhxe/)
+* [ページリスト（記事一覧）に列挙されないページを作る (`_build.list`)](/p/4ziyhxe/)
 * [セクションページでいろいろな方法でページソートする](/p/9gjnqtw/)
 
 ### タクソノミー（タグ／カテゴリの仕組み）
@@ -134,7 +134,7 @@ hugo コマンド
 * [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
-* [mermaid.js で Markdown 中に UML 図を埋め込む](advanced/mermaid.html)
+* [mermaid.js で Markdown 中に UML 図を埋め込む](/p/xg3n7qa/)
 * [Hugo のテンプレートやショートコードでランダムな文字列を生成する](misc/random.html)
 * [記事ページで TypeScript ファイルをインクルードして使用する](/p/3adgjnq/)
 * [新しいページや別のサイトへ自動でリダイレクトする (aliases, redirectTo)](/p/oj3izfu/)

@@ -1,6 +1,9 @@
 ---
-title: "あるショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)"
+title: "Hugo でショートコードが使われている場合のみ JavaScript を読み込む (.HasShortcode)"
+url: "p/3j6qate/"
 date: "2020-10-13"
+tags: ["Hugo"]
+aliases: /hugo/shortcode/has-shortcode.html
 ---
 
 .HasShortcode 関数
@@ -18,7 +21,7 @@ date: "2020-10-13"
 <script src="for-shortcode.min.js"></script>
 ```
 
-すべてのページにこのようなコードを出力してしまうと、この JavaScript が必要ないページでもファイルのロードが発生してしまいます。
+すべてのページにこのようなコードを出力してしまうと、この JavaScript が必要ないページでもファイルの読み込みが発生してしまいます。
 こういった拡張が増えてくると、大量の JavaScript ファイルが読み込まれることになり、重い Web サイトになってしまいます。
 
 このような場合の救世主が __`Page.HasShortcode`__ 関数です。
@@ -28,9 +31,9 @@ date: "2020-10-13"
 ページテンプレート内で、
 
 ```
-{{ "{{" }} if .HasShortcode "my-shortcode" }}
+{{ if .HasShortcode "my-shortcode" }}
   ...
-{{ "{{" }} end }}
+{{ end }}
 ```
 
 といった記述をしておくと、Markdown ファイル内で `my-shortcode` ショートコードを使用している場合のみ出力を行うことができます。
@@ -41,43 +44,37 @@ date: "2020-10-13"
 
 例えば、ベーステンプレートの `body` 要素の末尾に次のように記述しておけば、Markdown ファイル内で `mermaid` ショートコードを使用している場合のみ、`mermaid.js` の読み込みと初期化処理を実行することができます。
 
-#### layouts/_default/baseof.html（抜粋）
-
-```html
+{{< code lang="html" title="layouts/_default/baseof.html（抜粋）" >}}
   ...
-  {{ "{{" }}- if .HasShortcode "mermaid" }}
+  {{- if .HasShortcode "mermaid" }}
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad: true});</script>
-  {{ "{{" }}- end }}
+  {{- end }}
 </body>
 </html>
-```
+{{< /code >}}
 
 ちなみに、`mermaid` ショートコードの実装は次のような感じになっています。
 
-#### layouts/shortcodes/mermaid.html
-
-```html
+{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
-{{ "{{" }} .Inner }}
+{{ .Inner }}
 </div>
-```
+{{< /code >}}
 
-#### Markdown ファイル内での使い方
+Markdown ファイルからは次のように呼び出します。
 
 ```
-{{ "{{" }}< mermaid >}}
+{{</* mermaid */>}}
 sequenceDiagram
     Client->>Cache: search cache
     Cache-->>Client: cache
     Client->>Repo: fetch data
     Repo-->>Client: data
-{{ "{{" }}< /mermaid >}}
+{{</* /mermaid */>}}
 ```
 
-#### 表示結果
-
-![has-shortcode-001.svg](./has-shortcode-001.svg)
+{{< image src="img-001.svg" title="出力結果" >}}
 
 
 （応用）他のページを間接的に出力するとき
@@ -88,29 +85,27 @@ sequenceDiagram
 `Page.HasShortcode` 関数は、あくまで現在処理しようとしているページの Markdown 内でショートコードが使われているかどうかを調べます。
 例えば、ホームページテンプレートで、次のように最新記事の内容を間接的に取得して表示しているような場合は、`baseof.html` テンプレートに記述した `.HasShortcode` 関数は意図通り動作しない可能性があります。
 
-```
+```html
 <!-- 最近の記事をいくつかまとめて表示 -->
-{{ "{{" }}- range first 3 .Site.RegularPages.ByLastmod.Reverse -}}
+{{- range first 3 .Site.RegularPages.ByLastmod.Reverse -}}
   <article class="xArticle" itemscope itemtype="https://schema.org/BlogPosting">
-    {{ "{{" }} .Render "inc-article" }}
+    {{ .Render "inc-article" }}
   </article>
-{{ "{{" }}- end -}}
+{{- end -}}
 ```
 
 なぜなら、ホームページ (`content/_index.md`) の Markdown ファイルではショートコードを使っていないのにもかかわらず（`.HasShortcode` が `false` になる）、上記ループで表示される別ページ内で JavaScript のロードを必要としていることがあるからです。
 
 このようなケースに対応するには、上記のような `Page` オブジェクトをループしている部分で、`.HasShortcode` によるチェックを行わなければいけません。
-ただし、ループ内で JavaScript ファイルをロードする `script` 要素を出力してしまうと、ロードタイミングとしてはよろしくない（できれば `body` の末尾がいい）し、ロード用のコードが重複してしまいます。
+ただし、ループ内で JavaScript ファイルをロードする `script` 要素を出力してしまうと、読み込みタイミングとしてはよろしくない（できれば `body` の末尾がいい）し、読み込み用のコードが重複してしまいます。
 
 ### 解決案
 
 解決方法はいろいろありそうですが、ひとつの解決方法としては、ショートコード内で、自分自身が必要とする JavaScript ファイル（下記の例では `mermaid.min.js`）をロードする JavaScript コードを出力してしまうという方法です。
 
-#### layouts/shortcodes/mermaid.html
-
-```html
+{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
-{{ "{{" }}.Inner }}
+{{ .Inner }}
 </div>
 
 <script>
@@ -132,14 +127,14 @@ sequenceDiagram
   document.body.appendChild(script);
 })();
 </script>
-```
+{{< /code >}}
 
 すでにロードした JavaScript の情報は、グローバルな `window.loadedJsSet` 変数に格納しておくことで重複ロードを防いでいます。
 この方法であれば、`baseof.html` などのベーステンプレートで `script` 要素を出力する必要もなく、ショートコード用のファイルだけで完結できます。
 ある意味 `.HasShortcode` を使う方法よりもすっきりするかもしれません。
 
 この方法の欠点としては、このショートコードを使うたびに同じ JavaScript コードが出力されてしまうという点でしょうか。
-とはいえ、ページ内でのショートコードの呼び出し回数が高々数回程度であるのであれば、それほど気にしなくてもいいと思います。
+とはいえ、ページ内でのショートコードの呼び出し回数が、たかだか数回程度と想定できるのであれば、それほど気にしなくてもいいと思います。
 
-- 参考: [mermaid.js で Markdown 中に UML 図を埋め込む](../advanced/mermaid.html)
+- 参考: [mermaid.js で Markdown 中に UML 図を埋め込む](/p/xg3n7qa/)
 
