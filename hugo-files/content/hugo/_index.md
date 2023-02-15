@@ -1,7 +1,14 @@
 ---
 title: "Hugo"
-layout: category-index
+url: "/hugo/"
+
+categoryName: "まくまく Hugo ノート"
+categoryUrl: "/hugo/"
+categoryIcon: logo-hugo.png
 ---
+
+高速な静的サイトジェネレータ Hugo の使い方です。
+[Go 言語に関する記事はこちら](/go/)へ分離しました。
 
 はじめに
 ----
@@ -136,7 +143,4 @@ hugo コマンド
 ----
 * [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
 * [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
-
-
-[Go 言語に関する記事はこちら](/go/) へ移動しました。
 
