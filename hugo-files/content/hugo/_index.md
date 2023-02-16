@@ -66,7 +66,7 @@ hugo コマンドと設定ファイル
 * [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (`baseof.html`)](/p/bbxj5pa/)
 
 ### テーマ
-* [独自のテーマを作成する](basic/create-theme.html)
+* [独自のテーマを作成する](/p/s4qbuez/)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する (themesDir)](layout/same-theme-dir.html)
 * [Hugo Themes（Hugo テーマの一覧サイト）](https://themes.gohugo.io/)
 
