@@ -28,7 +28,7 @@ hugo コマンドと設定ファイル
 ### hugo コマンド <!-- cli -->
 * [カレントディレクトリを気にせずに hugo コマンドを実行する (`hugo server -s`) ](/p/wdyk5n7/)
 * [ポート番号を指定して Hugo サーバーを起動する (`hugo server -p`)](/p/jj7rcvf/)
-* [Hugo サーバーで記事の変更内容が反映されない場合 (`hugo server --ignoreCache`)](/p/taxh3m7/)
+* [Hugo サーバーで記事生成のキャッシュを無効にする (`hugo server --ignoreCache`)](/p/taxh3m7/)
 * [複数の Hugo サーバーを 1 つのコマンドプロンプト上で立ち上げる](/p/yg4o9rb/)
 
 ### 設定ファイル (config) <!-- config -->
@@ -58,13 +58,17 @@ hugo コマンドと設定ファイル
 
 テンプレート／テーマ <!-- layout -->
 ----
+
+### テンプレートによるレイアウトの基本
 * [レイアウト用のテンプレートの種類を理解する](/p/zg4n7q9/)
+* [記事ファイルのフロントマターで使用するレイアウトを制御する (`type`, `layout`)](/p/m2n8rbu/)
+* [サイトのヘッダーとフッターをパーシャルファイルに分離する (`partials/header.html`, `partials/footer.html`)](/p/wvi3n7q/)
+* [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (`baseof.html`)](/p/bbxj5pa/)
+
+### テーマ
 * [独自のテーマを作成する](basic/create-theme.html)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する (themesDir)](layout/same-theme-dir.html)
-* [サイトのヘッダーとフッターをパーシャルファイルに分離する](template/partial-header.html)
-* [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (`baseof.html`)](/p/bbxj5pa/)
-* [フロントマターの type、layout プロパティでレイアウトを指定する](layout/type-layout.html)
-* [Hugo Themes](https://themes.gohugo.io/) （色々な Hugo 用テーマが公開されています）
+* [Hugo Themes（Hugo テーマの一覧サイト）](https://themes.gohugo.io/)
 
 ### Hugo のテンプレート文法
 * [Hugo テンプレート内にコメントを記述する](template/comment.html)
@@ -146,4 +150,5 @@ hugo コマンドと設定ファイル
 ----
 * [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
 * [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
+* [Hugo サーバーで記事の変更内容が反映されない (`hugo server --ignoreCache`)](/p/taxh3m7/)
 
