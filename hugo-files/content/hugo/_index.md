@@ -21,6 +21,8 @@ categoryIcon: logo-hugo.png
 * [Hugo でドラフトページを作成する](/p/m2oatdw/)
 * [Hugo でドラフトページの一覧を簡単に確認できるようにする](/p/qpcvfzi/)
 * [Hugo のテーマを設定する](/p/h2cku5d/)
+* [Hugo で独自のテーマを作成する](/p/s4qbuez/)
+* [Hugo Themes（Hugo テーマの一覧サイト）](https://themes.gohugo.io/)
 
 hugo コマンドと設定ファイル
 ----
@@ -30,6 +32,7 @@ hugo コマンドと設定ファイル
 * [ポート番号を指定して Hugo サーバーを起動する (`hugo server -p`)](/p/jj7rcvf/)
 * [Hugo サーバーで記事生成のキャッシュを無効にする (`hugo server --ignoreCache`)](/p/taxh3m7/)
 * [複数の Hugo サーバーを 1 つのコマンドプロンプト上で立ち上げる](/p/yg4o9rb/)
+* [複数の Hugo サイトで同じテーマディレクトリを参照する (`themesDir`)](/p/4m7gqfx/)
 
 ### 設定ファイル (config) <!-- config -->
 * [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ (`hasCJKLanguage`, `isCJKLanguage`)](/p/rqcwgyj/)
@@ -56,49 +59,43 @@ hugo コマンドと設定ファイル
 * [クリックで開閉する `accordion` ショートコードを作成する](/p/w5gs4ep/)
 * [Youtube の動画を表示する `youtube` ショートコード（Hugo 組み込み）](https://gohugo.io/content-management/shortcodes/#youtube)
 
-テンプレート／テーマ <!-- layout -->
+テンプレート
 ----
 
-### テンプレートによるレイアウトの基本
+### テンプレートによるレイアウトの基本 <!-- template -->
 * [レイアウト用のテンプレートの種類を理解する](/p/zg4n7q9/)
 * [記事ファイルのフロントマターで使用するレイアウトを制御する (`type`, `layout`)](/p/m2n8rbu/)
 * [サイトのヘッダーとフッターをパーシャルファイルに分離する (`partials/header.html`, `partials/footer.html`)](/p/wvi3n7q/)
 * [ベーステンプレートを作成して、各種テンプレートの基本構成を統一する (`baseof.html`)](/p/bbxj5pa/)
 
-### テーマ
-* [独自のテーマを作成する](/p/s4qbuez/)
-* [複数の Hugo サイトで同じテーマディレクトリを参照する (themesDir)](layout/same-theme-dir.html)
-* [Hugo Themes（Hugo テーマの一覧サイト）](https://themes.gohugo.io/)
+### Hugo のテンプレート文法 <!-- template -->
+* [Hugo テンプレート内にコメントを記述する (`{{/* ... */}}`)](/p/5zwytgx/)
+* [Hugo テンプレート内で変数を扱う (`{{ $x := ... }}`)](/p/y39gzkc/)
+* [Hugo テンプレート内で配列（スライス）変数を扱う (`slice`, `index`, `range`)](/p/7bvjywy/)
+* [Hugo テンプレート内でマップ（辞書）変数を扱う (`dict`, `index`, `range`)](/p/yhqogz6/)
+* [Hugo テンプレート内で `if` や `with` で分岐処理する](/p/ewoqwrk/)
+* [Hugo テンプレートで数値によるループ処理を行う (`range`, `seq`)](/p/8vm6xqm/)
+* [Hugo テンプレート内で `define` による部分テンプレート定義を行う（関数もどき）](/p/pkww45p/)
+* [Hugo のパーシャルテンプレートから値を返す（関数化）(`return`)](/p/4anjern/)
 
-### Hugo のテンプレート文法
-* [Hugo テンプレート内にコメントを記述する](template/comment.html)
-* [Hugo テンプレート内で変数を扱う](template/variable.html)
-* [Hugo テンプレート内で配列（スライス）変数を定義する (slice)](template/array.html)
-* [Hugo テンプレート内でマップ（辞書）変数を定義する (dict)](template/dict.html)
-* [Hugo テンプレートで if、with による分岐処理を行う](layout/grammer/if.html)
-* [Hugo テンプレートで数値によるループ処理を行う](template/loop.html)
-* [Hugo テンプレート内で define による部分テンプレート定義を行う（関数もどき）](template/define.html)
-* [Hugo のパーシャルテンプレートから値を返す（関数化）](template/return-from-partial.html)
-
-### セクション機能
+### セクションとページリスト <!-- section -->
 * [セクション機能を使って記事を階層化する](layout/section.html)
 * [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
 * [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
 * [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
 * [ページの階層構造を取得する関数を作成する (get-hierarchy)](layout/get-hierarchy.html)
+* ページ一覧／セクション一覧を表示するサンプル <!-- list -->
+  * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
+  * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
+  * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
+  * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (.Site.Home.RegularPages)](list/root-pages.html)
+  * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
+  * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
+  * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
+  * [ページリスト（記事一覧）に列挙されないページを作る (`_build.list`)](/p/4ziyhxe/)
+  * [セクションページでいろいろな方法でページソートする](/p/9gjnqtw/)
 
-### ページ一覧／セクション一覧を表示するサンプル
-* [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
-* [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
-* [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
-* [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (.Site.Home.RegularPages)](list/root-pages.html)
-* [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
-* [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
-* [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
-* [ページリスト（記事一覧）に列挙されないページを作る (`_build.list`)](/p/4ziyhxe/)
-* [セクションページでいろいろな方法でページソートする](/p/9gjnqtw/)
-
-### タクソノミー（タグ／カテゴリの仕組み）
+### タクソノミー（タグとカテゴリー） <!-- taxonomy -->
 * [タクソノミーの基本](taxonomy/basic.html)
 * [タクソノミー関連のテンプレートを定義する](taxonomy/template.html)
 * [サイト全体のターム一覧（タグ一覧）を表示する](taxonomy/list-all-taxonomies.html)
@@ -125,7 +122,7 @@ hugo コマンドと設定ファイル
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
 * [テンプレートの中で絵文字を使用する (emojify)](template/emojify.html)
 
-応用
+Hugo 応用
 ----
 * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
 * [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
