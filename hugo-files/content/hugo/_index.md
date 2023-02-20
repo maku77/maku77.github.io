@@ -84,12 +84,12 @@ hugo コマンドと設定ファイル
 * [セクションの階層構造を取得する (`.CurrentSection`、`.Parent`、`.Sections`)](/p/8vrj4ui/)
 * [ページタイトルに自動でセクションプレフィックスを付ける](/p/dunigdz/)
 * [ページの階層構造を取得する関数を作成する (`get-hierarchy`)](/p/v9t62ux/)
-* ページ一覧／セクション一覧を表示するサンプル <!-- list -->
-  * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
-  * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
-  * [カレントセクション直下のページ／セクションの一覧を表示する](list/section-children.html)
-  * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (.Site.Home.RegularPages)](list/root-pages.html)
-  * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](list/page-hierarchy.html)
+* 一覧表示のサンプルコード <!-- list -->
+  * [サイト内の全ページの一覧を表示する (`.Site.Pages`)](/p/sgrjpfu/)
+  * [サイト内の全セクションの一覧を表示する (`.Site.Sections`)](/p/vczuozw/)
+  * [カレントセクション直下のページ／セクションの一覧を表示する](/p/pgub54h/)
+  * [セクションを持たない記事ページ（ルートの記事ページ）の一覧を表示する (`.Site.Home.RegularPages`)](/p/4sxmnfi/)
+  * [サイト内の全ページの一覧をセクションの階層構造に従って表示する](/p/xuwd7tn/)
   * [サイドバー用のページツリーを表示する（現在表示しているページを考慮した階層表示）](list/sidebar-menu.html)
   * [最近更新された記事（新着記事）のリストを表示する](list/recents.html)
   * [ページリスト（記事一覧）に列挙されないページを作る (`_build.list`)](/p/4ziyhxe/)
@@ -120,7 +120,7 @@ hugo コマンドと設定ファイル
 * [Markdown (.md) ファイルのパス情報を取得する](/p/8env4bi/)
 * [Markdown (.md) ファイルを VS Code で開くリンクを表示する](/p/9hkprvx/)
 * [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
-* [テンプレートの中で絵文字を使用する (emojify)](template/emojify.html)
+* [テンプレートの中で絵文字を使用する (`emojify`)](/p/88e7tiz/)
 
 Hugo 応用
 ----
