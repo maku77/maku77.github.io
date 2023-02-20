@@ -18,7 +18,7 @@ Hugo のテンプレート構成では、下記のような感じでテンプレ
 上記ではリストテンプレート (`list.html`) の例を示していますが、ホームページテンプレート (`layouts/index.html`) や、セクションテンプレート (`layouts/_default/section.html`)、シングルページテンプレート (`layouts/_default/single.html`) などを記述する際も同様に構成します。
 つまり、パーシャルファイルとして作成する `header.html` や `footer.html` は、どのテンプレートファイルからでも使用できるように、汎用的な記述をしておく必要があります。
 
-{{< code lang="html" title="layouts/partials/header.html" >}}
+{{< code lang="go-html-template" title="layouts/partials/header.html" >}}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
@@ -38,7 +38,7 @@ Hugo のテンプレート構成では、下記のような感じでテンプレ
 
 上記のようなパーシャルテンプレートは、各レイアウト用のテンプレートから次のように使用します。
 
-{{< code lang="html" title="layouts/_default/list.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/list.html" >}}
 {{ partial "header" . }}
 
 <main id="main">

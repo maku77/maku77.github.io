@@ -8,7 +8,7 @@ aliases: /hugo/misc/random.html
 
 次の __`random`__ ショートコードは、1 〜 9 の数値をランダムに並び替えた 9 桁の数値文字列を生成します。
 
-{{< code lang="html" title="layouts/shortcodes/random.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/random.html" >}}
 {{ $random1 := delimit (seq 9 | shuffle) "" }}
 {{ $random2 := delimit (shuffle (split "123456789" "" )) "" }}
 

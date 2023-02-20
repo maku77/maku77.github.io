@@ -78,12 +78,12 @@ hugo コマンドと設定ファイル
 * [Hugo テンプレート内で `define` による部分テンプレート定義を行う（関数もどき）](/p/pkww45p/)
 * [Hugo のパーシャルテンプレートから値を返す（関数化）(`return`)](/p/4anjern/)
 
-### セクションとページリスト <!-- section -->
-* [セクション機能を使って記事を階層化する](layout/section.html)
-* [セクションテンプレート (section.html) の中でセクションのタイトルを表示する](layout/section-name.html)
-* [セクションの階層構造を取得する (.CurrentSection、.Parent、.Sections)](layout/section-hierarchy.html)
-* [ページタイトルに自動でセクションプレフィックスを付ける](layout/section-prefix.html)
-* [ページの階層構造を取得する関数を作成する (get-hierarchy)](layout/get-hierarchy.html)
+### セクションとページリスト <!-- template -->
+* [Hugo のセクション機能の基本（記事を階層化する）](/p/8ihz7es/)
+* [セクションテンプレート (`section.html`) の中でセクションのタイトルを表示する](/p/mn4ji9o/)
+* [セクションの階層構造を取得する (`.CurrentSection`、`.Parent`、`.Sections`)](/p/8vrj4ui/)
+* [ページタイトルに自動でセクションプレフィックスを付ける](/p/dunigdz/)
+* [ページの階層構造を取得する関数を作成する (`get-hierarchy`)](/p/v9t62ux/)
 * ページ一覧／セクション一覧を表示するサンプル <!-- list -->
   * [サイト内の全ページの一覧を表示する (.Site.Pages)](list/all-pages.html)
   * [サイト内の全セクションの一覧を表示する (.Site.Sections)](list/all-sections.html)
@@ -110,7 +110,7 @@ hugo コマンドと設定ファイル
 * [ページャー（ページネーター）で複数の記事を切り替えながら表示できるようにする](pager/basic.html)
 
 ### その他
-* [パンくずリストを表示する](template/breadcrumbs.html)
+* [パンくずリストを表示する](/p/vemn3c4/)
 * [JSON-LD のパンくずリストを出力する](template/breadcrumbs-json.html)
 * [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)

@@ -30,7 +30,7 @@ aliases: /hugo/shortcode/has-shortcode.html
 
 ページテンプレート内で、
 
-```
+```go-html-template
 {{ if .HasShortcode "my-shortcode" }}
   ...
 {{ end }}
@@ -44,7 +44,7 @@ aliases: /hugo/shortcode/has-shortcode.html
 
 例えば、ベーステンプレートの `body` 要素の末尾に次のように記述しておけば、Markdown ファイル内で `mermaid` ショートコードを使用している場合のみ、`mermaid.js` の読み込みと初期化処理を実行することができます。
 
-{{< code lang="html" title="layouts/_default/baseof.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（抜粋）" >}}
   ...
   {{- if .HasShortcode "mermaid" }}
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -56,7 +56,7 @@ aliases: /hugo/shortcode/has-shortcode.html
 
 ちなみに、`mermaid` ショートコードの実装は次のような感じになっています。
 
-{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
 {{ .Inner }}
 </div>
@@ -64,7 +64,7 @@ aliases: /hugo/shortcode/has-shortcode.html
 
 Markdown ファイルからは次のように呼び出します。
 
-```
+```md
 {{</* mermaid */>}}
 sequenceDiagram
     Client->>Cache: search cache
@@ -85,7 +85,7 @@ sequenceDiagram
 `Page.HasShortcode` 関数は、あくまで現在処理しようとしているページの Markdown 内でショートコードが使われているかどうかを調べます。
 例えば、ホームページテンプレートで、次のように最新記事の内容を間接的に取得して表示しているような場合は、`baseof.html` テンプレートに記述した `.HasShortcode` 関数は意図通り動作しない可能性があります。
 
-```html
+```go-html-template
 <!-- 最近の記事をいくつかまとめて表示 -->
 {{- range first 3 .Site.RegularPages.ByLastmod.Reverse -}}
   <article class="xArticle" itemscope itemtype="https://schema.org/BlogPosting">
@@ -103,7 +103,7 @@ sequenceDiagram
 
 解決方法はいろいろありそうですが、ひとつの解決方法としては、ショートコード内で、自分自身が必要とする JavaScript ファイル（下記の例では `mermaid.min.js`）をロードする JavaScript コードを出力してしまうという方法です。
 
-{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
 {{ .Inner }}
 </div>

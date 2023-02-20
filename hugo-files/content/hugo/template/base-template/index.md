@@ -46,7 +46,7 @@ Hugo のベーステンプレート機能は、[Go のテンプレートライ�
 下記はベーステンプレートの具体的な記述例です。
 `main` 要素以下のメインコンテンツを block template の機能で置き換えるようにしています。
 
-{{< code title="layouts/_default/baseof.html（ベーステンプレート）" >}}
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（ベーステンプレート）" >}}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 <head>
@@ -68,7 +68,7 @@ Hugo のベーステンプレート機能は、[Go のテンプレートライ�
 </html>
 {{< /code >}}
 
-{{< code lang="html" title="layouts/_default/list.html（リストテンプレート）" >}}
+{{< code lang="go-html-template" title="layouts/_default/list.html（リストテンプレート）" >}}
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ partial "breadcrumb" . }}
@@ -83,7 +83,7 @@ Hugo のベーステンプレート機能は、[Go のテンプレートライ�
 {{ end }}
 {{< /code >}}
 
-{{< code lang="html" title="layouts/_default/single.html（シングルページテンプレート）" >}}
+{{< code lang="go-html-template" title="layouts/_default/single.html（シングルページテンプレート）" >}}
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ partial "breadcrumb" . }}
@@ -99,7 +99,7 @@ Hugo のベーステンプレート機能は、[Go のテンプレートライ�
 ベーステンプレート（親テンプレート）を使用したレンダリングを行いたい場合は、子テンプレート側では何も出力しないようにする必要があるようです。
 例えば、下記のシングルページテンプレートでは、部分テンプレート `main` を定義していますが、その直後に「こんにちは！」と出力しています。
 
-{{< code title="layouts/_default/single.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/single.html" >}}
 {{ define "main" }}
   メインコンテンツ１
 {{ end }}

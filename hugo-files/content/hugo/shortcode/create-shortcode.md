@@ -22,7 +22,7 @@ This is my first short code.
 上記の例の場合、`my-shortcode` というショートコードを作成したことになります。
 記事（Markdown ファイル）の中から、下記のように呼び出すと、上記の内容がそこに展開されます。
 
-{{< code lang="md" title="content/page1.md" >}}
+{{< code lang="yaml" title="content/page1.md" hl_lines="5" >}}
 ---
 title: "ページタイトル"
 ---
@@ -45,7 +45,7 @@ title: "ページタイトル"
 
 渡されたパラメータは、ショートコードの中で __`{{ .Get インデックス番号 }}`__ のように参照することができます。
 
-{{< code lang="html" title="layouts/shortcodes/my-shortcode.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/my-shortcode.html" >}}
 <div style="color:{{ .Get 0 }}; font-size:{{ .Get 1 }};">
   This is my first short code.
 </div>
@@ -61,7 +61,7 @@ title: "ページタイトル"
 
 名前付きパラメータとして渡された値を参照するには、__`{{ .Get "パラメータ名" }}`__ のように、インデックス番号の代わりにその名前を引用符で囲んで指定します。
 
-```html
+```go-html-template
 <div style="color:{{ .Get `color` }}; font-size:{{ .Get `size` }};">
   This is my first short code.
 </div>
@@ -74,14 +74,14 @@ title: "ページタイトル"
 パラメータが渡されたかどうかで処理を分岐するには、`.Get` で取得した値を __`if`__ や __`with`__ で評価します。
 次の例では、ショートコードに `class` パラメータが渡されたときに、`span` 要素の `class` 属性の値として出力しています。
 
-```go
+```go-html-template
 <span{{ with .Get "class"}} class="{{.}}"{{ end }}>{{ .Inner }}</span>
 ```
 
 __`default`__ 関数を組み合わせて使うと、パラメータが指定されなかった場合のデフォルト値を用意しておくことができます。
 以下のいずれの書き方も同様に振る舞いますが、1 つ目の書き方が直感的かと思います。
 
-{{< code title="width パラメータのデフォルト値を auto にする" >}}
+{{< code lang="go-html-template" title="width パラメータのデフォルト値を auto にする" >}}
 {{ $width := .Get "width" | default "auto" }}
 {{ $width := default "auto" (.Get "width") }}
 {{ $width := or (.Get "width") "auto" }}
@@ -94,7 +94,7 @@ __`default`__ 関数を組み合わせて使うと、パラメータが指定さ
 ショートコードの開始タグと終了タグで任意のテキスト（内部テキスト）を囲むと、ショートコードのテンプレート内からそのテキストを参照することができます。
 下記は、`caution` という独自ショートコードにテキストを渡す例です。
 
-{{< code title="content/page1.md" >}}
+{{< code lang="yaml" title="content/page1.md" >}}
 ---
 title: "ページタイトル"
 ---
@@ -106,7 +106,7 @@ title: "ページタイトル"
 
 開始タグと終了タグで囲まれた内部テキストは、ショートコードの中から __`{{ .Inner }}`__ で参照することができます。
 
-{{< code lang="html" title="layouts/shortcodes/caution.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/caution.html" >}}
 <div style="color:red;">
   {{ .Inner }}
 </div>
@@ -114,7 +114,7 @@ title: "ページタイトル"
 
 内部テキストを最終的に Markdown プロセッサで処理してもらいたい場合は、下記のように __`%`__ を使用した呼び出し方をする必要があります。
 
-```html
+```yaml
 ---
 title: "ページタイトル"
 ---

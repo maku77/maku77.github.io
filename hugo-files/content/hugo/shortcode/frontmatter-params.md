@@ -10,7 +10,7 @@ aliases: /hugo/shortcode/frontmatter-params.html
 Hugo のショートコードの中で __`$.Page.Params`__ を参照すると、コンテンツファイルのフロントマターに記述したパラメータにアクセスすることができます。
 下記の `hello` ショートコードは、コンテンツファイル (.md) のフロントマターに記述された `title` パラメータと `date` パラメータの値を表示します。
 
-{{< code lang="html" title="layouts/shortcodes/title-and-date.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/title-and-date.html" >}}
 {{ $.Page.Params.title }}<br>
 {{ $.Page.Params.date | dateFormat "Mon, 02 Jan 2006" }}
 {{< /code >}}
@@ -19,7 +19,7 @@ Hugo のショートコードの中で __`$.Page.Params`__ を参照すると、
 時刻情報は __`dateFormat`__ 関数に渡すことで、任意のフォーマットで出力することができます。
 パイプで渡すのではなく、関数の第 2 パラメータとして次のように渡すこともできます。
 
-```
+```go-html-template
 {{ dateFormat "Mon, 02 Jan 2006" $.Page.Params.date }}
 ```
 

@@ -52,7 +52,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 ここでは、Hugo のパーシャルテンプレートを使い、上記の HTML コードを各ページに埋め込むようにしましょう。
 `UA-12345678-1` のようなトラッキング ID を指定する部分は、コンフィグファイルの `googleAnalytics` パラメータで指定した値で置換するようにします。
 
-{{< code lang="html" title="layouts/partials/analytics.html" >}}
+{{< code lang="go-html-template" title="layouts/partials/analytics.html" >}}
 {{ if not .Site.IsServer }}
 {{ with .Site.GoogleAnalytics }}
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -74,7 +74,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 
 作成したパーシャルテンプレートは、下記のようにテンプレートファイルからインクルードします（ここでは、[ベーステンプレート (baseof)](/p/bbxj5pa/) からインクルードしています）。
 
-{{< code lang="html" title="layouts/_default/baseof.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/baseof.html" >}}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -97,7 +97,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 実は、Hugo は組み込みの Internal Template として、Google Analytics のトラッキングコードを埋め込むためのテンプレートを用意しています。
 任意のテンプレートファイルの中で、
 
-```html
+```go-html-template
 {{ template "_internal/google_analytics.html" . }}  <!-- 同期バージョン -->
 {{ template "_internal/google_analytics_async.html" . }}  <!-- 非同期バージョン -->
 ```

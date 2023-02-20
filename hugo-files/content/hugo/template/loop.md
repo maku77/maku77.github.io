@@ -12,7 +12,7 @@ Hugo のテンプレート内では、Go 言語のような `for` を使用し�
 
 次の例では、[seq 関数](https://gohugo.io/functions/seq/) を使用して 1 から 5 の数値シーケンスを作成し、それらを `range` を使ってループ処理しています。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 <ul>
   {{ range $val := seq 5 }}
     <li>{{ $val }}
@@ -32,7 +32,7 @@ Hugo のテンプレート内では、Go 言語のような `for` を使用し�
 
 戻り値を 2 つの変数で受け取れば、0 始まりのインデックスも同時に得ることができます。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 <ul>
   {{ range $index, $val := seq 5 }}
     <li>{{ $index }} : {{ $val }}

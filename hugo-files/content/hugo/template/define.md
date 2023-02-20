@@ -17,7 +17,7 @@ __テンプレートファイル内で使える関数定義のようなもの__ 
 
 次の例では、`define` を使用して、`showParentSection` というテンプレートを定義しています。
 
-{{< code lang="html" title="showParentSection テンプレートを定義する" >}}
+{{< code lang="go-html-template" title="showParentSection テンプレートを定義する" >}}
 {{/* セクションの一覧を出力します */}}
 {{ define "showParentSection" }}
   <h2>セクション一覧</h2>
@@ -31,7 +31,7 @@ __テンプレートファイル内で使える関数定義のようなもの__ 
 
 `define` で定義したテンプレートを呼び出すには、__`template`__ 関数を使用します。
 
-```
+```go-html-template
 {{ template "showParentSection" . }}
 ```
 
@@ -45,7 +45,7 @@ __テンプレートファイル内で使える関数定義のようなもの__ 
 `template` 関数を使って部分テンプレートを呼び出すときは、引数に `.` を指定して `Page` オブジェクトを渡すことが多いのですが、単純な文字列や数値をパラメータとして渡すこともできます。
 次の例では、パラメータで渡された名前を使って挨拶文を出力する `greet` テンプレートを定義しています。
 
-{{< code title="greet テンプレートを定義する" >}}
+{{< code lang="go-html-template" title="greet テンプレートを定義する" >}}
 {{ define "greet" }}
   Hello, {{ . }}!
 {{ end }}
@@ -53,7 +53,7 @@ __テンプレートファイル内で使える関数定義のようなもの__ 
 
 この `greet` テンプレートを呼び出すには次のようにします。
 
-```
+```go-html-template
 {{ template "greet" "Maku" }}
 ```
 
@@ -64,7 +64,7 @@ Hello, Maku!
 パラメータとして [マップオブジェクト](/p/yhqogz6/) を渡せば、名前付きパラメータを実現できます。
 次の例で定義している `calc` テンプレートは、`x` と `y` というキーを含むマップオブジェクトを受け取ることを想定しています。
 
-```
+```go-html-template
 {{ define "calc" }}
   {{ printf "%d+%d=%d" .x .y (add .x .y) }}
 {{ end }}
@@ -73,7 +73,7 @@ Hello, Maku!
 この `calc` テンプレートは次のように呼び出します。
 マップオブジェクトを作成するときは、__`dict`__ 関数のパラメータに、キーと値を交互に指定します。
 
-```
+```go-html-template
 {{ template "calc" (dict "x" 100 "y" 200) }}
 ```
 
@@ -85,7 +85,7 @@ Hello, Maku!
 マップオブジェクトを受け取る部分テンプレートを定義するときは、次のように先頭でローカル変数（`$x` や `$y`）に代入してしまう慣例もあるようです。
 このように記述しておくことで、この部分テンプレートにどのようなキーを持つマップオブジェクトを渡せばよいのかが一目で分かるようになります。
 
-```
+```go-html-template
 {{ define "calc" }}
   {{ $x := .x }}
   {{ $y := .y }}
@@ -100,13 +100,13 @@ Hello, Maku!
 
 `layouts/partials/foo.html` というファイル名で作成したパーシャルテンプレートは、次のように __`partial`__ を使って呼び出します。
 
-```
+```go-html-template
 {{ partial "foo" . }}
 ```
 
 一方で、`define` で定義した部分テンプレート（Go のドキュメントでは nested template と呼んでいます）は、次のように __`template`__ を使って呼び出します。
 
-```
+```go-html-template
 {{ template "foo" . }}
 ```
 

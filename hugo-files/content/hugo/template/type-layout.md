@@ -23,7 +23,7 @@ __`layout`__ プロパティ
 これらの値の組み合わせによって、そのページをレンダリングするときに使用するレイアウトファイル（テンプレート）が次のように決まります。
 
 ```
-layouts/＜タイプ名＞/＜レイアウト名＞.html
+layouts/<タイプ名>/<レイアウト名>.html
 ```
 
 実際には、すべてのコンテントタイプで共通のレイアウトファイルを使えばよいことが多く、そのようなケースでは `layouts/_default/single.html` といったレイアウトファイルを配置します（タイプ名として `_default` 指定されたかのように振る舞います）。
@@ -57,7 +57,7 @@ layouts/＜タイプ名＞/＜レイアウト名＞.html
 このレイアウトは、「新着一覧」のページでしか使わない __特殊なレイアウト__ なので、レイアウトファイル自体も __`layouts/special/latest.html`__ という特殊なパスに作成することにします。
 このレイアウトファイルは、コンテントタイプとして `special`、レイアウト名として `latest` が設定された記事ファイルに適用されます。
 
-{{< code lang="html" title="layouts/special/latest.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/special/latest.html（抜粋）" >}}
 <ul>
   {{- range first 5 .Site.RegularPages.ByLastmod.Reverse }}
     <li>

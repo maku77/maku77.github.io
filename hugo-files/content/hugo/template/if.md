@@ -17,7 +17,7 @@ if による分岐処理
 Hugo のテンプレート内で分岐処理を行うには、下記のように `if` ~ `end` を使用します。
 必要に応じて、`else` や `else if` を挟むことができます。
 
-```
+```go-html-template
 {{ if ● }} ... {{ end }}
 {{ if ● }} ... {{ else }} ... {{ end }}
 {{ if ● }} ... {{ else if ▲ }} ... {{ end }}
@@ -36,14 +36,14 @@ __`{{`__ と __`}}`__ で囲まれた部分は、Go のテンプレートでは 
 * 空文字列 (`""`)
 * `nil` ポインタ
 
-{{< code title="真とみなされる例（T と表示される）" >}}
+{{< code lang="go-html-template" title="真とみなされる例（T と表示される）" >}}
 {{ if true  }} T {{ else }} F {{ end }}
 {{ if "ABC" }} T {{ else }} F {{ end }}
 {{ if 1     }} T {{ else }} F {{ end }}
 {{ if -1    }} T {{ else }} F {{ end }}
 {{< /code >}}
 
-{{< code title="偽とみなされる例（F と表示される）" >}}
+{{< code lang="go-html-template" title="偽とみなされる例（F と表示される）" >}}
 {{ if false }} T {{ else }} F {{ end }}
 {{ if ""    }} T {{ else }} F {{ end }}
 {{ if 0     }} T {{ else }} F {{ end }}
@@ -66,7 +66,7 @@ __`{{`__ と __`}}`__ で囲まれた部分は、Go のテンプレートでは 
 
 次の例では、数値変数の値が 100 より大きいかを、`gt` 関数を使用して調べています。
 
-{{< code title="変数 $x の値が 100 より大きいか調べる" >}}
+{{< code lang="go-html-template" title="変数 $x の値が 100 より大きいか調べる" >}}
 {{ $x := 200 }}
 {{ if gt $x 100 }}
   x is greater than 100
@@ -75,7 +75,7 @@ __`{{`__ と __`}}`__ で囲まれた部分は、Go のテンプレートでは 
 
 __文字列変数の比較__ にも `eq`（等しい）や `ne`（等しくない）を使用することができます。
 
-{{< code title="変数 $s の値が hello かどうか調べる" >}}
+{{< code lang="go-html-template" title="変数 $s の値が hello かどうか調べる" >}}
 {{ $s := "hello" }}
 {{ if eq $s "hello" }}
   s is hello
@@ -90,7 +90,7 @@ with による分岐処理
 
 `if` アクションの代わりに、__`with`__ アクションを使用して分岐処理を記述すると、ブロックの中のコンテキスト（ドット __`.`__）を、条件式で評価した値に置き換えることができます。
 
-```
+```go-html-template
 {{ with ● }} ... {{ end }}
 {{ with ● }} ... {{ else }} ... {{ end }}
 ```
@@ -98,7 +98,7 @@ with による分岐処理
 使い方は、例を見たほうが分かりやすいかもしれません。
 次の例では、`with` アクションの条件式で `Maku` という文字列が指定されているため、ブロックの中でドット (`.`) を参照することで、`Maku` という文字列を取得することができます。
 
-{{< code title="テンプレート内で with アクションを利用する" >}}
+{{< code lang="go-html-template" title="テンプレート内で with アクションを利用する" >}}
 {{ with "Maku" }}
   {{ printf "I am %s" . }}
 {{ end }}
@@ -112,7 +112,7 @@ I am Maku
 
 逆に、`with` ブロックでコンテキストを切り替えた後に、トップレベルのコンテキストを明示的に参照したい場合は、次のように __`$`__ プレフィックスを指定して参照します。
 
-{{< code title="with ブロックの中からトップレベルコンテキストを参照する" >}}
+{{< code lang="go-html-template" title="with ブロックの中からトップレベルコンテキストを参照する" >}}
 {{ with "Maku" }}
   {{ printf "Hello, %s. Page title is %s" . $.Title }}
 {{ end }}
@@ -126,7 +126,7 @@ Hello, Maku. Page title is SAMPLE_TITLE.
 
 下記のサンプルコードは、Web サイトの設定ファイル (`config.toml`) に、サイトの説明文や作者が設定されている場合に、それを meta 要素として出力する例です。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ with .Site.Params.author -}}
   <meta name="author" content="{{ . }}">
 {{- end }}

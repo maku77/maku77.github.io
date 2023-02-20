@@ -15,7 +15,7 @@ Hugo テンプレートの中で slice 関数を使用すると、渡された�
 Hugo テンプレートでは、新しくスライス（配列）を定義するための構文は用意されていないため、そのような場合はスライス（配列）を戻り値として返す [slice 関数](https://gohugo.io/functions/slice/) を使用する必要があります。
 下記の例では、`slice` 関数に 3 つのパラメータを渡し、それらの要素からなるスライスを生成しています。
 
-{{< code title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ $arr := slice "AAA" "BBB" "CCC" }}
 {{ printf "%#v" $arr }}
 {{< /code >}}
@@ -36,7 +36,7 @@ Go のテンプレート内で使用できる文法は、Go 言語の文法と�
 インデックス番号指定で配列（スライス）内の要素を参照するには、[index 関数](https://gohugo.io/functions/index-function/) を使用します。
 この書き方は、慣れるまでは若干わかりにくいかもしれません。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ $arr := slice "AAA" "BBB" "CCC" }}
 <ul>
   <li>{{ index $arr 0 }}
@@ -59,7 +59,7 @@ Go のテンプレート内で使用できる文法は、Go 言語の文法と�
 
 配列の全要素をループで処理したい場合は、__`range`__ を使って以下のように記述します。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ $arr := slice "AAA" "BBB" "CCC" }}
 <ul>
   {{- range $arr }}
@@ -78,7 +78,7 @@ Go のテンプレート内で使用できる文法は、Go 言語の文法と�
 
 上記の例ではドットコンテキストを置き換えて、各要素をドット (__`.`__) で参照するようにしていますが、次のように変数名を付けてアクセスすることもできます。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ $arr := slice "AAA" "BBB" "CCC" }}
 <ul>
   {{- range $val := $arr }}
@@ -93,7 +93,7 @@ Go のテンプレート内で使用できる文法は、Go 言語の文法と�
 
 `range` で配列をループ処理するときに、下記のように 2 つの変数を指定すると、配列のインデックス番号を取得しながらループ処理することができます。
 
-{{< code lang="html" title="テンプレート内での記述例" >}}
+{{< code lang="go-html-template" title="テンプレート内での記述例" >}}
 {{ $arr := slice "AAA" "BBB" "CCC" }}
 <ul>
   {{- range $index, $val := $arr }}

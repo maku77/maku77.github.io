@@ -108,7 +108,7 @@ $ hugo new post/sample.md
 
 これで `content/post/sample.md` というファイルが生成されるので、下記のような感じになるように修正してください。
 
-{{< code lang="md" title="content/post/sample.md" >}}
+{{< code lang="yaml" title="content/post/sample.md" >}}
 ---
 title: "記事のタイトル"
 date: 2017-08-25T22:20:24+09:00

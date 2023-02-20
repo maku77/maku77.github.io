@@ -55,7 +55,7 @@ themes/my-theme/
 もし、ひとつの HTML ファイルだけで構成されるサイト (SPA: Single Page Application) を作成するのであれば、このファイルだけを作成すればよいことになります。
 初期状態では何も記述されていないので、まずは手始めに、サイト名だけを表示するように修正してみましょう。
 
-{{< code lang="html" title="themes/my-theme/layouts/index.html" >}}
+{{< code lang="go-html-template" title="themes/my-theme/layouts/index.html" >}}
 <h1>{{ .Site.Title }}</h1>
 {{< /code >}}
 
@@ -80,7 +80,7 @@ $ hugo server -t my-theme
 トップページのテンプレート (`layouts/index.html`) 内で、__`.Data.Pages`__ 変数を参照すると、すべてのページの情報 ([Page 変数](https://gohugo.io/variables/page/)) を取得することができます。
 この情報を `range` を使ってループ処理すれば、すべてのページへのリンクを出力することができます。
 
-{{< code lang="html" title="themes/my-theme/layouts/index.html" >}}
+{{< code lang="go-html-template" title="themes/my-theme/layouts/index.html" >}}
 <h1>{{ .Site.Title }}</h1>
 <ul>
   {{ range .Data.Pages }}
@@ -97,7 +97,7 @@ $ hugo server -t my-theme
 このテンプレートの中では、[Page 変数](https://gohugo.io/variables/page/) のフィールドを参照することができます。
 例えば、__`.Title`__ でページタイトル、__`.Content`__ でページ本文を参照できます。
 
-{{< code lang="html" title="themes/my-theme/layouts/_default/single.html" >}}
+{{< code lang="go-html-template" title="themes/my-theme/layouts/_default/single.html" >}}
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}

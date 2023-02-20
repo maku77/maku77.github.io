@@ -15,7 +15,7 @@ private ショートコードを作成する
 
 そのショートコードが、Hugo のローカルサーバ上 (hugo server) で使用されたかを判別するには、[Site 変数](https://gohugo.io/variables/site/)の __`.Site.IsServer`__ を参照します。
 
-{{< code title="layouts/shortcodes/private.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/private.html" >}}
 {{ if .Site.IsServer }}
   ローカルサーバで動作しています。
 {{ end }}
@@ -23,7 +23,7 @@ private ショートコードを作成する
 
 あとは、__`.Inner`__ 変数で、渡されたテキストを参照することができるので、たとえば次のように実装すればよいでしょう。
 
-{{< code title="layouts/shortcodes/private.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/private.html" >}}
 {{ if .Site.IsServer }}
   <div class="private">{{ .Inner }}</div>
 {{ end }}
@@ -80,7 +80,7 @@ title: "サンプルタイトル"
 `.Site.IsServer` 変数は [Hugo v.0.38 で追加](https://github.com/gohugoio/hugo/pull/4541)されました。
 v.0.37 以前のバージョンでは、ローカルサーバーで Web ページをホスティングしているかどうかを、`.Site.BaseURL` の値が `http://localhost` で始まっているかどうかで判断していました。
 
-{{< code title="layouts/shortcodes/private.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/private.html" >}}
 {{ if hasPrefix .Site.BaseURL "http://localhost" }}
   ローカルサーバーで動作しています。
 {{ end }}

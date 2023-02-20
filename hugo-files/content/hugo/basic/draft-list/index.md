@@ -27,7 +27,7 @@ Hugo では、作成途中の記事ページを[ドラフトとしてマーク�
 個人的に、ローカルでしか有効にしないコードは、下記のように `debug` ディレクトリの下に入れるようにしています。
 そして、全体のコードを __`if .Site.IsServer`__ の条件で囲むことで、ローカルサーバーで起動しているときのみ出力されるようにしています。
 
-{{< code lang="html" title="layouts/partials/debug/draft-button.html" >}}
+{{< code lang="go-html-template" title="layouts/partials/debug/draft-button.html" >}}
 {{- if .Site.IsServer -}}
 <style>
   .xDraftButton {
@@ -50,7 +50,7 @@ Hugo では、作成途中の記事ページを[ドラフトとしてマーク�
 
 このパーシャルファイルを、サイドバーを出力するテンプレートから呼び出します。
 
-{{< code lang="go" title="layouts/partials/sidebar/all.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/partials/sidebar/all.html（抜粋）" >}}
 {{ partial "debug/draft-button" . }}
 {{< /code >}}
 
@@ -61,7 +61,7 @@ Hugo では、作成途中の記事ページを[ドラフトとしてマーク�
 ドラフト記事をリストアップするためのショートコードを作成します。
 下記のようにすれば、フロントマター部分に `draft: true` と記述された記事のみをループ処理できます。
 
-{{< code lang="html" title="layouts/shortcodes/list-drafts.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/list-drafts.html" >}}
 <ul>
 {{- range (where .Site.Pages ".Draft" true) }}
   <li>

@@ -26,7 +26,7 @@ SVG ファイルの内容をインラインで `svg` 要素として埋め込む
 次の `svg` ショートコードは、指定された SVG ファイルをインラインで HTML に埋め込みます。
 ポイントは、Hugo の [readFile 関数](https://gohugo.io/functions/readfile/)でファイルの中身を読み込んで、その場に出力するところです。
 
-{{< code lang="html" title="layouts/shortcodes/svg.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/svg.html" >}}
 {{- $src := .Get "src" }}
 {{- $title := .Get "title" }}
 

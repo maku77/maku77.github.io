@@ -13,14 +13,14 @@ aliases: /hugo/template/return-from-partial.html
 
 例えば、次の `my-add-100` パーシャルテンプレートは、引数で受け取った値に 100 を足した値を返します。
 
-{{< code title="layouts/partials/functions/my-add-100.html" >}}
+{{< code lang="go-html-template" title="layouts/partials/functions/my-add-100.html" >}}
 {{ $ret := add 100 . }}
 {{ return $ret }}
 {{< /code >}}
 
 呼び出し側のテンプレートからは、次のように関数のように使用できます。
 
-{{< code lang="html" title="layouts/_default/single.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/_default/single.html（抜粋）" >}}
 {{ $ret := partial "functions/my-add-100" 50 }}
 
 計算結果: <b>{{ $ret }}</b>
@@ -39,7 +39,7 @@ aliases: /hugo/template/return-from-partial.html
 パーシャルテンプレートの `return` では様々な型のオブジェクトを返すことができます。
 例えば次の `get-colors` パーシャルテンプレートでは、__`slice`__ で作成したリストを返しています。
 
-{{< code title="layouts/partials/functions/get-colors.html" >}}
+{{< code lang="go-html-template" title="layouts/partials/functions/get-colors.html" >}}
 {{ $ret := slice "Blue" "Red" "Yellow" }}
 {{ $ret = $ret | append "Black" "White" }}
 {{ return $ret }}
@@ -47,7 +47,7 @@ aliases: /hugo/template/return-from-partial.html
 
 呼び出し元のテンプレートファイルでは、`get-colors` が返したリストを `range` などでループ処理します。
 
-{{< code lang="html" title="layouts/_default/single.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/single.html" >}}
 <ul>
   {{- range partial "functions/get-colors" . }}
     <li>{{ . }}

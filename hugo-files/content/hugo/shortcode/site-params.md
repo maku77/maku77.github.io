@@ -28,7 +28,7 @@ theme = "my-theme"
 下記の `site-info` ショートコードは、サイトのタイトルとサブタイトル、筆者情報を表示するショートコードの実装例です。
 
 
-{{< code lang="html" title="layouts/shortcodes/site-info.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/site-info.html" >}}
 <div class="title">{{ $.Site.Title }}</div>
 <div class="subtitle">{{ $.Site.Params.subtitle }}</div>
 <ul>

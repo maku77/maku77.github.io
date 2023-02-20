@@ -15,13 +15,13 @@ Hugo の設定ファイル `config.toml` の中で、下記のように設定し
 pygmentsCodeFences = true
 ```
 
-例えば、Java のソースコードであれば、Markdown ファイルの中で、下記のように言語名 `java` を指定してコードブロックを記述。
+例えば、Java のソースコードであれば、Markdown ファイルの中で、下記のように言語名 (`java`) を指定してコードブロックを記述するだけで、その言語に特化したハイライト表示を行ってくれます。
 
 {{< code lang="md" >}}
 ```java
 public class Main {
     public static void main(String... args) {
-       System.out.println("Hello");
+        System.out.println("Hello");
     }
 }
 ```
@@ -76,7 +76,7 @@ public class Main {
 ここでは __`code`__ というショートコードを作成し、コードブロックをタイトル付きでハイライト表示できるようにします。
 ハイライト機能自体は自力で実装するのは大変なので、Hugo の組み込み関数として用意されている [highlight 関数](https://gohugo.io/functions/highlight/) を利用します（Hugo の組み込みの `highlight` ショートコードも、この `highlight` 関数を使って実装されています）。
 
-{{< code lang="html" title="layouts/shortcodes/code.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/code.html" >}}
 {{ $title := .Get "title" }}
 {{ $lang := or (.Get "lang") "" }}
 <figure class="xCodeBlock">
@@ -151,7 +151,7 @@ $ hugo gen chromastyles --style=manni > highlight-manni.css
 
 - [hugo/tpl/tplimpl/embedded/templates/shortcodes/highlight.html - gohugoio/hugo - GitHub](https://github.com/gohugoio/hugo/blob/9c1e82085eb07d5b4dcdacbe82d5bafd26e08631/tpl/tplimpl/embedded/templates/shortcodes/highlight.html)
 
-```
+```go-html-template
 {{ if len .Params | eq 2 }}
   {{ highlight (trim .Inner "\n\r") (.Get 0) (.Get 1) }}
 {{ else }}

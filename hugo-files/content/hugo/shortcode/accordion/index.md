@@ -31,7 +31,7 @@ aliases: /hugo/shortcode/accordion.html
 クリックによる HTML 要素の表示／非表示の切り替えは、[input 要素の状態による CSS の切り替えテクニック](/web/menu/accordion.html) を利用しています。
 `label` 要素と `input` 要素を結びつける ID には、[Hugo の関数でランダムに生成した文字列](/p/9qexh2q/) を使用しています。
 
-{{< code lang="html" title="layouts/shortcodes/accordion.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/accordion.html" >}}
 {{- $title := .Get "title" | default "例" }}
 {{- $rand := delimit (seq 9 | shuffle) "" }}
 <div class="xAccordion">

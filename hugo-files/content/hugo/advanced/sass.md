@@ -59,7 +59,7 @@ $BASE_COLOR: #f3f3f3;
 これも本家のドキュメントに記載されている通りです。
 `head` 要素を出力するテンプレート（ここでは baseof テンプレート）の中に下記のように記述します。
 
-{{< code lang="html" title="layouts/_default/baseof.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（抜粋）" >}}
 {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 {{< /code >}}

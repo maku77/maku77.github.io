@@ -93,7 +93,7 @@ mermaid.js はデフォルトで `mermaid` クラスの付いた要素を変換�
 
 下記は、`mermaid` ショートコードの実装例です。
 
-{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
 {{ .Inner }}
 </div>
@@ -101,7 +101,7 @@ mermaid.js はデフォルトで `mermaid` クラスの付いた要素を変換�
 
 このショートコードは、Markdown ファイル内で次のように呼び出します。
 
-```
+```md
 {{</* mermaid */>}}
 sequenceDiagram
     Client->>Cache: search cache
@@ -113,7 +113,7 @@ sequenceDiagram
 
 あとは、ベーステンプレートなどで mermaid.js を読み込めばいいのですが、ここで Hugo の __`Page.HasShortcode`__ という関数を利用すると、「`mermaid` ショートコードを使っているページでのみ mermaid.js をロードする」という振る舞いを実現できます。
 
-{{< code lang="html" title="layouts/_default/baseof.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（抜粋）" >}}
   ...
   {{- if .HasShortcode "mermaid" }}
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -130,7 +130,7 @@ sequenceDiagram
 下記の `mermaid` ショートコードを使用すると、その場に mermaid.js を動的に読み込むコードが出力されます。
 つまり、mermaid.js の導入を、ショートコードのみで完結させてしまう方法です。
 
-{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/mermaid.html" >}}
 <div class="mermaid">
 {{ .Inner }}
 </div>
@@ -160,7 +160,7 @@ sequenceDiagram
 
 `mermaid` ショートコードを使うときに、次のように図の「タイトル」を入れられると便利です。
 
-```
+```md
 {{</* mermaid title="ほげほげ" */>}}
 graph LR
     A --- B
@@ -175,7 +175,7 @@ graph LR
 ついでに、全体を中央寄せで表示するようにしています。
 ここでは、`style` 属性を直接指定していますが、CSS ファイル内で `.mermaid` クラスに対してスタイル指定することもできます（mermaid による変換後も `<div class="mermaid">` というタグは残るため）。
 
-{{< code lang="html" title="layouts/shortcodes/mermaid.html" >}}
+{{< code lang="go-html-template" title="layouts/shortcodes/mermaid.html" >}}
 <figure style="text-align: center;">
 <div class="mermaid">{{ .Inner }}</div>
 {{- with .Get "title" }}<figcaption>図: {{ . }}</figcaption>{{ end }}

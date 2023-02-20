@@ -36,7 +36,7 @@ theme = "maku"
 コンフィグファイルで設定したパラメータは、テンプレートファイル内から、__`.Site`__ 変数を使って参照することができます。
 例えば、`config.toml` ファイルの中で設定した `title` や `baseURL` パラメータの値は次のようにして参照することができます。
 
-```html
+```go-html-template
 このサイトのタイトルは <b>{{ $.Site.Title }}</b> です。
 このサイトのベースアドレスは <b>{{ $.Site.BaseURL }}</b> です。
 ```
@@ -49,7 +49,7 @@ theme = "maku"
 パラメータが設定されているかどうかで処理を分岐させたい場合は、例えば次のように記述しておけばよいでしょう。
 ここでは、`googleAnalytics` というパラメータで、Google Analytics 用のトラッキング ID が設定されているかどうかをチェックしています。
 
-```html
+```go-html-template
 {{ with $.Site.GoogleAnalytics }}
   Google Analytics のトラッキング ID は <b>{{ . }}</b> です。
 {{ else }}
@@ -80,7 +80,7 @@ title = "まく日記"
 独自定義のパラメータは、テンプレートファイル内から __`$.Site.Params.名前`__ という形で参照することができます。
 下記の例では、独自パラメータの `Description` の値を参照しています。
 
-{{< code lang="html" title="独自パラメータを参照する (layouts/partials/head.html)" >}}
+{{< code lang="go-html-template" title="独自パラメータを参照する (layouts/partials/head.html)" >}}
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
 {{< /code >}}
 

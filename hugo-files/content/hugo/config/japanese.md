@@ -15,7 +15,7 @@ Hugo の記事一覧ページでは、記事の先頭部分を特定の単語数
 hasCJKLanguage = true
 {{< /code >}}
 
-{{< code lang="mayml" title="config.yaml の場合" >}}
+{{< code lang="yaml" title="config.yaml の場合" >}}
 hasCJKLanguage: true
 {{< /code >}}
 

@@ -12,7 +12,7 @@ aliases: /hugo/basic/draft.html
 Hugo のドラフト機能は、未完成の記事ファイルを一時的にほかの記事と同じ場所に保存しておくための機能です。
 ページの Front matter 部分に、`draft: true` という記述があると、そのページはドラフトとして扱われます。
 
-{{< code lang="md" title="YAML 形式の場合" >}}
+{{< code lang="yaml" title="YAML 形式の場合" >}}
 ---
 draft: true
 ---
@@ -79,7 +79,7 @@ books/work-shift.md
 
 テンプレートファイル内で、ドラフト記事のリンクを列挙するには以下のようにします。
 
-{{< code lang="html" title="layouts/index.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/index.html（抜粋）" >}}
 <h2>ドラフト記事の一覧</h2>
 <ul>
   {{ range (where .Site.Pages ".Draft" true) }}
@@ -99,7 +99,7 @@ books/work-shift.md
 
 [テンプレートファイル](/p/zg4n7q9/) の中で、今レンダリングしている記事がドラフトである（フロントマターに `draft: true` と記述されている）かどうかを調べるには、[Page 変数](https://gohugo.io/variables/page/) の __`.Draft`__ を参照します。
 
-{{< code lang="html" title="layouts/_default/single.html（抜粋）" >}}
+{{< code lang="go-html-template" title="layouts/_default/single.html（抜粋）" >}}
 <h1>{{ .Title }}</h1>
 {{ if .Draft }}
   <b>注: この記事はまだドラフトです。</b>
