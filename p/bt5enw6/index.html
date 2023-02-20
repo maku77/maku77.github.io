@@ -38,14 +38,14 @@
 <span class=note__body>ここで設定した値は、テンプレートファイルの中から、<code>{{ .Site.Title }}</code>、<code>{{ .Site.BaseURL }}</code>、<code>{{ .Site.LanguageCode }}</code> のように参照することができます。</span></div><h2 id=記事を作成する>記事を作成する</h2><ul><li>参考: <a href=../../p/q7sdwgy/>Hugo で記事を作成する</a></li></ul><p>ここでは、サンプル記事を 1 つだけ作成しておきましょう。
 次のように <strong><code>hugo new</code></strong> コマンドを実行すると、<strong><code>content</code></strong> ディレクトリ以下に記事ファイル（Markdown ファイル）が自動作成されます。
 コマンドはプロジェクトのトップディレクトリで実行してください。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> hugo new post/sample.md
-</span></span></code></pre></div><p>これで <code>content/post/sample.md</code> というファイルが生成されるので、下記のような感じになるように修正してください。</p><figure class=codeBlock><figcaption class=codeBlock__title>content/post/sample.md</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>title: &#34;記事のタイトル&#34;
-</span></span><span class=line><span class=cl>date: 2017-08-25T22:20:24+09:00
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>記事の本文
-</span></span><span class=line><span class=cl>記事の本文
-</span></span><span class=line><span class=cl>記事の本文</span></span></code></pre></div></div></figure><p>ヘッダ部分に、<code>draft: true</code> という行があると、ページが出力されなくなってしまうので、その行は削除してください（参考: <a href=../../p/m2oatdw/>Hugo でドラフトページを作成する</a>）。</p><h2 id=hugo-の-web-サーバーを起動する>Hugo の Web サーバーを起動する</h2><p>Web サイトのテーマ設定や記事作成が終わったら、<strong><code>hugo server</code></strong> コマンドを実行して Web サーバーを起動します（実際には、Web サーバーは起動したままで記事の作成を行っていけます）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> hugo server
+</span></span></code></pre></div><p>これで <code>content/post/sample.md</code> というファイルが生成されるので、下記のような感じになるように修正してください。</p><figure class=codeBlock><figcaption class=codeBlock__title>content/post/sample.md</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>title</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;記事のタイトル&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>date</span><span class=p>:</span><span class=w> </span><span class=ld>2017-08-25T22:20:24</span><span class=m>+09</span><span class=p>:</span><span class=m>00</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>記事の本文</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>記事の本文</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=l>記事の本文</span></span></span></code></pre></div></div></figure><p>ヘッダ部分に、<code>draft: true</code> という行があると、ページが出力されなくなってしまうので、その行は削除してください（参考: <a href=../../p/m2oatdw/>Hugo でドラフトページを作成する</a>）。</p><h2 id=hugo-の-web-サーバーを起動する>Hugo の Web サーバーを起動する</h2><p>Web サイトのテーマ設定や記事作成が終わったら、<strong><code>hugo server</code></strong> コマンドを実行して Web サーバーを起動します（実際には、Web サーバーは起動したままで記事の作成を行っていけます）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> hugo server
 </span></span><span class=line><span class=cl><span class=go>Started building sites ...
 </span></span></span><span class=line><span class=cl><span class=go>Built site for language en:
 </span></span></span><span class=line><span class=cl><span class=go>0 draft content
