@@ -96,11 +96,11 @@ hugo コマンドと設定ファイル
   * [セクションページでいろいろな方法でページソートする (`.ByDate`, `.ByTitle`, `.ByWeight`)](/p/9gjnqtw/)
 
 ### タクソノミー（タグとカテゴリー） <!-- taxonomy -->
-* [タクソノミーの基本](taxonomy/basic.html)
-* [タクソノミー関連のテンプレートを定義する](taxonomy/template.html)
-* [サイト全体のターム一覧（タグ一覧）を表示する](taxonomy/list-all-taxonomies.html)
+* [タクソノミーの基本（タグやカテゴリなど）](/p/mtfmaxr/)
+* [タクソノミー関連のテンプレートを定義する](/p/aqchnnq/)
+* [サイト全体のターム一覧（タグ一覧）を表示する](/p/tfk4tdg/)
 * [記事ページに付けられたターム一覧（タグ一覧）を表示する](taxonomy/terms-in-page.html)
-* [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](taxonomy/too-many-terms.html)
+* [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](/p/5v7o2xp/)
 
 ### data ディレクトリ
 * [全ページから参照できるデータを用意する（data ディレクトリ）](data/basic.html)
