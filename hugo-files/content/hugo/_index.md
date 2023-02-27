@@ -99,15 +99,15 @@ hugo コマンドと設定ファイル
 * [タクソノミーの基本（タグやカテゴリなど）](/p/mtfmaxr/)
 * [タクソノミー関連のテンプレートを定義する](/p/aqchnnq/)
 * [サイト全体のターム一覧（タグ一覧）を表示する](/p/tfk4tdg/)
-* [記事ページに付けられたターム一覧（タグ一覧）を表示する](taxonomy/terms-in-page.html)
+* [記事ページに付けられたターム一覧（タグ一覧）を表示する](/p/topd7uy/)
 * [記事ページに複数のターム（カテゴリ）を割り当てた場合にエラーにする](/p/5v7o2xp/)
 
 ### data ディレクトリ
-* [全ページから参照できるデータを用意する（data ディレクトリ）](data/basic.html)
-* [使用するデータファイルをショートコードのパラメータで切り替える](data/specify-datafile.html)
+* [全ページから参照できるデータを用意する（`data` ディレクトリ）](/p/5ru4kte/)
+* [参照するデータファイルをショートコードのパラメータで切り替える](/p/jbi9ojq/)
 
 ### ページャー（ページネーター）
-* [ページャー（ページネーター）で複数の記事を切り替えながら表示できるようにする](pager/basic.html)
+* [ページャー（ページネーター）で複数の記事を切り替えながら表示できるようにする](/p/8ogzaxd/)
 
 ### その他
 * [パンくずリストを表示する](/p/vemn3c4/)
@@ -115,7 +115,7 @@ hugo コマンドと設定ファイル
 * [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
 * [ホームページの Page オブジェクトを取得する](template/homepage.html)
 * [各種ページにおいて .Kind や .IsPage、.IsSection、.IsNode の値がどうなるかの一覧](template/page-types.html)
-* [次のページ、前のページへのリンクを表示する](template/prev-next-link.html)
+* [次のページ、前のページへのリンクを表示する](/p/sc9t737/)
 * [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
 * [Markdown (.md) ファイルのパス情報を取得する](/p/8env4bi/)
 * [Markdown (.md) ファイルを VS Code で開くリンクを表示する](/p/9hkprvx/)
@@ -130,7 +130,7 @@ Hugo 応用
 * [Sass/SCSS スタイルシートを使用する](/p/k7jv7hs/)
 * [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
 * [Google カスタム検索を設置して記事を検索できるようにする](advanced/google-custom-search.html)
-* [特定の記事を常にリスト上方に表示する（weight 変数）](basic/weight.html)
+* [特定の記事を常にリスト上方に表示する（`weight` プロパティ）](/p/utmg42x/)
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
 * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 * [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
