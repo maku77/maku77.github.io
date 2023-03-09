@@ -8,7 +8,7 @@ categoryIcon: _index.svg
 ---
 
 GitHub
-====
+----
 
 * [Pull Request のコードレビューワーを自動でアサインする](github/auto-assign.html)
 * [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](github/project-portal.html)
@@ -20,17 +20,15 @@ GitHub
 * [GitHub REST API を使用する](github/github-rest-api.html)
     * [GitHub REST API で Issue 情報を取得する方法いろいろ](github/github-rest-api-issues.html)
     * [GitHub REST API を Python から使用する](github/github-rest-with-python.html)
-* [GitHub で管理している社内リポジトリをトピックで分類する (topics)](github/topics.html)
+* [GitHub で管理している社内リポジトリをトピックで分類する (topics)](/p/3j6qatd/)
 * [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
 * GitHub Actions
     * [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
     * [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
 
-Git
-====
-
 基本
 ---
+
 * [Git の作業ツリーを作成する (git init, git clone)](basic/init-and-clone.html)
 * [Git でファイルの変更をステージする（コミットの印をつける）](basic/stage.html)
 * [Git で変更をローカルリポジトリにコミットする](basic/commit.html)
@@ -39,6 +37,7 @@ Git
 
 設定
 ---
+
 * [git config で設定すべき一般的な設定項目まとめ](settings/common.html)
 * [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
 * [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](/p/msds6iv/)
@@ -60,6 +59,7 @@ Git
 
 コミット／履歴の書き換え
 ---
+
 * [Git やり直し: 直前のコミットのコメントを修正する](git-modify-comment.html)
 * [Git やり直し: 直前のコミットを取り消す](commit/reset-prev-commit.html)
 * [Git やり直し: main ブランチに入れてしまったコミットを別のブランチに移す](commit/move-commit.html)
@@ -69,6 +69,7 @@ Git
 
 ログ (git log)
 ----
+
 * [コミットログ表示の基本](log/basic.html)
 * [コミットログの書き方](log/commit-log-rules.html)
 * [コミットログを絞り込んで表示する](log/filter-logs.html)
@@ -87,6 +88,7 @@ Git
 
 ブランチ (git branch)
 ----
+
 * [ブランチを作成する (`git branch`)](/p/x9s8k2e/)
 * [ブランチをチェックアウトする（作業対象のブランチを切り替える）(`git switch/checkout`)](/p/8cwbp3e/)
 * [ブランチの作成とチェックアウトを同時に行う (`git switch -c`, `git checkout -b`)](/p/ivbss76/)
@@ -100,6 +102,7 @@ Git
 
 マージ (git merge, git cherry-pick)
 ----
+
 * [ブランチでの変更をマージする（直接マージ、スカッシュマージ、チェリーピック）
 ](merge/merge-branch.html)
 * [マージ時のコンフリクトを解決する](merge/resolve-conflict.html)
@@ -112,6 +115,7 @@ Git
 
 差分・パッチファイル (git diff / patch)
 ----
+
 * [git diff でファイルの差分を調べる](git-diff.html)
 * [git diff で改行コードの違いを無視する](diff-ignore-linefeed.html)
 * [git diff で単語単位で差分を表示する](diff-words.html)
@@ -121,6 +125,7 @@ Git
 
 ファイル操作
 ----
+
 * [git clean で追跡されていないファイルを削除する](git-clean.html)
 * [ファイルを削除せずに Git によるバージョン管理の対象から外す (git rm --cached)](file/preclude-file-from-git.html)
 * [コミットからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-commit.html)
@@ -129,11 +134,13 @@ Git
 
 タグ (git tag)
 ----
+
 * [コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)](/p/y2cmv5d/)
 * [タグの名前を変更する](/p/h4dnw6e/)
 
 リポジトリ／サーバー／バックアップ
 ----
+
 * [共有リポジトリを作成する](server/create-repository.html)
 * [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
 * [Git リポジトリを移行する](server/transfer-repository.html)
@@ -145,11 +152,13 @@ Git
 
 hook スクリプト
 ----
+
 * [Git の update フックの基本](update-hook.html)
 * [特定のユーザのみ git push できるように制限する](limit-push-users.html)
 
 その他
 ----
+
 * [Git 用語集](/p/f844tkg/)
 * [Git で N 個前のコミットを表現する](other/represent-commit.html)
 * [Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（chmod +x 相当）](/p/xwxdv6y/)
@@ -157,8 +166,7 @@ hook スクリプト
 * [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
 * [Git サブモジュールで別リポジトリの内容を組み込む (`git submodule`)](/p/dsctaq7/)
 
-GitLab（GitHub クローン）
-====
+### GitLab（GitHub クローン）
 * [GitLab をインストールする](gitlab/install.html)
 * [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
 * [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
@@ -169,8 +177,7 @@ GitLab（GitHub クローン）
 * [GitLab が使用する Unicorn 用のポート番号を変更する](gitlab/unicorn-port.html)
 * [GitLab サーバのアクセスログを調べる](gitlab/access-log.html)
 
-オワコン情報 (Subversion とか CVS とか）
-====
+### オワコン情報 (Subversion とか CVS とか）
 * [git-svn を使って Git と Subversion を連携する](svn/git-svn.html)
 * [CVS のファイルのパーミッションの扱いについて](svn/cvs-file-permission.html)
 * [.svn ディレクトリをまとめて削除する](svn/delete-all-svn-dirs.html)

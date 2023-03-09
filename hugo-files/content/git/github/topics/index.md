@@ -1,6 +1,12 @@
 ---
 title: "GitHub で管理している社内リポジトリをトピックで分類する (topics)"
+url: "p/3j6qatd/"
 date: "2020-10-14"
+lastmod: "2023-03-09"
+tags: ["Git", "GitHub"]
+changes:
+  - 2023-03-09: トピックの AND/OR 検索について
+aliases: /git/github/topics.html
 ---
 
 GitHub リポジトリのトピック機能
@@ -20,19 +26,32 @@ GitHub リポジトリにトピックを割り当てる
 リポジトリへのトピック割り当てはとても簡単です。
 リポジトリのトップページを開き、右上の __歯車アイコンをクリック__ します。
 
-![topics-001.png](./topics-001.png){: .center }
+{{< image border="true" w="800" src="img-001.png" >}}
 
 すると、リポジトリの情報を入力するダイアログが開くので、__Topics__ の項目に任意のトピック名を入力します。
 ここでは、製品アプリであることを示す `product` というトピックを付けています。
 
-![topics-002.png](./topics-002.png){: .center }
+{{< image border="true" w="800" src="img-002.png" >}}
 
 あとは、左上の検索窓などに __`topic:product`__ と入力すれば、組織内の製品アプリ用のリポジトリの一覧を表示することができます。
 
-![topics-003.png](./topics-003.png){: .center }
-
-![topics-004.png](./topics-004.png){: .center }
+{{< image border="true" w="800" src="img-003.png" >}}
+{{< image border="true" w="800" src="img-004.png" >}}
 
 このときブラウザに表示されている URL を共有すれば、マネージャー陣にアプリリストを提出するということも簡単にできます。
 製品別のトピックを付けて管理するのもいいですね！
+
+
+トピックの AND 検索と OR 検索
+----
+
+複数のトピックで GitHub リポジトリを検索するときに、次のように指定すれば AND 検索や OR 検索を行えるようです（2023-03 確認）。
+
+{{< code title="AND 検索の例: AAA トピックと BBB トピックが付いているリポジトリを検索" >}}
+topic:AAA topic:BBB
+{{< /code >}}
+
+{{< code title="OR 検索の例: AAA トピックまたは BBB トピックが付いているリポジトリを検索" >}}
+topic:"AAA BBB"
+{{< /code >}}
 
