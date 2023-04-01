@@ -41,6 +41,11 @@ hugo コマンドと設定ファイル
 * [ページ内に Tex 形式の数式を埋め込めるようにする (MathJax)](/p/dsfzi4n/)
 * [リンクをページからの相対パスで出力するようにする (`relativeurls`)](/p/32n9scv/)
 
+Hugo Modules
+----
+
+* [Hugo Modules の仕組みで Hugo サイト用のコンテンツを分割して管理する](/p/bqar8o6/)
+
 ショートコード (Shortcode) <!-- shortcode -->
 ----
 

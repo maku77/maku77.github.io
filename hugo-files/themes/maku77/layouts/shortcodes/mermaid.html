@@ -1,0 +1,19 @@
+<figure style="text-align: center">
+<div class="mermaid">{{ .Inner }}</div>
+{{- with .Get "title" }}<figcaption>図: {{ . }}</figcaption>{{ end }}
+</figure>
+
+<script>
+(function() {
+  // JSファイルの多重ロードを防止
+  if (window.isMermaidLoaded) return;
+  window.isMermaidLoaded = true;
+
+  // JSファイルの動的読み込み
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js';
+  script.onload = () => { mermaid.initialize({startOnLoad: true}); };
+  document.body.appendChild(script);
+})();
+</script>
+
