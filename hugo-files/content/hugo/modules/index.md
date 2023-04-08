@@ -260,9 +260,56 @@ Hugo Modules は、複数のディレクトリに散らばったファイルを�
 上記の設定例では、`static/js` ディレクトリのマウント先を変更していますが、親ディレクトリの `static` ディレクトリごとマウント先を変更してしまっても OK です。
 
 
+（応用）GitHub Actions の設定
+----
+
+GitHub Actions を使って Hugo サイトをビルドしている場合は、ワークフロー内で Golang 環境をセットアップするよう指定しておく必要があります。
+このセットアップを忘れると、`hugo` コマンドによるビルド時に次のようなエラーになります（サイト自体を Hugo Module として初期化していない場合も同様のエラーが発生します）。
+
+```
+Error: module "github.com/USER/my-hugo-module" not found;
+either add it as a Hugo Module or store it in "/home/runner/work/my-hugo-site/my-hugo-site/themes".:
+module does not exist
+```
+
+ワークフローファイルの中で、[actions/setup-go](https://github.com/actions/setup-go) アクションを指定するだけで、Golang の実行環境は簡単にインストールすることができます。
+あとは、今まで通り Hugo によるビルドを行うだけで、依存する Hugo Module を自動でダウンロードしてビルドしてくれます。
+
+{{< code lang="yaml" title=".github/workflows/hugo-build.yml" hl_lines="16-19" >}}
+name: Build Hugo site
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
+
+    - name: Setup Go environment
+      uses: actions/setup-go@v4.0.0
+      with:
+        go-version: '^1.20'
+
+    - name: Setup Hugo environment
+      uses: peaceiris/actions-hugo@v2.6.0
+      with:
+        hugo-version: '0.111.3'
+        extended: true  # Enable scss
+
+    - name: Build Hugo site
+      run: hugo --minify
+
+    # ...
+{{< /code >}}
+
+
 {{% private %}}
 - （応用）Git サブモジュールで追加している Hugo テーマを Hugo Module に置き換える
-- （応用）GitHub Actions の設定
-  - GitHub Actions を使って Hugo サイトをビルドしている場合は、ワークフロー内で Golang 環境をセットアップするよう指定する必要があります（そうしないと `hugo` コマンドによるビルド時にエラーになります）。
 {{% /private %}}
 
