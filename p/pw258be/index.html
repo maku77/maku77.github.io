@@ -17,7 +17,7 @@
 </span></span><span class=line><span class=cl>	<span class=c1>// ...
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
 </span></span></code></pre></div><p>ちなみに Go 言語には Java や C++ のような三項演算子 (<code>a ? b : c</code>) は用意されていません。
-言語として三項演算子や <code>if</code> 式を採用してしまうと、複雑なコードが書かれやすいというのが理由っぽいです（適度に使えば便利なんですけどね^^;）。</p><ul><li>参考: <a href=https://go.dev/doc/faq#Control_flow>Why does Go not have the ?: operator?</a></li></ul><h2 id=if-スコープの変数>if スコープの変数</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=k>if</span> <span class=nx>変数定義</span><span class=p>;</span> <span class=nx>条件式</span> <span class=p>{</span>
+言語として三項演算子や <code>if</code> 式を採用してしまうと、複雑なコードが書かれやすいというのが理由っぽいです（適度に使えば便利なんですけどね^^;）。</p><ul><li>参考: <a href=https://go.dev/doc/faq#Control_flow>Why does Go not have the ?: operator?</a></li></ul><h2 id=if-スコープの変数>if スコープの変数</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=k>if</span> <span class=err>変数定義</span><span class=p>;</span> <span class=err>条件式</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>	<span class=c1>// ...
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
 </span></span></code></pre></div><p>という形で変数定義を行うと、その変数のスコープを <code>if</code> あるいは、<code>else</code> のブロック内に制限することができます。

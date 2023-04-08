@@ -12,13 +12,13 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 内部で Android の <code>Choreographer</code> を使っています。</p><figure class=codeBlock><figcaption class=codeBlock__title>Fps.kt</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>import</span> <span class=nn>android.view.Choreographer</span>
 </span></span><span class=line><span class=cl><span class=k>import</span> <span class=nn>java.util.concurrent.TimeUnit</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>interface</span> <span class=nc>FpsCallback</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=cm>/** Called when the latest FPS is calculated. */</span>
 </span></span><span class=line><span class=cl>        <span class=k>fun</span> <span class=nf>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>:</span> <span class=n>Float</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>fpsCallback</span><span class=p>:</span> <span class=n>FpsCallback</span><span class=p>?</span> <span class=p>=</span> <span class=k>null</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>prevFrameTimeNanos</span><span class=p>:</span> <span class=n>Long</span> <span class=p>=</span> <span class=m>0</span>
 </span></span><span class=line><span class=cl>
@@ -64,14 +64,14 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=c1>// Calculate FPS and pass it to the callback function
 </span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>val</span> <span class=py>elapsed</span> <span class=p>=</span> <span class=n>frameTimeNanos</span> <span class=p>-</span> <span class=n>prevFrameTimeNanos</span>
-</span></span><span class=line><span class=cl>        <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=n>TimeUnit</span><span class=p>.</span><span class=n>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span> <span class=p>/</span> <span class=n>elapsed</span><span class=p>.</span><span class=n>toFloat</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=nc>TimeUnit</span><span class=p>.</span><span class=nc>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span> <span class=p>/</span> <span class=n>elapsed</span><span class=p>.</span><span class=n>toFloat</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>        <span class=n>checkNotNull</span><span class=p>(</span><span class=n>fpsCallback</span><span class=p>).</span><span class=n>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>        <span class=n>prevFrameTimeNanos</span> <span class=p>=</span> <span class=n>frameTimeNanos</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><p><code>Choreographer#postFrameCallback()</code> で登録したコールバックは、一度しか呼び出されないことに注意してください。
 連続してフレーム描画のタイミングを取得するには、毎回同じコールバックを登録し直す必要があります（上記では、<code>doFrame()</code> メソッドの先頭で登録しています）。</p><h3 id=fps-クラスの使用例>Fps クラスの使用例</h3><p><code>Fps</code> クラスを使って FPS の観測を行うには、例えば次のようにします。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=n>Fps</span><span class=p>().</span><span class=n>startObserving</span> <span class=p>{</span> <span class=n>fps</span> <span class=o>-&gt;</span>
-</span></span><span class=line><span class=cl>    <span class=n>Log</span><span class=p>.</span><span class=n>i</span><span class=p>(</span><span class=s2>&#34;DEBUG&#34;</span><span class=p>,</span> <span class=s2>&#34;FPS = %.3f&#34;</span><span class=p>.</span><span class=n>format</span><span class=p>(</span><span class=n>fps</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=nc>Log</span><span class=p>.</span><span class=n>i</span><span class=p>(</span><span class=s2>&#34;DEBUG&#34;</span><span class=p>,</span> <span class=s2>&#34;FPS = %.3f&#34;</span><span class=p>.</span><span class=n>format</span><span class=p>(</span><span class=n>fps</span><span class=p>))</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><h2 id=応用-1-秒おきに平均-fps-を求める>（応用） 1 秒おきに平均 FPS を求める</h2><p>上記のサンプルコードでは、毎フレーム FPS を求めてコールバック関数を呼び出していましたが、これでは高頻度すぎるという場合は、下記のようにすれば約 1 秒ごとに呼び出すように軽量化できます。
 <code>FrameCallback.doFrame()</code> が呼び出されたときに、前回のコールバックから 1 秒以上経過している場合だけ、コールバックするようにしています。
@@ -81,10 +81,10 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span><span class=line><span class=cl><span class=cm>/**
 </span></span></span><span class=line><span class=cl><span class=cm> * Utility class for obtaining FPS (frames per second).
 </span></span></span><span class=line><span class=cl><span class=cm> */</span>
-</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>companion</span> <span class=k>object</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=cm>/** Callbacks are invoked at intervals of this time. */</span>
-</span></span><span class=line><span class=cl>        <span class=k>private</span> <span class=k>val</span> <span class=py>CALLBACK</span><span class=n>_INTERVAL_NANOS</span> <span class=p>=</span> <span class=n>TimeUnit</span><span class=p>.</span><span class=n>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>private</span> <span class=k>val</span> <span class=py>CALLBACK</span><span class=n>_INTERVAL_NANOS</span> <span class=p>=</span> <span class=nc>TimeUnit</span><span class=p>.</span><span class=nc>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=k>interface</span> <span class=nc>FpsCallback</span> <span class=p>{</span>
@@ -92,7 +92,7 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span><span class=line><span class=cl>        <span class=k>fun</span> <span class=nf>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>:</span> <span class=n>Double</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>fpsCallback</span><span class=p>:</span> <span class=n>FpsCallback</span><span class=p>?</span> <span class=p>=</span> <span class=k>null</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>prevCallbackTimeNanos</span><span class=p>:</span> <span class=n>Long</span> <span class=p>=</span> <span class=m>0</span>
 </span></span><span class=line><span class=cl>
@@ -149,7 +149,7 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>val</span> <span class=py>elapsed</span> <span class=p>=</span> <span class=n>frameTimeNanos</span> <span class=p>-</span> <span class=n>prevCallbackTimeNanos</span>
 </span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>elapsed</span> <span class=o>&gt;=</span> <span class=n>CALLBACK_INTERVAL_NANOS</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=c1>// Calculate FPS and pass it to the callback function
-</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=n>frames</span><span class=p>.</span><span class=n>toDouble</span><span class=p>()</span> <span class=p>*</span> <span class=n>TimeUnit</span><span class=p>.</span><span class=n>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span> <span class=p>/</span> <span class=n>elapsed</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=n>frames</span><span class=p>.</span><span class=n>toDouble</span><span class=p>()</span> <span class=p>*</span> <span class=nc>TimeUnit</span><span class=p>.</span><span class=nc>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span> <span class=p>/</span> <span class=n>elapsed</span>
 </span></span><span class=line><span class=cl>            <span class=n>checkNotNull</span><span class=p>(</span><span class=n>fpsCallback</span><span class=p>).</span><span class=n>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>            <span class=c1>// Reset counters
@@ -166,10 +166,10 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span><span class=line><span class=cl><span class=cm>/**
 </span></span></span><span class=line><span class=cl><span class=cm> * Utility class for obtaining FPS (frames per second).
 </span></span></span><span class=line><span class=cl><span class=cm> */</span>
-</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Fps</span> <span class=p>:</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>FrameCallback</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>companion</span> <span class=k>object</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=cm>/** Callbacks are invoked at intervals of this time. */</span>
-</span></span><span class=line><span class=cl>        <span class=k>private</span> <span class=k>val</span> <span class=py>CALLBACK</span><span class=n>_INTERVAL_NANOS</span> <span class=p>=</span> <span class=n>TimeUnit</span><span class=p>.</span><span class=n>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>private</span> <span class=k>val</span> <span class=py>CALLBACK</span><span class=n>_INTERVAL_NANOS</span> <span class=p>=</span> <span class=nc>TimeUnit</span><span class=p>.</span><span class=nc>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=k>interface</span> <span class=nc>FpsCallback</span> <span class=p>{</span>
@@ -177,7 +177,7 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span><span class=line><span class=cl>        <span class=k>fun</span> <span class=nf>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>:</span> <span class=n>Double</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=n>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>val</span> <span class=py>choreographer</span> <span class=p>=</span> <span class=nc>Choreographer</span><span class=p>.</span><span class=n>getInstance</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>fpsCallback</span><span class=p>:</span> <span class=n>FpsCallback</span><span class=p>?</span> <span class=p>=</span> <span class=k>null</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>prevCallbackTimeNanos</span><span class=p>:</span> <span class=n>Long</span> <span class=p>=</span> <span class=m>0</span>
 </span></span><span class=line><span class=cl>    <span class=k>private</span> <span class=k>var</span> <span class=py>prevFrameTimeNanos</span><span class=p>:</span> <span class=n>Long</span> <span class=p>=</span> <span class=m>0</span>
@@ -235,7 +235,7 @@ Fps.kt import android.view.Choreographer import java.util.concurrent.TimeUnit cl
 </span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>val</span> <span class=py>elapsed</span> <span class=p>=</span> <span class=n>frameTimeNanos</span> <span class=p>-</span> <span class=n>prevCallbackTimeNanos</span>
 </span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>elapsed</span> <span class=o>&gt;=</span> <span class=n>CALLBACK_INTERVAL_NANOS</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>            <span class=c1>// Calculate the minimum FPS and pass it to the callback function
-</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=n>TimeUnit</span><span class=p>.</span><span class=n>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>).</span><span class=n>toDouble</span><span class=p>()</span> <span class=p>/</span> <span class=n>worstFrameTimeNanos</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>val</span> <span class=py>fps</span> <span class=p>=</span> <span class=nc>TimeUnit</span><span class=p>.</span><span class=nc>SECONDS</span><span class=p>.</span><span class=n>toNanos</span><span class=p>(</span><span class=m>1</span><span class=p>).</span><span class=n>toDouble</span><span class=p>()</span> <span class=p>/</span> <span class=n>worstFrameTimeNanos</span>
 </span></span><span class=line><span class=cl>            <span class=n>checkNotNull</span><span class=p>(</span><span class=n>fpsCallback</span><span class=p>).</span><span class=n>onFpsUpdated</span><span class=p>(</span><span class=n>fps</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>            <span class=c1>// Reset counters
