@@ -1,13 +1,17 @@
 ---
-title: "JSON-LD 形式のパンくずリストを出力する"
+title: "Hugo で JSON-LD 形式のパンくずリストを出力する（SEO 対策）"
+url: "p/5fzgwdt/"
 date: "2020-05-16"
+tags: ["Hugo"]
 description: "JSON-LD 形式の構造化データを HTML 内に含めておくと、Google の検索結果にページの階層構造が表示されるようになります。"
+aliases: /hugo/template/breadcrumbs-json.html
 ---
 
-[JSON-LD 形式](https://json-ld.org/) の構造化データは、あくまで Google の検索エンジンなどに記事の階層を伝えるためのものであり、記事内に表示するためのパンくずリストではないことに注意してください。
-Hugo で画面表示用のパンくずリストを出力したいときは、下記の記事を参考にしてください。
+[JSON-LD](https://json-ld.org/) 形式の構造化データを HTML 内に含めておくと、Google の検索結果にページの階層構造が表示されるようになります。
+この構造化データは、あくまで __Google などの検索エンジンに記事の階層を伝えるためのもの__ であり、記事内に表示するためのパンくずリストではないことに注意してください。
+画面表示用のパンくずリストを出力したいときは、下記の記事を参考にしてください。
 
-- 参考: [パンくずリストを表示する](breadcrumbs.html)
+- 参考: [Hugo でパンくずリストを表示する](/p/vemn3c4/)
 
 
 パンくずリストのフォーマット
@@ -54,7 +58,7 @@ JSON-LD 形式でパンくずリストを作成するときに、どのような
 </script>
 ```
 
-着目すべきは __`itemListElement`__ 配列の中身で、階層の数だけ要素を記述します。
+重要なのは __`itemListElement`__ プロパティで、この配列要素として各階層の内容を記述します。
 とても単純なので説明するまでもないと思いますが、 __`name`__ プロパティで各階層の名称、 __`item`__ プロパティでその階層を示す URL を指定します。
 __`position`__ プロパティは 1、2、3 と順番に振っていけば OK です。
 
@@ -66,67 +70,60 @@ __`position`__ プロパティは 1、2、3 と順番に振っていけば OK �
 ----
 
 ここでは、Hugo のパーシャルテンプレートで、JSON-LD 形式のパンくずリストを出力できるようにします。
-
 まず、ユーティリティ関数として、現在のページの階層構造を `.Page` の配列で取得するパーシャルテンプレートを用意します。
 
-- 参考: [ページの階層構造を取得する関数を作成する (get-hierarchy)](../layout/get-hierarchy.html)
+- 参考: [ページの階層構造を取得する関数を作成する (get-hierarchy)](/p/v9t62ux/)
 
-#### layouts/partials/function/get-hierarchy.html
+{{< code lang="go-html-template" title="layouts/partials/function/get-hierarchy.html" >}}
+{{ $hierarchy := slice . }}
 
-```
-{{ "{{" }} $hierarchy := slice . }}
+{{ if .Parent }}
+  {{ $parentHierarchy := partial "function/get-hierarchy" .Parent }}
+  {{ if $parentHierarchy }}
+    {{ $hierarchy = $parentHierarchy | append $hierarchy }}
+  {{ end }}
+{{ end }}
 
-{{ "{{" }} if .Parent }}
-  {{ "{{" }} $parentHierarchy := partial "function/get-hierarchy" .Parent }}
-  {{ "{{" }} if $parentHierarchy }}
-    {{ "{{" }} $hierarchy = $parentHierarchy | append $hierarchy }}
-  {{ "{{" }} end }}
-{{ "{{" }} end }}
-
-{{ "{{" }} return $hierarchy }}
-```
+{{ return $hierarchy }}
+{{< /code >}}
 
 次のパーシャルテンプレートでは、上記の `get-hierarchy` ユーティリティが返す階層情報を使って、JSON-LD 形式のパンくずリストを出力します。
 
-#### layouts/partials/breadcrumb-json.html
-
-```html
-{{ "{{" }} $hierarchy := partial "function/get-hierarchy" . }}
+{{< code lang="go-html-template" title="layouts/partials/breadcrumb-json.html" >}}
+{{ $hierarchy := partial "function/get-hierarchy" . }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {{ "{{" }}- range $index, $page := $hierarchy }}
-    {{ "{{" }}- if gt $index 0 }},{{ "{{" }} end }}
+    {{- range $index, $page := $hierarchy }}
+    {{- if gt $index 0 }},{{ end }}
     {
       "@type": "ListItem",
-      "position": {{ "{{" }} add $index 1 }},
-      "name": {{ "{{" }} $page.LinkTitle }},
-      "item": {{ "{{" }} $page.Permalink }}
+      "position": {{ add $index 1 }},
+      "name": {{ $page.LinkTitle }},
+      "item": {{ $page.Permalink }}
     }
-    {{ "{{" }}- end }}
+    {{- end }}
   ]
 }
 </script>
-```
+{{< /code >}}
 
 あとは、任意のレイアウト用テンプレートから、次のように呼び出せば、そこにパンくずリストが出力されます。
 
-#### layouts/_default/baseof.html（抜粋）
-
-```html
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（抜粋）" >}}
 <body>
   ... 省略 ...
-  {{ "{{" }} partial "breadcrumb-json" . }}
+  {{ partial "breadcrumb-json" . }}
 </body>
-```
+{{< /code >}}
 
 
 JSON-LD の内容を検証する
 ----
 
-出力した JSON-LD 形式のパンくずリストは、下記のサイトで検証することができます。
+出力された JSON-LD 形式のパンくずリストは、下記のサイトで検証することができます。
 
 - [Google 構造化データ テストツール](https://search.google.com/structured-data/testing-tool/u/0/)
 

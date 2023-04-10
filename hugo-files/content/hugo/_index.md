@@ -116,15 +116,15 @@ Hugo Modules
 
 ### その他
 * [パンくずリストを表示する](/p/vemn3c4/)
-* [JSON-LD のパンくずリストを出力する](template/breadcrumbs-json.html)
-* [各ページに目次を表示する (.TableOfContents)](template/table-of-contents.html)
-* [ホームページの Page オブジェクトを取得する](template/homepage.html)
-* [各種ページにおいて .Kind や .IsPage、.IsSection、.IsNode の値がどうなるかの一覧](template/page-types.html)
+* [JSON-LD のパンくずリストを出力する（SEO 対策）](/p/5fzgwdt/)
+* [各ページに目次を表示する (`.TableOfContents`)](/p/x9tbr8o/)
+* [ホームページの `Page` オブジェクトを取得する](/p/ffr2bku/)
+* [各種ページにおいて `.Kind` や `.IsPage`、`.IsSection`、`.IsNode` の値がどうなるかの一覧](/p/co8p6n4/)
 * [次のページ、前のページへのリンクを表示する](/p/sc9t737/)
-* [ファイルが存在する場合のみ処理するコードを記述する](template/if-exists.html)
+* [ファイルが存在する場合のみ処理するコードを記述する (`fileExists`)](/p/q4o6n4k/)
 * [Markdown (.md) ファイルのパス情報を取得する](/p/8env4bi/)
 * [Markdown (.md) ファイルを VS Code で開くリンクを表示する](/p/9hkprvx/)
-* [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](template/empty-content.html)
+* [Markdown ファイルに本文が記述されていない場合だけ特別な出力をする](/p/7m6n4j2/)
 * [テンプレートの中で絵文字を使用する (`emojify`)](/p/88e7tiz/)
 
 Hugo 応用
