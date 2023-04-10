@@ -129,7 +129,7 @@ Hugo Modules
 
 Hugo 応用
 ----
-* [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](misc/page-bundle.html)
+* [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](/p/9n8p6n4/)
 * [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
 * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
 * [Sass/SCSS スタイルシートを使用する](/p/k7jv7hs/)
