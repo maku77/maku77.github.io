@@ -1,23 +1,19 @@
 ---
-title: "サイト構造を変えてもページの URL が変わらないようにする"
+title: "Hugo でサイト構造を変えてもページの URL が変わらないようにする (Permalink)"
+url: "p/u9r9p7n/"
 date: "2019-10-20"
 lastmod: "2022-07-27"
-url: "p/u9r9p7n/"
-permalink: "p/u9r9p7n/"
-date: "2022-05-08"
 tags: ["Hugo"]
-redirect_from: "/hugo/misc/permalink"
 ---
 
 各ページの URL は変わってはいけない
 ----
 
 Hugo によって出力される HTML ファイルのパスは、デフォルトでは `content` ディレクトリ以下のセクション構成（ディレクトリ構成）やファイル名によって決定されます。
-
 サイトの規模が小さいうちはこれでもよいのですが、Markdown ファイル数が増えてくると、ディレクトリ構造を変えたり、ファイル名を整理したくなってきます。
 それによってページの URL がころころ変わってしまうと、せっかくリンクを張ってくれたサイトがあっても、すべてリンク切れになってしまいます。
 
-このようなリンク切れを起こさないようにするのが **パーマリンク (permalink)** という考え方で、各ページに不変の ID を割り当てて URL が変わらないようにします。
+このようなリンク切れを起こさないようにするのが __パーマリンク (permalink)__ という考え方で、各ページに不変の ID を割り当てて URL が変わらないようにします。
 例えば、Amazon の各商品のページは 10 桁の ISBN-10 という ID でアクセスできるようになっています。
 
 ```
@@ -26,9 +22,9 @@ https://www.amazon.co.jp/dp/4592146980/
 
 Hugo でも、各ページにこのような ID ベースの URL を割り当てることができます。
 
-```
+{{< code title="不変の URL を割り当てた例" >}}
 https://<your-hugo-site>/p/abc1234/
-```
+{{< /code >}}
 
 
 Hugo で出力するページに固定の URL を割り当てる
@@ -46,7 +42,6 @@ date: "2019-10-20"
 
 例えば、上記のようなフロントマターを記述しておくと、そのページには必ず `https://ドメイン名/p/abc1234/` というアドレスでアクセスできるようになります。
 一階層目のパスは別の用途で使用する可能性があるため、ここでは `p` という階層を掘って、permalink 化した記事を格納するようにしています（Amazon の `dp` と同様です）。
-
 このようにすることで、Markdown ファイルのファイル名や記事タイトル、ディレクトリ構成を変えても、最終的な URL を変化させずに済みます。
 
 ### Hugo 搭載の permalink 機能は使わない
@@ -105,55 +100,49 @@ Hugo プロジェクトのルートに、`archetypes/default.md` というファ
 
 次のサンプルでは、自動でフロントマターにランダムな `url` プロパティを挿入するようにしています。
 
-#### archetypes/default.md
-
-```yaml
+{{< code lang="go-html-template" title="archetypes/default.md" >}}
 ---
 title: ""
-url: "p/{{ "{{" }} template "permanentId" }}/"
-date: "{{ "{{" }} now.Format "2006-01-02" }}"
+url: "p/{{ template "permanentId" }}/"
+date: "{{ now.Format "2006-01-02" }}"
 tags: [""]
 ---
 
-{{ "{{" }} define "permanentId" -}}
-  {{ "{{" }}- $scratch := newScratch -}}
-  {{ "{{" }}- range (seq 7) -}}
-    {{ "{{" }}- $nextCh := slice "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" | shuffle | first 1 -}}
-    {{ "{{" }}- $scratch.Add "id" $nextCh -}}
-  {{ "{{" }}- end -}}
-  {{ "{{" }}- delimit ($scratch.Get "id") "" -}}
-{{ "{{" }}- end -}}
-```
+{{ define "permanentId" -}}
+  {{- $scratch := newScratch -}}
+  {{- range (seq 7) -}}
+    {{- $nextCh := slice "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" | shuffle | first 1 -}}
+    {{- $scratch.Add "id" $nextCh -}}
+  {{- end -}}
+  {{- delimit ($scratch.Get "id") "" -}}
+{{- end -}}
+{{< /code >}}
 
-ここでは、`permanentId` という内部テンプレートを定義して、`p/xpya1z3` という感じのランダム文字列を生成しています（もうちょっと綺麗に生成する方法があればいいんですが）。
+ここでは、`permanentId` という内部テンプレートを定義して、`xpya1z3` という感じのランダム文字列を生成しています（もうちょっと綺麗に生成する方法があればいいんですが）。
 
 Hugo プロジェクトのルートで次のようにコマンドを実行すれば、新しい記事ファイルが生成され、その先頭にフロントマターが挿入されます。
 
-```
+```console
 $ hugo new sample.md
 ```
 
 例えば、次のような感じのファイルが生成されます（デフォルトで `content` ディレクトリ以下に生成されます）。
 
-#### content/sample.md
-
-```yaml
+{{< code lang="yaml" title="content/sample.md" >}}
 ---
 title: ""
 url: "p/es3qakw/"
 date: "2020-03-16"
 tags: [""]
 ---
-```
+{{< /code >}}
 
 ### （応用）Vim エディタでフロントマターを自動挿入
 
 Vim などのエディタを使っている人は、エディタのマクロ機能でフロントマターを挿入できるようにしておくと便利です。
 下記の Vim スクリプトは、現在編集中のファイルの先頭に、`date` プロパティや `url` プロパティを挿入する `Hugo` コマンドを定義します。
 
-#### ~/vimrc_hugo.vim
-
-```vim
+{{< code lang="vim" title="~/vimrc_hugo.vim" >}}
 " 0〜n-1 の範囲のランダム整数を生成する
 function! s:RandNum(n)
   return reltime()[1] % (a:n)
@@ -183,22 +172,20 @@ endfunction
 
 " Hugo コマンドを定義する
 command! Hugo call s:InsertHugoFrontMatter()
-```
+{{< /code >}}
 
-このスクリプトファイルを `~/.vimrc` などから下記のように読みこんでおくか、直接コードを `~/.vimrc` にコピペしておけば、Vim エディタ上で `Hugo` コマンドを実行できるようになります。
+このスクリプトファイルを `~/.vimrc` などから下記のように読みこんでおくか、直接コードを `~/.vimrc` にコピペしておけば、Vim エディタ上で __`Hugo`__ コマンドを実行できるようになります。
 
-#### ~/.vimrc（Windows の場合は %HOME%/_vimrc）
-
-```
+{{< code lang="vim" title="~/.vimrc（Windows の場合は %HOME%/_vimrc）" >}}
 source <sfile>:p:h/vimrc_hugo.vim
-```
+{{< /code >}}
 
 ファイル名の前のあやしい記号群は、同じディレクトリにある別のファイルを読み込むためのおまじないです。
 フルパスで指定しておいても OK です。
 
 Vim エディタから下記のようにコマンドを実行すると、
 
-```
+```vim
 :Hugo
 ```
 
@@ -231,5 +218,5 @@ GitHub のオートリンク機能を使うと、GitHub リポジトリの Issue
 出力される HTML ファイルのパスが変更されると、それに付随する画像ファイルとの位置関係が変わって、画像の表示ができなくなってしまうかもしれません。
 下記の記事で紹介しているショートコードを使って画像を表示するようにしておくと、このような心配がなくなります。
 
-- 参考: [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](page-bundle.html)
+- 参考: [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](/p/9n8p6n4/)
 

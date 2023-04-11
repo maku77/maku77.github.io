@@ -129,21 +129,23 @@ Hugo Modules
 
 Hugo 応用
 ----
-* [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](/p/9n8p6n4/)
-* [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](misc/image-processing.html)
+* 図／画像
+  * [画像ファイルを Markdown ファイルと同じディレクトリに置く (Page Bundle)](/p/9n8p6n4/)
+  * [大きな画像ファイルから自動的に小さなサムネイル画像を生成する (Image Processing)](/p/mxhzgwd/)
+  * [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
+  * [mermaid.js で Markdown 中に UML 図を埋め込む](/p/xg3n7qa/)
+* 検索／サーチエンジン
+  * [全文検索（インクリメンタルサーチ）の機能を付ける](/p/p4n5m3i/)
+  * [Google カスタム検索を設置して記事を検索できるようにする](/p/n4o7o6m/)
+  * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
 * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
 * [Sass/SCSS スタイルシートを使用する](/p/k7jv7hs/)
-* [全文検索（インクリメンタルサーチ）の機能を付ける](advanced/full-text-search.html)
-* [Google カスタム検索を設置して記事を検索できるようにする](advanced/google-custom-search.html)
 * [特定の記事を常にリスト上方に表示する（`weight` プロパティ）](/p/utmg42x/)
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](advanced/validate-front-matter.html)
-* [favicon.ico をサイトのルートに置く (static)](misc/favicon.html)
 * [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
 * [hugo deploy コマンドで Azure などのクラウドサービス上にデプロイする](advanced/deploy.html)
 * [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
 * [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
-* [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](advanced/sitemap.html)
-* [mermaid.js で Markdown 中に UML 図を埋め込む](/p/xg3n7qa/)
 * [Hugo のテンプレートやショートコードでランダムな文字列を生成する](/p/9qexh2q/)
 * [記事ページで TypeScript ファイルをインクルードして使用する](/p/3adgjnq/)
 * [新しいページや別のサイトへ自動でリダイレクトする (aliases, redirectTo)](/p/oj3izfu/)
