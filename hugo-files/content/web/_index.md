@@ -1,14 +1,17 @@
 ---
-title: "HTML/CSS サンプル"
-date: "2015-10-08"
-layout: category-index
+title: "HTML/CSS"
+url: "/web/"
+
+categoryName: "まくまく HTML/CSS ノート"
+categoryUrl: "/web/"
+categoryIcon: _index.svg
 ---
 
 HTML 全般
 ----
 * [HTML ファイルの雛形（テンプレート）](html/template.html)
 * [IE 8 でも HTML5 の header や footer 要素を使えるようにする](html/ie8.html)
-* [Web サイトに favicon を設定する](html/favicon.html)
+* [Web サイトに favicon を設定する](/p/bdox8hr/)
 
 
 全体のレイアウト
@@ -88,7 +91,7 @@ CSS セレクタ
 ----
 * [吹き出し風の見出しを作る](sample/balloon.html)
 * [Web サイト作成に関するメモ: SEO 対策](seo.html)
-* [jQuery に関しては JavaScript のページを参照](../js/index.html)
+* [jQuery に関しては JavaScript のページを参照](../js/)
 
 
 ### 外部サイトリンク
