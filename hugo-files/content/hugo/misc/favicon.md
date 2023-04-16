@@ -1,9 +1,12 @@
 ---
-title: "favicon.ico をサイトのルートに置く (static)"
+title: "Hugo サイトの favicon.ico をサイトのルートに配置する (static)"
+url: "p/vu7hr2b/"
 date: "2019-09-10"
+tags: ["Hugo"]
+aliases: /hugo/misc/favicon.html
 ---
 
-Hugo によって生成した Web サイトのルートディレクトリに **`favicon.ico`** を配置するには、`static` ディレクトリに `favicon.ico` ファイルをそのまま置いておけば OK です。
+Hugo によって生成した Web サイトのルート階層に __`favicon.ico`__ を配置するには、`static` ディレクトリに `favicon.ico` ファイルをそのまま置いておけば OK です。
 
 ```
 website/
@@ -17,5 +20,5 @@ website/
 
 favicon の詳細については下記を参考にしてください。
 
-- [Web サイトに favicon を設定する](/web/html/favicon.html)
+- [Web サイトに favicon を設定する](/p/bdox8hr/)
 

@@ -1,6 +1,9 @@
 ---
 title: "Python で Markdown ファイルのフロントマターの記述が正しいかチェックする"
+url: "p/bes7iu7/"
 date: "2019-10-22"
+tags: ["Hugo"]
+aliases: /hugo/advanced/validate-front-matter.html
 ---
 
 下記の Python スクリプト (`check-front-matter.py`) は、Markdown ファイルに記載された YAML フロントマターの内容が正しいかどうかを調べるサンプルスクリプトです。
@@ -13,15 +16,14 @@ date: "2019-10-22"
 
 PyYAML というライブラリを使用しているので、下記のようにインストールしておく必要があります。
 
-```
+{{< code lang="console" title="PyYAML のインストール" >}}
 $ pip install pyyaml
-```
+{{< /code >}}
 
 次のように実行すると、カレントディレクトリ以下の全ての Markdown ファイル (.md) の内容を検証できます。
 
-```
+```console
 $ python check-front-matter.py
-
 content/title3.md: Missing title or date
 content/title4.md: Missing title or date
 content/title5.md: Missing title or date
@@ -33,9 +35,7 @@ content/title5.md: Missing title or date
 サンプルスクリプト
 ----
 
-#### check-front-matter.py
-
-```python
+{{< code lang="python" title="check-front-matter.py" >}}
 #!/usr/bin/env python3
 import yaml
 
@@ -97,5 +97,5 @@ if __name__ == '__main__':
         except Exception as e:
             print(e, file=sys.stderr)
             sys.exit(1)
-```
+{{< /code >}}
 
