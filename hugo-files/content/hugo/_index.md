@@ -138,21 +138,22 @@ Hugo 応用
   * [全文検索（インクリメンタルサーチ）の機能を付ける](/p/p4n5m3i/)
   * [Google カスタム検索を設置して記事を検索できるようにする](/p/n4o7o6m/)
   * [サーチエンジン用に robots.txt や sitemap.xml ファイルを配置する](/p/qr4eox7/)
-* [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
+* アドレス／リンク
+  * [サイト構造を変えてもページの URL が変わらないようにする (Permalink)](/p/u9r9p7n/)
+  * [ページ内リンク（アンカー）を張る](/p/kmv4bjr/)
+  * [「このページを編集 (Edit this page)」のリンクを表示する](/p/vit4ckt/)
+  * [新しいページや別のサイトへ自動でリダイレクトする (`aliases`, `redirectTo`)](/p/oj3izfu/)
 * [Sass/SCSS スタイルシートを使用する](/p/k7jv7hs/)
 * [特定の記事を常にリスト上方に表示する（`weight` プロパティ）](/p/utmg42x/)
 * [Python で Markdown ファイルのフロントマターの記述が正しいかチェックする](/p/bes7iu7/)
-* [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](advanced/ogp.html)
+* [Facebook や Twitter の SNS で URL をシェアするときの表示設定 (OGP: Open Graph Protocol)](/p/w7r8p6m/)
 * [hugo deploy コマンドで Azure などのクラウドサービス上にデプロイする](/p/2ycmvbn/)
-* [このページを編集 (Edit this page) のリンクを作成する](advanced/edit-this-page.html)
-* [ページ内リンク（アンカー）を張る](advanced/internal-link.html)
 * [Hugo のテンプレートやショートコードでランダムな文字列を生成する](/p/9qexh2q/)
-* [記事ページで TypeScript ファイルをインクルードして使用する](/p/3adgjnq/)
-* [新しいページや別のサイトへ自動でリダイレクトする (aliases, redirectTo)](/p/oj3izfu/)
+* [記事ページで TypeScript ファイルや NPM パッケージをインクルードして使用する](/p/3adgjnq/)
 
 トラブルシューティング
 ----
-* [ドラフト指定したセクションが公開されてしまう](misc/exclude-draft-section.html)
-* [Markdown ファイルに記述した HTML コードが削除されてしまう](misc/include-html.html)
+* [ドラフト指定したセクションが公開されてしまう](/p/ynv4ago/)
+* [Markdown ファイルに記述した HTML コードが削除されてしまう](/p/mju5eox/)
 * [Hugo サーバーで記事の変更内容が反映されない (`hugo server --ignoreCache`)](/p/taxh3m7/)
 

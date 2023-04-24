@@ -1,6 +1,9 @@
 ---
-title: "Markdown ファイルに記述した HTML コードが削除されてしまう"
+title: "Hugo で Markdown ファイルに記述した HTML コードが削除されてしまう場合"
+url: "p/mju5eox/"
 date: "2019-12-26"
+tags: ["Hugo"]
+aliases: /hugo/misc/include-html.html
 ---
 
 Goldmark 化による弊害
@@ -19,21 +22,17 @@ Markdown ファイル内に HTML コードを記述できるようにする
 
 `.md` ファイルに記述した HTML コードを、これまで通り出力できるようにするには、Hugo の設定ファイルで次のように指定します。
 
-#### config.toml（TOML フォーマットの場合）
-
-```toml
+{{< code lang="toml" title="hugo.toml（TOML フォーマットの場合）" >}}
 [markup.goldmark.renderer]
   unsafe = true
-```
+{{< /code >}}
 
-#### config.yaml（YAML フォーマットの場合）
-
-```yaml
+{{< code lang="yaml" title="hugo.yaml（YAML フォーマットの場合）" >}}
 markup:
   goldmark:
     renderer:
       unsafe: true
-```
+{{< /code >}}
 
 
 もちろん、使用する Markdown パーサー自体を旧来の BlackFriday に設定するという方法もあります。
