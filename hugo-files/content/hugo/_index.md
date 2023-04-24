@@ -33,6 +33,7 @@ hugo コマンドと設定ファイル
 * [Hugo サーバーで記事生成のキャッシュを無効にする (`hugo server --ignoreCache`)](/p/taxh3m7/)
 * [複数の Hugo サーバーを 1 つのコマンドプロンプト上で立ち上げる](/p/yg4o9rb/)
 * [複数の Hugo サイトで同じテーマディレクトリを参照する (`themesDir`)](/p/4m7gqfx/)
+* [使用していないテンプレートやショートコードを見つける (`hugo --printUnusedTemplates`)](/p/st6fpz9/)
 
 ### 設定ファイル (config) <!-- config -->
 * [日本語を正しく扱えるようにしてページサマリーが長くなるのを防ぐ (`hasCJKLanguage`, `isCJKLanguage`)](/p/rqcwgyj/)
