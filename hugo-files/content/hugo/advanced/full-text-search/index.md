@@ -2,32 +2,61 @@
 title: "Hugo に全文検索（インクリメンタルサーチ）の機能を付ける"
 url: "p/p4n5m3i/"
 date: "2018-09-11"
-lastmod: "2021-06-14"
+lastmod: "2023-05-04"
 tags: ["Hugo"]
 description: "ここでは JavaScript を使ってサイト内の全文検索を実現する方法を示します。全文検索を実現する方法としては、Google カスタム検索を利用する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます。"
+changes:
+  - 2023-05-04: data.js を出力せず、data 配列を直接 search/index.html に埋め込むよう変更
 aliases: /hugo/advanced/full-text-search.html
 ---
 
 ここでは、Hugo サイトに全文検索の機能を付ける方法を説明します。
 全文検索を実現する方法としては、Google カスタム検索を導入する方法もありますが、Google カスタム検索は、インターネット上に公開する Web サイトにしか適用できません。
-ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます（[実際のサイトの例](https://memoja.net/search/)）。
+ここで紹介する JavaScript を利用した全文検索は、ローカルで運用する Web サイトでも利用できますし、インクリメンタルサーチも実現することができます（[実際のサイトの例](https://toushi.maku.blog/search/)）。
 
 {{< image src="img-001.png" title="全文検索＋インクリメンタルサーチの完成イメージ" >}}
 
-大まかに、下記のようなファイルを出力できれば、サイト内の全文検索を実現することができます。
+大まかに、下記のようなコードを含む HTML ファイルを出力できれば、サイト内の全文検索を実現することができます。
 
-1. 検索用データ (`search/data.js`)
-2. 検索用ページ＋検索処理用JavaScript (`search/index.html`)
+1. 検索用 JavaScript データ (`const data = [...]`)
+2. 検索用 HTML フォーム (`<input>`)
+3. 検索用 JavaScript 関数 (`function search() {...}`)
 
-ここでは、全文検索のためのページとして `search` という名前のセクションを作成することにします（URL としては http://localhost:1313/search/ という形でアクセスすることになります）。
-すでに `search` というセクション名を使用している場合は適宜変更してください。
+ここでは、全文検索のためのページとして `search` という名前のページ (`content/search.md`) を作成することにします（URL としては `http://localhost:1313/search/` という形でアクセスすることになります）。
+すでに `search` という名前のページを作成している場合は適宜変更してください。
+
+{{% note title="2023-05-04 追記" %}}
+以前の実装では、検索用データ (`search/data.js`) と検索用ページ (`search/index.html`) を分けて出力していましたが、検索用ページに統合するように変更しました。
+Hugo がバージョンアップして、出力ファイルに livereload 用の script タグを自動挿入するようになり、正しい `data.js` ファイルとして出力できなくなってしまったからです。
+{{% /note %}}
 
 
-検索用データ (search/data.js) の作成
+コンテンツファイル (content/search.md) の作成
 ----
 
-まず、全ページの本文を JavaScript から検索できるようするために、検索用のデータ（インデックスファイル）を作成します。
-ここでは、`search/data.js` という JavaScript ファイルに、下記のようなフォーマットで変数 `data` として出力することにします。
+まず、全文検索用のページを出力するためのコンテンツファイルを作成しておきます。
+
+{{< code lang="yaml" title="content/search.md" >}}
+---
+title: "サイト内全文検索"
+layout: search
+_build: { list: false }
+---
+{{< /code >}}
+
+フロントマターの __`layout`__ プロパティで `search` という名前のテンプレートを使うことを指定しておきます。
+ついでに、__`_build`__ プロパティで、このページをリスト系ページの一覧に列挙しないようにしておきます（参考: [記事一覧に列挙されないページを作る](/p/4ziyhxe/)）。
+
+本文はすべてテンプレート側で出力するので、Markdown ファイルには上記のようにフロントマターだけ記述しておけば OK です。
+
+
+テンプレートファイル (layouts/_default/search.html) の作成
+----
+
+### 検索用 JavaScript データの出力
+
+全ページの本文を JavaScript から検索できるようするために、検索用のデータ（インデックス）を作成します。
+ここでは、HTML ファイルの `<script>` 要素内に、次のようなフォーマットで __`data`__ 変数を出力することにします。
 
 ```js
 const data = [
@@ -39,55 +68,51 @@ const data = [
 ```
 
 `data` 変数は、各ページの情報を配列として保持しています。
-検索ページから上記の JavaScript ファイルを読み込んで、`body` プロパティの内容を検索するように実装します。
+ユーザーが検索キーワードを入力したときに、この変数内の `body` プロパティの内容を検索するように実装します。
+テンプレートファイル内で次のように実装しておけば、全ページの情報を含む `data` 変数のコードを出力することができます。
 
-`data.js` は、次のような Hugo テンプレートを作成しておけば、全てのコンテンツの情報から自動生成することができます。
-
-{{< code lang="go-html-template" title="layouts/search/single.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/search.html" >}}
 {{- /* エスケープ処理（改行を空白化、前後の空白削除、連続する空白を集約） */}}
 {{- define "escape" }}
-  {{- trim (replace . "\n" " ") " " | replaceRE " +" " " | jsonify -}}
+  {{- trim (replace . "\n" " ") " " | replaceRE " +" " " -}}
 {{- end }}
 
+<script>
+// 検索用のインデックスデータ
 const data = [
 {{- range $index, $page := .Site.Pages }}
   {
-    url: {{ $page.Permalink | jsonify }},
-    title: {{ $page.Title | jsonify }},
-    date: {{ $page.Date | jsonify }},
+    url: {{ $page.RelPermalink }},
+    title: {{ $page.Title }},
+    date: {{ $page.Date }},
     body: {{ template "escape" (printf "%s %s" $page.Title $page.Plain) }}
   },
 {{- end }}
 ];
+</script>
 {{< /code >}}
 
-JavaScript の文字列として含んではいけない文字をエスケープするために、Hugo の `jsonify` 関数を使用しているところがポイントです。
-他にも、連続するスペースの集約や、改行文字の削除などを行っています。
+本文内の連続するスペースの集約や、改行文字の削除を行うために、`escape` という部分テンプレートを定義しています（`define` で定義し、`template` で呼び出しています）。
 
-タグの一覧ページ（`.Kind = taxonomy`) や、あるタグの一覧ページ (`.Kind = term`) を検索対象にしたくないときは、上記の `.Pages` のループの中に次のような `if - end` 条件分岐を追加してフィルタします。
+タグの一覧ページ（`.Kind = taxonomy`) や、タグの付いた記事の一覧ページ (`.Kind = term`) を検索対象にしたくないときは、上記の `.Pages` の `range` ループの中に次のような `if` - `end` 条件分岐を追加すればフィルタできます。
 
 ```go-html-template
 {{- if not (or (eq $page.Kind "taxonomy") (eq $page.Kind "term")) }}
+  {
+    ...
+  },
+{{- end }}
 ```
 
-このテンプレートファイルを作成しただけでは実際の `data.js` ファイルは出力されないので、下記のようなダミーのコンテンツページを作成して、`data.js` が出力されるようにします。
-`url` プロパティを使って、強引に拡張子を `.js` にしてしまうのがポイントです。
-
-{{< code lang="yaml" title="content/search/data.md" >}}
----
-url: "search/data.js"
----
-{{< /code >}}
-
-これで、Hugo によって `search/data.js` ファイルが出力されるようになります。
-ここまでできたら、`http://localhost:1313/search/data.js` にアクセスして、出力されたファイルの内容を確かめてみるとよいでしょう。
+ここまでできたら、`hugo serve` でローカルサーバーを起動して `http://localhost:1313/search/` にアクセスして、出力されたファイルの内容を確かめてみるとよいでしょう。
+ただし、この時点ではブラウザ上での表示は空っぽです。
+`data` 変数は `<script>` 要素内に出力されているため、その内容を確認するためには、ブラウザ上で右クリックして「ページのソースを表示」などから確認する必要があります。
 
 
-検索用ページ (search/index.html) の作成
-----
+### 検索用 HTML フォームと JavaScript 関数の出力
 
-最後に、全文検索を実行するためのページのレイアウト (HTML) と JavaScript コードを作成します。
-スタイルシート (CSS) まで含んでいるので若干長いですが、やっていることは、上記で作成した `data.js` 内で定義されている `data` 配列の中身を、フォームに入力された文字列で検索しているだけです。
+次に、ユーザーがキーワードを入力するための `<input>` 要素や、そのキーワードで `data` 配列の内容を検索するための JavaScript 関数 (`search`) を定義します。
+スタイルシート (CSS) まで含んでいるので若干長いですが、やっていることは単純で、キーワードを含むページを見つけてその概要を出力しているだけです。
 
 {{< code lang="go-html-template" title="layouts/search/list.html" >}}
 <!DOCTYPE html>
@@ -95,7 +120,6 @@ url: "search/data.js"
 <head>
   <meta charset="UTF-8">
   <title>{{ .Page.Title }} | {{ .Site.Title }}</title>
-  <script src="data.js"></script>
   <style>
     body {
       background: #fafafa;
@@ -134,6 +158,8 @@ url: "search/data.js"
 <input onkeyup="search(this.value)" size="15" autocomplete="off" autofocus placeholder="検索ワード" />
 <span id="inputWord"></span> <span id="resultCount"></span>
 <div id="result"></div>
+
+<!-- このあたりに前述の data 変数を出力するコードを記述 -->
 
 <script>
 function search(query) {
@@ -230,7 +256,7 @@ http://localhost:1313/search/#検索ワード
 
 ### 全文検索のページのコードを修正
 
-元のコードでは、`input` 要素の `onkeyup` 属性を使って `search()` 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメントにセットするように変更します（2021-06追記: `location.hash=this.value` としてましたが、これだとキー入力のたびに履歴に追加されてしまうので、`location.replace()` を使うように変更しました）。
+元のコードでは、`input` 要素の `onkeyup` 属性を使って `search()` 関数を呼び出すようにしていましたが、次のように、入力した値を URL のハッシュフラグメントにセットするように変更します（2021-06 追記: `location.hash=this.value` としてましたが、これだとキー入力のたびに履歴に追加されてしまうので、`location.replace()` を使うように変更しました）。
 
 ```html
 <input id="query" onkeyup="location.replace('#' + this.value)"
