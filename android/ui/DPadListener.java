@@ -1,4 +1,4 @@
-package net.memoja.widget;
+package io.github.maku77.widget;
 
 /**
  * Software DPad event listener.

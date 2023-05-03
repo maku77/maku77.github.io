@@ -1,7 +1,7 @@
 ---
 title: "移動平均線のカスタムインジケータを作成する (3) 3 本の移動平均線を表示する"
 date: "2015-02-01"
-redirect: https://memoja.net/p/h3fr3do
+redirect: https://toushi.maku.blog/p/h3fr3do/
 sitemap: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "チャート上に矩形を表示する"
 date: "2016-03-21"
-redirect: https://memoja.net/p/qju4dmu
+redirect: https://toushi.maku.blog/p/qju4dmu/
 sitemap: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "現在のチャートのタイムフレーム（H1 など）を取得する"
 date: "2016-03-21"
-redirect: https://memoja.net/p/p7gpx7f
+redirect: https://toushi.maku.blog/p/p7gpx7f/
 sitemap: false
 ---
 

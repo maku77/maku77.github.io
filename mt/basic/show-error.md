@@ -1,7 +1,7 @@
 ---
 title: "組み込み関数の実行に失敗したときにエラー情報を表示する"
 date: "2016-03-20"
-redirect: https://memoja.net/p/av9kv7g
+redirect: https://toushi.maku.blog/p/av9kv7g/
 sitemap: false
 ---
 

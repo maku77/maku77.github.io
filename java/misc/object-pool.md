@@ -10,7 +10,7 @@ date: "2012-03-01"
 #### ObjectPool.java
 
 ~~~ java
-package net.memoja.util;
+package io.github.maku77.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ public class ObjectPool<T> {
 #### MyClass.java
 
 ~~~ java
-import net.memoja.util.ObjectPool;
+import io.github.maku77.ObjectPool;
 
 public class MyClass {
     // プールオブジェクトはクラスフィールドで保持。

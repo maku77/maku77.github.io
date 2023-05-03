@@ -1,7 +1,7 @@
 ---
 title: "カスタムインジケータで使用できるイベント"
 date: "2015-06-10"
-redirect: https://memoja.net/p/ugs5fq2
+redirect: https://toushi.maku.blog/p/ugs5fq2/
 sitemap: false
 ---
 

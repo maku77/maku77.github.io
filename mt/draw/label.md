@@ -2,7 +2,7 @@
 title: "チャート上にラベルを表示する"
 date: "2016-03-20"
 lastmod: "2022-02-03"
-redirect: https://memoja.net/p/h4fq2cm
+redirect: https://toushi.maku.blog/p/h4fq2cm/
 sitemap: false
 ---
 

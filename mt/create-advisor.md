@@ -1,7 +1,7 @@
 ---
 title: "Expert Advisor を作成する"
 date: "2015-01-29"
-redirect: https://memoja.net/p/3it4ckt
+redirect: https://toushi.maku.blog/p/3it4ckt/
 sitemap: false
 ---
 

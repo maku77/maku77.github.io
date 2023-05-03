@@ -1,7 +1,7 @@
 ---
 title: "MetaTrader (MQL) における色の表現方法"
 date: "2015-10-10"
-redirect: https://memoja.net/p/rn6kw8j
+redirect: https://toushi.maku.blog/p/rn6kw8j/
 sitemap: false
 ---
 

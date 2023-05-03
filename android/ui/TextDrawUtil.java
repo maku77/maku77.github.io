@@ -1,4 +1,4 @@
-package net.memoja.util;
+package io.github.maku77.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

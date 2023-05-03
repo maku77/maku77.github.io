@@ -1,7 +1,7 @@
 ---
 title: "現在のチャートの通貨ペア（シンボル）を取得する"
 date: "2015-10-25"
-redirect: https://memoja.net/p/8xwyrnf
+redirect: https://toushi.maku.blog/p/8xwyrnf/
 sitemap: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "チャートの描画スタイルを設定する"
 date: "2015-10-10"
-redirect: https://memoja.net/p/dzcoybn
+redirect: https://toushi.maku.blog/p/dzcoybn/
 sitemap: false
 ---
 

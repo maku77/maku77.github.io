@@ -1,4 +1,4 @@
-package net.memoja.widget;
+package io.github.maku77.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;

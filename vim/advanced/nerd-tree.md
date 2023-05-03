@@ -151,7 +151,7 @@ NERDTree 上で `B` と入力すると、ブックマークの一覧を表示／
 
 ~~~
 ----------Bookmarks----------
-maku-memoja <box/maku-memoja/
+maku-sample <box/maku-sample/
 mongoose <maku-test-mongoose/
 ~~~
 

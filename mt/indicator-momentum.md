@@ -1,7 +1,7 @@
 ---
 title: "モメンタム (Momentum) のインジケータを作成する"
 date: "2015-06-14"
-redirect: https://memoja.net/p/3emsz6c
+redirect: https://toushi.maku.blog/p/3emsz6c/
 sitemap: false
 ---
 

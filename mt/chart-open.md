@@ -1,7 +1,7 @@
 ---
 title: "任意の通貨ペア、時間足のチャートを開く"
 date: "2015-10-10"
-redirect: https://memoja.net/p/hx7enu3
+redirect: https://toushi.maku.blog/p/hx7enu3/
 sitemap: false
 ---
 

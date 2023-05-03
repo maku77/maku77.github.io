@@ -7,8 +7,8 @@ __MT 関連の記事は別サイトへ移転を始めています。レイアウ
 
 インストール
 ====
-* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）&#x2197;](https://memoja.net/p/bu7hs3d)
-* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）&#x2197;](https://memoja.net/p/a2hwcq5)
+* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）&#x2197;](https://toushi.maku.blog/p/bu7hs3d/)
+* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）&#x2197;](https://toushi.maku.blog/p/a2hwcq5/)
 
 
 MQL
@@ -18,38 +18,38 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 
 はじめに
 ----
-* [組み込み関数の実行に失敗したときにエラー情報を表示する &#x2197;](https://memoja.net/p/av9kv7g)
+* [組み込み関数の実行に失敗したときにエラー情報を表示する &#x2197;](https://toushi.maku.blog/p/av9kv7g/)
 
 カスタムインジケータ (Custom Indicator)
 ----
-* [カスタムインジケータを作成する &#x2197;](https://memoja.net/p/5q5gs5g)
-* [カスタムインジケータで使用できるイベント &#x2197;](https://memoja.net/p/ugs5fq2)
-* [カスタムインジケータに水平線を表示する &#x2197;](https://memoja.net/p/fsy7djp)
-* [単純移動平均線 (SMA: Simple Moving Average) のカスタムインジケータを作成する &#x2197;](https://memoja.net/p/h3fr3do)
-* [加重移動平均線 (WMA: Weighted Moving Average) のカスタムインジケータを作成する &#x2197;](https://memoja.net/p/f2eq2dp)
-* [モメンタム (Momentum) のインジケータを作成する &#x2197;](https://memoja.net/p/3emsz6c)
+* [カスタムインジケータを作成する &#x2197;](https://toushi.maku.blog/p/5q5gs5g/)
+* [カスタムインジケータで使用できるイベント &#x2197;](https://toushi.maku.blog/p/ugs5fq2/)
+* [カスタムインジケータに水平線を表示する &#x2197;](https://toushi.maku.blog/p/fsy7djp/)
+* [単純移動平均線 (SMA: Simple Moving Average) のカスタムインジケータを作成する &#x2197;](https://toushi.maku.blog/p/h3fr3do/)
+* [加重移動平均線 (WMA: Weighted Moving Average) のカスタムインジケータを作成する &#x2197;](https://toushi.maku.blog/p/f2eq2dp/)
+* [モメンタム (Momentum) のインジケータを作成する &#x2197;](https://toushi.maku.blog/p/3emsz6c/)
 
 エキスパートアドバイザ (EA: Expert Advisor)
 ----
-* [Expert Advisor を作成する &#x2197;](https://memoja.net/p/3it4ckt)
+* [Expert Advisor を作成する &#x2197;](https://toushi.maku.blog/p/3it4ckt/)
 
 チャートの情報
 ----
-* [現在のチャートの通貨ペア（シンボル）を取得する &#x2197;](https://memoja.net/p/8xwyrnf)
-* [現在のチャートのタイムフレーム（H1 や M15）を取得する &#x2197;](https://memoja.net/p/p7gpx7f)
-* [チャートのローソク足の数を取得する (Bars) &#x2197;](https://memoja.net/p/6nw7gpx)
+* [現在のチャートの通貨ペア（シンボル）を取得する &#x2197;](https://toushi.maku.blog/p/8xwyrnf/)
+* [現在のチャートのタイムフレーム（H1 や M15）を取得する &#x2197;](https://toushi.maku.blog/p/p7gpx7f/)
+* [チャートのローソク足の数を取得する (Bars) &#x2197;](https://toushi.maku.blog/p/6nw7gpx/)
 
 チャートの操作
 ----
-* [任意の通貨ペア、時間足のチャートを開く &#x2197;](https://memoja.net/p/hx7enu3)
-* [MetaTrader (MQL) における色の表現方法 &#x2197;](https://memoja.net/p/rn6kw8j)
-* [チャートの描画スタイルを設定する &#x2197;](https://memoja.net/p/dzcoybn)
-* [表示中のすべてのチャートに対して処理する &#x2197;](https://memoja.net/p/244ung6)
+* [任意の通貨ペア、時間足のチャートを開く &#x2197;](https://toushi.maku.blog/p/hx7enu3/)
+* [MetaTrader (MQL) における色の表現方法 &#x2197;](https://toushi.maku.blog/p/rn6kw8j/)
+* [チャートの描画スタイルを設定する &#x2197;](https://toushi.maku.blog/p/dzcoybn/)
+* [表示中のすべてのチャートに対して処理する &#x2197;](https://toushi.maku.blog/p/244ung6/)
 
 描画オブジェクトの表示
 ----
-* [チャート上にラベルを表示する &#x2197;](https://memoja.net/p/h4fq2cm)
-* [チャート上に矩形を表示する &#x2197;](https://memoja.net/p/qju4dmu)
+* [チャート上にラベルを表示する &#x2197;](https://toushi.maku.blog/p/h4fq2cm/)
+* [チャート上に矩形を表示する &#x2197;](https://toushi.maku.blog/p/qju4dmu/)
 * [サンプル: 通貨ペアとタイムフレームを大きく表示する](draw/large-symbol.html)
 
 資金管理／口座情報

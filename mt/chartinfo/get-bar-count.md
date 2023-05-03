@@ -1,7 +1,7 @@
 ---
 title: "チャートのローソク足の数を取得する"
 date: "2015-06-10"
-redirect: https://memoja.net/p/6nw7gpx
+redirect: https://toushi.maku.blog/p/6nw7gpx/
 sitemap: false
 ---
 

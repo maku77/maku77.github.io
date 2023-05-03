@@ -1,7 +1,7 @@
 ---
 title: "カスタムインジケータに水平線を表示する"
 date: "2015-06-14"
-redirect: https://memoja.net/p/fsy7djp
+redirect: https://toushi.maku.blog/p/fsy7djp/
 sitemap: false
 ---
 

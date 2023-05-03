@@ -1,7 +1,7 @@
 ---
 title: "カスタムインジケータを作成する"
 date: "2015-02-01"
-redirect: https://memoja.net/p/5q5gs5g
+redirect: https://toushi.maku.blog/p/5q5gs5g/
 sitemap: false
 ---
 
