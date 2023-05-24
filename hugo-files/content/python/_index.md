@@ -240,12 +240,12 @@ Web / HTTP
 
 ### HTTP リクエスト
 
-* [Python で HTTP を扱う方法いろいろ](web/http-in-python.html)
-* [urllib による HTTP 通信 (1) GET/POST リクエスト (urllib.request.urlopen)](web/http-request.html)
-* [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](web/http-request-with-proxy.html)
-* [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)](web/download-file.html)
+* [Python で HTTP を扱う方法いろいろ](/p/k5p4axo/)
+* [urllib による HTTP 通信 (1) GET/POST リクエスト (urllib.request.urlopen)](/p/o2e43ct/)
+* [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](/p/ogq5hdy/)
+* [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)](/p/5zj72ei/)
 * [urllib による HTTP 通信 (4) Basic 認証 (urllib.request.HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
-* [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](web/http-request-with-header.html)
+* [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
 * [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](web/http-request-response-header.html)
 * [requests パッケージによる HTTP 通信](web/http-request-with-requests-package.html)
 

@@ -1,12 +1,15 @@
 ---
-title: "urllib による HTTP 通信 (5) ヘッダを付けてリクエストする"
+title: "Python の urllib による HTTP 通信 (5) ヘッダを付けてリクエストする"
+url: "p/i4zkqye/"
 date: "2019-05-30"
+tags: ["Python", "HTTP"]
+aliases: /python/web/http-request-with-header.html
 ---
 
 リクエストごとにヘッダを設定する (Request)
 ----
 
-**`urllib.request.Request`** オブジェクトの **`add_header()`** メソッドや、**`headers`** プロパティを使用すると、HTTP リクエスト時のヘッダ情報を設定することができます。
+__`urllib.request.Request`__ オブジェクトの __`add_header`__ メソッドや、__`headers`__ プロパティを使用すると、HTTP リクエスト時のヘッダ情報を設定することができます。
 あとは、`urllib.request.urlopen` で HTTP リクエストを送信するとき、URL の代わりに `Request` オブジェクトを渡せば、ヘッダ付きのリクエストを送ることができます。
 
 ```python
@@ -60,9 +63,9 @@ if __name__ == '__main__':
         print(html)
 ```
 
-ヘッダ情報は **`OpenerDirector#addheaders`** プロパティにセットするのですが、`add` という名前なのにプロパティになっていたり、ディクショナリではなくリストで値を設定しなければいけなかったりと、謎仕様なところには注意してください。
+ヘッダ情報は __`OpenerDirector#addheaders`__ プロパティにセットするのですが、`add` という名前なのにプロパティになっていたり、ディクショナリではなくリストで値を設定しなければいけなかったりと、謎仕様なところには注意してください。
 
-作成した `OpenerDirector` オブジェクトを、**`urllib.request.install_opener()`** で設定してやることで、それ以降の `urlopen` はその `OpenerDirector` の設定に基づいて動作するようになります。
+作成した `OpenerDirector` オブジェクトを、__`urllib.request.install_opener`__ 関数で設定してやることで、それ以降の `urlopen` はその `OpenerDirector` の設定に基づいて動作するようになります。
 アプリケーション全体でアクセス方法を統一したいのであれば、こちらの方法を使うとシンプルかもしれません。
 
 ```python
