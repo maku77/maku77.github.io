@@ -78,12 +78,13 @@ http://example.com/page3/
 上記のように作成した URL リストを使って、まとめて HTML ファイルとしてダウンロードするサンプルコードです。
 ダウンロードするときのファイル名を自動で生成するのは意外と面倒なので、ここでは単純に `1.html`、`2.html`、`3.html` といった連番のファイル名で保存しています。
 
-```python
+{{< code lang="python" title="download-htmls.py" >}}
 import os
 import time
 from urllib.request import urlretrieve
 
-def download_with_urls(urls: list[str], outdir="out") -> None:
+
+def download_all(urls: list[str], outdir="out") -> None:
     os.makedirs(outdir, exist_ok=True)
     count = 1
     for url in urls:
@@ -93,15 +94,16 @@ def download_with_urls(urls: list[str], outdir="out") -> None:
         count += 1
         time.sleep(0.5)  # sleep を入れてサーバー負荷を下げる
 
-# 本来は sitemap.xml から抽出した URL リストを使う
-urls = [
-    "http://example.com/page1/",
-    "http://example.com/page2/",
-    "http://example.com/page3/",
-]
 
-download_with_urls(urls)
-```
+if __name__ == "__main__":
+  # 本来は sitemap.xml から抽出した URL リストを使う
+  urls = [
+      "http://example.com/page1/",
+      "http://example.com/page2/",
+      "http://example.com/page3/",
+  ]
+  download_all(urls)
+{{< /code >}}
 
 {{< code title="実行結果" >}}
 Downloading http://example.com/page1/ => out/1.html
