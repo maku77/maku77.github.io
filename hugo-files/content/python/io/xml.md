@@ -18,3 +18,6 @@ Python には下記のように、標準の XML パーサが複数搭載され�
 
 - 参考: [20. Structured Markup Processing Tools](https://docs.python.org/3/library/markup.html)
 
+Beautiful Soup などの 3rd パーティライブラリでも XML を扱うことはできますが、Beautiful Soup はどちらかというと HTML のパースに向いています。
+XML のパースは、ほとんどの場合 Python 標準の `ElementTree` で十分です。
+

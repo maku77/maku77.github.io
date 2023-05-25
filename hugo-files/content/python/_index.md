@@ -243,6 +243,7 @@ Web / HTTP <!-- web -->
 
 ### URL
 
+- [URL 文字列を各パートに分割する (`urllib.parse.urlparse`)](/p/rr2ahpx/)
 - [文字列を URL エンコード／デコードする (`urllib.parse.quote`, `unquote`, `urlencode`)](/p/w7p7n4j/)
 
 ### HTTP リクエスト
@@ -257,7 +258,7 @@ Web / HTTP <!-- web -->
   - [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](/p/wewevcs/)
 - [requests パッケージによる HTTP 通信](/p/r7q8q7o/)
 - サンプルコード
-  - [Web サイトのサイトマップ (sitemap.xml) に従って全ページをダウンロードする](/p/bp9q8p6/)
+  - [Web サイトのサイトマップ (sitemap.xml) からすべての URL を抽出する](/p/bp9q8p6/)
 
 ### HTTP サーバー
 

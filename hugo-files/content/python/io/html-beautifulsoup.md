@@ -14,11 +14,7 @@ Beautiful Soup ライブラリを使用することで、HTML の要素に簡単
 
 - [Beautiful Soap Documentation](http://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
-
-Beautiful Soup パッケージのインストール
-----
-
-Beautiful Soup は次のようにインストールできます。
+Beautiful Soup パッケージは次のようにインストールできます。
 
 ```console
 $ pip install beautifulsoup4
@@ -28,19 +24,21 @@ $ pip install beautifulsoup4
 HTML をパースする
 ----
 
-最初に、HTML ファイルや、HTML 形式の文字列から __`bs4.BeautifulSoup`__ オブジェクトを生成する必要があります。
-
-{{< code lang="python" title="HTML ファイルから soup を作成" >}}
-from bs4 import BeautifulSoup
-
-soup = BeautifulSoup(open("index.html"))
-{{< /code >}}
+最初に、HTML 文字列や HTML ファイルから __`bs4.BeautifulSoup`__ オブジェクトを生成する必要があります。
 
 {{< code lang="python" title="HTML 文字列から soup を作成" >}}
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup("<html>data</html>")
+soup = BeautifulSoup("<html>Hello</html>", features="html.parser")
 {{< /code >}}
+
+{{< code lang="python" title="HTML ファイルから soup を作成" >}}
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(open("input.html"), features="html.parser")
+{{< /code >}}
+
+Beautiful Soup 自体には Web 上のリソースをダウンロードする機能は備わっていないので、そのようなケースでは、`requests` モジュールなどで HTML リソースをダウンロードしておいて、`BeautifulSoup` コンストラクタに渡してやります。
 
 {{< code lang="python" title="Web 上の HTML リソースから soup を作成（requests モジュールを使用）" >}}
 from bs4 import BeautifulSoup
@@ -48,9 +46,9 @@ import requests
 
 res = requests.get("https://example.com/")
 if res.status_code != requests.codes.ok:
-    print("Error")
+    print("Failed to fetch data")
     exit(1)
-soup = BeautifulSoup(res.text)
+soup = BeautifulSoup(res.text, features="html.parser")
 {{< /code >}}
 
 
@@ -58,36 +56,54 @@ soup = BeautifulSoup(res.text)
 ----------------------------
 
 `BeautifulSoup` オブジェクトを生成したら、各要素の検索を行えるようになります。
-`BeautifulSoup` オブジェクトのプロパティで HTML 要素のタグ名を指定すると、最初に見つかった要素（__`bs4.element.Tag`__ オブジェクト）を参照することができます。
-下記の例では、最初に見つかった `p` 要素の内容を出力しています。
+一番簡単なのは、`BeautifulSoup` オブジェクトのプロパティで HTML 要素のタグ名を指定する方法です。
+次の例では、最初に登場する `p` 要素（__`bs4.element.Tag`__ オブジェクト）を取得しています。
 
 ```python
-import bs4
+from bs4 import BeautifulSoup
 
-html = '''<html><body>
+html_doc = """<html><body>
 <h1>Title</h1>
-<p>Hello, I'm John.</p>
-</body></html>'''
+<p class="foo">This is <b>bold</b> text.</p>
+</body></html>
+"""
 
-soup = bs4.BeautifulSoup(html)
-print(type(soup.p))  #=> <class 'bs4.element.Tag'>
-print(soup.p.name)   #=> 'p'
-print(soup.p.text)   #=> 'Hello, I'm John.'
+soup = BeautifulSoup(html_doc, features="html.parser")
+print(type(soup.p))  # => <class 'bs4.element.Tag'>
 ```
 
-`soup.p` の部分は、`soup.find('p')` と書くこともできます。
+HTML 要素の `Tag` オブジェクトを取得できたら、次のように直感的にその内容を参照できます。
+
+```python
+print(soup.p)               # => <p class="foo">This is <b>bold</b> text.</p>
+print(soup.p.name)          # => 'p'
+print(soup.p.text)          # => 'This is bold text.'
+print(soup.p["class"])      # => ['foo']
+print(soup.p.get("class"))  # => ['foo']
+```
+
+属性値の取得方法には `[]` を使う方法と、`get()` 使う方法があることに注意してください。
+指定した属性値が存在しない場合、`[]` が `KeyError` を発生させるのに対し、`get()` は `None` を返します。
 
 
 いろいろな条件で要素を見つける
 ------------------------------
 
-__`find`__ メソッドを使用すると、いろいろな条件で HTML 要素を検索することができます。
+前述の例では、`p` 要素を参照するときに `soup.p` のように記述していました。
+その代わりに __`find`__ メソッドを使用すると、いろいろな条件で HTML 要素を検索することができます。
 
 ```python
-elem = soup.find("p")  # 最初に見つかった p 要素
-elem = soup.find(id="id100")  # id 属性が content である要素
-elem = soup.find(class_=re.compile("comment"))  # class 属性に comment を含む要素
-elem = soup.find("a", href=re.compile("^https://example.com/"))  # href に特定のドメイン名を含むリンク
+# 最初の p 要素
+elem = soup.find("p")
+
+# id 属性が sidebar である要素
+elem = soup.find(id="sidebar")
+
+# class 属性に comment を含む要素
+elem = soup.find(class_=re.compile("comment"))
+
+# href 属性に特定のドメイン名を含む a 要素
+elem = soup.find("a", href=re.compile("^https://example.com/"))
 ```
 
 `class` キーワードは Python の予約語のため、HTML 要素の class 属性値を検索するには、末尾に `_` の付いた __`class_`__ というパラメータ名を使用することに注意してください。
@@ -111,13 +127,13 @@ title = soup.find("head").find("title")
 {{< code lang="python" title="a 要素をすべて取得する" hl_lines="10" >}}
 from bs4 import BeautifulSoup
 
-html = '''<html><body>
+html_doc = '''<html><body>
 <h1>Title</h1>
 <a href="https://google.com/">Google</a>
 <a href="https://yahoo.com/">Yahoo</a>
 </body></html>'''
 
-soup = BeautifulSoup(html)
+soup = BeautifulSoup(html_doc, features="html.parser")
 links = soup.find_all("a")
 for link in links:
     print(link.text)

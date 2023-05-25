@@ -38,8 +38,10 @@ tree = ElementTree.parse('input.xml')
 
 # 先頭要素を表す Element オブジェクトを取得
 elem = tree.getroot()
-print(elem.tag)     #=> tree
-print(elem.attrib)  #=> {'name': 'hello'}
+print(type(elem))   # => <class 'xml.etree.ElementTree.Element'>
+print(elem)         # => <Element 'tree' at 0x105499c60>
+print(elem.tag)     # => tree
+print(elem.attrib)  # => {'name': 'hello'}
 {{< /code >}}
 
 
