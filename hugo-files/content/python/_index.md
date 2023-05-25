@@ -10,28 +10,35 @@ categoryIcon: _index.svg
 はじめに／基本
 ----
 
-### コーディングスタイル／モジュールの仕組み
+### コーディングスタイル／ドキュメンテーション
 
-* [Python のコーディングスタイル](coding-style.html)
-* [Python でモジュールを import する方法いろいろ](import-modules.html)
-* [Python のモジュール／パッケージを作成する](env/create-module.html)
-* [Docstring でドキュメンテーションコメントを記述する](env/docstring.html)
-* [Windows で pydoc コマンドを使用できるようにする](dev/pydoc-on-windows.html)
+- コーディングスタイル
+  - [Python のコーディングスタイル](/p/pyk3j2h/)
+  - [Visual Studio Code で Python 用のフォーマッター (Black) を使う](https://maku.blog/p/4oybku6/)
+- ドキュメンテーション
+  - [ドキュメンテーションコメント (docstring) を記述する](/p/y2biqz7/)
+  - [Windows で pydoc コマンドを使用できるようにする](/p/6h2izfh/)
+- [関数やクラスのソースコードを確認する (`insepct`)](/p/xbucsaq/)
 
 ### 開発環境／デバッグ／ユニットテスト
 
-* [Python のパッケージ管理ツール (pip)](pip.html)
-* [Python の実行環境を切り替えて使用する (venv) Python3.3以降](/p/wozpogm/)
-* [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](/p/yqjs3aw/)
-* [PYTHONSTARTUP で Python のインタラクティブシェルを便利にする](dev/python-startup.html)
-* [Python でユニットテストを記述する](unittest.html)
-* [Python コードの実行時間を計測する](misc/measure-time.html)
-* [関数／メソッドのソースコードを確認する (insepct)](dev/get-source.html)
-* [Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)](dev/py2exe.html)
+- [Python の実行環境を切り替えて使用する (venv) Python3.3以降](/p/wozpogm/)
+- [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](/p/yqjs3aw/)
+- [Python のパッケージ管理ツール (pip) の使い方](/p/7o9q8p6/)
+- 対話型シェル
+  - [Python の対話型シェルのスタートアップ処理を設定する (`PYTHONSTARTUP`)](/p/6k5m4jy/)
+  - [Python の対話型シェルで使える小技](/p/dsbsaq7/)
+- [Python でユニットテストを記述する (`unittest`)](/p/fueucsa/)
+- [Python コードの実行時間を計測する (`datetime.now`)](/p/ubtbs9p/)
+- [Python スクリプトを Windows の実行ファイル (.exe) に変換する (`py2exe`)](/p/kyj2izf/)
 
 
 構文
 ----
+
+### モジュール
+* [Python でモジュールを import する方法いろいろ](import-modules.html)
+* [Python のモジュール／パッケージを作成する](env/create-module.html)
 
 ### 型 / 変数
 * [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
@@ -57,7 +64,7 @@ python コマンド / 実行環境
 ----
 
 * [Python でワンライナーを実行する](one-liner.html)
-* [Python スクリプトを Windows で動く実行ファイル形式に変換する](py2exe.html)
+* [Python スクリプトを Windows で動く実行ファイル形式に変換する](/p/kyj2izf/)
 * [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
 * [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
 * [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
@@ -312,5 +319,4 @@ wxPython
 * [Python 開発の歴史](column/history.html)
 * [Python のインデントによる構造化に慣れる](column/indent.html)
 * [Python のリスト内包表記に慣れる](column/list-comprehension.html)
-* [Python のインタラクティブモードの小技](column/interactive.html)
 

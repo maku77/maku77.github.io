@@ -1,18 +1,19 @@
 ---
-title: "PYTHONSTARTUP で Python のインタラクティブシェルを便利にする"
+title: "Python の対話型シェルのスタートアップ処理を設定する (PYTHONSTARTUP)"
+url: "p/6k5m4jy/"
 date: "2016-12-05"
+tags: ["Python"]
+aliases: /python/dev/python-startup.html
 ---
 
-python コマンドを単独で実行したときのインタラクティブシェルは、環境変数 **PYTHONSTARTUP** に指定したスタートアップ・スクリプトを最初に実行します。
+`python` コマンドを単独で実行したときのインタラクティブシェルは、環境変数 __`PYTHONSTARTUP`__ に指定したスタートアップ・スクリプトを最初に実行します。
 これを利用して、日常的に使用したい関数などを自動的に定義することができます。
 
 例えば、下記の例では、ホームディレクトリにある `.pythonstartup` スクリプトを読み込むように設定しています。
 
-#### ~/.bash_profile (Linux や Mac OSX の場合）
-
-```bash
+{{< code lang="bash" title="~/.bash_profile (Linux や Mac OSX の場合）" >}}
 export PYTHONSTARTUP=~/.pythonstartup
-```
+{{< /code >}}
 
 Windows の場合は、システムのプロパティから環境変数を設定してください（`~/` という表記は使用できないので、スタートアップ・スクリプトの位置はフルパスで指定する必要があります）。
 コマンドラインから環境変数を設定することもできます。
@@ -24,9 +25,7 @@ C:\> setx PYTHONSTARTUP D:/x/myconf/pythonstartup.py
 
 下記のスタートアップ・スクリプトでは、モジュールのソースコードをさくっと確認するための `DEV.code` 関数を定義しています。`DEV.file` 関数の方は、指定したモジュールのコードを Vim エディタで開きます。
 
-#### ~/.pythonstartup
-
-```python
+{{< code lang="python" title="~/.pythonstartup" >}}
 class DEV:
     @staticmethod
     def code(obj):
@@ -38,11 +37,11 @@ class DEV:
         import inspect
         import os
         os.system('gvim ' + inspect.getfile(obj))
-```
+{{< /code >}}
 
-あとは、python のインタラクティブシェルを起動すれば、上記の関数が定義された状態で起動します。
+あとは、Python のインタラクティブシェルを起動すれば、上記の関数が定義された状態で起動します。
 
-```
+```console
 $ python
 ...
 >>> import os

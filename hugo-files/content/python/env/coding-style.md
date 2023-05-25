@@ -1,7 +1,10 @@
 ---
 title: "Python のコーディングスタイル"
+url: "p/pyk3j2h/"
 date: "2007-02-06"
 lastmod: "2022-02-17"
+tags: ["Python"]
+aliases: /python/coding-style.html
 ---
 
 Python のコーディングスタイルは、PEP 8 や PEP 257 で指針が示されています。
@@ -73,19 +76,17 @@ class _RetriesExceededError(Exception):
   - python のコマンドライン引数で `-t` を指定すればスペースとタブが混在しているときに警告を表示してくれます（`-tt` オプションならエラーにしてくれる）。
 - 一行は 79 文字（+ 改行）まで。ただし、ドキュメント (docstring) やコメント行は 72 文字まで。
 - デフォルトパラメータの `=` の前後にはスペースを入れない。
-
-```python
-def complex(real, imag=0.0):
-    return magic(r=real, i=imag)
-```
-
+  ```python
+  def complex(real, imag=0.0):
+      return magic(r=real, i=imag)
+  ```
 - 長い行の途中で改行する場合は、次の行のインデントは前の行の開き括弧の位置に合わせる。演算子の後ろで改行する。
 
-```python
-if (width == 0 and height == 0 and
-    color == 'red' and emphasis == 'strong' or
-    highlight > 100):
-```
+  ```python
+  if (width == 0 and height == 0 and
+      color == 'red' and emphasis == 'strong' or
+      highlight > 100):
+  ```
 
 - クラス内のメソッド間は 1 行の空白行で区切る。トップレベルのクラス定義やメソッドは 2 行の空白行で区切る。
   - ▽このあたりのルールは有名どころの OSS のコードは [ちゃんと守ってます](https://github.com/boto/botocore/tree/develop/botocore) が、ドキュメンテーションコメントの最初の動詞に三単現の s を付けない、というルールはあまり守られていないっぽいです。
@@ -109,41 +110,34 @@ if (width == 0 and height == 0 and
   1. 標準ライブラリ
   2. サードパーティ・ライブラリ
   3. ローカル・ライブラリ
-
-```python
-import random
-import os
-import socket
-
-import dateutil.parser
-from dateutil.tz import tzutc
-
-import botocore
-import botocore.awsrequest
-```
-
+  ```python
+  import random
+  import os
+  import socket
+  
+  import dateutil.parser
+  from dateutil.tz import tzutc
+  
+  import foo
+  import foo.bar
+  ```
 - `import` は次のように 1 行ずつ分離して行う。
-
-```python
-import os
-import sys
-```
-
+  ```python
+  import os
+  import sys
+  ```
 - ただし、次のような `from -- import --` の形式は 1 行で書いても OK。
-
-```python
-from subprocess import Popen, PIPE
-```
-
+  ```python
+  from subprocess import Popen, PIPE
+  ```
 - 上記の `import` 以降が複数行に渡るときは、次のように括弧で囲めば OK。
-
-```python
-from botocore.compat import (
-    json, quote, zip_longest, urlsplit, urlunsplit, OrderedDict,
-    six, urlparse, get_tzinfo_options, get_md5, MD5_AVAILABLE,
-    HAS_CRT
-)
-```
+  ```python
+  from botocore.compat import (
+      json, quote, zip_longest, urlsplit, urlunsplit, OrderedDict,
+      six, urlparse, get_tzinfo_options, get_md5, MD5_AVAILABLE,
+      HAS_CRT
+  )
+  ```
 
 
 コメント
@@ -156,5 +150,5 @@ from botocore.compat import (
 
 モジュール（ファイル）や、クラス、関数などのドキュメンテーションコメントは、__docstring 形式__ での記述が推奨されています。下記記事を参考にしてください。
 
-- [Docstring でドキュメンテーションコメントを記述する](./env/docstring.html)
+- [Docstring でドキュメンテーションコメントを記述する](/p/y2biqz7/)
 
