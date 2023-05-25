@@ -1,18 +1,18 @@
 ---
-title: "urllib による HTTP 通信 (6) レスポンスヘッダを取得する"
+title: "Python の urllib による HTTP 通信 (6) レスポンスヘッダを取得する"
+url: "p/wewevcs/"
 date: "2020-06-01"
+tags: ["Python", "HTTP"]
+aliases: /python/web/http-request-response-header.html
 ---
 
 [urllib.request.urlopen()](https://docs.python.org/ja/3/library/urllib.request.html#urllib.request.urlopen) が返した `HTTPResponse` オブジェクトの __`info()`__ メソッドを呼び出すと、HTTP レスポンスのヘッダ情報を取得することができます。
-
 ヘッダ情報は [HTTPMessage オブジェクト](https://docs.python.org/ja/3/library/http.client.html#httpmessage-objects) として返されますが、これは通常の辞書オブジェクトと同様に使用することができます。
 詳しくは、`HTTPMessage` の親クラスである [email.message.Message](https://docs.python.org/ja/3/library/email.compat32-message.html#email.message.Message) の定義を参照してください。
 
 次の例では、Web サイトにアクセスしたときの HTTP レスポンスヘッダーを取得して表示しています。
 
-#### sample.py
-
-```python
+{{< code lang="python" title="sample.py" hl_lines="6-7" >}}
 import urllib.request
 
 url = 'https://yahoo.co.jp/'
@@ -30,11 +30,9 @@ except urllib.error.URLError as err:
     print('Could not access: %s' % url, file=sys.stderr)
     print(err, file=sys.stderr)
     sys.exit(1)
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 <class 'http.client.HTTPMessage'>
 
 Cache-Control: private, no-cache, no-store, must-revalidate
@@ -54,14 +52,14 @@ Connection: close
 Via: http/1.1 edge2424.img.djm.yahoo.co.jp (ApacheTrafficServer [c sSf ])
 Server: ATS
 Set-Cookie: XB=1sg6o4tfd96pe&b=3&s=ab; expires=Thu, 02-Jun-2022 06:07:42 GMT; path=/; domain=.yahoo.co.jp; secure; samesite=none
-```
+{{< /code >}}
 
 特定のヘッダ情報だけ取得したい場合は、次のように参照すれば OK です。
 
-```python
+{{< code lang="python" title="Content-Type ヘッダーを参照する" >}}
 with urllib.request.urlopen(url) as res:
     headers = res.info()
     if 'Content-Type' in headers:
         print(headers['Content-Type'])
-```
+{{< /code >}}
 

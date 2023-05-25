@@ -234,24 +234,25 @@ python コマンド / 実行環境
 Web / HTTP
 ----
 
-### 基本
+### URL
 
-- [文字列を URL エンコード／デコードする (urllib.parse.quote, unquote, urlencode)](web/url-encode.html)
+- [文字列を URL エンコード／デコードする (`urllib.parse.quote`, `unquote`, `urlencode`)](/p/w7p7n4j/)
 
 ### HTTP リクエスト
 
 * [Python で HTTP を扱う方法いろいろ](/p/k5p4axo/)
-* [urllib による HTTP 通信 (1) GET/POST リクエスト (urllib.request.urlopen)](/p/o2e43ct/)
-* [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](/p/ogq5hdy/)
-* [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (urllib.request.urlretrieve)](/p/5zj72ei/)
-* [urllib による HTTP 通信 (4) Basic 認証 (urllib.request.HTTPBasicAuthHandler)](web/http-request-with-basic-auth.html)
-* [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
-* [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](web/http-request-response-header.html)
-* [requests パッケージによる HTTP 通信](web/http-request-with-requests-package.html)
+* urllib.request
+  * [urllib による HTTP 通信 (1) GET/POST リクエスト (`urllib.request.urlopen`)](/p/o2e43ct/)
+  * [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](/p/ogq5hdy/)
+  * [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (`urllib.request.urlretrieve`)](/p/5zj72ei/)
+  * [urllib による HTTP 通信 (4) Basic 認証 (`urllib.request.HTTPBasicAuthHandler`)](/p/4yiygwe/)
+  * [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
+  * [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](/p/wewevcs/)
+* [requests パッケージによる HTTP 通信](/p/r7q8q7o/)
 
 ### HTTP サーバー
 
-* [Python で簡易的な HTTP サーバを立てる (http.server, SimpleHTTPServer)](/p/rr3cmu5/)
+* [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
 
 
 NumPy / Matplotlib
