@@ -1,17 +1,18 @@
 ---
-title: "Python で XPath を使用する"
+title: "Python で XPath を使って XML 要素を参照する (ElementTree)"
+url: "p/fufwevc/"
 date: "2014-11-28"
+tags: ["Python", "XML"]
+aliases: /python/xpath.html
 ---
 
 Python 2.5 以降に搭載されている ElementTree XML API は、XPath による要素アクセスをサポートしています。
 
-* [The Element Tree XML API - 20.5.2. XPath support](https://docs.python.org/3/library/xml.etree.elementtree.html#xpath-support)
+- [The Element Tree XML API - XPath support](https://docs.python.org/3/library/xml.etree.elementtree.html#xpath-support)
 
-下記の例では、```country``` という名前の要素をすべて取得し、再帰的に子要素を表示しています。
-パスの指定を ```./country``` から、```.``` に変更すれば、ルート要素からすべての要素を出力できます。
+次の例では、`country` という名前の要素をすべて取得し、再帰的に子要素を表示しています。
 
-#### countries.xml（入力ファイル）
-```xml
+{{< code lang="xml" title="countries.xml（入力ファイル）" >}}
 <?xml version="1.0"?>
 <data>
     <country name="Liechtenstein">
@@ -35,10 +36,9 @@ Python 2.5 以降に搭載されている ElementTree XML API は、XPath によ
         <neighbor name="Colombia" direction="E"/>
     </country>
 </data>
-```
+{{< /code >}}
 
-#### sample.py
-```python
+{{< code lang="python" title="sample.py" hl_lines="11" >}}
 from xml.etree import ElementTree
 
 def dump_node(node, indent=0):
@@ -52,10 +52,9 @@ if __name__ == '__main__':
     for node in root.findall('./country'):
         print('-' * 60)
         dump_node(node)
-```
+{{< /code >}}
 
-#### 実行結果
-```bash
+{{< code lang="console" title="実行結果" >}}
 $ python sample.py
 ------------------------------------------------------------
  country {'name': 'Liechtenstein'}
@@ -77,4 +76,7 @@ $ python sample.py
      gdppc {}
      neighbor {'name': 'Costa Rica', 'direction': 'W'}
      neighbor {'name': 'Colombia', 'direction': 'E'}
-```
+{{< /code >}}
+
+パスの指定を `./country` から、`.` に変更すると、ルート要素からすべての要素を出力できます。
+

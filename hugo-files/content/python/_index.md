@@ -199,30 +199,30 @@ python コマンド / 実行環境
   * [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
   * [複数ファイルをまとめて grep する](io/grep-files.html)
 
-### YAML ファイル / JSON ファイル
+### JSON/YAML/HTML/XML
 
-* [Python で YAML ファイルを扱う](io/yaml.html)
-* [JSON 形式のテキストファイルを読み書きする (json.load, json.dump)](io/json-load.html)
-* [コマンドラインで JSON ファイルを整形する (json.tool)](io/json-tool.html)
+- JSON ファイル
+  - [JSON 形式のテキストファイルを読み書きする (json.load, json.dump)](io/json-load.html)
+  - [コマンドラインで JSON ファイルを整形する (json.tool)](io/json-tool.html)
+- YAML ファイル
+  - [YAML ファイルを扱う](io/yaml.html)
+- HTML ファイル
+  - [HTML をパースする (HTMLParser)](/p/nqz8fnu/)
+  - [HTML をパースする (Beautiful Soup)](/p/r4m4k2i/)
+- XML ファイル
+  - [XML を扱う方法いろいろ](/p/pt6fpx8/)
+  - [XML をパースする (ElementTree)](/p/cp9q7n5/)
+  - [XML をパースする (minidom)](/p/guducs9/)
+  - [XPath を使って XML 要素を参照する (ElementTree)](/p/fufwevc/)
+  - [XML を構築する (minidom)](/p/m2k3jyg/)
 
-### HTML/XML ファイル
+### Excel/ZIP/JAR
 
-* [Python で XML を扱う方法いろいろ](xml-in-python.html)
-* [Python で XML をパースする (ElementTree)](parse-xml-by-element-tree.html)
-* [Python で XML をパースする (minidom)](parse-xml-by-minidom.html)
-* [Python で XPath を使用する (ElementTree)](xpath.html)
-* [Python で XML を構築する (minidom)](create-xml-by-minidom.html)
-* [Python で HTML をパースする (HTMLParser)](parse-html-by-html-parser.html)
-* [Python で HTML をパースする (Beautiful Soup)](parse-html-by-beautiful-soup.html)
-
-### Excel ファイル
-
-* [Excel ファイルを読み込む (xlrd)](io/read-excel-file.html)
-
-### ZIP/JAR ファイル
-
-* [ZIP ファイルを作成する (zipfile, shutil)](io/create-zip.html)
-* [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
+- Excel ファイル
+  - [Excel ファイルを読み込む (xlrd)](io/read-excel-file.html)
+- ZIP/JAR ファイル
+  - [ZIP ファイルを作成する (zipfile, shutil)](io/create-zip.html)
+  - [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
 
 
 データベース / SQL
@@ -238,7 +238,7 @@ python コマンド / 実行環境
 * [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
-Web / HTTP
+Web / HTTP <!-- web -->
 ----
 
 ### URL
@@ -247,15 +247,17 @@ Web / HTTP
 
 ### HTTP リクエスト
 
-* [Python で HTTP を扱う方法いろいろ](/p/k5p4axo/)
-* urllib.request
-  * [urllib による HTTP 通信 (1) GET/POST リクエスト (`urllib.request.urlopen`)](/p/o2e43ct/)
-  * [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](/p/ogq5hdy/)
-  * [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (`urllib.request.urlretrieve`)](/p/5zj72ei/)
-  * [urllib による HTTP 通信 (4) Basic 認証 (`urllib.request.HTTPBasicAuthHandler`)](/p/4yiygwe/)
-  * [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
-  * [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](/p/wewevcs/)
-* [requests パッケージによる HTTP 通信](/p/r7q8q7o/)
+- [Python で HTTP を扱う方法いろいろ](/p/k5p4axo/)
+- urllib.request
+  - [urllib による HTTP 通信 (1) GET/POST リクエスト (`urllib.request.urlopen`)](/p/o2e43ct/)
+  - [urllib による HTTP 通信 (2) プロキシ経由でアクセスする](/p/ogq5hdy/)
+  - [ulrlib による HTTP 通信 (3) ファイルをダウンロードする (`urllib.request.urlretrieve`)](/p/5zj72ei/)
+  - [urllib による HTTP 通信 (4) Basic 認証 (`urllib.request.HTTPBasicAuthHandler`)](/p/4yiygwe/)
+  - [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
+  - [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](/p/wewevcs/)
+- [requests パッケージによる HTTP 通信](/p/r7q8q7o/)
+- サンプルコード
+  - [Web サイトのサイトマップ (sitemap.xml) に従って全ページをダウンロードする](/p/bp9q8p6/)
 
 ### HTTP サーバー
 
