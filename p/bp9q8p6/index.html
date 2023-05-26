@@ -57,8 +57,12 @@ extract-urls.py from urllib.request import urlopen from xml.etree import Element
 </span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>url</span> <span class=ow>in</span> <span class=n>urls</span><span class=p>:</span>
 </span></span><span class=line><span class=cl>        <span class=n>save_path</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>outdir</span><span class=si>}</span><span class=s2>/</span><span class=si>{</span><span class=n>count</span><span class=si>}</span><span class=s2>.html&#34;</span>
 </span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Downloading </span><span class=si>{</span><span class=n>url</span><span class=si>}</span><span class=s2> =&gt; </span><span class=si>{</span><span class=n>save_path</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>urlretrieve</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>save_path</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>        <span class=n>count</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>urlretrieve</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>save_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>count</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 1 つの URL で 404 エラーなどが発生しても処理は継続する</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=n>e</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.5</span><span class=p>)</span>  <span class=c1># sleep を入れてサーバー負荷を下げる</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>
