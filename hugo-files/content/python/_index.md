@@ -18,19 +18,33 @@ categoryIcon: _index.svg
 - ドキュメンテーション
   - [ドキュメンテーションコメント (docstring) を記述する](/p/y2biqz7/)
   - [Windows で pydoc コマンドを使用できるようにする](/p/6h2izfh/)
-- [関数やクラスのソースコードを確認する (`insepct`)](/p/xbucsaq/)
+  - [関数やクラスのソースコードを確認する (`insepct`)](/p/xbucsaq/)
 
-### 開発環境／デバッグ／ユニットテスト
+### 開発ツール／デバッグ／ユニットテスト
 
-- [Python の実行環境を切り替えて使用する (venv) Python3.3以降](/p/wozpogm/)
-- [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](/p/yqjs3aw/)
-- [Python のパッケージ管理ツール (pip) の使い方](/p/7o9q8p6/)
+- 仮想環境
+  - [Python の実行環境を切り替えて使用する (venv) Python3.3以降](/p/wozpogm/)
+  - [Python の実行環境を切り替えて使用する (virtualenv) Python3.2以前](/p/yqjs3aw/)
+- パッケージ
+  - [Python のパッケージ管理ツール (pip) の使い方](/p/7o9q8p6/)
+  - [Python スクリプトを Windows の実行ファイル (.exe) に変換する (`py2exe`)](/p/kyj2izf/)
 - 対話型シェル
   - [Python の対話型シェルのスタートアップ処理を設定する (`PYTHONSTARTUP`)](/p/6k5m4jy/)
   - [Python の対話型シェルで使える小技](/p/dsbsaq7/)
-- [Python でユニットテストを記述する (`unittest`)](/p/fueucsa/)
-- [Python コードの実行時間を計測する (`datetime.now`)](/p/ubtbs9p/)
-- [Python スクリプトを Windows の実行ファイル (.exe) に変換する (`py2exe`)](/p/kyj2izf/)
+- テスト
+  - [Python でユニットテストを記述する (`unittest`)](/p/fueucsa/)
+- パフォーマンス
+  - [Python コードの実行時間を計測する (`datetime.now`)](/p/ubtbs9p/)
+
+### python コマンド／実行環境
+
+* [Python でワンライナーを実行する](one-liner.html)
+* [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
+* [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
+* [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
+* [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
+* [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
+- [.env ファイルで環境変数を設定する (python-dotenv)](/p/gzo8d7y/)
 
 
 構文
@@ -60,21 +74,10 @@ categoryIcon: _index.svg
 * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
 
 
-python コマンド / 実行環境
+型
 ----
 
-* [Python でワンライナーを実行する](one-liner.html)
-* [Python スクリプトを Windows で動く実行ファイル形式に変換する](/p/kyj2izf/)
-* [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
-* [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
-* [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
-* [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
-* [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
-* [.env ファイルで環境変数を設定する (python-dotenv)](/p/gzo8d7y/)
-
-
-数値
-----
+### 数値 <!-- numstr -->
 
 * [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
 * [数値と文字（文字列）を変換する (chr, ord, int, hex, oct, bin)](numstr/convert-number-and-string.html)
@@ -87,9 +90,7 @@ python コマンド / 実行環境
 * [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
 * [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
 
-
-文字列
-----
+### 文字列 <!-- numstr -->
 
 * [Python の文字列リテラルいろいろ](numstr/string-literal.html)
 * [文字列の中で変数を展開する（書式文字列によるフォーマット） (str#format, %演算子)](numstr/str-format.html)
@@ -110,9 +111,7 @@ python コマンド / 実行環境
 * JSON
   * [JSON テキスト ⇔ Python オブジェクトの変換 (json.loads, json.dumps)](numstr/json-to-python.html)
 
-
-シーケンス (Lists and Tuples)
-----
+### シーケンス (Lists and Tuples) <!-- list -->
 
 * [リストとタプルの違い](list/list-and-tuple.html)
 * リストとタプルの生成
@@ -133,9 +132,7 @@ python コマンド / 実行環境
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
 * [2 つのリストに重複する要素を抽出する (set と＆)](list/overlapped.html)
 
-
-ディクショナリ (Dictionary)
-----
+### ディクショナリ (Dictionary) <!-- dictionary -->
 
 * [dictionary オブジェクトを生成する ({})](dictionary/create.html)
 * [dictionary の要素を参照する ([], get)](dictionary/get.html)
@@ -150,15 +147,13 @@ python コマンド / 実行環境
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
 * [dictionary の内部的な要素順序を変更する (dict, OrderedDictionary)](dictionary/ordered-dic.html)
 
-
-セット (Set)
-----
+### セット (Set) <!-- set -->
 
 * [set オブジェクトの基本](set/basic.html)
 * [set オブジェクトで集合演算を行う](set/set-operation.html)
 
 
-入出力 (I/O)
+入出力 (I/O) <!-- io -->
 ----
 
 ### コマンドライン引数／標準入力／標準エラー出力
@@ -189,18 +184,13 @@ python コマンド / 実行環境
 * [ファイル／ディレクトリをコピー、移動する (shutil.copyfile, shutil.copy, shutil.copytree, shutil.move)](io/copy-move-files.html)
 * [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
 
-### テキストファイルの読み書き
+### ファイルの読み書き
 
-* [テキストファイルを読み込む (open, read, readline, readlines)](io/read-text-file.html)
-* [テキストファイルを書き込む (open, write, writelines)](io/write-text-file.html)
-* [CSV ファイルや TSV ファイルを読み込む (csv.reader)](io/csv.html)
-* [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
-* 応用サンプル
-  * [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
-  * [複数ファイルをまとめて grep する](io/grep-files.html)
-
-### JSON/YAML/HTML/XML
-
+- 基本的なファイル読み書き
+  - [テキストファイルを読み込む (open, read, readline, readlines)](io/read-text-file.html)
+  - [テキストファイルを書き込む (open, write, writelines)](io/write-text-file.html)
+- CSV/TSV
+  - [CSV ファイルや TSV ファイルを読み込む (csv.reader)](io/csv.html)
 - JSON ファイル
   - [JSON 形式のテキストファイルを読み書きする (json.load, json.dump)](io/json-load.html)
   - [コマンドラインで JSON ファイルを整形する (json.tool)](io/json-tool.html)
@@ -215,14 +205,16 @@ python コマンド / 実行環境
   - [XML をパースする (minidom)](/p/guducs9/)
   - [XPath を使って XML 要素を参照する (ElementTree)](/p/fufwevc/)
   - [XML を構築する (minidom)](/p/m2k3jyg/)
-
-### Excel/ZIP/JAR
-
 - Excel ファイル
   - [Excel ファイルを読み込む (xlrd)](io/read-excel-file.html)
 - ZIP/JAR ファイル
   - [ZIP ファイルを作成する (zipfile, shutil)](io/create-zip.html)
   - [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
+- その他のファイル、応用サンプル
+  - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (unstructured)](/p/uivwecs/)
+  - [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
+  - [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
+  - [複数ファイルをまとめて grep する](io/grep-files.html)
 
 
 データベース / SQL
@@ -262,7 +254,7 @@ Web / HTTP <!-- web -->
 
 ### HTTP サーバー
 
-* [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
+- [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
 
 
 NumPy / Matplotlib

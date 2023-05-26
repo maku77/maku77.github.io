@@ -90,8 +90,12 @@ def download_all(urls: list[str], outdir="out") -> None:
     for url in urls:
         save_path = f"{outdir}/{count}.html"
         print(f"Downloading {url} => {save_path}")
-        urlretrieve(url, save_path)
-        count += 1
+        try:
+            urlretrieve(url, save_path)
+            count += 1
+        except Exception as e:
+            # 1 つの URL で 404 エラーなどが発生しても処理は継続する
+            print(e)
         time.sleep(0.5)  # sleep を入れてサーバー負荷を下げる
 
 
