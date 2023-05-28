@@ -1,6 +1,7 @@
 baseURL = "https://maku77.github.io/"
 enableRobotsTXT = true
-googleAnalytics = "UA-63069513-1"
+# googleAnalytics = "UA-63069513-1"
+googleAnalytics = "G-X5962TDYXS"
 languageCode = "ja-jp"
 pygmentsCodeFences = true
 pygmentsUseClasses = true

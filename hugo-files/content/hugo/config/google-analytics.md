@@ -2,19 +2,32 @@
 title: "Hugo で Google アナリティクス用のトラッキングコードを埋め込む (googleAnalytics)"
 url: "p/zxk6pat/"
 date: "2018-06-01"
+lastmod: "2023-05-28"
 tags: ["Hugo"]
 description: "Google Analytics を使用すると、Web サイトのアクセス情報を多角的に分析できるようになります。ここでは、Hugo で作成する Web サイトに、簡単に Google Analytics 用のコードを埋め込めるようにしてみます。"
+changes:
+  - 2023-05-28: Google Analytics 4 (GA4) の記載を追加
 aliases: /hugo/settings/google-analytics.html
 ---
 
 Google Analytics を使用すると、Web サイトのアクセス情報を多角的に分析できるようになります。
 ここでは、Hugo で作成する Web サイトに、簡単に Google Analytics 用のコードを埋め込めるようにしてみます。
 
+{{% note title="Google Analytics 4 (GA4) への移行" %}}
+Google は従来 Google Analytics (__Universal Analytics__) を提供していましたが、2023 年 7 月以降は、最新バージョン Google Analytics 4 (__GA4__) しか使用できなくなります。
+ただし、乗り換えは簡単で、設定するトラッキング ID を GA4 用のものに変更するだけです。
+Analytics ID の先頭部分を見ると、どちらのバージョンを使用しているかが分かります。
+
+- （旧）Universal Analytics の ID ... `UA-12345678-1`
+- （新）Google Analytcs 4 (GA4) の ID ... `G-12345ABCDE`
+{{% /note %}}
+
+
 トラッキング ID をコンフィグファイルで設定する
 ----
 
 まずは、[Google Analytics](https://analytics.google.com/) の管理画面から、「プロパティの追加」を実行し、分析したい Web サイトのアドレスを追加しておきます（Google Analytics のアカウントを持っていない場合は、先にアカウントから作成しておく必要があります）。
-そのとき発行されるトラッキング ID（__`UA-12345678-1`__ のような ID）が、その Web サイトへのアクセスを判別するための識別情報となります。
+そのとき発行されるトラッキング ID（__`G-12345ABCDE`__ のような ID）が、その Web サイトへのアクセスを判別するための識別情報となります。
 この ID は、Web サイトごとに別のものを使用するので、Hugo の[コンフィグファイルで設定](/p/5m9tdwg/)するのがよいでしょう。
 
 Hugo には、コンフィグファイル用のパラメータとして、あらかじめ __`googleAnalytics`__ というパラメータが用意されています。
@@ -26,7 +39,7 @@ languageCode = "ja-jp"
 title = "まく日記"
 theme = "maku"
 
-googleAnalytics = "UA-12345678-1"
+googleAnalytics = "G-12345ABCDE"
 {{< /code >}}
 
 上記のように設定すると、テンプレートファイルの中から、__`.Site.GoogleAnalytics`__ でトラッキング ID を参照できるようになります。
@@ -38,24 +51,24 @@ googleAnalytics = "UA-12345678-1"
 Google Analytics を有効にするには、各ページの `head` 要素の先頭に、次のような __トラッキングコード__ を埋め込む必要があります（参考: [gtag.js を使用してアナリティクスのトラッキングを設定する](https://support.google.com/analytics/answer/1008080?hl=ja)）。
 
 ```html
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12345678-1"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-12345ABCDE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-12345678-1');
+  gtag('config', 'G-12345ABCDE');
 </script>
 ```
 
 ここでは、Hugo のパーシャルテンプレートを使い、上記の HTML コードを各ページに埋め込むようにしましょう。
-`UA-12345678-1` のようなトラッキング ID を指定する部分は、コンフィグファイルの `googleAnalytics` パラメータで指定した値で置換するようにします。
+`G-12345ABCDE` のようなトラッキング ID を指定する部分は、コンフィグファイルの `googleAnalytics` パラメータで指定した値で置換するようにします。
 
 {{< code lang="go-html-template" title="layouts/partials/analytics.html" >}}
 {{ if not .Site.IsServer }}
 {{ with .Site.GoogleAnalytics }}
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
