@@ -257,15 +257,17 @@ Web / HTTP <!-- web -->
 - [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
 
 
-NumPy / Matplotlib
+NumPy / pandas / Matplotlib
 ----
 
-* [NumPy／pandas／Matplotlib の概要とインストール](numpy/install.html)
-* [NumPy 配列 (ndarray) で行列を扱う](numpy/ndarray.html)
-* [連番からなる NumPy 配列を作成する (np.arange)](numpy/np-arange.html)
-* [pandas.Series - Pandas でラベル付き一次元データを扱う](numpy/pd-series.html)
-* [pandas.DataFrame - Pandas でラベル付き二次元データを扱う](numpy/pd-dataframe.html)
-* [pandas.DataFrame - DataFrame から部分データを抽出する](numpy/dataframe-select.html)
+- [NumPy / pandas / Matplotlib の概要とインストール](/p/qs6iv8j/)
+- NumPy
+  - [NumPy 配列で行列を扱う (`numpy.ndarray`)](/p/jwfxfvd/)
+  - [連番からなる NumPy 配列を作成する (`numpy.arange`)](/p/htducs9/)
+- pandas
+  - [pandas でラベル付き 1 次元データを扱う (`pandas.Series`)](/p/wbudtbr/)
+  - [pandas でラベル付き 2 次元データを扱う (`pandas.DataFrame`)](/p/watbs9p/)
+  - [pandas の DataFrame から部分データを抽出する](/p/8j4k3iy/)
 
 
 wxPython
