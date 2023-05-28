@@ -11,11 +11,11 @@ aliases: /hugo/settings/read-config.html
 
 Hugo サイトの全般的な設定は、ルートディレクトリに置いた下記のいずれかのコンフィグファイルで行います（最初に見つかったものが採用されます）。
 
-1. `config.toml` （TOMLフォーマットで記述）
-2. `config.yaml` （YAMLフォーマットで記述）
-3. `config.json` （JSONフォーマットで記述）
+1. `hugo.toml` （TOMLフォーマットで記述）
+2. `hugo.yaml` （YAMLフォーマットで記述）
+3. `hugo.json` （JSONフォーマットで記述）
 
-{{< code lang="toml" title="config.toml の記述例" >}}
+{{< code lang="toml" title="hugo.toml の記述例" >}}
 baseURL = "https://example.com/"
 languageCode = "ja-jp"
 title = "まく日記"
@@ -27,6 +27,11 @@ theme = "maku"
 
 - [Configure Hugo｜Hugo](http://gohugo.io/getting-started/configuration/)
 
+{{% note title="hugo.toml と config.toml" %}}
+Hugo v0.110.0 でコンフィグファイル名が `config.toml` から `hugo.toml` に[変更されました](https://github.com/gohugoio/hugo/releases/tag/v0.110.0)。
+互換性のために `config.toml` のままでも動作するようですが、各種エディタやツールとの連携のためのリネームらしいので、新しい名前に乗り換えておいた方がよいでしょう。
+{{% /note %}}
+
 
 設定値を参照する
 ----
@@ -34,7 +39,7 @@ theme = "maku"
 ### Hugo が定義しているパラメータを参照する
 
 コンフィグファイルで設定したパラメータは、テンプレートファイル内から、__`.Site`__ 変数を使って参照することができます。
-例えば、`config.toml` ファイルの中で設定した `title` や `baseURL` パラメータの値は次のようにして参照することができます。
+例えば、`hugo.toml` ファイルの中で設定した `title` や `baseURL` パラメータの値は次のようにして参照することができます。
 
 ```go-html-template
 このサイトのタイトルは <b>{{ $.Site.Title }}</b> です。
@@ -63,7 +68,7 @@ theme = "maku"
 
 コンフィグファイルで独自定義のパラメータを設定するには、__`params`__ セクションの下にパラメータを追加します。
 
-{{< code lang="toml" title="config.toml" >}}
+{{< code lang="toml" title="hugo.toml" >}}
 baseURL = "https://example.com/"
 languageCode = "ja-jp"
 title = "まく日記"
