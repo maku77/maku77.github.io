@@ -38,27 +38,31 @@ categoryIcon: _index.svg
 
 ### python コマンド／実行環境
 
-* [Python でワンライナーを実行する](one-liner.html)
-* [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
-* [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
-* [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
-* [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
-* [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
+- [Python でワンライナーを実行する](one-liner.html)
+- [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
+- [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
+- [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
+- [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
+- [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
 - [.env ファイルで環境変数を設定する (python-dotenv)](/p/gzo8d7y/)
 
 
 構文
 ----
 
-### モジュール
-* [Python でモジュールを import する方法いろいろ](import-modules.html)
-* [Python のモジュール／パッケージを作成する](env/create-module.html)
+### モジュール / パッケージ
+
+- [Python でモジュールやパッケージを作成する](/p/n4n5m3i/)
+- [Python でモジュールを import する方法のまとめ](/p/zdxfvct/)
+- [import 時のモジュールの検索パスを調べる (`sys.path`)](/p/o4m4jyg/)
 
 ### 型 / 変数
+
 * [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
 * [Python で定数を定義する](syntax/const.html)
 
 ### 制御構文
+
 * [Python の if 構文](syntax/if.html)
 * [Python の switch 構文](syntax/switch.html)
 * [range による数値のループ処理いろいろ](loop-with-range.html)
@@ -66,9 +70,11 @@ categoryIcon: _index.svg
 * [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
 
 ### メソッド / 関数
+
 * [可変長引数を扱う](syntax/variable-length-args.html)
 
 ### クラス
+
 * [Python のクラス構文](syntax/class.html)
 * [オブジェクトを print で出力できるようにする (str)](print-object.html)
 * [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
