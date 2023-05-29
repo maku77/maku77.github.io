@@ -109,7 +109,7 @@ categoryIcon: _index.svg
 * [ランダムな文字列を生成する (random.choice)](numstr/random-string.html)
 * [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
 * JSON
-  * [JSON テキスト ⇔ Python オブジェクトの変換 (json.loads, json.dumps)](numstr/json-to-python.html)
+  * [JSON テキスト ⇔ Python オブジェクトの相互変換 (`json.loads`, `json.dumps`)](/p/gwfweub/)
 
 ### シーケンス (Lists and Tuples) <!-- list -->
 
@@ -145,7 +145,7 @@ categoryIcon: _index.svg
 * [dictionary の要素をループで処理する](dictionary/loop.html)
 * [dictionary の要素をソートして出力する](dictionary/sort.html)
 * [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
-* [dictionary の内部的な要素順序を変更する (dict, OrderedDictionary)](dictionary/ordered-dic.html)
+* [dictionary の内部的な要素順序を変更する (`dict`, `OrderedDictionary`)](/p/vexfweu/)
 
 ### セット (Set) <!-- set -->
 
@@ -187,31 +187,31 @@ categoryIcon: _index.svg
 ### ファイルの読み書き
 
 - 基本的なファイル読み書き
-  - [テキストファイルを読み込む (open, read, readline, readlines)](io/read-text-file.html)
-  - [テキストファイルを書き込む (open, write, writelines)](io/write-text-file.html)
+  - [テキストファイルを読み込む (`open`, `read`, `readline`, `readlines`)](io/read-text-file.html)
+  - [テキストファイルを書き込む (`open`, `write`, `writelines`)](io/write-text-file.html)
 - CSV/TSV
-  - [CSV ファイルや TSV ファイルを読み込む (csv.reader)](io/csv.html)
+  - [CSV ファイルや TSV ファイルを読み込む (`csv.reader`)](io/csv.html)
 - JSON ファイル
-  - [JSON 形式のテキストファイルを読み書きする (json.load, json.dump)](io/json-load.html)
-  - [コマンドラインで JSON ファイルを整形する (json.tool)](io/json-tool.html)
+  - [JSON 形式のテキストファイルを読み書きする (`json.load`, `json.dump`)](/p/xhyhzfv/)
+  - [Python のワンライナーコマンドで JSON ファイルを整形する (`json.tool`)](/p/an8o6m4/)
 - YAML ファイル
   - [YAML ファイルを扱う](io/yaml.html)
 - HTML ファイル
-  - [HTML をパースする (HTMLParser)](/p/nqz8fnu/)
-  - [HTML をパースする (Beautiful Soup)](/p/r4m4k2i/)
+  - [HTML をパースする (`HTMLParser`)](/p/nqz8fnu/)
+  - [HTML をパースする (`BeautifulSoup`)](/p/r4m4k2i/)
 - XML ファイル
   - [XML を扱う方法いろいろ](/p/pt6fpx8/)
-  - [XML をパースする (ElementTree)](/p/cp9q7n5/)
-  - [XML をパースする (minidom)](/p/guducs9/)
-  - [XPath を使って XML 要素を参照する (ElementTree)](/p/fufwevc/)
-  - [XML を構築する (minidom)](/p/m2k3jyg/)
+  - [XML をパースする (`ElementTree`)](/p/cp9q7n5/)
+  - [XML をパースする (`minidom`)](/p/guducs9/)
+  - [XPath を使って XML 要素を参照する (`ElementTree`)](/p/fufwevc/)
+  - [XML を構築する (`minidom`)](/p/m2k3jyg/)
 - Excel ファイル
-  - [Excel ファイルを読み込む (xlrd)](io/read-excel-file.html)
+  - [Excel ファイルを読み込む (`xlrd`)](io/read-excel-file.html)
 - ZIP/JAR ファイル
-  - [ZIP ファイルを作成する (zipfile, shutil)](io/create-zip.html)
+  - [ZIP ファイルを作成する (`zipfile`, `shutil`)](io/create-zip.html)
   - [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
 - その他のファイル、応用サンプル
-  - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (unstructured)](/p/uivwecs/)
+  - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (`unstructured`)](/p/uivwecs/)
   - [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
   - [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
   - [複数ファイルをまとめて grep する](io/grep-files.html)
