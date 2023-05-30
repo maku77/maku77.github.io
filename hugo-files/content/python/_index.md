@@ -214,8 +214,8 @@ categoryIcon: _index.svg
 - Excel ファイル
   - [Excel ファイルを読み込む (`xlrd`)](io/read-excel-file.html)
 - ZIP/JAR ファイル
-  - [ZIP ファイルを作成する (`zipfile`, `shutil`)](io/create-zip.html)
-  - [ZIP/JAR ファイル内のファイルリストを取得する](io/zip-file-list.html)
+  - [ZIP/JAR ファイルの内容を読み込む (`zipfile`)](/p/gxajt4d/)
+  - [ZIP ファイルを作成・展開する (`shutil.make_archive`, `shutil.unpack_archive`)](/p/euevcsa/)
 - その他のファイル、応用サンプル
   - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (`unstructured`)](/p/uivwecs/)
   - [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
