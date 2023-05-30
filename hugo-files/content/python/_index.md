@@ -193,8 +193,8 @@ categoryIcon: _index.svg
 ### ファイルの読み書き
 
 - 基本的なファイル読み書き
-  - [テキストファイルを読み込む (`open`, `read`, `readline`, `readlines`)](io/read-text-file.html)
-  - [テキストファイルを書き込む (`open`, `write`, `writelines`)](io/write-text-file.html)
+  - [テキストファイルを読み込む (`open`, `read`, `readline`, `readlines`)](/p/f4ckt29/)
+  - [テキストファイルを書き込む (`open`, `write`, `writelines`)](/p/nmv4cjr/)
 - CSV/TSV
   - [CSV ファイルや TSV ファイルを読み込む (`csv.reader`)](io/csv.html)
 - JSON ファイル
