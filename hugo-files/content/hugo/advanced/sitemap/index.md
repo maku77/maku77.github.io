@@ -2,11 +2,12 @@
 title: "Hugo でサーチエンジン用に sitemap.xml や robots.txt ファイルを配置する"
 url: "p/qr4eox7/"
 date: "2020-04-26"
-lastmod: "2023-04-17"
+lastmod: "2023-05-31"
 tags: ["Hugo"]
 description: "サーチエンジンに対して、インデックス登録させたいページを伝えるには、Web サイトに sitemap.xml や robots.txt というファイルを配置します。Google の検索結果に影響するため、正しく理解して配置しましょう。"
 changes:
   - 2023-04-17: 設定ファイル名を config.toml から hugo.toml に変更
+  - 2023-05-31: フロントマターでそのページをサイトマップに列挙しない設定方法
 aliases: /hugo/advanced/sitemap.html
 ---
 
@@ -58,7 +59,7 @@ Hugo はデフォルトで Web サイトのルートに、[Sitemap protocol](htt
 Hugo はデフォルトですべてのページを `sitemap.xml` にリスト化しようとするので、Google などの検索結果に載せたくないページがある場合は、`sitemap.xml` のカスタマイズが必要です。
 
 
-### sitemap.xml のカスタマイズ
+### sitemap.xml のカスタマイズ {#customize}
 
 下記のいずれかのテンプレートファイルを作成することで、Web サイトのルートディレクトリに出力される `sitemap.xml` の内容をカスタマイズできます。
 
@@ -104,12 +105,56 @@ Hugo はデフォルトですべてのページを `sitemap.xml` にリスト化
 
 - 参考: [各種ページにおいて .Kind や .IsPage、.IsNode の値がどうなるかの一覧 ｜ まくまく Hugo/Go ノート](/p/co8p6n4/)
 
-### ページごとにサイトマップ出力用のパラメータを設定する
 
-各ページの Markdown ファイルのフロントマターで、次のように `sitemap.xml` に出力する `<changefreq>` や `<priority>` 要素の値を制御することができます。
-これらの値は、前述のテンプレート内で __`.Sitemap.ChangeFreq`__、__`.Sitemap.Priority`__ といった変数で参照してします。
+各ページのフロントマターでサイトマップ出力を制御する
+----
 
-```yaml
+ページごとにサイトマップ出力を制御したい場合は、フロントマターのプロパティを設定します。
+
+### サイトマップに列挙されないようにする
+
+サイトマップには列挙したくない特殊なページがあるかもしれません。
+簡単な方法として、Hugo 組み込みの [_build プロパティ](https://gohugo.io/content-management/build-options/) で、__`list: never`__ を指定してしまう方法があります。
+このフラグを設定すると、Hugo の `.Pages` や `.RegularPages` などのコレクションに含まれなくなるので、結果的に `sitemap.xml` にも列挙されなくなります（サイトマップテンプレート内で `.Data.Pages` をループ処理していたことに着目してください）。
+
+{{< code lang="yaml" title="content/page.md（Hugo の _build プロパティで出力抑制）" hl_lines="4 5" >}}
+---
+title: "ページタイトル"
+date: "2023-05-31"
+_build:
+  list: never
+---
+{{< /code >}}
+
+別の方法として、独自の __`noindex`__ プロパティを定義してしまう方法もあります。
+`.Pages` コレクションなどには含めたいけれど、サイトマップには列挙したくないといった事情があれば、このような独自プロパティを使って制御します。
+前述の[カスタマイズされた sitemap.xml 用テンプレート](#customize)では、この `noindex` プロパティがセットされていたら、そのページの URL を列挙しないようにしています。
+
+{{< code lang="yaml" title="content/page.md（独自の noindex プロパティで出力抑制）" hl_lines="4" >}}
+---
+title: "ページタイトル"
+date: "2023-05-31"
+noindex: true
+---
+{{< /code >}}
+
+ちなみに、独自の `noindex` プロパティを導入するのであれば、それと連動させて HTML の `meta` 要素を出力するようにしておくのがよいでしょう（`noindex` 用の `meta` 要素については[後述](#noindex-meta)）。
+
+{{< code lang="go-html-template" title="layouts/_default/baseof.html（ベーステンプレートの抜粋）" >}}
+<head>
+  <meta charset="UTF-8">
+  {{- if .Params.noindex }}
+  <meta name="robots" content="noindex" />
+  {{- end }}
+{{< /code >}}
+
+
+### サイトマップに出力される情報を調整する (changefreq, priority)
+
+Hugo 組み込みの __`sitemap`__ プロパティを設定することで、`sitemap.xml` に出力する __`<changefreq>`__ や __`<priority>`__ 要素の値を制御することができます。
+これらの値は、前述のテンプレート内で __`.Sitemap.ChangeFreq`__、__`.Sitemap.Priority`__ といった変数で参照しています。
+
+{{< code lang="yaml" title="content/page.md（ページのプライオリティなどを調整）" hl_lines="4-6" >}}
 ---
 title: "ページタイトル"
 date: "2020-04-26"
@@ -117,9 +162,11 @@ sitemap:
   changefreq: monthly
   priority: 0.8
 ---
-```
+{{< /code >}}
 
-### sitemap.xml のファイルパスを変更する
+
+sitemap.xml の出力先パスを変更する
+----
 
 `sitemap.xml` はデフォルトで Web サイトのルートに出力されますが、Hugo の設定ファイルで出力パスを変更することができます。
 
@@ -128,17 +175,8 @@ sitemap:
   filename = "assets/my-sitemap.xml"
 {{< /code >}}
 
-### （コラム）Google Search Console の sitemap.xml に関するエラー
 
-`sitemap.xml` にリストアップされているにも関わらず、HTML ファイルの __`<meta name="robots" content="noindex">`__ でインデックス登録を抑制しているようなページがあると、[Google Search Console](https://search.google.com/search-console?hl=ja) にエラーが表示されることがあります。
-
-{{< image w="800" src="img-001.png" title="送信された URL に noindex タグが追加されています" >}}
-
-これは、「`sitemap.xml` でインデックス登録しろと指定されているけど、実際にページの内容を見ると `noindex` 指定されてるのでインデックス登録しないよ。それでいいの？」という意味の警告です。
-インデックス登録されたくないページは、`sitemap.xml` にもリストアップされないように設定しましょう。
-
-
-robots.txt を作成する
+robots.txt によるクロールの抑制
 ----
 
 Web サイトのルートに __`robots.txt`__ を配置しておくと、検索エンジンに対して、そのサイト内でクロールされたくないディレクトリやファイルを知らせることができます（参考: [robotstxt.org](https://www.robotstxt.org/)）。
@@ -167,15 +205,16 @@ Sitemap: {{ .Site.BaseURL }}sitemap.xml
 
 `sitemap.xml` のパスは、FQDN（完全修飾 URL）で指定しなければいけないので、上記のようにテンプレート内で `.Site.BaseURL` 変数を使って完全な URL を構築しています。
 
-
 ### robots.txt の Disallow ディレクティブはあまり使わない
 
 よくある `robots.txt` の例として、__`Disallow`__ ディレクティブを使ったクロールの防止方法が示されていたりしますが、実際に `Disallow` ディレクティブが必要になるケースはそれほど多くありません（それよりは後述の `meta` 要素を使う方が目的と合っていることが多いです）。
 特に、JavaScript や CSS、画像ファイルなどは、検索エンジンがページ内容を正しく処理するために必要なので、`Disallow` 指定してクロール対象から外してはいけません。
 
 
-Google の検索結果から除外する（noindex 設定）
+Google の検索結果から除外する（meta 要素の noindex 設定） {#noindex-meta}
 ----
+
+### robots.txt の Disallow ではなく meta 要素の noindex を使う
 
 特定のページを Google の検索結果に表示されないようにするには、HTML の `head` 要素内に下記のような `meta` 要素を記述するのが正解みたいです。
 
@@ -201,4 +240,13 @@ Disallow: /search/
 
 - 参考: [noindex を使用して検索インデックス登録をブロックする - Search Console ヘルプ](https://support.google.com/webmasters/answer/93710)
   > 重要: noindex ディレクティブが有効に機能するようにするために、robots.txt ファイルでページをブロックしないでください。ページが robots.txt ファイルでブロックされると、クローラは noindex ディレクティブを認識しません。そのため、たとえば他のページからリンクされていると、ページは検索結果に引き続き表示される可能性があります。
+
+### （コラム）Google Search Console の sitemap.xml に関するエラー
+
+`sitemap.xml` にリストアップされているにも関わらず、HTML ファイルの __`<meta name="robots" content="noindex">`__ でインデックス登録を抑制しているようなページがあると、[Google Search Console](https://search.google.com/search-console?hl=ja) にエラーが表示されることがあります。
+
+{{< image w="800" src="img-001.png" title="送信された URL に noindex タグが追加されています" >}}
+
+これは、「`sitemap.xml` でインデックス登録しろと指定されているけど、実際にページの内容を見ると `meta` 要素で `noindex` 指定されてるのでインデックス登録しないよ。それでいいの？」という意味の警告です。
+インデックス登録されたくないページは、`sitemap.xml` にもリストアップされないように整合性を取りましょう。
 
