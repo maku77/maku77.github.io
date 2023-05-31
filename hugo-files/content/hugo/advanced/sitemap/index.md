@@ -114,15 +114,14 @@ Hugo はデフォルトですべてのページを `sitemap.xml` にリスト化
 ### サイトマップに列挙されないようにする
 
 サイトマップには列挙したくない特殊なページがあるかもしれません。
-簡単な方法として、Hugo 組み込みの [_build プロパティ](https://gohugo.io/content-management/build-options/) で、__`list: never`__ を指定してしまう方法があります。
+簡単な方法として、Hugo 組み込みの __`_build`__ プロパティで、__`list: never`__ を指定してしまう方法があります（参考: [Hugo でページリスト（記事一覧）に列挙されないページを作る](/p/4ziyhxe/)）。
 このフラグを設定すると、Hugo の `.Pages` や `.RegularPages` などのコレクションに含まれなくなるので、結果的に `sitemap.xml` にも列挙されなくなります（サイトマップテンプレート内で `.Data.Pages` をループ処理していたことに着目してください）。
 
 {{< code lang="yaml" title="content/page.md（Hugo の _build プロパティで出力抑制）" hl_lines="4 5" >}}
 ---
 title: "ページタイトル"
 date: "2023-05-31"
-_build:
-  list: never
+_build: { list: never }
 ---
 {{< /code >}}
 
