@@ -181,14 +181,18 @@ categoryIcon: _index.svg
 
 ### ファイル／ディレクトリ
 
-* [ディレクトリ内のファイルを列挙する (os.listdir, os.walk, glob)](io/enum-files.html)
-* [指定した拡張子、名前のファイルを列挙する](find-files.html)
-* [ファイル／ディレクトリの存在を確認する (os.path.exists, os.path.isfile, os.path.isdir)](check-file-existence.html)
-* [ファイル／ディレクトリの名前を変更する (os.rename)](change-filename.html)
-* [ディレクトリを作成する (os.mkdir, os.makedirs)](create-directory.html)
-* [ディレクトリを削除する (os.rmdir)](remove-directory.html)
-* [ファイル／ディレクトリをコピー、移動する (shutil.copyfile, shutil.copy, shutil.copytree, shutil.move)](io/copy-move-files.html)
-* [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
+- 列挙
+  - [ディレクトリ内のファイルを列挙する (`os.listdir`, `os.walk`, `glob`)](io/enum-files.html)
+  - [指定した拡張子、名前のファイルを列挙する](find-files.html)
+- コピー／移動／リネーム
+  - [ファイル／ディレクトリの名前を変更する (`os.rename`)](change-filename.html)
+  - [ファイル／ディレクトリをコピー、移動する (`shutil.copyfile`, `shutil.copy`, `shutil.copytree`, `shutil.move`)](io/copy-move-files.html)
+- 作成／削除
+  - [ディレクトリを作成する (`os.mkdir`, `os.makedirs`)](create-directory.html)
+  - [ディレクトリを削除する (os.rmdir)](remove-directory.html)
+- [ファイル／ディレクトリの存在を確認する (`os.path.exists`, `os.path.isfile`, `os.path.isdir`)](/p/tr3cmu5/)
+- [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
+- [テンポラリファイル／ディレクトリを作成する (`tempfile`)](/p/co7o5k2/)
 
 ### ファイルの読み書き
 

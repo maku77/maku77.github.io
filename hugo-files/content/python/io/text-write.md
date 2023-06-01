@@ -21,7 +21,7 @@ Python でファイル書き込み用のファイルオブジェクトを作成�
 次の例では、`output.txt` という名前のファイルを作成（あるいは上書き）して、2 つの行を書き込んでいます。
 
 {{< code lang="python" title="テキストファイルの作成" >}}
-f = open('output.txt', 'w', encoding='utf-8', newline='\n')
+f = open('output.txt', mode='w', encoding='utf-8', newline='\n')
 f.write('Hello\n')
 f.write('World\n')
 f.close()
@@ -37,7 +37,7 @@ f.close()
 基本的にはこの書き方をしておけばよいです。
 
 {{< code lang="python" title="close 処理の自動化" >}}
-with open('output.txt', 'w', encoding='utf-8', newline='\n') as f:
+with open('output.txt', mode='w', encoding='utf-8', newline='\n') as f:
     f.write('Hello\n')
     f.write('World\n')
 {{< /code >}}
@@ -54,7 +54,7 @@ lines = [
     'World\n'
 ]
 
-with open('output.txt', 'w', encoding='utf-8', newline='\n') as f:
+with open('output.txt', mode='w', encoding='utf-8', newline='\n') as f:
     f.writelines(lines)
 {{< /code >}}
 
@@ -71,7 +71,7 @@ open の排他生成モード (mode=x) の用途
 
 {{< code lang="python" title="すでに config.yml が存在する場合は何もしない" >}}
 try:
-    with open('config.yml', 'x', encoding='utf-8', newline='\n') as f:
+    with open('config.yml', mode='x', encoding='utf-8', newline='\n') as f:
         f.write('user: anonymous\n')
 except FileExistsError:
     # Already exists
@@ -86,7 +86,7 @@ import os.path
 if os.path.exists('config.yml'):
     # Already exists
 else:
-    with open('config.yml', 'x', encoding='utf-8', newline='\n') as f:
+    with open('config.yml', mode='x', encoding='utf-8', newline='\n') as f:
         f.write('user: anonymous\n')
 {{< /code >}}
 
