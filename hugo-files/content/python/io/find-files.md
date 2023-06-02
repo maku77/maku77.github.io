@@ -17,9 +17,10 @@ aliases: /python/find-files.html
 ### glob を使用する方法（オススメ）
 
 __`glob.iglob`__ 関数や __`glob.glob`__ 関数を使用すると、いわゆるグロブ（シェルのワイルドカード）によるパターン指定でファイルを列挙することができます。
-`glob.iglob` は for ループでイテレーションしたいとき、`glob.glob` はリストで取得したいときに使います。
+`glob.iglob` はジェネレーターで、`glob.glob` は通常の関数です。
+つまり、`glob.iglob` は for ループでイテレート処理したいとき、`glob.glob` はリストで取得したいときに使います。
 
-{{< code lang="python" title="グロブによるイテレーション処理" >}}
+{{< code lang="python" title="glob.iglob でファイル列挙" >}}
 import glob
 
 for name in glob.iglob("*.java"):
@@ -29,10 +30,21 @@ for name in glob.iglob("*.java"):
 Python 3.5 以降では、ディレクトリを再帰的にたどるための __`**`__ も使用できます。
 この場合は __`recursive`__ パラメータを `True` に設定します。
 
-{{< code lang="python" title="ディレクトリを再帰的にたどる場合" >}}
+{{< code lang="python" title="glob.iglob で再帰的なファイル列挙" >}}
 import glob
 
 for name in glob.iglob("**/*.java", recursive=True):
+    print(name)
+{{< /code >}}
+
+実はオブジェクト指向的な方法でファイルパスを扱うための [pathlib.Path クラス](https://docs.python.org/ja/3/library/pathlib.html#pathlib.Path) にも `glob` メソッドが用意されていて、同様の方法でファイルパスを列挙できます。
+この `glob` メソッドは `glob.glob` 関数とは異なり、再帰的にディレクトリをたどるようにデフォルトで設定されており、ジェネレーターを返すようになっています。
+ややこしいですね。
+
+{{< code lang="python" title="Path#glob メソッドで再帰的なファイル列挙" >}}
+from pathlib import Path
+
+for name in Path(".").glob("**/*.java"):
     print(name)
 {{< /code >}}
 

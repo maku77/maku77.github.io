@@ -20,7 +20,7 @@ Python の標準ライブラリである __`shutil`__ を使用すると、複�
 [shutil.make_archive 関数](https://docs.python.org/ja/3/library/shutil.html#shutil.make_archive) を使用すると、指定したディレクトリ内のファイルを丸ごと ZIP 圧縮できます。
 次の例では、`src` ディレクトリ内のファイルを `backup.zip` ファイルに圧縮しています。
 
-{{< code lang="python" title="zip.py" >}}
+{{< code lang="python" title="zip.py（src ディレクトリから backup.zip を作成）" >}}
 import shutil
 import sys
 

@@ -177,9 +177,10 @@ categoryIcon: _index.svg
 
 ### パス
 
-* [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
-* [パスからファイル名だけを取り出す (basename)](io/basename.html)
-* [パスを結合する (join)](io/join-path.html)
+- [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
+- [パスからファイル名だけを取り出す (basename)](io/basename.html)
+- [パスを結合する (join)](io/join-path.html)
+- [パスを指定したディレクトリからの相対パスに変換する (`os.path.relpath`)](/p/o4a37zc/)
 
 ### ファイル／ディレクトリ
 
@@ -187,8 +188,8 @@ categoryIcon: _index.svg
   - [ディレクトリ内のファイルを列挙する (`os.listdir`, `os.walk`, `glob`)](/p/thhwr4b/)
   - [指定した拡張子や名前のファイルを列挙する (`glob.iglob`, `glob.glob`)](/p/6vpyp4z/)
 - コピー／移動／リネーム
-  - [ファイル／ディレクトリの名前を変更する (`os.rename`)](change-filename.html)
-  - [ファイル／ディレクトリをコピー、移動する (`shutil.copyfile`, `shutil.copy`, `shutil.copytree`, `shutil.move`)](io/copy-move-files.html)
+  - [ファイル／ディレクトリの名前を変更する (`os.rename`, `os.renames`)](/p/9aqzppe/)
+  - [ファイル／ディレクトリをコピー、移動する (`shutil.copyfile`, `shutil.copy`, `shutil.copytree`, `shutil.move`)](/p/wyxzbdw/)
 - 作成／削除
   - [ディレクトリを作成する (`os.mkdir`, `os.makedirs`)](create-directory.html)
   - [ディレクトリを削除する (os.rmdir)](remove-directory.html)
