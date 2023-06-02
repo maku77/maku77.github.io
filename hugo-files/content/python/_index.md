@@ -184,8 +184,8 @@ categoryIcon: _index.svg
 ### ファイル／ディレクトリ
 
 - 列挙
-  - [ディレクトリ内のファイルを列挙する (`os.listdir`, `os.walk`, `glob`)](io/enum-files.html)
-  - [指定した拡張子、名前のファイルを列挙する](find-files.html)
+  - [ディレクトリ内のファイルを列挙する (`os.listdir`, `os.walk`, `glob`)](/p/thhwr4b/)
+  - [指定した拡張子や名前のファイルを列挙する (`glob.iglob`, `glob.glob`)](/p/6vpyp4z/)
 - コピー／移動／リネーム
   - [ファイル／ディレクトリの名前を変更する (`os.rename`)](change-filename.html)
   - [ファイル／ディレクトリをコピー、移動する (`shutil.copyfile`, `shutil.copy`, `shutil.copytree`, `shutil.move`)](io/copy-move-files.html)
