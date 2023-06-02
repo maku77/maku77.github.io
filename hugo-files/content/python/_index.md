@@ -164,14 +164,16 @@ categoryIcon: _index.svg
 
 ### コマンドライン引数／標準入力／標準エラー出力
 
-* [コマンドライン引数を取得する](command-line-params.html)
-* [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
-* print
-  * [print 関数の改行を抑制する](print-without-line-break.html)
-  * [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
-  * [標準入力から読み込む (sys.stdin, fileinput)](io/stdin.html)
-  * [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
-  * [任意のオブジェクトを見やすく整形して出力する (pprint)](io/pprint.html)
+- コマンドライン引数
+  - [コマンドライン引数を扱う (`sys.argv`)](/p/ybxfwev/)
+  - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
+- [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
+- print
+  - [print 関数の改行を抑制する](print-without-line-break.html)
+  - [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
+  - [標準入力から読み込む (sys.stdin, fileinput)](io/stdin.html)
+  - [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
+  - [任意のオブジェクトを見やすく整形して出力する (pprint)](io/pprint.html)
 
 ### パス
 
