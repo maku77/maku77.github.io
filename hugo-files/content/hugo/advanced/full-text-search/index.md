@@ -40,7 +40,7 @@ Hugo がバージョンアップして、出力ファイルに livereload 用の
 ---
 title: "サイト内全文検索"
 layout: search
-_build: { list: false }
+_build: { list: never }
 ---
 {{< /code >}}
 
@@ -71,7 +71,7 @@ const data = [
 ユーザーが検索キーワードを入力したときに、この変数内の `body` プロパティの内容を検索するように実装します。
 テンプレートファイル内で次のように実装しておけば、全ページの情報を含む `data` 変数のコードを出力することができます。
 
-{{< code lang="go-html-template" title="layouts/_default/search.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/search.html（途中経過）" >}}
 {{- /* エスケープ処理（改行を空白化、前後の空白削除、連続する空白を集約） */}}
 {{- define "escape" }}
   {{- trim (replace . "\n" " ") " " | replaceRE " +" " " -}}
@@ -111,10 +111,14 @@ const data = [
 
 ### 検索用 HTML フォームと JavaScript 関数の出力
 
-次に、ユーザーがキーワードを入力するための `<input>` 要素や、そのキーワードで `data` 配列の内容を検索するための JavaScript 関数 (`search`) を定義します。
+あとは、全体の UI として、ユーザーがキーワードを入力するための `<input>` 要素などを配置し、そのキーワードで `data` 配列の内容を検索するための JavaScript 関数 (`search`) などを追加します。
 スタイルシート (CSS) まで含んでいるので若干長いですが、やっていることは単純で、キーワードを含むページを見つけてその概要を出力しているだけです。
 
-{{< code lang="go-html-template" title="layouts/search/list.html" >}}
+{{< code lang="go-html-template" title="layouts/_default/search.html（完成版）" >}}
+{{- /* エスケープ処理（改行を空白化、前後の空白削除、連続する空白を集約） */}}
+{{- define "escape" }}
+  {{- trim (replace . "\n" " ") " " | replaceRE " +" " " -}}
+{{- end }}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -159,9 +163,21 @@ const data = [
 <span id="inputWord"></span> <span id="resultCount"></span>
 <div id="result"></div>
 
-<!-- このあたりに前述の data 変数を出力するコードを記述 -->
-
 <script>
+// 検索用のインデックスデータ
+const data = [
+{{- range $index, $page := .Site.Pages }}
+{{- if not (or (eq $page.Kind "taxonomy") (eq $page.Kind "term")) }}
+  {
+    url: {{ $page.RelPermalink }},
+    title: {{ $page.Title }},
+    date: {{ $page.Date }},
+    body: {{ template "escape" (printf "%s %s" $page.Title $page.Plain) }}
+  },
+{{- end }}
+{{- end }}
+];
+
 function search(query) {
   const result = searchData(query);
   const html = createHtml(result);
