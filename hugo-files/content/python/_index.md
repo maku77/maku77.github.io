@@ -47,7 +47,7 @@ categoryIcon: _index.svg
 - [.env ファイルで環境変数を設定する (python-dotenv)](/p/gzo8d7y/)
 
 
-構文
+構文 <!-- syntax -->
 ----
 
 ### モジュール / パッケージ
@@ -75,9 +75,9 @@ categoryIcon: _index.svg
 
 ### クラス
 
-* [Python のクラス構文](syntax/class.html)
-* [オブジェクトを print で出力できるようにする (str)](print-object.html)
-* [クラスの属性に名前でアクセスする](get-attribute-by-name.html)
+* [クラス定義の基本 (`class`)](/p/ru9mxam/)
+* [オブジェクトを `print` 関数で出力できるようにする (`__str__`)](/p/uatcsaq/)
+* [オブジェクトの属性に名前でアクセスする (`getattr`, `setattr`)](/p/r3m4k2h/)
 
 
 型
