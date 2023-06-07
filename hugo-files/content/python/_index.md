@@ -39,12 +39,13 @@ categoryIcon: _index.svg
 ### python コマンド／実行環境
 
 - [Python でワンライナーを実行する](one-liner.html)
-- [Python スクリプトの中で Python のバージョンを確認する (sys.version)](env/version.html)
-- [拡張子に関連付けられたアプリケーションでファイルを開く (os.system)](env/system-open.html)
+- [Python スクリプトの中で Python のバージョンを確認する (`sys.version`)](env/version.html)
+- [拡張子に関連付けられたアプリケーションでファイルを開く (`os.system`)](env/system-open.html)
 - [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
-- [Python から外部プログラムを起動する (subprocess.run)](env/call-external-program.html)
-- [Python から環境変数を参照する (os.getenv, os.environ)](env/os-getenv.html)
-- [.env ファイルで環境変数を設定する (python-dotenv)](/p/gzo8d7y/)
+- [Python から外部プログラムを起動する (`subprocess.run`)](env/call-external-program.html)
+- 環境変数
+  - [環境変数を参照する (`os.getenv`, `os.environ`)](/p/y8hs5w6/)
+  - [`.env` ファイルで環境変数を設定する (`python-dotenv`)](/p/gzo8d7y/)
 
 
 構文 <!-- syntax -->
@@ -167,13 +168,13 @@ categoryIcon: _index.svg
 - コマンドライン引数
   - [コマンドライン引数を扱う (`sys.argv`)](/p/ybxfwev/)
   - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
-- [キーボードからのユーザ入力を取得する (input, getpass)](io/user-input.html)
+- [キーボードからのユーザ入力を取得する (`input`, `getpass`)](io/user-input.html)
 - print
   - [print 関数の改行を抑制する](print-without-line-break.html)
   - [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
-  - [標準入力から読み込む (sys.stdin, fileinput)](io/stdin.html)
-  - [標準エラー出力へ出力する (sys.stderr)](io/stderr.html)
-  - [任意のオブジェクトを見やすく整形して出力する (pprint)](io/pprint.html)
+  - [標準入力から読み込む (`sys.stdin`, `fileinput`)](io/stdin.html)
+  - [標準エラー出力へ出力する (`sys.stderr`)](/p/m3si4w6/)
+  - [任意のオブジェクトを見やすく整形して出力する (`pprint`)](io/pprint.html)
 
 ### パス
 

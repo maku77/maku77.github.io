@@ -9,7 +9,7 @@ aliases: /python/env/dotenv.html
 python-dotenv モジュールの概要
 ----
 
-[python-dotenv モジュール](https://pypi.org/project/python-dotenv/) を使用すると、Python プログラム実行時に下記のようなファイルを読み込んで、環境変数を設定することができます。
+[python-dotenv モジュール](https://pypi.org/project/python-dotenv/) を使用すると、Python プログラム実行時に次のような __`.env`__ ファイルを読み込んで、環境変数を設定することができます。
 
 {{< code lang="ini" title=".env" >}}
 MYAPP_USER=maku
@@ -65,8 +65,8 @@ load_dotenv()
 
 # 環境変数を参照
 import os
-MYAPP_USER = os.getenv('MYAPP_USER')
-MYAPP_PASS = os.getenv('MYAPP_PASS')
+MYAPP_USER = os.getenv("MYAPP_USER")
+MYAPP_PASS = os.getenv("MYAPP_PASS")
 {{< /code >}}
 
 仮に、`.env` ファイルが存在しなくても、`load_dotenv()` はエラーにならないので、上記のようなコードは安心して実行することができます。
