@@ -128,7 +128,7 @@ categoryIcon: _index.svg
 * [リスト／タプルをループで処理する](list/loop-list.html)
 * [リスト／タプルのサイズを取得する (len)](list/len.html)
 * [リスト／タプル内の要素をランダムで取得する (random.choice, random.choices, random.sample)](list/random-choice.html)
-* [リストを昇順ソート／降順ソートする (list.sort/sorted)](list/sort.html)
+* [リストを昇順ソート／降順ソートする (`list.sort`/`sorted`)](/p/cqtwqgx/)
 * [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
 * [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
 * [リストをフィルタして条件に一致する要素を抽出する (filter)](list/filter.html)
@@ -137,7 +137,7 @@ categoryIcon: _index.svg
 * [リスト内の要素をまとめて変更する (map)](list/map.html)
 * [二次元配列を作成する](list/multidimensional-array.html)
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
-* [2 つのリストに重複する要素を抽出する (set と＆)](list/overlapped.html)
+* [2 つのリストに重複する要素を抽出する（`set` と `&`）](/p/58ctg7k/)
 
 ### ディクショナリ (Dictionary) <!-- dictionary -->
 
@@ -156,8 +156,8 @@ categoryIcon: _index.svg
 
 ### セット (Set) <!-- set -->
 
-* [set オブジェクトの基本](set/basic.html)
-* [set オブジェクトで集合演算を行う](set/set-operation.html)
+- [set オブジェクトの基本](set/basic.html)
+- [set オブジェクトで集合演算を行う](/p/h3jqpp9/)
 
 
 入出力 (I/O) <!-- io -->
@@ -168,7 +168,7 @@ categoryIcon: _index.svg
 - コマンドライン引数
   - [コマンドライン引数を扱う (`sys.argv`)](/p/ybxfwev/)
   - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
-- [キーボードからのユーザ入力を取得する (`input`, `getpass`)](io/user-input.html)
+- [キーボードからのユーザ入力を取得する (`input`, `getpass`)](/p/bfev6xf/)
 - print
   - [print 関数の改行を抑制する](print-without-line-break.html)
   - [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
@@ -231,19 +231,6 @@ categoryIcon: _index.svg
   - [複数ファイルをまとめて grep する](io/grep-files.html)
 
 
-データベース / SQL
-----
-
-* [Python で SQLite データベースを使用する](sqlite.html)
-
-
-日時（日付／時刻）
-----
-
-* [Python で日時（日付／時刻）の情報を扱う (datetime, date, time, timedelta)](datetime/basic.html)
-* [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
-
-
 Web / HTTP <!-- web -->
 ----
 
@@ -269,6 +256,21 @@ Web / HTTP <!-- web -->
 ### HTTP サーバー
 
 - [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
+
+
+未分類 <!-- misc -->
+----
+
+- [ハッシュ値 (MD5/SHA-1/SHA-256/SHA-512) を求める (`hashlib`)](/p/gn4cn3s/)
+- データベース / SQL
+  - [Python で SQLite データベースを使用する](/p/g5xg2nc/)
+
+
+日時（日付／時刻）
+----
+
+* [Python で日時（日付／時刻）の情報を扱う (datetime, date, time, timedelta)](datetime/basic.html)
+* [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
 NumPy / pandas / Matplotlib
