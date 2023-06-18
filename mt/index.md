@@ -50,41 +50,36 @@ MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。こ�
 ----
 * [チャート上にラベルを表示する &#x2197;](https://toushi.maku.blog/p/h4fq2cm/)
 * [チャート上に矩形を表示する &#x2197;](https://toushi.maku.blog/p/qju4dmu/)
-* [サンプル: 通貨ペアとタイムフレームを大きく表示する](draw/large-symbol.html)
+* [サンプル: 通貨ペアとタイムフレームを大きく表示する &#x2197;](https://toushi.maku.blog/p/mbewc25/)
 
 資金管理／口座情報
 ----
-* [口座残高／証拠金の情報を取得する](account/deposit.html)
-* [サンプル: チャート上に口座情報を表示するインジケータ](account/account-info-indicator.html)
+* [口座残高／証拠金の情報を取得する &#x2197;](https://toushi.maku.blog/p/nb7h9vg/)
+* [サンプル: チャート上に口座情報を表示するインジケータ &#x2197;](https://toushi.maku.blog/p/tsig7ew/)
 
 デバッグ
 ----
-* [画面上にテキスト出力する (1) Alert, Comment, Print の基本](print-text1.html)
-* [画面上にテキスト出力する (2) Comment 関数を使いやすくする](print-text2.html)
-* [メッセージボックスを表示する](messagebox.html)
-* [音声を再生する](play-sound.html)
-* [デバッグ用のマクロを定義する](debug-macro.html)
+* [画面上にテキスト出力する (1) Alert, Comment, Print の基本 &#x2197;](https://toushi.maku.blog/p/q37kiwa/)
+* [画面上にテキスト出力する (2) Comment 関数を使いやすくする &#x2197;](https://toushi.maku.blog/p/q37kiwa/)
+* [メッセージボックスを表示する &#x2197;](https://toushi.maku.blog/p/q37kiwa/)
+* [音声を再生する &#x2197;](https://toushi.maku.blog/p/xof3ydu/)
+* [デバッグ用のマクロを定義する &#x2197;](https://toushi.maku.blog/p/8779pnk/)
 
 時刻
 ----
-* [現在時刻を取得する](current-time.html)
+* [現在時刻を取得する &#x2197;](https://toushi.maku.blog/p/xof3ydu/)
 
 プリプロセッサ
 ----
-* [#property strict について](property-strict.html)
-* [デバッグモードでコンパイルされているか調べる](check-debug-mode.html)
-* [MQL4 と MQL5 のどちらでコンパイルされているか調べる](check-mql4-or-mql5.html)
+* [#property strict について &#x2197;](https://toushi.maku.blog/p/6riotap/)
+* [デバッグモードでコンパイルされているか調べる &#x2197;](https://toushi.maku.blog/p/nyzotbh/)
+* [MQL4 と MQL5 のどちらでコンパイルされているか調べる &#x2197;](https://toushi.maku.blog/p/43cgihf/)
 
 
 雑多
 ----
-* [スクリプトを実行する前に確認画面を表示する](confirmation.html)
-* [MetaTrader のターミナル情報を取得する](terminal-info.html)
-* [スプレッドを表示する](show-spread.html)
-* [関数を実行しているのがスクリプトか、EA なのか、インジケータなのかを判別する](program-type.html)
+* [スクリプトを実行する前に確認画面を表示する &#x2197;](https://toushi.maku.blog/p/6s6iu7i/)
+* [MetaTrader のターミナル情報を取得する &#x2197;](https://toushi.maku.blog/p/85rz2xr/)
+* [スプレッドを表示する &#x2197;](https://toushi.maku.blog/p/zyvwxx9/)
+* [関数を実行しているのがスクリプトか、EA なのか、インジケータなのかを判別する &#x2197;](https://toushi.maku.blog/p/dct2372/)
 
-
-
-リンク
-====
-* [カスタム指標（インジケータ）をダウンロードできる Web サイト](link-indicator.html)
