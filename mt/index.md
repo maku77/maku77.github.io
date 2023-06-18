@@ -1,18 +1,9 @@
 ---
-title: "MetaTrader メモ"
+title: "MetaTrader/MQL メモ"
 layout: category-index
+redirect: https://toushi.maku.blog/p/etedykx/
+sitemap: false
 ---
-
-__MT 関連の記事は別サイトへ移転を始めています。レイアウトの異なるページにジャンプしても驚かないでください(^^;__
-
-インストール
-====
-* [MetaTrader を Mac OSX にインストールする（PlayOnMac を使う方法）&#x2197;](https://toushi.maku.blog/p/bu7hs3d/)
-* [MetaTrader を Mac OSX にインストールする（XM の Mac 用インストーラを使う方法）&#x2197;](https://toushi.maku.blog/p/a2hwcq5/)
-
-
-MQL
-====
 
 MT4 Build 574 からは、MQL5 と MQL4 の構文が統一されました。このサイトでは、この新しい構文を使ったコードを示します。
 
