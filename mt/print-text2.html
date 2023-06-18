@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/q37kiwa/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/q37kiwa/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/q37kiwa/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,45 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p>チャートの左上にテキストメッセージを表示する <code class="language-plaintext highlighter-rouge">Comment</code> 関数は、続けて呼び出すと、最後に指定したメッセージで表示が上書きされてしまいます。次のような関数を用意しておけば、過去に出力したメッセージを残しながら追加出力していくことができます。</p>
-
-<pre><code class="language-mql">void Debug(string msg) {
-    static string lines = "";
-    lines = msg + "\n" + lines;
-    Comment(lines);
-}
-</code></pre>
-
-<h4 id="使用例">使用例</h4>
-
-<pre><code class="language-mql">void OnStart() {
-    Debug("AAA");
-    Debug("BBB");
-    Debug("CCC");
-}
-</code></pre>
-
-<p>上記の <code class="language-plaintext highlighter-rouge">Debug</code> 関数は、呼び出すごとにどんどんメッセージの行数が増えていってしまいますが、出力を最大 10 行に抑えたい場合などは、例えば以下のようにします。</p>
-
-<pre><code class="language-mql">#include &lt;Arrays\ArrayString.mqh&gt;
-
-void Debug(string msg) {
-    static const int MAX_LINES = 10;
-    static CArrayString lines;
-    int len = lines.Total();
-    if (len &gt; MAX_LINES - 1) {
-        lines.Delete(0);
-        --len;
-    }
-    lines.Add(msg);
-    string text = "";
-    for (int i = len; i &gt;= 0; --i) {
-        text += lines.At(i) + "\n";
-    }
-    Comment(text);
-}
-</code></pre>
-
+        
 
       </div>
 

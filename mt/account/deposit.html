@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/nb7h9vg/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/nb7h9vg/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/nb7h9vg/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,92 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <h2 id="通貨を取得する">通貨を取得する</h2>
-
-<p>口座の入出金に使用される通貨（デポジット通貨）は、下記のようにして取得することができます。</p>
-
-<pre><code class="language-mql">// 口座の通貨（"JPY" など）
-string currency = AccountInfoString(ACCOUNT_CURRENCY);
-</code></pre>
-
-<h2 id="口座残高純資産の情報を取得する">口座残高、純資産の情報を取得する</h2>
-
-<p>口座の証拠金情報は、<code class="language-plaintext highlighter-rouge">AccountInfoDouble</code> を使用して取得することができます。
-通貨が日本円 (JPY) の場合は小数点数以下の情報は必要ありませんが、いろいろな通貨を扱えるようにするために戻り値は <code class="language-plaintext highlighter-rouge">double</code> 型になっています。</p>
-
-<pre><code class="language-mql">// 証拠金残高（ポジションを取っても変化せず、決済した時点で増減する）
-double balance = AccountInfoDouble(ACCOUNT_BALANCE);
-
-// 評価損益（ポジションを閉じると証拠金残高に反映される）
-double profit = AccountInfoDouble(ACCOUNT_PROFIT);
-
-// 純資産（証拠金残高＋評価損益）
-double equity = AccountInfoDouble(ACCOUNT_EQUITY);
-
-Alert(StringFormat(
-    "Balance: %.0f, Profit: %.0f, Equity: %.0f",
-    balance, profit, equity));
-</code></pre>
-
-<p>純資産は評価損益を加味したものですので、<code class="language-plaintext highlighter-rouge">balance + profit = equity</code> が成り立っているはずです。</p>
-
-<h2 id="必要証拠金や有効証拠金の情報を取得する">必要証拠金や有効証拠金の情報を取得する</h2>
-
-<p>現在のポジションのために使用している<strong>必要証拠金</strong>や、さらにどれだけのエントリができるかを表す<strong>有効証拠金</strong>の情報を取得するには、下記のようにします。</p>
-
-<pre><code class="language-mql">// 純資産
-double equity = AccountInfoDouble(ACCOUNT_EQUITY);
-
-// 必要証拠金（ポジションや予約注文のために使用している証拠金）
-double margin = AccountInfoDouble(ACCOUNT_MARGIN);
-
-// 有効証拠金（使用可能な証拠金の残り金額）
-double freeMargin = AccountInfoDouble(ACCOUNT_MARGIN_FREE);
-
-Alert(StringFormat(
-    "Equity: %.0f, Margin: %.0f, FreeMargin: %.0f",
-    equity, margin, freeMargin));
-</code></pre>
-
-<p>有効証拠金は、純資産から必要証拠金を引いた残りの金額なので、上記の結果は <code class="language-plaintext highlighter-rouge">equity = margin + freeMargin</code> となっているはずです。</p>
-
-<h2 id="証拠金維持率を取得する">証拠金維持率を取得する</h2>
-
-<p>証拠金維持率 (%) に関する情報を取得するには下記のようにします。
-マージンコールがかかる維持率の情報を取得することもできます。</p>
-
-<pre><code class="language-mql">// 証拠金維持率 (%)（純資産／必要証拠金）
-double marginLevel = AccountInfoDouble(ACCOUNT_MARGIN_LEVEL);
-
-// マージンコールがかかる証拠金維持率 (Margin call level: %)
-double marginSoCall = AccountInfoDouble(ACCOUNT_MARGIN_SO_CALL);
-
-// 強制ロスカットがかかる証拠金維持率 (Stop out level: %)
-double marginSoSo = AccountInfoDouble(ACCOUNT_MARGIN_SO_SO);
-
-Alert(StringFormat(
-    "MarginLevel: %.2f%%, MarginSoCall: %.2f%%, MarginSoSo: %.2f%%",
-    marginLevel, marginSoCall, marginSoSo));
-</code></pre>
-
-<p>ちなみに、So というのは Stop Out の略。</p>
-
-<p>証拠金維持率は、現在の必要証拠金 (margin) に対する純資産 (equity) の割合ですから、下記のように計算することもできます。</p>
-
-<pre><code class="language-mql">double equity = AccountInfoDouble(ACCOUNT_EQUITY);
-double margin = AccountInfoDouble(ACCOUNT_MARGIN);
-Alert(StringFormat("MarginLevel: %.2f%%", equity * 100 / margin));
-</code></pre>
-
-<h2 id="レバレッジ情報を取得する">レバレッジ情報を取得する</h2>
-
-<p>現在の口座のレバレッジ設定を取得するには下記のようにします。
-例えば、レバレッジ 25 倍の口座であれば、25 という値が取得できます。</p>
-
-<pre><code class="language-mql">long leverage = AccountInfoInteger(ACCOUNT_LEVERAGE);
-Alert(StringFormat("Levevrage: %d", leverage));
-</code></pre>
-
+        
 
       </div>
 

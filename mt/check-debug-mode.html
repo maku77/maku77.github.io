@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/nyzotbh/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/nyzotbh/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/nyzotbh/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,31 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p>MQL のプログラムが、デバッグモードとリリースモードのどちらでコンパイルされているかを調べるには、<code class="language-plaintext highlighter-rouge">#ifdef</code> プリプロセッサで下記のマクロが定義されているかどうかを調べます。</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">_DEBUG</code> – デバッグモードでコンパイルされている（MetaEditor 上で最後に F5 で実行したとき）</li>
-  <li><code class="language-plaintext highlighter-rouge">_RELEASE</code> – リリースモードでコンパイルされている（MetaEditor 上で最後に F7 でコンパイルしたとき）</li>
-</ul>
-
-<pre><code class="language-mql">void OnStart() {
-    #ifdef _DEBUG
-        Print("Run in debug mode");
-    #else
-        Print("Run in release mode");
-    #endif
-}
-</code></pre>
-
-<p>上記はプリプロセッサで調べる例ですが、実行時に動的にチェックすることもできるようです。</p>
-
-<pre><code class="language-mql">// MQL5 の場合
-bool isDebug = MQL5InfoInteger(MQL5_DEBUGGING);
-
-// MQL4 の場合
-bool isDebug = IS_DEBUG_MODE;
-</code></pre>
-
+        
 
       </div>
 

@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/xof3ydu/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/xof3ydu/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/xof3ydu/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,62 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p><code class="language-plaintext highlighter-rouge">PlaySound()</code> を使って WAV ファイルを再生することができます。</p>
-
-<ul>
-  <li><a href="http://docs.mql4.com/common/playsound">PlaySound - MQL4 Documentation</a></li>
-</ul>
-
-<h4 id="使用例">使用例</h4>
-<pre><code class="language-mql">PlaySound("alert.wav");
-</code></pre>
-
-<p>パラメータでは、MetaTrader の Sounds ディレクトリ内の WAV ファイルを指定できます。</p>
-
-<ul>
-  <li>alert.wav</li>
-  <li>alert2.wav</li>
-  <li>connect.wav</li>
-  <li>disconnect.wav</li>
-  <li>email.wav</li>
-  <li>expert.wav</li>
-  <li>news.wav</li>
-  <li>ok.wav</li>
-  <li>stops.wav</li>
-  <li>tick.wav</li>
-  <li>timeout.wav</li>
-  <li>wait.wav</li>
-</ul>
-
-<p>音声の再生は非同期に実行されるため、<code class="language-plaintext highlighter-rouge">PlaySound()</code> の呼び出しがプログラムを停止させることはありません。音声の再生中にもう一度 <code class="language-plaintext highlighter-rouge">PlaySound()</code> を呼び出すと、現在再生中の音声は停止し、新しく指定した音声の再生が開始されます。例えば、下記のように連続して実行すると、最後に指定した音だけが聞こえます。</p>
-
-<pre><code class="language-mql">PlaySound("alert.wav");
-PlaySound("ok.wav");
-</code></pre>
-
-<p>パラメータに <code class="language-plaintext highlighter-rouge">NULL</code> を指定すると、現在再生中の音声を停止することができます。</p>
-
-<pre><code class="language-mql">PlaySound(NULL);
-</code></pre>
-
-<p>次の Script は、1 秒おきに異なる音声を再生していきます。</p>
-
-<pre><code class="language-mql">void OnStart() {
-    string sounds[] = {
-        "alert.wav", "alert2.wav", "connect.wav",
-        "disconnect.wav", "email.wav", "expert.wav",
-        "news.wav", "ok.wav", "stops.wav",
-        "tick.wav", "timeout.wav", "wait.wav"
-    };
-
-    for(int i = 0; i &lt; ArraySize(sounds); ++i) {
-        Print("Sound file: " + sounds[i]);  // Experts タブにファイル名を表示
-        PlaySound(sounds[i]);  // 音声を再生
-        Sleep(1000);  // 1秒待つ
-    }
-}
-</code></pre>
-
+        
 
       </div>
 

@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/8779pnk/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/8779pnk/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/8779pnk/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,25 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p>MQL では、C/C++ と同様に <code class="language-plaintext highlighter-rouge">#define</code> を使用したマクロを定義することができます。
-現在のファイル名を示す <code class="language-plaintext highlighter-rouge">__FILE__</code> や、行番号を示す <code class="language-plaintext highlighter-rouge">__LINE__</code> なども同様に使用することができます。
-下記の例では、現在のファイル名と行番号、指定したメッセージを表示するマクロを定義しています。</p>
-
-<h4 id="helloeamq4">HelloEA.mq4</h4>
-
-<pre><code class="language-mql">#define DEBUG(text) Print(__FILE__, "(", __LINE__, "): ", text)
-
-void OnTick() {
-    DEBUG("Hello, Expert Advisor");
-}
-</code></pre>
-
-<p>関数名を取得するための <code class="language-plaintext highlighter-rouge">__FUNCTION__</code> なども便利です。</p>
-
-<pre><code class="language-mql">Print(__FUNCTION__);  // OnTick()
-Print(__FUNCSIG__);   // void OnTick()
-</code></pre>
-
+        
 
       </div>
 

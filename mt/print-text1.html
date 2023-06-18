@@ -2,6 +2,10 @@
 <html lang="ja">
 <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
   
+    <link rel="canonical" href="https://toushi.maku.blog/p/q37kiwa/">
+    <meta name="robots" content="noindex,noarchive,follow">
+    <meta http-equiv="refresh" content="5;URL=https://toushi.maku.blog/p/q37kiwa/">
+  
 
   <meta charset="UTF-8">
 
@@ -170,6 +174,10 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 
       
+        <div style="border: solid 2px blue; color: blue; font-size: larger; padding: 1em; margin: 2em 1em 1em 1em; text-align: center;">
+          このページは <b><a href="https://toushi.maku.blog/p/q37kiwa/">こちらのサイト</a></b> へ移転しました。<br>5 秒後に自動的にジャンプします。
+        </div>
+      
 
       <!-- 概要 -->
       
@@ -192,44 +200,7 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
       <div class="xContent">
         <!-- 本文 -->
-        <p>プログラムのテストや、ユーザへの通知のために画面上にテキストを表示したい場合は、下記の関数を使用できます。</p>
-
-<ul>
-  <li><a href="http://www.mql5.com/en/docs/common/alert">Alert()</a> – アラートボックスでテキスト表示（Strategy Tester での実行時は無視される）</li>
-  <li><a href="https://www.mql5.com/en/docs/common/comment">Comment()</a> – チャートの左上にテキスト表示</li>
-  <li><a href="https://www.mql5.com/en/docs/common/print">Print()</a> – Terminal ビュー (Ctrl+T) の Expert タブ内にテキスト表示</li>
-</ul>
-
-<h4 id="使用例">使用例</h4>
-
-<p>メソッドごとに出力先は異なりますが、どのメソッドも渡されたパラメータの型によって適切な形式でテキスト表示してくれます。</p>
-
-<pre><code class="language-mql">string s = "Hello";
-bool b = true;
-int i = 100;
-float f = 0.123456789f;
-double d = 0.123456789;
-datetime dt = TimeLocal();
-color cl = C'0xFF,0xC0,0x80';
-
-Alert(s);  //=&gt; Hello
-Alert(b);  //=&gt; true
-Alert(i);  //=&gt; 100
-Alert(f);  //=&gt; 0.12346
-Alert(d);  //=&gt; 0.123456789
-Alert(dt); //=&gt; 2014.12.19 23:59:59
-Alert(cl); //=&gt; 255,192,128
-</code></pre>
-
-<p>パラメータは複数渡すことができ、それぞれが連結されて表示されます。</p>
-
-<pre><code class="language-mql">Print("value = ", value);  //=&gt; "value = 100"
-</code></pre>
-
-<p>出力時に改行を入れたい場合は、文字列中に改行コード (<code class="language-plaintext highlighter-rouge">\n</code>) を含めれば OK です。</p>
-
-<pre><code class="language-mql">Comment("AAA\nBBB\nCCC");
-</code></pre>
+        
 
       </div>
 
