@@ -99,24 +99,24 @@ categoryIcon: _index.svg
 
 ### 文字列 <!-- numstr -->
 
-* [Python の文字列リテラルいろいろ](numstr/string-literal.html)
-* [文字列の中で変数を展開する（書式文字列によるフォーマット） (str#format, %演算子)](numstr/str-format.html)
-* [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
-* [文字列の長さを調べる (len)](numstr/string-length.html)
-* [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
-* [文字列が正規表現に完全一致するか調べる (re.fullmatch)](numstr/re-fullmatch.html)
-* [文字列内の部分文字列を検索する／抽出する（正規表現）](numstr/search-string.html)
-* [文字列を置換する (str.replace, re.sub, re.subn)](numstr/replace-string.html)
-* 分割
-  * [文字列をデリミタで分割する (split)](numstr/split-string.html)
-  * [文字列を改行で分割して一行ずつのリストにする (splitlines)](numstr/split-lines.html)
-  * [文字列を１文字ずつに分割してリストにする](numstr/split-into-char.html)
-* [リスト内の要素を結合して文字列にする (join)](numstr/concat-into-string.html)
-* [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
-* [ランダムな文字列を生成する (random.choice)](numstr/random-string.html)
-* [Python で UUID を生成する (uuid.uuid4)](numstr/uuid.html)
-* JSON
-  * [JSON テキスト ⇔ Python オブジェクトの相互変換 (`json.loads`, `json.dumps`)](/p/gwfweub/)
+- [Python の文字列リテラルいろいろ](numstr/string-literal.html)
+- [文字列の中で変数を展開する（書式文字列によるフォーマット） (`str#format`, `%` 演算子)](numstr/str-format.html)
+- [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
+- [文字列の長さを調べる (`len`)](numstr/string-length.html)
+- [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
+- [文字列が正規表現に完全一致するか調べる (`re.fullmatch`)](numstr/re-fullmatch.html)
+- [文字列内の部分文字列を検索する／抽出する（正規表現）](numstr/search-string.html)
+- [文字列を置換する (`str.replace`, `re.sub`, `re.subn`)](/p/wnpquuy/)
+- 分割
+  - [文字列をデリミタで分割する (`split`)](numstr/split-string.html)
+  - [文字列を改行で分割して 1 行ずつのリストにする (`splitlines`)](numstr/split-lines.html)
+  - [文字列を 1 文字ずつに分割してリストにする](numstr/split-into-char.html)
+- [リスト内の要素を結合して文字列にする (`join`)](numstr/concat-into-string.html)
+- [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
+- [ランダムな文字列を生成する (`random.choice`)](numstr/random-string.html)
+- [Python で UUID を生成する (`uuid.uuid4`)](numstr/uuid.html)
+- JSON
+  - [JSON テキスト ⇔ Python オブジェクトの相互変換 (`json.loads`, `json.dumps`)](/p/gwfweub/)
 
 ### シーケンス (Lists and Tuples) <!-- list -->
 
@@ -227,7 +227,7 @@ categoryIcon: _index.svg
 - その他のファイル、応用サンプル
   - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (`unstructured`)](/p/uivwecs/)
   - [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
-  - [複数ファイルの文字列をまとめて置換する](io/replace-files.html)
+  - [複数ファイルの文字列をまとめて置換する (`glob`, `re`)](/p/xwog7ip/)
   - [複数ファイルをまとめて grep する](io/grep-files.html)
 
 
