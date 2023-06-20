@@ -79,6 +79,7 @@ categoryIcon: _index.svg
 * [クラス定義の基本 (`class`)](/p/ru9mxam/)
 * [オブジェクトを `print` 関数で出力できるようにする (`__str__`)](/p/uatcsaq/)
 * [オブジェクトの属性に名前でアクセスする (`getattr`, `setattr`)](/p/r3m4k2h/)
+* [`dataclass` デコレーターで簡単にデータクラスを定義する](/p/xqkgvb6/)
 
 
 型
