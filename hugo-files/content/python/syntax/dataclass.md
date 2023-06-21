@@ -106,7 +106,7 @@ if __name__ == "__main__":
 ```
 
 
-不変なデータクラスを定義する
+不変なデータクラスを定義する (frozen=True)
 ----
 
 `dataclass` デコレーターに __`frozen=True`__ フラグを付けると、そのクラスのインスタンスを不変 (immutable) にすることができます。
@@ -124,5 +124,44 @@ if __name__ == "__main__":
     d = Data(name="foo", count=1)
     d.name = "bar"  # dataclasses.FrozenInstanceError
     d.count = 2     # dataclasses.FrozenInstanceError
+```
+
+
+データクラスのインスタンスを辞書（ディクショナリ）に変換する (asdict)
+----
+
+データクラスのインスタンスを [dataclasses.asdict 関数](https://docs.python.org/3/library/dataclasses.html#dataclasses.asdict) に渡すと、簡単にディクショナリに変換することができます。
+データクラスが入れ子になっている場合は、再帰的にディクショナリ化してくれます。
+
+次の例では、`Point` のリストを保持する `PointList` のインスタンスをディクショナリに変換しています。
+
+{{< code lang="python" hl_lines="14" >}}
+from dataclasses import asdict, dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+@dataclass
+class PointList:
+    points: list[Point]
+
+if __name__ == "__main__":
+    points = PointList([Point(1, 2), Point(3, 4)])
+    d = asdict(points)
+
+    print(d)  # => {'points': [{'x': 1, 'y': 2}, {'x': 3, 'y': 4}]}
+    print(d["points"])  # => [{'x': 1, 'y': 2}, {'x': 3, 'y': 4}]
+    print(d["points"][0])  # => {'x': 1, 'y': 2}
+    print(d["points"][0]["x"])  # => 1
+    print(d["points"][0]["y"])  # => 2
+{{< /code >}}
+
+他の方法として、Python 標準の `vars` 関数（= `__dict__` 属性）でも同じようなディクショナリ変換はできますが、こちらは入れ子構造になったインスタンスを展開してくれません。
+
+```python
+print(vars(points))     # => {'points': [Point(x=1, y=2), Point(x=3, y=4)]}
+print(points.__dict__)  # => {'points': [Point(x=1, y=2), Point(x=3, y=4)]}
 ```
 
