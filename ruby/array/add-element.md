@@ -1,12 +1,12 @@
 ---
-title: "配列に要素を追加する"
+title: "Add element(要素) to array(配列)"
 date: "2011-10-10"
 ---
 
-配列の末尾に要素を挿入
+Insert(挿入) element to end of array.
 ----
 
-配列の末尾に要素を挿入するには、`push` メソッドを使用します。
+To insert element to end of array, use `push` method.
 
 ```ruby
 a = [1, 2, 3]
@@ -17,7 +17,7 @@ a.push('B', 'C')
 a  # => [1, 2, 3, "A", "B", "C"]
 ```
 
-C++ 風に `<<` 演算子でも末尾に要素を追加できます。
+It likes C++, use `<<` to insert element to end of array.
 
 ```ruby
 a = [1, 2, 3]
@@ -28,8 +28,8 @@ a << 'B' << 'C'
 a  # => [1, 2, 3, "A", "B", "C"]
 ```
 
-**別の配列の要素を末尾に追加**する場合は、`+=` 演算子を使用できます。
-右辺には配列を指定する必要があります。
+If need to insert another array to end of this, use operator `+=`.
+An array must be specified on the right side(右辺).
 
 ```ruby
 a = [1, 2, 3]
@@ -38,16 +38,17 @@ a  # => [1, 2, 3, "A", "B", "C"]
 ```
 
 
-配列の先頭に要素を挿入
+Insert element to head (先頭) of array
 ----
 
-配列の先頭に要素を挿入するには、以下のいずれかを使用します。
+To insert element to head of array, use one of the following(いずれか) bellow
 
 * `arr.unshift(...)`
 * `arr.insert(0, ...)`
 * `arr[0, 0] = ...`
 
-複数の値を一度に追加したい場合は、単純にカンマで区切って並べます（配列を渡してしまうと、要素として1つの配列が追加されてしまうので注意）。
+If you want to add multiple values at once, simply separate them with commas
+(Note that if you pass an array, one array will be added as an element).
 
 ```ruby
 a = [1, 2, 3]
@@ -62,10 +63,10 @@ a  # => [["D", "E"], "B", "C", "A", 1, 2, 3]
 ```
 
 
-インデックス指定で配列に要素を挿入
+Insert element into array by specify(指定) index
 ----
 
-要素の挿入位置をインデックス指定して配列に要素を追加するには、以下のいずれかを使用します。
+To add an element to an array by indexing where to insert the element, use one of the following:
 
 * `arr.insert(index, ...)`
 * `arr[index, 0] = ...`
@@ -85,7 +86,9 @@ a.insert(10, 'D')
 a  # => ["B", 1, 2, "A", 3, "C", nil, nil, nil, nil, "D"]
 ```
 
-`[]` 演算子に負のインデックスを指定した場合は、`insert` メソッドで負のインデックスを指定した場合より、位置が前に 1 つずれるようです。
+If specify a negative index for `[]` operator,
+than when you specify a negative index with the `insert` method,
+the position seems to shift forward by one.
 
 ```ruby
 a = [1, 2, 3]
