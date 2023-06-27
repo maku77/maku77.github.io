@@ -1,5 +1,5 @@
 ---
-title: "Python のコーディングスタイル"
+title: "Python Coding Style"
 url: "p/pyk3j2h/"
 date: "2007-02-06"
 lastmod: "2022-02-17"
@@ -7,28 +7,33 @@ tags: ["Python"]
 aliases: /python/coding-style.html
 ---
 
-Python のコーディングスタイルは、PEP 8 や PEP 257 で指針が示されています。
+Coding style of python is, PEP8 and PEP 257.
 
 - [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 - [PEP 257 -- Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
 
-このページでは主に上記の内容についてまとめていますが、実際に Python のプロジェクトにコーディングスタイルを適用するときは、[Black などの Python フォーマッターを導入](https://maku.blog/p/4oybku6/) することをおすすめします。
-Black は、PEP 8 や PEP 257 と若干異なるところがありますが、理にかなったスタイルを強制的に適用してくれます。
+This page mainly summarizes the above content, but when applying coding style to a Python project in practice, it is recommended to introduce Python formatters such as [Black](https://maku.blog/p/4oybku6/).
+Although there are some differences from PEP 8 and PEP 257, Black will enforce a reasonable style.
 
+> Vietnamese:
+> Trang này tập trung chủ yếu vào các nội dung được đề cập ở trên, tuy nhiên khi áp dụng phong cách lập trình cho dự án Python thực tế, chúng tôi khuyên bạn nên sử dụng các [công cụ định dạng Python như Black](https://maku.blog/p/4oybku6/).
+> Mặc dù có một số điểm khác biệt so với PEP 8 và PEP 257, Black sẽ bắt buộc áp dụng phong cách hợp lý.
 
-命名規則
+Naming conventions(命名規則)
 ----
 
-### 大文字／小文字
+### Uppercase/Lowercase
 
-- パッケージ名は小文字のみ（例: `mypackage`）
-- クラス名は大文字で始める（例: `MyClass`）
-- 関数、あるいは public メソッドは小文字（例: `my_public_method`）
-- protected メソッドはアンダースコア 1 つで始める（例: `_my_protected_method`）
-- private メソッドはアンダースコア 2 つで始める（例: `__my_private_method`）
-- 定数名はすべて大文字（例: `MY_CONSTANT`）
+- Package name is lowercase（例: `mypackage`）
+- Class name is uppercase（例: `MyClass`）
+- Function or public method is lowercase（例: `my_public_method`）
+- Protected methods has 1 underscore at first（例: `_my_protected_method`）
+- Private method has 2 underscore at first（例: `__my_private_method`）
+- Constant is all uppercase（例: `MY_CONSTANT`）
 
-Python の name mangling の仕組みによって、アンダースコア 2 つで始まる名前は、クラス外部、あるいはサブクラスからその名前ではアクセスできないようになっています（正確には `_ClassName__method` という名前でアクセスできますが）。
+Python の name mangling の仕組みによって、アンダースコア 2 つで始まる名前は、
+クラス外部、あるいはサブクラスからその名前ではアクセスできないようになっています
+（正確には `_ClassName__method` という名前でアクセスできますが）。
 この特性を利用して、private メソッドをアンダースコア 2 つで始めるようにするのがよい、ということです。
 
 
@@ -114,10 +119,10 @@ class _RetriesExceededError(Exception):
   import random
   import os
   import socket
-  
+
   import dateutil.parser
   from dateutil.tz import tzutc
-  
+
   import foo
   import foo.bar
   ```
