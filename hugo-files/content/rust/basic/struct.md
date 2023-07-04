@@ -1,5 +1,5 @@
 ---
-title: "Rust の文法: 構造体 (struct) を定義する"
+title: "Rust の文法: 構造体 (struct) とタプル構造体 (tuple struct)"
 url: "p/h8kw8ju/"
 date: "2023-02-13"
 tags: ["Rust"]
@@ -9,18 +9,19 @@ tags: ["Rust"]
 ----
 
 Rust の構造体の定義とインスタンス化は直感的です。
-文字列フィールドの型としては、`&str`（文字列スライス）ではなく `String` を使うことで、構造体インスタンス自身が文字列の所有者になることができます。
+構造体を定義するときは __`struct 構造体名 { ... }`__、定義済みの構造体をインスタンス化するときは __`構造体名 { ... }`__ という構文を使用します。
+先頭に `struct` というキーワードが付くかどうかの違いしかないので、どちらの処理を行っているのか気を付けて読み取ってください。
 
 ```rust
-// 構造体の定義
+// 構造体の定義（フィールド名と型を指定していく）
 struct User {
     name: String,
     email: String,
-    sign_in_count: u64,
     active: bool,
+    sign_in_count: u64,
 }
 
-// インスタンス化
+// インスタンス化（フィ―ルド名と初期値を指定していく）
 let user = User {
     email: String::from("maku@example.com"),
     name: String::from("maku"),
@@ -32,18 +33,20 @@ let user = User {
 println!("{}", user.name);
 ```
 
+構造体のフィールドとして文字列を持ちたいときは、`&str`（文字列スライス）ではなく `String` 型を使うことで、構造体インスタンス自身が文字列の所有者になることができます（参考: [所有権と借用](/p/4nx8hqy/)）。
+
 構造体インスタンスの参照（借用）経由でフィールドにアクセスする場合もドットが使えます。
 
 ```rust
-let user_ref = &user;  // 借用 (borrow) して参照を作成
+let user_ref = &user;  // 借用 (borrow) して参照 (&User) を作成
 println!("{}", user_ref.name);  // 参照のフィールドもドットでアクセスする
 ```
 
 
-可変な構造体
+可変な構造体 (mutable struct)
 ----
 
-インスタンス生成時に `let` の代わりに `let mut` を使うと、可変 (mutable) なインスタンスとなり、すべてのフィールドに再代入可能になります（一部のフィールドだけを再代入可能にすることはできません）。
+インスタンス生成時に `let` の代わりに `let mut` を使うと、可変 (mutable) なインスタンスとなり、すべてのフィールドが再代入可能になります（一部のフィールドだけを再代入可能にすることはできません）。
 
 ```rust
 let mut user = User {
@@ -55,6 +58,17 @@ user.name = String::from("puni");
 user.active = false;
 ```
 
+次のように、構造体インスタンスを丸ごと入れ替えることもできます。
+
+```rust
+user = User {
+    email: String::from("puni@example.com"),
+    name: String::from("puni"),
+    active: false,
+    sign_in_count: 777,
+};
+```
+
 
 フィールド初期化の省略記法
 ----
@@ -64,8 +78,8 @@ user.active = false;
 ```rust
 fn build_user(email: String, name: String) -> User {
     User {
-        email,  // email: email の省略記法
-        name,   // name: name の省略記法
+        email,  // email: email と書くのと同じ
+        name,   // name: name と書くのと同じ
         active: true,
         sign_in_count: 1,
     }
@@ -103,24 +117,28 @@ let user2 = User {
 ----
 
 構造体のフィールド名を省略した、__タプル構造体 (tuple struct)__ を定義することができます。
-タプルに名前を付けたようなものと考えればよいです。
-通常のタプルと同様、各フィールドの値は、`.0`、`.1` のようなインデックスで参照します。
+[通常のタプル](/p/7r3cmv6/#tuple) に名前を付けたようなものと考えればよいです。
+通常のタプルと同様に、各フィールドの値は、__`.0`__、__`.1`__ のようなインデックスで参照します。
 
 ```rust
-// タプル構造体を定義する
+// Point という名前のタプル構造体を定義する
 struct Point(i32, i32);
 
 // 基本的な使い方
 let p = Point(100, 200);
 println!("{}, {}", p.0, p.1);  //=> 100, 200
+```
 
-// 各フィールドの値を別々の変数に展開
+通常のタプルと同様に、各フィールドの値を別々の変数に展開することができます。
+
+```rust
+// 各フィールドの値を別々の変数（x と y）に展開
 let Point(x, y) = p;
 println!("{x}, {y}");  //=> 100, 200
 ```
 
 
-デバッグ出力
+構造体のデバッグ出力
 ----
 
 構造体を定義するときに __`#[derive(Debug)]`__ という属性を付けておくと（あるいは [Debug トレイト](https://doc.rust-lang.org/std/fmt/trait.Debug.html) を自力で実装しておくと）、`println!` マクロで、__`{:?}`__ により構造体の内容をデバッグ出力できるようになります（複数行で整形して出力したいときは `{:?}` の代わりに __`{:#?}`__ を使用します）。
@@ -133,11 +151,20 @@ struct Point {
 }
 
 let p = Point { x: 100, y: 200 };
-println!("{:?}", p);  //=> "Point { x: 100, y: 200 }"
+println!("{:?}", p);
+println!("{:#?}", p);
 ```
 
+{{< code lang="rust" title="出力結果" >}}
+Point { x: 100, y: 200 }
+Point {
+    x: 100,
+    y: 200,
+}
+{{< /code >}}
 
-メソッドの定義
+
+構造体のメソッドを実装する
 ----
 
 構造体のメソッドは、__`impl`__ ブロック内で定義します。
@@ -150,7 +177,7 @@ struct Rect {
     height: u32,
 }
 
-// impl ブロック内で Rect のメソッドを定義する
+// Rect のメソッドを実装する
 impl Rect {
     fn area(&self) -> u32 {
         self.width * self.height
@@ -162,6 +189,20 @@ println!("{}", r.area()); //=> 10
 ```
 
 構造体のフィールドを変更したい場合は、メソッドの第 1 引数を __`&mut self`__ にします。
+このメソッドを呼び出す場合は、構造体のインスタンスを生成するときに `let mut` を使わなければいけないことに注意してください。
+
+```rust
+impl Rect {
+    // 自身のフィールドの内容を変更するメソッド
+    fn double(&mut self) {
+        self.width *= 2;
+        self.height *= 2;
+    }
+}
+
+let mut r = Rect { width: 5, height: 2 };
+r.double();
+```
 
 
 関連関数 (associated function)
@@ -171,7 +212,7 @@ println!("{}", r.area()); //=> 10
 他の言語では static メソッドと呼ばれているもので、呼び出し時にインスタンスを必要としません。
 関連関数を呼び出すには __`構造体名::関数名`__ という構文を使用します（C++ の static メソッドと同様です）。
 
-```rust
+{{< code lang="rust" title="関連関数としてファクトリ関数を定義する" >}}
 struct Point {
     x: f64,
     y: f64,
@@ -186,5 +227,15 @@ impl Point {
 
 // 関連関数を呼び出す
 let p = Point::origin();
+{{< /code >}}
+
+上の例では `origin` 関数の戻り値の型を `Point` としていますが、次のように __`Self`__ というキーワードを使うことで、`impl` 対象の構造体の型が指定されたものとみなされます。
+
+```rust
+impl Point {
+    fn origin() -> Self {
+        Point { x: 0.0, y: 0.0 }
+    }
+}
 ```
 

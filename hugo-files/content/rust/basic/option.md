@@ -10,15 +10,15 @@ Option 型とは？
 
 多くのオブジェクト指向言語には、オブジェクトが存在しないことを示す `null` という値が用意されていますが、Rust には `null` は存在しません。
 Rust の設計者は、`null` という概念が不具合の温床となっていると判断しました。
-その代わりに、Rust には [__`Option`__](https://doc.rust-lang.org/stable/std/option/enum.Option.html) という組み込みの列挙型 (enum) が用意されており、__ある値が存在しているか__ を表現できるようになっています。
+その代わりに、Rust には [__std::option::Option__](https://doc.rust-lang.org/stable/std/option/enum.Option.html) という組み込みの列挙型 (enum) が用意されており、__ある値が存在しているか__ を表現できるようになっています。
 そして、この設計は `null` を使った表現よりも柔軟で、かつ安全です。
 
-`Option` 型の定義はとてもシンプルで、次のような感じになっています。
+`Option` 型の定義はとてもシンプルで、次のような感じの列挙型 (enum) として定義されています。
 
 {{< code lang="rust" title="Option 型の定義" >}}
 pub enum Option<T> {
-    Some(T),
-    None,
+    Some(T),  // T 型の何らかの値
+    None,     // 値が存在しない
 }
 {{< /code >}}
 
@@ -29,7 +29,7 @@ __`Some`__ バリアントが「（任意の型 `T` の）値が存在する」�
 
 ```rust
 let some_val: Option<String> = Some(String::from("Hello"));
-let none_val: Option<String> = None;
+let none_val: Option<String> = None;  // 他の言語では null や nil に相当
 ```
 
 こんな感じで別名を付けると理解しやすいでしょうか。
@@ -40,16 +40,16 @@ let some_val: NullableString = Some(String::from("Hello"));
 let none_val: NullableString = None;
 ```
 
-`Option` 型のバリアントは頻繁に使用するため、`Option::Some` や `Option::None` ではなく、`Some` や `None` と記述できるようになっています。
-これらのシンボルは、Rust の初期化処理 (prelude) でロードされるからです。
+`Option` は単なる列挙型なので、本来はバリアントを参照するときに `Option::Some` や `Option::None` と記述しなければならないはずですが、デフォルトで `Some` や `None` と短く記述できるようになっています。
+`Option` 型は頻繁に参照するので、そのシンボルが Rust の初期化処理 (prelude) でロードされるようになっており、このような省略記述が可能になっています。
 
 
 Option 型の値を match で処理する
 ----
 
-下記は `Option<i32>` 型の値を返す関数の実装例です。
-引数で渡された文字列に応じて、`Some<i32>` あるいは `None` を返します。
-うまくパースできない（想定外の）の文字列が渡されたときは、`None` を返すようにしています（Rust 以外の言語であれば、`null` を返したり、例外を発生させたりするところです）。
+下記の関数は、引数で受け取った文字列を数値に変換し、`Option<i32>` 型の値として返しています。
+つまり、`Some<i32>` あるいは `None` というバリアントを返します。
+数値としてパースできない文字列が渡されたときは、`None` を返すようにしています（Rust 以外の言語であれば、`null` を返したり、例外を発生させたりするところです）。
 
 ```rust
 /// 数値っぽい文字列を数値に変換します。
@@ -63,13 +63,13 @@ fn parse_num_str(s: &str) -> Option<i32> {
 }
 ```
 
-戻り値の `Option<i32>` は enum 型の値なので、次のように `match` で分岐処理しつつ、`Some` バリアントに含まれている `i32` 値を取り出すことができます。
+戻り値の `Option<i32>` は列挙型の値なので、次のように `match` で分岐処理しつつ、`Some` バリアントに含まれている `i32` 値を取り出すことができます（参考: [列挙型 (enum) ](/p/ffqyajs/)）。
 
 ```rust
-let num = parse_num_str("三");
+let num_opt = parse_num_str("三");
 
-match num {
-    Some(x) => println!("The number is {}", x),
+match num_opt {
+    Some(num) => println!("The number is {}", num),
     None => println!("Could not parse"),
 }
 ```
@@ -101,16 +101,19 @@ if let Some(3) = num_opt {
 None かどうかをチェックする (is_none)
 ----
 
-`Option` 型の値が `None` バリアントかどうかを確認したいときは、__`is_none()`__ メソッドを使います。
+`Option` 列挙型の値が `None` バリアントかどうかを確認したいときは、__`is_none()`__ メソッドを使うのがシンプルです。
 値が存在しないときに早期リターンしたいケースで使えるかもしれません。
-逆に `Some` バリアントかどうかを調べる `is_some()` も用意されていますが、あまり使うことはないでしょう。
+逆に `Some` バリアントかどうかを調べる __`is_some()`__ も用意されていますが、あまり使うことはないでしょう。
 
 ```rust
-let num = parse_num_str("三");
-if num.is_none() {
+let num_opt = parse_num_str("ほげ");
+if num_opt.is_none() {
     eprintln!("Parse error");
     return;
 }
+
+// もちろん次のように書いても OK
+// if let None = num_opt { ... }
 ```
 
 `Option` 列挙型には、`Some` バリアントが保持するデータをダイレクトに取り出すための __`unwrap`__ というメソッドが用意されていますが、このメソッドは `None` バリアントに対して呼び出すと panic が発生するので危険です。
@@ -126,7 +129,7 @@ println!("The number is {}", num);
 None だった場合に代替値を使う (unwrap_or, unwrap_or_else)
 ----
 
-`Some` バリアントが保持するデータを取り出す `unwrap` メソッドは、`None` バリアント対して呼び出すと panic が発生してしまいますが、代わりに __`unwrap_or`__ メソッドを使うと、`None` だった場合に代替値を返すことができます。
+`Some` バリアントが保持するデータを取り出す `unwrap` メソッドは、`None` バリアントに対して呼び出すと panic が発生してしまう危険なメソッドですが、代わりに __`unwrap_or`__ メソッドを使うと、`None` だった場合に代替値を返すことができます。
 次の例では、`get_user_id` 関数が返す `Option` 値が `None` だった場合に、代替値として `-1` を使うようにしています。
 
 {{< code lang="rust" hl_lines="10" >}}
@@ -139,8 +142,8 @@ fn get_user_id(name: &str) -> Option<i32> {
 }
 
 let opt_id = get_user_id("unknown");
-let id = opt_id.unwrap_or(-1); // opt_id が None のとき -1 になる
-println!("{}", id); //=> -1
+let id = opt_id.unwrap_or(-1);  // opt_id が None のとき -1 になる
+println!("{}", id);  //=> -1
 {{< /code >}}
 
 `unwrap_or` メソッドで指定する代替値は、メソッドの引数として渡すことになるので、そこに何らかの式を指定すると必ず評価されてしまうことに注意してください。
@@ -158,18 +161,19 @@ let id = opt_id.unwrap_or(get_default_id());
 let id = opt_id.unwrap_or_else(|| get_default_id());
 ```
 
-似たようなメソッドに、__`unwrap_or_default`__ がありますが、これは代替値としてその型のデフォルト値（`i32` なら `0`、`String` なら `""`、`Vec` なら `vec![]`）を返します。
+似たようなメソッドに、__`unwrap_or_default`__ がありますが、こちらは代替値としてその型のデフォルト値（`i32` なら `0`、`String` なら `""`、`Vec` なら `vec![]`）を返します。
+場面によっては便利かもしれませんが、若干意図が伝わりにくい気がします。
 
 ```rust
 let opt_id = get_user_id("unknown");
-let id = opt_id.unwrap_or_default(); //=> 0
+let id = opt_id.unwrap_or_default();  //=> 0
 ```
 
 `unwrap_or` 系のメソッドを使ったコードは、次のような `if let` でも同様のことを行えることに気がつくかもしれません。
 ただ、このようなコードは可読性が悪いので、`unwrap_or` 系のメソッドをうまく使いこなしたいところです。
 
 ```rust
-let id = if let Some(x) = opt_id { x } else { -1 };
+let id = if let Some(id) = opt_id { id } else { -1 };
 ```
 
 

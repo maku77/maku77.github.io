@@ -2,6 +2,9 @@
 title: "Rust の Result 型の基本 ─ 成功と失敗を表現する型"
 url: "p/us2ahpw/"
 date: "2022-12-29"
+lastmod: "2023-07-04"
+changes:
+  - 2023-07-04: Ok バリアントに値が必要ないケース
 tags: ["Rust"]
 ---
 
@@ -14,8 +17,8 @@ Rust の標準ライブラリには、[std::result::Result](https://doc.rust-lan
 
 {{< code lang="rust" title="Result 型の定義" >}}
 enum Result<T, E> {
-   Ok(T),
-   Err(E),
+   Ok(T),   // T 型の成功値
+   Err(E),  // E 型の失敗値
 }
 {{< /code >}}
 
@@ -74,12 +77,12 @@ if result.is_err() {
 ### unwrap 系メソッド
 
 `Ok` バリアントが含むデータをダイレクトに取り出したいときは、__`unwrap`__ 系のメソッドを使用します。
-ただし、`unwrap` メソッドは `Result` の値が `Err` のときに呼び出すとパニックが発生するので、ほとんどのケースでは使用を避けるべきです。
+ただし、`unwrap` メソッドは `Result` の値が `Err` のときに呼び出すとパニックが発生するので、ほとんどのケースでは使用を避けるべきです（即席の使い捨てプログラムを作るときは便利ですが）。
 
 ```rust
-let result = "123".parse::<i32>();
+let result = "ほげ".parse::<i32>();
 
-// 成功時は 123 を返し、失敗時はパニックを発生させる
+// 成功時は i32 値を返し、失敗時はパニックが発生する
 let num = result.unwrap();
 
 // unwrap の代わりに expect を使うと、パニック時のメッセージを指定できる
@@ -90,8 +93,8 @@ let num = result.expect("Failed to parse");
 こちらはパニックが発生しないので安全です。
 
 ```rust
-let num = result.unwrap_or(0); // 成功時は 123、失敗時は 0 が返される
-let num = result.unwrap_or_default(); // これでも可（整数型のデフォルト値 0 が使われる）
+let num = result.unwrap_or(0);  // パースに失敗したときは 0 が返される
+let num = result.unwrap_or_default();  // 同上（整数型のデフォルト値 0 が使われる）
 ```
 
 代替値の生成にコストがかかる場合は、__`unwrap_or_else`__ メソッドを使って代替値を生成する関数を渡すようにします。
@@ -99,9 +102,14 @@ let num = result.unwrap_or_default(); // これでも可（整数型のデフォ
 次の例では、クロージャの形で代替値の生成処理を指定しています。
 
 ```rust
-// 成功時は 123 を返し、失敗時は代替値生成用の関数を呼び出す
+// パースに失敗したときは代替値生成用の関数を呼び出す
 let num = result.unwrap_or_else(|_| create_default_value());
+
+// 代替値を生成する関数（本当はコストのかかる処理という想定）
+fn create_default_value() -> i32 { 999 }
 ```
+
+クロージャにはエラー値（この場合は `ParseIntError`）が渡されますが、今回は使わないのでアンダースコア (`_`) で受け取って無視しています。
 
 
 独自の Result 型を返すサンプル
@@ -124,26 +132,29 @@ match divide(5, 0) {
 }
 ```
 
-{{% note title="エラー型を定義するときの推奨方法" %}}
-- Error トレイトを実装する
-  - __`std::error::Error`__ トレイトを実装することで、共通のメソッドを使ってエラーを解析できるようになります。例えば、`Error#source` メソッドでエラーの発生源を調べることができます。
-  - `source` の実装は、内部で保持している `Error` オブジェクトを返すだけで済みます。
-- Display と Debug を実装する
-  - これらを実装することで、クライアントがエラーの内容を出力できるようにしておきます（`Error` トレイトを実装するとき、自動的にこれらの実装も必要になります）。
-  - `Display` の内容は、1 行で簡潔に「何が悪かったのか」分かるような表現にします。
-他のレポートにネストされる形で表示されたりするので、基本的には __すべて小文字__ で、__末尾のピリオドは付けない__ ようにします。
-  - `Debug` が提供する情報は、`Display` よりも具体的になるようにします。例えば、オープンに失敗したファイルの名前や、ポート番号などの情報を含めます。多くのケースでは、__`#[derive(Debug)]`__ を採用できます。
-- Send と Sync を実装する
-  - 可能であれば、スレッド境界を越えられるように `Send` と `Sync` を実装しておきます。エラー型がスレッドセーフになっていなければ、きっとそのクレートはマルチスレッドなコンテキストでは利用できません。
-- static なライフタイムを持たせる
-  - __`'static`__ にすることで、エラー情報を用意にコールスタックに乗せることができるようになります。
-{{% /note %}}
+`Result::Ok` バリアントに値を設定する必要がないときは、空タプル __`()`__ を使います。
+
+```rust
+fn perform(action: &str) -> Result<(), &'static str> {
+    if action == "dance" {
+        Ok(())
+    } else {
+        Err("実行できませんでした")
+    }
+}
+
+let result = perform("sing");
+match result {
+    Ok(_) => println!("実行完了"),
+    Err(err) => println!("エラー: {}", err),
+}
+```
 
 
 Result 型でエラーのハンドル忘れを防ぐことができるのはなぜか？
 ----
 
-`Result` 型の定義には、次のように __`#[must_use]`__ アノテーションが付いているため、何らかのメソッドが戻り値として `Result` を返したとき、その値を無視できないようになっています（参考: [Result 型のコード](https://doc.rust-lang.org/src/core/result.rs.html#501)）。
+`Result` 型の定義には、次のように __`#[must_use]`__ アノテーションが付いているため、何らかのメソッドが戻り値として `Result` を返したとき、その値を無視できないようになっています（参考: [Result 型のコード](https://doc.rust-lang.org/src/core/result.rs.html#500)）。
 
 {{< code lang="rust" title="Result の実装（抜粋）" >}}
 // ...

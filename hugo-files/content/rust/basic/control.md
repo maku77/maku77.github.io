@@ -1,5 +1,5 @@
 ---
-title: "Rust の文法: 制御構文 (if, while, loop, for)"
+title: "Rust の文法: 制御構文 (if, match, while, loop, for)"
 url: "p/22cnw7f/"
 date: "2023-02-13"
 tags: ["Rust"]
@@ -35,6 +35,44 @@ let s = if n > 0 { "Good" } else { "Bad" };
 
 `if` を式として使う場合は、必ず `else` 句が必要なことに注意してください。
 また、評価後の値（上記の例では `"Good"` や `"Bad"`）の後ろには、セミコロン (`;`) を付けてはいけません。
+
+
+### match 式 (match expression)
+
+C/C++ や Java の `switch` に相当する分岐処理として、Rust では __`match`__ を使用します。
+各分岐処理において、__`if ...`__ というガード (guard) を付加することで、柔軟な分岐処理を行うことができます。
+
+```rust
+let n = 5;
+match n {
+    0 => println!("zero"),  // n が 0 の場合
+    _ if n < 0 => println!("negative"),  // n が負の場合
+    _ if n < 10 => println!("single digit"),  // n が 1 から 9 の場合
+    _ => println!("multiple digits"),  // それ以外（n が 10 以上）の場合
+}
+```
+
+`if` と同様に、`match` は式として扱うことができるので、評価後の値を変数などで受け取ることができます。
+
+```rust
+/// ゲームのジャンル
+enum Genre { Action, Shooting, Table, Strategy, Rpg }
+
+let g = Genre::Action;
+
+// ジャンルの略称に変換する
+let abbr = match g {
+    Genre::Action => "ACT",
+    Genre::Shooting => "STG",
+    Genre::Table => "TBL",
+    _ => "OTHER",
+};
+
+println!("{}", abbr);  //=> ACT
+```
+
+ちなみに、上記の例では列挙型 (enum) の値による分岐処理を行っています。
+[列挙型の詳細はこちら](/p/ffqyajs/) を参照してください。
 
 
 ループ

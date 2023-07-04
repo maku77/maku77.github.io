@@ -5,7 +5,7 @@ date: "2023-01-06"
 tags: ["Rust"]
 ---
 
-列挙型は、あらかじ定義された値（列挙子、バリアント、variant）の内、いずれかの値をとることができる型です。
+列挙型は、あらかじ定義された値（列挙子やバリアントと呼びます）の内、いずれかの値をとることができる型です。
 Rust の列挙型は、各バリアントに任意の値を保持することができるので非常に強力です。
 列挙型は構造体 (struct) と同様に、`impl` ブロックを使ったメソッド定義を行えます。
 
@@ -18,16 +18,30 @@ Rust の列挙型は、各バリアントに任意の値を保持することが
 次の `Fruit` 列挙型は、バリアントとして `Apple`、`Banana`、`Orange` を持ちます。
 
 {{< code lang="rust" title="enum 型を定義する" >}}
+// Fruit 列挙型を定義する
+#[derive(Debug)]
 enum Fruit {
     Apple,
     Banana,
     Orange,
 }
+
+// Fruit インスタンスを生成する
+let f = Fruit::Apple;
+println!("{:?}", f);       //=> Apple
+println!("{}", f as i32);  //=> 0
 {{< /code >}}
 
+上記のように列挙型の定義時に `#[derive(Debug)]` 属性を付けておくと、`println!` マクロで列挙型変数の値を `{:?}` で参照できるようになります。
+あるいは、`as i32` を使って、バリアントが持つ [内部的な整数値を取り出す](#extract_value) こともできます。
+
+
+match による分岐
+----
+
 __`match`__ 構文によりパターンマッチにより、列挙型変数の値に基づいて分岐処理を行うことができます。
-下記は 3 つのパターンがありますが、これらのパターンごとの記述を Rust ではアーム (arm) と呼びます。
-各アームはカンマ (`,`) で区切って記述します。
+次の例では 3 つのパターンで分岐していますが、これらのパターンごとの記述を Rust では __アーム (arm)__ と呼びます。
+各アームはカンマ (__`,`__) で区切って記述します。
 
 {{< code lang="rust" title="match による分岐" >}}
 let f = Fruit::Banana;
@@ -43,9 +57,9 @@ Rust の __`match` は式として扱われる__ ので、評価結果を変数�
 
 ```rust
 let message = match f {
-    Fruit::Apple => "I like Apples",
-    Fruit::Banana => "I like Bananas",
-    Fruit::Orange => "I like Oranges",
+    Fruit::Apple => "I like apples",
+    Fruit::Banana => "I like bananas",
+    Fruit::Orange => "I like oranges",
 };
 println!("{}", message);
 ```
@@ -56,11 +70,11 @@ println!("{}", message);
 {{< code lang="rust" hl_lines="2-5" >}}
 match f {
     Fruit::Apple => {
-        let msg = "I like Apples";
+        let msg = "I like apples";
         println!("{}", msg);
     }
-    Fruit::Banana => println!("I like Bananas"),
-    Fruit::Orange => println!("I like Oranges"),
+    Fruit::Banana => println!("I like bananas"),
+    Fruit::Orange => println!("I like oranges"),
 }
 {{< /code >}}
 
@@ -72,7 +86,8 @@ match で複数のバリアントや残り全てにマッチさせる
 また、「その他のバリアントすべて」にマッチさせたいときは、アンダースコア (__`_`__) 記号を使います（これは、C/C++ や Java の `default` ケースに相当するものです）。
 アンダースコアはすべての値に一致してしまうため、最後のアームとして配置する必要があります。
 
-{{< code lang="rust" hl_lines="5-6" >}}
+{{< code lang="rust" hl_lines="6 7" >}}
+// トランプのスート（マーク）を表現する列挙型
 enum Suit { Clubs, Spades, Diamonds, Hearts }
 
 let s = Suit::Clubs;
@@ -83,7 +98,7 @@ match s {
 {{< /code >}}
 
 
-使用していないバリアントがあるときに警告を抑制する
+未使用バリアントの警告を抑制する
 ----
 
 アプリケーションの中で、使用していないバリアントがあると、Rust コンパイラーは次のような警告を出します。
@@ -92,7 +107,8 @@ match s {
 warning: variants `Apple` and `Orange` are never constructed
 ```
 
-このような警告を抑制するには、列挙型の定義時に、__`#[allow(dead_code)]`__ 属性を追加します。
+これは、デフォルトで `#[warn(dead_code)]` 属性が設定されており、未使用コードが警告されるようになっているからです。
+未使用コードの警告を抑制するには、列挙型の定義時に、__`#[allow(dead_code)]`__ 属性を追加します。
 
 {{< code lang="rust" hl_lines="1" >}}
 #[allow(dead_code)]
@@ -107,7 +123,7 @@ let f = Fruit::Banana;
 ----
 
 enum 型の各バリアントは、任意の型のデータを保持することができます。
-しかも __バリアントごとに異なる型のデータを持つことができる__ ので、C/C++ の union（共用体）のように使用することができます。
+しかも __バリアントごとに異なる型のデータを持つことができる__ ので、C/C++ の union（共用体）のような感覚で使用することができます。
 
 ```rust
 enum Message {
@@ -151,7 +167,7 @@ match m {
 列挙値を if let で処理する
 ----
 
-`Option` のすべてのバリアントを包括的に処理する必要がなく、特定のバリアントのみ興味がある場合は、`match` の代わりに __`if let`__ 構文でパターンマッチを行うことができます。
+列挙型のすべてのバリアントを包括的に処理する必要がなく、特定のバリアントのみ興味がある場合は、`match` の代わりに __`if let`__ 構文でパターンマッチを行うことができます。
 マッチングのルールは `match` と同様です。
 次の例では、`Color` 列挙型の変数の値が赤色を示す値かどうかを調べています。
 
@@ -195,7 +211,7 @@ if let Color::Hsv { h, s, v } = c {
 }
 ```
 
-バリアントが持つデータのうち、参照する必要がないフィールドがある場合は、変数名の代わりにアンダースコア (`_`) を置いておいます。
+バリアントが持つデータのうち、参照する必要がないフィールドがある場合は、変数名の代わりにアンダースコア (`_`) を配置しておきます。
 
 ```rust
 let c = Color::Rgb(255, 255, 0);
@@ -215,7 +231,7 @@ if let Color::Hsv { h: 0, s, v: _ } = c {
 列挙型にメソッドを定義する
 ----
 
-列挙型にも構造体 (struct) と同様に、メソッドを定義することができます。
+列挙型にも [構造体 (struct)](/p/h8kw8ju/) と同様に、メソッドを定義することができます。
 次の例では、`WebEvent` 列挙型に `dump` メソッドを定義しています。
 メソッドの中では、自身の列挙型名 (`WebEvent`) の代わりに __`Self`__ というエイリアスを使用できます。
 
@@ -264,7 +280,7 @@ println!("{}", op.run(1, 2)); //=> 3
 {{< /code >}}
 
 
-バリアントが内部的に持つ整数値を取り出す
+バリアントが内部的に持つ整数値を取り出す {#extract_value}
 ----
 
 C/C++ と同様に、Rust の列挙型のバリアントも、内部的には 0 始まりの整数値で管理されています。

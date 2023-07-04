@@ -34,15 +34,15 @@ categoryIcon: _index.svg
 ----
 
 - Rust の文法
-  - [制御構文 (if, while, loop, for)](/p/22cnw7f/)
+  - [制御構文 (if, match, while, loop, for)](/p/22cnw7f/)
   - [配列 (array) とタプル (tuple)](/p/7r3cmv6/)
-  - [構造体 (struct) を定義する](/p/h8kw8ju/)
+  - [構造体 (struct) とタプル構造体 (tuple struct)](/p/h8kw8ju/)
   - [所有権 (ownership) と借用 (borrow)](/p/4nx8hqy/)
   - [列挙型 (enum) の定義と match, if let による照合](/p/ffqyajs/)
 - [Option 型の基本 ─ 値の有無を表現する型](/p/9m6m5m3/)
 - [Result 型の基本 ─ 成功と失敗を表現する型](/p/us2ahpw/)
   - [各種ライブラリのエラー型と Error トレイト](/p/8amv5eo/)
-  - [Result のエイリアス型でコードを簡潔にする](/p/ez9gpw5/)
+  - [Result 型エイリアスでコードを簡潔にする](/p/ez9gpw5/)
   - [Result オブジェクトを消費せずに参照する (as_ref, as_mut)](/p/z3gts64/)
 - コレクション
   - [ベクター型 (Vec) を扱う](/p/jku3biq/)
