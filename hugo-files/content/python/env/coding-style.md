@@ -71,7 +71,6 @@ Regarding the handling of these underscores, it is described in the section [PEP
 Indent/Space
 ----
 
-- インデントは __スペース 4 文字__。タブは使用しない。
 - Indent is __4 spaces__. Not use tab.
   - If you specify `-t` as a command-line argument in Python, it will display a warning when spaces and tabs are mixed (`-tt` option will raise an error).
 - The maximum line length is 79 characters (including line breaks). However, for documentation (docstrings) and comment lines, the maximum length is 72 characters.
