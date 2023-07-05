@@ -12,80 +12,75 @@ Coding style of python is, PEP8 and PEP 257.
 - [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 - [PEP 257 -- Docstring Conventions](https://www.python.org/dev/peps/pep-0257/)
 
-This page mainly summarizes the above content, but when applying coding style to a Python project in practice, it is recommended to introduce Python formatters such as [Black](https://maku.blog/p/4oybku6/).
-Although there are some differences from PEP 8 and PEP 257, Black will enforce a reasonable style.
-
-> Vietnamese:
-> Trang này tập trung chủ yếu vào các nội dung được đề cập ở trên, tuy nhiên khi áp dụng phong cách lập trình cho dự án Python thực tế, chúng tôi khuyên bạn nên sử dụng các [công cụ định dạng Python như Black](https://maku.blog/p/4oybku6/).
-> Mặc dù có một số điểm khác biệt so với PEP 8 và PEP 257, Black sẽ bắt buộc áp dụng phong cách hợp lý.
+Trang này tập trung chủ yếu vào các nội dung được đề cập ở trên, tuy nhiên khi áp dụng phong cách lập trình cho dự án Python thực tế, chúng tôi khuyên bạn nên sử dụng các [công cụ định dạng Python như Black](https://maku.blog/p/4oybku6/).
+Mặc dù có một số điểm khác biệt so với PEP 8 và PEP 257, Black sẽ bắt buộc áp dụng phong cách hợp lý.
 
 Naming conventions(命名規則)
 ----
 
 ### Uppercase/Lowercase
 
-- Package name is lowercase（例: `mypackage`）
-- Class name is uppercase（例: `MyClass`）
-- Function or public method is lowercase（例: `my_public_method`）
-- Protected methods has 1 underscore at first（例: `_my_protected_method`）
-- Private method has 2 underscore at first（例: `__my_private_method`）
-- Constant is all uppercase（例: `MY_CONSTANT`）
+- Package name: lowercase（例: `mypackage`）
+- Class name: uppercase（例: `MyClass`）
+- Function hoặc public method: lowercase（例: `my_public_method`）
+- Protected methods là lowercase với 1 dấu gạch dưới ở đầu（例: `_my_protected_method`）
+- Private method là lowercase với 2 dấu gạch dưới ở đầu（例: `__my_private_method`）
+- Constant: all uppercase（例: `MY_CONSTANT`）
 
-Python の name mangling の仕組みによって、アンダースコア 2 つで始まる名前は、
-クラス外部、あるいはサブクラスからその名前ではアクセスできないようになっています
-（正確には `_ClassName__method` という名前でアクセスできますが）。
-この特性を利用して、private メソッドをアンダースコア 2 つで始めるようにするのがよい、ということです。
+Về cấu trúc của Python's name mangling, name bắt đầu bằng hai dấu gạch dưới sẽ không thể truy cập từ bên ngoài lớp hoặc từ một lớp con (You can actually access it with the name `_ClassName__method`).
+Với tính năng này, họ khuyến nghị đặt tên private methods với 2 dấu gạch dưới ở đầu.
 
 
-### グローバル領域でのアンダースコアの使用について
+### About the use of underscores in the global scope(領域)
 
-トップレベルに定義するクラスや関数で、モジュール（ファイル）内に閉じて外部に公開しないものは、プレフィックスとして 1 つのアンダースコアを付けます。
-こうすることで、`from M import *` の形での自動インポートを防ぐことができます。
+Với các lớp hoặc hàm được định nghĩa ở cấp độ cao nhất, những thứ không được công khai ra bên ngoài mô-đun (tệp) sẽ có tiền tố là dấu gạch dưới.
+Bằng cách này, bạn có thể ngăn chặn việc nhập tự động trong hình thức `from M import * `.
 
 ```python
-# モジュール内部で使う関数
+# Function which is used in module
 def _parse_timestamp_with_tzinfo(value, tzinfo):
     """Parse timestamp with pluggable tzinfo options."""
     ...省略...
 
-# モジュール内部で使うクラス
+# Class which is used in module
 class _RetriesExceededError(Exception):
     """Internal exception used when the number of retries are exceeded."""
     pass
 ```
 
-モジュール名（ファイル）とパッケージ名（ディレクトリ）は、小文字のみで構成します。
-モジュール名は、必要があれば単語の区切りのためにアンダースコアを含めてもよいとされていますが、パッケージ名（ディレクトリ）にはアンダースコアを含めてはいけません。
+Module name (file) and package name (directory) is only downcase.
+The module name may include underscores for word separation if necessary, but underscores should not be included in package names (directories).
 
-- モジュール名にはアンダースコアを含んでもよい (OK: `user.py`, `user_info.py`)
-- パッケージ名にはアンダースコアを含めない (OK: `game/`, NG: `game_db/`)
+- Module names may include underscores (OK: `user.py`, `user_info.py`)
+- Package names should not include underscores (OK: `game/`, NG: `game_db/`)
 
-これらのアンダースコアの扱いに関しては、[PEP 0008 (Style Guide for Python Code) の Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) のセクションにおいて、下記のように記述されています。
+Regarding the handling of these underscores, it is described in the section [PEP 0008 (Style Guide for Python Code)](https://www.python.org/dev/peps/pep-0008/#package-and-module-names) :
 
 > Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability.
 >
 > Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
 
 
-### その他の命名規則
+### Another Naming Convension
 
-- 独自の Exception クラスは、Exception を継承して作成し、サフィックスに __`Error`__ を付ける（例: `HogeHogeError`）。
-- インスタンスメソッドの最初の引数名は __`self`__、クラスメソッドの最初の引数名は __`cls`__。
-- 予約語と被る attribute 名を使用したい場合は、変に省略名を付けるのではなく、サフィックスとしてアンダースコアを付ける。ただし、`class` という名前に関しては、`class_` でなく `cls` を用いる。
+- The independent Exception class is created by inheriting from Exception and adding the suffix __`Error`__ to it (for example: `HogeHogeError`).
+- The first argument name for instance methods is __`self`__, and for class methods, it is __`cls`__.
+- If you want to use an attribute name that conflicts with a reserved word, instead of using an awkward abbreviation, it is recommended to add an underscore as a suffix. However, when it comes to the name `class`, it is preferable to use `cls` instead of `class`_ .
 
 
-インデント／スペース
+Indent/Space
 ----
 
 - インデントは __スペース 4 文字__。タブは使用しない。
-  - python のコマンドライン引数で `-t` を指定すればスペースとタブが混在しているときに警告を表示してくれます（`-tt` オプションならエラーにしてくれる）。
-- 一行は 79 文字（+ 改行）まで。ただし、ドキュメント (docstring) やコメント行は 72 文字まで。
-- デフォルトパラメータの `=` の前後にはスペースを入れない。
+- Indent is __4 spaces__. Not use tab.
+  - If you specify `-t` as a command-line argument in Python, it will display a warning when spaces and tabs are mixed (`-tt` option will raise an error).
+- The maximum line length is 79 characters (including line breaks). However, for documentation (docstrings) and comment lines, the maximum length is 72 characters.
+- In default parameters, do not include spaces before or after the `=` sign.
   ```python
   def complex(real, imag=0.0):
       return magic(r=real, i=imag)
   ```
-- 長い行の途中で改行する場合は、次の行のインデントは前の行の開き括弧の位置に合わせる。演算子の後ろで改行する。
+- When breaking a long line, the indentation of the next line should align with the opening parenthesis of the previous line. If breaking after an operator, the line should be indented to align with the operator.
 
   ```python
   if (width == 0 and height == 0 and
@@ -93,28 +88,28 @@ class _RetriesExceededError(Exception):
       highlight > 100):
   ```
 
-- クラス内のメソッド間は 1 行の空白行で区切る。トップレベルのクラス定義やメソッドは 2 行の空白行で区切る。
-  - ▽このあたりのルールは有名どころの OSS のコードは [ちゃんと守ってます](https://github.com/boto/botocore/tree/develop/botocore) が、ドキュメンテーションコメントの最初の動詞に三単現の s を付けない、というルールはあまり守られていないっぽいです。
-- 開き括弧 `(`、`[` の前後に空白スペースを入れない。
-- コロン `:`、セミコロン `;` の前に空白スペースを入れない。
-- 算術演算子の前後には空白スペースを入れる。
-- 代入文が複数行に渡って続く場合に、`=` の位置を空白スペースで揃えたりしない。
+- Trong class, các methods nên được phân tách bằng một dòng trống. Định nghĩa lớp và phương thức ở mức đỉnh cần được phân tách bằng hai dòng trống.
+  - Các quy tắc này được tuân thủ đúng trong mã nguồn của các dự án OSS nổi tiếng như [botocore](https://github.com/boto/botocore/tree/develop/botocore), nhưng có vẻ như quy tắc không đính kèm "s" ở động từ số ít thứ ba trong phần đầu của nhận xét tài liệu không được tuân thủ một cách rộng rãi.
+- Không chèn khoảng trắng trước và sau dấu ngoặc mở `(` và `[` .
+- Không chèn khoảng trắng trước dấu hai chấm `:` và dấu chấm phẩy `;`.
+- Trước và sau các toán tử số học, hãy chèn khoảng trắng.
+- Khi phép gán kéo dài qua nhiều dòng, không cần căn chỉnh vị trí của dấu `=` bằng khoảng trắng.
 
 
-エンコーディング形式
+Định dạng encoding
 ----
 
-- Python 3.0 からはエンコーディング形式に UTF-8 が推奨される。
-- コメントや docstring 以外の文字列リテラルで ASCII 意外のエンコーディング形式を使用する場合は、`\x`, `\u`, `\U` でエスケープすること。
+- Từ Python 3.0, UTF-8 được khuyến nghị là định dạng mã hóa cho các chuỗi.
+- Nếu bạn sử dụng định dạng mã hóa khác ASCII trong các chuỗi literal ngoại trừ các comment và docstring, bạn cần sử dụng ký tự escape `\x`, `\u`, `\U`.
 
 
-インポート
+Import
 ----
 
-- `import` は次の順番で宣言し、__各セクションを空白行で区切る__。
-  1. 標準ライブラリ
-  2. サードパーティ・ライブラリ
-  3. ローカル・ライブラリ
+- `import` được khai báo theo thứ tự sau đây và __phân tách các phần bằng dòng trống__.
+  1. Thư viện tiêu chuẩn
+  2. Thư viện bên thứ ba
+  3. Thư viện cục bộ
   ```python
   import random
   import os
@@ -126,16 +121,16 @@ class _RetriesExceededError(Exception):
   import foo
   import foo.bar
   ```
-- `import` は次のように 1 行ずつ分離して行う。
+- `import` được thực hiện bằng cách tách thành từng dòng như sau.
   ```python
   import os
   import sys
   ```
-- ただし、次のような `from -- import --` の形式は 1 行で書いても OK。
+- Tuy nhiên, dạng `from -- import --` như sau có thể được viết trên cùng một dòng.
   ```python
   from subprocess import Popen, PIPE
   ```
-- 上記の `import` 以降が複数行に渡るときは、次のように括弧で囲めば OK。
+- Khi phần `import` trên trải dài qua nhiều dòng, có thể bao bọc bằng dấu ngoặc như sau.
   ```python
   from botocore.compat import (
       json, quote, zip_longest, urlsplit, urlunsplit, OrderedDict,
@@ -145,15 +140,15 @@ class _RetriesExceededError(Exception):
   ```
 
 
-コメント
+Comment
 ----
 
-- コメントはセンテンスになっているべきで、最初の文字は大文字で始める。短いセンテンスは最後のピリオドを省略してよいが、通常はピリオドを省略してはならない。
-- コメントは基本的には英語で。
-- ブロックコメントの中のパラグラフは、1 つの `#` を含む行で区切ること。
-- インラインコメントの `#` は、ステートメントの後ろに 2 つ以上のスペースを置いてから記述すること。
+- Comment nên được viết dưới dạng câu, với chữ cái đầu tiên viết hoa. Câu ngắn có thể bỏ qua dấu chấm cuối, nhưng thông thường không nên bỏ qua dấu chấm.
+- Comment nên được viết bằng tiếng Anh.
+- Đoạn văn trong comment dạng khối nên được phân tách bằng một dòng chứa một dấu `#`.
+- Dấu `#` trong nhận xét nằm sau câu lệnh nên có ít nhất 2 khoảng trắng.
 
-モジュール（ファイル）や、クラス、関数などのドキュメンテーションコメントは、__docstring 形式__ での記述が推奨されています。下記記事を参考にしてください。
+Các nhận xét tài liệu cho các module (file), class, function, và các thành phần khác nên được viết theo định dạng __docstring__. Vui lòng tham khảo bài viết dưới đây để biết thêm thông tin.
 
-- [Docstring でドキュメンテーションコメントを記述する](/p/y2biqz7/)
+- [Viết tài liệu bằng Docstring](/p/y2biqz7/)
 
