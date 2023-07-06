@@ -30,15 +30,24 @@ categoryIcon: _index.svg
 - [Rust で自作したプログラムをシステムにインストールする (`cargo install`)](/p/owbo2dp/)
 
 
-基本
+Rust の文法
 ----
 
-- Rust の文法
-  - [制御構文 (if, match, while, loop, for)](/p/22cnw7f/)
-  - [配列 (array) とタプル (tuple)](/p/7r3cmv6/)
-  - [構造体 (struct) とタプル構造体 (tuple struct)](/p/h8kw8ju/)
-  - [所有権 (ownership) と借用 (borrow)](/p/4nx8hqy/)
-  - [列挙型 (enum) の定義と match, if let による照合](/p/ffqyajs/)
+- [制御構文 (if, match, while, loop, for)](/p/22cnw7f/)
+- [配列 (array) とタプル (tuple)](/p/7r3cmv6/)
+- [構造体 (struct) とタプル構造体 (tuple struct)](/p/h8kw8ju/)
+- [所有権 (ownership) と借用 (borrow)](/p/4nx8hqy/)
+- [列挙型 (enum) の定義と match, if let による照合](/p/ffqyajs/)
+- [パニック (panic) の扱いについて](/p/nfxwcc2/)
+
+{{% private %}}
+- エラーを伝搬させる（? 演算子）
+{{% /private %}}
+
+
+主要な型
+----
+
 - [Option 型の基本 ─ 値の有無を表現する型](/p/9m6m5m3/)
 - [Result 型の基本 ─ 成功と失敗を表現する型](/p/us2ahpw/)
   - [各種ライブラリのエラー型と Error トレイト](/p/8amv5eo/)
@@ -47,12 +56,12 @@ categoryIcon: _index.svg
 - コレクション
   - [ベクター型 (Vec) を扱う](/p/jku3biq/)
   - [ハッシュマップ型 (HashMap) を扱う](/p/eefwaa3/)
-- プロジェクトの構成（パッケージ／クレート／モジュール）
-  - [モジュールを定義する (`mod`)](/p/gxj4n7q/)
 
-{{% private %}}
-- エラーを伝搬させる（? 演算子）
-{{% /private %}}
+
+プロジェクト構成（パッケージ／クレート／モジュール）
+----
+
+- [モジュールを定義する (`mod`)](/p/gxj4n7q/)
 
 
 入出力 (I/O)、ファイル
