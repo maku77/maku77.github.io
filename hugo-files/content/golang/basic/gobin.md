@@ -40,7 +40,7 @@ PATH   → %USERPROFILE%\go\bin （を PATH に追加）
 上記のようにパスを通しておけば、`go install` でインストールしたコマンドを、どこからでも実行できるようになります。
 
 ```console
-$ go install github.com/maku77/go-hello@latest
+$ go install github.com/ojisancancode/go-hello@latest
 $ go-hello
 Hello, world!
 ```

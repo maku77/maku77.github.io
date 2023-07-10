@@ -45,7 +45,7 @@ $ git submodule add <別リポジトリのURL> [ローカルディレクトリ]
 例えば次のように実行すると、
 
 ```console
-$ git submodule add https://github.com/maku77/my-libs
+$ git submodule add https://github.com/ojisancancode/my-libs
 ```
 
 ローカルに `my-libs` というディレクトリが作成されて、サブモジュールとして参照できるようになります。
@@ -58,7 +58,7 @@ $ git submodule add https://github.com/maku77/my-libs
 {{< code lang="ini" title=".gitmodules" >}}
 [submodule "my-libs"]
 	path = my-libs
-	url = https://github.com/maku77/my-libs
+	url = https://github.com/ojisancancode/my-libs
 {{< /code >}}
 
 最初に説明した通り、サブモジュールの内容はコミットハッシュでのみ追跡されています。
@@ -90,7 +90,7 @@ index 0000000..ffb0ef2
 サブモジュールを含むリポジトリ（`.gitmodules` を含むリポジトリ）をクローンした直後は、サブモジュール用のディレクトリは空っぽになっています。
 
 ```console
-$ git clone https://github.com/maku77/my-project
+$ git clone https://github.com/ojisancancode/my-project
 $ cd my-project
 $ ls my-libs
 （空っぽ）
@@ -100,7 +100,7 @@ $ ls my-libs
 
 ```console
 $ git submodule init
-Submodule 'my-libs' (https://github.com/maku77/my-libs) registered for path 'my-libs'
+Submodule 'my-libs' (https://github.com/ojisancancode/my-libs) registered for path 'my-libs'
 ```
 
 これにより、ワーキングディレクトリ内の各サブモジュールディレクトリを、どのリポジトリ URL にマッピングすべきかが `.git/config` ファイルに保存されます。
@@ -110,7 +110,7 @@ Submodule 'my-libs' (https://github.com/maku77/my-libs) registered for path 'my-
 
 {{< code lang="console" title="サブモジュールのファイルを取得" >}}
 $ git submodule update --recursive
-Cloning into '/Users/maku/y/gitwork/maku77/my-project/my-libs'...
+Cloning into '/Users/maku/y/gitwork/ojisancancode/my-project/my-libs'...
 Submodule path 'my-libs': checked out 'ffb0ef23b9cc39d05b860d2379977268b2f44194'
 {{< /code >}}
 
@@ -119,8 +119,8 @@ Submodule path 'my-libs': checked out 'ffb0ef23b9cc39d05b860d2379977268b2f44194'
 
 {{< code lang="console" title="init と update を一気に実行" >}}
 $ git submodule update --init --recursive
-Submodule 'my-libs' (https://github.com/maku77/my-libs) registered for path 'my-libs'
-Cloning into '/Users/maku/y/gitwork/maku77/my-project/my-libs'...
+Submodule 'my-libs' (https://github.com/ojisancancode/my-libs) registered for path 'my-libs'
+Cloning into '/Users/maku/y/gitwork/ojisancancode/my-project/my-libs'...
 Submodule path 'my-libs': checked out 'ffb0ef23b9cc39d05b860d2379977268b2f44194'
 {{< /code >}}
 
@@ -128,7 +128,7 @@ Submodule path 'my-libs': checked out 'ffb0ef23b9cc39d05b860d2379977268b2f44194'
 サブモジュールを含むリポジトリをクローンする場合は、__このコマンドを使えば一撃でクリア__ です。
 
 {{< code lang="console" title="クローンしてサブモジュールも取得" >}}
-$ git clone --recurse-submodules https://github.com/maku77/my-project
+$ git clone --recurse-submodules https://github.com/ojisancancode/my-project
 {{< /code >}}
 
 

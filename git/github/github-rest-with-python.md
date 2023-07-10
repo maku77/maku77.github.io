@@ -26,7 +26,7 @@ GitHubApi クラスを実装する
 
 ```python
 # ユーザー情報を取得する
-user = api.get_user('maku77')
+user = api.get_user('ojisancancode')
 print(user['login'])
 ```
 
@@ -153,7 +153,7 @@ from github import GitHubApi
 api = GitHubApi()
 
 # ユーザー情報を取得
-user = api.get_user('maku77')
+user = api.get_user('ojisancancode')
 print(user['login'])
 print(user['blog'])
 print(user['company'])

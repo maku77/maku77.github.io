@@ -100,7 +100,7 @@ Google Analytics を使用していないのであれば外してください。
 
 ~~~ yaml
 name: 天才まくまくノート
-url: https://maku77.github.io
+url: https://ojisancancode.github.io
 logo: /assets/img/logo.jpg
 ~~~
 

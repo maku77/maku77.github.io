@@ -18,7 +18,7 @@ D-Pad（いわゆる十字キー）をカスタムビューとして作成する
 #### res/layout/activity_main.xml（抜粋）
 
 ~~~ xml
-<io.github.maku77.widget.DPadView
+<io.github.ojisancancode.widget.DPadView
     android:id="@+id/dpad"
     android:layout_width="200dp"
     android:layout_height="200dp" />

@@ -16,7 +16,7 @@ Git 設定のスコープには、local/global/system などがあり、ある�
 ```console
 $ git config --list --show-origin
 ...
-file:/Users/maku/.gitconfig  user.name=maku77
+file:/Users/maku/.gitconfig  user.name=ojisancancode
 file:/Users/maku/.gitconfig  user.email=xxx@gmail.com
 file:/Users/maku/.gitconfig  core.editor=vim
 file:/Users/maku/.gitconfig  push.default=simple
@@ -26,7 +26,7 @@ file:.git/config  core.bare=false
 file:.git/config  core.logallrefupdates=true
 file:.git/config  core.ignorecase=true
 file:.git/config  core.precomposeunicode=true
-file:.git/config  remote.origin.url=https://github.com/maku77/maku77.github.io.git
+file:.git/config  remote.origin.url=https://github.com/ojisancancode/ojisancancode.github.io.git
 file:.git/config  remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 file:.git/config  branch.master.remote=origin
 file:.git/config  branch.master.merge=refs/heads/master
@@ -37,6 +37,6 @@ file:.git/config  branch.master.merge=refs/heads/master
 
 ```console
 $ git config --show-origin user.name
-file:/Users/maku/.gitconfig  user.name=maku77
+file:/Users/maku/.gitconfig  user.name=ojisancancode
 ```
 

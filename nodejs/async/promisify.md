@@ -26,7 +26,7 @@ stat('.').then((stats) => {
 
 `Promise` クラス自体の詳しい使い方については下記の記事を参照してください。
 
-- 参考: [Promise オブジェクトで連続するコールバック処理を簡潔に記述する ｜ まくまくJavaScriptノート](https://maku77.github.io/js/async/promise.html)
+- 参考: [Promise オブジェクトで連続するコールバック処理を簡潔に記述する ｜ まくまくJavaScriptノート](https://ojisancancode.github.io/js/async/promise.html)
 
 
 自力で Promise 対応した場合

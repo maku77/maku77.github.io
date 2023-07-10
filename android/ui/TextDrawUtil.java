@@ -1,4 +1,4 @@
-package io.github.maku77.util;
+package io.github.ojisancancode.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

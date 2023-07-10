@@ -49,8 +49,8 @@ $ gem list -r -d hello
 *** REMOTE GEMS ***
 
 gradleww (1.0.0)
-    Author: maku77
-    Homepage: https://github.com/maku77/hello
+    Author: ojisancancode
+    Homepage: https://github.com/ojisancancode/hello
 
     Hello Gem!
 ~~~

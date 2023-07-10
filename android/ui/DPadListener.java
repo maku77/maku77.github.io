@@ -1,4 +1,4 @@
-package io.github.maku77.widget;
+package io.github.ojisancancode.widget;
 
 /**
  * Software DPad event listener.

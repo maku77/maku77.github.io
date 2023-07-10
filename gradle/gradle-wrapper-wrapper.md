@@ -6,7 +6,7 @@ date: "2017-08-07"
 Gradle Wrapper Wrapper (gradleww) とは
 ----
 
-[Gradle Wrapper Wrapper (gradleww)](https://github.com/maku77/gradleww) を使用すると、サブプロジェクト（サブディレクトリ）で作業しているときに、プロジェクトのルートにおいてある `gradlew` を簡単に呼び出すことができるようになります。
+[Gradle Wrapper Wrapper (gradleww)](https://github.com/ojisancancode/gradleww) を使用すると、サブプロジェクト（サブディレクトリ）で作業しているときに、プロジェクトのルートにおいてある `gradlew` を簡単に呼び出すことができるようになります。
 
 例えば、通常はサブプロジェクトで作業しているときは、`gradlew` コマンドを実行するときにこんな感じで実行することになります。
 

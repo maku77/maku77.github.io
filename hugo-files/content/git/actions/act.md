@@ -72,7 +72,7 @@ jobs:
 お試し用の GitHub リポジトリの準備が面倒な場合は、下記リポジトリを clone してください。
 
 ```console
-$ git clone https://github.com/maku77/p-iudtbr8
+$ git clone https://github.com/ojisancancode/p-iudtbr8
 ```
 
 ### act コマンドの実行
@@ -111,17 +111,17 @@ Default image and other options can be changed manually in ~/.actrc (please refe
 [GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/1] user= workdir=
 | 🐧 This job is now running on a Linux server hosted by GitHub!
 [GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main echo "🐧 This job is now running on a Linux server hosted by GitHub!"
-[GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main echo "🔎 The name of your branch is refs/heads/main and your repository is maku77/p-iudtbr8."
+[GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main echo "🔎 The name of your branch is refs/heads/main and your repository is ojisancancode/p-iudtbr8."
 [GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/2] user= workdir=
-| 🔎 The name of your branch is refs/heads/main and your repository is maku77/p-iudtbr8.
-[GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main echo "🔎 The name of your branch is refs/heads/main and your repository is maku77/p-iudtbr8."
+| 🔎 The name of your branch is refs/heads/main and your repository is ojisancancode/p-iudtbr8.
+[GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main echo "🔎 The name of your branch is refs/heads/main and your repository is ojisancancode/p-iudtbr8."
 [GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main Check out repository code
-[GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker cp src=/mnt/d/y/gitwork/maku77/p-iudtbr8/. dst=/mnt/d/y/gitwork/maku77/p-iudtbr8
+[GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker cp src=/mnt/d/y/gitwork/ojisancancode/p-iudtbr8/. dst=/mnt/d/y/gitwork/ojisancancode/p-iudtbr8
 [GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main Check out repository code
-[GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main echo "💡 The maku77/p-iudtbr8 repository has been cloned to the runner."
+[GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main echo "💡 The ojisancancode/p-iudtbr8 repository has been cloned to the runner."
 [GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/4] user= workdir=
-| 💡 The maku77/p-iudtbr8 repository has been cloned to the runner.
-[GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main echo "💡 The maku77/p-iudtbr8 repository has been cloned to the runner."
+| 💡 The ojisancancode/p-iudtbr8 repository has been cloned to the runner.
+[GitHub Actions Demo/Explore-GitHub-Actions]   ✅  Success - Main echo "💡 The ojisancancode/p-iudtbr8 repository has been cloned to the runner."
 [GitHub Actions Demo/Explore-GitHub-Actions] ⭐ Run Main echo "🖥️ The workflow is now ready to test your code on the runner."
 [GitHub Actions Demo/Explore-GitHub-Actions]   🐳  docker exec cmd=[bash --noprofile --norc -e -o pipefail /var/run/act/workflow/5] user= workdir=
 | 🖥️ The workflow is now ready to test your code on the runner.

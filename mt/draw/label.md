@@ -88,8 +88,8 @@ void OnDeinit(const int reason) {
 #### Indicator/LabelSample.mq4
 
 ```mql
-#property copyright "maku77"
-#property link      "https://maku77.github.io/"
+#property copyright "ojisancancode"
+#property link      "https://ojisancancode.github.io/"
 #property version   "1.00"
 #property strict
 #property indicator_chart_window

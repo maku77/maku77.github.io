@@ -8,11 +8,11 @@ date: "2015-10-22"
 
 例えば、
 
-* https://github.com/maku77/old/aaa
+* https://github.com/ojisancancode/old/aaa
 
 というディレクトリ内のファイルを、
 
-* https://github.com/maku77/new
+* https://github.com/ojisancancode/new
 
 という新しいリポジトリで管理したくなった場合の移行方法です。
 
@@ -24,7 +24,7 @@ date: "2015-10-22"
 
 ```
 ### 作業用にリポジトリ old を取得
-$ git clone --mirror https://github.com/maku77/old.git
+$ git clone --mirror https://github.com/ojisancancode/old.git
 
 ### リポジトリ old の階層構造を書き換えて aaa 以下のファイルをルートに
 $ cd old.git
@@ -32,7 +32,7 @@ $ git filter-branch -f --subdirectory-filter aaa -- --all
 
 ### 新しいリポジトリ new として push
 $ git remote remove origin
-$ git remote add origin https://github.com/maku77/new.git
+$ git remote add origin https://github.com/ojisancancode/new.git
 $ git push --all  （全ブランチを push）
 $ git push --tags （全タグを push）
 ```
@@ -40,13 +40,13 @@ $ git push --tags （全タグを push）
 新しいリポジトリへ push が完了したら、clone して確認してみます。
 
 ```
-$ git clone https://github.com/maku77/new.git
+$ git clone https://github.com/ojisancancode/new.git
 ```
 
 必要があれば、古いリポジトリ側から、対象ディレクトリに関するコミット履歴を削除します。
 
 ```
-$ git clone https://github.com/maku77/old.git
+$ git clone https://github.com/ojisancancode/old.git
 $ cd old
 $ git filter-branch --force --index-filter "git rm -rf --ignore-unmatch aaa/" --prune-empty -- --all
 $ git push --force

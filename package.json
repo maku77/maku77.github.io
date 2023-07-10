@@ -1,5 +1,5 @@
 {
-  "name": "maku77.github.io",
+  "name": "ojisancancode.github.io",
   "version": "0.0.1",
   "scripts": {
     "lint": "textlint --cache \"**/*.md\""

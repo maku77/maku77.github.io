@@ -278,5 +278,5 @@ OpenGL でポリゴンを描画するには、座標値や色情報を OpenGL �
 
 上記のソースコードは下記からダウンロードできます。
 
-* [https://github.com/maku77/AndroidOpenGlSample](https://github.com/maku77/AndroidOpenGlSample)
+* [https://github.com/ojisancancode/AndroidOpenGlSample](https://github.com/ojisancancode/AndroidOpenGlSample)
 

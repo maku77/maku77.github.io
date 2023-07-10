@@ -12,10 +12,10 @@ aliases: /hugo/go/github.html
 GitHub 上のパッケージをインポートする
 ----
 
-`go get` コマンドで、GitHub リポジトリのパスを下記のように指定すると、GitHub 上で公開されている Go パッケージ（ここでは `github.com/maku77/gosample`）のコードを、`$GOPATH/src` ディレクトリに取得することができます（`$GOPATH` については[こちらを参照](/p/u48bfim)）。
+`go get` コマンドで、GitHub リポジトリのパスを下記のように指定すると、GitHub 上で公開されている Go パッケージ（ここでは `github.com/ojisancancode/gosample`）のコードを、`$GOPATH/src` ディレクトリに取得することができます（`$GOPATH` については[こちらを参照](/p/u48bfim)）。
 
-{{< code lang="console" title="github.com/maku77/gosample パッケージを取得する" >}}
-$ go get github.com/maku77/gosample
+{{< code lang="console" title="github.com/ojisancancode/gosample パッケージを取得する" >}}
+$ go get github.com/ojisancancode/gosample
 {{< /code >}}
 
 取得したパッケージは、標準パッケージと同じようにインポートして使用することができます。
@@ -23,7 +23,7 @@ $ go get github.com/maku77/gosample
 {{< code lang="go" title="sample.go" >}}
 package main
 
-import "github.com/maku77/gosample"
+import "github.com/ojisancancode/gosample"
 
 func main() {
 	gosample.Hello("Maku")
@@ -82,18 +82,18 @@ GitHub にパッケージを公開する
 自作のパッケージを GitHub に公開したいときは、単純に、Go で作成したソースコードを自分のアカウントで作成した GitHub リポジトリにコミットするだけで OK です。
 
 まずは、リポジトリ名を決めて GitHub 上で新規リポジトリを作成しましょう。
-ここでは、`https://github.com/maku77/gosample` というリポジトリを作成し、その中のコードを作成していくことにします。
+ここでは、`https://github.com/ojisancancode/gosample` というリポジトリを作成し、その中のコードを作成していくことにします。
 
 GitHub 上で新規リポジトリを作成したら、ローカルでの作業用に `git clone` で取得します。
 取得先は、`$GOPATH/src/github.com/＜ユーザ名＞/＜リポジトリ名＞/` というディレクトリにします（`go get` コマンドの取得先に合わせる）。
 
 ```console
-$ git clone https://github.com/maku77/gosample.git $GOPATH/src/github.com/maku77/gosample
+$ git clone https://github.com/ojisancancode/gosample.git $GOPATH/src/github.com/ojisancancode/gosample
 ```
 
 次に、簡単な `Hello` 関数を実装してみます。
 
-{{< code lang="go" title="$GOPATH/src/github.com/maku77/gosample/gosample.go" >}}
+{{< code lang="go" title="$GOPATH/src/github.com/ojisancancode/gosample/gosample.go" >}}
 package gosample
 
 import "fmt"
@@ -106,7 +106,7 @@ func Hello(name string) {
 ビルドできるか確認します。
 
 ```console
-$ go build github.com/maku77/gosample
+$ go build github.com/ojisancancode/gosample
 ```
 
 何もエラーがでなければ成功です。
@@ -116,7 +116,7 @@ GitHub にコミットする前に、ちゃんと動作するかテストプロ�
 {{< code lang="go" title="sample.go" >}}
 package main
 
-import "github.com/maku77/gosample"
+import "github.com/ojisancancode/gosample"
 
 func main() {
 	gosample.Hello("Maku")
@@ -136,5 +136,5 @@ $ git commit -m "Add Hello function"
 $ git push
 ```
 
-これで、他のユーザは `go get github.com/maku77/gosample` と実行するだけで、GitHub からパッケージ取得できるようになります。
+これで、他のユーザは `go get github.com/ojisancancode/gosample` と実行するだけで、GitHub からパッケージ取得できるようになります。
 

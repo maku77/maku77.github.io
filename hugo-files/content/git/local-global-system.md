@@ -26,16 +26,16 @@ $ git config --system ...  # システム内の共通設定 (/etc/gitconfig な�
 例えば、次のようにして local 設定の `user.name` と `user.email` を変更することができます。
 
 ```console
-$ git config --local user.name maku77
-$ git config --local user.email maku77@example.com
+$ git config --local user.name ojisancancode
+$ git config --local user.email ojisancancode@example.com
 ```
 
 上記コマンドを実行した後で、`<リポジトリ>/.git/config` ファイルを開くと次のように設定情報が保存されていることが分かります。
 
 {{< code lang="ini" title="<リポジトリ>/.git/config（抜粋）" >}}
 [user]
-        name = maku77
-        email = maku77@example.com
+        name = ojisancancode
+        email = ojisancancode@example.com
 {{< /code >}}
 
 - 参考: [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](/p/msds6iv/)

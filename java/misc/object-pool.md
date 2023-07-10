@@ -10,7 +10,7 @@ date: "2012-03-01"
 #### ObjectPool.java
 
 ~~~ java
-package io.github.maku77.util;
+package io.github.ojisancancode.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +96,7 @@ public class ObjectPool<T> {
 #### MyClass.java
 
 ~~~ java
-import io.github.maku77.ObjectPool;
+import io.github.ojisancancode.ObjectPool;
 
 public class MyClass {
     // プールオブジェクトはクラスフィールドで保持。

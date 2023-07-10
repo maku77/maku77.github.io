@@ -17,7 +17,7 @@ tags: ["Docker"]
 1 セットの Web アプリであれば、1 つの Docker Compose 内に関連するコンテナをすべて含めてしまうのが楽ですが、ここでは、独立した 2 つの Web アプリを 1 つの物理サーバー (VPS) 上で運用することを考えているので、別々の Docker Compose に分けています。
 もちろん、各アプリが使用する DB コンテナなどは、それぞれの Docker Compose 内にある想定ですが、上記の図では省略しています。
 
-ここで紹介しているソースコードは [GitHub](https://github.com/maku77/p-5f2j2hz) に置いてあります。
+ここで紹介しているソースコードは [GitHub](https://github.com/ojisancancode/p-5f2j2hz) に置いてあります。
 
 
 テスト用の事前準備（hosts ファイル）

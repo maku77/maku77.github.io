@@ -74,7 +74,7 @@ languageCode = "ja-jp"
 title = "まく日記"
 
 [params]
-  GitHubUser = "maku77"
+  GitHubUser = "ojisancancode"
   Twitter = "hogehoge"
   Subtitle = "天才まくまくのゆるふわ日記といろんなメモ"
   Description = "ここには、このサイトの詳細情報を記述します。"

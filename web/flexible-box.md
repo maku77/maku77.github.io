@@ -75,5 +75,5 @@ date: "2016-01-01"
 ソースコード
 ----
 
-* https://jsfiddle.net/maku77/h5vzwzxt/
+* https://jsfiddle.net/ojisancancode/h5vzwzxt/
 

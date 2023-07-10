@@ -1,4 +1,4 @@
-package io.github.maku77.widget;
+package io.github.ojisancancode.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;

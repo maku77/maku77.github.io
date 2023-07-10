@@ -37,12 +37,12 @@ match の正規表現パターンに g フラグを指定しなかったとき
 
 ~~~ javascript
 var re = /(\w+):\/\/([\w.]+)\/(\S*)/;
-var text = 'Visit my website at https://maku77.github.io/js';
+var text = 'Visit my website at https://ojisancancode.github.io/js';
 var matches = text.match(re);
 if (matches != null) {
-  var url = matches[0];       //=> 'https://maku77.github.io/js'
+  var url = matches[0];       //=> 'https://ojisancancode.github.io/js'
   var protocol = matches[1];  //=> 'https'
-  var host = matches[2];      //=> 'maku77.github.io'
+  var host = matches[2];      //=> 'ojisancancode.github.io'
   var path = matches[3];      //=> 'js'
 }
 ~~~
@@ -52,12 +52,12 @@ if (matches != null) {
 下記は、`match` メソッドの戻り値を `console.log(matches)` で出力した結果です。
 
 ~~~ javascript
-[ 'https://maku77.github.io/js',
+[ 'https://ojisancancode.github.io/js',
   'https',
-  'maku77.github.io',
+  'ojisancancode.github.io',
   'js',
   index: 20,
-  input: 'Visit my website at https://maku77.github.io/js' ]
+  input: 'Visit my website at https://ojisancancode.github.io/js' ]
 ~~~
 
 `index` プロパティの値が 20 ということは、検索された URL が 20 の位置から始まっていることを示しています。

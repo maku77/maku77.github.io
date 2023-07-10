@@ -206,5 +206,5 @@ object MyNotification {
 
 ソースコードおよびリソース一式は下記に置いてあります。
 
-- [https://github.com/maku77/AndroidOverlaySample/](https://github.com/maku77/AndroidOverlaySample/)
+- [https://github.com/ojisancancode/AndroidOverlaySample/](https://github.com/ojisancancode/AndroidOverlaySample/)
 

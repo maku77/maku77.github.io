@@ -1,4 +1,4 @@
-Origin:「[天才まくまくノート](https://maku77.github.io)」
+Origin:「[天才まくまくノート](https://ojisancancode.github.io)」
 
 
 セットアップ ＆ Jekyll サーバー起動

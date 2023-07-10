@@ -17,17 +17,17 @@ tags: ["Git"]
   |    +-- repo1/
   |    +-- repo2/
   |    +-- repo3/
-  +-- maku77/ ... 個人用のリポジトリ（個人用のユーザー maku77 を使いたい）
+  +-- ojisancancode/ ... 個人用のリポジトリ（個人用のユーザー ojisancancode を使いたい）
        +-- repo4/
        +-- repo5/
        +-- repo6/
 ```
 
-`company` は自分の会社で使っている GitHub organization 名、`maku77` は自分の GitHub アカウント名だと考えてください。
+`company` は自分の会社で使っている GitHub organization 名、`ojisancancode` は自分の GitHub アカウント名だと考えてください。
 ここでは、上記のようにディレクトリを階層化してリポジトリを管理しているときに、ディレクトリ単位で自動的に Git クライアントの設定を切り替える方法を示します。
-具体的には、`company` ディレクトリ以下のリポジトリで作業しているときは、会社用の Git ユーザー名とメールアドレスを使い、`maku77` ディレクトリ以下のリポジトリで作業しているときは、個人用のユーザー名とメールアドレスを使うようにします。
+具体的には、`company` ディレクトリ以下のリポジトリで作業しているときは、会社用の Git ユーザー名とメールアドレスを使い、`ojisancancode` ディレクトリ以下のリポジトリで作業しているときは、個人用のユーザー名とメールアドレスを使うようにします。
 
-リポジトリごとに local 設定 (`.git/config`) をするのもよいのですが、扱うリポジトリが増えてくるといちいち設定するのが大変なので、親ディレクトリの `company`、`maku77` 単位でまるっと設定を入れ替えます。
+リポジトリごとに local 設定 (`.git/config`) をするのもよいのですが、扱うリポジトリが増えてくるといちいち設定するのが大変なので、親ディレクトリの `company`、`ojisancancode` 単位でまるっと設定を入れ替えます。
 
 - 参考: [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
 
@@ -39,7 +39,7 @@ Git クライアントの設定ファイル（`~/.gitconfig` など）には、�
 この仕組みを利用して、次のような条件付きインクルードを行えば、Git のユーザー設定をディレクトリごとに自動で切り替えることができます。
 
 - `~/gitwork/company` 以下のリポジトリであれば、`~/.gitconfig-company` をインクルードする
-- `~/gitwork/maku77` 以下のリポジトリであれば、`~/.gitconfig-maku77` をインクルードする
+- `~/gitwork/ojisancancode` 以下のリポジトリであれば、`~/.gitconfig-ojisancancode` をインクルードする
 
 条件付きインクルードを行うには、__`includeIf`__ ディレクティブを使用します。
 ここでは、ユーザー単位の global 設定でこの設定を行います。
@@ -49,8 +49,8 @@ __`~/.gitconfig`__ ファイルを開いて次のような感じで記述しま�
 [includeIf "gitdir:~/gitwork/company/"]
 	path = ~/.gitconfig-company
 
-[includeIf "gitdir:~/gitwork/maku77/"]
-	path = ~/.gitconfig-maku77
+[includeIf "gitdir:~/gitwork/ojisancancode/"]
+	path = ~/.gitconfig-ojisancancode
 {{< /code >}}
 
 
@@ -59,7 +59,7 @@ __`~/.gitconfig`__ ファイルを開いて次のような感じで記述しま�
 
 ```console
 $ git config --global includeIf."gitdir:~/gitwork/company/".path ".gitconfig-company"
-$ git config --global includeIf."gitdir:~/gitwork/maku77/".path ".gitconfig-maku77"
+$ git config --global includeIf."gitdir:~/gitwork/ojisancancode/".path ".gitconfig-ojisancancode"
 ```
 {{% /note %}}
 
@@ -71,9 +71,9 @@ $ git config --global includeIf."gitdir:~/gitwork/maku77/".path ".gitconfig-maku
 	email = 会社用のメールアドレス
 {{< /code >}}
 
-{{< code lang="ini" title="~/.gitconfig-maku77" >}}
+{{< code lang="ini" title="~/.gitconfig-ojisancancode" >}}
 [user]
-	name = maku77
+	name = ojisancancode
 	email = 個人用のメールアドレス
 {{< /code >}}
 
@@ -85,9 +85,9 @@ $ cd ~/gitwork/company/repo1
 $ git config --show-origin user.name
 file:C:/Users/maku/.gitconfig-company    Rei Ayanami
 
-$ cd ~/gitwork/maku77/repo4
+$ cd ~/gitwork/ojisancancode/repo4
 $ git config --show-origin user.name
-file:C:/Users/maku/.gitconfig-maku77     maku77
+file:C:/Users/maku/.gitconfig-ojisancancode     ojisancancode
 ```
 
 `includeIf` ディレクティブは、Git リポジトリとして初期化された（`.git` がある）ディレクトリ以下でのみ有効なことに注意してください。
@@ -105,14 +105,14 @@ file:C:/Users/maku/.gitconfig-maku77     maku77
 	name = Rei Ayanami
 	email = rei.ayanami@example.com
 
-[includeIf "gitdir:~/gitwork/maku77/"]
-	path = ~/.gitconfig-maku77
+[includeIf "gitdir:~/gitwork/ojisancancode/"]
+	path = ~/.gitconfig-ojisancancode
 {{< /code >}}
 
-{{< code lang="ini" title="~/.gitconfig-maku77（個人用の設定）" >}}
+{{< code lang="ini" title="~/.gitconfig-ojisancancode（個人用の設定）" >}}
 [user]
-	name = maku77
-	email = maku77@example.com
+	name = ojisancancode
+	email = ojisancancode@example.com
 {{< /code >}}
 
 

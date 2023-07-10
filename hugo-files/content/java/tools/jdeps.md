@@ -46,7 +46,7 @@ $ jdeps -verbose:class app.jar
 
 YaSuenag さんの作成している `cfa` (Class File Analyzer) というツールを使用すると、`.class` ファイルを解析して、メソッドレベルの依存関係を調べることができます。
 
-[https://github.com/YaSuenag/cfa/](https://github.com/YaSuenag/cfa/)（[fork しておく](https://github.com/maku77/cfa/)）
+[https://github.com/YaSuenag/cfa/](https://github.com/YaSuenag/cfa/)（[fork しておく](https://github.com/ojisancancode/cfa/)）
 
 実行ファイルは `cfa.jar` です。
 Windows であれば、下記のようなバッチファイルを JAR と同じディレクトリにおいて PATH を通しておくと、どのディレクトリからでも `cfa` と入力するだけで実行できて便利です。

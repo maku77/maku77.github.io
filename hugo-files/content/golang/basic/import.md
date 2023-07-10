@@ -64,10 +64,10 @@ Go 1.11 以降は __モジュール__ という考え方が導入され、Go 1.1
 github.com/<username>/<modulename>
 ```
 
-例えば、`github.com/maku77/golibs` として公開されているモジュールの、`pkg1` パッケージを利用したい場合、次のようにインポートできます。
+例えば、`github.com/ojisancancode/golibs` として公開されているモジュールの、`pkg1` パッケージを利用したい場合、次のようにインポートできます。
 
 ```go
-import "github.com/maku77/golibs/pkg1"
+import "github.com/ojisancancode/golibs/pkg1"
 ```
 
 上記のように、モジュール内の単一のパッケージをインポートする場合でも、モジュール全体がダウンロードされるため、初回のビルドには少し時間がかかります。
@@ -123,7 +123,7 @@ package main
 
 import (
 	. "fmt"                             // パッケージ名を省略して関数名だけで呼び出せるようにする
-	sample "github.com/maku77/gosample" // パッケージに別名を付けて参照
+	sample "github.com/ojisancancode/gosample" // パッケージに別名を付けて参照
 	_ "math/rand"                       // 参照していなくてもコンパイルエラーにしない
 )
 
@@ -213,7 +213,7 @@ GitHub で管理することを想定しているのであれば、モジュー�
 
 ```console
 $ cd ~/gitwork/myapp
-$ go mod init github.com/maku77/myapp  # GitHub で管理するならリポジトリ名を指定
+$ go mod init github.com/ojisancancode/myapp  # GitHub で管理するならリポジトリ名を指定
 $ go mod init myapp                    # ローカルでのテスト用ならこれでも OK
 ```
 
@@ -234,7 +234,7 @@ func Add(a, b int) int {
 package main
 
 import "fmt"
-import "github.com/maku77/myapp/mymath"
+import "github.com/ojisancancode/myapp/mymath"
 
 func main() {
 	fmt.Println(mymath.Add(100, 200))
@@ -257,6 +257,6 @@ $ ./myapp
 ```
 
 Go 言語のパッケージは、`"./mymath"` のような __相対パスではインポートできない__ ことに注意してください。
-必ず `"github.com/maku77/myapp/mymath"` のようにモジュール名を含むパッケージパス全体（絶対パス）を指定する必要があります（`go mod init` でモジュールパス名を `myapp` のように簡略化した場合は、"myapp/mymath" のようにインポートします）。
+必ず `"github.com/ojisancancode/myapp/mymath"` のようにモジュール名を含むパッケージパス全体（絶対パス）を指定する必要があります（`go mod init` でモジュールパス名を `myapp` のように簡略化した場合は、"myapp/mymath" のようにインポートします）。
 昔は同一モジュール内のパッケージであれば相対パスでインポートできたのですが、現在は外部モジュールのパッケージと同様に絶対パスによる指定に統一されています。
 

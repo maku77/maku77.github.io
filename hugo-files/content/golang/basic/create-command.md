@@ -29,14 +29,14 @@ $ cd ~/go-hello
 
 __`go mod`__ コマンドで、プロジェクトのルートディレクトリに __`go.mod`__ ファイルを作成します。
 引数として、モジュール名（モジュールパス）を指定します。
-GitHub で公開するのであれば次のような感じで指定します（`maku77` の部分は自分の GitHub ユーザー ID に変更してください）。
+GitHub で公開するのであれば次のような感じで指定します（`ojisancancode` の部分は自分の GitHub ユーザー ID に変更してください）。
 
 ```console
-$ go mod init github.com/maku77/go-hello
+$ go mod init github.com/ojisancancode/go-hello
 ```
 
 {{< code title="作成された go.mod の内容" >}}
-module github.com/maku77/go-hello
+module github.com/ojisancancode/go-hello
 
 go 1.18
 {{< /code >}}
@@ -137,13 +137,13 @@ GitHub への Go モジュールのデプロイが完了したら、GitHub か�
 最新コードを信用してよいのであれば、次のように __`@latest`__ を指定してインストールします。
 
 ```console
-$ go install github.com/maku77/go-hello@latest
+$ go install github.com/ojisancancode/go-hello@latest
 ```
 
 もう少しお行儀よくやるには、[GitHub のコードにバージョンタグを付けておき](/p/y2cmv5d/)、次のようにバージョンを指定してインストールします。
 
 ```console
-$ go install github.com/maku77/go-hello@v1.0.0
+$ go install github.com/ojisancancode/go-hello@v1.0.0
 ```
 
 下記のように実行ファイルができていれば、うまくインストールできています。
@@ -160,7 +160,7 @@ Hello, world!
 複数のコマンドを提供する
 ----
 
-前述の例では、モジュール名を `github.com/maku77/go-hello` として、`go-hello` という名前のコマンド作成しました。
+前述の例では、モジュール名を `github.com/ojisancancode/go-hello` として、`go-hello` という名前のコマンド作成しました。
 1 つのモジュールで複数のコマンドを提供したい場合は、コマンドごとにディレクトリを作成して、その中にそれぞれの `main` パッケージを構成します。
 [典型的なディレクトリ構成](https://github.com/golang-standards/project-layout/blob/master/README.md) としては、__`cmd`__ ディレクトリを作って、その中にコマンド名と同名のディレクトリを作成します。
 例えば、`go-hello` モジュール内に `hello1` コマンドと `hello2` コマンドを作成するには次のようなディレクトリ構成にします。
@@ -218,11 +218,11 @@ $ go install ./...
 これらのコードを GitHub にプッシュして公開すれば、世界中の人が次のように簡単にコマンドをインストールできるようになります。
 
 ```console
-$ go install github.com/maku77/go-hello/cmd/hello1@v1.0.0
-$ go install github.com/maku77/go-hello/cmd/hello2@v1.0.0
+$ go install github.com/ojisancancode/go-hello/cmd/hello1@v1.0.0
+$ go install github.com/ojisancancode/go-hello/cmd/hello2@v1.0.0
 
 # あるいは次のようにまとめてインストール
 
-$ go install github.com/maku77/go-hello/cmd/...@v1.0.0
+$ go install github.com/ojisancancode/go-hello/cmd/...@v1.0.0
 ```
 

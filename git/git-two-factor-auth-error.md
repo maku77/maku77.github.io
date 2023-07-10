@@ -8,8 +8,8 @@ date: "2015-06-24"
 ```
 C:\> git clone https://github.com/xxx/yyy.git
 Cloning into 'yyy'...
-Username for 'https://github.com': maku77
-Password for 'https://maku77@github.com': *****
+Username for 'https://github.com': ojisancancode
+Password for 'https://ojisancancode@github.com': *****
 fatal: Authentication failed
 ```
 
@@ -21,7 +21,7 @@ fatal: Authentication failed
 
 ```
 machine github.com
-login maku77
+login ojisancancode
 password e3397d96801a11c6b6a3663d1dc719867836aa56
 ```
 

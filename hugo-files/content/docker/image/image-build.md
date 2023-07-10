@@ -43,7 +43,7 @@ $ docker image build -t <イメージ名> <Dockerfileのあるディレクトリ
 カレントディレクトリに `Dockerfile` ファイルがある場合は次のような感じでイメージをビルドします。
 
 ```console
-$ docker build -t maku77/python3:v1 .
+$ docker build -t ojisancancode/python3:v1 .
 ```
 
 `debian:wheezy` のイメージファイルが既に `docker pull` コマンドなどでローカルにキャッシュされている場合は、そのイメージが利用されるため、イメージ構築はより早く終わります。
@@ -52,15 +52,15 @@ $ docker build -t maku77/python3:v1 .
 ```console
 $ docker image ls
 REPOSITORY       TAG      IMAGE ID       CREATED         VIRTUAL SIZE
-maku77/python3   v1       c3d5556730a9   4 minutes ago   93.88 MB
+ojisancancode/python3   v1       c3d5556730a9   4 minutes ago   93.88 MB
 debian           wheezy   d5570ef1464a   4 days ago      84.98 MB
 ...
 ```
 
-作成された Docker イメージ (`maku77/python3:v1`) からコンテナを起動し、`python3` コマンドを実行してみます。
+作成された Docker イメージ (`ojisancancode/python3:v1`) からコンテナを起動し、`python3` コマンドを実行してみます。
 
 ```console
-$ docker container run -it maku77/python3:v1 python3
+$ docker container run -it ojisancancode/python3:v1 python3
 Python 3.2.3 (default, Feb 20 2013, 14:44:27)
 [GCC 4.7.2] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
@@ -72,7 +72,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 `docker image build` コマンドで `Dockerfile` のあるディレクトリを指定するときに、GitHub のリポジトリを指定することができます。
 
 ```console
-$ docker mage build -t maku77/sample:v1 git@github.com:maku77/sample
+$ docker mage build -t ojisancancode/sample:v1 git@github.com:ojisancancode/sample
 ```
 
 
@@ -117,10 +117,10 @@ docker container commit -a <作者> -c <コメント> <コンテナ> <リポジ�
 
 `<コンテナ>` には、`docker ps` コマンドで確認したコンテナ ID か名前を指定します。
 リポジトリ名は、Docker Hub の流儀に合わせて、__`<アカウント名>/<イメージ名>`__ という形で指定します。
-例えば、Docker Hub アカウントが `maku77` で、`sample` という名前のイメージを作成する場合は次のようにします。
+例えば、Docker Hub アカウントが `ojisancancode` で、`sample` という名前のイメージを作成する場合は次のようにします。
 
 ```console
-$ docker commit -a 'Maku <maku77@example.com>' -m 'First commit' c338a2 maku77/sample:v1
+$ docker commit -a 'Maku <ojisancancode@example.com>' -m 'First commit' c338a2 ojisancancode/sample:v1
 8a6608d7d353d966f5cdc044b48b89158943c2dc9fd08b7a4832b43a21b5df41
 ```
 
@@ -130,7 +130,7 @@ $ docker commit -a 'Maku <maku77@example.com>' -m 'First commit' c338a2 maku77/s
 ```console
 $ docker image ls
 REPOSITORY      TAG     IMAGE ID       CREATED         VIRTUAL SIZE
-maku77/sample   v1      8a6608d7d353   7 minutes ago   188.3 MB
+ojisancancode/sample   v1      8a6608d7d353   7 minutes ago   188.3 MB
 ubuntu          14.04   2103b00b3fdf   43 hours ago    188.3 MB
 ...
 ```
@@ -138,7 +138,7 @@ ubuntu          14.04   2103b00b3fdf   43 hours ago    188.3 MB
 この Docker イメージを使って、先ほど作成した `/greet` コマンドを実行してみます。
 
 ```console
-$ docker container run maku77/sample:v1 /greet
+$ docker container run ojisancancode/sample:v1 /greet
 Hello
 ```
 

@@ -61,7 +61,7 @@ Node.js アプリの開発経験があるなら、`npm init` のようなもの�
 
 {{< code lang="console" title="Go モジュールの初期化" >}}
 $ mkdir hello && hello
-$ go mod init hello  # GitHub で管理するなら github.com/maku77/hello など
+$ go mod init hello  # GitHub で管理するなら github.com/ojisancancode/hello など
 go: creating new go.mod: module hello
 {{< /code >}}
 
