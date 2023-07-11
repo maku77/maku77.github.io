@@ -261,29 +261,40 @@ println!("{:?}", v2); //=> [3, 6, 9]
 
 Vec の各要素に 100 を足すいろいろな方法です。
 
-{{< code lang="rust" title="for in を使う方法（&mut でループ）" >}}
+{{< code lang="rust" title="for-in を使う方法（インデックスでループ）" >}}
 let mut v = vec![1, 2, 3];
-for x in &mut v {
-    *x += 100;
+for i in 0..v.len() {
+    v[i] += 100;
 }
 println!("{:?}", v); //=> [101, 102, 103]
 {{< /code >}}
 
-{{< code lang="rust" title="for in を使う方法（インデックスでループ）" >}}
-for i in 0..v.len() {
-    v[i] += 100;
+各要素を参照するためだけにインデックスを使うのはかっこよくないので、次のように各要素をイテレートするとよいです。
+
+{{< code lang="rust" title="for-in + &mut でループ処理" >}}
+for x in &mut v {
+    *x += 100;
 }
 {{< /code >}}
 
-{{< code lang="rust" title="iter_mut、for_each を使う方法" >}}
-let mut v = vec![1, 2, 3];
+`iter_mut` メソッドの戻り値 (`IterMut`) を使って次のように書くこともできます。
+
+{{< code lang="rust" title="for-in + iter_mut でループ処理" >}}
+for x in v.iter_mut() {
+    *x += 100;
+}
+{{< /code >}}
+
+`iter_mut` で取得したイテレーターの `for_each` メソッドを使うと、クロージャで変換処理をコンパクトに記述できます。
+
+{{< code lang="rust" title="iter_mut + for_each でループ処理" >}}
 v.iter_mut().for_each(|x| *x += 100);
 {{< /code >}}
 
-{{< code lang="rust" title="iter、map を使う方法" >}}
+不変の `Vec` インスタンスの内容から別の `Vec` インスタンスを生成するには、次のようにします。
+
+{{< code lang="rust" title="iter + map + collect で新規 Vec を生成" >}}
 let v1: Vec<i32> = vec![1, 2, 3];
 let v2: Vec<i32> = v1.iter().map(|x| x + 100).collect();
 {{< /code >}}
-
-`v1` は不変で、変換結果が `v2` に格納されます。
 

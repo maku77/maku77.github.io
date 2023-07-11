@@ -51,6 +51,8 @@ let mut map = HashMap::with_capacity(100)
 ### タプル（キーと値）のベクターから生成する
 
 ```rust
+use std::collections::HashMap;
+
 let kv_pairs = vec![
     (String::from("AAA"), 100),
     (String::from("BBB"), 200),
@@ -59,12 +61,24 @@ let kv_pairs = vec![
 let map: HashMap<_, _> = kv_pairs.into_iter().collect();
 ```
 
-このケースでは、`collect` メソッドに、`HashMap` 型としてまとめ上げることを知らせるために、__`HashMap<_, _>`__ という型情報の指定が必要になります。
+このケースでは、__`collect`__ メソッドに、`HashMap` 型としてまとめ上げることを知らせるために、__`HashMap<_, _>`__ という型情報の指定が必要になります。
 キーの型と値の型はコンパイラに推測してもらうので、`_` とだけ記述しておけば OK です。
+
+`HashMap` の __`extend`__ メソッドを使う方法もあります。
+
+```rust
+use std::collections::HashMap;
+
+let vec = vec![("AAA", 100), ("BBB", 200), ("CCC", 300)];
+let mut map = HashMap::new();
+map.extend(vec);
+```
 
 ### キーのベクターと値のベクターから生成する
 
 ```rust
+use std::collections::HashMap;
+
 let keys = vec![String::from("AAA"), String::from("BBB"), String::from("CCC")];
 let values = vec![100, 200, 300];
 let map: HashMap<_, _> = keys.iter().zip(values.iter()).collect();
@@ -79,6 +93,8 @@ let map: HashMap<_, _> = keys.iter().zip(values.iter()).collect();
 存在しないキーに対して `remove` を実行した場合は無視されます。
 
 ```rust
+use std::collections::HashMap;
+
 let mut map = HashMap::new();
 map.insert(String::from("AAA"), 100);
 map.insert(String::from("AAA"), 0); // 上書きする

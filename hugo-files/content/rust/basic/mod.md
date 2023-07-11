@@ -24,7 +24,7 @@ Rust でモジュールを定義するときは、__`mod`__ キーワードを�
 ルートモジュールのファイル名は決まっていて、バイナリクレートの場合は __`src/main.rs`__ で、ライブラリクレートの場合は __`src/lib.rs`__ です。
 ルートモジュールはサブモジュールを含むことができ、さらに、サブモジュールも同様にサブモジュールを含むことができます。
 
-{{< code title="クレートの内部構成" >}}
+{{< code title="クレートの論理的構造" >}}
 ルートモジュール (main.rs あるいは lib.rs)
   +-- サブモジュール
   |     +-- サブサブモジュール
@@ -169,10 +169,10 @@ pub mod subsub;
 mod sub;
 
 fn main() {
-    println!("VALUE_1 = {}", sub::VALUE_1);
-    println!("VALUE_2 = {}", sub::VALUE_2);
-    println!("VALUE_3 = {}", sub::subsub::VALUE_3);
-    println!("VALUE_4 = {}", sub::subsub::VALUE_4);
+    println!("VALUE_1 = {}", sub::VALUE_1);  //=> 100
+    println!("VALUE_2 = {}", sub::VALUE_2);  //=> 200
+    println!("VALUE_3 = {}", sub::subsub::VALUE_3);  //=> 300
+    println!("VALUE_4 = {}", sub::subsub::VALUE_4);  //=> 400
 }
 {{< /code >}}
 
