@@ -75,7 +75,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '{{ "{{" }} . }}');
+  gtag('config', '{{ . }}');
 </script>
 {{ end }}
 {{ end }}
