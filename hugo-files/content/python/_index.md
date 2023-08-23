@@ -279,8 +279,8 @@ NumPy / pandas / Matplotlib
 
 - [NumPy / pandas / Matplotlib の概要とインストール](/p/qs6iv8j/)
 - NumPy
-  - [NumPy 配列で行列を扱う (`numpy.ndarray`)](/p/jwfxfvd/)
-  - [連番からなる NumPy 配列を作成する (`numpy.arange`)](/p/htducs9/)
+  - [NumPy 配列 (ndarray) の基本](/p/jwfxfvd/)
+  - [NumPy 配列 (ndarray) の作成方法まとめ](/p/htducs9/)
 - pandas
   - [pandas でラベル付き 1 次元データを扱う (`pandas.Series`)](/p/wbudtbr/)
   - [pandas でラベル付き 2 次元データを扱う (`pandas.DataFrame`)](/p/watbs9p/)

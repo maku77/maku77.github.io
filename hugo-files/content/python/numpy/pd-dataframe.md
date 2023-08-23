@@ -1,5 +1,5 @@
 ---
-title: "Python の pandas でラベル付き 2 次元データを扱う (pandas.DataFrame)"
+title: "Python の Pandas でラベル付き 2 次元データを扱う (pandas.DataFrame)"
 url: "p/watbs9p/"
 date: "2017-01-23"
 tags: ["Python", "pandas"]
@@ -9,13 +9,15 @@ aliases: /python/numpy/pd-dataframe.html
 pandas.DataFrame はラベル付き 2 次元配列
 ----
 
-Python の pandas ライブラリが提供する __`pandas.DataFrame`__ 型は、テーブル形状のデータを表す 2 次元データ型です。
+Python の Pandas ライブラリが提供する __`pandas.DataFrame`__ 型は、テーブル形状のデータを表す 2 次元データ型で、Pandas によるデータ解析の要となるデータ形式です。
+
 内部では NumPy ライブラリの `ndarray` が利用されていますが、`pandas.DataFrame` を使うと、X 軸（列）、Y 軸（行）の各インデックスに任意のラベルを付けることができます （[1 次元データを表現する pandas.Series 型](/p/wbudtbr/)も用意されています）。
-この `pandas.DataFrame` 型は、pandas によるデータ解析の要となるデータ形式です。
+NumPy の `ndarray` は同じデータタイプの値しか持てませんが、`pandas.DataFrame` であれば、列ごとに異なるデータタイプの値を保持することができます。
+
 
 ### pandas.DataFrame を生成する
 
-`pandas.DataFrame` コンストラクタで、次のように初期値となる 2 次元データだけを渡すと、X 軸と Y 軸のラベルとして、0、1、2 という連番が割り振られます。
+`pandas.DataFrame` コンストラクタで、次のように初期値となる 2 次元データだけを渡すと、行と列のラベルとして、0、1、2 という連番が割り振られます。
 `pandas.DataFrame` オブジェクトを `print` 関数に渡すと、見やすい形で出力してくれます。
 
 {{< code lang="python" title="sample.py" >}}
@@ -35,8 +37,8 @@ print(df)
 
 ### 各インデックスにラベルを設定する
 
-`pandas.DataFrame` コンストラクタの __`columns`__ パラメータを使うと、X 軸の各インデックスのラベルを設定することができます。
-同様に、__`index`__ パラメータを使うと、Y 軸の各インデックスのラベルを設定することができます。
+`pandas.DataFrame` コンストラクタの __`columns`__ パラメータを使うと、X 軸（列）の各インデックスのラベルを設定することができます。
+同様に、__`index`__ パラメータを使うと、Y 軸（行）の各インデックスのラベルを設定することができます。
 
 ```python
 import pandas as pd
