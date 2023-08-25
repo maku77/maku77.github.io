@@ -89,3 +89,46 @@ print(df)
 
 この例では、キーがたまたまディクショナリの初期化時と同じ順番で並んでいますが、ディクショナリの要素には順序性はないので、このような順番でカラムが並ぶことは保証されていないことに注意してください（カラム名とそれに関連付けられた `Series` データがあるだけです）。
 
+
+ランダム値や連番からなる DataFrame を生成する
+----
+
+NumPy 配列から `pandas.DataFrame` を生成することもできます。
+NumPy ライブラリには、いろいろな形の NumPy 配列を生成するユーティリティ関数が用意されているので、これを利用してテスト用の `pandas.DataFrame` を簡単に生成できます。
+
+### ランダムな DataFrame
+
+```python
+import numpy as np
+import pandas as pd
+
+np.random.seed(2525)  # 乱数シードを設定
+arr = np.random.randint(0, 1000, size=(2, 3))
+df = pd.DataFrame(arr, columns=("x1", "x2", "x3"))
+print(df)
+```
+
+{{< code title="実行結果" >}}
+    x1   x2   x3
+0  636  952  324
+1   21  289  966
+{{< /code >}}
+
+ランダムな値を使うときは、上記のようにシード値を設定しておくことで、同じデータを再現できるようになります。
+
+### 連番の DataFrame
+
+```python
+arr = np.arange(10).reshape((2, 5))
+df = pd.DataFrame(arr, columns=("A", "B", "C", "D", "E"))
+print(df)
+```
+
+{{< code title="実行結果" >}}
+   A  B  C  D  E
+0  0  1  2  3  4
+1  5  6  7  8  9
+{{< /code >}}
+
+- 参考: [NumPy 配列 (ndarray) の作成方法まとめ](/p/htducs9/)
+

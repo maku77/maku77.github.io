@@ -22,7 +22,7 @@ Python の pandas ライブラリが提供する `pandas.DataFrame` はテーブ
 import numpy as np
 import pandas as pd
 
-data = np.random.randn(10, 3)  # 10 行 3 列の乱数データ (numpy.ndarray) を生成
+data = np.random.randn(10, 3)  # 10x3 の NumPy 配列を生成（標準正規分布の乱数）
 indices = pd.date_range("2010-01-01", periods=10)  # 日付の連番からなるインデックスを生成
 columns = ("A", "B", "C")  # カラム名
 

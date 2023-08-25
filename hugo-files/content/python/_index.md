@@ -288,6 +288,9 @@ NumPy / pandas / Matplotlib
 - Matplotlib
   - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
 
+{{% private %}}
+- [pandas.DataFrame からのデータ抽出方法のチートシート](/p/rnai4ko/)
+{{% /private %}}
 
 wxPython
 ----
