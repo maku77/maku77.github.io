@@ -285,12 +285,9 @@ NumPy / pandas / Matplotlib
   - [pandas でラベル付き 1 次元データを扱う (`pandas.Series`)](/p/wbudtbr/)
   - [pandas でラベル付き 2 次元データを扱う (`pandas.DataFrame`)](/p/watbs9p/)
   - [pandas の DataFrame から部分データを抽出する](/p/8j4k3iy/)
+    - [DataFrame からのデータ抽出方法のチートシート](/p/rnai4ko/)
 - Matplotlib
   - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
-
-{{% private %}}
-- [pandas.DataFrame からのデータ抽出方法のチートシート](/p/rnai4ko/)
-{{% /private %}}
 
 wxPython
 ----
