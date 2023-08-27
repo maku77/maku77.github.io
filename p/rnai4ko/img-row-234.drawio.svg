@@ -1,0 +1,16 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="102px" height="52px" viewBox="-0.5 -0.5 102 52" content="&lt;mxfile&gt;&lt;diagram id=&quot;shKAVc1PYYefaoCLbCge&quot; name=&quot;Page-1&quot;&gt;5ZhNc5swEIZ/DXdANjbHmibppTOd8SFnBW1AU4EYWTY4vz4iLN+ldijNBV8Mr1aL9n0kQFgkSIonRbP4p2QgLNdmhUW+W67r2P7O/JXKtVL2xK2ESHGGQa1w5G9Q90T1zBmceoFaSqF51hdDmaYQ6p5GlZJ5P+xViv5VMxrBSDiGVIzVZ850jFW4u1b/ATyK6ys7nl+1JLQOxkpOMWUy70jkwSKBklJXR0kRgCjNq32p+j1OtDYDU5Dquzqg8RcqzlgcDkxf62qVPKcMyg62RQ55zDUcMxqWrbnha7RYJ8KcOebwpJX8DYEUUhkllakJO7xyIWrJconvB8GjGdFhPFos4AJKQ9GRcPRPIBPQ6mpCsHWDRuJM2uJp3mJxbNTiDhKCGsWZEDWJW7PMAfo14Z1z27vImJeNbDEeeB+/T3nQzGf6Uqe3P+PN5k5vtgt4Q25bAyn7Vq7FdppMTqMbfqE7wHqrdmxLp/DtX+pWIKjml/5a/5MZeIVfkpuhNDY7A/tO8qxCwKDuUqz7FQMWE3k0VRHoUZ4PEk2Rd8HZrBeOuxCcYZ7l4GzXC2d4U54LZ5hnOTjeeuFsFoIzzLMcnN0K4RT/dltz+2yGT/7l2OzXy2buwpl4s12ejb9eNt5MNt5XsalfAtcIZz8Tzv6r4Cy9d+5uk5HkHHx3bJ7/wxbQnLafLSoz248/5OEd&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="10" width="100" height="30" fill="#99ccff" stroke="none" pointer-events="all"/>
+        <rect x="0" y="0" width="100" height="50" fill="none" stroke="#666666" pointer-events="none"/>
+        <path d="M 0 10 L 100 10" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 20 L 100 20" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 30 L 100 30" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 40 L 100 40" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 20 0 L 20 50" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 40 0 L 40 50" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 60 0 L 60 50" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 80 0 L 80 50" fill="none" stroke="#666666" stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="0" y="0" width="100" height="50" fill="none" stroke="#666666" pointer-events="none"/>
+    </g>
+</svg>
