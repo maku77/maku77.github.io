@@ -53,6 +53,18 @@ a {
   &:focus { /* 選択中 */
     background-color: $COLOR_LINK_FOCUS_BG;
   }
+
+  // リンクテキスト内のコードには申し訳程度に背景色を設定する
+  // （ただしマウスホバー時はキャンセル）
+  //code {
+  //  background: $COLOR_LINK_CODE_BG;
+  //}
+  //&:visited code {
+  //  background: $COLOR_LINK_CODE_VISITED_BG;
+  //}
+  //&:hover code {
+  //  background: inherit;
+  //}
 }
 
 // 単語・用語定義
@@ -74,29 +86,19 @@ strong {
 
 code {
   font-family: $FONT_CODE;
-  color: $COLOR_CODE;
-  border-radius: 0.2em;
 
-  // pre によるコードブロックの背景色を上書きしてしまわないように、
-  // 文中で単独で code を使ったときだけ code の背景色を設定する。
-  :not(pre) > & {
+  // 文中で単独で code を使ったときだけ code の背景色を設定する
+  // （a や pre の子要素の code には背景色などを付けない）
+  :not(a, pre) > & {
+    color: $COLOR_CODE;
     background: $COLOR_CODE_BG;
     padding: 0.2em 0.3em;
+    border-radius: 0.2em;
   }
 
   strong > & {
     color: $COLOR_TEXT_STRONG;
     background: $COLOR_TEXT_STRONG_BG;
-  }
-
-  // リンクテキスト内のコードには code 要素特有の色を付けない
-  a & {
-    // color: inherit;
-    // color: revert;
-    color: #333;
-    background: #eee;
-    font-weight: normal;
-    padding: 0 0.2em;
   }
 }
 
