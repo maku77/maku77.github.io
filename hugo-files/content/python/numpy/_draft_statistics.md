@@ -1,24 +1,10 @@
 ---
-title: "[DRAFT] pandas / NumPy 未分類メモ"
+title: "DRAFT - pandas で DataFrame の統計値を求める方法のまとめ"
 url: "p/q2pm7r3/"
 date: "2023-09-03"
 tags: ["pandas"]
 draft: true
 ---
-
-列の値を加工する
-----
-
-```python
-# 既存の列の値を 2 倍した値を持つ列を追加
-df["新しい列名"] = df["列名"] * 2
-
-df["利益率"] = df["利益"] / df["売上"]
-
-# 任意の変換関数を適用する（下記は np.sqrt 関数で平方根を生成する例）
-df["新しい列"] = df["列名"].apply(np.sqrt)
-```
-
 
 pandas による統計値の計算方法まとめ
 ----
