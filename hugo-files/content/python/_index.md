@@ -279,15 +279,21 @@ NumPy / pandas / Matplotlib
 
 - [NumPy / pandas / Matplotlib の概要とインストール](/p/qs6iv8j/)
 - NumPy
-  - [NumPy 配列 (ndarray) の基本](/p/jwfxfvd/)
-  - [NumPy 配列 (ndarray) の作成方法まとめ](/p/htducs9/)
+  - [NumPy 配列 (`ndarray`) の基本](/p/jwfxfvd/)
+  - [NumPy 配列 (`ndarray`) の作成方法まとめ](/p/htducs9/)
 - pandas
   - [pandas でラベル付き 1 次元データを扱う (`pandas.Series`)](/p/wbudtbr/)
   - [pandas でラベル付き 2 次元データを扱う (`pandas.DataFrame`)](/p/watbs9p/)
-  - [pandas の DataFrame から部分データを抽出する](/p/8j4k3iy/)
-    - [DataFrame からのデータ抽出方法のチートシート](/p/rnai4ko/)
+  - [pandas の `DataFrame` から部分データを抽出する](/p/8j4k3iy/)
+    - [`DataFrame` からのデータ抽出方法のチートシート](/p/rnai4ko/)
+  - [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`rename`)](/p/3g687f5/)
 - Matplotlib
   - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
+
+{{% private %}}
+- [DRAFT - pandas / NumPy 未分類メモ](/p/q2pm7r3/)
+{{% /private %}}
+
 
 wxPython
 ----
