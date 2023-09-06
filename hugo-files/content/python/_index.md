@@ -292,8 +292,9 @@ NumPy / pandas / Matplotlib
   - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
 
 {{% private %}}
-- [DRAFT - pandas で DataFrame を加工する方法のまとめ](/p/m4ggdkx/)
-- [DRAFT - pandas で DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- [DRAFT - pandas の DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- [DRAFT - pandas の DataFrame を加工する方法のまとめ](/p/m4ggdkx/)
+- [DRAFT - pandas の DataFrame の欠損値 (NaN) の扱い方まとめ](/p/rtc38u8/)
 {{% /private %}}
 
 

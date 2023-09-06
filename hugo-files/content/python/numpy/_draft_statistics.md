@@ -1,10 +1,127 @@
 ---
-title: "DRAFT - pandas で DataFrame の統計値を求める方法のまとめ"
+title: "DRAFT - pandas で DataFrame を解析する方法まとめ（統計＆集計）"
 url: "p/q2pm7r3/"
 date: "2023-09-03"
 tags: ["pandas"]
 draft: true
 ---
+
+チートシート（DataFrame の情報を取得）
+----
+
+| 概要 | コード | 補足 |
+| ---- | ---- | ---- |
+| [要約情報](#info) | `df.info()` | カラム名、Non-Null 数、データタイプ、メモリ使用量 |
+| [形状](#shape) | `df.shape` | 行数と列数のタプル |
+| [データ数](#count) | `df["列"].count()` | 非欠損値のみをカウント |
+| [主要な統計値](#describe) | `df.describe()` | Non-null 数、平均値、標準偏差、最小値、最大値、四分位数 |
+| [指定した列と各列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
+| [グループ化してから集計](#groupby) | `df.groupby(["列"]).mean()` | `mean()` の部分は任意の統計関数に置換可 |
+
+DataFrame の基本情報
+----
+
+### DataFrame#info（要約情報） {#info}
+
+```
+>>> df.info()
+
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 445 entries, 3 to 888
+Data columns (total 8 columns):
+ #   Column    Non-Null Count  Dtype
+---  ------    --------------  -----
+ 0   survived  445 non-null    int64
+ 1   pclass    445 non-null    int64
+ 2   sex       445 non-null    object
+ 3   age       360 non-null    float64
+ 4   sibsp     445 non-null    int64
+ 5   parch     445 non-null    int64
+ 6   fare      445 non-null    float64
+ 7   embarked  443 non-null    object
+dtypes: float64(2), int64(4), object(2)
+memory usage: 31.3+ KB
+```
+
+### DataFrame#shape（形状） {#shape}
+
+```python
+# 行数と列数
+>>> df.shape
+(200, 5)
+
+# 行数
+>>> df.shape[0]
+200
+
+# 列数
+>>> df.shape[1]
+5
+```
+
+
+データ数のカウント {#count}
+----
+
+{{< code lang="python" title="テストデータ" >}}
+>>> df = pd.DataFrame({'fruit': ['apple', 'banana', 'apple', None, 'orange', 'banana', 'apple']})
+{{< /code >}}
+
+fruit 列にいくつのデータがあるかを数えます（欠損値はカウントしません）
+
+```python
+>>> df['fruit'].count()
+fruit    6
+dtype: int64
+```
+
+fruit 列の値ごとにデータ数をカウントします。
+
+```python
+>>> df['fruit'].value_counts()
+fruit
+apple     3
+banana    2
+orange    1
+Name: count, dtype: int64
+```
+
+### 条件に一致する値の数
+
+`fruit` 列の値が `apple` であるデータ数をカウントします。
+
+```python
+>>> (df['fruit'] == 'apple').sum()
+3
+```
+
+
+相関係数 {#corrwith}
+----
+
+相関係数は、1 に近いほど正の相関が強く、-1 に近いほど負の相関が強いことを表します。
+相関係数が 0 の場合は、その 2 つの列にはまったく相関がないことを表します。
+
+```python
+# ある列との相関係数を調べる（すべての列は数値型である必要がある）
+df.corrwith(df["列名"])
+
+# ある列との相関係数を調べる（先にカテゴリ変数を 0/1 の数値列に変換する）
+pd.get_dummies(df).corrwith(df["列名"])
+```
+
+
+グループ化してから集計 {#groupby}
+----
+
+```
+# pclass 列の値で行をグループ化してから各列の平均値を求める
+>>> df.groupby(["pclass"]).mean()
+
+# 出力列を絞りたい場合
+>>> df[["pclass", "survived"]].groupby(["pclass"]).mean()
+```
+
 
 pandas による統計値の計算方法まとめ
 ----
@@ -16,8 +133,8 @@ pandas には様々な統計関数（集計関数）が定義されており、�
 
 {{< code lang="python" title="各列の平均値 (mean) を求める" >}}
 df.mean()  # 列ごとに平均値を取得する（戻り値: Series 型）
-df["列名"]  # 指定した列の平均値を取得する（戻り値: float64 型）
-df[["列名1", "列名2"]]  # 複数の列の平均値を取得する（戻り値: Series 型）
+df["列名"].mean()  # 指定した列の平均値を取得する（戻り値: float64 型）
+df[["列名1", "列名2"]].mean()  # 複数の列の平均値を取得する（戻り値: Series 型）
 {{< /code >}}
 
 他にもいろいろな統計関数があります。
