@@ -13,10 +13,15 @@ draft: true
 | ---- | ---- | ---- |
 | [要約情報](#info) | `df.info()` | カラム名、Non-Null 数、データタイプ、メモリ使用量 |
 | [形状](#shape) | `df.shape` | 行数と列数のタプル |
-| [データ数](#count) | `df["列"].count()` | 非欠損値のみをカウント |
+| データ数（欠損値を含む） | `len(df)` | `df.shape[0]` と同じ |
+| [データ数（欠損値を含まない）](#count) | `df["列"].count()` | 非欠損値のみをカウント |
 | [主要な統計値](#describe) | `df.describe()` | Non-null 数、平均値、標準偏差、最小値、最大値、四分位数 |
-| [指定した列と各列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
+| [ユニークな要素を列挙](#unique) | `df["列"].unique()` | |
+| [ユニークな要素をカウント](#value_counts) | `df["列"].value_counts()` | |
+| [条件に一致する値をカウント](#condition_sum) | `(df["列"] == 値).sum()` | |
+| [列と列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
 | [グループ化してから集計](#groupby) | `df.groupby(["列"]).mean()` | `mean()` の部分は任意の統計関数に置換可 |
+
 
 DataFrame の基本情報
 ----
@@ -60,25 +65,38 @@ memory usage: 31.3+ KB
 ```
 
 
-データ数のカウント {#count}
+データ数のカウント
 ----
 
 {{< code lang="python" title="テストデータ" >}}
->>> df = pd.DataFrame({'fruit': ['apple', 'banana', 'apple', None, 'orange', 'banana', 'apple']})
+>>> df = pd.DataFrame({"fruit": ["apple", "banana", "apple", np.nan, "orange", "banana", "apple"]})
 {{< /code >}}
 
-fruit 列にいくつのデータがあるかを数えます（欠損値はカウントしません）
+### 要素数（非欠損値）をカウント {#count}
+
+`fruit` 列にいくつのデータがあるかを数えます（欠損値はカウントしません）。
 
 ```python
->>> df['fruit'].count()
+>>> df["fruit"].count()
 fruit    6
 dtype: int64
 ```
 
-fruit 列の値ごとにデータ数をカウントします。
+### ユニークな要素を取得 {#unique}
+
+`fruit` 列からユニークな要素を配列形式で抽出します。
 
 ```python
->>> df['fruit'].value_counts()
+>>> df["fruit"].unique()
+array(['apple', 'banana', nan, 'orange'], dtype=object)
+```
+
+### ユニークな要素ごとにカウント {#value_counts}
+
+`fruit` 列のユニークな値ごとに出現回数をカウントします。
+
+```python
+>>> df["fruit"].value_counts()
 fruit
 apple     3
 banana    2
@@ -86,12 +104,23 @@ orange    1
 Name: count, dtype: int64
 ```
 
-### 条件に一致する値の数
+出現回数ではなく、割合で取得したい場合は、__`normalize=True`__ オプションを指定します。
+
+```python
+>>> df["fruit"].value_counts(normalize=True)
+fruit
+apple     0.500000
+banana    0.333333
+orange    0.166667
+Name: proportion, dtype: float64
+```
+
+### 条件に一致する値の数 {#condition_sum}
 
 `fruit` 列の値が `apple` であるデータ数をカウントします。
 
 ```python
->>> (df['fruit'] == 'apple').sum()
+>>> (df["fruit"] == "apple").sum()
 3
 ```
 
@@ -121,6 +150,8 @@ pd.get_dummies(df).corrwith(df["列名"])
 # 出力列を絞りたい場合
 >>> df[["pclass", "survived"]].groupby(["pclass"]).mean()
 ```
+
+`DataFrame#groupby()` メソッドの戻り値は `DataFrame` ではなく、グループ化情報を示す `DataFrameGroupBy` オブジェクトであることに注意してください。
 
 
 pandas による統計値の計算方法まとめ
@@ -176,8 +207,21 @@ df[["列名1", "列名2"]].mean()  # 複数の列の平均値を取得する（�
 
 ### 基本的な統計値を取得する (describe) {#describe}
 
-[`DataFrame#describe()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html) で要約統計量 (descriptive statistics) を出力できます。
-データ数、平均値、最小値・最大値、四分位数を一度に確認できます。
+[`DataFrame#describe()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html) メソッドを使うと、次のような要約統計量 (descriptive statistics) をまとめて取得できます。
+
+- `count` ... （非欠損値）データ数
+- `unique` ... ユニークな要素数 ※
+- `top` ... 最頻値 ※
+- `freq` ...最頻値の出現回数 ※
+- `mean` ... 平均
+- `std` ... 標準偏差
+- `min` ... 最小値
+- `25%` ... 25 パーセンタイル（第 1 四分位数）
+- `50%` ... 50 パーセンタイル（中央値）
+- `75%` ... 75 パーセンタイル（第 3 四分位数）
+- `max` ... 最大値
+
+※ デフォルトでは数値カラムの要約統計量のみを算出するので、`unique`、`top`、`freq` などは表示されません。テキストデータなどの統計も求めたいときは、`include="all"` オプションを指定します。
 
 ```python
 >>> df.describe()

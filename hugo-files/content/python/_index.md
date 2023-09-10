@@ -277,24 +277,32 @@ Web / HTTP <!-- web -->
 NumPy / pandas / Matplotlib
 ----
 
+### 共通
+
 - [NumPy / pandas / Matplotlib の概要とインストール](/p/qs6iv8j/)
-- NumPy
-  - [NumPy 配列 (`ndarray`) の基本](/p/jwfxfvd/)
-  - [NumPy 配列 (`ndarray`) の作成方法まとめ](/p/htducs9/)
-- pandas
-  - [pandas でラベル付き 1 次元データを扱う (`Series`)](/p/wbudtbr/)
-  - [pandas でラベル付き 2 次元データを扱う (`DataFrame`)](/p/watbs9p/)
-  - [pandas で CSV や TSV ファイルを読み込む方法のまとめ (`pd.read_csv`, `pd.read_table`)](/p/78ns8r5/)
-  - [pandas の `DataFrame` から部分データを抽出する](/p/8j4k3iy/)
-    - [`DataFrame` からのデータ抽出方法のチートシート](/p/rnai4ko/)
-  - [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`rename`)](/p/3g687f5/)
-- Matplotlib
-  - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
+
+### NumPy
+
+- [NumPy 配列 (`ndarray`) の基本](/p/jwfxfvd/)
+- [NumPy 配列 (`ndarray`) の作成方法まとめ](/p/htducs9/)
+
+### pandas
+
+- [pandas でラベル付き 1 次元データを扱う (`Series`)](/p/wbudtbr/)
+- [pandas でラベル付き 2 次元データを扱う (`DataFrame`)](/p/watbs9p/)
+- [pandas で CSV や TSV ファイルを読み込む方法のまとめ (`pd.read_csv`, `pd.read_table`)](/p/78ns8r5/)
+- pandas チートシート
+  - [`DataFrame` のデータ抽出方法まとめ](/p/rnai4ko/) [具体例](/p/8j4k3iy/)
+  - [`DataFrame` のデータ加工方法まとめ](/p/m4ggdkx/)
+  - [`DataFrame` の欠損値 (NaN) の扱い方まとめ](/p/rtc38u8/)
+- [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`rename`)](/p/3g687f5/)
+
+### Matplotlib
+
+- [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
 
 {{% private %}}
 - [DRAFT - pandas の DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
-- [DRAFT - pandas の DataFrame を加工する方法のまとめ](/p/m4ggdkx/)
-- [DRAFT - pandas の DataFrame の欠損値 (NaN) の扱い方まとめ](/p/rtc38u8/)
 {{% /private %}}
 
 

@@ -1,5 +1,5 @@
 ---
-title: "pandas.DataFrame からのデータ抽出方法のチートシート"
+title: "pandas チートシート - DataFrame のデータ抽出方法まとめ"
 url: "p/rnai4ko/"
 date: "2023-08-27"
 tags: ["Python", "pandas"]
@@ -158,6 +158,10 @@ df[df["列名"] == "AAA"]
 
 # 指定した列の値が "AAA" または "BBB" である行を抽出
 df[df["列名"].isin(["AAA", "BBB"])]
+
+# 指定した列の値にある部分文字列を含む／含まない行を抽出
+df[df["列名"].str.contains("部分文字列")]   # 部分文字列を含む
+df[~df["列名"].str.contains("部分文字列")]  # 部分文字列を含まない
 
 # 指定した列に値が存在する行だけを抽出する
 df[df["列名"].notna()]
