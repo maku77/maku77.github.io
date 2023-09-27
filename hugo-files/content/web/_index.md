@@ -11,7 +11,8 @@ HTML 全般
 ----
 * [HTML ファイルの雛形（テンプレート）](/p/jjk3jqs/)
 * [Web サイトに favicon を設定する](/p/bdox8hr/)
-* [IE 8 でも HTML5 の `header` や `footer` 要素を使えるようにする](/p/qcvotb4/)
+* 旧記事
+  * [IE 8 でも HTML5 の `header` や `footer` 要素を使えるようにする](/p/qcvotb4/)
 
 
 全体のレイアウト
@@ -28,16 +29,17 @@ HTML 全般
 * [HTML の画像要素 (`img`) を親要素の左右両端に表示する](/p/usqqvps/)
 
 ### レスポンシブ
-* [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)
-* [モバイルファーストで考えるコツ（max-width ではなく min-width を使うべし）](mobile-first.html)
-* [画面サイズによって全体のレイアウトを変更する](responsive/change-layout.html)
-* [画像と埋め込み動画のサイズを画面内に収める](responsive/image-width.html)
-* [フレキシブルボックスによるレスポンシブレイアウト](flexible-box.html)
-* [（コラム）フレキシブルボックスの旧式の定義方法](flexible-box-old.html)
+* [Viewport とメディアクエリによるレスポンシブ Web デザインの基本](/p/ta2kimu/)
+* [モバイルファーストな CSS を作成するコツ（`max-width` ではなく `min-width` を使うべし）](/p/7vwoyht/)
+* [CSS で画像と埋め込み動画のサイズを画面内に収める (`max-width`)](/p/3tip9yp/)
+* [CSS のフレキシブルボックスによるレスポンシブレイアウト](/p/tq3zi5j/)
+* 旧記事
+  * [（旧）フレキシブルボックスの旧式の定義方法](/p/uu32hpo/)
+  * [（旧）CSS で画面サイズによって全体のレイアウトを変更する](/p/v5dcz6f/)
 
 #### フォント／テキスト
 * [フォントサイズは 100% と指定する](font/font-size.html)
-* [rem や em を使用したサイズ指定を理解する](font/rem-and-em.html)
+* [CSS の rem や em を使用したサイズ指定を理解する](/p/hbh4dwr/)
 * [pre 要素でもテキストがはみ出さないように折り返す](text/pre-wrap.html)
 
 

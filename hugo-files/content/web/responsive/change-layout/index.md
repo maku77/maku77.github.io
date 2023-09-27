@@ -1,8 +1,13 @@
 ---
-title: "画面サイズによって全体のレイアウトを変更する"
+title: "CSS で画面サイズによって全体のレイアウトを変更する"
+url: "p/v5dcz6f/"
 date: "2016-07-15"
+tags: ["CSS"]
 description: "CSS3 のメディアクエリをうまく使うと、Web ブラウザのウィンドウサイズによって、動的にレイアウトを変更することができます。"
+aliases: /web/responsive/change-layout.html
 ---
+
+CSS3 のメディアクエリをうまく使うと、Web ブラウザのウィンドウサイズによって、動的にレイアウトを変更することができます。
 
 全体のレイアウト構成
 ----
@@ -11,17 +16,17 @@ description: "CSS3 のメディアクエリをうまく使うと、Web ブラウ
 
 * 1000px 超: 固定幅の 2 段組レイアウト
 * 1000px 以下: 可変幅の 2 段組レイアウト（リキッドレイアウト）
-* 700px以下: シングルカラム
+* 700px 以下: シングルカラム
 
 今このページを PC のブラウザで見ているのであれば、下記のデモページを表示して、画面幅を変更してみてください。
 画面幅に応じてレイアウトが自動的に変更されるはずです。
 
-#### デモ
+<center>
+  <iframe width="100%" height="400" src="./demo.html" style="resize: both; overflow: auto;"></iframe>
+  <div><a target="_blank" href="./demo.html">（別ページで表示）</a></div>
+</center>
 
-<iframe class="xHtmlDemo" style="height: 450px" src="change-layout-demo.html"></iframe>
-<a target="_blank" href="change-layout-demo.html">デモページを表示</a>
-
-HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、フッタと、4 つの部分に分かれています。
+HTML 要素は下記のようにヘッダー、コンテンツ、サイドバー、フッターと、4 つの部分に分かれています。
 
 ```html
 <div id="page">
@@ -52,19 +57,23 @@ HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、
   margin: 0 auto;
   border: blue 5px solid;
 }
+
 #header {
   background-color: lightblue;
 }
+
 #content {
   width: 680px;
   float: left;
   background-color: lightpink;
 }
+
 #sidebar {
   width: 300px;
   float: right;
   background-color: lightgreen;
 }
+
 #footer {
   clear: both;
   background-color: lightblue;
@@ -84,9 +93,11 @@ HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、
     width: 98%;
     border-color: yellow;
   }
+
   #content {
     width: 70%;
   }
+
   #sidebar {
     width: 30%;
   }
@@ -97,7 +108,8 @@ HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、
 シングルカラムレイアウト（画面幅が狭いとき）
 ----
 
-幅が 700px 以下（モバイル端末含む）になると、サイドバーは表示しきれないので、画面の下の方に移動させます。コンテンツとサイドバーの幅を 100% で表示することによって、シングルカラム表示にしています。
+幅が 700px 以下（モバイル端末含む）になると、サイドバーは表示しきれないので、画面の下の方に移動させます。
+コンテンツとサイドバーの幅を 100% で表示することによって、シングルカラム表示にしています。
 このレイアウトのときは、周りに赤色で枠を表示します。
 
 ```css
@@ -105,9 +117,11 @@ HTML 要素は下記のようにヘッダ、コンテンツ、サイドバー、
   #page {
     border-color: red;
   }
+
   #content {
     width: 100%;
   }
+
   #sidebar {
     width: 100%;
   }
