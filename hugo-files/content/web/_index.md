@@ -9,23 +9,23 @@ categoryIcon: _index.svg
 
 HTML 全般
 ----
-* [HTML ファイルの雛形（テンプレート）](html/template.html)
-* [IE 8 でも HTML5 の header や footer 要素を使えるようにする](html/ie8.html)
+* [HTML ファイルの雛形（テンプレート）](/p/jjk3jqs/)
 * [Web サイトに favicon を設定する](/p/bdox8hr/)
+* [IE 8 でも HTML5 の `header` や `footer` 要素を使えるようにする](/p/qcvotb4/)
 
 
 全体のレイアウト
 ----
 
 ### レイアウトの基礎知識
-* [position プロパティによるレイアウト方法を理解する](layout/position.html)
-* [box-sizing プロパティで width の計算方法を制御する](layout/box-sizing.html)
-* [全要素に統一された上下マージンを設定する（ふくろうセレクタ）](layout/vertical-margin.html)
-* [画像の下に隙間が空くのを防ぐ](layout/remove-margin-of-image.html)
-* [フローティングボックスを利用したレイアウトを理解する](floating-box.html)
-* [ul や ol によるリスト要素のマージン設定を理解する](layout/list-margin.html)
-* [要素を中央寄せ／右寄せで表示する](layout/center.html)
-* [画像や div 要素を両端に表示する](layout/images-at-both-ends.html)
+* [CSS の `position` プロパティによるレイアウト方法を理解する](/p/3dtq7o5/)
+* [CSS の `box-sizing` プロパティで `width` の計算方法を制御する](/p/fprd6w4/)
+* [CSS のふくろうセレクター (`* + *`) で全要素の上下マージンを設定する](/p/vqran9d/)
+* [CSS で画像の下に隙間が空くのを防ぐ (`vertical-align`)](/p/bz3ga84/)
+* [HTML のリスト要素 (`ul`, `ol`, `li`) のマージン指定方法を理解する](/p/sw5kgj2/)
+* [CSS のフローティングボックス (`float`) を利用したレイアウトを理解する](/p/prbp2g2/)
+* [HTML 要素を中央寄せ／右寄せで表示する](/p/7pi429n/)
+* [HTML の画像要素 (`img`) を親要素の左右両端に表示する](/p/usqqvps/)
 
 ### レスポンシブ
 * [Viewport、メディアクエリ設定によるレスポンシブ Web デザインの基本](responsive/media-query.html)

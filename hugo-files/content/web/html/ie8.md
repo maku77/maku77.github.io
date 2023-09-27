@@ -1,10 +1,13 @@
 ---
 title: "IE 8 でも HTML5 の header や footer 要素を使えるようにする"
+url: "p/qcvotb4/"
 date: "2016-07-01"
+tags: ["HTML"]
+aliases: /web/html/ie8.html
 ---
 
-IE 8 では HTML5 の header 要素や footer 要素に適用したスタイルが反映されません。
-この問題を解決するには、下記のコードを head セクションに追加します。
+IE 8 では HTML5 の `header` 要素や `footer` 要素に適用したスタイルが反映されません。
+この問題を解決するには、下記のコードを `head` セクションに追加します。
 
 ```html
 <!--[if lte IE 8]>

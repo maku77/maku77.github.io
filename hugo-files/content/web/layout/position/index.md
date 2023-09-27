@@ -1,10 +1,19 @@
 ---
-title: "position プロパティによるレイアウト方法を理解する"
+title: "CSS の position プロパティによるレイアウト方法を理解する"
+url: "p/3dtq7o5/"
 date: "2017-10-23"
+lastmod: "2023-09-27"
+tags: ["CSS"]
+aliases: /web/layout/position.html
 description: "CSS の position プロパティには、static、fixed、relative、absolute を指定することができます。これらの使い方を理解することで、HTML 要素の配置方法に広がりが出ます。"
+changes:
+  - 2023-09-27: 文章を校正。
 ---
 
-４つの position 指定
+CSS の __`position`__ プロパティには、`static`、`fixed`、`relative`、`absolute` を指定することができます。
+これらの使い方を理解することで、HTML 要素の配置方法に広がりが出ます。
+
+4 つの position 指定
 ----
 
 position: static;
@@ -23,29 +32,34 @@ position: absolute;
 position: fixed
 ----
 
-![position-fixed.png](position-fixed.png){: .center }
+{{< image w="700" src="img-fixed.png" title="position: fixed; の振る舞い" >}}
 
-### デモ
-<iframe class="xHtmlDemo" src="position-fixed.html"></iframe>
-<a target="_blank" href="position-fixed.html">デモページを開く</a>
+__`position: fixed;`__ を指定すると、ブラウザの表示領域内で位置を固定して表示することができます。
 
-`position: fixed;` を指定すると、ブラウザの表示領域内でどの位置に表示するかを指定することができます。
+<center>
+  <iframe width="470" height="200" src="./demo-fixed.html"></iframe>
+  <div>図: position: fixed; のデモ（<a target="_blank" href="./demo-fixed.html">別ページで開く</a>）</div>
+</center>
+
 具体的な表示位置は、`top`、`bottom`、`left`、`right` プロパティで指定します。
 例えば、`top: 0px; left: 0px;` という指定を行えば、その要素はブラウザの画面上の左上に固定表示され、ユーザが画面スクロールを行ってもその要素は移動しません。
-例えば、上記の<a target="_blank" href="position-fixed.html">デモページ</a>で表示しているように、サイトのヘッダ情報を画面上部に固定表示したり、サイドバーのメニューを固定表示したりするのに利用することができます。
+例えば、上記の表示例のように、サイトのヘッダ情報を画面上部に固定表示したり、サイドバーのメニューを固定表示したりするのに利用することができます。
 
 
 position: relative
 ----
 
-![position-relative.png](position-relative.png){: .center }
+{{< image w="700" src="img-relative.png" title="position: relative; の振る舞い" >}}
 
-### デモ
-<iframe class="xHtmlDemo" height="400px" src="position-relative.html"></iframe>
-<a target="_blank" href="position-relative.html">デモページを開く</a>
+__`position: relative;`__ を指定すると、本来その要素が表示されるはずだった位置からのオフセットを指定して、表示位置をずらすことができます。
 
-`position: relative;` を指定すると、本来その要素が表示されるはずだった位置からのオフセットを指定して、表示位置をずらすことができます。
-要素の表示位置をずらしたとしても、**後続の要素は、その位置ずらしがなかったものとして配置される**ことに注意してください。上記の<a target="_blank" href="position-relative.html">デモページ</a>の表示を見るとよくわかると思います。
+<center>
+  <iframe width="470" height="280" src="./demo-relative.html"></iframe>
+  <div>図: position: relative; のデモ（<a target="_blank" href="./demo-relative.html">別ページで開く</a>）</div>
+</center>
+
+要素の表示位置をずらしたとしても、__後続の要素は、その位置ずらしがなかったものとして配置される__ ことに注意してください。
+上記の表示例を見るとよくわかると思います。
 
 ちなみに、`position: relative;` の指定をだけを行い、`top`、`bottom`、`left`、`right` の指定を行わなかった場合は、その要素は本来表示されるべき位置にそのまま表示されます。
 このような一見無駄に見える指定は、`z-index` プロパティ（要素の重なりの順序）を指定する際によく行われます。
@@ -66,19 +80,21 @@ position: relative
 position: absolute
 ----
 
-![position-absolute.png](position-absolute.png){: .center }
+{{< image w="700" src="img-absolute.png" title="position: absolute; の振る舞い" >}}
 
-### デモ
-<iframe class="xHtmlDemo" src="position-absolute.html"></iframe>
-<a target="_blank" href="position-absolute.html">デモページを開く</a>
+__`position: absolute;`__ を使用すると、その親要素を基準とした絶対位置で表示位置を指定することができます（感覚的には絶対位置というよりは相対位置ですが）。
 
-`position: absolute;` を使用すると、その親要素を基準とした絶対位置で表示位置を指定することができます（感覚的には絶対位置というよりは相対位置ですが）。
-注意しなければいけないのは、親要素の `position` プロパティとして、`fixed`、`relative`、`absolute` のいずれかを指定しておく必要があるというところです（つまり、デフォルトの `static` のままだと NG）。
+<center>
+  <iframe width="375" height="190" src="./demo-absolute.html"></iframe>
+  <div>図: position: absolute; のデモ（<a target="_blank" href="./demo-absolute.html">別ページで開く</a>）</div>
+</center>
+
+注意しなければいけないのは、親要素の `position` プロパティとして、`fixed`、`relative`、`absolute` のいずれかを指定しておく必要があるというところです（つまり、デフォルトの `static` のままだと有効になりません）。
 親要素の表示位置を特に移動させる必要がない場合は、親要素で `position: relative;` とだけ指定しておくのがよいでしょう。
 
 例えば、下記のようにすると、親要素 (`.parent`) の左上に重なる形で、子要素 (`.child`) が表示されます。
 
-~~~ css
+```css
 .parent {
   position: relative;
 }
@@ -88,32 +104,28 @@ position: absolute
   top: 0px;
   left: 0px;
 }
-~~~
+```
 
 `position: absolute;` は、画像の上にタイトル表示を重ねる場合などによく使用されます。
 下記の例では、うさぎの画像に、「うさぎ」というテキストを重ねて表示しています。
 
-![position-absolute2.png](position-absolute2.png){: .center }
+{{< image w="350" src="img-absolute2.png" title="position: absolute; でテキストを重ねる" >}}
 
-#### HTML 抜粋
-
-~~~ html
+{{< code lang="html" title="HTML 抜粋" >}}
 <figure class="catalog">
   <img src="rabbit.png">
   <figcaption>うさぎ</figcaption>
 </figure>
-~~~
+{{< /code >}}
 
-#### CSS 抜粋
-
-~~~ css
+{{< code lang="css" title="CSS 抜粋" >}}
 .catalog {
   position: relative;  /* 子要素で position: absolute; を使うため */
   max-width: 300px;
 }
 .catalog img {
   width: 100%;
-  vertical-align: bottom;  /* これ入れないとテキストの位置が微妙に下にずれる */
+  vertical-align: bottom;  /* これを入れないとテキストの位置が微妙に下にずれる */
 }
 .catalog figcaption {
   position: absolute;  /* 親要素の位置を基準に表示位置を指定する */
@@ -125,8 +137,8 @@ position: absolute
   color: white;
   background: rgba(0, 0, 0, 0.5);
 }
-~~~
+{{< /code >}}
 
 ちなみに、`top`、`bottom`、`left`、`right` などのプロパティにマイナスの値を指定すると、親要素からその分だけはみ出した位置に子要素を表示させることができます。
-うまく配置すれば、画像を隠さないようにキャプションを表示することができます。
+うまく利用すれば、画像を隠さないようにキャプションを表示することができます。
 
