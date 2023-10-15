@@ -1,5 +1,5 @@
 ---
-title: "DRAFT - pandas で CSV や TSV ファイルを読み込む方法のまとめ"
+title: "pandas で CSV/TSV ファイルを読み込む (pd.read_csv, pd.read_table)"
 url: "p/78ns8r5/"
 date: "2023-09-04"
 tags: ["pandas"]
@@ -8,6 +8,10 @@ tags: ["pandas"]
 {{% private %}}
 - [IO tools (text, CSV, HDF5, …) — pandas documentation](https://pandas.pydata.org/docs/user_guide/io.html)
 {{% /private %}}
+
+{{% maku-common/reference %}}
+- [pandas で CSV/TSV ファイルを出力する (`pd.to_csv`)](/p/ioj6bqf/)
+{{% /maku-common/reference %}}
 
 pandas で CSV ファイルを読み込んで `DataFrame` オブジェクトを生成するには、[pd.read_csv()](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html) 関数を使用します。
 `read_csv()` 関数は、任意のセパレーター (`sep`) を指定できるので、CSV ファイルだけでなく、TSV ファイルなども読み込むことができます。

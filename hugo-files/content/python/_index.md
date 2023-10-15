@@ -290,7 +290,8 @@ NumPy / pandas / Matplotlib
 
 - [pandas でラベル付き 1 次元データを扱う (`Series`)](/p/wbudtbr/)
 - [pandas でラベル付き 2 次元データを扱う (`DataFrame`)](/p/watbs9p/)
-- [pandas で CSV や TSV ファイルを読み込む方法のまとめ (`pd.read_csv`, `pd.read_table`)](/p/78ns8r5/)
+- [pandas で CSV/TSV ファイルを読み込む (`pd.read_csv`, `pd.read_table`)](/p/78ns8r5/)
+- [pandas で CSV/TSV ファイルを出力する (`pd.to_csv`)](/p/ioj6bqf/)
 - pandas チートシート
   - [`DataFrame` のデータ抽出方法まとめ](/p/rnai4ko/) [具体例](/p/8j4k3iy/)
   - [`DataFrame` のデータ加工方法まとめ](/p/m4ggdkx/)
