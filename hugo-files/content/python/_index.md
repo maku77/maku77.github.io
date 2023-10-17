@@ -307,6 +307,12 @@ NumPy / pandas / Matplotlib
 {{% /private %}}
 
 
+scikit-learn
+----
+
+- [scikit-learn 組み込みのデータセットを扱う (`sklearn.dataset`)](/p/o7qnbeg/)
+
+
 wxPython
 ----
 
