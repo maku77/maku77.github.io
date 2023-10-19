@@ -274,7 +274,7 @@ Web / HTTP <!-- web -->
 * [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
-NumPy / pandas / Matplotlib
+NumPy / pandas / Matplotlib / scikit-learn
 ----
 
 ### 共通
@@ -298,19 +298,27 @@ NumPy / pandas / Matplotlib
   - [`DataFrame` の欠損値 (NaN) の扱い方まとめ](/p/rtc38u8/)
 - [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`rename`)](/p/3g687f5/)
 
+{{% private %}}
+- DRAFT: [pandas の DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
+{{% /private %}}
+
 ### Matplotlib
 
 - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
 
 {{% private %}}
-- [DRAFT - pandas の DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- DRAFT: [Matplotlib の出力設定](/p/ghch694/)
 {{% /private %}}
 
-
-scikit-learn
-----
+### scikit-learn
 
 - [scikit-learn 組み込みのデータセットを扱う (`sklearn.dataset`)](/p/o7qnbeg/)
+
+{{% private %}}
+- 前処理 (sklearn.preprocessing)
+  - [scikit-learn で特徴量の標準化を行う](/p/btov27k/)
+{{% /private %}}
+
 
 
 wxPython
