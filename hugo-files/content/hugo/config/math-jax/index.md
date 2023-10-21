@@ -2,64 +2,116 @@
 title: "Hugo のページ内に Tex 形式の数式を埋め込めるようにする (MathJax)"
 url: "p/dsfzi4n/"
 date: "2018-06-21"
-tags: ["Hugo"]
+lastmod: "2023-10-21"
+tags: ["Hugo", "TeX", "数学"]
 description: "Hugo のテンプレートで MathJax という Javascript ライブラリを組み込むと、記事内に Tex 形式の数式を埋め込むことができるようになります。"
+changes:
+  - 2023-10-22: MathJax のバージョンを 2 から 3 に更新
 aliases: /hugo/settings/math-jax.html
+useMath: true
 ---
 
-Hugo のテンプレートで __MathJax__ という Javascript ライブラリを組み込むと、記事内に Tex 形式の数式を埋め込むことができるようになります。
+Hugo のテンプレートで __MathJax__ という Javascript ライブラリを組み込むと、Markdown 記事内に Tex 形式で数式を埋め込むことができるようになります。
+下記は、MathJax による数式表示の例です。
 
-- 参考: [MathJax with Hugo](https://gohugo.io/content-management/formats/#mathjax-with-hugo)
+$$
+-b\pm \sqrt{b^2 -4ac} \over 2a
+$$
+<center>図: MathJax による数式表示</center>
 
 
 MathJax を有効にする
 ----
 
-まず、すべてのページで次のようにして MathJax.js を読み込む必要があります。
+MathJax を有効にするのは簡単で、HTML 内で MathJax の Javascript ファイルを読み込むだけです。
+次の例では、Hugo の [ベーステンプレート (`baseof.html`)](/p/bbxj5pa/) の `head` 要素内に、MathJax を読み込むための `script` 要素を追加しています。
 
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-```
+{{< code lang="go-html-template" title="layouts/_default/baseof.html" hl_lines="6-8" >}}
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+<head>
+  <meta charset="UTF-8">
+  ...
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+  ...
+</body>
+</html>
+{{< /code >}}
 
-フッター用のパーシャルテンプレート（`layouts/partials/footer.html` など）を用意しているのであれば、その中に記述しておくのがよいでしょう。
+上記の例では、配信元の CDN として `cdn.jsdeliver.net` を指定していますが、他の CDN で配信されているものを使用することもできます。
+詳しくは下記の MathJax のドキュメントを参照してください。
 
-CDN で提供されている最新の MathJax.js のアドレスは、[cdnjs.com のサイト](https://cdnjs.com/)で `MathJax` と入力するか、[MathJax のサイト](http://docs.mathjax.org/en/latest/configuration.html) で調べることができます。
+- 参考: [Getting Started with MathJax Components](https://docs.mathjax.org/en/latest/web/start.html)
 
 
-ページ内に数式を記述する
+数式の記述例
 ----
 
-あとは、Markdown ファイル内で __`$$数式$$`__ というフォーマットで記述すれば、きれいな数式が表示されます。
+### ブロック形式 (displayed mathematics)
 
-{{< code title="Markdown ファイル内の記述例" >}}
-$$F(x) = \sum_{n=1}^{N} \frac{1}{N}$$
+ブロック形式（独立した段落）の数式を表示するには、Markdown ファイル内に __`$$`__ で囲む形で TeX を記述します（あるいは __`\\[`__ と __`\\]`__ で囲みます）。
+次の例では、Sum 記号（Σ）や分数を表示しています。
+
+{{< code title="Markdown 内での記述例" >}}
+$$
+F(x) = \sum_{n=1}^{N} \frac{1}{N}
+$$
 {{< /code >}}
 
-{{< image border="true" w="150" src="img-001.png" title="表示例" >}}
+$$
+F(x) = \sum_{n=1}^{N} \frac{1}{N}
+$$
+<center>図: 出力結果</center>
+
+### インライン形式 (in-line mathematics)
+
+文章内にインライン形式で数式を埋め込むには、__`\\(`__ と __`\\)`__ で TeX 命令を囲みます。
+
+{{< code title="Markdown 内での記述例" >}}
+次の数式は \\(F(x) = \sum_{n=1}^{N} \frac{1}{N}\\) 文章内に埋め込まれます。
+{{< /code >}}
+
+表示結果: 次の数式は \\(F(x) = \sum_{n=1}^{N} \frac{1}{N}\\) 文章内に埋め込まれます。
+
+{{% maku-common/reference %}}
+- [数学メモ: TeX チートシート｜まくろぐ](https://maku.blog/p/oau2e7h/)
+{{% /maku-common/reference %}}
 
 
-インライン形式で数式を記述できるようにする
+必要なときのみ MathJax を読み込むようにする
 ----
 
-通常の文章の中にインライン形式で数式を埋め込むには、MathJax.js の設定を行っておく必要があります。
-MathJax.js を読み込む HTML コードと一緒に、次のようなコードを追加してください。
+数式を使わないページで MathJax の JavaScript ファイルを読み込むのは無駄です。
+次の例では、記事のフロントマターに __`useMath: true`__ という指定があるときのみ MathJax を有効化しています。
 
-{{< code lang="html" title="テンプレート抜粋（layouts/partials/footer.html など）" >}}
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$']]
-  }
-});
-</script>
+{{< code lang="go-html-template" title="layouts/_default/baseof.html" hl_lines="6 10" >}}
+<!DOCTYPE html>
+<html{{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
+<head>
+  <meta charset="UTF-8">
+  ...
+  {{- if eq .Params.useMath true }}
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  {{- end }}
+</head>
+...
 {{< /code >}}
 
-上記のように設定しておくと、文章の中に __`$数式$`__ というフォーマットで、数式をインラインで埋め込めるようになります。
+あとは、数式を使用する記事ページで次のようにフロントマターを記述すれば OK です。
 
-{{< code title="Markdown ファイル内の記述" >}}
-次の数式は $F(x) = \sum_{n=1}^{N} \frac{1}{N}$ 文章内に埋め込まれます。
+{{< code lang="yaml" title="MathJax の有効化" hl_lines="4" >}}
+---
+title: "ページタイトル"
+date: "2023-10-21"
+useMath: true
+---
+
+オイラーの公式： \\(\mathrm{e}^{\mathrm{i}\theta} = \cos(\theta) + \mathrm{i}\sin(\theta)\\)
 {{< /code >}}
-
-{{< image border="true" src="img-002.png" title="表示例" >}}
-
 
