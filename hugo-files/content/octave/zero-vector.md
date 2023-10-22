@@ -1,20 +1,27 @@
 ---
-title: "零行列を作成する"
+title: "Octave で零行列（ゼロ行列）を作成する"
+url: "p/o9bmzfy/"
 date: "2017-03-24"
+tags: ["Octave"]
+useMath: true
+aliases: /octave/zero-vector.html
 ---
+
+zeros 関数
+----
 
 $$
   O = \begin{pmatrix}
-    0 & 0 & \ldots & 0 \\
-    0 & 0 & \ldots & 0 \\
-    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \ldots & 0 \\\\
+    0 & 0 & \ldots & 0 \\\\
+    \vdots & \vdots & \ddots & \vdots \\\\
     0 & 0 & \ldots & 0
   \end{pmatrix}
 $$
 
-ゼロ行列 (zero vector) を作成するには、組み込みの `zeros` 関数を使用します。
+Octave でゼロ行列 (zero vector) を作成するには、組み込みの __`zeros`__ 関数を使用します。
 
-~~~ matlab
+```matlab
 >> O = zeros(3)
 O =
 
@@ -27,12 +34,12 @@ O =
 
    0   0   0   0
    0   0   0   0
-~~~
+```
 
 zeros のドキュメント
 ----
 
-~~~ matlab
+```matlab
 >> help zeros
 'zeros' is a built-in function from the file libinterp/corefcn/data.cc
 
@@ -53,5 +60,5 @@ zeros のドキュメント
      and defaults to double.  For example:
 
           val = zeros (m,n, "uint8")
-~~~
+```
 

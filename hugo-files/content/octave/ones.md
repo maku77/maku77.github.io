@@ -1,11 +1,14 @@
 ---
-title: "すべての要素が１の行列を作成する (ones)"
+title: "Octave ですべての要素が 1 の行列を作成する (ones)"
+url: "p/ngxvjuy/"
 date: "2017-03-24"
+tags: ["Octave"]
+aliases: /octave/ones.html
 ---
 
-組み込み関数 `ones` を使用して、すべての要素が１である行列を作成することができます。
+Octave の組み込み関数 __`ones`__ を使用すると、すべての要素が 1 である行列を作成することができます。
 
-~~~ matlab
+```matlab
 >> ones(3)
 ans =
 
@@ -18,23 +21,22 @@ ans =
 
    1   1   1   1
    1   1   1   1
-~~~
+```
 
-スカラー値を掛けることで、１以外の任意の値にすることができます。
+スカラー値を掛けることで、1 以外の任意の値にすることができます。
 
-~~~ matlab
+```matlab
 >> ones(2, 4) * 7
 ans =
 
    7   7   7   7
    7   7   7   7
-~~~
-
+```
 
 ones 関数のドキュメント
 ----
 
-~~~
+```matlab
 >> help ones
 'ones' is a built-in function from the file libinterp/corefcn/data.cc
 
@@ -60,5 +62,5 @@ ones 関数のドキュメント
      and defaults to double.  For example:
 
           val = ones (m,n, "uint8")
-~~~
+```
 
