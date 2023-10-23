@@ -296,10 +296,12 @@ NumPy / pandas / Matplotlib / scikit-learn
   - [`DataFrame` のデータ抽出方法まとめ](/p/rnai4ko/) [具体例](/p/8j4k3iy/)
   - [`DataFrame` のデータ加工方法まとめ](/p/m4ggdkx/)
   - [`DataFrame` の欠損値 (NaN) の扱い方まとめ](/p/rtc38u8/)
-- [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`rename`)](/p/3g687f5/)
+- [pandas の `DataFrame` のカラム（列）名やインデックス（行）名を変更する (`df.rename`, `df.add_prefix`, `df.add_suffix`)](/p/3g687f5/)
+- [pandas の `DataFrame` から数値カラムだけ抽出する (`df.select_dtypes`)](/p/pa2us3b/)
+- [pandas の `DataFrame` のカラムのデータ型を変更する (`df.astype`)](/p/fk2e74z/)
 
 {{% private %}}
-- DRAFT: [pandas の DataFrame の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- DRAFT: [pandas の `DataFrame` の統計値を求める方法のまとめ](/p/q2pm7r3/)
 {{% /private %}}
 
 ### Matplotlib

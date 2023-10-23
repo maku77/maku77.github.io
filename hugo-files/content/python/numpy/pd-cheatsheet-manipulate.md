@@ -82,9 +82,9 @@ DataFrame 加工のチートシート
       </td>
     </tr>
     <tr>
-      <td>各カラムのデータ型を変更する</a></td>
+      <td><a href="/p/fk2e74z/">各カラムのデータ型を変更する</a></td>
       <td>
-        <code>df2 = df.astype({"列1": int, "列2": int})/code>
+        <code>df2 = df.astype({"列1": "int64", "列2": "float64"})</code>
       </td>
       </td>
     </tr>

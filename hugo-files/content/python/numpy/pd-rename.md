@@ -1,5 +1,5 @@
 ---
-title: "pandas の DataFrame のカラム（列）名やインデックス（行）名を変更する (rename)"
+title: "pandas の DataFrame のカラム（列）名やインデックス（行）名を変更する (df.rename, df.add_prefix, df.add_suffix)"
 url: "p/3g687f5/"
 date: "2023-09-04"
 tags: ["pandas"]
