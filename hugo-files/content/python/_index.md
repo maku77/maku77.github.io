@@ -274,6 +274,12 @@ Web / HTTP <!-- web -->
 * [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
 
 
+画像処理
+----
+
+- [scikit-image で画像処理](/p/apkiihk/)
+
+
 NumPy / pandas / Matplotlib / scikit-learn
 ----
 
