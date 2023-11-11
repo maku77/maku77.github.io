@@ -277,7 +277,18 @@ Web / HTTP <!-- web -->
 画像処理
 ----
 
+### scikit-image
+
 - [scikit-image で画像処理](/p/apkiihk/)
+- [scikit-image の data パッケージに含まれるテスト画像を使用する](/p/nz8zoxu/)
+
+### OpenCV
+
+- [OpenCV: 画像を閾値で二値化（白黒画像化）する (`cv2.threshold`)](/p/i26mc77/)
+
+{{% private %}}
+- DRAFT: [OpenCV チートシート](/p/dgkrqjo/)
+{{% /private %}}
 
 
 NumPy / pandas / Matplotlib / scikit-learn

@@ -14,8 +14,9 @@ Matplotlib の出力設定のまとめです。
 
 | コード | 説明 |
 | ---- | ---- |
-| `plt.figure(figsize=(8, 6))` | プロットのサイズ |
-| `plt.figure(dpi=100)` | DPI (ドット数/インチ) |
+| `plt.figure(figsize=(8, 6))` | プロットサイズ（現在のプロットのみ） |
+| `plt.rcParams["figure.figsize"] = [8, 6]` | プロットサイズ（これ以降のプロットすべて） |
+| `plt.figure(dpi=72)` | DPI (ドット数/インチ) (default: 72) |
 | `plt.gca().set_facecolor("#e5e5e5")` | プロット領域の背景色 |
 | `fig, ax = plt.subplots(2, 2)` | サブプロットの設定 |
 | `plt.style.use("ggplot")` | プロットスタイルを変更 |
@@ -35,20 +36,24 @@ Matplotlib の出力設定のまとめです。
 
 | コード | 説明 |
 | ---- | ---- |
-| `plt.xlabel("X軸ラベル")` | ラベルを表示する |
-| `plt.xlabel("X軸ラベル", labelpad=10)` | ラベルの位置調整 |
+| `plt.xlabel("X軸ラベル")` | x 軸のラベルを表示する |
+| `plt.xlabel("X軸ラベル", labelpad=10)` | x 軸のラベルの位置調整 |
 | `plt.legend()` | 凡例を描画 |
 | `plt.legend(loc="upper right")` | 凡例を描画＋位置指定 |
 
 
-軸
+軸 (axis)
 ----
 
 | コード | 説明 |
 | ---- | ---- |
-| `plt.xlim(0, 10)` | X軸の範囲設定 |
-| `plt.xticks([0, 5, 10], ["Low", "Mid", "High"])` | X軸の目盛りの設定 |
-| `plt.xticks(rotation=45)` | X軸のラベルの回転 |
+| `plt.xlim(0, 10)` | x 軸の範囲設定 |
+| `plt.xticks([0, 5, 10], ["Low", "Mid", "High"])` | x 軸の目盛りの設定 |
+| `plt.xticks(rotation=45)` | x 軸のラベルの回転 |
+| `plt.axis("off")`（ax でも OK）<br/>`plt.gca().set_axis_off()` | すべての軸を非表示にする |
+| `ax.get_xaxis().set_visible(False)`<br/>`ax.get_yaxis().set_visible(False)` | x 軸を非表示にする<br/>y 軸を非表示にする |
+| `plt.tick_params(bottom=False, left=False, right=False, top=False)`<br/>ax でも OK | 指定した位置の軸を非表示にする |
+| `plt.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)`<br/>ax でも OK | 指定した位置の軸目盛りラベルを非表示にする |
 
 
 グリッド線
