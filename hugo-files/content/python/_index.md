@@ -51,35 +51,27 @@ categoryIcon: _index.svg
 構文 <!-- syntax -->
 ----
 
-### モジュール / パッケージ
-
-- [Python でモジュールやパッケージを作成する](/p/n4n5m3i/)
-- [Python でモジュールを import する方法のまとめ](/p/zdxfvct/)
-- [import 時のモジュールの検索パスを調べる (`sys.path`)](/p/o4m4jyg/)
-
-### 型 / 変数
-
-* [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
-* [Python で定数を定義する](syntax/const.html)
-
-### 制御構文
-
-* [Python の if 構文](syntax/if.html)
-* [Python の switch 構文](syntax/switch.html)
-* [range による数値のループ処理いろいろ](loop-with-range.html)
-* [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
-* [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
-
-### メソッド / 関数
-
-* [可変長引数を扱う](syntax/variable-length-args.html)
-
-### クラス
-
-* [クラス定義の基本 (`class`)](/p/ru9mxam/)
-* [オブジェクトを `print` 関数で出力できるようにする (`__str__`)](/p/uatcsaq/)
-* [オブジェクトの属性に名前でアクセスする (`getattr`, `setattr`)](/p/r3m4k2h/)
-* [`dataclass` デコレーターで簡単にデータクラスを定義する](/p/xqkgvb6/)
+- モジュール / パッケージ
+  - [Python でモジュールやパッケージを作成する](/p/n4n5m3i/)
+  - [Python でモジュールを import する方法のまとめ](/p/zdxfvct/)
+  - [import 時のモジュールの検索パスを調べる (`sys.path`)](/p/o4m4jyg/)
+- 型 / 変数
+  - [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
+  - [Python で定数を定義する](syntax/const.html)
+- 制御構文
+  - [Python の if 構文](syntax/if.html)
+  - [Python の switch 構文](syntax/switch.html)
+  - [range による数値のループ処理いろいろ](loop-with-range.html)
+  - [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
+  - [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
+- メソッド / 関数
+  - [Python の関数をキーワード引数を使って呼び出す](/p/jf6kyao/)
+  - [Python の関数で可変長引数を扱う (`*args, **kwargs`)](/p/rcaip63/)
+- クラス
+  - [クラス定義の基本 (`class`)](/p/ru9mxam/)
+  - [オブジェクトを `print` 関数で出力できるようにする (`__str__`)](/p/uatcsaq/)
+  - [オブジェクトの属性に名前でアクセスする (`getattr`, `setattr`)](/p/r3m4k2h/)
+  - [`dataclass` デコレーターで簡単にデータクラスを定義する](/p/xqkgvb6/)
 
 
 型
