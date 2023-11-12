@@ -287,9 +287,13 @@ Web / HTTP <!-- web -->
 - [OpenCV: 画像を閾値で二値化（白黒画像化）する (`cv2.threshold`)](/p/i26mc77/)
 
 {{% private %}}
-- DRAFT: [OpenCV チートシート](/p/dgkrqjo/)
+- [(DRAFT) OpenCV チートシート](/p/dgkrqjo/)
+- [(DRAFT) OpenCV: 画像内の物体の輪郭を検出する (`cv2.findContours`)](/p/ocef2kr/)
 {{% /private %}}
 
+### keras
+
+- [MNIST の手書き数字データをダウンロードして表示する (`keras.datasets.mnists`)](/p/849syej/)
 
 NumPy / pandas / Matplotlib / scikit-learn
 ----
@@ -318,7 +322,7 @@ NumPy / pandas / Matplotlib / scikit-learn
 - [pandas の `DataFrame` のカラムのデータ型を変更する (`df.astype`)](/p/fk2e74z/)
 
 {{% private %}}
-- DRAFT: [pandas の `DataFrame` の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- [(DRAFT) pandas の `DataFrame` の統計値を求める方法のまとめ](/p/q2pm7r3/)
 {{% /private %}}
 
 ### Matplotlib
@@ -326,7 +330,7 @@ NumPy / pandas / Matplotlib / scikit-learn
 - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
 
 {{% private %}}
-- DRAFT: [Matplotlib の出力設定](/p/ghch694/)
+- [(DRAFT) Matplotlib チートシート](/p/ghch694/)
 {{% /private %}}
 
 ### scikit-learn

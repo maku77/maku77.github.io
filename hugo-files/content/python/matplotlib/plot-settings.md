@@ -1,12 +1,17 @@
 ---
-title: "Matplotlib の出力設定チートシート"
+title: "Matplotlib チートシート"
 url: "p/ghch694/"
 date: "2023-10-19"
 tags: ["Matplotlib", "チートシート"]
 draft: true
 ---
 
-Matplotlib の出力設定のまとめです。
+出力
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `fig.savefig("image.svg")` | 画像ファイルとして出力（`ax.plot()` などの後に実行） |
 
 
 プロットサイズ／解像度／背景色
@@ -31,17 +36,6 @@ Matplotlib の出力設定のまとめです。
 | `plt.title("タイトル", pad=20)` | タイトルの位置調整 |
 
 
-ラベルと凡例
-----
-
-| コード | 説明 |
-| ---- | ---- |
-| `plt.xlabel("X軸ラベル")` | x 軸のラベルを表示する |
-| `plt.xlabel("X軸ラベル", labelpad=10)` | x 軸のラベルの位置調整 |
-| `plt.legend()` | 凡例を描画 |
-| `plt.legend(loc="upper right")` | 凡例を描画＋位置指定 |
-
-
 軸 (axis)
 ----
 
@@ -54,6 +48,17 @@ Matplotlib の出力設定のまとめです。
 | `ax.get_xaxis().set_visible(False)`<br/>`ax.get_yaxis().set_visible(False)` | x 軸を非表示にする<br/>y 軸を非表示にする |
 | `plt.tick_params(bottom=False, left=False, right=False, top=False)`<br/>ax でも OK | 指定した位置の軸を非表示にする |
 | `plt.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)`<br/>ax でも OK | 指定した位置の軸目盛りラベルを非表示にする |
+
+
+ラベルと凡例
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `plt.xlabel("X軸ラベル")` | x 軸のラベルを表示する |
+| `plt.xlabel("X軸ラベル", labelpad=10)` | x 軸のラベルの位置調整 |
+| `plt.legend()` | 凡例を描画 |
+| `plt.legend(loc="upper right")` | 凡例を描画＋位置指定 |
 
 
 グリッド線
