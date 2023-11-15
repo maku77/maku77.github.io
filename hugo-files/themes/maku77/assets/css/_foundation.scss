@@ -89,7 +89,7 @@ code {
 
   // 文中で単独で code を使ったときだけ code の背景色を設定する
   // （a や pre の子要素の code には背景色などを付けない）
-  :not(a, pre) > & {
+  :not(a, pre, h1, h2, h3, h4, h5) > & {
     color: $COLOR_CODE;
     background: $COLOR_CODE_BG;
     padding: 0.2em 0.3em;

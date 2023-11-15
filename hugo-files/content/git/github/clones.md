@@ -1,9 +1,12 @@
 ---
-title: "GitHub のプランと GitHub ライクなツールの比較など（GitHub と GitLab の比較）"
+title: "（旧）GitHub のプランと GitHub ライクなツールの比較など（GitHub と GitLab の比較）"
+url: "p/x63is5h/"
 date: "2014-05-14"
+tags: ["GitHub"]
+aliases: /git/github/clones.html
 ---
 
-GitHub (https://github.com/) デファクトスタンダード
+GitHub
 ----
 
 ### Public repository と Private repository プラン
@@ -20,7 +23,7 @@ GitHub (https://github.com/) デファクトスタンダード
 - 若干高い。20 person で $5,000/year
 
 
-GitLab (https://www.gitlab.com/)
+GitLab
 ----
 
 ### 特徴
@@ -33,11 +36,11 @@ GitLab (https://www.gitlab.com/)
 
 ### GitHub より便利なところ
 
-* ユーザに対して Master 権限と Developer 権限を分けて設定することで、master ブランチへマージできる人を制限できる。これにより、チーム内開発において、トピックブランチを使用した開発を強制できるようになる（GitHub フローなど）。
-* MergeRequest のコメントで各ユーザが `+1` と記述しておくと、MergeRequest のページにその合計数が表示される。これを利用して、「`+3` 溜まったらトピックブランチをマージしてよい」といった運用を行うことができる。
+- ユーザに対して Master 権限と Developer 権限を分けて設定することで、master ブランチへマージできる人を制限できる。これにより、チーム内開発において、トピックブランチを使用した開発を強制できるようになる（GitHub フローなど）。
+- MergeRequest のコメントで各ユーザが `+1` と記述しておくと、MergeRequest のページにその合計数が表示される。これを利用して、「`+3` 溜まったらトピックブランチをマージしてよい」といった運用を行うことができる。
 
 
-Gitorious (http://gitorious.org/)
+Gitorious
 ----
 
 ### 特徴

@@ -2,7 +2,7 @@
 title: "GitHub Actions のワークフローをローカルで実行する (act)"
 url: "p/iudtbr8/"
 date: "2022-12-09"
-tags: ["GitHub"]
+tags: ["GitHub/Actions"]
 ---
 
 act とは？

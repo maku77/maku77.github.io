@@ -1,22 +1,25 @@
 ---
-title: "GitHub REST API を Python から使用する"
+title: "GitHub の REST API を Python から使用する"
+url: "p/8axzppz/"
 date: "2020-05-30"
+tags: ["GitHub", "REST"]
+aliases: /git/github/github-rest-with-python.html
 ---
 
 何を作るか？
 ----
 
 Python で GitHub API を利用するアプリケーションを作るときは、GitHub API を実行して情報取得する部分を、1 つのモジュールとして切り出しておくと全体のコードがすっきりします。
-ここでは、サンプルとして `GitHubApi` というクラスを作り、次のようなことを行えるようにします。
+ここでは、実装例として `GitHubApi` というクラスを作り、次のようなことを行えるようにします。
 
 - `get_members()` や `get_issues()` といった直感的な API で GitHub の情報を取得できるようにする
 - オプションでプロキシや Personal Access Token を指定できるようにする
 - ページネーションによる連続アクセスで、多くの情報を一度に取得できるようにする
 
-GitHub の REST API 自体の説明は、下記の記事を参照してください。
+GitHub の REST API に関しては、下記の記事を参照してください。
 
-- [GitHub REST API を使用する](./github-rest-api)
-- [GitHub REST API で Issue 情報を取得する方法いろいろ](./github-rest-api-issues.html)
+- [GitHub の REST API を使用する](/p/mprs3v6/)
+- [GitHub の REST API で Issue 情報を取得する方法いろいろ](/p/uvoibwi/)
 
 
 GitHubApi クラスを実装する
@@ -30,11 +33,9 @@ user = api.get_user('maku77')
 print(user['login'])
 ```
 
-### GitHubApi クラス
+下記は、`GitHubApi` クラスの実装例です。
 
-### github.py
-
-```python
+{{< code lang="python" title="github.py" >}}
 import json
 import re
 import sys
@@ -117,20 +118,21 @@ class GitHubApi:
         if params:
             url = '%s&%s' % (url, urlencode(params))
         return self.__get_json(url, paginate=True)
-```
+{{< /code >}}
 
 最後の方にある `get_xxx` 系のメソッドが、GitHub API を呼び出すための public メソッドです。
 同じようにメソッドを追加していけば、いろいろな GitHub API に対応することができます。
 どのような API があるかは、[GitHub REST API v3 のサイト](https://developer.github.com/v3/) を参照してください。
 
-### ページネーションですべての情報を取得する
+
+ページネーション処理
+----
 
 GitHub API v3 でリポジトリの一覧などを取得すると、デフォルトでは 30 件ずつしか結果を返してくれません。
-クエリ文字列で `per_page=100` と指定すれば 100 件までは一度に取得できるのですが、100 件を超えるすべての情報を取得したいときは、[ページネーションの仕組み](https://developer.github.com/v3/guides/traversing-with-pagination/) を使って何度かに分けて取得する必要があります。
+URL 末尾のクエリパラメーターで `per_page=100` と指定すれば、100 件までは一度に取得できるのですが、100 件を超えるすべての情報を取得したいときは、[ページネーションの仕組み](https://developer.github.com/v3/guides/traversing-with-pagination/) を使って何度かに分けて取得する必要があります。
 
-次ページの情報を取得するときは、`page=2` のようにクエリ指定していけばよいのですが、次ページが存在する場合は HTTP レスポンスの `Link` ヘッダーに次ページのアドレスをセットしてくれるので、このアドレスを使って繰り返しアクセスするのがよいでしょう。
-
-上記のサンプルプログラムでは、`__get_json` メソッドの中で次のようにページネーションを処理しています。
+次ページの情報を取得するときは、`page=2` のようにクエリ指定する必要があるのですが、次ページが存在する場合は HTTP レスポンスの `Link` ヘッダーに次ページのアドレスが含まれているので、このアドレスを使って繰り返しアクセスするのがよいでしょう。
+上記のサンプルコードでは、`__get_json` メソッドの中で次のようにページネーション処理しています。
 次のページがある場合は、再帰的に `__get_json` を呼び出し、その結果を `json_obj` 配列に結合しています。
 
 ```python
@@ -145,7 +147,7 @@ if paginate:
 GitHubApi クラスの使用例いろいろ
 ----
 
-下記は、上で実装した `GitHubApi` クラスを使って、いろいろな情報を取得するサンプルコードです。
+下記は、`GitHubApi` クラスを使って、いろいろな情報を取得するサンプルコードです。
 
 ```python
 from github import GitHubApi

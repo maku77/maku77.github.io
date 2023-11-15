@@ -10,23 +10,23 @@ categoryIcon: _index.svg
 GitHub
 ----
 
-* [Pull Request のコードレビューワーを自動でアサインする](github/auto-assign.html)
-* [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](github/project-portal.html)
-* [GitHub Pages で独自の 404 ページを用意する](github/404-page.html)
-* [GitHub の Organization を構成したときのチームの権限について理解する](github/team-permission.html)
-* [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](github/new-organization-permissions.html)
-* [GitHub のプランと GitHub ライクなツールの比較など](github/clones.html)
-* [GitHub の Markdown でメールアドレスへのリンクを記述する](github/email-address-in-markdown.html)
-* [GitHub REST API を使用する](github/github-rest-api.html)
-    * [GitHub REST API で Issue 情報を取得する方法いろいろ](github/github-rest-api-issues.html)
-    * [GitHub REST API を Python から使用する](github/github-rest-with-python.html)
-* [GitHub で管理している社内リポジトリをトピックで分類する (topics)](/p/3j6qatd/)
-* [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
-* GitHub Actions
-    * [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
-    * [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
+- [Pull Request のコードレビューワーを自動でアサインする](/p/oifj5jn/)
+- [GitHub でソフトウェア配布用にプロジェクトの Web サイトを作成する (GitHub Pages)](/p/yujway4/)
+- [GitHub Pages で独自の 404 ページを用意する](/p/bf2nban/)
+- [GitHub の Organization を構成したときのチームの権限について理解する](/p/x7hr9z7/)
+- [GitHub の新しい Organization パーミッションモデル（2015年10月リリース）について理解する](/p/494ernf/)
+- [GitHub の Markdown でメールアドレスへのリンクを記述する](/p/xikzhtr/)
+- [（旧）GitHub のプランと GitHub ライクなツールの比較など](/p/x63is5h/)
+- [GitHub の REST API を使用する](/p/mprs3v6/)
+  - [GitHub の REST API で Issue 情報を取得する方法いろいろ](/p/uvoibwi/)
+  - [GitHub の REST API を Python から使用する](/p/8axzppz/)
+- [GitHub で管理している社内リポジトリをトピックで分類する (topics)](/p/3j6qatd/)
+- [GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)](/p/ias8kt3/)
+- GitHub Actions
+  - [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
+  - [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
 
-基本
+Git の基本
 ---
 
 * [Git の作業ツリーを作成する (git init, git clone)](basic/init-and-clone.html)
@@ -35,7 +35,7 @@ GitHub
 * [コミット対象になっているファイルを確認する (git status)](basic/status.html)
 * [Git コマンドの長いオプション名を省略して入力する](basic/abbreviate-option.html)
 
-設定
+Git の設定
 ---
 
 * [git config で設定すべき一般的な設定項目まとめ](settings/common.html)

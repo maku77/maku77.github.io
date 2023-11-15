@@ -1,12 +1,10 @@
 ---
 title: "GitHub のオートリンク機能で外部サイトへ ID ベースでリンクする (autolink)"
 url: "p/ias8kt3/"
-permalink: "p/ias8kt3/"
 date: "2020-12-03"
 lastmod: "2022-07-27"
 tags: ["GitHub"]
-redirect_from:
-  - /git/github/autolink
+aliases: /git/github/autolink.html
 ---
 
 オートリンク機能とは
@@ -47,8 +45,8 @@ URL そのものを記述する必要がなくなるので、仕様書サイト�
 1. 対象のリポジトリの __`Settings`__（設定）を選択
 2. サイドバーから __`Autolink references`__ を選択
 3. 次のような感じで Autolink 方法を設定
-    - Reference prefix: __`SPEC-`__
-    - Target URL: __`https://spec.example.com/p/<num>/`__
+   - Reference prefix: __`SPEC-`__
+   - Target URL: __`https://spec.example.com/p/<num>/`__
 
 すると、Issue や PR のコメントとして `SPEC-123` のように記述するだけで、自動的に `https://spec.example.com/p/123/` という URL へリンクされるようになります。
 

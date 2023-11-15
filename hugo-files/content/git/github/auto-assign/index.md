@@ -1,7 +1,9 @@
 ---
-title: "Pull Request のコードレビューワーを自動でアサインする"
+title: "GitHub で Pull Request のコードレビューワーを自動でアサインする"
+url: "p/oifj5jn/"
 date: "2020-10-20"
 tags: ["GitHub"]
+aliases: /git/github/auto-assign.html
 ---
 
 2019年の末に、GitHub にコードレビューワーの自動アサイン機能が[追加](https://github.blog/changelog/2019-11-12-code-review-assignment-beta/)されました。
@@ -14,7 +16,7 @@ tags: ["GitHub"]
 
 自動アサインの設定画面は、チームのページから、__Settings__ → __Code review assignment__ と辿ると開くことができます。
 
-![GitHub Auto Assign](auto-assign-001.png){: .center }
+{{< image w="700" border="true" src="img-001.png" title="GitHub Auto Assign" >}}
 
 上記の例では次のような設定を行っています。
 
