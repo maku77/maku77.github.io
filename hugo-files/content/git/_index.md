@@ -26,6 +26,7 @@ GitHub
   - [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
   - [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
 
+
 Git の基本
 ---
 
@@ -34,6 +35,7 @@ Git の基本
 * [Git で変更をローカルリポジトリにコミットする](basic/commit.html)
 * [コミット対象になっているファイルを確認する (git status)](basic/status.html)
 * [Git コマンドの長いオプション名を省略して入力する](basic/abbreviate-option.html)
+
 
 Git の設定
 ---
@@ -57,6 +59,7 @@ Git の設定
 * [git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)](settings/https-instead-of-git.html)
 * [Git ユーザーをディレクトリごとに自動で切り替える (.gitconfig, includeIf)](/p/hxyiu7g/)
 
+
 コミット／履歴の書き換え
 ---
 
@@ -66,6 +69,7 @@ Git の設定
 * [Git やり直し: 最近のコミットを歴史から抹消する](commit/delete-recent-commits.html)
 * [Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
 * [変更の一部だけをコミットする](commit/commit-by-hunk.html)
+
 
 ログ (git log)
 ----
@@ -81,10 +85,16 @@ Git の設定
 * [ブランチ間の差分を調べる](log/diff-between-branches.html)
 * [リモートブランチとローカルブランチの差分を調べる](log/diff-remote-and-local.html)
 * [コミットログを標準出力へ出力する](log/output-to-stdout.html)
+* 統計情報
+  * [ユーザーごとのコミット統計を出力する (git shortlog)](stats/shortlog.html)
+  * [あるバージョン間の変更行数（追加＆削除）を集計する (git diff --stat, git log --numstat)](stats/count-changes.html)
 
-### 統計情報
-* [ユーザーごとのコミット統計を出力する (git shortlog)](stats/shortlog.html)
-* [あるバージョン間の変更行数（追加＆削除）を集計する (git diff --stat, git log --numstat)](stats/count-changes.html)
+
+grep 検索 (git grep)
+----
+
+- [Git リポジトリ内のコードを grep 検索する (`git grep`)](/p/2c29gvn/)
+
 
 ブランチ (git branch)
 ----
@@ -100,6 +110,7 @@ Git の設定
 * [他のブランチの最新ファイルを現在のブランチにコピーする (`git checkout`)](/p/6g8n3jw/)
 * [detached HEAD 状態へのチェックアウトとは](/p/whv8ues/)
 
+
 マージ (git merge, git cherry-pick)
 ----
 
@@ -113,6 +124,7 @@ Git の設定
 * [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）](merge/find-fast-forward.html)
 * [別の Git リポジトリの内容を強引にマージする](merge/merge-repo.html)
 
+
 差分・パッチファイル (git diff / patch)
 ----
 
@@ -123,6 +135,7 @@ Git の設定
 * [git diff で package-lock.json の差分が表示されるのを防ぐ](diff/node-diff.html)
 * [Git でパッチファイルを作成する](git-patch.html)
 
+
 ファイル操作
 ----
 
@@ -132,11 +145,13 @@ Git の設定
 * [インデックスからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-index.html)
 * [特定のバージョンのファイルの内容を確認する (cat-file)](file/cat-file.html)
 
+
 タグ (git tag)
 ----
 
 * [コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)](/p/y2cmv5d/)
 * [タグの名前を変更する](/p/h4dnw6e/)
+
 
 リポジトリ／サーバー／バックアップ
 ----
@@ -150,11 +165,13 @@ Git の設定
 * [共有リポジトリからの fetch と push](server/fetch-and-push.html)
 * [ソースコードのアーカイブを作成する](create-src-archive.html)
 
+
 hook スクリプト
 ----
 
 * [Git の update フックの基本](update-hook.html)
 * [特定のユーザのみ git push できるように制限する](limit-push-users.html)
+
 
 その他
 ----
@@ -167,6 +184,7 @@ hook スクリプト
 * [Git サブモジュールで別リポジトリの内容を組み込む (`git submodule`)](/p/dsctaq7/)
 
 ### GitLab（GitHub クローン）
+
 * [GitLab をインストールする](gitlab/install.html)
 * [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
 * [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
@@ -178,6 +196,7 @@ hook スクリプト
 * [GitLab サーバのアクセスログを調べる](gitlab/access-log.html)
 
 ### オワコン情報 (Subversion とか CVS とか）
+
 * [git-svn を使って Git と Subversion を連携する](svn/git-svn.html)
 * [CVS のファイルのパーミッションの扱いについて](svn/cvs-file-permission.html)
 * [.svn ディレクトリをまとめて削除する](svn/delete-all-svn-dirs.html)
