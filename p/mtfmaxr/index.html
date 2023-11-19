@@ -16,7 +16,7 @@ Hugo は、デフォルトで <strong>tags</strong> と <strong>categories</stro
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=l>この記事では、`tags` タクソノミーとして「タグ1」「タグ2」というターム、</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w></span><span class=l>`categories` タクソノミーとして「カテゴリ1」「カテゴリ2」というタームを割り当てています。</span></span></span></code></pre></div></div></figure><p>Hugo のデフォルトのタクソノミーとして、<code>tags</code> と <code>categories</code> が用意されています。
 上記ではそれぞれのタクソノミーに <code>タグ1</code> や <code>カテゴリ1</code> といったタームを設定しています。</p><p>それぞれのタクソノミーの使い方は自由ですが、 どのタクソノミーにも複数のタームを割り当てることができます。
-逆に、「1 つのカテゴリには 1 つのページしか所属できない」という設定はできません。
+逆に、「1 種類のタクソノミーには 1 つのタームしか割り当てられない」という設定はできません。
 そのような場合は、単純にフロントマターで <code>categories</code> に割り当てるタームを 1 つだけにする、といった運用でカバーします（それよりは、セクションの機能（ディレクトリ階層）で分けた方がよいですね）。
 参考までに、1 つのページに複数のカテゴリを割り当ててしまった場合にエラー表示する方法を <a href=../../p/5v7o2xp/>こちらで紹介しています</a>。</p><h2 id=タクソノミータームの一覧ページ>タクソノミータームの一覧ページ</h2><p>コンテンツ（記事ページ）に何らかのタクソノミーを割り当てると、タクソノミーごとのターム一覧ページが自動的に生成されます。
 例えば、<code>tags</code> タクソノミーに含まれているタームの一覧ページ（タグの一覧ページ）は、下記のようなアドレスでアクセスできるようになります。</p><pre tabindex=0><code>https://example.com/tags/
