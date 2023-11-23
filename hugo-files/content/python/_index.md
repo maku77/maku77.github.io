@@ -36,9 +36,9 @@ categoryIcon: _index.svg
 - パフォーマンス
   - [Python コードの実行時間を計測する (`datetime.now`)](/p/ubtbs9p/)
 
-### python コマンド／実行環境
+### python コマンド／実行環境 <!-- env -->
 
-- [Python でワンライナーを実行する](one-liner.html)
+- [python コマンドでワンライナーを実行する](/p/oi67p5c/)
 - [Python スクリプトの中で Python のバージョンを確認する (`sys.version`)](env/version.html)
 - [拡張子に関連付けられたアプリケーションでファイルを開く (`os.system`)](env/system-open.html)
 - [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
@@ -132,20 +132,21 @@ categoryIcon: _index.svg
 * [二次元配列をソートする](list/sort-multidimensional-array.html)
 * [2 つのリストに重複する要素を抽出する（`set` と `&`）](/p/58ctg7k/)
 
-### ディクショナリ (Dictionary) <!-- dictionary -->
+### 辞書・ディクショナリ (Dictionary) <!-- dictionary -->
 
-* [dictionary オブジェクトを生成する ({})](dictionary/create.html)
-* [dictionary の要素を参照する ([], get)](dictionary/get.html)
-* [dictionary の要素を削除する (del)](dictionary/del.html)
-* [dictionary の要素数を取得する (len)](dictionary/len.html)
-* [dictionary に指定したキーが存在するか調べる (in)](dictionary/in.html)
-* [キーのリストと値のリストから dictionary を生成する (zip)](dictionary/zip.html)
-* [dictionary からキー、値のリストを作成する (keys, values, items)](dictionary/keys-values.html)
-* [2 つの dictionary をマージする (update)](dictionary/update.html)
-* [dictionary の要素をループで処理する](dictionary/loop.html)
-* [dictionary の要素をソートして出力する](dictionary/sort.html)
-* [dictionary にキーが存在しない場合のみ新しい値を格納する (setdefault)](dictionary/setdefault.html)
-* [dictionary の内部的な要素順序を変更する (`dict`, `OrderedDictionary`)](/p/vexfweu/)
+- [dictionary（辞書）の基本](/p/zpdyxso/)
+  - [dictionary オブジェクトを作成する (`{}`)](/p/zpdyxso/#create)
+  - [dictionary の要素を参照・変更する (`[]`, `get`)](/p/zpdyxso/#get)
+  - [dictionary の要素数を取得する (`len`)](/p/zpdyxso/#len)
+  - [dictionary に指定したキーが存在するか調べる (`in`)](/p/zpdyxso/#in)
+  - [dictionary の要素を削除する (`del`)](/p/zpdyxso/#del)
+  - [dictionary をループ処理する (`items`, `enumerate`)](/p/zpdyxso/#loop)
+- [dictionary の要素をソートして出力する (`sorted`)](/p/qqkggoz/)
+- [キーのリストと値のリストを組み合わせて dictionary を生成する (`zip`)](/p/cmy6ar3/)
+- [dictionary からキーや値のリストを作成する (`keys`, `values`, `items`)](/p/83e3wrw/)
+- [2 つの dictionary をマージする (`update`)](/p/ds9wgfz/)
+- [dictionary にキーが存在しない場合のみ新しい値を格納する (`setdefault`)](/p/bq6yzpr/)
+- [dictionary の内部的な要素順序を変更する (`dict`, `OrderedDictionary`)](/p/vexfweu/)
 
 ### セット (Set) <!-- set -->
 

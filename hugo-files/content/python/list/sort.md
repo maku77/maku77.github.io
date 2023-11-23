@@ -11,26 +11,26 @@ aliases: /python/list/sort.html
 
 ### 昇順ソート
 
-```python
+`list` オブジェクトの __`sort()`__ メソッドを呼び出すと、要素が昇順ソートされます。
+
+{{< code lang="python" hl_lines="2" >}}
 a = [3, 5, 2, 1, 4]
 a.sort()
 print(a)  #=> [1, 2, 3, 4, 5]
-```
+{{< /code >}}
 
-`list` オブジェクトの __`sort`__ メソッドを呼び出すと、要素が昇順ソートされます。
-そのリスト自身の内容が変更されることに注意してください（破壊的メソッドです）。
-なお、タプルは不変なので `sort` することはできません（後述の `sorted` 関数を使います）。
-
+`sort()` メソッドを使用すると、リスト自身の内容が変更されることに注意してください（破壊的メソッドです）。
+なお、タプルは不変なので `sort()` メソッドは使えません（後述の `sorted()` 関数を使います）。
 
 ### 降順ソート
 
-```python
+`sort()` メソッドの __`reverse=True`__ オプションを指定すると、降順ソートすることができます。
+
+{{< code lang="python" hl_lines="2" >}}
 a = [3, 5, 2, 1, 4]
 a.sort(reverse=True)
 print(a)  #=> [5, 4, 3, 2, 1]
-```
-
-`list` を `sort` するときに、__`reverse=True`__ オプションを指定すると、降順にソートされます。
+{{< /code >}}
 
 
 ソート結果を新しいリストで取得する (sorted)
@@ -138,4 +138,10 @@ persons.sort(key=attrgetter('age'))
 ```python
 persons.sort(key=attrgetter('age', 'name'))
 ```
+
+
+参考
+----
+
+- [dictionary の要素をソートして出力する (sorted)](/p/qqkggoz/)
 
