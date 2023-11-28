@@ -1,10 +1,12 @@
 ---
-title: "Python の requests パッケージによる HTTP リクエスト"
+title: "Python の requests パッケージによる HTTP リクエストの例"
 url: "p/r7q8q7o/"
 date: "2015-05-18"
 tags: ["Python", "HTTP"]
 aliases: /python/web/http-request-with-requests-package.html
 ---
+
+参考: [requests パッケージのチートシート](/p/succ4mb/)
 
 requests パッケージのインストール
 ----

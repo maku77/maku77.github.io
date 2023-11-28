@@ -18,27 +18,30 @@ Python の dictionary（辞書）は、キーと値のペアで構成された�
 他の言語では、マップやハッシュと呼ばれていたりします。
 
 
-dictionary オブジェクトを生成する ({}) {#create}
+dictionary オブジェクトを生成する ({}, dict) {#create}
 ----
 
-dictionary は __`{}`__ 記号を使って生成できます。
+dictionary は __`{}`__ あるいは、__`dict()`__ を使って生成できます。
 Python の dictionary は、JavaScript のオブジェクトにそっくりです。
 
 ### 空の dictionary を作成する
 
-{{< code lang="python" hl_lines="1" >}}
-d = {}  # 空の辞書を作成する
+{{< code lang="python" hl_lines="1 2" >}}
+d = {}      # 空の辞書を作成する
+d = dict()  # 別の方法
 
-print(len(d))   #=> 0
 print(type(d))  #=> <class: 'dict'>
+print(len(d))   #=> 0
 {{< /code >}}
 
 ### 初期値を持つ dictionary を作成する
 
 dictionary オブジェクトを生成するときに、キーと値のペアを列挙することで、初期値を設定できます。
+`{}` を使った初期化用の構文を使うか、`dict()` 関数に[キーワード引数](/p/jf6kyao/)の形で初期値を指定します。
 
-{{< code lang="python" hl_lines="1" >}}
+{{< code lang="python" hl_lines="1 2" >}}
 d = {'one': 1, 'two': 2}  # 初期値を持つ辞書を作成する
+d = dict(one=1, two=2)    # 別の方法
 
 print(d['one'])    #=> 1
 print(d['two'])    #=> 2
@@ -49,14 +52,15 @@ print(d['three'])  #=> KeyError
 dictionary の要素を参照・変更する ([], get) {#get}
 ----
 
-Python で dictionary オブジェクトの要素を参照するには下記のようにします。
+Python で dictionary オブジェクトの要素を参照するには下記のように __`[]`__ でキーを指定します。
+キーが存在しない場合は、`KeyError` が発生します。
 
 ```python
 val = d['key']  # 要素を参照する
 d['key'] = val  # 要素を追加する
 ```
 
-キーが存在しない場合に、デフォルト値を返したい場合は `get` メソッドを使用します。
+キーが存在しない場合に、デフォルト値を返したい場合は __`get()`__ メソッドを使用します。
 
 ```python
 val = d.get('key', default=None)
@@ -68,8 +72,8 @@ val = d.get('key', default=None)
 dictionary の要素数を取得する (len) {#len}
 ----
 
-Python で dictionary オブジェクトの要素数を調べるには、組み込み関数の __`len`__ を使用します。
-`len` 関数は dictionary のメソッドではないことに注意してください。
+Python で dictionary オブジェクトの要素数を調べるには、組み込み関数の __`len()`__ を使用します。
+`len()` 関数は dictionary のメソッドではないことに注意してください。
 
 ```python
 >>> d = {'one': 1, 'two': 2, 'three': 3}
@@ -77,7 +81,7 @@ Python で dictionary オブジェクトの要素数を調べるには、組み�
 3
 ```
 
-ちなみに、`list` や `tuple` オブジェクトの要素数や、文字列 (`str`) の文字数を調べる場合も、同様に組み込み関数の `len` を使用します。
+ちなみに、`list` や `tuple` オブジェクトの要素数や、文字列 (`str`) の文字数を調べる場合も、同様に組み込み関数の `len()` を使用します。
 
 
 dictionary に指定したキーが存在するか調べる (in) {#in}
@@ -91,7 +95,7 @@ if 'key1' in d:
 ```
 
 {{% note title="has_key メソッドはなくなった" %}}
-Python 2 の頃は、下記のように `has_key` メソッドを使用することができましたが、Python 3 以降は `in` キーワードしか使用できなくなりました。
+Python 2 の頃は、下記のように `has_key()` メソッドを使用することができましたが、Python 3 以降は `in` キーワードしか使用できなくなりました。
 
 ```python
 if d.has_key('key1'):

@@ -134,14 +134,17 @@ categoryIcon: _index.svg
 
 ### 辞書・ディクショナリ (Dictionary) <!-- dictionary -->
 
+- [dictionary（辞書）チートシート](/p/2tyvjmh/)
 - [dictionary（辞書）の基本](/p/zpdyxso/)
-  - [dictionary オブジェクトを作成する (`{}`)](/p/zpdyxso/#create)
+  - [dictionary オブジェクトを作成する (`{}`, `dict`)](/p/zpdyxso/#create)
   - [dictionary の要素を参照・変更する (`[]`, `get`)](/p/zpdyxso/#get)
   - [dictionary の要素数を取得する (`len`)](/p/zpdyxso/#len)
   - [dictionary に指定したキーが存在するか調べる (`in`)](/p/zpdyxso/#in)
   - [dictionary の要素を削除する (`del`)](/p/zpdyxso/#del)
   - [dictionary をループ処理する (`items`, `enumerate`)](/p/zpdyxso/#loop)
 - [dictionary の要素をソートして出力する (`sorted`)](/p/qqkggoz/)
+  - [キーでソートしてループ（昇順/降順）](/p/qqkggoz/#sort-by-key)
+  - [値でソートしてループ（昇順/降順）](/p/qqkggoz/#sort-by-value)
 - [キーのリストと値のリストを組み合わせて dictionary を生成する (`zip`)](/p/cmy6ar3/)
 - [dictionary からキーや値のリストを作成する (`keys`, `values`, `items`)](/p/83e3wrw/)
 - [2 つの dictionary をマージする (`update`)](/p/ds9wgfz/)
@@ -243,7 +246,8 @@ Web / HTTP <!-- web -->
   - [urllib による HTTP 通信 (4) Basic 認証 (`urllib.request.HTTPBasicAuthHandler`)](/p/4yiygwe/)
   - [urllib による HTTP 通信 (5) ヘッダを付けてリクエストする](/p/i4zkqye/)
   - [urllib による HTTP 通信 (6) レスポンスヘッダを取得する](/p/wewevcs/)
-- [requests パッケージによる HTTP 通信](/p/r7q8q7o/)
+- [requests パッケージのチートシート](/p/succ4mb/)
+  - [requests パッケージによる HTTP 通信の例](/p/r7q8q7o/)
 - サンプルコード
   - [Web サイトのサイトマップ (sitemap.xml) からすべての URL を抽出する](/p/bp9q8p6/)
 

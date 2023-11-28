@@ -9,7 +9,7 @@ changes:
 aliases: /python/dictionary/sort.html
 ---
 
-キーでソートして出力
+キーでソートして出力 {#sort-by-key}
 ----
 
 Python の dictionary の要素をキー順に取り出すには、__`dict.keys()`__ メソッドで dictionary からキーの一覧を取り出し、それを __`sorted()`__ 関数で昇順ソートしてループ処理します。
@@ -38,7 +38,7 @@ AAA 300
 {{< /code >}}
 
 
-値でソートして出力
+値でソートして出力 {#sort-by-value}
 ----
 
 `sorted()` 関数の __`key`__ パラメーターをうまく使うと、dictionary の「値」によりソートされたキーを列挙できます。
