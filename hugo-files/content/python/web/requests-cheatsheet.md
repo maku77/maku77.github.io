@@ -27,15 +27,15 @@ import requests
     <td>GET リクエスト</td>
   </tr>
   <tr>
-    <td><pre><code>res = requests.get(URL, headers={"key", "val"})</code></pre></td>
+    <td><pre><code>res = requests.get(URL, headers={"key": "val"})</code></pre></td>
     <td>ヘッダーの設定</td>
   </tr>
   <tr>
-    <td><pre><code>res = requests.get(URL, params={"key", "val"})</code></pre></td>
+    <td><pre><code>res = requests.get(URL, params={"key": "val"})</code></pre></td>
     <td>クエリパラメータの設定</td>
   </tr>
   <tr>
-    <td><pre><code>res = requests.get(URL, cookies={"key", "val"})</code></pre></td>
+    <td><pre><code>res = requests.get(URL, cookies={"key": "val"})</code></pre></td>
     <td>クッキーの設定</td>
   </tr>
   <tr>
