@@ -1,6 +1,11 @@
 ---
 title: "JavaScript"
-layout: category-index
+url: "/js/"
+date: "2023-12-01"
+
+categoryName: "まくまく JavaScript ノート"
+categoryUrl: "/js/"
+categoryIcon: logo-javascript.svg
 ---
 
 はじめに
@@ -24,33 +29,45 @@ layout: category-index
 - [ある処理を 1 秒間に何回実行できるかプロファイリングする](debug/profile-function.html)
 
 
-数値／文字列 (Number/String)
+数値／文字列 (Number/String) <!-- numstr -->
 ----
 
 ### 数値
+
 - [実数の小数点数以下を丸めて整数に変換する (floor, ceil, round)](numstr/real-to-int.html)
 - [数値の小数点以下 N 桁までに丸めて表示する (toFixed)](numstr/tofixed.html)
 
 ### 文字列
-- [new String は避ける](string/dont-use-new-string.html)
-- [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal)](string/template-literal.html) (ECMAScript 2015)
-- [== と === による文字列比較の違い](string/compare.html)
+
+{{% private %}}
+- [JavaScript の文字列処理チートシート](/p/y4ccxc8/)
+{{% /private %}}
+
+- [`new String` は避ける](string/dont-use-new-string.html)
+- [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal) (ECMAScript 2015)](string/template-literal.html)
+- [`==` と `===` による文字列比較の違い](string/compare.html)
 - [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
 - [文字列と文字列、数値を結合する](string/concat.html)
 - [文字列と数値を変換する](string/convert.html)
-- [文字列の小文字と大文字を変換する (toLowerCase, toUpperCase)](string/uppercase.html)
-- [文字列の中から文字列を検索する (String#search, RegExp#test)](string/search.html)
-- [文字列内に NG ワード（禁止語句）が含まれていないか調べる (RegExp#test)](string/ng-word.html)
-- [文字列を置換する (replace)](string/replace.html)
-- [文字列をデリミタで分割する／１文字ずつに分割する (split)](string/split.html)
-- [文字列から正規表現パターンに一致する部分を取り出す (String#match, RegExp#exec)](string/match.html)
-- [文字列の先頭と末尾の空白を削除する (String#trim)](string/trim.html) (ECMAScript 2015)
-- [文字列の長さを取得する (length)](string/length.html)
-- [部分文字列を取得する (substring, slice)](string/substring.html)
-- [文字列内の１文字を取得する／１文字ずつループ処理する (charAt)](string/char-at.html)
-- [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
-- [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize)](string/normalize.html) ECMAScript2015
+- [文字列の小文字と大文字を変換する (`toLowerCase`, `toUpperCase`)](string/uppercase.html)
+- 検索
+  - [文字列の中から文字列を検索する (`String#search`, `RegExp#test`)](/p/p5nx3n9/)
+  - [文字列内に NG ワード（禁止語句）が含まれていないか調べる (`RegExp#test`)](string/ng-word.html)
+- 分割／抽出
+  - [文字列をデリミタで分割する／1文字ずつに分割する (`String#split`)](/p/dpp4v8n/)
+  - [文字列から正規表現パターンに一致する部分を取り出す (`String#match`, `RegExp#exec`)](/p/tvuztbm/)
+- 置換
+  - [文字列を置換する (`String#replace`, `String#replaceAll`)](/p/8pnuzk4/)
+- 編集
+  - [文字列の先頭と末尾の空白を削除する (`String#trim`) (ECMAScript 2015)](string/trim.html)
+  - [文字列を指定の長さになるまでパディング（埋め合わせ）する (`String#padStart`, `#String#padEnd`)](/p/buatano/)
+- [文字列の長さを取得する (`length`)](string/length.html)
+- [部分文字列を取得する (`substring`, `slice`)](string/substring.html)
+- [文字列内の1文字を取得する／1文字ずつループ処理する (`charAt`)](string/char-at.html)
+- [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize) (ECMAScript2015)](string/normalize.html)
 - [文字列内のひらがなとカタカナを変換する](string/convert-kana.html)
+- 旧記事
+  - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
 
 
 配列／連想配列 (Array)
@@ -93,29 +110,29 @@ layout: category-index
 
 ### 関数
 - [関数を定義する](syntax/define-function.html)
-- [デフォルト引数を扱う関数を定義する (Default parameters)](syntax/default-param.html) (ECMAScript 2015)
+- [デフォルト引数を扱う関数を定義する (Default parameters) (ECMAScript 2015)](syntax/default-param.html)
 - [可変長引数を扱う関数を定義する (arguments)](syntax/variable-length-argument.html)
 - [関数の仮引数の数を取得する](syntax/aug-length.html)
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
-- [アロー関数で関数を定義する](syntax/arrow-function.html) (ECMAScript 2015)
+- [アロー関数で関数を定義する (ECMAScript 2015)](syntax/arrow-function.html)
 
 ### 変数／定数／名前空間
-- [変数定義には var ではなく let や const を使用する](syntax/let-const.html) (ECMAScript 2015)
+- [変数定義には `var` ではなく `let` や `const` を使用する (ECMAScript 2015)](syntax/let-const.html)
 - [JavaScript で定数を定義する (const)](syntax/const.html)
 - [JavaScript ではグローバル変数も関数も全てプロパティ](syntax/global-object.html)
 - [関数内からしか参照できないプライベート関数を定義する](syntax/private-scope-function.html)
 - 分割代入 (Destructuring assignment)
-    - [分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring)](syntax/object-destructuring.html) (ECMAScript 2015)
+    - [分割代入によりオブジェクトの特定のプロパティだけを単独変数に取得する (Object destructuring) (ECMAScript 2015)](syntax/object-destructuring.html)
 
 ### オブジェクト
 - [オブジェクトの基本](object/basic.html)
 - [オブジェクトのプロパティを列挙する (for-in)](object/enum-properties.html)
 - [2つのオブジェクトのプロパティをマージする（...スプレッド演算子、Object.assign）](object/merge-properties.html)
-- [Property Shorthand の記法で複数の変数をひとつのオブジェクトにまとめる](object/property-shorthand.html) (ECMAScript 2015)
+- [Property Shorthand の記法で複数の変数をひとつのオブジェクトにまとめる (ECMAScript 2015)](object/property-shorthand.html)
 
 ### クラス
-- [クラスを定義する (class)](class/class.html) (ECMAScript 2015)
+- [クラスを定義する (class) (ECMAScript 2015)](class/class.html)
 - [クラス定数／クラス変数／クラスメソッドを定義する](object/class-const.html)
 - [あるオブジェクトが特定のクラスのインスタンスであるかを調べる (instanceof, constructor)](object/instanceof.html)
 - [クラスに toString() メソッドを実装する](object/to-string.html)
@@ -132,8 +149,8 @@ layout: category-index
 
 非同期処理
 ----
-- [Promise オブジェクトで連続するコールバック処理を簡潔に記述する](async/promise.html) (ECMAScript 2015)
-- [Promise な非同期処理を async/await でさらに読みやすくする](async/async-await.html) (ECMAScript 2017)
+- [Promise オブジェクトで連続するコールバック処理を簡潔に記述する (ECMAScript 2015)](async/promise.html)
+- [Promise な非同期処理を async/await でさらに読みやすくする (ECMAScript 2017)](async/async-await.html)
 
 
 HTML/DOM 操作
@@ -141,7 +158,7 @@ HTML/DOM 操作
 
 ### 要素
 
-- [HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索](dom/get-element1.html)
+- [HTML の DOM 要素を取得する (1) タグ名、クラス名、ID を検索](/p/on7omgt/)
 - [HTML の DOM 要素を取得する (2) 親要素、子要素、兄弟要素を検索](dom/get-element2.html)
 - [HTML の DOM ツリーに要素を追加する](dom/add-element.html)
 - [HTML 要素に独自の data 属性（カスタム属性）を設定する](dom/data-attribute.html)
