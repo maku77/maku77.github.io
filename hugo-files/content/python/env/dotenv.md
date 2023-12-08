@@ -9,7 +9,7 @@ aliases: /python/env/dotenv.html
 python-dotenv モジュールの概要
 ----
 
-[python-dotenv モジュール](https://pypi.org/project/python-dotenv/) を使用すると、Python プログラム実行時に次のような __`.env`__ ファイルを読み込んで、環境変数を設定することができます。
+[python-dotenv](https://pypi.org/project/python-dotenv/) モジュールを使用すると、Python プログラム実行時に次のような __`.env`__ ファイルを読み込んで、環境変数を設定することができます。
 
 {{< code lang="ini" title=".env" >}}
 MYAPP_USER=maku
@@ -35,12 +35,13 @@ python-dotenv モジュールのインストール
 $ python3 -m pip install python-dotenv
 ```
 
-システム全体の Python 実行環境を汚したくない場合は、次のように [仮想環境を作成してインストール](/p/wozpogm/) しましょう。
+{{% note title="venv 仮想環境を使う" %}}
+システム全体の Python 実行環境を汚したくない場合は、次のように [venv 仮想環境を作成](/p/wozpogm/) して、そこにインストールしましょう。
 
 ```
-$ python3 -m venv ~/venv
-$ source ~/venv/bin/activate
-(venv) $ python3 -m pip install python-dotenv
+$ python3 -m venv venv
+$ source venv/bin/activate
+(venv) $ pip install python-dotenv
 ```
 
 仮想環境は次のように抜けられます。
@@ -48,6 +49,7 @@ $ source ~/venv/bin/activate
 ```
 (venv) $ deactivate
 ```
+{{% /note %}}
 
 
 python-dotenv の使い方
@@ -58,28 +60,16 @@ python-dotenv の使い方
 `.env` ファイルを読み込むのはとても簡単で、__`load_dotenv()`__ を呼び出すだけです。
 次の Python スクリプトでは、同じディレクトリ（あるいは、より上位のディレクトリ）に置かれた `.env` ファイルの内容を読み込み、環境変数に反映しています。
 
-{{< code lang="python" title="config.py" >}}
-# .env ファイルをロードして環境変数へ反映
+{{< code lang="python" title=".env を環境変数に反映" >}}
 from dotenv import load_dotenv
-load_dotenv()
 
-# 環境変数を参照
-import os
-MYAPP_USER = os.getenv("MYAPP_USER")
-MYAPP_PASS = os.getenv("MYAPP_PASS")
+load_dotenv()  # Load environment variables from .env file
 {{< /code >}}
 
+基本的な使い方としては、これだけで OK です。
 仮に、`.env` ファイルが存在しなくても、`load_dotenv()` はエラーにならないので、上記のようなコードは安心して実行することができます。
-ちなみに、上記の `config.py` モジュールは、次のような感じで使用します。
 
-{{< code lang="python" title="main.py" >}}
-import config
-
-print(config.MYAPP_USER)
-print(config.MYAPP_PASS)
-{{< /code >}}
-
-### 環境変数の値を上書きする (override)
+### OS の環境変数を上書きする (override)
 
 OS の環境変数設定で、すでに同じ名前の変数が定義されている場合は、そちらが優先して使われるようになっています。
 `.env` ファイルで設定した値を優先して使いたい場合は、次のように __`override`__ オプションを指定します。
@@ -88,6 +78,28 @@ OS の環境変数設定で、すでに同じ名前の変数が定義されて�
 from dotenv import load_dotenv
 load_dotenv(override=True)
 ```
+
+### （おまけ）config モジュール化する
+
+次の `config.py` は、アプリケーション全体のコンフィグ情報を管理するモジュールの実装例です。
+
+{{< code lang="python" title="config.py" >}}
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
+MYAPP_USER = os.getenv("MYAPP_USER")
+MYAPP_PASS = os.getenv("MYAPP_PASS")
+{{< /code >}}
+
+この `config` モジュールを使えば、アプリケーションのどこからでも次のようにコンフィグ情報を参照できるようになります。
+
+{{< code lang="python" title="main.py" >}}
+import config
+
+print(config.MYAPP_USER)
+print(config.MYAPP_PASS)
+{{< /code >}}
 
 
 .env ファイルの扱い方

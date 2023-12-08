@@ -1,5 +1,5 @@
 ---
-title: "Python の実行環境を切り替えて使用する (virtualenv) Python3.2まで"
+title: "Python の実行環境を virtualenv で切り替える（Python 3.2 以前）"
 date: "2018-04-28"
 url: "p/yqjs3aw/"
 tags: ["Python"]
