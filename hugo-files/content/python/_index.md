@@ -339,6 +339,10 @@ NumPy / pandas / Matplotlib / scikit-learn
   - [scikit-learn で特徴量の標準化を行う](/p/btov27k/)
 {{% /private %}}
 
+{{% private %}}
+### PyTorch
+- [PyTorch チートシート](/p/c8rd5tg/)
+{{% /private %}}
 
 
 wxPython
