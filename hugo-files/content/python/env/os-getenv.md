@@ -2,8 +2,9 @@
 title: "Python で環境変数を参照する (os.getenv, os.environ)"
 url: "p/y8hs5w6/"
 date: "2020-01-29"
-lastmod: "2023-06-07"
+lastmod: "2023-12-13"
 changes:
+  - 2023-12-13: 環境変数の値として空文字が設定されている場合の扱いについて
   - 2023-06-07: 記事をリファイン
 tags: ["Python"]
 aliases: /python/env/os-getenv.html
@@ -97,7 +98,7 @@ def load_env_or_exit(env_name: str) -> str:
     設定されていない場合はエラーメッセージを表示してプログラムを終了します。
     """
     env_val = os.getenv(env_name)
-    if env_val is None:
+    if not env_val:
         sys.exit(f"Error: {env_name} not set. Please consider adding a .env file with {env_name}.")
     return env_val
 
@@ -105,6 +106,11 @@ def load_env_or_exit(env_name: str) -> str:
 MYAPP_USER = load_env_or_exit("MYAPP_USER")
 MYAPP_PASS = load_env_or_exit("MYAPP_PASS")
 {{< /code >}}
+
+{{% note %}}
+環境変数の値として明示的に空文字 (`""`) がセットされているときにエラーにしたくない場合は、上記の `if not env_val:` の部分を `if env_val is None:` に変更します。
+`env_val` が文字列型の場合、`if not env_val:` という条件指定は、`if env_val is None or env_val == "":` と同じ意味になります。
+{{% /note %}}
 
 さらに、[.env ファイルを使って環境変数を設定できるようにしておく](/p/gzo8d7y/)と、よりユーザーにとって扱いやすいプログラムになります。
 
