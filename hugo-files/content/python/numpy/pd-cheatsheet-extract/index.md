@@ -147,32 +147,95 @@ pandas の DataFrame から部分データを抽出する方法のまとめで�
 - 参考: [pandas.DataFrame から部分データを抽出する](/p/8j4k3iy/)
 
 
-値の条件指定による絞り込み
+条件指定による行の抽出
 ----
 
-```python
-# 指定した列の値が条件に一致する行を抽出
-df[df["列名"] >= 10]
-df[df["列名"] == 10]
-df[df["列名"] == "AAA"]
-
-# 指定した列の値が "AAA" または "BBB" である行を抽出
-df[df["列名"].isin(["AAA", "BBB"])]
-
-# 指定した列の値にある部分文字列を含む／含まない行を抽出
-df[df["列名"].str.contains("部分文字列")]   # 部分文字列を含む
-df[~df["列名"].str.contains("部分文字列")]  # 部分文字列を含まない
-
-# 指定した列に値が存在する行だけを抽出する
-df[df["列名"].notna()]
-
-# 条件の組み合わせ
-df[(df["列名"] >= 0) & (df["列名"] < 10)]  # AND 条件
-df[(df["列名"] == "AAA") | (df["列名"] == "BBB")]  # OR 条件
-
-# 指定した列の値で条件フィルタしつつ、特定の列だけ抽出する
-df.loc[df["列名"] > 0, ["列1", "列2", "列3"]]
-```
+<table>
+  <thead>
+    <tr>
+      <th>コード</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>df[df["X1"] >= 10]</code><br/>
+        <code>df.query("X1 >= 10")</code>
+      </td>
+      <td>X1 列の値が <code>10</code> 以上の行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"] == 10]</code><br/>
+        <code>df.query("X1 == 10")</code>
+      </td>
+      <td>X1 列の値が <code>10</code> の行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"] != 10]</code><br/>
+        <code>df.query("X1 != 10")</code>
+      </td>
+      <td>X1 列の値が <code>10</code> ではない行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"] == "AAA"]</code><br/>
+        <code>df.query("X1 == 'AAA'")</code>
+      </td>
+      <td>X1 列の値が <code>"AAA"</code> の行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"].isin(["AAA", "BBB"])]</code>
+      </td>
+      <td>X1 列の値が <code>"AAA"</code> または <code>"BBB"</code> である行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[~df["X1"].isin(["AAA", "BBB"])]</code>
+      </td>
+      <td>X1 列の値が <code>"AAA"</code> でも <code>"BBB"</code> でもない行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"].str.contains("AAA")]</code>
+      </td>
+      <td>X1 列に <code>"AAA"</code> を含む行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[~df["X1"].str.contains("AAA")]</code>
+      </td>
+      <td>X1 列に <code>"AAA"</code> を含まない行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[df["X1"].notna()]</code>
+      </td>
+      <td>X1 列に値が存在する行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[(df["X1"] >= 0) & (df["X1"] < 10)]</code>
+      </td>
+      <td>AND 条件で行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df[(df["X1"] == 0) | (df["X2"] == "AAA")]</code>
+      </td>
+      <td>OR 条件で行を抽出</td>
+    </tr>
+    <tr>
+      <td>
+        <code>df.loc[df["X1"] > 0, ["X1", "X2", "X3"]]</code>
+      </td>
+      <td>行を抽出して、ついでに列を絞り込む</td>
+    </tr>
+  </tbody>
+</table>
 
 
 （おまけ）テストデータ

@@ -17,7 +17,7 @@ DataFrame 加工のチートシート
   </thead>
   <tbody>
     <tr>
-      <td>新しいカラムの作成（すべて同じ値）</td>
+      <td><a href="#new-column">新しいカラムの作成（すべて同じ値）</a></td>
       <td><code>df["列"] = スカラー値</code></td>
     </tr>
     <tr>
@@ -66,7 +66,7 @@ DataFrame 加工のチートシート
       </td>
     </tr>
     <tr>
-      <td><a href="#get_dummies">値ごとに 0/1 表現の列を作成する</a></td>
+      <td><a href="#get_dummies">値ごとに 0/1 表現の列を作成</a></td>
       <td>
         <code>df2 = pd.get_dummies(df)</code><br />
         <code>df2 = pd.get_dummies(df, columns=["列1", "列2"])</code>
@@ -82,10 +82,30 @@ DataFrame 加工のチートシート
       </td>
     </tr>
     <tr>
-      <td><a href="/p/fk2e74z/">各カラムのデータ型を変更する</a></td>
+      <td><a href="/p/fk2e74z/">各カラムのデータ型を変更</a></td>
       <td>
         <code>df2 = df.astype({"列1": "int64", "列2": "float64"})</code>
       </td>
+    </tr>
+    <tr>
+      <td><a href="/d/fk2e74z/">X1 列の型を float に変換</a></td>
+      <td>
+        <code>df.loc[:, "X1"] = df.loc[:, "X1].astype(float)</code><br />
+        <code>df["X1"] = df["X1"].astype(float)</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        重複する行を削除<br />
+        <ul>
+          <li><code>keep="last"</code> ... 最初ではなく最後の行を残す</li>
+          <li><code>subset=[...]</code> ... 指定した列の値が等しければ重複行とみなす</li>
+        </ul>
+      </td>
+      <td>
+        <code>df.drop_duplicates()</code><br />
+        <code>df.drop_duplicates(keep="last")</code><br />
+        <code>df.drop_duplicates(subset=["X1", "X2"])</code>
       </td>
     </tr>
   </tbody>
@@ -96,16 +116,19 @@ DataFrame 加工のチートシート
 ----
 
 ```python
-# 既存の列の値をもとにして新しい列を作成（既存の DataFrame に追加）
-df["NewCol"] = df["列"] + 100
-df["NewCol"] = df["列1"] + df["列2"]
+# 値が 0 の新しい列 X1 を作成する（あるいは上書き）
+df["X1"] = 0
 
-# 同上（ただし新しい DataFrame を作成する）
-df.assign(NewCol=df["列"] + 100)
-df.assign(NewCol=df["列1"] + df["列2"])
+# 列 X1 の値をもとに新しい列 X2 を作成する（あるいは上書き）
+df["X2"] = df["X1"] + 100           # 既存の DataFrame を変更する場合
+df2 = df.assign(X2=df["X1"] + 100)  # 新しい DataFrame を作る場合
+
+# 列 X1 と X2 の値をもとに新しい列 X3 を作成する（あるいは上書き）
+df["X3"] = df["X1"] + df["X2"]     # 既存の DataFrame を変更する場合
+df.assign(X3=df["X1"] + df["X2"])  # 新しい DataFrame を作る場合
 
 # 任意の変換関数を適用する（下記は np.sqrt 関数で平方根を生成する例）
-df["NewCol"] = df["列"].apply(np.sqrt)
+df["X2"] = df["X1"].apply(np.sqrt)
 ```
 
 

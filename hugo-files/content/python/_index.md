@@ -319,7 +319,7 @@ NumPy / pandas / Matplotlib / scikit-learn
 - [pandas の `DataFrame` のカラムのデータ型を変更する (`df.astype`)](/p/fk2e74z/)
 
 {{% private %}}
-- [(DRAFT) pandas の `DataFrame` の統計値を求める方法のまとめ](/p/q2pm7r3/)
+- [(DRAFT) `DataFrame` のデータ集計方法まとめ](/p/q2pm7r3/)
 {{% /private %}}
 
 ### Matplotlib

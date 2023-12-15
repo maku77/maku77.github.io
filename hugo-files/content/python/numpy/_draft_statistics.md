@@ -1,5 +1,5 @@
 ---
-title: "DRAFT - pandas で DataFrame を解析する方法まとめ（統計＆集計）"
+title: "DRAFT: pandas チートシート - DataFrame の集計方法まとめ（統計＆集計）"
 url: "p/q2pm7r3/"
 date: "2023-09-03"
 tags: ["pandas"]
@@ -18,9 +18,11 @@ draft: true
 | [主要な統計値](#describe) | `df.describe()` | Non-null 数、平均値、標準偏差、最小値、最大値、四分位数 |
 | [ユニークな要素を列挙](#unique) | `df["列"].unique()` | |
 | [ユニークな要素をカウント](#value_counts) | `df["列"].value_counts()` | |
-| [条件に一致する値をカウント](#condition_sum) | `(df["列"] == 値).sum()` | |
+| [条件に一致する値をカウント](#condition_sum) | `(df["列"] >= 値).sum()` | |
 | [列と列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
 | [グループ化してから集計](#groupby) | `df.groupby(["列"]).mean()` | `mean()` の部分は任意の統計関数に置換可 |
+| あるカラムの値を合計 | `df["列"].sum()` |
+| あるカラムの平均値 | `df["列"].mean()` |
 
 
 DataFrame の基本情報
@@ -123,6 +125,8 @@ Name: proportion, dtype: float64
 >>> (df["fruit"] == "apple").sum()
 3
 ```
+
+内部的には、True/False の一次元 Series を生成し、True の数を合計するという処理になっています。
 
 
 相関係数 {#corrwith}
