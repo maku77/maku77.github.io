@@ -22,9 +22,10 @@ categoryIcon: _index.svg
 
 ### 開発ツール／デバッグ／ユニットテスト
 
-- 仮想環境
-  - [Python の実行環境を venv で切り替える](/p/wozpogm/)
-  - [Python の実行環境を virtualenv で切り替える（Python 3.2 以前）](/p/yqjs3aw/)
+- 実行環境／仮想環境
+  - [python コマンドのバージョンを切り替える (pyenv, py)](/p/x4z298a/)
+  - [Python の実行環境を venv で切り替える（仮想環境）](/p/wozpogm/)
+  - [Python の実行環境を virtualenv で切り替える（仮想環境）（Python 3.2 以前）](/p/yqjs3aw/)
 - パッケージ
   - [Python のパッケージ管理ツール (pip) の使い方](/p/7o9q8p6/)
   - [Python スクリプトを Windows の実行ファイル (.exe) に変換する (`py2exe`)](/p/kyj2izf/)

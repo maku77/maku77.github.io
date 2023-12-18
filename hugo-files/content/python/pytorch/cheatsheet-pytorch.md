@@ -11,8 +11,10 @@ draft: true
 
 | コード | 説明 |
 | ---- | ---- |
+| `$ pip install torch` | PyTorch のインストール |
 | `torch.__version__` | PyTorch のバージョン |
 | `torch.cuda.is_available()` | CUDA が有効 or 無効 |
+
 
 テンソルの作成
 ----
@@ -30,6 +32,17 @@ draft: true
 | `t = torch.rand(2, 3)` | ランダム値（0.0〜1.0）の 2 次元テンソルを作成（2行3列） |
 | `t = torch.randn(3)` | 正規分布（平均0、分散1）のランダム値の 1 次元テンソルを作成 |
 | `t = torch.randn(2, 3)` | 正規分布（平均0、分散1）のランダム値の 2 次元テンソルを作成（2行3列） |
+
+
+行と列の抽出
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `t[row_index]` | 1 行の抽出 |
+| `t[start:end]` | 複数行の抽出 |
+| `t[:, col_index]` | 1 列の抽出 |
+| `t[:, [col1_index, col2_index, col3_index]]` | 複数列の抽出 |
 
 
 メモ

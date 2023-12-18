@@ -117,6 +117,34 @@ venv\Scripts\activate.bat
 {{< /code >}}
 
 
+特定のバージョンの Python を使う仮想環境を作成する
+----
+
+`venv` 環境内で実行される `python` のバージョンは、`venv` 環境を作成するときに実行した `python` のバージョンと同じになります。
+仮想環境内で任意のバージョンの `python` コマンドを使いたい場合は、`venv` 環境を作るときにそのバージョンの `python` コマンドを使用する必要があります。
+
+`python` コマンドのバージョンを切り替えるには、`pyenv` コマンド (Linux/macOS) や `py` コマンド (Windows) を使うと便利です。
+
+- 参考: [python コマンドのバージョンを切り替える (pyenv, py)](/p/x4z298a/)
+
+下記は任意の Python バージョン（ここでは 3.10）の `venv` 仮想環境を作成する方法の例です。
+
+{{< code lang="console" title="pyenv を使う方法 (Linux/macOS)" >}}
+# Python 3.10.X をインストール
+$ pyenv install 3.10
+
+# カレントシェルで Python 3.10 を使うように切り替え
+$ pyenv shell 3.10
+
+# venv 環境を作成
+$ python -m venv venv
+{{< /code >}}
+
+{{< code title="py を使う方法 (Windows)" >}}
+C:\> py -3.10 -m venv venv
+{{< /code >}}
+
+
 プロジェクトの依存パッケージを requirements.txt で管理する
 -----
 
