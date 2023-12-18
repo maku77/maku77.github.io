@@ -12,23 +12,23 @@ draft: true
 | 概要 | コード | 補足 |
 | ---- | ---- | ---- |
 | [要約情報](#info) | `df.info()` | カラム名、Non-Null 数、データタイプ、メモリ使用量 |
-| [形状](#shape) | `df.shape` | 行数と列数のタプル |
-| データ数（欠損値を含む） | `len(df)` | `df.shape[0]` と同じ |
-| [データ数（欠損値を含まない）](#count) | `df["列"].count()` | 非欠損値のみをカウント |
+| [形状](#shape) | `df.shape` | `(行数, 列数)` のタプル |
+| [形状](#shape) | `df.size` | 行数 x 列数 |
+| [レコード数（欠損値を含む）](#len) | `len(df)`<br/>`df.shape[0]` | 行数 |
+| [レコード数（欠損値を含まない）](#count) | `df["列"].count()`<br/>`df.count()` | 非欠損値のみをカウント |
 | [主要な統計値](#describe) | `df.describe()` | Non-null 数、平均値、標準偏差、最小値、最大値、四分位数 |
 | [ユニークな要素を列挙](#unique) | `df["列"].unique()` | |
-| [ユニークな要素をカウント](#value_counts) | `df["列"].value_counts()` | |
-| [条件に一致する値をカウント](#condition_sum) | `(df["列"] >= 値).sum()` | |
+| [ユニークな要素の種類をカウント](#nunique) | `df["列"].nunique()`<br/>`df.nunique()` | |
+| [ユニークな値ごとにカウント](#value_counts) | `df["列"].value_counts()`<br/>`df.value_counts()` | |
+| [条件に一致する値をカウント](#conditional_sum) | `(df["列"] >= 値).sum()` | |
 | [列と列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
 | [グループ化してから集計](#groupby) | `df.groupby(["列"]).mean()` | `mean()` の部分は任意の統計関数に置換可 |
 | あるカラムの値を合計 | `df["列"].sum()` |
 | あるカラムの平均値 | `df["列"].mean()` |
 
 
-DataFrame の基本情報
+DataFrame の要約情報を取得する (info) {#info}
 ----
-
-### DataFrame#info（要約情報） {#info}
 
 ```
 >>> df.info()
@@ -50,83 +50,217 @@ dtypes: float64(2), int64(4), object(2)
 memory usage: 31.3+ KB
 ```
 
-### DataFrame#shape（形状） {#shape}
 
-```python
-# 行数と列数
->>> df.shape
-(200, 5)
-
-# 行数
->>> df.shape[0]
-200
-
-# 列数
->>> df.shape[1]
-5
-```
-
-
-データ数のカウント
+DataFrame の形状を調べる (shape) {#shape}
 ----
 
-{{< code lang="python" title="テストデータ" >}}
->>> df = pd.DataFrame({"fruit": ["apple", "banana", "apple", np.nan, "orange", "banana", "apple"]})
+__`DataFrame#shape`__ 属性は、`DataFrame` の形状（行数, 列数）を表すタプルです。
+
+```python
+df = pd.DataFrame({"X1": [1, 2, 3, 4], "X2": [5, 6, 7, 8]})
+
+print(df.shape)     #=> (4, 2)
+print(df.shape[0])  #=> 4（行数）
+print(df.shape[1])  #=> 2（列数）
+```
+
+__`DataFrame#size`__ 属性で「行数 x 列数」の値を調べることができますが、こちらの使用頻度はあまり高くないでしょう。
+
+```python
+print(df.size)  #=> 8
+```
+
+
+レコード数（行数）をカウント (len, shape[0]) {#len}
+----
+
+__`len()`__ 関数に `DataFrame` を渡すと、全体のデータ数（行数）を取得することができます。
+`df.shape[0]` でデータ形状を調べるのと同様です。
+
+```python
+df = pd.DataFrame({"X1": [1, 2, 3, 4, 5], "X2": [6, 7, 8, 9, 10]})
+
+print(len(df))      #=> 5（行数）
+print(df.shape[0])  #=> 5（行数）
+```
+
+レコード数（欠損値を除く）をカウント (count) {#count}
+----
+
+__`Series#count()`__ メソッドを使って、`Series` 内にいくつの有効な値（非欠損値）が含まれているかを調べることができます。
+
+```python
+df = pd.DataFrame(
+    {
+        "fruit": ["apple", "banana", np.nan, "banana", "apple"],
+        "weight": [200, np.nan, np.nan, 500, 300],
+    }
+)
+
+print(df["fruit"].count())   #=> 4
+print(df["weight"].count())  #=> 3
+```
+
+__`DataFrame#count()`__ メソッドを使うと、`DataFrame` 内のすべてのカラムのデータ数をしらべることができます。
+戻り値は `Series` オブジェクトです。
+
+```python
+print(df.count())
+```
+
+{{< code title="実行結果" >}}
+fruit     4
+weight    3
+dtype: int64
 {{< /code >}}
 
-### 要素数（非欠損値）をカウント {#count}
 
-`fruit` 列にいくつのデータがあるかを数えます（欠損値はカウントしません）。
+ユニークな要素を取得 (unique) {#unique}
+----
+
+__`Series#unique()`__ メソッドを使用すると、その `Series` 内のユニークな値を列挙できます。
+戻り値は NumPy 配列 (ndarray) になります。
 
 ```python
->>> df["fruit"].count()
-fruit    6
-dtype: int64
+df = pd.DataFrame(
+    {
+        "fruit": ["apple", "banana", np.nan, "banana", "apple"],
+        "weight": [200, np.nan, np.nan, 500, 300],
+    }
+)
+
+print(df["fruit"].unique())    #=> ["apple", "banana", nan]
+print(df["weight"].unique())   #=> [200., nan, 500., 300.]
 ```
 
-### ユニークな要素を取得 {#unique}
+ちなみに、`DataFrame` には `unique()` メソッドはありません。
 
-`fruit` 列からユニークな要素を配列形式で抽出します。
+
+ユニークな要素が何種類あるかをカウント (nunique) {#nunique}
+----
+
+__`Series#unique()`__ メソッドを使うと、`Series` 内に何種類のユニークな値があるかをカウントできます。
+デフォルトでは NaN はカウントしませんが、`dropna=False` を指定することで NaN も 1 つのユニークな値としてカウントできます。
 
 ```python
->>> df["fruit"].unique()
-array(['apple', 'banana', nan, 'orange'], dtype=object)
+df = pd.DataFrame(
+    {
+        "fruit": ["apple", "banana", np.nan, "banana", "apple"],
+        "weight": [200, np.nan, np.nan, 500, 300],
+    }
+)
+
+print(df["fruit"].nunique())               # => 2
+print(df["fruit"].nunique(dropna=False))   # => 3
+print(df["weight"].nunique())              # => 3
+print(df["weight"].nunique(dropna=False))  # => 4
 ```
 
-### ユニークな要素ごとにカウント {#value_counts}
-
-`fruit` 列のユニークな値ごとに出現回数をカウントします。
+__`DataFrame#nunique()`__ メソッドを使用すると、`DataFrame` 内の全ての列を一度にカウントできます。
+戻り値は `Series` オブジェクトになります。
 
 ```python
->>> df["fruit"].value_counts()
-fruit
-apple     3
-banana    2
-orange    1
-Name: count, dtype: int64
+print(df.nunique())
+# fruit     2
+# weight    3
+# dtype: int64
+
+print(df.nunique(dropna=False))
+# fruit     3
+# weight    4
+# dtype: int64
+```
+
+
+ユニークな値ごとにカウント (value_counts) {#value_counts}
+----
+
+__`Series#value_counts()`__ メソッドを使用すると、`Series` 内のユニーク値ごとに出現回数をカウントできます。
+戻り値は `Series` オブジェクトになります。
+
+```python
+df = pd.DataFrame(
+    {
+        "fruit": ["apple", "banana", "orange", "banana", "apple"],
+        "rank": ["A", "B", "B", "A", "A"],
+    }
+)
+
+print(df["fruit"].value_counts())
+# fruit
+# apple     2
+# banana    2
+# orange    1
+# Name: count, dtype: int64
+
+print(df["rank"].value_counts())
+# rank
+# A    3
+# B    2
+# Name: count, dtype: int64
 ```
 
 出現回数ではなく、割合で取得したい場合は、__`normalize=True`__ オプションを指定します。
 
 ```python
->>> df["fruit"].value_counts(normalize=True)
-fruit
-apple     0.500000
-banana    0.333333
-orange    0.166667
-Name: proportion, dtype: float64
+print(df["fruit"].value_counts(normalize=True))
+# fruit
+# apple     0.4
+# banana    0.4
+# orange    0.2
+# Name: proportion, dtype: float64
+
+print(df["rank"].value_counts(normalize=True))
+# rank
+# A    0.6
+# B    0.4
+# Name: proportion, dtype: float64
 ```
 
-### 条件に一致する値の数 {#condition_sum}
-
-`fruit` 列の値が `apple` であるデータ数をカウントします。
+__`DataFrame#value_counts()`__ メソッドを使用すると、各列の値の組み合わせで、ユニークなデータをカウントできます。
 
 ```python
->>> (df["fruit"] == "apple").sum()
-3
+print(df.value_counts())
+# fruit   rank
+# apple   A       2
+# banana  A       1
+#         B       1
+# orange  B       1
+# Name: count, dtype: int64
 ```
 
-内部的には、True/False の一次元 Series を生成し、True の数を合計するという処理になっています。
+
+条件に一致する値の数をカウント {#conditional_sum}
+----
+
+次の例では、`fruit` 列の値が `apple` であるレコードの数と、`price` 列の値が 200 以下であるレコードの数をカウントしています。
+
+```python
+df = pd.DataFrame(
+    {
+        "fruit": ["apple", "banana", "orange", "banana", "apple"],
+        "price": [100, 200, 250, 150, 200],
+    }
+)
+
+print((df["fruit"] == "apple").sum())  #=> 2
+print((df["price"] <= 200).sum())  #=> 4
+```
+
+内部的には、`True`/`False` の一次元 `Series` を生成し、`True` の数を合計するという処理になっています。
+ちなみに次のようにすれば、条件で絞り込んだ `DataFrame` を作成することができます。
+
+```python
+# fruit 列の値が apple のレコードだけで構成された DataFrame を作成
+df2 = df[df["fruit"] == "apple"]
+```
+
+
+複数列の条件を AND でまとめることもできます。
+
+```python
+print(((df["fruit"] == "apple") & (df["price"] <= 200)).sum())  #=> 2
+```
 
 
 相関係数 {#corrwith}

@@ -88,7 +88,7 @@ DataFrame 加工のチートシート
       </td>
     </tr>
     <tr>
-      <td><a href="/d/fk2e74z/">X1 列の型を float に変換</a></td>
+      <td><a href="/p/fk2e74z/">X1 列の型を float に変換</a></td>
       <td>
         <code>df.loc[:, "X1"] = df.loc[:, "X1].astype(float)</code><br />
         <code>df["X1"] = df["X1"].astype(float)</code>
