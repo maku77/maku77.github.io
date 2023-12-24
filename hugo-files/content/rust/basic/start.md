@@ -8,20 +8,43 @@ tags: ["Rust"]
 Rust 関連コマンドのインストール
 ----
 
-Rust コンパイラ (__`rustc`__) と Rust 用のパッケージマネージャー (__`cargo`__) は、下記の公式サイトの手順で簡単にインストールできます。
+### Rust のインストール
+
+Rust コンパイラ (__`rustc`__) や Rust 用のパッケージマネージャー (__`cargo`__) は、下記の公式サイトの手順で簡単にインストールできます。
 推奨されている方法でインストールすると、Rust 関連のコマンドをアップデートするための __`rustup`__ コマンドもインストールされます。
 
 - 公式サイト: [Rust をインストール - Rustプログラミング言語](https://www.rust-lang.org/ja/tools/install/)
 
+{{< code lang="console" title="Rust のインストール方法の例（Linux/macOS の場合）" >}}
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+{{< /code >}}
+
 標準構成でインストールすると、Rust 関連の各コマンドが __`~/.cargo/bin/`__ ディレクトリにインストールされます。
 
-```console
+{{< code lang="console" title="Rust 関連コマンドの一覧" >}}
 $ ls ~/.cargo/bin
 cargo*         clippy-driver* rust-lldb*     rustup*
 cargo-clippy*  rls*           rustc*
 cargo-fmt*     rust-gdb*      rustdoc*
 cargo-miri*    rust-gdbgui*   rustfmt*
-```
+{{< /code >}}
+
+### Rust のバージョンアップ
+
+一度 `rustup` コマンドのインストールが済んでしまえば、上記の Rust 関連コマンド（Rust ツールチェイン）は次のようにまとめてアップデートできます。
+
+{{< code lang="console" title="Rust ツールチェインの更新" >}}
+$ rustup update
+{{< /code >}}
+
+### Rust のアンインストール
+
+Rust 関連コマンドを削除したいときも、`rustup` コマンドを使用します。
+次のようにすると、`rustup` コマンドを含む、すべての Rust 関連コマンドがアンインストールされます（`$HOME/.cargo/bin` ディレクトリも削除されます）。
+
+{{< code lang="console" title="Rust ツールチェインのアンインストール" >}}
+$ rustup self uninstall
+{{< /code >}}
 
 
 rustc コマンドで Rust コードをビルドする

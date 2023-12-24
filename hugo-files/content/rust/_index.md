@@ -7,15 +7,19 @@ categoryUrl: "/rust/"
 categoryIcon: _index.svg
 ---
 
-はじめに
+はじめに（Rust の実行環境）
 ----
 
 - [Rust プログラミングを始める（`rustc` と `cargo` コマンド）](/p/96o6xfv/)
 - [Rust で自作したプログラムをシステムにインストールする (`cargo install`)](/p/owbo2dp/)
 
 {{% private %}}
+- cargo
+  - [Cargo で外部クレートの依存関係を管理する (`Cargo.toml`)](/p/4yj2hzf/)
 - [10 分で理解する Rust 文法](/p/63m4k3i/)
 - [(DRAFT) Rust 未整理メモ](/p/jkv7gpz/)
+- ツール／エコシステム
+  - [クロスコンパイルして他の OS 用の実行ファイルを生成する](/p/uyqo7ze/)
 {{% /private %}}
 
 
@@ -61,7 +65,6 @@ Rust の文法
 
 {{% private %}}
 - クレート（ライブラリ）の依存管理
-  - [Cargo で外部クレートの依存関係を管理する (`Cargo.toml`)](/p/4yj2hzf/)
   - [Rust の use の使い方](/p/9dpz9hr/)
 {{% /private %}}
 
@@ -93,8 +96,9 @@ Rust の文法
   - [ファイルやディレクトリのパス文字列を構築／分割する (`std::io::Path`, `PathBuf`)](/p/36hr2bj/)
   - [ファイルやディレクトリの存在を調べる (`std::io::Path`, `PathBuf`)](/p/fbkt3ah/)
 - ファイルの読み書き
-  - [JSON フォーマットを扱う (serde)](/p/xdyk5o8/)
-  - [Excel ファイルを読み込む (calamine)](/p/4ye2eah/)
+  - [JSON フォーマットを扱う (`serde`)](/p/xdyk5o8/)
+  - [Excel ファイルを読み込む (`calamine`)](/p/4ye2eah/)
+- [MongoDB を扱う (`mongodb`)](/p/nzi6xbm/)
 
 
 その他
@@ -102,11 +106,6 @@ Rust の文法
 
 - [正規表現を扱う (regex)](/p/r7sdwgy/)
 - [型の名前を取得する (`std::any::type_name`)](/p/m9vdtaq/)
-
-{{% private %}}
-- ツール／エコシステム
-  - [クロスコンパイルして他の OS 用の実行ファイルを生成する](/p/uyqo7ze/)
-{{% /private %}}
 
 
 おすすめ書籍

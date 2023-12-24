@@ -21,9 +21,15 @@ $ go mod init example-mongo
 $ go get go.mongodb.org/mongo-driver/mongo
 ```
 
+
+MongoDB サーバーの準備
+----
+
 接続先の MongoDB サーバーはローカルで起動しておくか、[MongoDB Atlas](https://www.mongodb.com/atlas) などのクラウドサービスで用意しておいてください。
 
 - 参考: [MongoDB 関連記事｜まくろぐ](https://maku.blog/p/qikq9o8/)
+
+以下の説明では、`localhost:27017` で MongoDB サーバーが稼働していることを想定しています。
 
 
 MongoDB に接続する
@@ -283,4 +289,11 @@ if err := cursor.All(ctx, &books); err != nil {
 }
 log.Printf("%#v\n", books)
 ```
+
+
+関連リンク
+----
+
+- [Deno で MongoDB を扱う](https://maku.blog/p/3pwojuj/)
+- [Rust で MongoDB を扱う (mongodb)](/p/nzi6xbm/)
 
