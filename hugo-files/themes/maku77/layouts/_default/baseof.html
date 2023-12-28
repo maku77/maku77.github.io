@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ $pageTitle }}</title>
+  {{ partial "maku-common/head/all" . -}}
   {{ partialCached "head/adsense" . -}}
   {{ partialCached "head/favicon" . -}}
   {{ partial "head/analytics" . -}}
@@ -12,14 +13,8 @@
   {{ $style := resources.Get "css/all.scss" | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ block "head" . }}{{ end -}}
-  {{- if eq .Params.useMath true }}
-  <script type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-  {{- end }}
 </head>
 <body>
-
   <div class="l-pageHeader">
     {{- block "header" . }}{{ end }}
   </div>
