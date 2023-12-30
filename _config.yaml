@@ -245,17 +245,6 @@ defaults:
       category_long_desc: "静的サイトジェネレータ Middleman の使い方。"
   -
     scope:
-      path: "mt"
-      type: "pages"
-    values:
-      category_title: "Meta Trader"
-      category_id: "mt"
-      category_logo: "logo-metatrader.png"
-      category_og_image: "logo-metatrader.png"
-      category_desc: "天才星人まくの Meta Trader ノート"
-      category_long_desc: "メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。"
-  -
-    scope:
       path: "nodejs"
       type: "pages"
     values:

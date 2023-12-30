@@ -71,12 +71,6 @@
     "logo": "logo-middleman.svg",
     "desc": "静的サイトジェネレータ Middleman の使い方。"
   },
-  "mt": {
-    "label": "MT4/MT5",
-    "path": "mt",
-    "logo": "logo-metatrader.png",
-    "desc": "メタトレーダーを使った FX 自動売買（シストレ）プログラミングについて。"
-  },
   "nodejs": {
     "label": "Node.js",
     "path": "nodejs",
