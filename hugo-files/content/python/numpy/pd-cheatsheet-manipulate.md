@@ -8,105 +8,160 @@ tags: ["Python", "pandas"]
 DataFrame 加工のチートシート
 ----
 
+<style>
+  .local-section {
+    background: #333;
+    color: white;
+    border-color: #333;
+    text-align: left;
+    padding-left: 0.5em;
+  }
+</style>
 <table>
-  <thead>
-    <tr>
-      <th>カテゴリ</th>
-      <th>コード</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td><a href="#new-column">新しいカラムの作成（すべて同じ値）</a></td>
+      <th colspan="2" class="local-section">作成／追加</th>
+    </tr>
+    <tr>
       <td><code>df["列"] = スカラー値</code></td>
+      <td><a href="#new-column">新しいカラムの作成（すべて同じ値）</a></td>
     </tr>
     <tr>
-      <td><a href="#new-column">新しいカラムの作成（<code>Series</code> の代入）</a></td>
       <td><code>df["列"] = シリーズ</code><br/><code>df.assign(列=シリーズ)</code></td>
+      <td><a href="#new-column">新しいカラムの作成（<code>Series</code> の代入）</a></td>
     </tr>
     <tr>
-      <td><a href="#drop-column">カラムの削除</a></td>
+      <td><code>df2 = df.copy()  # shallow copy</code><br/><code>df2 = df.copy(deep=True)</code></td>
+      <td>DataFrame のコピー</td>
+    </tr>
+    <tr>
+      <td><code>df2 = df[["列1", "列2", "列3"]]</code></td>
+      <td><a href="#extract">カラムの抽出</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="local-section">結合 (concat)</th>
+    </tr>
+    <tr>
+      <td><code>new_df = pd.concat([df1, df2])</code></td>
+      <td><a href="#concat">複数の DataFrame を結合</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="local-section">削除 (drop, drop_duplicates)</th>
+    </tr>
+    <tr>
       <td>
         <code>df2 = df.drop(columns="列")</code><br />
-        <code>df2 = df.drop("列", axis=1)</code><br />
-        <code>del df["列名"]</code><br />
-        <code>df.pop("列名")
+        <code>df2 = df.drop("列", axis=1)</code>
       </td>
+      <td><a href="#drop-column">指定したカラムを削除</a></td>
     </tr>
     <tr>
-      <td><a href="#drop-row">行の削除</a></td>
+      <td>
+        <code>df.drop(columns="列", inplace=True)</code><br/>
+        <code>df.drop("列", axis=1, inplace=True)</code><br/>
+        <code>del df["列"]</code><br />
+        <code>df.pop("列")
+      </td>
+      <td><a href="#drop-column">指定したカラムを削除（自分自身を変更）</a></td>
+    </tr>
+    <tr>
       <td>
         <code>df2 = df.drop(index="行")</code><br />
         <code>df2 = df.drop("行", axis=0)</code>
       </td>
+      <td><a href="#drop-row">指定した行を削除</a></td>
     </tr>
     <tr>
-      <td><a href="#conditional-delete">行の削除（条件指定）</a></td>
       <td>
-        <code>df2 = df[df["列"] != 値]</code>
+        <code>df.drop(index="行", inplace=True)</code><br />
+        <code>df.drop("行", axis=0, inplace=True)</code>
       </td>
+      <td><a href="#drop-row">指定した行を削除（自分自身を変更）</a></td>
     </tr>
     <tr>
-      <td><a href="#replace">値の置換</a></td>
+      <td><code>df2 = df[df["列"] != 値]</code></td>
+      <td><a href="#conditional-delete">条件に一致する行を削除</a></td>
+    </tr>
+    <tr>
+      <td><code>df.drop_duplicates()</code></td>
+      <td><a href="#drop_duplicates">重複する行を削除</a></td>
+    </tr>
+    <tr>
+      <td><code>df.drop_duplicates(keep="last")</code></td>
+      <td>重複する行を削除（最初ではなく最後の行を残す）</td>
+    </tr>
+    <tr>
+      <td><code>df.drop_duplicates(subset=["X1", "X2"])</code></td>
+      <td><a href="#drop_duplicates">重複する行を削除（指定列の値が等しい行を削除）</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="local-section">置換 (replace)</th>
+    </tr>
+    <tr>
       <td><code>df["列"].replace(置換前の値, 置換後の値)</code></td>
+      <td><a href="#replace">値の置換</a></td>
     </tr>
     <tr>
-      <td><a href="#extract">カラムの抽出</a></td>
-      <td><code>df2 = df[["列1", "列2", "列3"]]</code></td>
+      <th colspan="2" class="local-section">ソート (sort_values)</th>
     </tr>
     <tr>
-      <td>DataFrame のコピー</td>
-      <td><code>df2 = df.copy()  # shallow copy</code><br/><code>df2 = df.copy(deep=True)</code></td>
+      <td><code>df2 = pd.sort_values(by="列")</code></td>
+      <td><a href="#sort_values">特定のカラムでソート（昇順）</a></td>
     </tr>
     <tr>
-      <td><a href="#sort_values">特定のカラムでソート</a></td>
-      <td>
-        <code>df2 = pd.sort_values(by="列")</code><br />
-        <code>df2 = df.sort_values(by="列", ascending=False)</code>
-      </td>
+      <td><code>df2 = df.sort_values(by="列", ascending=False)</code></td>
+      <td><a href="#sort_values">特定のカラムでソート（降順）</a></td>
     </tr>
     <tr>
-      <td><a href="#get_dummies">値ごとに 0/1 表現の列を作成</a></td>
+      <th colspan="2" class="local-section">カテゴリ変数 (get_dummies)</th>
+    </tr>
+    <tr>
+      <td><code>new_df = df.select_dtypes(include="object")</code></td>
+      <td><a href="#select_dtypes_object">カテゴリ変数を抽出した DataFrame を作成</a></td>
+    </tr>
+    <tr>
+      <td><code>new_df = df.select_dtypes(exclude="object")</code></td>
+      <td><a href="#select_dtypes_object">カテゴリ変数を削除した DataFrame を作成</a></td>
+    </tr>
+    <tr>
       <td>
         <code>df2 = pd.get_dummies(df)</code><br />
         <code>df2 = pd.get_dummies(df, columns=["列1", "列2"])</code>
       </td>
+      <td><a href="#get_dummies">値ごとに 0/1 表現の列を作成</a></td>
     </tr>
     <tr>
-      <td><a href="/p/3g687f5/">カラム名／インデックス名の設定と変更</a></td>
+      <th colspan="2" class="local-section">カラム名／インデックス名 (columns, index, rename)</th>
+    </tr>
+    <tr>
       <td>
         <code>df.columns = [...]</code><br />
-        <code>df.index = [...]</code><br />
         <code>df2 = df.rename(colums={...})</code><br />
-        <code>df2 = df.rename(index={...})</code>
       </td>
+      <td><a href="/p/3g687f5/">カラム名の変更</a></td>
     </tr>
     <tr>
-      <td><a href="/p/fk2e74z/">各カラムのデータ型を変更</a></td>
+      <td>
+        <code>df.index = [...]</code><br />
+        <code>df2 = df.rename(index={...})</code>
+      </td>
+      <td><a href="/p/3g687f5/">インデックス名の変更</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="local-section">データ型 (astype)</th>
+    </tr>
+    <tr>
+      <td>
+        <code>df.loc[:, "列1"] = df.loc[:, "列1].astype(float)</code><br />
+        <code>df["列1"] = df["列1"].astype(float)</code>
+      </td>
+      <td><a href="/p/fk2e74z/">列1のデータ型を変更</a></td>
+    </tr>
+    <tr>
       <td>
         <code>df2 = df.astype({"列1": "int64", "列2": "float64"})</code>
       </td>
-    </tr>
-    <tr>
-      <td><a href="/p/fk2e74z/">X1 列の型を float に変換</a></td>
-      <td>
-        <code>df.loc[:, "X1"] = df.loc[:, "X1].astype(float)</code><br />
-        <code>df["X1"] = df["X1"].astype(float)</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        重複する行を削除<br />
-        <ul>
-          <li><code>keep="last"</code> ... 最初ではなく最後の行を残す</li>
-          <li><code>subset=[...]</code> ... 指定した列の値が等しければ重複行とみなす</li>
-        </ul>
-      </td>
-      <td>
-        <code>df.drop_duplicates()</code><br />
-        <code>df.drop_duplicates(keep="last")</code><br />
-        <code>df.drop_duplicates(subset=["X1", "X2"])</code>
-      </td>
+      <td><a href="/p/fk2e74z/">列1と列2のデータ型を変更</a></td>
     </tr>
   </tbody>
 </table>
@@ -132,20 +187,99 @@ df["X2"] = df["X1"].apply(np.sqrt)
 ```
 
 
+複数の DataFrame を結合する (pd.concat) {#concat}
+----
+
+複数の `DataFrame` を縦方向に結合する（行を増やす）には、__`pd.concat()`__ 関数に `DataFrame` のリストを渡します。
+
+```python
+import pandas as pd
+
+# テストデータ
+df1 = pd.DataFrame({"col1": [1, 2, 3], "col2": [4, 5, 6]})
+df2 = pd.DataFrame({"col1": [7, 8, 9], "col3": [10, 11, 12]})
+
+# DataFrame を連結する
+new_df = pd.concat([df1, df2])
+print(new_df)
+```
+
+{{< code title="実行結果" >}}
+   col1  col2  col3
+0     1   4.0   NaN
+1     2   5.0   NaN
+2     3   6.0   NaN
+0     7   NaN  10.0
+1     8   NaN  11.0
+2     9   NaN  12.0
+{{< /code >}}
+
+片方の `DataFrame` にしか存在しないカラムの値には `NaN` が設定されます。
+
+デフォルトでは上記のように、それぞれの `DataFrame` のもとのインデックス名が保持されます。
+インデックス名を振り直すには、__`ignore_index=True`__ オプションを指定します。
+
+```python
+# インデックスを振り直す場合
+new_df = pd.concat([df1, df2], ignore_index=True)
+print(new_df)
+```
+
+{{< code title="実行結果" >}}
+   col1  col2  col3
+0     1   4.0   NaN
+1     2   5.0   NaN
+2     3   6.0   NaN
+3     7   NaN  10.0
+4     8   NaN  11.0
+5     9   NaN  12.0
+{{< /code >}}
+
+
 一致する値を置換する (replace) {#replace}
 ----
 
+`Series` あるいは `DataFrame` オブジェクトの __`replace()`__ メソッドを使うと、値の一括置換を行えます。
+通常は `DataFrame` には列ごとに性質の異なるデータが格納されているはずなので、値の置換を行う場合は `Series` オブジェクト（列）単位で置換します。
+次の例では、`Class` 列の `"A"` と `"B"` という値を、それぞれ `0` と `1` に置換しています。
+
 ```python
-# 値に含まれている文字列をまとめて置換
-df["列"].replace(置換前の値, 置換後の値)
+import pandas as pd
+
+# テストデータ
+df = pd.DataFrame({
+    "Price": [100, 200, 300, 400],
+    "Class": ["A", "B", "A", "B"]
+})
+
+# Class 列のカテゴリ変数 (A, B) を数値 (0, 1) に置き換え
+df["Class"].replace(["A", "B"], [0, 1], inplace=True)
+print(df)
 ```
+
+{{< code title="実行結果" >}}
+   Price  Type
+0    100     0
+1    200     1
+2    300     0
+3    400     1
+{{< /code >}}
 
 
 特定の列だけを抜き出した DataFrame を作成する {#extract}
 ----
 
+ある `DataFrame` から特定の列だけを抽出した `DataFrame` を作成したいときは次のようにします。
+
 ```python
-df2 = df[["列1", "列2", "列3"]]  # 着目している列だけの DataFrame にする
+df2 = df[["列1", "列2", "列3"]]
+```
+
+メモリ効率のため、データの実体は共有されることに注意してください（`df2` 側で値を変更すると、`df` にも影響します）。
+新しいメモリ領域にコピーする場合は、`copy()` を組み合わせて使用します。
+
+```python
+df2 = df[["列1", "列2", "列3"]].copy()
 ```
 
 - 参考: [pandas.DataFrame からのデータ抽出方法のチートシート](/p/rnai4ko/)
@@ -155,7 +289,7 @@ df2 = df[["列1", "列2", "列3"]]  # 着目している列だけの DataFrame �
 カラムの削除 (drop, del, pop) {#drop-column}
 ----
 
-`df.drop()` メソッドを使うと、指定したカラムを削除した新しい `DataFrame` を取得できます。
+__`df.drop()`__ メソッドを使うと、指定したカラムを削除した新しい `DataFrame` を取得できます。
 
 {{< code lang="python" title="drop によるカラムの削除" >}}
 import pandas as pd
@@ -172,7 +306,7 @@ df2 = df.drop(columns=["A", "B"])
 df2 = df.drop(["A", "B"], axis=1)  # 同上
 {{< /code >}}
 
-Python のリスト API である `del` や `pop` でもカラムの削除を行うことができますが、これらは元の `DataFrame` を変更します（破壊的操作）。
+Python のリスト API である __`del`__ や __`pop`__ でもカラムの削除を行うことができますが、これらは元の `DataFrame` を変更します（破壊的操作）。
 `pop` は削除した列を `Series` として返します。
 
 {{< code lang="python" title="del と pop によるカラムの削除" >}}
@@ -183,7 +317,18 @@ del df["A"]
 series = df.pop("A")
 {{< /code >}}
 
-`df.drop()` メソッドでも、__`inplace=True`__ を指定すれば、元の `DataFrame` を変更できます。
+{{% note title="pop の使用例" %}}
+`pop` によるカラムの削除は、機械学習用のデータセットから正解ラベルを分離するときに使われたりします。
+
+```python
+# 正解ラベルの列 Price を分離
+train_X = train.copy()
+train_y = train_X.pop("Price")
+```
+{{% /note %}}
+
+
+`df.drop()` はデフォルトでは新しい `DataFrame` を返しますが、__`inplace=True`__ を指定すれば、元の `DataFrame` を変更できます。
 この場合、戻り値は `None` になります。
 
 ```python
@@ -192,8 +337,10 @@ df.drop(columns=["A", "B"], inplace=True)
 ```
 
 
-行の削除 (drop) {#drop-row}
+行の削除 (drop)
 ----
+
+### 指定した行を削除 {#drop-row}
 
 {{< code lang="python" title="drop による行の削除" >}}
 import pandas as pd
@@ -225,24 +372,63 @@ df2 = df.drop(index=["idx1", "idx2", "idx3"])
 df.drop(index=0, inplace=True)
 ```
 
+### 重複する行を削除 {#drop_duplicates}
 
-条件に一致する行を削除 {#conditional-delete}
-----
+__`DataFrame#drop_duplicates()`__ メソッドを使うと、同じデータを持つ行を取り除いた `DataFrame` を作成することができます。
+次の例では、1 行目と 3 行目のデータが (`100`, `"x"`, `500`) で完全に一致しているので、3 行目が削除されています。
 
-これは発想の転換ですが、「ある列の値が "A" 以外である行を抽出する」という操作は、「ある列の値が "A" である行を削除する」という操作になります。
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "A": [100, 100, 100, 200, 300],
+    "B": ["x", "y", "x", "y", "x"],
+    "C": [500, 600, 500, 600, 700],
+})
+
+new_df = df.drop_duplicates()
+print(new_df)
+```
+
+{{< code title="実行結果" >}}
+     A  B    C
+0  100  x  500
+1  100  y  600
+3  200  y  600
+4  300  x  700
+{{< /code >}}
+
+特定のカラムだけに着目して重複行を判断したいときは、__`subset=[列, 列, ...]`__ オプションを指定します。
+次の例では、少なくとも `B` 列と `C` 列の値が等しい行を重複行として取り除いています（部分的に一致する行を削除します）。
+
+```python
+new_df = df.drop_duplicates(subset=["B", "C"])
+print(new_df)
+```
+
+{{< code title="実行結果" >}}
+     A  B    C
+0  100  x  500
+1  100  y  600
+4  300  x  700
+{{< /code >}}
+
+### 条件に一致する行を削除 {#conditional-delete}
+
+これは発想の転換ですが、「ある列の値が `A` 以外である行を抽出する」という操作は、「ある列の値が `A` である行を削除する」という操作になります。
 
 ```python
 import pandas as pd
 
 # テストデータ
 df = pd.DataFrame({
-  "grade": ["A", "B", "C", "B", "A", "B"],
-  "point": [100, 80, 50, 70, 90, 75]
+    "grade": ["A", "B", "C", "B", "A", "B"],
+    "point": [100, 80, 50, 70, 90, 75]
 })
 
 # grade 列が A であるものを削除 （= A でないものを抽出する）
-df2 = df[df["grade"] != "A"]
-print(df2)
+new_df = df[df["grade"] != "A"]
+print(new_df)
 ```
 
 {{< code title="実行結果" >}}
@@ -261,8 +447,8 @@ print(df2)
 import numpy as np
 import pandas as pd
 df = pd.DataFrame({
-  'grade': ['C', 'A', 'B', np.nan, 'B', 'A'],
-  'price': [50, 100, 150, 70, 30, 200]
+    'grade': ['C', 'A', 'B', np.nan, 'B', 'A'],
+    'price': [50, 100, 150, 70, 30, 200]
 })
 {{< /code >}}
 
@@ -325,8 +511,62 @@ df = pd.DataFrame({
 `index` カラムが不要な場合は `reset_index()` メソッドに `drop=True` を指定します。
 
 
-値ごとに True/False (0/1) のカラムを生成 {#get_dummies}
+カテゴリ変数
 ----
+
+### カテゴリ変数を抽出／取り除いて DataFrame を作成 {#select_dtypes_object}
+
+__`df.select_dtypes()`__ を使って、カテゴリ変数の列のみを抽出した `DataFrame` を作成することができます。
+NaN はカテゴリ変数とはみなされません。
+
+{{< code lang="python" hl_lines="12" >}}
+import pandas as df
+
+# テストデータ
+df = pd.DataFrame({
+    "col1": ["AAA", "BBB", "CCC", "DDD"],
+    "col2": ["X", "Y", "Z", np.nan],
+    "col3": [100, 200, 300, 400],
+    "col4": [1.0, 2.0, 3.0, np.nan],
+})
+
+# カテゴリ変数だけの DataFrame を作成
+new_df = df.select_dtypes(include=["object"])
+print(new_df)
+print(new_df.columns.to_list())
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+  col1 col2
+0  AAA    X
+1  BBB    Y
+2  CCC    Z
+3  DDD  NaN
+
+['col1', 'col2']
+{{< /code >}}
+
+__`include`__ パラメーターの代わりに、__`exclude`__ パラメーターを使うと、指定したタイプの列だけを取り除くことができます。
+次の例では、上記の例とは逆に、カテゴリ変数を取り除いた（数値変数のみの）`DataFrame`を作成しています。
+
+{{< code lang="python" hl_lines="2" >}}
+# カテゴリ変数を取り除いた DataFrame を作成
+new_df = df.select_dtypes(exclude=["object"])
+print(new_df)
+print(new_df.columns.to_list())
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+   col3  col4
+0   100   1.0
+1   200   2.0
+2   300   3.0
+3   400   NaN
+
+['col3', 'col4']
+{{< /code >}}
+
+### 値ごとに True/False (0/1) のカラムを生成 {#get_dummies}
 
 __`pd.get_dummies()`__ 関数を使うと、カテゴリ変数（典型的には文字列型）のカラムを True or False (0 or 1) 情報のカラムに変換した `DataFrame` を生成できます。
 ロジスティック回帰モデルなどを使用した機械学習において、入力データを数値に変換する際に `pd.get_dummies()` 関数を使うと便利です。

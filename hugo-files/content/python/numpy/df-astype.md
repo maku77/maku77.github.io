@@ -5,7 +5,7 @@ date: "2023-10-23"
 tags: ["pandas"]
 ---
 
-Series と DataFrame の as_type メソッド
+Series と DataFrame の astype メソッド
 ----
 
 pandas の Series/DataFrame オブジェクトのデータ型を変換するには、__`astype()`__ メソッドを使用します。

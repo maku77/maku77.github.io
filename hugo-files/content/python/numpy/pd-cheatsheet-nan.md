@@ -10,17 +10,19 @@ tags: ["Python", "pandas"]
 
 | 概要 | コード |
 | ---- | ---- |
-| 欠損値を表現する | `np.nan` |
-| 欠損値部分を True、それ以外を False にする | `series2 = series.isnull()`<br/>`df2 = df.isnull()` |
+| [欠損値を表現する](#nan) | `np.nan` |
+| 欠損値部分を True、それ以外を False にする | `df2 = df.isnull()` |
 | [欠損値・非欠損値を数える（全カラム）](#count-nan-all) | `df.isnull().sum()`<br/>`df.info()` |
 | [欠損値・非欠損値を数える（単一カラム）](#count-nan-single) | `df["列"].isnull().sum()`<br/>`df["列"].count()` |
 | 各行の欠損値を数える | `df.isnull().sum(axis=1)` |
 | [欠損値を含む行を削除する](#dropna-rows) | `df.dropna()`<br/>`df.dropna(axis=0)`<br/>`df.dropna(axis="index")` |
 | [欠損値を含む列を削除する](#dropna-cols) | `df.dropna(axis=1)`<br/>`df.dropna(axis="columns")` |
-| [欠損値を補完する](#fillna) | `df["列"] = df["列"].fillna(値)` |
+| [欠損値を補完する](#fillna) | `df["列"] = df["列"].fillna(値)`<br/>`df["列"].fillna(値, inplace=True)` |
+
+- `isnull()` は `isna()` のエイリアスです。
 
 
-Python コードでの欠損値 (NaN) の表現方法
+Python コードでの欠損値 (NaN) の表現方法 {#nan}
 ----
 
 pandas では、値が存在しないことを欠損値 (NaN: Not a Number) が存在すると表現します（プログラム的には何らかの値で「値がない」ことを表現しないといけないため）。
@@ -121,10 +123,10 @@ df["price"].count()  #=> 3
 {{< /code >}}
 
 
-欠損値を含む行を削除する {#dropna-rows}
+欠損値を含む「行」を削除する {#dropna-rows}
 ----
 
-欠損値を 1 つでも含む行を削除するには、__`df.dropna()`__（あるいは __`df.dropna(axis=0)`__、あるいは __`df.dropna(axis="index")`__）を使用します。
+欠損値を 1 つでも含む行を削除するには、__`df.dropna()`__ を使用します（あるいは __`df.dropna(axis=0)`__ や __`df.dropna(axis="index")`__ でも同様）。
 
 ```python
 import numpy as np
@@ -146,7 +148,8 @@ print(df2)
 3  Title-4  4000.0
 {{< /code >}}
 
-欠損値の有無を調べる列を絞るには、__`subset=["列1", "列2"]`__ のように指定します（列が 1 であれば `subset="列"` でも可）。
+欠損値の有無を調べる列を絞るには、__`subset=["列1", "列2"]`__ のようなオプションパラメーターで指定します。
+指定する列が 1 つだけの場合は、リストではなく `subset="列1"` のように指定することもできます。
 
 {{< code title="title 列に欠損値を含む行を削除" >}}
 >>> df.dropna(subset=["title"])
@@ -158,7 +161,7 @@ print(df2)
 {{< /code >}}
 
 
-欠損値を含む列を削除する {#dropna-cols}
+欠損値を含む「列」を削除する {#dropna-cols}
 ----
 
 欠損値を 1 つでも含むカラム（列）を丸ごと削除するには、__`df.dropna(axis=1)`__（あるいは __`df.dropna(axis="columns")`__）を使います。
@@ -198,20 +201,22 @@ print(df2)
 __`Series#fillna(値)`__ メソッドは、`Series` 内の欠損値 (NaN) 部分を指定した値に置き換えた `Series` を返します。
 __`DataFrame#fillna(値)`__ メソッドも使えますが、通常は特定列の `Series` データに対して使うことになると思います。
 
+```python
+# age 列の欠損値部分に 0 を入れる
+df["age"].fillna(0, inplace=True)
+df["age"] = df["age"].fillna(0)  // 同上
+```
+
 機械学習において、欠損値が含まれている行をすべて削除 (`dropna()`) してしまうと、学習に使用するデータ数が不足してしまうことがあります。
 そのような場合は、欠損値を平均値や中央値で補完するというテクニックがあります。
 
 ```python
-# point 列の欠損値には 0 を入れる
-df["point"] = df["point"].fillna(0)
+# age 列の欠損値を平均値 (mean) で補う
+df["age"].fillna(df["age"].mean(), inplace=True)
+df["age"] = df["age"].fillna(df["age"].mean())  // 同上
 
-# genre 列の欠損値には "OTHER" を入れる
-df["genre"] = df["genre"].fillna("OTHER")
-
-# age 列の欠損値は平均値 (mean) で補う
-df["age"] = df["age"].fillna(df["age"].mean())
-
-# salary 列の欠損値は中央値 (mode) で補う
-df["salary"] = df["salary"].fillna(df["salary"].mode())
+# age 列の欠損値を中央値 (mode) で補う
+df["age"].fillna(df["age"].mode(), inplace=True)
+df["age"] = df["age"].fillna(df["age"].mode())  // 同上
 ```
 

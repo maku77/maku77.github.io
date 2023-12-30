@@ -305,6 +305,10 @@ NumPy / pandas / Matplotlib / scikit-learn
 - [NumPy 配列 (`ndarray`) の基本](/p/jwfxfvd/)
 - [NumPy 配列 (`ndarray`) の作成方法まとめ](/p/htducs9/)
 
+{{% private %}}
+- [NumPy チートシート](/p/vy94u2h/)
+{{% /private %}}
+
 ### pandas
 
 - [pandas でラベル付き 1 次元データを扱う (`Series`)](/p/wbudtbr/)
