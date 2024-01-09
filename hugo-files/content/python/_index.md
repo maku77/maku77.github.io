@@ -293,6 +293,11 @@ Web / HTTP <!-- web -->
 
 - [MNIST の手書き数字データをダウンロードして表示する (`keras.datasets.mnists`)](/p/849syej/)
 
+{{% private %}}
+- [(DRAFT) Keras チートシート](/p/niwn3x5/)
+{{% /private %}}
+
+
 NumPy / pandas / Matplotlib / scikit-learn
 ----
 
@@ -315,6 +320,7 @@ NumPy / pandas / Matplotlib / scikit-learn
 - [pandas でラベル付き 2 次元データを扱う (`DataFrame`)](/p/watbs9p/)
 - [pandas で CSV/TSV ファイルを読み込む (`pd.read_csv`, `pd.read_table`)](/p/78ns8r5/)
 - [pandas で CSV/TSV ファイルを出力する (`pd.to_csv`)](/p/ioj6bqf/)
+- [pandas で DataFrame をループ処理する (`iterrows`, `items`)](/p/rfduqhx/)
 - pandas チートシート
   - [`DataFrame` のデータ抽出方法まとめ](/p/rnai4ko/) [具体例](/p/8j4k3iy/)
   - [`DataFrame` のデータ加工方法まとめ](/p/m4ggdkx/)

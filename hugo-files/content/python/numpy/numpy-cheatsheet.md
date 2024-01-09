@@ -8,8 +8,11 @@ draft: true
 
 | コード | 説明 |
 | ---- | ---- |
+| `arr.reshape(-1, 28, 28, 1)` | 形状 (shape) の変換。Nx28x28x1 という形状で、N の部分は自動的に計算される。 |
 | `np.linespace(start, stop, num)` | [`[start, stop]` の範囲の等間隔の NumPy 配列を生成](#linespace) |
 | `np.linespace(start, stop, num, endpoint=False)` | [`[start, stop)` の範囲の等間隔の NumPy 配列を生成](#linespace) |
+| `np.power(x, 2)` | NumPy 配列の累乗 |
+| `np.sqrt(x)` | NumPy 配列の平方根 |
 
 
 等間隔のサンプルからなる NumPy 配列を生成 {#linespace}

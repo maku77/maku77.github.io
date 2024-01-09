@@ -11,12 +11,13 @@ tags: ["Python", "pandas"]
 | 概要 | コード |
 | ---- | ---- |
 | [欠損値を表現する](#nan) | `np.nan` |
-| 欠損値部分を True、それ以外を False にする | `df2 = df.isnull()` |
-| [欠損値・非欠損値を数える（全カラム）](#count-nan-all) | `df.isnull().sum()`<br/>`df.info()` |
-| [欠損値・非欠損値を数える（単一カラム）](#count-nan-single) | `df["列"].isnull().sum()`<br/>`df["列"].count()` |
-| 各行の欠損値を数える | `df.isnull().sum(axis=1)` |
-| [欠損値を含む行を削除する](#dropna-rows) | `df.dropna()`<br/>`df.dropna(axis=0)`<br/>`df.dropna(axis="index")` |
-| [欠損値を含む列を削除する](#dropna-cols) | `df.dropna(axis=1)`<br/>`df.dropna(axis="columns")` |
+| [欠損値部分を True、それ以外を False にする](#isnull) | `df2 = df.isnull()` |
+| [欠損値以外の True、それ以外を True にする](#isnull) | `df2 = df.notnull()` |
+| [欠損値を数える](#count-nan) | `df.isnull().sum()`<br/>`df.isnull().sum(axis=1)` |
+| [非欠損値を数える](#count-nan) | `df.notnull().sum()`<br/>`df.count()`<br/>`df.info()` |
+| [欠損値がある列／行を探す](#isnull-any) | `df.isnull().any()`<br/>`df.isnull().any(axis=1)` |
+| [欠損値を含む「行」を削除する](#dropna-rows) | `df.dropna()`<br/>`df.dropna(axis=0)`<br/>`df.dropna(axis="index")` |
+| [欠損値を含む「列」を削除する](#dropna-cols) | `df.dropna(axis=1)`<br/>`df.dropna(axis="columns")` |
 | [欠損値を補完する](#fillna) | `df["列"] = df["列"].fillna(値)`<br/>`df["列"].fillna(値, inplace=True)` |
 
 - `isnull()` は `isna()` のエイリアスです。
@@ -40,10 +41,8 @@ print(type(np.nan))  # <class 'float'>
 逆に値が存在することは、Non-null（非欠損値）と表現したりします。
 
 
-欠損値・非欠損値を数える（全カラム） {#count-nan-all}
+欠損値部分とそれ以外の要素を True/False 値に変換する (isnull, notnull) {#isnull}
 ----
-
-### 欠損値 (NaN) を数える
 
 `DataFrame` の __`isnull()`__ メソッドを使うと、各データが欠損値かどうかを True/False の形で取得できます。
 
@@ -69,7 +68,29 @@ print(df.isnull())
 4  False   True
 {{< /code >}}
 
-上記のような `df.isnull()` の結果を `sum()` で集計すれば、欠損値 (NaN) の数を数えることができます。
+`isnull()` の代わりに __`notnull()`__ を使うと、True/False が反転した結果を得られます。
+
+```python
+print(df.notnull())
+```
+
+{{< code title="実行結果" >}}
+   title  price
+0   True   True
+1   True  False
+2  False   True
+3   True   True
+4   True  False
+{{< /code >}}
+
+
+欠損値・非欠損値を数える (isnull, notnull, sum, count, info) {#count-nan}
+----
+
+### 欠損値 (NaN) を数える
+
+`df.isnull()` を実行すると、欠損値部分だけが True になった DataFrame を生成できます。
+その True の数を __`sum()`__ で集計すれば、欠損値 (NaN) の数を数えることができます。
 
 ```
 >>> df.isnull().sum()
@@ -80,16 +101,46 @@ dtype: int64
 
 これで、`title` 列には欠損値が 1 つ、`price` 列には欠損値が 2 つ存在することが分かりました。
 
-### 非欠損値 (Non-null) を数える
+特定の列の欠損値 (NaN) の数をスカラー値（整数）で取得するには次のようにします。
 
-`DataFrame` の __`count()`__ メソッドや __`info()`__ メソッドを使うと、各カラムの Non-null 値（非欠損値）の数を簡単に調べることができます。
+{{< code title="例: price 列の欠損値 (NaN) の数を取得" >}}
+>>> df["price"].isnull().sum()
+2
+{{< /code >}}
+
+多くの場合、欠損値は列方向で集計しますが、__`sum(axis=1)`__ とすることで、行ごとの欠損値数を取得することもできます。
 
 ```
->>> df.count()
+>>> df.isnull().sum(axis=1)
+0    0
+1    1
+2    1
+3    0
+4    1
+dtype: int64
+```
+
+### 非欠損値 (Non-null) を数える
+
+`DataFrame` の __`count()`__ メソッドを使うと、各カラムの Non-null 値（非欠損値）の数を簡単に調べることができます。
+
+```
+>>> df.count()  # あるいは df.notnull().sum()
 title    4
 price    3
 dtype: int64
+```
 
+特定の列の非欠損値 (Non-null) の数をスカラー値（整数）で取得するには次のようにします。
+
+{{< code title="例: price 列の非欠損値 (Non-null) 値の数を取得" >}}
+>>> df["title"].count()  # あるいは df["title"].nonnull().sum()
+4
+{{< /code >}}
+
+非欠損値の数は、__`info()`__ メソッドの出力の Non-Null Count 列でも確認できます。
+
+```
 >>> df.info()
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 5 entries, 0 to 4
@@ -103,23 +154,43 @@ memory usage: 208.0+ bytes
 ```
 
 
-欠損値・非欠損値を数える（単一カラム） {#count-nan-single}
+欠損値がある列／行を探す {#isnull-any}
 ----
 
-### 欠損値 (NaN) を数える
+`df.isnull()` による欠損値の抽出結果に対して、__`any()`__ メソッドを適用することで、欠損値の存在する列を調べることができます。
 
-特定の列の欠損値 (NaN) の数をスカラー値（整数）で取得するには次のようにします。
+{{< code lang="python" hl_lines="10" >}}
+import numpy as np
+import pandas as pd
 
-{{< code lang="python" title="例: price 列の欠損値 (NaN) の数を取得" >}}
-df["price"].isnull().sum()  #=> 2
+# テストデータ
+df = pd.DataFrame({
+    "title": ["Title-1", "Title-2", "Title-3"],
+    "price": [1000, np.nan, np.nan],
+})
+
+print(df.isnull().any())
 {{< /code >}}
 
-### 非欠損値 (Non-null) を数える
+{{< code title="実行結果" >}}
+title    False
+price     True
+dtype: bool
+{{< /code >}}
 
-特定の列の非欠損値 (Non-null) の数をスカラー値（整数）で取得するには次のようにします。
+この結果から、`price` 列に欠損値が存在することが分かります。
 
-{{< code lang="python" title="例: price 列の非欠損値 (Non-null) 値の数を取得" >}}
-df["price"].count()  #=> 3
+欠損値の有無を行ごとに調べたいときは、`any()` メソッドの軸オプションで行方向 __`axis=1`__ を指定します。
+
+```python
+print(df.isnull().any(axis=1))
+```
+
+{{< code title="実行結果" >}}
+0    False
+1     True
+2     True
+dtype: bool
 {{< /code >}}
 
 
@@ -194,6 +265,10 @@ print(df2)
 
 `col1` 列だけの `DataFrame` になってしまいました。。。
 
+{{% private %}}
+- `dropna(how='all')`
+{{% /private %}}
+
 
 欠損値を補完する {#fillna}
 ----
@@ -201,22 +276,26 @@ print(df2)
 __`Series#fillna(値)`__ メソッドは、`Series` 内の欠損値 (NaN) 部分を指定した値に置き換えた `Series` を返します。
 __`DataFrame#fillna(値)`__ メソッドも使えますが、通常は特定列の `Series` データに対して使うことになると思います。
 
-```python
-# age 列の欠損値部分に 0 を入れる
-df["age"].fillna(0, inplace=True)
-df["age"] = df["age"].fillna(0)  // 同上
-```
-
 機械学習において、欠損値が含まれている行をすべて削除 (`dropna()`) してしまうと、学習に使用するデータ数が不足してしまうことがあります。
 そのような場合は、欠損値を平均値や中央値で補完するというテクニックがあります。
 
-```python
-# age 列の欠損値を平均値 (mean) で補う
+{{< code lang="python" title="age 列の欠損値部分に 0 を入れる" >}}
+df["age"].fillna(0, inplace=True)
+df["age"] = df["age"].fillna(0)  // 同上
+{{< /code >}}
+
+{{< code lang="python" title="age 列の欠損値を平均値 (mean) で補う" >}}
 df["age"].fillna(df["age"].mean(), inplace=True)
 df["age"] = df["age"].fillna(df["age"].mean())  // 同上
+{{< /code >}}
 
-# age 列の欠損値を中央値 (mode) で補う
+{{< code lang="python" title="age 列の欠損値を中央値 (mode) で補う" >}}
 df["age"].fillna(df["age"].mode(), inplace=True)
 df["age"] = df["age"].fillna(df["age"].mode())  // 同上
-```
+{{< /code >}}
+
+{{% private %}}
+- `df.fillna(method="ffill")` / `df.ffill()`
+- `df.asfreq("4h")`
+{{% /private %}}
 

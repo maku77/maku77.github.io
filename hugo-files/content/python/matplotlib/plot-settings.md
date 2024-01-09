@@ -6,6 +6,14 @@ tags: ["Matplotlib", "チートシート"]
 draft: true
 ---
 
+{{% private %}}
+- `subplot()` を呼び出すことにより、内部的に描画対象の Axes、Figure が切り替わります。
+これらの描画オブジェクトを参照するには下記の関数を使用します。
+  - `plt.gca()` ... Axes オブジェクト
+  - `plt.gcf()` ... Figure オブジェクト
+{{% /private %}}
+
+
 出力
 ----
 
@@ -26,6 +34,14 @@ draft: true
 | `fig, ax = plt.subplots(2, 2)` | サブプロットの設定 |
 | `plt.style.use("ggplot")` | プロットスタイルを変更 |
 | `plt.style.use("default")` | プロットスタイルをデフォルトに戻す |
+
+{{% private %}}
+- レイアウトエンジンの切替
+  - `plot.subplot(layout="tight", ...)`
+    - `"tight"`
+    - `"constrained"`
+    - `"compressed"`
+{{% /private %}}
 
 
 タイトル

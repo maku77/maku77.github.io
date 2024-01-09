@@ -35,15 +35,23 @@ DataFrame 加工のチートシート
       <td>DataFrame のコピー</td>
     </tr>
     <tr>
+      <td><code>df["列2"] = df["列1"] + 10</code><br/><code>df["列2"] = df.apply(lambda r: r["列1"] + 10, axis=1)</code></td>
+      <td><a href="#apply">既存カラムの値を使って新しいカラムを作成</a></td>
+    </tr>
+    <tr>
       <td><code>df2 = df[["列1", "列2", "列3"]]</code></td>
       <td><a href="#extract">カラムの抽出</a></td>
     </tr>
     <tr>
-      <th colspan="2" class="local-section">結合 (concat)</th>
+      <th colspan="2" class="local-section">結合 (concat, merge)</th>
     </tr>
     <tr>
       <td><code>new_df = pd.concat([df1, df2])</code></td>
-      <td><a href="#concat">複数の DataFrame を結合</a></td>
+      <td><a href="#concat">複数の DataFrame を縦結合</a></td>
+    </tr>
+    <tr>
+      <td><code>new_df = pd.merge(df1, df2, on="列", how="inner")</code></td>
+      <td><a href="#merge">2 つの DataFrame を横結合</a></td>
     </tr>
     <tr>
       <th colspan="2" class="local-section">削除 (drop, drop_duplicates)</th>
@@ -163,6 +171,21 @@ DataFrame 加工のチートシート
       </td>
       <td><a href="/p/fk2e74z/">列1と列2のデータ型を変更</a></td>
     </tr>
+    <tr>
+      <th colspan="2" class="local-section">数値変換いろいろ</th>
+    </tr>
+    <tr>
+      <td><code>y = y.astype("float32") / 255.0</code></td>
+      <td>0〜255 (int) の値を 0.0〜1.0 (float) に正規化</td>
+    </tr>
+    <tr>
+      <td><code>y = (y > 0.5).astype(int)</code></td>
+      <td>閾値を基準にして 0 or 1 の数値に変換</td>
+    </tr>
+    <tr>
+      <td><code>X -= X.mean(axis=0)</code></td>
+      <td>平均値が 0 になるよう値を平行移動</td>
+    </tr>
   </tbody>
 </table>
 
@@ -187,7 +210,7 @@ df["X2"] = df["X1"].apply(np.sqrt)
 ```
 
 
-複数の DataFrame を結合する (pd.concat) {#concat}
+複数の DataFrame を縦結合する (pd.concat) {#concat}
 ----
 
 複数の `DataFrame` を縦方向に結合する（行を増やす）には、__`pd.concat()`__ 関数に `DataFrame` のリストを渡します。
@@ -236,6 +259,75 @@ print(new_df)
 {{< /code >}}
 
 
+複数の DataFrame を横結合する (pd.merge) {#merge}
+----
+
+複数の `DataFrame` を横方向に結合する（列を増やす）には、__`pd.merge()`__ 関数を使用します。
+引数として、どの列の値で対応づけるか (__`on`__) と、どのような結合アルゴリズムを使うか (__`how`__) を指定する必要があります。
+結合アルゴリズムには次のようなものを指定できます。
+
+- 内部結合 (`how="inner"`) （デフォルト）
+  - 両方に同じ値が含まれる行のみを残します（AND のイメージ）。例えば、2 つの `DataFrame` において、商品 ID が一致する行があれば、その行だけをマージして新しいデータを作成します。
+- 完全外部結合 (`how="outer"`)
+  - 両方に同じ値が含まれる行があれば、それらは 1 つの行としてマージされ、その他の行はそのまま残されます（OR のイメージ）。片方にしか存在しない項目は欠損値 (NaN) で埋められます。
+- 左外部結合 (`how="left"`)
+  - 左側（第 1 引数）で指定した `DataFrame` の行だけが残されます。
+- 右外部結合 (`how="right"`)
+  - 右側（第 2 引数）で指定した `DataFrame` の行だけが残されます。
+
+下記のサンプルコードでは、それぞれの結合アルゴリズムでどのような結果になるかを確認しています。
+
+```python
+import pandas as pd
+
+# サンプルデータ
+df1 = pd.DataFrame({"Id": [1, 2, 3], "Name": ["Alice", "Bob", "Charlie"]})
+df2 = pd.DataFrame({"Id": [2, 3, 4], "Age": [25, 30, 35]})
+
+print("=== INNER JOIN ===")
+result_inner = pd.merge(df1, df2, on="Id", how="inner")
+print(result_inner)
+
+print("\n=== OUTER JOIN ===")
+result_outer = pd.merge(df1, df2, on="Id", how="outer")
+print(result_outer)
+
+print("\n=== LEFT JOIN ===")
+result_left = pd.merge(df1, df2, on="Id", how="left")
+print(result_left)
+
+print("\n=== RIGHT JOIN ===")
+result_right = pd.merge(df1, df2, on="Id", how="right")
+print(result_right)
+```
+
+{{< code title="実行結果" >}}
+=== INNER JOIN ===
+   Id     Name  Age
+0   2      Bob   25
+1   3  Charlie   30
+
+=== OUTER JOIN ===
+   Id     Name   Age
+0   1    Alice   NaN
+1   2      Bob  25.0
+2   3  Charlie  30.0
+3   4      NaN  35.0
+
+=== LEFT JOIN ===
+   Id     Name   Age
+0   1    Alice   NaN
+1   2      Bob  25.0
+2   3  Charlie  30.0
+
+=== RIGHT JOIN ===
+   Id     Name  Age
+0   2      Bob   25
+1   3  Charlie   30
+2   4      NaN   35
+{{< /code >}}
+
+
 一致する値を置換する (replace) {#replace}
 ----
 
@@ -263,6 +355,60 @@ print(df)
 1    200     1
 2    300     0
 3    400     1
+{{< /code >}}
+
+
+既存カラムの値を使って新しいカラムを作成 {#apply}
+----
+
+既存のカラムのデータ (`Series`) に対して演算を行うことで、新しいカラム用のデータを作成することができます。
+次の例では、`姓` カラムと `名` カラムの値をくっつけた `氏名` カラムを作成しています。
+
+{{< code lang="python" hl_lines="10" >}}
+import pandas as pd
+
+# サンプルデータ
+df = pd.DataFrame({
+    "姓": ["佐藤", "鈴木", "田中"],
+    "名": ["太郎", "花子", "次郎"]
+})
+
+# "姓" と "名" を結合した "氏名" 列を作成
+df["氏名"] = df["姓"] + df["名"]
+
+print(df)
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+    姓   名    氏名
+0  佐藤  太郎  佐藤太郎
+1  鈴木  花子  鈴木花子
+2  田中  次郎  田中次郎
+{{< /code >}}
+
+上記のように、`+` や `-` を使ったブロードキャスト演算で新しいカラムを作成してしまうのが一番簡単ですが、より複雑な加工処理を行いたい時は __`df.apply()`__ メソッドに加工処理を行う関数を渡します（行ごとに処理することを示す __`axis=1`__ オプションも付けてください）。
+次の例では、メールアドレス（`mail` カラム）からドメイン部分を抽出した `domain` カラムを作成しています。
+ここでは値の加工に `str#split()` メソッドを使用しているので、ブロードキャスト演算が使えません。
+
+{{< code lang="python" hl_lines="9" >}}
+import pandas as pd
+
+# サンプルデータ
+df = pd.DataFrame({
+    "mail": ["host@example.com", "host@test.org", "host@sample.net"]
+})
+
+# "mail" 列からドメイン部分を抽出して新しい列 "domain" を作成する
+df["domain"] = df.apply(lambda r: r["mail"].split("@")[1], axis=1)
+
+print(df)
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+               mail       domain
+0  host@example.com  example.com
+1     host@test.org     test.org
+2   host@sample.net   sample.net
 {{< /code >}}
 
 
