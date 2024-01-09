@@ -1,28 +1,35 @@
 ---
-title: "Vim メモ"
-layout: category-index
+title: "Vim"
+url: "/vim/"
+
+categoryName: "まくまく Vim ノート"
+categoryUrl: "/vim/"
+categoryIcon: logo-vim.svg
 ---
 
-基本
+基本 <!-- basic -->
 ----
-* [ヘルプコマンドの使い方 (:help, :helpgrep)](basic/help.html)
-* 移動
-    * [カーソル移動の方法いろいろ](basic/move-cursor.html)
-    * [C/C++ の変数／マクロの定義位置にジャンプする](basic/cpp-jump.html)
-    * [画面スクロールの方法いろいろ](basic/scroll.html)
-    * [カーソル位置にマーク（ブックマーク）してジャンプする](advanced/mark.html)
-* [文字の削除方法いろいろ](basic/delete.html)
-* [文字の置換方法いろいろ (:substitute)](basic/substitute.html)
-* [ウィンドウを分割する](basic/window.html)
-* [アンドゥとリドゥ操作](basic/undo-and-redo.html)
-* [ビジュアルモードの基本](basic/visual-mode.html)
+
+- [ヘルプコマンドの使い方 (`:help`, `:helpgrep`)](/p/fdep5i7/)
+- 移動
+  - [カーソルの移動方法まとめ](/p/etvrhdd/)
+  - [画面スクロール方法まとめ](/p/gu9om5z/)
+  - [カーソル位置にマークしてジャンプしてこれるようにする](/p/i3ao6oc/)
+  - [C/C++ の変数／マクロの定義位置にジャンプする](/p/96itrdp/)
+- [文字の削除方法まとめ (`d`, `delete`)](/p/qbmdoef/)
+- [文字の置換方法まとめ (`:s`, `:substitute`)](/p/f8v2npx/)
+- [ウィンドウを分割する](/p/ym9pa88/)
+- [アンドゥとリドゥ操作](/p/rihibef/)
+- [ビジュアルモードの基本](/p/iumn4xs/)
 
 ### コマンドモード
+
 * [コマンドモードでコマンド入力を補完する](basic/candidate.html)
 * [コマンドモードでのカーソル移動](basic/cursor-move-in-command.html)
 * [ex コマンドの行範囲指定方法いろいろ](basic/line-range.html)
 
 ### 検索
+
 * [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
 * [ファイル内の文字列を検索する](basic/search.html)
 * [カーソル位置の単語を検索する](basic/search-current-word.html)
@@ -31,6 +38,7 @@ layout: category-index
 * [検索に関する設定](settings/search.html)
 
 ### コマンドライン
+
 * [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
 * [サイレントバッチモードで Ex スクリプトをファイルに適用する](file/silent-batch-mode.html)
 
@@ -56,7 +64,7 @@ layout: category-index
 * [2 つのファイルの差分を取る・マージする (vimdiff, vim -d)](file/vimdiff.html)
 
 
-編集操作
+編集操作 <!-- edit -->
 ----
 
 * [挿入モード（インサートモード）のまま実行できる操作の一覧](edit/insert-mode.html)
@@ -72,7 +80,7 @@ layout: category-index
 * [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
 * [行末の余分なスペースをまとめて削除する](edit/remove-trailing-spaces.html)
 * [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
-* [正規表現にマッチする行を削除する](edit/remove-by-regexp.html)
+* [正規表現にマッチする行を削除する](/p/ngf6w24/)
 
 ### 整形／変換
 * [行を連結する](edit/join.html)
@@ -168,4 +176,5 @@ Vim プログラミング（マクロ）／特殊用途
 * [（外部サイト）Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 * [カーソル位置の単語を取得する (cword)](misc/cword.html)
 * [カーソル位置の文字の文字コードを表示する (ascii)](misc/ascii.html)
+
 
