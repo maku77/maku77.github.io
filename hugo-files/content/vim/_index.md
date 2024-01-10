@@ -125,23 +125,23 @@ categoryIcon: logo-vim.svg
 Vim の設定
 ----
 
+### ファイル・ディレクトリに関する設定と操作
+- [設定ファイルのパスを確認する](/p/7mabuvq/)
+- [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
+- [モードラインでファイルごとに書式を設定する](settings/modeline.html)
+- [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
+- [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
+
 ### キーマップ設定
 * [キーマップの基本 (map, noremap)](keymap/basic.html)
 * [現在のキーマップの一覧を表示する (map)](keymap/current-map.html)
 * [map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)](keymap/keycodes.html)
 * [Leader キーを使ったキーコンビネーションを定義する (mapleader)](keymap/mapleader.html)
 * キーマップの例
-    * [ショートカットキーで設定ファイル (.vimrc) を開く](settings/open-vimrc-quickly.html)
+    * [ショートカットキーで設定ファイル (.vimrc) を開く](/p/r5fcfgk/)
     * [ショートカットキーで日時を挿入する](keymap/insert-date.html)
     * [ショートカットキーでタブを切り替える](keymap/tab.html)
     * [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](keymap/open-folder.html)
-
-### ファイル・ディレクトリに関する設定と操作
-* [設定ファイル (.vimrc) を開く、リロードする](settings/reload-vimrc.html)
-* [現在の環境で読み込まれる設定ファイルの一覧を確認する](settings/rc-files.html)
-* [モードラインでファイルごとに書式を設定する](settings/modeline.html)
-* [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
-* [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
 
 ### autocmd（自動コマンド）による設定
 * [autocmd で自動コマンドを登録する](settings/autocmd.html)
@@ -149,7 +149,7 @@ Vim の設定
 * [開いたファイルがあるディレクトリをカレントディレクトリにする](settings/autocmd-cd.html)
 
 ### 表示の設定
-* [行番号を表示する (number)](settings/number.html)
+* [行番号を表示する (`set number`)](/p/t8o6tum/)
 * [80文字目に縦線を表示する (colorcolumn)](settings/colorcolumn.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
