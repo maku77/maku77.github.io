@@ -14,6 +14,31 @@ draft: true
 | `$ pip install torch` | PyTorch のインストール |
 | `torch.__version__` | PyTorch のバージョン |
 | `torch.cuda.is_available()` | CUDA が有効 or 無効 |
+| `torch.manual_seed(seed)` | [乱数シードの固定](#seed) |
+
+### 乱数シードの固定 {#seed}
+
+機械学習などで乱数を使っている場合は、各種乱数ライブラリ用のシードを固定することで、毎回同じ結果を得ることができます。
+PyTorch 用のランダムシード設定関数は `torch.manual_seed(seed)` ですが、下記のように各種ライブラリ用のランダムシードをまとめて設定してしまうのが慣例となっています。
+
+```python
+import torch
+import random
+import numpy as np
+
+def set_random_seeds(seed):
+    """各種ライブラリのランダムシードを設定します。"""
+
+    random.seed(seed)  # Python のランダムシード
+    np.random.seed(seed)  # NumPy のランダムシード
+    torch.manual_seed(seed)  # PyTorch のランダムシード
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)  # CuDNN (CUDA Deep Neural Network) のランダムシード
+
+# 使用例
+set_random_seeds(1234)
+print(torch.rand(3))  # 必ず [0.0290, 0.4019, 0.2598] になる
+```
 
 
 テンソルの情報
@@ -21,9 +46,23 @@ draft: true
 
 | コード | 説明 |
 | ---- | ---- |
-| `t.shape` | テンソルの形状（各次元の要素数のタプル） |
-| `t.shape[n]` | テンソルの n 次元目の要総数 |
+| `t.shape`<br>`t.size()` | [テンソルの形状（各次元の要素数のタプル）](#shape) |
+| `t.shape[n]`<br>`t.size()[n]` | [テンソルの n 次元目の要総数](#shape) |
 | `t.dtype` | テンソルのデータ型 |
+| `t.storage_offset()` | 最初の要素が配置されたストレージのインデックス |
+| `t.stride()` | 各次元の次の要素を得る（各次元のインデックスを 1 つ進める）ために必要なストレージ内での移動量 |
+| `t.is_contiguous()` | ストレージ内で連続して配置されているか |
+| `id(t1.storage()) == id(t2.storage())` | 2 つのテンソルが同じストレージを共有しているか調べる |
+
+### テンソルの形状を調べる {#shape}
+
+```python
+t = torch.rand(2, 3)
+
+print(t.shape)     # torch.Size([2, 3])
+print(t.shape[0])  # 2
+print(t.shape[1])  # 3
+```
 
 
 テンソルの作成
@@ -44,6 +83,114 @@ draft: true
 | `t = torch.randn(2, 3)` | 正規分布（平均0、分散1）のランダム値の 2 次元テンソルを作成（2行3列） |
 
 
+テンソルの変換
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `t2 = t.double()`<br>`t2 = t.to(torch.double)`<br>`t2 = t.to(dtype=torch.double)` | [データ型の変換](#data-type-conversion) |
+| `t_gpu = t.cuda()`<br>`t_gpu = t.to(device="cuda")` | [CPU 上のテンソルを GPU にコピー](#to-cuda) |
+| `t = t_gpu.cpu()`<br>`t = t_gpu.to(device="cpu")` | GPU 上のテンソルを CPU にコピー |
+| `t = torch.from_numpy(np_a)` | NumPy 配列からテンソルを作成（メモリは共有） |
+| `np_a = t.numpy()` | テンソルから NumPy 配列を作成（メモリは共有） |
+| `s = t.storage()` | テンソルのストレージを参照（型は `TypedStorage`） |
+| `t2 = t.clone()` | テンソルのコピー（Storage のメモリ領域のコピー） |
+| `t2 = t.t()`<br>`t2 = t.transpose(0, 1)` | [転置行列](#t) |
+| `t2 = t.sqrt()`<br>`t.sqrt_()` | 平方根 |
+| `t.zero_()` | すべての要素を 0 にする |
+| `t2 = t.contiguous()` | 連続配置されたテンソルを取得（ストレージの再配置） |
+
+`t.sqrt_()` のように末尾にアンダースコア (`_`) の付いたメソッドは、__インプレース操作__ を表しており、自分自身のテンソルの内容を変更します。
+
+
+### データ型の変換 {#data-type-conversion}
+
+テンソルの `double()` メソッドや `int()` メソッドを使うと、データ型を変換することができます。
+次の例では、`torch.rand()` で作成したランダムなテンソルを変換しています。
+
+```python
+import torch
+
+torch.manual_seed(1234)
+
+t = torch.rand(3)  # デフォルトでは torch.float32 型になる
+t2 = t.double()    # torch.float64 型への変換
+t3 = t.int()       # torch.int32 型への変換
+
+print(t.dtype)   # torch.float32
+print(t2.dtype)  # torch.float64
+print(t3.dtype)  # torch.int32
+
+print(t)   # tensor([0.0290, 0.4019, 0.2598])
+print(t2)  # tensor([0.0290, 0.4019, 0.2598], dtype=torch.float64)
+print(t3)  # tensor([0, 0, 0], dtype=torch.int32)
+```
+
+`torch.double` 型は `torch.float64` 型のエイリアスです（`float64()` という関数はないようです）。
+
+### GPU 上にテンソルを置く {#to-cuda}
+
+CPU 上に配置されたテンソルデータを GPU 上にコピーするには、__`t.cuda()`__ メソッドを使用します。
+他の変換（データ型など）も行う場合は、`t.to(device="cuda")` を使うと便利です。
+
+{{< code lang="python" hl_lines="4" >}}
+import torch
+
+t = torch.tensor([1, 2])
+t_gpu = t.cuda()  # t.to(device="cuda")
+
+# GPU 上に保持されているかを確認
+print(t_gpu)
+print(t_gpu.device)
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+tensor([1., 2.], device='cuda:0')
+cuda:0
+{{< /code >}}
+
+あるいは、テンソルの生成時に `device="cuda"` オプションを指定します。
+
+```python
+t_gpu = torch.tensor([1, 2], device="cuda")
+```
+
+複数の GPU がある場合は、インデックスで指定することができます（デフォルトは 0）。
+
+```python
+t_gpu = t.cuda(0)
+t_gpu = t.to(device="cuda:0")
+```
+
+### 転置行列 {#t}
+
+__`t.t()`__ メソッドで転置行列を生成できます。
+下記の例では、2 行 3 列のテンソルを転置して 3 行 2 列のテンソルを生成しています。
+
+```python
+import torch
+
+t = torch.tensor([[1, 2, 3], [4, 5, 6]], dtype=torch.int64)  # 2 行 3 列のテンソル
+print(t)
+print(t.t())
+```
+
+{{< code title="実行結果" >}}
+tensor([[1, 2, 3],
+        [4, 5, 6]])
+tensor([[1, 4],
+        [2, 5],
+        [3, 6]])
+{{< /code >}}
+
+__`t.tranpose()`__ メソッドを使うと、任意の次元を入れ替えることができます。
+2 次元テンソルであれば、下記の結果は `t.t()` と同じになります。
+
+```python
+t2 = t.transpose(0, 1)  # t.t() と同じ
+```
+
+
 行と列の抽出
 ----
 
@@ -55,9 +202,39 @@ draft: true
 | `t[:, [col1_index, col2_index, col3_index]]` | 複数列の抽出 |
 
 
+テンソルのシリアライズ・デシリアライズ
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `torch.save(t, "./data.t")` | [テンソルデータをファイルに保存]{#save} |
+| `t = torch.load("./data.t")` | [ファイルからテンソルデータをロード]{#load} |
+
+### ファイルへのテンソルの保存
+
+{{< code lang="python" title="data.t ファイルに保存" hl_lines="2" >}}
+t = torch.rand(2, 3)  # 適当なテンソルを生成
+torch.save(t, "./data.t")  # ファイルに保存
+
+# あるいは次のようにしても OK
+with open("./datat", "wb") as f:
+    troch.save(t, f)
+{{< /code >}}
+
+### ファイルからテンソルを読み出し
+
+{{< code lang="python" title="data.t ファイルをロード" hl_lines="1" >}}
+t = torch.load("./data.t")
+
+# あるいは次のようにしても OK
+with open("./data.t", "rb") as f:
+    t = torch.load(f)
+{{< /code >}}
+
+
 メモ
 ----
 
-- `torch.Storage` インスタンス
+- ストレージ (`torch.Storage`) インスタンス
   - 数値を一次元配列の形で保持するメモリチャンクで、PyTorch の `Tensor` は、この `Storage` インスタンスを指し示すビューです。`Tensor` インスタンス経由でアクセスすることで、多次元のデータ形状を表現することができるようになっています。
 
