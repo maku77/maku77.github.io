@@ -199,7 +199,24 @@ df2 = df.drop(&#34;列&#34;, axis=1) 指定したカラムを削除 df."><link r
 </span></span></code></pre></div><figure class=codeBlock><figcaption class=codeBlock__title>実行結果</figcaption><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>     A  B    C
 </span></span><span class=line><span class=cl>0  100  x  500
 </span></span><span class=line><span class=cl>1  100  y  600
-</span></span><span class=line><span class=cl>4  300  x  700</span></span></code></pre></div></div></figure><h3 id=conditional-delete>条件に一致する行を削除</h3><p>これは発想の転換ですが、「ある列の値が <code>A</code> 以外である行を抽出する」という操作は、「ある列の値が <code>A</code> である行を削除する」という操作になります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl>4  300  x  700</span></span></code></pre></div></div></figure><div class=note><span class=note__title>☝️ 重複している行を確認する</span>
+<span class=note__body><p><strong><code>df.duplicated()</code></strong> で各行が重複しているかを示すフラグ (<code>True/False</code>) の <code>Series</code> オブジェクトを取得できます。
+これを使って元のデータフレームをフィルタすると、<strong>重複している行だけを抽出</strong> することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;A&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>200</span><span class=p>,</span> <span class=mi>300</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;B&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;x&#34;</span><span class=p>,</span> <span class=s2>&#34;x&#34;</span><span class=p>,</span> <span class=s2>&#34;x&#34;</span><span class=p>,</span> <span class=s2>&#34;y&#34;</span><span class=p>,</span> <span class=s2>&#34;z&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>dup_df</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=n>df</span><span class=o>.</span><span class=n>duplicated</span><span class=p>(</span><span class=n>keep</span><span class=o>=</span><span class=kc>False</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>dup_df</span><span class=p>)</span>
+</span></span></code></pre></div><p>このコードを実行すると、最初の 3 つの行が重複していることを確認できます。</p><pre tabindex=0><code>     A  B
+0  100  x
+1  100  x
+2  100  x
+</code></pre><p><code>df.duplicated()</code> の戻り値は、デフォルトでは削除すべき行だけが <code>True</code> となります。
+例えば、3 つの行が重複している場合、削除すべき 2 つの行のみ <code>True</code> になります。
+上記コードのように、<code>df.duplicated()</code> に <strong><code>keep=False</code></strong> オプションを付けることで、3 つの行すべてを <code>True</code> にすることができます。</p></span></div><h3 id=conditional-delete>条件に一致する行を削除</h3><p>これは発想の転換ですが、「ある列の値が <code>A</code> 以外である行を抽出する」という操作は、「ある列の値が <code>A</code> である行を削除する」という操作になります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># テストデータ</span>
 </span></span><span class=line><span class=cl><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>({</span>
