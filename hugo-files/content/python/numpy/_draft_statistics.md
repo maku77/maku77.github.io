@@ -20,6 +20,7 @@ draft: true
 | [ユニークな要素を列挙](#unique) | `df["列"].unique()` | |
 | [ユニークな要素の種類をカウント](#nunique) | `df["列"].nunique()`<br/>`df.nunique()` | |
 | [ユニークな値ごとにカウント](#value_counts) | `df["列"].value_counts()`<br/>`df.value_counts()` | |
+| 重複するレコードをカウント | `df.duplicated().sum()` |
 | [条件に一致する値をカウント](#conditional_sum) | `(df["列"] >= 値).sum()` | |
 | [列と列の相関係数](#corrwith) | `df.corrwith(df["列"])` | |
 | [グループ化してから集計](#groupby) | `df.groupby(["列"]).mean()` | `mean()` の部分は任意の統計関数に置換可 |

@@ -70,17 +70,44 @@ print(t.shape[1])  # 3
 
 | コード | 説明 |
 | ---- | ---- |
+| `t = torch.tensor([1.0, 2.0, 3.0])` | Python のリストから 1 次元テンソルを作成 |
+| `t = torch.tensor([1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])` | Python のリストから 2 次元テンソルを作成（2行3列） |
 | `t = torch.zeros(3)` | すべての要素が 0 の 1 次元テンソルを作成 |
 | `t = torch.zeros(3, dtype=torch.int32)` | すべての要素が 0 の 1 次元テンソルを作成（データタイプを指定） |
 | `t = torch.zeros(2, 3)` | すべての要素が 0 の 2 次元テンソルを作成（2行3列） |
 | `t = torch.ones(3)` | すべての要素が 1 の 1 次元テンソルを作成 |
 | `t = torch.ones(2, 3)` | すべての要素が 1 の 2 次元テンソルを作成（2行3列） |
-| `t = torch.tensor([1.0, 2.0, 3.0])` | Python のリストから 1 次元テンソルを作成 |
-| `t = torch.tensor([1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])` | Python のリストから 2 次元テンソルを作成（2行3列） |
+| `t = torch.arange(0, 5)` | の連番（1〜4）の 1 次元テンソルを作成 |
 | `t = torch.rand(3)` | ランダム値（0.0〜1.0）の 1 次元テンソルを作成 |
 | `t = torch.rand(2, 3)` | ランダム値（0.0〜1.0）の 2 次元テンソルを作成（2行3列） |
 | `t = torch.randn(3)` | 正規分布（平均0、分散1）のランダム値の 1 次元テンソルを作成 |
 | `t = torch.randn(2, 3)` | 正規分布（平均0、分散1）のランダム値の 2 次元テンソルを作成（2行3列） |
+| `t = torch.stack(t1, t2, t3)` | [複数のテンソルを結合（スタックするので一次元増える）](#stack) |
+
+
+### 複数のテンソルを結合する {#stack}
+
+__`torch.tensor()`__ 関数を使用すると、複数のテンソルを新しい次元で結合できます。
+
+```python
+import torch
+
+t1 = torch.tensor([1, 2, 3])
+t2 = torch.tensor([4, 5, 6])
+
+print(torch.stack((t1, t2)))
+# tensor([[1, 2, 3],
+#         [4, 5, 6]])
+```
+
+`dim=1` オプション（デフォルトは `dim=0`）を指定することで、結合する方向を切り替えることができます（Python の `zip()` 関数のようなイメージ）。
+
+```python
+print(torch.stack((t1, t2), dim=1))
+# tensor([[1, 4],
+#         [2, 5],
+#         [3, 6]])
+```
 
 
 テンソルの変換
@@ -91,17 +118,14 @@ print(t.shape[1])  # 3
 | `t2 = t.double()`<br>`t2 = t.to(torch.double)`<br>`t2 = t.to(dtype=torch.double)` | [データ型の変換](#data-type-conversion) |
 | `t_gpu = t.cuda()`<br>`t_gpu = t.to(device="cuda")` | [CPU 上のテンソルを GPU にコピー](#to-cuda) |
 | `t = t_gpu.cpu()`<br>`t = t_gpu.to(device="cpu")` | GPU 上のテンソルを CPU にコピー |
-| `t = torch.from_numpy(np_a)` | NumPy 配列からテンソルを作成（メモリは共有） |
-| `np_a = t.numpy()` | テンソルから NumPy 配列を作成（メモリは共有） |
+| `t2 = t.view(3, 2)` | テンソルの変形（3 行 2 列にする） |
+| `t2 = t.view(-1)` | テンソルの変形（1 次元にする） |
+| `t2 = t.view(-1, 8, 8)` | テンソルの変形（1 次元目のサイズを自動計算） |
+| `t = torch.from_numpy(np_a)` | NumPy 配列 → テンソル（メモリは共有） |
+| `np_a = t.numpy()` | テンソル → NumPy 配列（メモリは共有） |
 | `s = t.storage()` | テンソルのストレージを参照（型は `TypedStorage`） |
 | `t2 = t.clone()` | テンソルのコピー（Storage のメモリ領域のコピー） |
 | `t2 = t.t()`<br>`t2 = t.transpose(0, 1)` | [転置行列](#t) |
-| `t2 = t.sqrt()`<br>`t.sqrt_()` | 平方根 |
-| `t.zero_()` | すべての要素を 0 にする |
-| `t2 = t.contiguous()` | 連続配置されたテンソルを取得（ストレージの再配置） |
-
-`t.sqrt_()` のように末尾にアンダースコア (`_`) の付いたメソッドは、__インプレース操作__ を表しており、自分自身のテンソルの内容を変更します。
-
 
 ### データ型の変換 {#data-type-conversion}
 
@@ -191,7 +215,7 @@ t2 = t.transpose(0, 1)  # t.t() と同じ
 ```
 
 
-行と列の抽出
+部分的なデータ（行や列）の抽出
 ----
 
 | コード | 説明 |
@@ -200,17 +224,20 @@ t2 = t.transpose(0, 1)  # t.t() と同じ
 | `t[start:end]` | 複数行の抽出 |
 | `t[:, col_index]` | 1 列の抽出 |
 | `t[:, [col1_index, col2_index, col3_index]]` | 複数列の抽出 |
+| `t[0][0].item()` | Tensor 型ではないスカラー値を取得 |
 
 
-テンソルのシリアライズ・デシリアライズ
+シリアライズ・デシリアライズ
 ----
 
 | コード | 説明 |
 | ---- | ---- |
-| `torch.save(t, "./data.t")` | [テンソルデータをファイルに保存]{#save} |
-| `t = torch.load("./data.t")` | [ファイルからテンソルデータをロード]{#load} |
+| `torch.save(t, "./data.t")` | [テンソルデータをファイルに保存](#save) |
+| `t = torch.load("./data.t")` | [ファイルからテンソルデータをロード](#load) |
+| `torch.save(model.state_dict(), "./model.pth")` | 学習済みモデル（パラメーター）の保存 |
+| `model.load_state_dict(torch.load("./model.pth"))` | 学習済みモデル（パラメーター）のロード |
 
-### ファイルへのテンソルの保存
+### ファイルへのテンソルの保存 {#save}
 
 {{< code lang="python" title="data.t ファイルに保存" hl_lines="2" >}}
 t = torch.rand(2, 3)  # 適当なテンソルを生成
@@ -221,7 +248,7 @@ with open("./datat", "wb") as f:
     troch.save(t, f)
 {{< /code >}}
 
-### ファイルからテンソルを読み出し
+### ファイルからテンソルをロード {#load}
 
 {{< code lang="python" title="data.t ファイルをロード" hl_lines="1" >}}
 t = torch.load("./data.t")
@@ -230,6 +257,22 @@ t = torch.load("./data.t")
 with open("./data.t", "rb") as f:
     t = torch.load(f)
 {{< /code >}}
+
+
+演算、その他
+----
+
+| コード | 説明 |
+| ---- | ---- |
+| `t2 = t.abs()` / `t.abs_()` | 各要素を絶対値にする |
+| `t2 = t.sqrt()` / `t.sqrt_()` | 各要素を平方根にする |
+| `t.mean(dtype=torch.float64)` | 平均値 |
+| `t.std()` | 標準偏差 |
+| `t.var()` | 不偏分散（≠ 分散） |
+| `t.zero_()` | すべての要素を 0 にする |
+| `t2 = t.contiguous()` | 連続配置されたテンソルを取得（ストレージの再配置） |
+
+`t.abs_()` のように末尾にアンダースコア (`_`) の付いたメソッドは、__インプレース操作__ を表しており、自分自身のテンソルの内容を変更します。
 
 
 メモ
