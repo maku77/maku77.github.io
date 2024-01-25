@@ -12,6 +12,7 @@ Node.js 実行環境など
 
 - [Node.js とは - Node.js をインストールする](/p/z5ap5bf/)
 - [`nvm` で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)](/p/3x95seb/)
+- [`corepack` で `yarn` や `pnpm` などのパッケージマネージャーを管理する](/p/tzwio3y/)
 - [Node.js スクリプトにシェバング (`#!`) を付けてコマンドとして起動できるようにする](/p/ptactsj/)
 - [Node.js で assert を使用する](assert.html)
 - [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
