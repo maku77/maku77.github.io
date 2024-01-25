@@ -1,7 +1,10 @@
 ---
-title: "Node.js とは／Node.js をインストールする"
+title: "Node.js をインストールする"
+url: "p/z5ap5bf/"
 date: "2012-11-25"
 lastmod: "2022-03-13"
+tags: ["nodejs"]
+aliases: /nodejs/env/install-nodejs.html
 ---
 
 Node.js とは
@@ -12,13 +15,13 @@ JavaScript は、元々は Web ブラウザ内のコンテキストで実行さ�
 Python や Ruby のような実行環境が、JavaScript 言語にも提供されたと考えると分かりやすいです。
 例えば、Python によるプログラムは以下のように実行しますが、
 
-```
+```console
 $ python sample.py
 ```
 
 同様に JavaScript で記述したプログラムを、下記のように実行できます。
 
-```
+```console
 $ node sample.js
 ```
 
@@ -35,9 +38,9 @@ Node.js のインストール
 
 各 OS 用の Node.js インストーラが提供されています。
 下記のサイトからダウンロードして実行するだけで簡単にインストールできます。
-複数バージョンの Node.js 実行環境をインストールしたい場合は、[nvm というコマンドラインツールを使って Node.js をインストール](./nvm.html) してください。
+複数バージョンの Node.js 実行環境をインストールしたい場合は、[nvm というコマンドラインツールを使って Node.js をインストール](/p/3x95seb/) してください。
 
-- [Node.js (https://nodejs.org/)](https://nodejs.org/)
+- [Node.js - https://nodejs.org/](https://nodejs.org/)
 
 Node.js の実行環境は、デフォルトで下記のようなディレクトリにインストールされます。
 

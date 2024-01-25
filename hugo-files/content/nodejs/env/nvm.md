@@ -1,6 +1,9 @@
 ---
 title: "nvm で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)"
+url: "p/3x95seb/"
 date: "2022-03-13"
+tags: ["nodejs"]
+aliases: /nodejs/env/nvm.html
 ---
 
 nvm (Node Version Manager) とは？

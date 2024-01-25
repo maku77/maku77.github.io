@@ -1,14 +1,18 @@
 ---
 title: "Node.js"
-layout: category-index
+url: "/nodejs/"
+
+categoryName: "まくまく Node.js ノート"
+categoryUrl: "/nodejs/"
+categoryIcon: "logo-nodejs.svg"
 ---
 
 Node.js 実行環境など
 ----
 
-- [Node.js とは／Node.js をインストールする](env/install-nodejs.html)
-- [nvm で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)](env/nvm.html)
-- [node アプリをシェバングで起動するようにする](shebang.html)
+- [Node.js とは - Node.js をインストールする](/p/z5ap5bf/)
+- [`nvm` で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)](/p/3x95seb/)
+- [Node.js スクリプトにシェバング (`#!`) を付けてコマンドとして起動できるようにする](/p/ptactsj/)
 - [Node.js で assert を使用する](assert.html)
 - [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
 - [環境変数の代わりに .env ファイルを使用する (dotenv)](env/dotenv.html)
