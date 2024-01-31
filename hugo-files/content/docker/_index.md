@@ -63,6 +63,7 @@ Docker コマンドによる操作
 その他 <!-- misc -->
 ----
 
+* [サーバー再起動時に Docker コンテナを自動起動する](/p/rh8qm2n/)
 * トラブルシューティング
   * [Docker で apt-get install するときに TERM 系のエラーが出る](/p/3i2iygw/)
   * [Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき](/p/6g3j2iz/)
