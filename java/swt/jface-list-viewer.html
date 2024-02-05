@@ -39,8 +39,6 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
 <!-- Favicons end -->
 
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-
 
   <!-- Google Ad Manager -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -569,15 +567,25 @@ ILabelProvider にはインタフェースがたくさんあるので、ここ�
 
 <!-- maku-common.js -->
 <script>
-$(function() {
-  var $content = $('.xContent');
-  // 外部リンクを必ず新しいタブで開く
-  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
-  // 外部リンクにクラス属性を付加する
-  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelectorAll('.xContent');
+
+  content.forEach(function(item) {
+    // 外部リンクを必ず新しいタブで開く
+    const externalLinks = item.querySelectorAll('a[href^="http"]');
+    externalLinks.forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    });
+
+    // 外部リンクにクラス属性を付加する
+    const nonImageExternalLinks = item.querySelectorAll('a[href^="http"]:not(:has(img))');
+    nonImageExternalLinks.forEach(function(link) {
+      link.classList.add('xExternalLinkIcon');
+    });
+  });
 });
 </script>
-
 
 </body>
 </html>

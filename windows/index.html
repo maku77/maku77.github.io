@@ -39,8 +39,6 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
   <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
 <!-- Favicons end -->
 
-<script src="/assets/js/jquery-3.2.1.min.js"></script>
-
 
   <!-- Google Ad Manager -->
   <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
@@ -557,19 +555,29 @@ Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 
 <!-- maku-common.js -->
 <script>
-$(function() {
-  var $content = $('.xContent');
-  // 外部リンクを必ず新しいタブで開く
-  $content.find('a[href^=http]').attr('target', '_blank').attr('rel', 'noopener');
-  // 外部リンクにクラス属性を付加する
-  $content.find('a[href^=http]:not(:has(img))').addClass("xExternalLinkIcon");
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelectorAll('.xContent');
+
+  content.forEach(function(item) {
+    // 外部リンクを必ず新しいタブで開く
+    const externalLinks = item.querySelectorAll('a[href^="http"]');
+    externalLinks.forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    });
+
+    // 外部リンクにクラス属性を付加する
+    const nonImageExternalLinks = item.querySelectorAll('a[href^="http"]:not(:has(img))');
+    nonImageExternalLinks.forEach(function(link) {
+      link.classList.add('xExternalLinkIcon');
+    });
+  });
 });
 </script>
 
 
-
 <script>
-$(function() {
+document.addEventListener('DOMContentLoaded', function() {
   /*
    * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
    * メニュー要素 (ul) を生成する。
@@ -578,27 +586,36 @@ $(function() {
    * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
    */
   function createMenu(searchParent, headerTagNames) {
-    var $ul = $('<ul />');  // メニュー項目の親要素
-    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+    const ul = document.createElement('ul');  // メニュー項目の親要素
+    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
 
-    $(searchParent).find(headerTagNames).each(function (index, elem) {
-      var $e = $(elem);
+    document.querySelectorAll(`${searchParent} ${headerTagNames}`).forEach((header) => {
       // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      var name = 'section' + (sectionNumber++);
-      $e.prepend('<a name="' + name + '"></a>');
+      const name = `section${sectionNumber++}`;
+      const anchor = document.createElement('a');
+      anchor.setAttribute('name', name);
+      header.prepend(anchor);
 
       // メニュー項目となる li 要素を追加する
-      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
-      $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
+      const level = header.tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      const li = document.createElement('li');
+      li.classList.add(`level-${level}`);
+
+      const link = document.createElement('a');
+      link.setAttribute('href', `#${name}`);
+      link.textContent = header.textContent.trim();
+
+      li.appendChild(link);
+      ul.appendChild(li);
     });
 
-    return $ul;
+    return ul;
   }
 
-  // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
-  // その ul 要素を #menuStub へと挿入する。
-  var menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
-  $('#tocStub').append(menuElem);
+  // main 要素以下の見出し要素を抽出して、メニュー (ul 要素) を自動生成し、
+  // その ul 要素を #tocStub へと挿入する。
+  const menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
+  document.getElementById('tocStub').appendChild(menuElem);
 });
 </script>
 
