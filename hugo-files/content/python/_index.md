@@ -336,6 +336,7 @@ NumPy / pandas / Matplotlib / scikit-learn
 ### Matplotlib
 
 - [Matplotlib の `Axes`、`Figure`、`pyplot` の関係を理解する](/p/59ruo5m/)
+- [Matplotlib によるプロットの例（散布図）](/p/4xyn2kv/)
 
 {{% private %}}
 - [(DRAFT) Matplotlib チートシート](/p/ghch694/)

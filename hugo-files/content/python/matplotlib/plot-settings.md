@@ -9,8 +9,8 @@ draft: true
 {{% private %}}
 - `subplot()` を呼び出すことにより、内部的に描画対象の Axes、Figure が切り替わります。
 これらの描画オブジェクトを参照するには下記の関数を使用します。
-  - `plt.gca()` ... Axes オブジェクト
-  - `plt.gcf()` ... Figure オブジェクト
+  - `plt.gca()` ... Axes オブジェクト (<b>g</b>et <b>c</b>urrent <b>a</b>xes)
+  - `plt.gcf()` ... Figure オブジェクト (<b>g</b>et <b>c</b>urrent <b>f</b>igure)
 {{% /private %}}
 
 
@@ -57,6 +57,8 @@ draft: true
 
 | コード | 説明 |
 | ---- | ---- |
+| `plt.xlabel("X軸ラベル")`<br>`ax.set_xlabel("X軸ラベル")` | x 軸のラベルを表示する |
+| `plt.xlabel("X軸ラベル", labelpad=10)` | x 軸のラベルの位置調整 |
 | `plt.xlim(0, 10)` | x 軸の範囲設定 |
 | `plt.xticks([0, 5, 10], ["Low", "Mid", "High"])` | x 軸の目盛りの設定 |
 | `plt.xticks(rotation=45)` | x 軸のラベルの回転 |
@@ -66,13 +68,11 @@ draft: true
 | `plt.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)`<br/>ax でも OK | 指定した位置の軸目盛りラベルを非表示にする |
 
 
-ラベルと凡例
+凡例
 ----
 
 | コード | 説明 |
 | ---- | ---- |
-| `plt.xlabel("X軸ラベル")` | x 軸のラベルを表示する |
-| `plt.xlabel("X軸ラベル", labelpad=10)` | x 軸のラベルの位置調整 |
 | `plt.legend()` | 凡例を描画 |
 | `plt.legend(loc="upper right")` | 凡例を描画＋位置指定 |
 
