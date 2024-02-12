@@ -11,6 +11,22 @@ VPS などのサーバーを再起動したときに Docker コンテナを自�
 $ docker run -d --restart always redis
 ```
 
+Docker Compose ファイルを使う場合は次のように記述します。
+
+{{< code lang="yml" title="docker-compose.yml" >}}
+version: '3.8'
+
+services:
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+{{< /code >}}
+
+{{< code lang="console" title="起動方法" >}}
+$ docker compose up -d
+{{< /code >}}
+
 正確には VPS サーバーの再起動時というより、Docker デーモンの再起動時に、コンテナの再起動ポリシーによりコンテナが再起動されるという流れになります。
 VPS サーバーが起動したときに Docker デーモンを自動起動するようにする設定は、`systemd` などのプロセスマネージャーで別途設定しておく必要があります。
 
