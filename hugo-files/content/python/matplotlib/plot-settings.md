@@ -62,7 +62,7 @@ draft: true
 | `plt.xlim(0, 10)` | x 軸の範囲設定 |
 | `plt.xticks([0, 5, 10], ["Low", "Mid", "High"])` | x 軸の目盛りの設定 |
 | `plt.xticks(rotation=45)` | x 軸のラベルの回転 |
-| `plt.axis("off")`（ax でも OK）<br/>`plt.gca().set_axis_off()` | すべての軸を非表示にする |
+| `plt.axis("off")`<br/>`plt.gca().set_axis_off()`<br/>`ax.set_axis_off()` | すべての軸を非表示にする |
 | `ax.get_xaxis().set_visible(False)`<br/>`ax.get_yaxis().set_visible(False)` | x 軸を非表示にする<br/>y 軸を非表示にする |
 | `plt.tick_params(bottom=False, left=False, right=False, top=False)`<br/>ax でも OK | 指定した位置の軸を非表示にする |
 | `plt.tick_params(labelbottom=False, labelleft=False, labelright=False, labeltop=False)`<br/>ax でも OK | 指定した位置の軸目盛りラベルを非表示にする |

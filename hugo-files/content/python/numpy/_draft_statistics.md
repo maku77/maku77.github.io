@@ -282,13 +282,46 @@ pd.get_dummies(df).corrwith(df["列名"])
 グループ化してから集計 {#groupby}
 ----
 
-```
-# pclass 列の値で行をグループ化してから各列の平均値を求める
->>> df.groupby(["pclass"]).mean()
+__`groupby()`__ で特定の列の値でグループ化してから各フィールドを集計することができます。
+例えば、性別 (sex) のフィールドがある場合は、男性と女性で分けて統計値を求めることができます。
 
-# 出力列を絞りたい場合
->>> df[["pclass", "survived"]].groupby(["pclass"]).mean()
+{{< code lang="python" title="例: 性別ごとに各フィールドの平均値を求める" >}}
+import pandas as pd
+
+def load_titanic() -> pd.DataFrame:
+    """Titanic データをロード"""
+    from sklearn.datasets import fetch_openml
+    data = fetch_openml(name="titanic", version=1, as_frame=True, parser="auto")
+    return data.frame
+
+df = load_titanic()
+
+# "sex" 列の値でグループ化し、グループごとに各フィールドの平均値を求める
+mean_by_sex = df.groupby("sex").mean(numeric_only=True)
+print(mean_by_sex)
+{{< /code >}}
+
+{{< code title="実行結果" >}}
+          pclass        age     sibsp     parch       fare       body
+sex
+female  2.154506  28.687071  0.652361  0.633047  46.198097  166.62500
+male    2.372479  30.585233  0.413998  0.247924  26.154601  160.39823
+{{< /code >}}
+
+特定の列（例: 年齢）の平均値だけが欲しければ次のように記述します。
+
+```python
+# "sex" 列の値でグループ化し、グループごとに「年齢」の平均値を求める
+age_mean_by_sex = df.groupby("sex")["age"].mean()
+print(age_mean_by_sex)
 ```
+
+{{< code title="実行結果" >}}
+sex
+female    28.687071
+male      30.585233
+Name: age, dtype: float64
+{{< /code >}}
 
 `DataFrame#groupby()` メソッドの戻り値は `DataFrame` ではなく、グループ化情報を示す `DataFrameGroupBy` オブジェクトであることに注意してください。
 

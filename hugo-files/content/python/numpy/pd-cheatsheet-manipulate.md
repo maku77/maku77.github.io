@@ -67,7 +67,7 @@ DataFrame 加工のチートシート
       <td>
         <code>df.drop(columns="列", inplace=True)</code><br/>
         <code>df.drop("列", axis=1, inplace=True)</code><br/>
-        <code>del df["列"]</code><br />
+        <code>del df["列"]</code> ※非推奨<br />
         <code>df.pop("列")
       </td>
       <td><a href="#drop-column">指定したカラムを削除（自分自身を変更）</a></td>
@@ -106,7 +106,10 @@ DataFrame 加工のチートシート
       <th colspan="2" class="local-section">置換 (replace)</th>
     </tr>
     <tr>
-      <td><code>df["列"].replace(置換前の値, 置換後の値)</code></td>
+      <td>
+        <code>df["列"].replace(置換前の値, 置換後の値)</code><br>
+        <code>df["列"].replace([前1, 前2, 前3], [後1, 後2, 後3])</code>
+      </td>
       <td><a href="#replace">値の置換</a></td>
     </tr>
     <tr>
@@ -338,7 +341,7 @@ print(result_right)
 ```python
 import pandas as pd
 
-# テストデータ
+# サンプルデータ
 df = pd.DataFrame({
     "Price": [100, 200, 300, 400],
     "Class": ["A", "B", "A", "B"]
@@ -355,6 +358,30 @@ print(df)
 1    200     1
 2    300     0
 3    400     1
+{{< /code >}}
+
+`replace()` メソッドで __`regex=True`__ フラグを指定すると、__正規表現__ を使った置換が可能です。
+次の例では、電話番号を表すフィールドから数値以外の文字を削除しています。
+
+```python
+import pandas as pd
+
+# サンプルデータ
+df = pd.DataFrame({
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Phone": ["123-4567-8901", "(0120) 111-2222", "111 2222 3333"]
+})
+
+# 数値以外の文字 (`\D`) をすべて削除する
+df["Phone"].replace(r"\D", "", regex=True, inplace=True)
+print(df)
+```
+
+{{< code title="実行結果" >}}
+      Name        Phone
+0    Alice  12345678901
+1      Bob  01201112222
+2  Charlie  11122223333
 {{< /code >}}
 
 
