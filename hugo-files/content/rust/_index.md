@@ -100,6 +100,11 @@ Rust の文法
   - [Excel ファイルを読み込む (`calamine`)](/p/4ye2eah/)
 - [MongoDB を扱う (`mongodb`)](/p/nzi6xbm/)
 
+{{% private %}}
+- Web サーバー
+  - [REST API サーバーを作る (axum)](/p/q49pmjt/)
+{{% /private %}}
+
 
 その他
 ----
