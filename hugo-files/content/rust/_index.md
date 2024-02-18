@@ -98,12 +98,14 @@ Rust の文法
 - ファイルの読み書き
   - [JSON フォーマットを扱う (`serde`)](/p/xdyk5o8/)
   - [Excel ファイルを読み込む (`calamine`)](/p/4ye2eah/)
-- [MongoDB を扱う (`mongodb`)](/p/nzi6xbm/)
+- [Rust の非同期ランタイム `tokio` の使い方 (`async`, `await`, `Future`)](/p/z6e9or8/)
 
-{{% private %}}
-- Web サーバー
-  - [REST API サーバーを作る (axum)](/p/q49pmjt/)
-{{% /private %}}
+
+Web / データベース
+----
+
+- [Rust で Web サーバーを作る (`axum`)](/p/q49pmjt/)
+- [Rust で MongoDB を扱う (`mongodb`)](/p/nzi6xbm/)
 
 
 その他

@@ -2,6 +2,7 @@
 title: "Rust で JSON フォーマットを扱う (serde)"
 url: "p/xdyk5o8/"
 date: "2023-01-09"
+lastmod: "2024-02-18"
 tags: ["Rust"]
 ---
 
@@ -303,4 +304,108 @@ attributes: HashMap<String, String>,
 {{% private %}}
 - シリアライズ時にフィールド名でソートする
 {{% /private %}}
+
+
+形式の不明な JSON ファイルを読み込む (serde_json::Value)
+----
+
+どのようなフィールドが含まれているかわからない JSON ファイルを読み込む場合は、任意の JSON データ型を示す [`serde_json::Value`](https://docs.rs/serde_json/latest/serde_json/value/enum.Value.html) として読み込みます。
+`serde_json::Value` は次のような定義の列挙型 (`enum`) で、JSON で表現できるデータ型がバリアントとして定義されています。
+
+```rust
+pub enum Value {
+    Null,                        // null
+    Bool(bool),                  // bool
+    Number(Number),              // 数値
+    String(String),              // 文字列
+    Array(Vec<Value>),           // 配列
+    Object(Map<String, Value>),  // オブジェクト
+}
+```
+
+ここでは、次のような JSON ファイルを読み込んでみます。
+「オブジェクトの配列」の形になっているということまでは分かっているものとします。
+
+{{< code lang="json" title="games.json" >}}
+[
+  { "title": "Final Fantasy", "genre": "RPG" },
+  { "title": "Sqoon", "genre": "STG", "price": 4900 },
+  { "title": "Gimmick", "note": "プレミア価格" }
+]
+{{< /code >}}
+
+次の例では、`games.json` を `Value` 型として読み込み、その内容を表示しています。
+
+{{< code lang="rust" title="src/main.rs" >}}
+use serde_json::Value;
+use std::fs::File;
+use std::io::BufReader;
+
+// games.json を読み込んで Value 型で返す
+fn load_games() -> Value {
+    let file = File::open("games.json").expect("ファイルが開けませんでした。");
+    let reader = BufReader::new(file);
+    serde_json::from_reader(reader).expect("JSON の解析に失敗しました。")
+}
+
+fn main() {
+    let games_json: Value = load_games();
+
+    // JSON 全体は配列なので Value::Array として参照する
+    if let Value::Array(games) = &games_json {
+        for game in games {
+            // 個々の要素は Value::Object として取り出す
+            for (key, value) in game.as_object().unwrap() {
+                println!("{}: {}", key, value);
+            }
+            println!("--------------------");
+        }
+    } else {
+        println!("JSON のルート要素は配列でなければいけません。");
+    }
+}
+{{< /code >}}
+
+{{< code lang="console" title="実行結果" >}}
+$ cargo run -q
+genre: "RPG"
+title: "Final Fantasy"
+--------------------
+genre: "STG"
+price: 4900
+title: "Sqoon"
+--------------------
+note: "プレミア価格"
+title: "Gimmick"
+--------------------
+{{< /code >}}
+
+まず、下記の行で `games.json` ファイル全体を汎用的な `Value` 型として読み出しています。
+
+```rust
+let games_json: Value = load_games();
+```
+
+`Value` は列挙型なので、その内容を参照するには、`if let` 構文でどのバリアントなのかを判別してから参照する必要があります（参考: [enum 型の使い方](/p/ffqyajs/)）。
+今回の `games.json` は配列形式で記述されていると想定し、次のようにして `Value::Array` バリアント（内容は `Vec<Value>` 型）として参照しています。
+
+```rust
+if let Value::Array(games) = &games_json {
+    // ... games を Vec<Value> 型として参照できる ...
+}
+```
+
+`Value::Array` バリアントとして取り出した `games` は `Vec<Value>` 型なので、`for-in` ループで列挙することができます。
+そして、`games` の中の個々の要素 `game` はオブジェクト形式なので、`Value::Object` バリアントとして参照することができます。
+下記のコードでは、__`as_object()`__ を使って `Value::Object` バリアントとして取り出していますが、ここでも `if let` を使って `Value::Object` バリアントかどうかを判別するのでも OK です。
+
+```rust
+for game in games {
+    for (key, value) in game.as_object().unwrap() {
+        println!("{}: {}", key, value);
+    }
+}
+```
+
+このようにすれば、どんなフィールドを持っているか不明な JSON ファイルを処理できますが、できればデータ型をちゃんと定義して扱いたいですね。
 
