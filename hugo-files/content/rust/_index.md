@@ -104,7 +104,7 @@ Rust の文法
 Web / データベース
 ----
 
-- [Rust で Web サーバーを作る (`axum`)](/p/q49pmjt/)
+- [Rust で HTTP サーバーを作る (`axum`)](/p/q49pmjt/)
 - [Rust で MongoDB を扱う (`mongodb`)](/p/nzi6xbm/)
 
 
