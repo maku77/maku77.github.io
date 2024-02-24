@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>{{ $pageTitle }}</title>
   {{ partial "maku-common/head/all" . -}}
+  {{ partial "mm/head/all" . -}}
   {{ partialCached "head/adsense" . -}}
-  {{ partialCached "head/favicon" . -}}
-  {{ partial "head/analytics" . -}}
-  {{ partial "head/ogp" . -}}
   {{ $style := resources.Get "css/all.scss" | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ block "head" . }}{{ end -}}
