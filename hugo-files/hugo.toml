@@ -13,7 +13,12 @@ title = "天才まくまくノート"
   unsafe = true
 
 [params]
+  image = "img/site-logo.png"
+  facebookAppId = "447708168769292"
+  description = "天才星人まくのメモ"
+  Author = "まく"
   AmazonId = "maku04-22"
+  CustomSearchId = "partner-pub-6317852277883092:5930376365"
 
 [module]
 [[module.imports]]
