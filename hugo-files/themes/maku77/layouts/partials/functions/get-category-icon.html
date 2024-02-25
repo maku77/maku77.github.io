@@ -1,9 +1,0 @@
-{{- $path := .Params.categoryIcon }}
-{{- if $path }}
-  {{- $res := .Resources.GetMatch $path }}
-  {{- if not $res }}{{ errorf "ERROR: categoryIcon '%s' not found in '%s'\n\n" $path .File.Dir }}{{ end }}
-  {{- $path = $res.RelPermalink }}
-{{- else if .Parent }}
-  {{- $path = partial "functions/get-category-icon" .Parent }}
-{{- end }}
-{{- return $path }}
