@@ -5,7 +5,9 @@
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article__header">
     {{ partial "blocks/breadcrumb" . }}
-    <div class="article__snsButtons">{{ partial "blocks/sns-buttons" . }}</div>
+    <div style="text-align: right;">
+      {{ partial "mm/sns/sns-buttons" . }}
+    </div>
   </div>
   {{- if .Site.IsServer }}
   <div style="color: red; padding: 0.3em; margin: 2em 0; border: dashed 1px red; border-radius: 1em;">
@@ -19,8 +21,8 @@
   {{- end }}
   <div class="article__body article__body-categoryIndex">{{ .Content }}</div>
   <div class="article__footer">
-    <div class="article__snsButtons">
-      {{ partial "blocks/sns-buttons" . }}
+    <div style="text-align: right;">
+      {{ partial "mm/sns/sns-buttons" . }}
     </div>
     {{ partial "blocks/breadcrumb" . }}
   </div>
