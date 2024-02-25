@@ -18,7 +18,7 @@ Docker コンテキストは、ひとことで言うと、Docker CLI で入力�
 
 {{< image w="700" src="img-001.drawio.svg" title="Docker コンテキストの切り替え" >}}
 
-例えば、{{< ad/conoha-vps-text "Conoha" >}} などの __VPS サーバー__ や、__Azure (ACI)__、__AWS (ECS)__ といったクラウドサービス上の Docker エンジンに対して、ローカルホストから `docker` コマンドを実行できるようになります。
+例えば、{{< mm/ad/conoha-vps-text "Conoha" >}} などの __VPS サーバー__ や、__Azure (ACI)__、__AWS (ECS)__ といったクラウドサービス上の Docker エンジンに対して、ローカルホストから `docker` コマンドを実行できるようになります。
 カレントコンテキストは、`docker compose use` コマンドで簡単に切り替えることができるので、ローカルでのコンテナのテストが終わったら、コンテキストを Azure (ACI) に切り替えてクラウド環境上で `docker compose up` するといったことが簡単にできます。
 
 当然、接続先のコンテナサービスごとに接続プロトコルは異なるのですが、Docker は標準で Azure や AWS をターゲットとしたコンテキストの作成に対応しており、実際に `docker` コマンドを実行するときは接続プロトコルを意識しないで済むようになっています。
@@ -60,7 +60,7 @@ Host conoha
     IdentityFile ~/.ssh/id_ed25519
 {{< /code >}}
 
-ここでは、{{< ad/conoha-vps-text "Conoha VPS" >}} を使う想定で、設定名を `conoha` にしましたが、このあたりは自由に決めてください。
+ここでは、{{< mm/ad/conoha-vps-text "Conoha VPS" >}} を使う想定で、設定名を `conoha` にしましたが、このあたりは自由に決めてください。
 SSH キー（秘密鍵）にパスフレーズが設定されている場合は、SSH agent に秘密鍵とそのパスフレーズを設定しておく必要があります。
 
 {{< code lang="console" title="SSH agent に秘密鍵を登録しておく" >}}
