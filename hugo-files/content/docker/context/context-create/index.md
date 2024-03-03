@@ -2,7 +2,10 @@
 title: "Docker コンテキストを切り替えてリモートホスト上で Docker コマンドを実行する"
 url: "p/qatbs9p/"
 date: "2022-11-26"
+lastmod: "2024-03-04"
 tags: ["Docker", "SSH"]
+changes:
+  - 2024-03-04: バインドマウント時の注意を記載。
 ---
 
 {{% private %}}
@@ -163,4 +166,74 @@ $ docker context ls             # コンテキストの一覧を確認
 NAME         ...(省略)...
 default *    ...(省略)...
 ```
+
+
+バインドマウント時の注意
+----
+
+Docker コンテキストとバインドマウントを組み合わせて使用するときは、マウント時の `source` パスの指定方法に注意する必要があります。
+`source` パスを下記例の `./meili_data` のように相対パスで記述すると、それは `docker` コマンドを実行する PC 上のカレントパスとして展開されます。
+
+{{< code lang="yaml" title="docker-compose.yml（バインドマウント）" hl_lines="13-18" >}}
+version: "3.9"
+
+services:
+  meilisearch:
+    image: "getmeili/meilisearch:v1.6"
+    container_name: meilisearch
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_ENV=production
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_MASTER_KEY
+    volumes:
+      - type: bind
+        source: ./meili_data
+        target: /meili_data
+        bind:
+          create_host_path: true  # ./meili_data が存在しなければ作成
+{{< /code >}}
+
+例えば、カレントディレクトリが `/Users/maku/myproject` の状態で `docker --context my-context compose up -d` と実行すると、`my-context` コンテキストが指し示すリモートホスト上に `/Users/maku/myproject` というディレクトリが生成されてしまいます（存在しなければ）。
+このパスは、おそらくリモートホスト上では意味を持ちません。
+このような振る舞いを防ぐには、`source` パスを最初から絶対パスで指定する必要があります。
+
+{{< code lang="yml" hl_lines="3" >}}
+    volumes:
+      - type: bind
+        source: /opt/meili_data  # ターゲットホスト上の絶対パスを想定して記述
+        target: /meili_data
+        bind:
+          create_host_path: true
+{{< /code >}}
+
+あるいは、バインドマウントではなく、__ボリュームマウント__ を使ってしまうのが手っ取り早いです。
+ボリュームマウントを使用すると Docker のシステムがデータを一元管理してくれるため、ファイルシステム上のパスに関連する問題が発生しなくなります。
+
+{{< code lang="yaml" title="docker-compose.yml（ボリュームマウント）" hl_lines="13-18" >}}
+version: "3.9"
+
+services:
+  meilisearch:
+    image: "getmeili/meilisearch:v1.6"
+    container_name: meilisearch
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_ENV=production
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_MASTER_KEY
+    volumes:
+      - type: volume  # ボリュームマウントを使用する
+        source: meili_data  # 一番下で定義しているボリュームを指定
+        target: /meili_data
+        volume:
+          nocopy: true  # ボリューム生成時にコンテナから内容をコピーしない
+
+# 作成するボリュームの定義
+volumes:
+  meili_data:
+    # name: meili_data  # プロジェクト名のプレフィックスを付けたくないとき
+{{< /code >}}
 
