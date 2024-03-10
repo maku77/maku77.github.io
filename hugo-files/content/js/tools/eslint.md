@@ -1,39 +1,41 @@
 ---
 title: "ESLint で JavaScript コードの静的解析を行う"
+url: "p/s8i5cr9/"
 date: "2015-04-07"
+tags: ["JavaScript", "ESLint"]
+aliases: /js/tool/eslint.html
 ---
 
 eslint コマンドのインストール
 ----
 
-ESLint のインストールは、JSHint と同様に Node.js の `npm` コマンドで簡単に行うことができます。
+ESLint のインストールは、Node.js の `npm` コマンドで簡単に行うことができます。
 
-~~~
+{{< code lang="console" title="eslint のインストール" >}}
 $ npm install -g eslint
-~~~
+{{< /code >}}
 
 インストールできたか確認します。
 
-~~~
+```console
 $ eslint --version
 v0.18.0
-~~~
+```
 
-JavaScript コードのチェックは下記のように実行します。
+次のように `.js` ファイルを指定することで静的解析を実行できます。
 
-~~~
+{{< code lang="console" title="sample.js の静的解析" >}}
 $ eslint sample.js
-~~~
+{{< /code >}}
+
 
 ESLint の設定ファイル
 ----
 
-ESLint の設定は、JSON or YAML 形式の `.eslintrc` ファイルで行います。
+ESLint の設定は、JSON 形式あるいは YAML 形式の __`.eslintrc`__ ファイルで行います。
 以下のような構成で、前提とする実行環境、参照可能なグローバルオブジェクト、適用する Lint ルールの設定、を記述していきます。
 
-#### .eslintrc ファイルの構成
-
-~~~ js
+{{< code lang="js" title=".eslintrc ファイルの構成" >}}
 {
   "env": {
     (1) 実行環境
@@ -45,14 +47,12 @@ ESLint の設定は、JSON or YAML 形式の `.eslintrc` ファイルで行い�
     (3) Lint ルールの設定
   }
 }
-~~~
+{{< /code >}}
 
 Node モジュールとして作成する JS ファイルに対しては、`package.json` の中に ESLint の設定を記述してしまうことができます。
-その場合は、下記のように、`eslintConfig` プロパティの中に同様の設定を記述します。
+その場合は、下記のように、__`eslintConfig`__ プロパティの中に同様の設定を記述します。
 
-#### package.json
-
-~~~ js
+{{< code lang="json" title="package.json" >}}
 {
   "name": "myapp",
   "version": "0.0.1",
@@ -63,7 +63,7 @@ Node モジュールとして作成する JS ファイルに対しては、`pack
     }
   }
 }
-~~~
+{{< /code >}}
 
 それでは、各項目の順番に設定方法を見ていきます。
 
@@ -74,28 +74,26 @@ Node モジュールとして作成する JS ファイルに対しては、`pack
 ここで環境を指定することにより、その環境に合わせたグローバルオブジェクトの参照許可や、Lint ルールなどが自動的に設定されます。
 指定できる環境の一覧は、
 
-- [http://eslint.org/docs/user-guide/configuring](http://eslint.org/docs/user-guide/configuring)
+- [https://eslint.org/docs/user-guide/configuring](http://eslint.org/docs/user-guide/configuring)
 
 の Specifying Environments の節に、次のように列挙されています。
 
-~~~
-browser - browser global variables.
-node - Node.js global variables and Node.js-specific rules.
-amd - defines require() and define() as global variables as per the amd spec.
-mocha - adds all of the Mocha testing global variables.
-jasmine - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
-phantomjs - phantomjs global variables.
-jquery - jquery global variables.
-prototypejs - prototypejs global variables.
-shelljs - shelljs global variables.
-es6 - enable all ECMAScript 6 features except for modules.
-~~~
+> ```
+> browser - browser global variables.
+> node - Node.js global variables and Node.js-specific rules.
+> amd - defines require() and define() as global variables as per the amd spec.
+> mocha - adds all of the Mocha testing global variables.
+> jasmine - adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+> phantomjs - phantomjs global variables.
+> jquery - jquery global variables.
+> prototypejs - prototypejs global variables.
+> shelljs - shelljs global variables.
+> es6 - enable all ECMAScript 6 features except for modules.
+> ```
 
 例えば、ブラウザ上で実行する JavaScript コードであり、その中で jQuery と RequireJS を使用したいのであれば、下記のように定義します。
 
-#### .eslintrc 抜粋
-
-~~~ js
+{{< code lang="js" title=".eslintrc（抜粋）" >}}
 {
   "env": {
     "amd": true,      // Refer to define() and require() as AMD modules
@@ -105,18 +103,16 @@ es6 - enable all ECMAScript 6 features except for modules.
   "globals": { ... },
   "rules": { ... }
 }
-~~~
+{{< /code >}}
 
 このように環境設定しておくことで、jQuery オブジェクト (`$`) などのグローバルオブジェクトにアクセスしても、未定義エラーとして検出されないようにすることができます。
 
-#### (2) Globals - 参照するグローバルオブジェクト
+### (2) Globals - 参照するグローバルオブジェクト
 
 このセクションでは、参照可能なグローバル変数を、ひとつずつ明示的に設定することが可能です。
 環境設定セクションに `"amd": true` と書いてあれば、`define()` と `require()` はアクセス可能になるのですが、下記のように明示的に指定することも可能です。
 
-#### .eslintrc 抜粋
-
-~~~ js
+{{< code lang="js" title=".eslintrc（抜粋）" >}}
 {
   "env": { ... },
   "globals": {
@@ -125,43 +121,38 @@ es6 - enable all ECMAScript 6 features except for modules.
   },
   "rules": { ... }
 }
-~~~
+{{< /code >}}
 
 JSLint と同様に、ソースコードの中で、参照可能なグローバルオブジェクトを定義しておくこともできます（変数名の後ろの `false` は、このファイルで代入を行わないということを示します）。
 
-#### JS ファイルの中で
-
-~~~ js
+{{< code lang="js" title=".js ファイルの中で" >}}
 /*global var1:false, var2:false*/
-~~~
-
+{{< /code >}}
 
 ### (3) Rules - 適用する Lint ルールの設定
 
 ルールのセクションでは、実際に適用する Lint ルールの設定を行います（ここが設定が重要）。
 各ルールに対しての設定を、下記のようなプロパティの形でひとつずつ指定していきます。
 
-~~~
+```
 "ルール名": 適用方法,
-~~~
+```
 
 適用方法の部分には、そのルールをどう反映するかを表す、0、1、2 のいずれかの値を指定します。
 
 - 適用方法
-  - 0 - off（ルールを無効にする）
-  - 1 - warning（警告として検出する）
-  - 2 - error（エラーとして検出する）
+  - `0` - off（ルールを無効にする）
+  - `1` - warning（警告として検出する）
+  - `2` - error（エラーとして検出する）
 
 ルール設定には、追加のパラメータを持つものもあり、その場合は配列の形で設定値を記述します。
 配列の 1 番目の値として、上記と同様に 0、1、2 のいずれかの適用方法を指定します。
 
-~~~
+```
 "ルール名": [適用方法, 追加パラメータ1, 追加パラメータ2]
-~~~
+```
 
-#### .eslintrc 抜粋
-
-~~~ js
+{{< code lang="js" title=".eslintrc（抜粋）" >}}
 {
   "env": { ... },
   "globals": { ... },
@@ -189,10 +180,10 @@ JSLint と同様に、ソースコードの中で、参照可能なグローバ�
     "max-len": [1, 80, 2],  // The maximum length of a line
   }
 }
-~~~
+{{< /code >}}
 
 デフォルトで有効になっているルールに関しては、適用方法として 2（エラーとして検出）が設定されます。
 組み込みで用意されているルールの一覧は、下記のサイトで確認することができます。
 
-- [ESLint - Rules (http://eslint.org/docs/rules/)](http://eslint.org/docs/rules/)
+- [ESLint - Rules](https://eslint.org/docs/rules/)
 

@@ -10,17 +10,17 @@ categoryIcon: logo-javascript.svg
 
 はじめに
 ----
-- [JavaScript のコーディングスタイル](intro/coding-style.html)
-- [最初から Strict モードを有効にすべし](intro/strict-mode.html)
-- [JavaScript の型の基本](intro/types.html)
+- [JavaScript のコーディングスタイル](/p/pgw5j96/)
+- [最初から Strict モードを有効にすべし (ECMAScript 5)](/p/bxrtpbp/)
+- [JavaScript の 6 つの型](/p/wur8gmp/)
 
 
 静的解析ツール
 ----
-- [JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)](tool/static-analysis-tools.html)
-- [JSLint で JavaScript コードの静的解析を行う](tool/jslint.html)
-- [JSHint で JavaScript コードの静的解析を行う](tool/jshint.html)
-- [ESLint で JavaScript コードの静的解析を行う](tool/eslint.html)（オススメ）
+- [（旧）JavaScript の静的解析ツールの比較 (JSLint, JSHint, ESLint)](/p/ufcmoxr/)
+- [（旧）JSLint で JavaScript コードの静的解析を行う](/p/os3jvi6/)
+- [（旧）JSHint で JavaScript コードの静的解析を行う](/p/y7o9g7a/)
+- [ESLint で JavaScript コードの静的解析を行う（オススメ）](/p/s8i5cr9/)
 
 
 デバッグ
