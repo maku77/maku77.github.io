@@ -116,6 +116,7 @@ categoryIcon: logo-javascript.svg
 - [渡されたパラメータが関数かどうか調べる](syntax/check-if-parameter-is-function.html)
 - [関数オブジェクトから関数名を取得する](syntax/get-func-name.html)
 - [アロー関数で関数を定義する (ECMAScript 2015)](syntax/arrow-function.html)
+- [`yield` を使ってイテレート可能な関数（ジェネレーター関数）を定義する](/p/q3a7jg4/)
 
 ### 変数／定数／名前空間
 - [変数定義には `var` ではなく `let` や `const` を使用する (ECMAScript 2015)](syntax/let-const.html)
