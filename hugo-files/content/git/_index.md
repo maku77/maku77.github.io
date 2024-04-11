@@ -25,6 +25,7 @@ GitHub
 - GitHub Actions
   - [GitHub Actions で GitHub wiki ページを自動更新する](/p/f2eggno/)
   - [GitHub Actions のワークフローをローカルで実行する (`act`)](/p/iudtbr8/)
+- [GitHub で複数アカウントの SSH キーを使い分ける (`~/.ssh/config`)](/p/vn9aqfb/)
 
 
 Git の基本
