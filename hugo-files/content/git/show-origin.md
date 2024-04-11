@@ -7,9 +7,9 @@ aliases: /git/settings/show-origin.html
 ---
 
 
-Git 設定のスコープには、local/global/system などがあり、ある設定値がどのスコープ（設定ファイル）で行われているか混乱することがあります。
+Git 設定のスコープには、__`local`__/__`global`__/__`system`__ などがあり、ある設定値がどのスコープ（設定ファイル）で行われているか混乱することがあります。
 
-- 参考: [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
+- 参考: [Git 設定のスコープ (`local`/`global`/`system`) を理解する](/p/af7q7n3/)
 
 そのような場合は、__`git config --list --show-origin`__ コマンドを使うと、それぞれの設定値がどのファイルで設定されいるものなのか調べることができます。
 

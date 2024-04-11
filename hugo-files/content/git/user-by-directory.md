@@ -90,6 +90,12 @@ $ git config --show-origin user.name
 file:C:/Users/maku/.gitconfig-maku77     maku77
 ```
 
+{{% note %}}
+`git config` コマンドの `--show-origin` オプションは、設定ファイルのパスを出力するためのオプションです。
+
+- 参考: [Git の設定値がどのファイルで設定されているか調べる (`config --show-origin`)](/p/msds6iv/)
+{{% /note %}}
+
 `includeIf` ディレクティブは、Git リポジトリとして初期化された（`.git` がある）ディレクトリ以下でのみ有効なことに注意してください。
 今回の例でいうと、`~/gitwork/company` 直下で作業しているときは有効ではなく、`~/gitwork/company/repo1` の下で作業しているときに有効になります。
 
@@ -119,6 +125,6 @@ file:C:/Users/maku/.gitconfig-maku77     maku77
 参考
 ----
 
-- [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
-- [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](/p/msds6iv/)
+- [Git 設定のスコープ (`local`/`global`/`system`) を理解する](/p/af7q7n3/)
+- [Git の設定値がどのファイルで設定されているか調べる (`config --show-origin`)](/p/msds6iv/)
 

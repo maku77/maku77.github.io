@@ -30,34 +30,38 @@ GitHub
 Git の基本
 ---
 
-* [Git の作業ツリーを作成する (git init, git clone)](basic/init-and-clone.html)
-* [Git でファイルの変更をステージする（コミットの印をつける）](basic/stage.html)
-* [Git で変更をローカルリポジトリにコミットする](basic/commit.html)
-* [コミット対象になっているファイルを確認する (git status)](basic/status.html)
-* [Git コマンドの長いオプション名を省略して入力する](basic/abbreviate-option.html)
+- [Git の作業ツリーを作成する (`git init`, `git clone`)](/p/muhmimi/)
+- [Git でファイルの変更をステージする（コミットの印をつける）(`git add`, `git rm`, `git mv`)](/p/6qp26ez/)
+- [Git で変更をローカルリポジトリにコミットする](/p/ez3knei/)
+- [コミット対象になっているファイルを確認する (`git status`)](/p/z26xvc9/)
+- [Git コマンドの長いオプション名を省略して入力する小技](/p/7cf83cy/)
 
 
 Git の設定
 ---
 
-* [git config で設定すべき一般的な設定項目まとめ](settings/common.html)
-* [Git 設定のスコープ (local/global/system) を理解する](/p/af7q7n3/)
-* [Git の設定値がどのファイルで設定されているか調べる (config --show-origin)](/p/msds6iv/)
-* [git config による設定を削除する (config --unset)](settings/unset.html)
-* [コミット時に使用するユーザ名とメールアドレスを設定する (user.name, user.email)](settings/user.html)
-* [コミット、チェックアウト時に改行コードを自動変換する (core.autocrlf, core.safecrlf)](settings/autocrlf.html)
-* [コミット時にコメント記述に使用するエディタを設定する (core.editor)](/p/cqjv7wv/)
-* [Git コマンドの出力をカラフルにする (color.ui)](settings/color.html)
-* [Git コマンドのエイリアスを作成する (alias.xxx)](settings/alias.html)
-* [Git コマンドで使用するプロキシを設定する (http.proxy)](settings/proxy.html)
-* [Windows の git diff で改行コードが "^M" で表示される問題を解決する (core.whitespace)](settings/cr-at-eol.html)
-* [git diff や git status での日本語の文字化けを防ぐ (core.page, core.quotepath)](settings/garbling.html)
-* [Windowsでパーミッションの違いで diff が表示されてしまうのを防ぐ (core.filemode)](settings/permission-diff.html)
-* [.gitignore ファイルで Git にバージョン管理させないファイルを指定する](settings/gitignore.html)
-* [bash のプロンプトにカレントブランチ名を表示する (PS1)](settings/branch-name-on-prompt.html)
-* [msysGit で "terminal is not fully functional" と怒られる場合の対策](settings/terminal-error.html)
-* [git プロトコルではなく強制的に https プロトコルで git clone するようにする (url.xxx)](settings/https-instead-of-git.html)
-* [Git ユーザーをディレクトリごとに自動で切り替える (.gitconfig, includeIf)](/p/hxyiu7g/)
+* 設定全般
+  * [`git config` で設定すべき一般的な設定項目のまとめ](/p/rcwaz54/)
+  * [Git 設定のスコープ (`local`/`global`/`system`) を理解する](/p/af7q7n3/)
+  * [Git の設定値がどのファイルで設定されているか調べる (`config --show-origin`)](/p/msds6iv/)
+  * [`git config` による設定を削除する (`config --unset`)](/p/4pad93a/)
+* [コミット時に使用するユーザ名とメールアドレスを設定する (`user.name`, `user.email`)](/p/gr3v7r8/)
+* [コミット、チェックアウト時に改行コードを自動変換する (`core.autocrlf`, `core.safecrlf`)](/p/efmfnuy/)
+* [コミット時にコメント記述に使用するエディタを設定する (`core.editor`)](/p/cqjv7wv/)
+* [Git コマンドの出力をカラフルにする (`color.ui`)](/p/odshtcs/)
+* [Git コマンドのエイリアスを作成する (`alias.xxx`)](/p/a59xkpd/)
+* [Git コマンドで使用するプロキシを設定する (`http.proxy`)](/p/uyzcgd8/)
+* [git プロトコルではなく強制的に https プロトコルで `git clone` するようにする (`url.xxx`)](/p/k84zg8x/)
+* [Git ユーザーをディレクトリごとに自動で切り替える (`.gitconfig`, `includeIf`)](/p/hxyiu7g/)
+* [`git diff` や `git status` での日本語の文字化けを防ぐ (`core.page`, `core.quotepath`)](/p/cj2uie9/)
+* Windows 用の設定
+  * [Windows の `git diff` で改行コードが `^M` で表示される問題を解決する (`core.whitespace`)](/p/uek4bb2/)
+  * [Windows でパーミッションの違いで `diff` が表示されてしまうのを防ぐ (`core.filemode`)](/p/ijepy8e/)
+  * [msysGit で "terminal is not fully functional" と怒られる場合の対策](/p/coekmmp/)
+* プロンプト設定
+  * [bash のプロンプトに Git のカレントブランチ名を表示する (`PS1`)](/p/2mb4a94/)
+* .gitignore
+  * [`.gitignore` ファイルで Git にバージョン管理させないファイルを指定する](/p/ucp6uab/)
 
 
 コミット／履歴の書き換え
