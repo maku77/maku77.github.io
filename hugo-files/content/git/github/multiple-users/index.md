@@ -38,6 +38,16 @@ $ ssh-keygen -t ed25519 -f ~/.ssh/github-maku/id_ed25519
 $ ssh-keygen -t ed25519 -f ~/.ssh/github-work/id_ed25519
 ```
 
+{{< accordion title="コマンドプロンプトの場合" >}}
+{{< code >}}
+cd %USERPROFILE%
+mkdir .ssh\github-maku
+mkdir .ssh\github-work
+ssh-keygen -t ed25519 -f .ssh\github-maku\id_ed25519
+ssh-keygen -t ed25519 -f .ssh\github-work\id_ed25519
+{{< /code >}}
+{{< /accordion >}}
+
 これで次のようなファイルが作成されます。
 
 - `~/.ssh/github-maku/id_ed25519` （プライベート用の秘密鍵）
@@ -52,7 +62,7 @@ $ ssh-keygen -t ed25519 -f ~/.ssh/github-work/id_ed25519
 1. GitHub にサインインした状態で、[`Setting` → `SSH and GPGkeys`](https://github.com/settings/keys) のページを開く。
 2. __`New SSH Key`__ のボタンを押す。
 3. __`Key`__ の欄に公開鍵 (`id_ed25519.pub`) の内容を貼り付ける。
-   - `Title` は何でもよいですが、接続元がわかるように付けておくとよいです（例: `MAKU-HOME`）。
+   - `Title` は何でもよいですが、接続元がわかるように付けておくとよいです（例: `WORK-DESKTOP`、`PRIVATE-LAPTOP`）。
 
 
 SSH クライアントの設定
@@ -76,6 +86,17 @@ Host github-work
     IdentityFile ~/.ssh/github-work/id_ed25519
 {{< /code >}}
 
+{{% accordion title="Windows の場合" %}}
+Windows に搭載された `ssh` コマンド (`C:\Windows\System32\OpenSSH\ssh.exe`) を使う場合も、`IdentityFile` に Unix 流のパス指定を行えます（`~` や `/` が使えます）。
+ただし、Windows 版の [git.exe](https://git-scm.com/downloads) では、組み込みの `ssh` を使用することができるようになっており、こちらの `ssh` は内部的な振る舞いが若干異なります。
+例えば、Windows 流のパス指定（ディレクトリセパレータはバックスラッシュ `\`）を使わなければいけなかったり、`HOME` 環境変数が指定されているときに `%USERPROFILE%/.ssh/config` ではなく `%HOME%/.ssh/config` を参照したりします。
+このような統一感のない振る舞いは厄介なので、Windows の `git.exe` をインストールするときは、外部の `ssh` コマンドを使用するオプションを選択することをおすすめします。
+
+{{< image src="img-001.png" >}}
+
+これで、単独の `ssh` コマンドを実行したときの振る舞いと、`git` コマンドで SSH 接続をしたときの振る舞いが共通化されます。
+{{% /accordion %}}
+
 __`Host`__ の行に指定した名前は、接続先のホストと SSH 秘密鍵をまとめて切り替えるための「接続名」として機能します。
 名前の付け方は自由ですが、上記のように `<接続先>-<ユーザー>` という感じで付けておくとわかりやすいです。
 ここでは、`~/.ssh` 以下に作成したディレクトリ名と合わせて `github-maku`、`github-work` としました。
@@ -94,7 +115,7 @@ GitHub アカウントと SSH キーは、GitHub 内部で関連付けられて�
 `~/.ssh/config` で定義した接続名で、GitHub に SSH 接続できるかを確認するには次のようにします。
 
 ```console
-$ ssh -T git@github-maku
+$ ssh -T github-maku
 Hi maku77! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
@@ -121,18 +142,20 @@ git@github.com:maku77/private-repo
 
 {{< code lang="console" title="git clone 時に接続名を指定する" >}}
 # プライベートのアカウントで接続する
-$ git clone git@github-maku:maku77/private-repo
+$ git clone github-maku:maku77/private-repo
 
 # 仕事用のアカウントで接続する
-$ git clone git@github-work:yourcompany/private-repo
+$ git clone github-work:yourcompany/private-repo
 {{< /code >}}
+
+`github-maku` の部分を `git@github-maku` と記述してもよいですが、ユーザー ID は `~/.ssh/config` で指定しているので省略できます。
 
 ### origin URL を書き換える
 
 すでに clone 済みのリポジトリがある場合は、その origin URL だけ変更するという方法があります。
 
 ```console
-$ git remote set-url origin git@github-maku:maku77/private-repo
+$ git remote set-url origin github-maku:maku77/private-repo
 ```
 
 このコマンドが覚えられない場合は、エディタで `.git/config` を開いて編集してしまうのでもよいです（こっちの方が楽かも）。
@@ -140,7 +163,12 @@ $ git remote set-url origin git@github-maku:maku77/private-repo
 
 ```console
 $ git config --get remote.origin.url
-git@github-maku:maku77/private-repo
+github-maku:maku77/private-repo
+
+# あるいは
+$ git remote -v
+origin  github-maku:maku77/private-repo (fetch)
+origin  github-maku:maku77/private-repo (push)
 ```
 
 
