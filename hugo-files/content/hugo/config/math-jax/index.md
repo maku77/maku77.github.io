@@ -2,10 +2,11 @@
 title: "Hugo のページ内に Tex 形式の数式を埋め込めるようにする (MathJax)"
 url: "p/dsfzi4n/"
 date: "2018-06-21"
-lastmod: "2023-10-21"
+lastmod: "2024-05-08"
 tags: ["Hugo", "TeX", "数学"]
 description: "Hugo のテンプレートで MathJax という Javascript ライブラリを組み込むと、記事内に Tex 形式の数式を埋め込むことができるようになります。"
 changes:
+  - 2024-05-08: スクロールバー用の CSS について
   - 2023-10-22: MathJax のバージョンを 2 から 3 に更新
 aliases: /hugo/settings/math-jax.html
 useMath: true
@@ -114,4 +115,20 @@ useMath: true
 
 オイラーの公式： \\(\mathrm{e}^{\mathrm{i}\theta} = \cos(\theta) + \mathrm{i}\sin(\theta)\\)
 {{< /code >}}
+
+
+（おまけ）水平方向にスクロールできるようにする
+----
+
+数式（特にブロック形式）が長くなって親要素の横幅に収まらない場合、デフォルトでは親要素をはみ出して数式が描画されてしまいます。
+次のような CSS を設定しておけば、横幅が足りないときに水平方向のスクロールバーを表示してスクロールできるようになります。
+
+```css
+/* MathJax の数式が横に長いときにスクロールバーを表示 */
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+```
 
