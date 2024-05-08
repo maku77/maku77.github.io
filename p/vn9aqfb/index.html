@@ -14,8 +14,8 @@ $ mkdir ~/."><meta property="fb:app_id" content="447708168769292"><link rel=styl
 </span></span><span class=line><span class=cl><span class=gp>$</span> mkdir ~/.ssh/github-work
 </span></span><span class=line><span class=cl><span class=gp>$</span> ssh-keygen -t ed25519 -f ~/.ssh/github-maku/id_ed25519
 </span></span><span class=line><span class=cl><span class=gp>$</span> ssh-keygen -t ed25519 -f ~/.ssh/github-work/id_ed25519
-</span></span></code></pre></div><div class=accordion><input id=id-758241693 type=checkbox>
-<label class=accordion__title for=id-758241693>コマンドプロンプトの場合</label><div class=accordion__body><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>cd %USERPROFILE%
+</span></span></code></pre></div><div class=accordion><input id=id-273981654 type=checkbox>
+<label class=accordion__title for=id-273981654>コマンドプロンプトの場合</label><div class=accordion__body><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>cd %USERPROFILE%
 </span></span><span class=line><span class=cl>mkdir .ssh\github-maku
 </span></span><span class=line><span class=cl>mkdir .ssh\github-work
 </span></span><span class=line><span class=cl>ssh-keygen -t ed25519 -f .ssh\github-maku\id_ed25519
@@ -27,8 +27,8 @@ $ mkdir ~/."><meta property="fb:app_id" content="447708168769292"><link rel=styl
 </span></span><span class=line><span class=cl>Host github-work
 </span></span><span class=line><span class=cl>    Hostname github.com
 </span></span><span class=line><span class=cl>    User git
-</span></span><span class=line><span class=cl>    IdentityFile ~/.ssh/github-work/id_ed25519</span></span></code></pre></div></div></figure><div class=accordion><input id=id-857614239 type=checkbox>
-<label class=accordion__title for=id-857614239>Windows の場合</label><div class=accordion__body><p>Windows に搭載された <code>ssh</code> コマンド (<code>C:\Windows\System32\OpenSSH\ssh.exe</code>) を使う場合も、<code>IdentityFile</code> に Unix 流のパス指定を行えます（<code>~</code> や <code>/</code> が使えます）。
+</span></span><span class=line><span class=cl>    IdentityFile ~/.ssh/github-work/id_ed25519</span></span></code></pre></div></div></figure><div class=accordion><input id=id-456231978 type=checkbox>
+<label class=accordion__title for=id-456231978>Windows の場合</label><div class=accordion__body><p>Windows に搭載された <code>ssh</code> コマンド (<code>C:\Windows\System32\OpenSSH\ssh.exe</code>) を使う場合も、<code>IdentityFile</code> に Unix 流のパス指定を行えます（<code>~</code> や <code>/</code> が使えます）。
 ただし、Windows 版の <a href=https://git-scm.com/downloads>git.exe</a> では、組み込みの <code>ssh</code> を使用することができるようになっており、こちらの <code>ssh</code> は内部的な振る舞いが若干異なります。
 例えば、Windows 流のパス指定（ディレクトリセパレータはバックスラッシュ <code>\</code>）を使わなければいけなかったり、<code>HOME</code> 環境変数が指定されているときに <code>%USERPROFILE%/.ssh/config</code> ではなく <code>%HOME%/.ssh/config</code> を参照したりします。
 このような統一感のない振る舞いは厄介なので、Windows の <code>git.exe</code> をインストールするときは、外部の <code>ssh</code> コマンドを使用するオプションを選択することをおすすめします。</p><figure class=image><a href=../../p/vn9aqfb/img-001.png target=_blank><img width=499 height=392 src=../../p/vn9aqfb/img-001.png alt=img-001.png></a></figure><p>これで、単独の <code>ssh</code> コマンドを実行したときの振る舞いと、<code>git</code> コマンドで SSH 接続をしたときの振る舞いが共通化されます。</p></div></div><p><strong><code>Host</code></strong> の行に指定した名前は、接続先のホストと SSH 秘密鍵をまとめて切り替えるための「接続名」として機能します。
