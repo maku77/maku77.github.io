@@ -154,21 +154,21 @@ Vim の設定
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
 * [フォント設定ダイアログを開いてフォントを設定する (guifont)](settings/font-dialog.html)
-* [改行、タブ文字、行末のスペースを表示する (list, listchars)](settings/show-space.html)
-* [全角スペースを表示する](settings/show-double-byte-space.html)
+* [制御文字（改行、タブ文字、行末のスペースなど）を表示する (`list`, `listchars`)](/p/s596qii/)
+* [全角スペースを見えるように表示する](/p/preoa93/)
 * [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
 * [GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)](settings/window-size.html)
 * [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
 
 ### 入力に関する設定
-* [インサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (`backspace`)](settings/backspace.html)
 * [タブ文字の設定 (`tabstop`, `expandtab`, `softtabstop`)](/p/8okf7d3/)
 * [インデント（シフトコマンド）を設定する (`shiftwidth`, `shiftround`)](/p/b5o6ksu/)
+* [自動インデントモードを有効にする (`autoindent`, `smartindent`, `cindent`)](/p/oe94dkh/)
+* [ビジュアルモードで簡単にインデントを行えるようにする](/p/hoihkfy/)
+* [インサートモード中に `Backspace` キーや `CTRL-W` で文字を削除するときの振る舞いを変更する (`backspace`)](/p/b9tsccu/)
 * [省略形を用いたテキスト入力を行えるようにする (`abbrevaite`)](settings/abbreviate.html)
 * [スペルチェックを有効にする (`spell)`](settings/spell.html)
-* [自動インデントモードを有効にする (`autoindent`, `smartindent`, `cindent`)](/p/oe94dkh/)
 * [Java や C/C++ のコメント記述に便利な `formatoptions` の設定](settings/formatoptions.html)
-* [ビジュアルモードで簡単にインデントを行えるようにする](/p/hoihkfy/)
 
 
 Vim プログラミング（マクロ）／特殊用途
