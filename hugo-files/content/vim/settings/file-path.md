@@ -16,12 +16,15 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
 
 - Vim の場合:
   - __`:echo $MYVIMRC`__<br>
-    出力例: `C:\Users\maku\_vimrc`
+    出力例: `C:\Users\maku\_vimrc` （Windows の場合）<br>
+    出力例: `/Users/maku/.vimrc` （Linux/macOS の場合）
   - __`:echo $MYGVIMRC`__<br>
-    出力例: `C:\Users\maku\_gvimrc`
+    出力例: `C:\Users\maku\_gvimrc` （Windows の場合）<br>
+    出力例: `/User/maku/.gvimrc` （Linux/macOS の場合）
 - NeoVim の場合:
   - __`:echo stdpath('config')`__<br>
-    出力例: `C:\Users\maku\AppData\Local\nvim`
+    出力例: `C:\Users\maku\AppData\Local\nvim` （Windows の場合）<br>
+    出力例: `/Users/maku/.config/nvim` （Linux/macOS の場合）
 
 
 デフォルトのパス
@@ -30,15 +33,16 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
 デフォルトでは、次のようなファイルパスに置かれた設定ファイルが読み込まれます。
 
 - Vim の場合
-  - Linux/macOS: `~/.vimrc`
-  - Windows: `%USERPROFILE%/_vimrc`（HOME 環境変数が設定されている場合は `%HOME%/_vimrc`）
+  - Windows の場合: __`%USERPROFILE%/_vimrc`__ （ただし `HOME` 環境変数が設定されている場合は `%HOME%/_vimrc`）
+  - Linux/macOS の場合: __`~/.vimrc`__
 - NeoVim の場合
-  - Linux/macOS: `~/.config/nvim/init.vim`
-  - Windows: `%USERPROFILE%\AppData\Local\nvim\init.vim`
+  - Windows の場合: __`%USERPROFILE%\AppData\Local\nvim\init.vim`__
+  - Linux/macOS の場合: __`~/.config/nvim/init.vim`__
 
 Vim/NeoVim の設定ファイルは基本的に自分で作成する必要があります。
 
-{{< code lang="console" title="設定ファイルの作成" >}}
+{{< code lang="console" title="NeoVim の設定ファイルを作成する" >}}
+$ mkdir -p ~/.config/nvim
 $ touch ~/.config/nvim/init.vim
 {{< /code >}}
 

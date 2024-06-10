@@ -85,9 +85,9 @@ categoryIcon: logo-vim.svg
 ### 整形／変換
 * [行を連結する](edit/join.html)
 * [文字を入れ替える、行を入れ替える（スワップ操作）](edit/swap-chars.html)
-* [インデント用のスペースを入力する（シフトコマンド）](edit/indent.html)
-* [選択した範囲を自動インデントする](edit/re-indent.html)
-* [すでに入力されているタブをスペースに変換する (:retab)](edit/retab.html)
+* [インデント用のスペースを入力する（シフトコマンド） (`>>`, `<<`, `Ctrl-T`, `Ctrl-D`)](/p/i2m4nqt/)
+* [選択した範囲を自動インデントする (`=`)](/p/pxpgasg/)
+* [すでに入力されているタブをスペースに変換する (`:retab`)](/p/w4qm7ok/)
 * [テキストを中央寄せ／左寄せ／右寄せする](edit/adjust.html)
 * [大文字と小文字を変換する](edit/uppercase-lowercase.html)
 * [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
@@ -149,7 +149,7 @@ Vim の設定
 * [開いたファイルがあるディレクトリをカレントディレクトリにする](settings/autocmd-cd.html)
 
 ### 表示の設定
-* [行番号を表示する (`set number`)](/p/t8o6tum/)
+* [行番号を表示する (`set number`, `vim.opt.number`)](/p/t8o6tum/)
 * [80文字目に縦線を表示する (colorcolumn)](settings/colorcolumn.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
@@ -161,14 +161,14 @@ Vim の設定
 * [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
 
 ### 入力に関する設定
-* [インサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (backspace)](settings/backspace.html)
-* [タブ文字の設定 (tabstop, expandtab)](settings/tab.html)
-* [インデント（シフトコマンド）の設定 (shiftwidth, shiftround)](settings/indent.html)
-* [省略形を用いたテキスト入力を行えるようにする (abbrevaite)](settings/abbreviate.html)
-* [スペルチェックを有効にする (spell)](settings/spell.html)
-* [自動インデントモードを有効にする (autoindent, cindent, smartindent)](settings/auto-indent.html)
-* [Java や C/C++ のコメント記述に便利な formatoptions の設定](settings/formatoptions.html)
-* [ビジュアルモードで簡単にインデントを行えるようにする](settings/visual-indent.html)
+* [インサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (`backspace`)](settings/backspace.html)
+* [タブ文字の設定 (`tabstop`, `expandtab`, `softtabstop`)](/p/8okf7d3/)
+* [インデント（シフトコマンド）を設定する (`shiftwidth`, `shiftround`)](/p/b5o6ksu/)
+* [省略形を用いたテキスト入力を行えるようにする (`abbrevaite`)](settings/abbreviate.html)
+* [スペルチェックを有効にする (`spell)`](settings/spell.html)
+* [自動インデントモードを有効にする (`autoindent`, `smartindent`, `cindent`)](/p/oe94dkh/)
+* [Java や C/C++ のコメント記述に便利な `formatoptions` の設定](settings/formatoptions.html)
+* [ビジュアルモードで簡単にインデントを行えるようにする](/p/hoihkfy/)
 
 
 Vim プログラミング（マクロ）／特殊用途
