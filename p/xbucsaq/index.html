@@ -16,8 +16,8 @@
 </span></span><span class=line><span class=cl>            <span class=n>cwd</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>getcwd</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>        <span class=n>path</span> <span class=o>=</span> <span class=n>join</span><span class=p>(</span><span class=n>cwd</span><span class=p>,</span> <span class=n>path</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>normpath</span><span class=p>(</span><span class=n>path</span><span class=p>)</span></span></span></code></pre></div></div></figure><h3 id=おまけシェルスクリプト化しておく>（おまけ）シェルスクリプト化しておく</h3><p>次のようなシェルスクリプト (<strong><code>pycode</code></strong>) を作っておくと、Python の関数の実装コードを簡単に確認できるようになります。
-このシェルスクリプトは、PATH の通ったディレクトリに置いて、<code>chmod +x pycode</code> で実行権限を付けておきます。</p><div class=accordion><input id=id-684591723 type=checkbox>
-<label class=accordion__title for=id-684591723>/Users/maku/bin/pycode</label><div class=accordion__body><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
+このシェルスクリプトは、PATH の通ったディレクトリに置いて、<code>chmod +x pycode</code> で実行権限を付けておきます。</p><div class=accordion><input id=id-392846751 type=checkbox>
+<label class=accordion__title for=id-392846751>/Users/maku/bin/pycode</label><div class=accordion__body><figure class=codeBlock><div class=codeBlock__code><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
 </span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1>#</span>
 </span></span><span class=line><span class=cl><span class=c1># pycode - Python の関数やクラスの実装コードを表示します</span>
 </span></span><span class=line><span class=cl><span class=c1>#</span>
