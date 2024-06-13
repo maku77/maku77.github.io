@@ -128,6 +128,7 @@ Vim の設定
 ### ファイル・ディレクトリに関する設定と操作
 - [設定ファイルのパスを確認する](/p/7mabuvq/)
 - [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
+- [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 - [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
 - [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
@@ -161,6 +162,7 @@ Vim の設定
 * [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
 
 ### 入力に関する設定
+* [OS のクリップボードとヤンクレジスターを連動させる (`clipboard`)](/p/nnhefs3/)
 * [タブ文字の設定 (`tabstop`, `expandtab`, `softtabstop`)](/p/8okf7d3/)
 * [インデント（シフトコマンド）を設定する (`shiftwidth`, `shiftround`)](/p/b5o6ksu/)
 * [自動インデントモードを有効にする (`autoindent`, `smartindent`, `cindent`)](/p/oe94dkh/)
