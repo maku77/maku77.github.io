@@ -86,7 +86,8 @@ CSS セレクタ
 
 マルチメディア
 ----
-* [audio タグを使って音声ファイルを再生する](media/audio.html)
+* [`audio` 要素で音声ファイルを再生する](/p/hoffk3g/)
+* [`video` 要素で Web カメラ（USB カメラ）の映像を表示する](/p/vap3zpa/)
 
 
 その他
