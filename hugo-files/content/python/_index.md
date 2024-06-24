@@ -302,7 +302,7 @@ Web / HTTP <!-- web -->
 {{% /private %}}
 
 
-NumPy / pandas / Matplotlib / scikit-learn
+データ分析 (NumPy / pandas / Matplotlib / scikit-learn)
 ----
 
 ### 共通
@@ -336,6 +336,8 @@ NumPy / pandas / Matplotlib / scikit-learn
 {{% private %}}
 - [(DRAFT) `DataFrame` のデータ集計方法まとめ](/p/q2pm7r3/)
 {{% /private %}}
+
+- [Python データ分析: カテゴリデータを扱う](/p/vopvucs/)
 
 ### Matplotlib
 

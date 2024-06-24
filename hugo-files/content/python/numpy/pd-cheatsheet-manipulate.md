@@ -139,7 +139,7 @@ DataFrame 加工のチートシート
         <code>df2 = pd.get_dummies(df)</code><br />
         <code>df2 = pd.get_dummies(df, columns=["列1", "列2"])</code>
       </td>
-      <td><a href="#get_dummies">値ごとに 0/1 表現の列を作成</a></td>
+      <td><a href="/p/vopvucs/#get_dummies">名義カテゴリ特徴量をワンホットエンコードする</a></td>
     </tr>
     <tr>
       <th colspan="2" class="local-section">カラム名／インデックス名 (columns, index, rename)</th>
@@ -715,10 +715,8 @@ df = pd.DataFrame({
 `index` カラムが不要な場合は `reset_index()` メソッドに `drop=True` を指定します。
 
 
-カテゴリ変数
+カテゴリ変数を抽出／取り除いて DataFrame を作成 {#select_dtypes_object}
 ----
-
-### カテゴリ変数を抽出／取り除いて DataFrame を作成 {#select_dtypes_object}
 
 __`df.select_dtypes()`__ を使って、カテゴリ変数の列のみを抽出した `DataFrame` を作成することができます。
 NaN はカテゴリ変数とはみなされません。
@@ -769,53 +767,4 @@ print(new_df.columns.to_list())
 
 ['col3', 'col4']
 {{< /code >}}
-
-### 値ごとに True/False (0/1) のカラムを生成 {#get_dummies}
-
-__`pd.get_dummies()`__ 関数を使うと、カテゴリ変数（典型的には文字列型）のカラムを True or False (0 or 1) 情報のカラムに変換した `DataFrame` を生成できます。
-ロジスティック回帰モデルなどを使用した機械学習において、入力データを数値に変換する際に `pd.get_dummies()` 関数を使うと便利です。
-
-次の例では、`col1` カラムを `col1_AAA`、`col1_BBB`、`col1_CCC` という 3 つのカラムに変換し、`col2` カラムを `col2_X`、`col2_Y` という 2 つのカラムに変換しています。
-
-```python
-df = pd.DataFrame({
-    "col1": ["AAA", "BBB", "CCC", "BBB", "AAA"],
-    "col2": ["X", "Y", np.nan, "X", np.nan]
-})
-df2 = pd.get_dummies(df)
-print(df2)
-```
-
-{{< code title="実行結果" >}}
-   col1_AAA  col1_BBB  col1_CCC  col2_X  col2_Y
-0      True     False     False    True   False
-1     False      True     False   False    True
-2     False     False      True   False   False
-3     False      True     False    True   False
-4      True     False     False   False   False
-{{< /code >}}
-
-欠損値 (NaN) のカラムも生成するには、__`dummy_na=True`__ パラメーターを追加します。
-
-```
->>> pd.get_dummies(df, dummy_na=True)
-   col3  col1_AAA  col1_BBB  col1_CCC  col1_nan  col2_X  col2_Y  col2_nan
-0     1      True     False     False     False    True   False     False
-1     2     False      True     False     False   False    True     False
-2     3     False     False      True     False   False   False      True
-3     4     False      True     False     False    True   False     False
-4     5      True     False     False     False   False   False      True
-```
-
-デフォルトでは上記のように `bool` 型のカラムに変換されますが、__`dtype=int`__ を指定することで、`int` 型 (0 or 1) のカラムに変換することができます。
-
-```
->>> pd.get_dummies(df, dtype=int)
-   col3  col1_AAA  col1_BBB  col1_CCC  col2_X  col2_Y
-0     1         1         0         0       1       0
-1     2         0         1         0       0       1
-2     3         0         0         1       0       0
-3     4         0         1         0       1       0
-4     5         1         0         0       0       0
-```
 
