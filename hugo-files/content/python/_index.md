@@ -20,14 +20,15 @@ categoryIcon: _index.svg
   - [Windows で pydoc コマンドを使用できるようにする](/p/6h2izfh/)
   - [関数やクラスのソースコードを確認する (`insepct`)](/p/xbucsaq/)
 
-### 開発ツール／デバッグ／ユニットテスト
+### 開発ツール／デバッグ／ユニットテスト <!-- env -->
 
+- [Python プロジェクト用の爆速パッケージマネージャ uv を導入する](/p/fjsfjpw/)
 - 実行環境／仮想環境
-  - [python コマンドのバージョンを切り替える (pyenv, py)](/p/x4z298a/)
-  - [Python の実行環境を venv で切り替える（仮想環境）](/p/wozpogm/)
-  - [Python の実行環境を virtualenv で切り替える（仮想環境）（Python 3.2 以前）](/p/yqjs3aw/)
+  - [python コマンドのバージョンを切り替える (`pyenv`, `py`)](/p/x4z298a/)
+  - [Python の実行環境を `venv` で切り替える（仮想環境）](/p/wozpogm/)
+  - [Python の実行環境を `virtualenv` で切り替える（仮想環境）（Python 3.2 以前）](/p/yqjs3aw/)
 - パッケージ
-  - [Python のパッケージ管理ツール (pip) の使い方](/p/7o9q8p6/)
+  - [Python のパッケージ管理ツール (`pip`) の使い方](/p/7o9q8p6/)
   - [Python スクリプトを Windows の実行ファイル (.exe) に変換する (`py2exe`)](/p/kyj2izf/)
 - 対話型シェル
   - [Python の対話型シェルのスタートアップ処理を設定する (`PYTHONSTARTUP`)](/p/6k5m4jy/)
