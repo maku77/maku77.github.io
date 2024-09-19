@@ -186,10 +186,8 @@ $ uv run hello.py
 とっても楽ですね！
 
 
-その他、応用
+（応用）Git にどのファイルをコミットするか？
 ----
-
-### Git にどのファイルをコミットするか？
 
 下記のファイルにはプロジェクトの実行環境の情報が含まれているので Git にコミットします。
 
@@ -204,7 +202,9 @@ $ uv run hello.py
 .venv/
 {{< /code >}}
 
-### uv.lock ファイルとは
+
+（応用）uv.lock ファイルとは？
+----
 
 `uv.lock` ファイルには、`pyproject.toml` の `dependencies` で表現しきれない __詳細なパッケージ依存情報__ が記述されています （Node.js プロジェクトにおける、`packages-lock.json` や `yaml.lock` のようなものです）。
 
@@ -257,8 +257,60 @@ $ uv lock --upgrade-package toml  # パッケージを指定して更新する�
 そのため、uv も独自のフォーマットで `uv.lock` ファイルを作成しています。
 {{% /note %}}
 
-### GitHub Actions のワークフローに組み込む
+
+（応用）uv で Ruff などのツールをインストールする
+----
+
+Python 用の高速 Linter & Formatter である Ruff も `uv` でインストールできます。
+Ruff は開発時に使用するツールなので、__`uv add --dev`__ で dev 環境用の依存パッケージとしてインストールします。
+
+{{< code lang="console" title="ruff コマンドのインストール" >}}
+$ uv add --dev ruff
+{{< /code >}}
+
+`pyproject.toml` の __`dev-dependencies`__ に次のように追記されます。
+
+{{< code lang="toml" title="pyproject.toml" hl_lines="4-7" >}}
+[project]
+# ...プロジェクトの設定...
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.6.5",
+]
+{{< /code >}}
+
+{{% note title="他の PC で依存パッケージをインストールするには" %}}
+別の PC 環境などで `git clone` した直後はこれらの依存パッケージはインストールされていません。
+`dev` 環境用の依存パッケージをまとめてインストールするには、__`uv sync --dev`__ コマンドを使用します（`uv run` や `uv sync` では dev 環境用の依存パッケージはインストールされません）。
+これは、GitHub Actions などの CI 環境上でテストツールをインストールするときにも使用します。
+{{% /note %}}
+
+インストールしたコマンドを実行するには、__`uv run`__ コマンドを使用します。
+
+{{< code lang="console" title="ruff コマンドの実行" >}}
+$ uv run ruff check           # Lint チェック
+$ uv run ruff format --check  # フォーマットチェック
+$ uv run ruff format          # 自動フォーマット
+{{< /code >}}
+
+エディタとして Visual Studio Code を使っているのであれば、Ruff 拡張を入れてしまうのが手っ取り早かったりします。
+
+- 参考: [VS Code で Python 用の Linter ＆フォーマッターの Ruff を使う｜まくろぐ](https://maku.blog/p/6hnm4hy/)
+
+
+（応用）GitHub Actions のワークフローに組み込む
+----
+
+`uv` によるパッケージのインストールは高速なので、GitHub Actions などの CI 環境でも `uv` を使うとよいです。
 
 - 本家ドキュメント: [Using uv in GitHub Actions](https://docs.astral.sh/uv/guides/integration/github/)
 - astral-sh/setup-uv アクション: [Python setup uv · Actions · GitHub Marketplace](https://github.com/marketplace/actions/python-setup-uv)
+
+基本的な流れは次のようになります。
+
+1. `astral-sh/setup-uv` アクションを使って `uv` をインストール
+2. `uv python install` で `python` をインストール
+3. `uv sync --dev` で dev 環境用の依存パッケージをインストール
+4. `uv run pytest tests` など任意のテストツールや Lint を実行
 
