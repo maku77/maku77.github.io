@@ -29,13 +29,6 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: attr(width) / attr(height);
-  vertical-align: bottom;
-}
-
 a {
   text-decoration: none;
   font-weight: bolder;
@@ -77,11 +70,6 @@ dd {
   margin-left: 1em;
   @include screen-size-lg { margin-left: 1.5em; }
   @include screen-size-xl { margin-left: 2em; }
-}
-
-strong {
-  font-weight: bolder;
-  color: $COLOR_TEXT_STRONG;
 }
 
 code {
