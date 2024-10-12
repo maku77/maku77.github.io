@@ -7,7 +7,6 @@
   <title>{{ $pageTitle }}</title>
   {{ partial "maku-common/head/all" . -}}
   {{ partial "mm/head/all" . -}}
-  {{ partialCached "head/adsense" . -}}
   {{ $style := resources.Get "css/all.scss" | toCSS | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ block "head" . }}{{ end -}}

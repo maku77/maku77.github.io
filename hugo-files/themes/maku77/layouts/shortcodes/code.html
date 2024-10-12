@@ -1,9 +1,0 @@
-{{- $title := .Get "title" }}
-{{- $lang := .Get "lang" | default "plain" }}
-{{- $hl_lines := .Get "hl_lines" }}
-{{- $option := "" }}
-{{- if $hl_lines }}{{ $option = printf "hl_lines=%s" $hl_lines }}{{ end }}
-<figure class="codeBlock">
-{{ with $title }}<figcaption class="codeBlock__title">{{.}}</figcaption>{{ end }}
-<div class="codeBlock__code">{{ highlight (trim .Inner "\r\n") $lang $option }}</div>
-</figure>
