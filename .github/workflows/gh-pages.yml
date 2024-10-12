@@ -8,7 +8,7 @@ jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
@@ -23,9 +23,9 @@ jobs:
         run: JEKYLL_ENV=production bundle exec jekyll build
 
       - name: Install Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.111.3'
+          hugo-version: '0.121.1'
           extended: true  # Enable scss
 
       - name: Build with Hugo
@@ -39,7 +39,7 @@ jobs:
         run: cp hugo-files/public/sitemap.xml _site/sitemap-hugo.xml
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: _site  # Default is public
