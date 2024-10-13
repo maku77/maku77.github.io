@@ -6,23 +6,23 @@
     <div class="article__header">
       {{ partial "blocks/breadcrumb" . }}
       <div style="text-align: right;">
-        {{ partial "mm/sns/sns-buttons" . }}
+        {{ partial "mm/sns-buttons" . }}
       </div>
       <div class="article__date">
         {{ partial "blocks/page-date" . }}
       </div>
     </div>
     <div class="article__body">
-      {{ partial "debug/page-info" . }}
+      {{ partial "mm/debug-page-info" . }}
       {{ .Content }}
-      {{ partial "debug/page-info" . }}
+      {{ partial "mm/debug-page-info" . }}
     </div>
     <div class="article__footer">
       <div class="article__date">
         {{ partial "blocks/page-date" . }}
       </div>
       <div style="text-align: right;">
-        {{ partial "mm/sns/sns-buttons" . }}
+        {{ partial "mm/sns-buttons" . }}
       </div>
       {{ partial "blocks/breadcrumb" . }}
     </div>

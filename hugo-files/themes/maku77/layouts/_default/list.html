@@ -6,7 +6,7 @@
   <div class="article__header">
     {{ partial "blocks/breadcrumb" . }}
     <div style="text-align: right;">
-      {{ partial "mm/sns/sns-buttons" . }}
+      {{ partial "mm/sns-buttons" . }}
     </div>
   </div>
   {{- if .Site.IsServer }}
@@ -22,7 +22,7 @@
   <div class="article__body article__body-categoryIndex">{{ .Content }}</div>
   <div class="article__footer">
     <div style="text-align: right;">
-      {{ partial "mm/sns/sns-buttons" . }}
+      {{ partial "mm/sns-buttons" . }}
     </div>
     {{ partial "blocks/breadcrumb" . }}
   </div>
