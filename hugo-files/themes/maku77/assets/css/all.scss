@@ -1,7 +1,4 @@
 // スクリーンサイズ（分類とピクセル値は mui を参考）
-@mixin screen-size-xs {
-  @media (min-width: 0px) { @content; }
-}
 @mixin screen-size-sm {
   @media (min-width: 600px) { @content; }
 }
