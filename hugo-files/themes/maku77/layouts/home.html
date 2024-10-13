@@ -1,19 +1,27 @@
 {{ define "article" }}
   <h1>{{ .Title }}</h1>
+
+  <h2>Categories</h2>
   <ul>
-    {{- range .Sections }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- range (sort .Sections ".Title") }}
+    <a href="{{ .RelPermalink }}" style="display: inline-block; font-size: x-large; margin: .2em .1em; padding: .3em 0.8em; border: solid 1px #333; border-radius: .3em;">
+      <li style="display: inline-block;">
+        {{ .Title }}
+      </li></a>
     {{- end }}
   </ul>
+
   <h2>Drafts</h2>
   <ul>
   {{- range (where .Site.Pages ".Draft" true) }}
   <li>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <small>
-      ({{ .Lastmod.Format "2006-01-02" }})
-      {{ range .Params.tags }}#{{ . }} {{ end }}
-    </small>
+    <a href="{{ .RelPermalink }}" style="display: block;">
+      {{- partial "mm/debug-draft-icon" . }}{{ .Title }}
+      <span style="font-weight: normal; background: #eee; color: #333; padding: .2em .4em">
+        ({{ .Lastmod.Format "2006-01-02" }})
+        {{ range .Params.tags }}#{{ . }} {{ end }}
+      </span>
+    </a>
   </li>
   {{- end }}
 </ul>
