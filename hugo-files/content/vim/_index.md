@@ -22,20 +22,18 @@ categoryIcon: logo-vim.svg
 - [アンドゥとリドゥ操作](/p/rihibef/)
 - [ビジュアルモードの基本](/p/iumn4xs/)
 
-### コマンドモード
+### コマンドモード (`:`, `/`, `?`)
 
-* [コマンドモードでコマンド入力を補完する](basic/candidate.html)
-* [コマンドモードでのカーソル移動](basic/cursor-move-in-command.html)
-* [ex コマンドの行範囲指定方法いろいろ](basic/line-range.html)
+* [コマンドモードでのカーソル移動 (`Ctrl-B`, `Ctrl-E`, `Ctrl-H`, `Ctrl-U`)](/p/f92ub3d/)
+* [コマンドモードで入力補完する (`Ctrl-D`, `Tab`))](/p/ow6rvbz/)
+* [ex コマンドでの行範囲指定方法いろいろ](/p/fw7q8q7/)
 
 ### 検索
 
-* [Vim 内で grep を実行して見つかったファイルへジャンプする](advanced/grep.html)
-* [ファイル内の文字列を検索する](basic/search.html)
-* [カーソル位置の単語を検索する](basic/search-current-word.html)
-* [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (keywordprg)](basic/keywordprg.html)
-* [大文字と小文字を区別しないで検索する](advanced/ignorecase.html)
-* [検索に関する設定](settings/search.html)
+* [Vim 内で grep を実行して見つかったファイルへジャンプする (`:vimgrep`, `:grep`)](/p/c4q8amz/)
+* [Vim でカレントファイル内の文字列を検索する (`/`, `?`, `*`, `#`)](/p/u4gw7c3/)
+* [Vim で大文字と小文字を区別しないで検索する (`ignorecase`, `\c`)](/p/mfcba2q/)
+* [Vim の検索に関する設定 (`ignorecase`, `smartcase`, `wrapscan`, `hlsearch`, `incsearch`)](/p/v4cuc9g/)
 
 ### コマンドライン
 
@@ -113,6 +111,8 @@ categoryIcon: logo-vim.svg
 * [ファイルに保存した ex スクリプトを実行する](advanced/run-ex-script.html)
 * プログラマ向け操作
     * [プログラムの関数定義などにジャンプする（tags ファイルの利用）](advanced/tags.html)
+* [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (`keywordprg`)](/p/3hp29j9/)
+
 
 インストール／環境
 ----
