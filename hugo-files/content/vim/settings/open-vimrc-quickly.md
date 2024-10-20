@@ -1,12 +1,12 @@
 ---
-title: "Vim/NeoVim でショートカットキーで .vimrc ファイルを開く"
+title: "Vim のキーマップ例: ショートカットキーで .vimrc ファイルを開く"
 url: "p/r5fcfgk/"
 date: "2014-01-27"
 lastmod: "2024-06-11"
 changes:
   - 2024-01-10: NeoVim の設定を追加
   - 2024-06-11: NeoVim の Lua スクリプトでの設定方法を追加
-tags: ["vim"]
+tags: ["neovim", "vim"]
 aliases: /vim/settings/open-vimrc-quickly.html
 ---
 

@@ -133,16 +133,16 @@ Vim の設定
 - [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
 - [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
 
-### キーマップ設定
-* [キーマップの基本 (map, noremap)](keymap/basic.html)
-* [現在のキーマップの一覧を表示する (map)](keymap/current-map.html)
-* [map、noremap 系コマンドで使用できる特殊キーの一覧 (keycodes)](keymap/keycodes.html)
-* [Leader キーを使ったキーコンビネーションを定義する (mapleader)](keymap/mapleader.html)
-* キーマップの例
-    * [ショートカットキーで設定ファイル (.vimrc) を開く](/p/r5fcfgk/)
-    * [ショートカットキーで日時を挿入する](keymap/insert-date.html)
-    * [ショートカットキーでタブを切り替える](keymap/tab.html)
-    * [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](keymap/open-folder.html)
+### キーマップ設定 <!-- keymap -->
+- [キーマップの基本 (`map`, `noremap`)](/p/nqqixxy/)
+- [`map`、`noremap` 系コマンドで使用できる特殊キーの一覧 (`key-notation`, `key-codes`)](/p/ibpmg65/)
+- [現在のキーマップの一覧を表示する (`map`)](/p/7uxykzp/)
+- [`<Leader>` キーを使ったキーコンビネーションを定義する (`mapleader`)](/p/c9kmay4/)
+- キーマップの例
+  - [ショートカットキーで設定ファイル (`.vimrc`) を開く](/p/r5fcfgk/)
+  - [ショートカットキーで日時を挿入する](/p/8xk6jnw/)
+  - [ショートカットキーでタブを切り替える](/p/ksmwhv8/)
+  - [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](/p/tqmr4od/)
 
 ### autocmd（自動コマンド）による設定
 * [autocmd で自動コマンドを登録する](settings/autocmd.html)

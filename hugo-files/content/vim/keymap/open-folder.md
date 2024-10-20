@@ -1,9 +1,9 @@
 ---
-title: "Vim/NeoVim: ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く"
+title: "Vim のキーマップ例: ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く"
 url: "p/tqmr4od/"
 date: "2020-02-29"
 lastmod: "2024-06-21"
-tags: ["vim"]
+tags: ["neovim", "vim"]
 changes:
   - 2024-06-21: NeoVim の設定方法を追加。
 aliases: /vim/keymap/open-folder.html
