@@ -2,7 +2,10 @@
 title: "Hugo でドラフト指定したセクションが公開されてしまう場合"
 url: "p/ynv4ago/"
 date: "2019-12-26"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 aliases: /hugo/misc/exclude-draft-section.html
 ---
 
@@ -71,17 +74,17 @@ bep 氏もドラフトセクションの機能は検討すると言っている�
 
 もちろん、上記のようにリンクを出力しないように制御しても、ドラフトセクションのページ自体（HTML ファイル）は生成されてしまうことに注意してください。
 生成されているドラフトセクションを見落とさないようにするためには、Hugo をサーバーモードで起動したときに、ドラフトセクションのリンクも含めて出力するようにしておくとよいでしょう。
-Hugo がサーバーモードで動作しているかどうかは、`.Site.IsServer` で確認できます。
+Hugo がサーバーモードで動作しているかどうかは、`hugo.IsServer` で確認できます。
 
 ```go-html-template
 {{/* サーバーモードではドラフトセクションも含めて表示 */}}
 {{ $sections := .Site.Sections }}
-{{ $filtered := cond .Site.IsServer $sections (where $sections ".Draft" false) }}
+{{ $filtered := cond hugo.IsServer $sections (where $sections ".Draft" false) }}
 {{ range $filtered }}
   <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>
 {{ end }}
 ```
 
-ここで使用している `cond` 関数は、C 言語の三項演算子のようなもので、最初のパラメータで指定した `.Site.IsServer` の値が `true` であれば 2 番目のパラメータの値を、`false` の場合は 3 番目のパラメータの値を返します。
+ここで使用している `cond` 関数は、C 言語の三項演算子のようなもので、最初のパラメータで指定した `hugo.IsServer` の値が `true` であれば 2 番目のパラメータの値を、`false` の場合は 3 番目のパラメータの値を返します。
 よって、サーバーモード時は `$filtered` にドラフトを含むセクション一覧が格納され、リリース時はドラフトを除いたセクション一覧が格納されます。
 

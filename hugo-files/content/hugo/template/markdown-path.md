@@ -2,9 +2,12 @@
 title: "Hugo で Markdown (.md) ファイルのパス情報を取得する"
 url: "p/8env4bi/"
 date: "2018-06-14"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
 description: "File 変数を参照すると、記事ページのもとになった Markdown ファイルのパス情報を取得することができます。"
 aliases: /hugo/template/markdown-path.html
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 ---
 
 Hugo のテンプレートファイル内で、__`File`__ 変数を参照すると、記事ページのもとになった Markdown ファイルのパス情報を取得することができます。
@@ -48,7 +51,7 @@ Hugo サーバ動作させているときに Markdown ファイルのパスを�
 
 ```go-html-template
 {{- /* Markdown ファイルのパスを表示 */}}
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
   <div style="text-align:right; font-size: smaller;">
     {{- with .File }}{{ .Filename }}{{ end -}}
   </div>

@@ -2,7 +2,10 @@
 title: "Hugo のテンプレートの中で絵文字を使用する (emojify)"
 url: "p/88e7tiz/"
 date: "2020-04-13"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 aliases: /hugo/template/emojify.html
 ---
 
@@ -26,7 +29,7 @@ emojify 関数の使用例
 下記の例では、Hugo をサーバーモードで起動しているときに、ローカルファイルのパスをアイコン付きで表示します。
 
 {{< code lang="go-html-template" title="layouts/_default/single.html（抜粋）" >}}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   {{ emojify ":memo:" }}{{ .File.Filename }}
 {{ end }}
 {{< /code >}}

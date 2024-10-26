@@ -2,11 +2,12 @@
 title: "Hugo で Google アナリティクス用のトラッキングコードを埋め込む (googleAnalytics)"
 url: "p/zxk6pat/"
 date: "2018-06-01"
-lastmod: "2023-05-28"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
 description: "Google Analytics を使用すると、Web サイトのアクセス情報を多角的に分析できるようになります。ここでは、Hugo で作成する Web サイトに、簡単に Google Analytics 用のコードを埋め込めるようにしてみます。"
 changes:
   - 2023-05-28: Google Analytics 4 (GA4) の記載を追加
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 aliases: /hugo/settings/google-analytics.html
 ---
 
@@ -66,7 +67,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 `G-12345ABCDE` のようなトラッキング ID を指定する部分は、コンフィグファイルの `googleAnalytics` パラメータで指定した値で置換するようにします。
 
 {{< code lang="go-html-template" title="layouts/partials/analytics.html" >}}
-{{ if not .Site.IsServer }}
+{{ if not hugo.IsServer }}
 {{ with .Site.GoogleAnalytics }}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>

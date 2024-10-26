@@ -2,8 +2,11 @@
 title: "Hugo でドラフトページの一覧を簡単に確認できるようにする"
 url: "p/qpcvfzi/"
 date: "2019-05-22"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
 aliases: /hugo/basic/draft-list.html
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 ---
 
 やりたいこと
@@ -25,10 +28,10 @@ Hugo では、作成途中の記事ページを[ドラフトとしてマーク�
 
 ドラフトページへジャンプするためのボタンは、レイアウトファイルから簡単に配置できるように、パーシャルファイルとして作成します。
 個人的に、ローカルでしか有効にしないコードは、下記のように `debug` ディレクトリの下に入れるようにしています。
-そして、全体のコードを __`if .Site.IsServer`__ の条件で囲むことで、ローカルサーバーで起動しているときのみ出力されるようにしています。
+そして、全体のコードを __`if hugo.IsServer`__ の条件で囲むことで、ローカルサーバーで起動しているときのみ出力されるようにしています。
 
 {{< code lang="go-html-template" title="layouts/partials/debug/draft-button.html" >}}
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
 <style>
   .xDraftButton {
     display: block;

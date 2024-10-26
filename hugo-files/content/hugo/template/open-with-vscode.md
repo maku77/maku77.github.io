@@ -2,7 +2,10 @@
 title: "Hugo で Markdown (.md) ファイルを VS Code で開くリンクを表示する"
 url: "p/9hkprvx/"
 date: "2022-06-04"
+lastmod: "2024-10-26"
 tags: ["Hugo", "VS Code"]
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 ---
 
 VS Code で開くリンク
@@ -11,7 +14,7 @@ VS Code で開くリンク
 下記の Hugo テンプレートコードは、現在のページの生成元になった Markdown (.md) ファイルを VS Code で開くリンクを表示します（ローカルサーバーでの実行中のみ）。
 
 ```go-html-template
-{{- if .Site.IsServer }}
+{{- if hugo.IsServer }}
   {{- with .File }}
     <a href="vscode://file/{{ .Filename }}">✎ VS Code で開く</a>
   {{- end }}

@@ -2,9 +2,11 @@
 title: "Hugo のローカルサーバーで動作させているとき（開発時）のみ内容を出力する private ショートコードを作成する"
 url: "p/jbr6kzd/"
 date: "2018-04-02"
-lastmod: "2018-06-02"
+lastmod: "2024-10-26"
 tags: ["Hugo"]
 description: "自分の作業用備忘録としてはメモとして残したいけれど、インターネット上には公開したくない内容に関しては、Hugo をローカルサーバーとして動作させているときだけ出力するようなショートコードを作成しておくと便利です。"
+changes:
+  - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
 aliases: /hugo/shortcode/private.html
 ---
 
@@ -13,10 +15,10 @@ aliases: /hugo/shortcode/private.html
 private ショートコードを作成する
 ----
 
-そのショートコードが、Hugo のローカルサーバ上 (hugo server) で使用されたかを判別するには、[Site 変数](https://gohugo.io/variables/site/)の __`.Site.IsServer`__ を参照します。
+そのショートコードが、Hugo のローカルサーバ上 (hugo server) で使用されたかを判別するには、[`hugo.IsServer`](https://gohugo.io/functions/hugo/isserver/) を参照します。
 
 {{< code lang="go-html-template" title="layouts/shortcodes/private.html" >}}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   ローカルサーバで動作しています。
 {{ end }}
 {{< /code >}}
@@ -24,7 +26,7 @@ private ショートコードを作成する
 あとは、__`.Inner`__ 変数で、渡されたテキストを参照することができるので、たとえば次のように実装すればよいでしょう。
 
 {{< code lang="go-html-template" title="layouts/shortcodes/private.html" >}}
-{{ if .Site.IsServer }}
+{{ if hugo.IsServer }}
   <div class="private">{{ .Inner }}</div>
 {{ end }}
 {{< /code >}}
@@ -74,9 +76,11 @@ title: "サンプルタイトル"
 ```
 
 
-（おまけ）.Site.IsServer が使えなかった頃はどうやっていたか？
+（おまけ）IsServer が使えなかった頃はどうやっていたか？
 ----
 
+`hugo.IsServer` は Hugo v.0.120.0 で追加されました。
+また、それ以前は、`Site` 変数の `.Site.IsServer` を使っていました。
 `.Site.IsServer` 変数は [Hugo v.0.38 で追加](https://github.com/gohugoio/hugo/pull/4541)されました。
 v.0.37 以前のバージョンでは、ローカルサーバーで Web ページをホスティングしているかどうかを、`.Site.BaseURL` の値が `http://localhost` で始まっているかどうかで判断していました。
 
