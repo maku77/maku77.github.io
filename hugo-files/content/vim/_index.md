@@ -154,7 +154,7 @@ Vim の設定
 * [80文字目に縦線を表示する (colorcolumn)](settings/colorcolumn.html)
 * [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
 * [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
-* [フォント設定ダイアログを開いてフォントを設定する (guifont)](settings/font-dialog.html)
+* [Vim/NeoVim で GUI モード用のフォントを設定する (`guifont`)](/p/e3xdbxe/)
 * [制御文字（改行、タブ文字、行末のスペースなど）を表示する (`list`, `listchars`)](/p/s596qii/)
 * [全角スペースを見えるように表示する](/p/preoa93/)
 * [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
