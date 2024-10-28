@@ -67,9 +67,11 @@ Vim エディタから設定ファイル（__`.vimrc`__ や __`.gvimrc`__）を�
 {{< /code >}}
 
 {{< code lang="vim" title="NeoVim の場合" >}}
-:source $MYVIMRC                  " init.vim のリロード
-:luafile ~/.config/nvim/init.lua  " init.lua のリロード
+:source $MYVIMRC   " init.vim のリロード
+:luafile $MYVIMRC  " init.lua のリロード
 {{< /code >}}
+
+NeoVim の場合、`$MYVIMRC` が示すパスは、`init.lua` または `init.vim` のうち実際に読み込まれたファイルのパスになります。
 
 
 参考

@@ -22,7 +22,7 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
     出力例: `C:\Users\maku\_gvimrc` （Windows の場合）<br>
     出力例: `/User/maku/.gvimrc` （Linux/macOS の場合）
 - NeoVim の場合（`init.lua` と `init.vim` のうち実際に読み込まれたファイルのパス）:
-  - __`:echo $MYVIMRC`__<br>
+  - __`:echo $MYVIMRC`__ or __`:=vim.env.MYVIMRC`__<br>
     出力例: `C:\Users\maku\AppData\Local\nvim\init.lua` （Windows の場合）<br>
     出力例: `/Users/maku/.config/nvim/init.lua` （Linux/macOS の場合）
 
@@ -47,9 +47,9 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
 
 Vim/NeoVim の設定ファイルは基本的に自分で作成する必要があります。
 
-{{< code lang="console" title="NeoVim の設定ファイルを作成する" >}}
+{{< code lang="console" title="NeoVim の設定ファイル (init.lua) を作成する" >}}
 $ mkdir -p ~/.config/nvim
-$ touch ~/.config/nvim/init.vim
+$ touch ~/.config/nvim/init.lua
 {{< /code >}}
 
 
