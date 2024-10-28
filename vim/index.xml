@@ -96,13 +96,13 @@ Vim の場合: :echo $MYVIMRC
 出力例: C:\Users\maku\_vimrc （Windows の場合）
 出力例: /Users/maku/.vimrc （Linux/macOS の場合） :echo $MYGVIMRC
 出力例: C:\Users\maku\_gvimrc （Windows の場合）
-出力例: /User/maku/.gvimrc （Linux/macOS の場合） NeoVim の場合（init.lua と init.vim のうち実際に読み込まれたファイルのパス）: :echo $MYVIMRC
+出力例: /User/maku/.gvimrc （Linux/macOS の場合） NeoVim の場合（init.lua と init.vim のうち実際に読み込まれたファイルのパス）: :echo $MYVIMRC or :=vim.env.MYVIMRC
 出力例: C:\Users\maku\AppData\Local\nvim\init.lua （Windows の場合）
 出力例: /Users/maku/.config/nvim/init.lua （Linux/macOS の場合） また、nvim ディレクトリのパスは、以下のように確認できます。
 :echo stdpath('config')
 出力例: C:\Users\maku\AppData\Local\nvim （Windows の場合）
 出力例: /Users/maku/.config/nvim （Linux/macOS の場合） デフォルトのパス デフォルトでは、次のようなファイルパスに置かれた設定ファイルが読み込まれます。
-Vim の場合 Windows の場合: %USERPROFILE%/_vimrc （ただし HOME 環境変数が設定されている場合は %HOME%/_vimrc） Linux/macOS の場合: ~/.vimrc NeoVim の場合 Windows の場合: %USERPROFILE%\AppData\Local\nvim\init.</description></item><item><title>Vim で C/C++ の変数／マクロの定義位置にジャンプする</title><link>https://maku77.github.io/p/96itrdp/</link><pubDate>Wed, 21 Nov 2007 00:00:00 +0000</pubDate><guid>https://maku77.github.io/p/96itrdp/</guid><description>C/C++ の変数／マクロの定義位置にジャンプ 変数にカーソルを当てた状態で、以下のように入力すると、その変数の定義位置にジャンプすることができます。
+Vim の場合 Windows の場合: %USERPROFILE%/_vimrc （ただし HOME 環境変数が設定されている場合は %HOME%/_vimrc） Linux/macOS の場合: ~/.</description></item><item><title>Vim で C/C++ の変数／マクロの定義位置にジャンプする</title><link>https://maku77.github.io/p/96itrdp/</link><pubDate>Wed, 21 Nov 2007 00:00:00 +0000</pubDate><guid>https://maku77.github.io/p/96itrdp/</guid><description>C/C++ の変数／マクロの定義位置にジャンプ 変数にカーソルを当てた状態で、以下のように入力すると、その変数の定義位置にジャンプすることができます。
 コマンド 説明 gd ローカル変数の定義位置へジャンプ gD グローバル変数の定義位置へジャンプ 検索の精度はあまり高くありません。。。
 C/C++ のマクロの定義を表示／定義位置へジャンプ C/C++ のマクロは次のような感じで定義されます。
 #define BUF_SIZE 256 マクロを使用している場所から、そのマクロの定義（上記のコード）を調べるには、マクロ名にカーソルを当てた状態で次のように入力します。 #include されているファイルの内容も検索してくれます。
