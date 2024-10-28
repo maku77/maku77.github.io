@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim の設定ファイルのパスを確認する"
+title: "Vim/NeoVim の設定ファイルのパスを確認する ($MYVIMRC)"
 url: "p/7mabuvq/"
 date: "2007-12-26"
 lastmod: "2024-01-10"
@@ -21,10 +21,16 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
   - __`:echo $MYGVIMRC`__<br>
     出力例: `C:\Users\maku\_gvimrc` （Windows の場合）<br>
     出力例: `/User/maku/.gvimrc` （Linux/macOS の場合）
-- NeoVim の場合:
-  - __`:echo stdpath('config')`__<br>
-    出力例: `C:\Users\maku\AppData\Local\nvim` （Windows の場合）<br>
-    出力例: `/Users/maku/.config/nvim` （Linux/macOS の場合）
+- NeoVim の場合（`init.lua` と `init.vim` のうち実際に読み込まれたファイルのパス）:
+  - __`:echo $MYVIMRC`__<br>
+    出力例: `C:\Users\maku\AppData\Local\nvim\init.lua` （Windows の場合）<br>
+    出力例: `/Users/maku/.config/nvim/init.lua` （Linux/macOS の場合）
+
+また、`nvim` ディレクトリのパスは、以下のように確認できます。
+
+- __`:echo stdpath('config')`__<br>
+  出力例: `C:\Users\maku\AppData\Local\nvim` （Windows の場合）<br>
+  出力例: `/Users/maku/.config/nvim` （Linux/macOS の場合）
 
 
 デフォルトのパス

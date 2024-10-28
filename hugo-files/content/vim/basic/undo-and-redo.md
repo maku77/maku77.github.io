@@ -1,5 +1,5 @@
 ---
-title: "Vim のアンドゥ操作とリドゥ操作"
+title: "Vim のアンドゥ操作とリドゥ操作 (u, Ctrl-r, undolevels)"
 url: "p/rihibef/"
 date: "2008-11-13"
 tags: ["vim"]

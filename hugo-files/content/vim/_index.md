@@ -19,43 +19,46 @@ categoryIcon: logo-vim.svg
 - [文字の削除方法まとめ (`d`, `delete`)](/p/qbmdoef/)
 - [文字の置換方法まとめ (`:s`, `:substitute`)](/p/f8v2npx/)
 - [ウィンドウを分割する](/p/ym9pa88/)
-- [アンドゥとリドゥ操作](/p/rihibef/)
-- [ビジュアルモードの基本](/p/iumn4xs/)
+- [アンドゥとリドゥ操作 (`u`, `Ctrl-r`, `undolevels`)](/p/rihibef/)
+- [ビジュアルモードの基本 (`v`, `Shift-v`, `Ctrl-v`)](/p/iumn4xs/)
 
 ### コマンドモード (`:`, `/`, `?`)
 
-* [コマンドモードでのカーソル移動 (`Ctrl-B`, `Ctrl-E`, `Ctrl-H`, `Ctrl-U`)](/p/f92ub3d/)
-* [コマンドモードで入力補完する (`Ctrl-D`, `Tab`))](/p/ow6rvbz/)
-* [ex コマンドでの行範囲指定方法いろいろ](/p/fw7q8q7/)
+- [コマンドモードでのカーソル移動 (`Ctrl-B`, `Ctrl-E`, `Ctrl-H`, `Ctrl-U`)](/p/f92ub3d/)
+- [コマンドモードで入力補完する (`Ctrl-D`, `Tab`))](/p/ow6rvbz/)
+- [ex コマンドでの行範囲指定方法いろいろ](/p/fw7q8q7/)
 
 ### 検索
 
-* [Vim 内で grep を実行して見つかったファイルへジャンプする (`:vimgrep`, `:grep`)](/p/c4q8amz/)
-* [Vim でカレントファイル内の文字列を検索する (`/`, `?`, `*`, `#`)](/p/u4gw7c3/)
-* [Vim で大文字と小文字を区別しないで検索する (`ignorecase`, `\c`)](/p/mfcba2q/)
-* [Vim の検索に関する設定 (`ignorecase`, `smartcase`, `wrapscan`, `hlsearch`, `incsearch`)](/p/v4cuc9g/)
+- [Vim 内で grep を実行して見つかったファイルへジャンプする (`:vimgrep`, `:grep`)](/p/c4q8amz/)
+- [Vim でカレントファイル内の文字列を検索する (`/`, `?`, `*`, `#`)](/p/u4gw7c3/)
+- [Vim で大文字と小文字を区別しないで検索する (`ignorecase`, `\c`)](/p/mfcba2q/)
+- [Vim の検索に関する設定 (`ignorecase`, `smartcase`, `wrapscan`, `hlsearch`, `incsearch`)](/p/v4cuc9g/)
 
 ### コマンドライン
 
-* [Vim を起動するときに行番号を指定してファイルを開く](file/command-line-options.html)
-* [サイレントバッチモードで Ex スクリプトをファイルに適用する](file/silent-batch-mode.html)
+- [Vim を起動するときに行番号や検索パターンを指定してファイルを開く (`+n`, `+/pattern`)](/p/x8f9e87/)
+- [サイレントバッチモードで ex スクリプトをファイルに適用する (`-es`)](/p/q7eoz2z/)
 
 
-ファイル
+ファイル <!-- file -->
 ----
 
 ### ファイルを開く
-* [ファイル名を指定してファイルを開く](file/open-specified-file.html)
-* [カーソル位置の単語をファイル名としてファイルを開く (gf)](file/open-file-at-cursor.html)
-* [編集中のファイルと拡張子だけが異なるファイルを開く (%<)（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.html)
-* [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
-* [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
+
+- [ファイル名を指定してファイルを開く (`:e`, `:edit`, `:view`)](/p/6aycfga/)
+- [カーソル位置の単語をファイル名としてファイルを開く (`gf`, `Ctrl-w gf`, `Ctrl-w f`)](/p/sok5efu/)
+- [編集中のファイルと拡張子だけが異なるファイルを開く (%<)（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.html)
+- [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
+- [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
 
 ### ファイルを保存する
+
 * [ファイルへの保存コマンド :w、:x の基本](file/save.html)
 * [指定した行範囲だけ別のファイルに保存する](file/save-lines.html)
 
 ### その他
+
 * [別ファイルの内容や外部コマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
 * [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
 * [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
@@ -126,7 +129,7 @@ Vim の設定
 ----
 
 ### ファイル・ディレクトリに関する設定と操作
-- [設定ファイルのパスを確認する](/p/7mabuvq/)
+- [Vim/NeoVim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
 - [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [モードラインでファイルごとに書式を設定する](settings/modeline.html)
