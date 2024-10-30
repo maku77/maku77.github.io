@@ -16,7 +16,7 @@ categoryIcon: logo-vim.svg
   - [画面スクロール方法まとめ](/p/gu9om5z/)
   - [カーソル位置にマークしてジャンプしてこれるようにする](/p/i3ao6oc/)
   - [C/C++ の変数／マクロの定義位置にジャンプする](/p/96itrdp/)
-- [文字の削除方法まとめ (`d`, `delete`)](/p/qbmdoef/)
+- [文字の削除方法まとめ（テキストオブジェクト） (`d`, `delete`)](/p/qbmdoef/)
 - [文字の置換方法まとめ (`:s`, `:substitute`)](/p/f8v2npx/)
 - [ウィンドウを分割する](/p/ym9pa88/)
 - [アンドゥとリドゥ操作 (`u`, `Ctrl-r`, `undolevels`)](/p/rihibef/)
