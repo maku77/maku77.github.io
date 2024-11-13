@@ -134,23 +134,24 @@ Vim の設定
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [モードラインでファイルごとに書式を設定する](settings/modeline.html)
 - [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
-- [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)](settings/autochdir.html)
+- [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (`autochdir`)](/p/dpccbv7/)
 
 ### キーマップ設定 <!-- keymap -->
 - [キーマップの基本 (`map`, `noremap`)](/p/nqqixxy/)
 - [`map`、`noremap` 系コマンドで使用できる特殊キーの一覧 (`key-notation`, `key-codes`)](/p/ibpmg65/)
 - [現在のキーマップの一覧を表示する (`map`)](/p/7uxykzp/)
 - [`<Leader>` キーを使ったキーコンビネーションを定義する (`mapleader`)](/p/c9kmay4/)
-- キーマップの例
+- キーマップ設定の例
   - [ショートカットキーで設定ファイル (`.vimrc`) を開く](/p/r5fcfgk/)
   - [ショートカットキーで日時を挿入する](/p/8xk6jnw/)
   - [ショートカットキーでタブを切り替える](/p/ksmwhv8/)
   - [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](/p/tqmr4od/)
 
 ### autocmd（自動コマンド）による設定
-* [autocmd で自動コマンドを登録する](settings/autocmd.html)
-* [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](settings/autocmd-exec.html)
-* [開いたファイルがあるディレクトリをカレントディレクトリにする](settings/autocmd-cd.html)
+- [`autocmd` で自動コマンドを登録する](/p/rj6oatw/)
+- `autocmd` 設定の例
+  - [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](/p/nwqjyx8/)
+  - [開いたファイルがあるディレクトリをカレントディレクトリにする](/p/4ekh9ba/)
 
 ### 表示の設定
 * [行番号を表示する (`set number`, `vim.opt.number`)](/p/t8o6tum/)
