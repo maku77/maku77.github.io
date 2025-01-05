@@ -253,9 +253,10 @@ Web / HTTP <!-- web -->
 - サンプルコード
   - [Web サイトのサイトマップ (sitemap.xml) からすべての URL を抽出する](/p/bp9q8p6/)
 
-### HTTP サーバー
+### HTTP サーバー / Web API サーバー
 
 - [Python で簡易的な HTTP サーバを立てる (`http.server`, `SimpleHTTPServer`)](/p/rr3cmu5/)
+- [Python の FastAPI フレームワークで Web API を実装する](/p/mq4c72g/)
 
 
 未分類 <!-- misc -->
