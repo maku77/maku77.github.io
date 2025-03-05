@@ -119,6 +119,7 @@ categoryIcon: logo-vim.svg
 
 インストール／環境
 ----
+* [Neovim 用のプラグインマネージャー lazy.nvim をインストールする](/p/cfc9tpn/)
 * [MacOSX に香り屋版の GVim をインストールする](install/kaoriya-gvim.html)
 * [Vundle をインストールして Vim のプラグイン環境を作る](install/vundle.html)
 * [Windows の右クリックから Vim を開けるようにする](install/windows-right-click.html)
@@ -127,6 +128,9 @@ categoryIcon: logo-vim.svg
 
 Vim の設定
 ----
+
+### Lua
+- [Neovim カスタマイズのために Lua 言語をざっと理解する](/p/d3exkpu/)
 
 ### ファイル・ディレクトリに関する設定と操作
 - [Vim/NeoVim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
