@@ -1,508 +1,308 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="天才星人まくのRノート">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/r/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-r.png" />
-
-  <meta property="og:description" content="天才星人まくのRノート">
-
-<meta property="fb:app_id"  content="447708168769292" />
-<meta name="twitter:card" content="summary" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
-
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X5962TDYXS');
-</script>
-
-
-
-  <meta property="og:title" content="まくまく R ノート | 天才まくまくノート" />
-  <title>まくまく R ノート - 天才まくまくノート</title>
-</head>
-<body>
-<div class="xPageHeader">
-  <img src="/assets/img/logo-r.svg" class="xPageHeader_logo">
-  <div class="xPageHeader_titleLarge">まくまくRノート</div>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      
-
-      <!-- カテゴリ説明文 -->
-      <div class="xCategoryDesc">
-        統計解析やグラフプロットに便利な R の入門。
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRノート： R&url=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      <div class="xCategoryContent">
-        <div class="xCategoryContent_toc">
-          <div class="xCategoryContent_toc_sticky" id="tocStub">
-          </div>
-        </div>
-        <div class="xCategoryContent_index"><h2 id="はじめに">はじめに</h2>
-<ul>
-  <li><a href="coding-style.html">R のコーディングスタイル</a></li>
-  <li><a href="basic/locale.html">R 環境のロケール設定（日本語を使用する）</a></li>
-</ul>
-
-<h2 id="r-の基本">R の基本</h2>
-<ul>
-  <li><a href="basic/help.html">ヘルプを表示する</a></li>
-  <li><a href="basic/syntax.html">R の構文</a></li>
-  <li><a href="basic/data-types.html">R のデータ型</a></li>
-  <li><a href="basic/run-script.html">R スクリプトファイルを実行する (source)</a></li>
-  <li><a href="basic/sink-output.html">R コマンドの実行結果をファイルに保存する (sink)</a></li>
-  <li><a href="basic/ls-objects.html">現在作成されているオブジェクトの一覧を表示する (ls, objects)</a></li>
-</ul>
-
-<h2 id="出力">出力</h2>
-<ul>
-  <li><a href="io/create-image.html">画像ファイル (1) 出力先を画像ファイルに切り替える</a></li>
-  <li><a href="io/transparent-bg.html">画像ファイル (2) 画像の背景を透過させる</a></li>
-</ul>
-
-<h2 id="データ生成">データ生成</h2>
-<ul>
-  <li><a href="data/create-vector.html">連番のベクトルを作成する (seq)</a></li>
-  <li><a href="data/repeated-vector.html">あるベクトルの繰り返しからなるベクトルを作成する (rep)</a></li>
-  <li><a href="data/vector-operation.html">ベクトルに対する算術演算を行う</a></li>
-  <li><a href="data/operation-between-vectors.html">ベクトル同士の演算を行う</a></li>
-  <li><a href="data/combine-values.html">2 つのデータを結合する (c)</a></li>
-  <li><a href="data/prefix-and-suffix.html">ベクトルの各要素にプレフィックス、サフィックスを付ける (paste)</a></li>
-  <li><a href="data/shrink-and-extend-vector.html">ベクトルのサイズを切り詰める、拡張する (length)</a></li>
-  <li><a href="data/filter-vector.html">ベクトルのサブセットを生成する（ベクトルのフィルタ）</a></li>
-  <li><a href="data/normal-distribution.html">ランダムな正規分布を生成する (rnorm)</a></li>
-</ul>
-
-<h2 id="データフレーム">データフレーム</h2>
-<ul>
-  <li><a href="dataframe/what-is-dataframe.html">データフレームとは</a></li>
-  <li><a href="dataframe/extract-dataframe.html">データフレームから特定のカラムを抽出する</a></li>
-  <li><a href="dataframe/create-dataframe.html">ベクトルからデータフレームを作成する (data.frame)</a></li>
-</ul>
-
-</div>
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRノート： R&url=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/r/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-    </div>
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/mac/">Mac</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li class="xNav-focused"><a href="/r/">R</a>
-        <li><a href="/ruby/">Ruby</a>
-        <li><a href="/rust/">Rust</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelectorAll('.xContent');
-
-  content.forEach(function(item) {
-    // 外部リンクを必ず新しいタブで開く
-    const externalLinks = item.querySelectorAll('a[href^="http"]');
-    externalLinks.forEach(function(link) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener');
-    });
-
-    // 外部リンクにクラス属性を付加する
-    const nonImageExternalLinks = item.querySelectorAll('a[href^="http"]:not(:has(img))');
-    nonImageExternalLinks.forEach(function(link) {
-      link.classList.add('xExternalLinkIcon');
-    });
-  });
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  /*
-   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
-   * メニュー要素 (ul) を生成する。
-   *
-   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
-   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
-   */
-  function createMenu(searchParent, headerTagNames) {
-    const ul = document.createElement('ul');  // メニュー項目の親要素
-    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
-
-    document.querySelectorAll(`${searchParent} ${headerTagNames}`).forEach((header) => {
-      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      const name = `section${sectionNumber++}`;
-      const anchor = document.createElement('a');
-      anchor.setAttribute('name', name);
-      header.prepend(anchor);
-
-      // メニュー項目となる li 要素を追加する
-      const level = header.tagName.charAt(1);  // 'h2' などの後ろの数値部分
-      const li = document.createElement('li');
-      li.classList.add(`level-${level}`);
-
-      const link = document.createElement('a');
-      link.setAttribute('href', `#${name}`);
-      link.textContent = header.textContent.trim();
-
-      li.appendChild(link);
-      ul.appendChild(li);
-    });
-
-    return ul;
-  }
-
-  // main 要素以下の見出し要素を抽出して、メニュー (ul 要素) を自動生成し、
-  // その ul 要素を #tocStub へと挿入する。
-  const menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
-  document.getElementById('tocStub').appendChild(menuElem);
-});
-</script>
-
-</body>
-</html>
-
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>まくまく R ノート - 天才まくまくノート</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-X5962TDYXS")</script><link rel=icon sizes="16x16 32x32 48x48 64x64" href=../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../assets/img/favicon/180x180.png><meta name=twitter:card content="summary"><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="R"><meta property="og:type" content="article"><meta property="og:url" content="https://maku77.github.io/r/"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://maku77.github.io/img/site-logo.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:description" content="統計解析やグラフプロットに便利な R 言語のメモです。
+R のコーディングスタイル 下記は Google が採用している R のコーディングスタイルを参考にしています。
+インデントはスペース 2 文字 一行 80 文字まで 代入は <- を使用する（= は代入には使わない） attach は使わない エラーの生成には stop() を使う S3 オブジェクトを使う（S4 オブジェクトを使わない） 命名規則 関数: FunctionName 変数: variableName 定数: kConstantName R 環境の Locale 設定（日本語を使用する） R コンソールを起動したときに、システムの Locale 設定が正しく行われていないと、下記の様な警告メッセージが表示されます。
+Mac での Locale 設定の警告メッセージ During startup - Warning messages: 1: Setting LC_CTYPE failed, using &#34;C&#34; 2: Setting LC_COLLATE failed, using &#34;C&#34; 3: Setting LC_TIME failed, using &#34;C&#34; 4: Setting LC_MESSAGES failed, using &#34;C&#34; 5: Setting LC_MONETARY failed, using &#34;C&#34; [R."><meta property="fb:app_id" content="447708168769292"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script><link rel=stylesheet href=../css/mm/all.min.03f769de5588c124e5b7baaab243e1f44bc5ccf6139987424d26c43c9491512f.css><link rel=stylesheet href=../css/all.min.dfed075b80927eec3d408410bcff6d7ec1bbbd82933e2853c49a99f55ed6689b.css></head><body><div class=l-pageHeader><header class=header><a href=./><img class=header__icon src=../r/_index.svg><div class=header__right><div class=header__categoryTitle><a href=./>まくまく R ノート</a></div></div></a></header></div><div class=l-withSidebar><div class=l-withSidebar__sidebarLeft><style>#tocStub{position:-webkit-sticky;position:sticky;top:2rem;margin-top:2rem;line-height:1.5;max-height:calc(100vh - 4rem);overflow-y:auto;-webkit-overflow-scrolling:touch}#tocStub ul{font-size:.9em;list-style:none;padding:0;border-top:solid 1px #ccc}#tocStub li{border:solid 1px #ccc;border-right:none;margin-top:-1px}#tocStub a{color:#666;padding:.6em .3em .6em .5em;display:block;text-decoration:none;font-weight:400}.level-2{margin-left:.8em}.level-3{padding-left:1.6em}</style><div id=tocStub></div><script>document.addEventListener("DOMContentLoaded",()=>{function e(e){const t=document.createElement("a");return t.setAttribute("id",e),t}function t(t,n){n.parentNode.insertBefore(e(t),n)}function n(e,t,n){const s=document.createElement("li");return s.classList.add("level-"+e),s.innerHTML='<a href="#'+t+'">'+n+"</a>",s}function s(){const e=document.createElement("ul");return document.querySelectorAll("h2, h3").forEach((s,o)=>{const i="section-"+o;t(i,s);const a=s.tagName.charAt(1)-1;e.appendChild(n(a,i,s.textContent))}),e}document.getElementById("tocStub").appendChild(s())})</script></div><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../r/>まくまく R ノート</a></div><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fr%2f" name=HOGE><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fr%2f&text=R%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fr%2f&title=R%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div></div><div class="article__body article__body-categoryIndex"><p>統計解析やグラフプロットに便利な R 言語のメモです。</p><h2 id=r-のコーディングスタイル----2015-01-27--->R のコーディングスタイル</h2><p>下記は Google が採用している R のコーディングスタイルを参考にしています。</p><ul><li>インデントはスペース <strong>2</strong> 文字</li><li>一行 <strong>80</strong> 文字まで</li><li>代入は <strong><code>&lt;-</code></strong> を使用する（<code>=</code> は代入には使わない）</li><li><code>attach</code> は使わない</li><li>エラーの生成には <code>stop()</code> を使う</li><li><strong>S3</strong> オブジェクトを使う（S4 オブジェクトを使わない）</li><li>命名規則<ul><li>関数: <code>FunctionName</code></li><li>変数: <code>variableName</code></li><li>定数: <code>kConstantName</code></li></ul></li></ul><h2 id=r-環境の-locale-設定日本語を使用する----2015-12-28--->R 環境の Locale 設定（日本語を使用する）</h2><p>R コンソールを起動したときに、システムの Locale 設定が正しく行われていないと、下記の様な警告メッセージが表示されます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>Mac での Locale 設定の警告メッセージ</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>During startup - Warning messages:
+</span></span><span class=line><span class=cl>1: Setting LC_CTYPE failed, using &#34;C&#34;
+</span></span><span class=line><span class=cl>2: Setting LC_COLLATE failed, using &#34;C&#34;
+</span></span><span class=line><span class=cl>3: Setting LC_TIME failed, using &#34;C&#34;
+</span></span><span class=line><span class=cl>4: Setting LC_MESSAGES failed, using &#34;C&#34;
+</span></span><span class=line><span class=cl>5: Setting LC_MONETARY failed, using &#34;C&#34;
+</span></span><span class=line><span class=cl>[R.app GUI 1.66 (7060) x86_64-apple-darwin13.4.0]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>WARNING: You&#39;re using a non-UTF8 locale, therefore only ASCII characters will work.
+</span></span><span class=line><span class=cl>Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.</span></span></code></pre></div></div></figure><p>R コンソールで正しくメッセージ表示を行うには、少なくとも UTF-8 を使用する設定を行っておく必要があります。</p><h3 id=mac-でシステムの-locale-設定を変更する>Mac でシステムの Locale 設定を変更する</h3><p>Mac のターミナルで <strong><code>defaults</code></strong> コマンドを使用すると、システムの Locale 設定を変更することができます。
+ヘルプメッセージなどを日本語にしたい場合は、<code>js_JP.UTF-8</code> の方を指定してください。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> defaults write org.R-project.R force.LANG en_US.UTF-8  <span class=c1># 英語表示</span>
+</span></span><span class=line><span class=cl><span class=gp>$</span> defaults write org.R-project.R force.LANG ja_JP.UTF-8  <span class=c1># 日本語表示</span>
+</span></span></code></pre></div><p>上記を実行してから R コンソールを立ち上げ直すと、正しく Locale 設定が反映されます。
+あるいは、R コンソールから下記の様に設定することもできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>system</span><span class=p>(</span><span class=s>&#34;defaults write org.R-project.R force.LANG ja_JP.UTF-8&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><p><strong><code>locale</code></strong> コマンドを実行すると、現在の設定を確認することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>system</span><span class=p>(</span><span class=s>&#34;locale&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>LANG</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_COLLATE</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_CTYPE</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_MESSAGES</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_MONETARY</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_NUMERIC</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_TIME</span><span class=o>=</span><span class=s>&#34;ja_JP.UTF-8&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LC_ALL</span><span class=o>=</span>
+</span></span></code></pre></div><ul><li>参考: <a href=https://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Internationalization-of-the-R_002eapp>R for Mac OS X FAQ - CRAN Project</a></li></ul><h2 id=ヘルプの使い方----2014-12-09--->ヘルプの使い方</h2><figure class=xCodeBlock><figcaption class=xCodeBlock_title>ヘルプドキュメントのトップページを表示する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>help.start</span><span class=p>()</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>関数のヘルプを表示する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>help</span><span class=p>(</span><span class=kr>function</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>?</span><span class=kr>function</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>指定した関数のシグネチャを表示する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>args</span><span class=p>(</span><span class=kr>function</span><span class=p>)</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>関数の使用例を実行する（例: mean 関数の使用例）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>example</span><span class=p>(</span><span class=n>mean</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>mean</span><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>0</span><span class=o>:</span><span class=m>10</span><span class=p>,</span> <span class=m>50</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>mean</span><span class=o>&gt;</span> <span class=n>xm</span> <span class=o>&lt;-</span> <span class=nf>mean</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>mean</span><span class=o>&gt;</span> <span class=nf>c</span><span class=p>(</span><span class=n>xm</span><span class=p>,</span> <span class=nf>mean</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>trim</span> <span class=o>=</span> <span class=m>0.10</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>8.75</span> <span class=m>5.50</span></span></span></code></pre></div></div></figure><p>上記で実行されるのは、<code>help(mean)</code> を実行したときに Example の項目で示されているサンプルコードです。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>構文のヘルプを表示する（例: for の使い方）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>?</span><span class=s>&#34;for&#34;</span>
+</span></span><span class=line><span class=cl><span class=nf>help</span><span class=p>(</span><span class=s>&#34;for&#34;</span><span class=p>)</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>キーワードでヘルプを検索する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>??</span><span class=n>keyword</span>
+</span></span><span class=line><span class=cl><span class=nf>help.search</span><span class=p>(</span><span class=s>&#34;keyword&#34;</span><span class=p>)</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>Web 上で検索する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>RSiteSearch</span><span class=p>(</span><span class=s>&#34;keyword&#34;</span><span class=p>)</span></span></span></code></pre></div></div></figure><h2 id=r-の構文----2015-05-04--->R の構文</h2><h3 id=条件分岐>条件分岐</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=kr>if</span> <span class=p>(</span><span class=n>cond1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kc>...</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=kr>else</span> <span class=kr>if</span> <span class=p>(</span><span class=n>cond</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kc>...</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=kr>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kc>...</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h3 id=繰り返し>繰り返し</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=kr>for</span> <span class=p>(</span><span class=n>i</span> <span class=kr>in</span> <span class=m>1</span><span class=o>:</span><span class=m>5</span><span class=p>)</span> <span class=p>{</span> <span class=kc>...</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kr>while</span> <span class=p>(</span><span class=n>cond</span><span class=p>)</span> <span class=p>{</span> <span class=kc>...</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kr>repeat</span> <span class=p>{</span> <span class=kc>...</span> <span class=p>}</span>
+</span></span></code></pre></div><p>ループ内では <code>break</code>（ループ処理の終了）や <code>next</code>（次のループ処理へ）を使用することができます。</p><h3 id=より詳しく調べるには>より詳しく調べるには</h3><p><code>if</code> や <code>for</code> などの詳しい説明を読みたい場合は、下記のようにヘルプを表示することができます（これらのキーワードは、ダブルクォーテーションで括る必要があることに注意してください）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>?</span><span class=s>&#34;if&#34;</span>
+</span></span><span class=line><span class=cl><span class=nf>help</span><span class=p>(</span><span class=s>&#34;if&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><h2 id=r-のデータ型----2014-12-08--->R のデータ型</h2><h3 id=実数-numeric>実数 (numeric)</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>12.34</span>
+</span></span></code></pre></div><h3 id=複素数-complex>複素数 (complex)</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1+2i</span>
+</span></span></code></pre></div><h3 id=文字列-character>文字列 (character)</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=s>&#39;Hello&#39;</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=s>&#34;Hello&#34;</span>
+</span></span></code></pre></div><h3 id=論理型-logical>論理型 (logical)</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>TRUE </span><span class=p>(</span><span class=n>or</span> <span class=bp>T</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>FALSE </span><span class=p>(</span><span class=n>or</span> <span class=bp>F</span><span class=p>)</span>
+</span></span></code></pre></div><p><code>T</code> と <code>F</code> は、<code>TRUE</code> と <code>FALSE</code> の代わりに使用することができますが、別の値を代入してしまうことができます（<code>T</code> と <code>F</code> は定数ではなく変数ということ）。
+そのため、公式ドキュメントでは、常に <code>TRUE</code> と <code>FALSE</code> の方を使うことを推奨しています。</p><h3 id=ベクトル>ベクトル</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+</span></span></code></pre></div><p>ベクトル内に複数の型を含めると、<strong>文字列＞実数＞論理値</strong> の優先度で同じ型になるように自動的に変換されます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3.14</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1.00</span> <span class=m>2.00</span> <span class=m>3.14</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2+3i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1+0i</span> <span class=m>2+3i</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>c</span><span class=p>(</span><span class=m>123</span><span class=p>,</span> <span class=kc>TRUE</span><span class=p>,</span> <span class=kc>FALSE</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>123</span>   <span class=m>1</span>   <span class=m>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;ABC&#34;</span><span class=p>,</span> <span class=m>123</span><span class=p>,</span> <span class=kc>TRUE</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;ABC&#34;</span>  <span class=s>&#34;123&#34;</span>  <span class=s>&#34;TRUE&#34;</span>
+</span></span></code></pre></div><h3 id=mode-関数で型を調べる>mode 関数で型を調べる</h3><p><strong><code>mode()</code></strong> 関数を使用すると、指定した値を、R がどのような型とみなしているかを調べることができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>mode</span><span class=p>(</span><span class=m>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;numeric&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>mode</span><span class=p>(</span><span class=m>1+2i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;complex&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>mode</span><span class=p>(</span><span class=s>&#39;Hello&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;character&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>mode</span><span class=p>(</span><span class=kc>TRUE</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;logical&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>mode</span><span class=p>(</span><span class=nf>c</span><span class=p>(</span><span class=s>&#34;ABC&#34;</span><span class=p>,</span> <span class=m>123</span><span class=p>,</span> <span class=kc>TRUE</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;character&#34;</span>
+</span></span></code></pre></div><h2 id=r-スクリプトファイルを実行する-source----2014-12-11--->R スクリプトファイルを実行する (source)</h2><p>例えば、<code>commands.R</code> というテキストファイルに R のコマンドを記述してある場合、以下のように読み込んで実行することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>source</span><span class=p>(</span><span class=s>&#34;commands.R&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><p>読み込み時のカレントディレクトリは、<code>getwd()</code> で取得、<code>setwd()</code> で変更することができます。</p><h2 id=r-コマンドの実行結果をファイルに保存する-sink----2014-12-11--->R コマンドの実行結果をファイルに保存する (sink)</h2><p>R コマンドの実行結果はデフォルトではウィンドウ (console) 内に表示されますが、<strong><code>sink()</code></strong> 関数で出力先をファイルに切り替えることができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>sink</span><span class=p>(</span><span class=s>&#34;output.txt&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><p>出力先をウィンドウ (console) に戻すには、パラメータ無しで <code>sink()</code> 関数を呼び出します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>sink</span><span class=p>()</span>
+</span></span></code></pre></div><h2 id=現在作成されているオブジェクトの一覧を表示する-ls-objects----2014-12-11--->現在作成されているオブジェクトの一覧を表示する (ls, objects)</h2><p>Java や C++ の変数にあたるものは、R ではオブジェクトと呼びます。
+現在作成されているオブジェクトの一覧を確認するには、<strong><code>ls()</code></strong> あるいは <strong><code>objects()</code></strong> を使用します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>y</span> <span class=o>&lt;-</span> <span class=n>x</span><span class=o>**</span><span class=m>2</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>ls</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;x&#34;</span> <span class=s>&#34;y&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>objects</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;x&#34;</span> <span class=s>&#34;y&#34;</span>
+</span></span></code></pre></div><p>上記の結果表示されたオブジェクトは、下記のように「参照」できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl> <span class=n>[1]</span>  <span class=m>1</span>  <span class=m>2</span>  <span class=m>3</span>  <span class=m>4</span>  <span class=m>5</span>  <span class=m>6</span>  <span class=m>7</span>  <span class=m>8</span>  <span class=m>9</span> <span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl> <span class=n>[1]</span>   <span class=m>1</span>   <span class=m>4</span>   <span class=m>9</span>  <span class=m>16</span>  <span class=m>25</span>  <span class=m>36</span>  <span class=m>49</span>  <span class=m>64</span>  <span class=m>81</span> <span class=m>100</span>
+</span></span></code></pre></div><p>不要なオブジェクトは、<strong><code>rm()</code></strong> で削除することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>ls</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;x&#34;</span> <span class=s>&#34;y&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>rm</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>ls</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;y&#34;</span>  <span class=c1># x が削除された</span>
+</span></span></code></pre></div><p>R の実行環境を終了するとき、現在作成されているオブジェクトは、カレントディレクトリの <code>.RData</code> というファイルに保存されます。
+Windows 環境では、この <code>.RData</code> ファイルをダブルクリックすることで、終了時と同じ状態で R を起動することができます。
+このような仕組みがあるため、分析の対象ごとにディレクトリを作成しておくと便利です。</p><h2 id=出力先を画像ファイルに切り替える----2014-12-09--->出力先を画像ファイルに切り替える</h2><p>R では <strong>「作図デバイス」</strong> を切り替えることによって、<code>plot()</code> や <code>hist()</code> による描画内容を画像ファイルとして保存することができます。
+現在の環境でどのような形式をサポートしているかは下記のように確認できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>help</span><span class=p>(</span><span class=s>&#34;Devices&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><h3 id=png-ファイルへの出力>PNG ファイルへの出力</h3><p>たとえば、PNG ファイルにプロットするには下記のように <strong><code>png()</code></strong> 関数を使用して作図デバイスを切り替えます。
+描画が終わったら、<strong><code>dev.off()</code></strong> で作図デバイスを閉じます（閉じないとファイルが使用中のままになってしまい、別のアプリケーションから開くことができません）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>png</span><span class=p>(</span><span class=s>&#34;output.png&#34;</span><span class=p>,</span> <span class=n>width</span><span class=o>=</span><span class=m>400</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=m>300</span><span class=p>)</span>  <span class=c1># 作図デバイス(png)を開く</span>
+</span></span><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>   <span class=c1># 描画</span>
+</span></span><span class=line><span class=cl><span class=nf>dev.off</span><span class=p>()</span>    <span class=c1># 作図デバイス(png)を閉じる</span>
+</span></span></code></pre></div><p>作図デバイスを切り替えるときに、<strong><code>bg="transparent"</code></strong> オプションを指定すると、<strong>背景を透過した画像</strong> を出力することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>png</span><span class=p>(</span><span class=s>&#34;sample.png&#34;</span><span class=p>,</span> <span class=n>width</span><span class=o>=</span><span class=m>400</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=m>300</span><span class=p>,</span> <span class=n>bg</span><span class=o>=</span><span class=s>&#34;transparent&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>dev.off</span><span class=p>()</span>
+</span></span></code></pre></div><h3 id=svg-ファイルへの出力>SVG ファイルへの出力</h3><p><strong><code>svg()</code></strong> 関数を使用すると、グラフの出力先を SVG ファイルに変更することができます。
+<code>svg()</code> 関数の <code>width</code>、<code>height</code> パラメータの単位は、デフォルトで <strong>インチ</strong> となっていることに注意してください（<code>png()</code> 関数の場合はピクセルです）。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>svg</span><span class=p>(</span><span class=s>&#34;output.svg&#34;</span><span class=p>,</span> <span class=n>width</span><span class=o>=</span><span class=m>4</span><span class=p>,</span> <span class=n>height</span><span class=o>=</span><span class=m>3</span><span class=p>)</span>  <span class=c1># 作図デバイス(svg)を開く</span>
+</span></span><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>   <span class=c1># 描画</span>
+</span></span><span class=line><span class=cl><span class=nf>dev.off</span><span class=p>()</span>    <span class=c1># 作図デバイス(svg)を閉じる</span>
+</span></span></code></pre></div><p>こちらの場合も、実際の SVG ファイルは、<code>dev.off()</code> してからアクセスできるようになります。</p><h3 id=ファイルの出力先ディレクトリ>ファイルの出力先ディレクトリ</h3><p>ファイルがどのディレクトリに出力されるかは、<strong><code>getwd()</code></strong> で確認できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>getwd</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;C:/Users/maku/Documents&#34;</span>
+</span></span></code></pre></div><p>このワーキングディレクトリは <strong><code>setwd()</code></strong> により変更可能です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>setwd</span><span class=p>(</span><span class=s>&#34;C:/your/dir&#34;</span><span class=p>)</span>    <span class=c1># スラッシュを使う場合</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>setwd</span><span class=p>(</span><span class=s>&#34;C:\\your\\dir&#34;</span><span class=p>)</span>  <span class=c1># バックスラッシュを使う場合</span>
+</span></span></code></pre></div><p>この <code>setwd()</code> は柔軟にできており、次のようにして 1 つ上のディレクトリに移動することもできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>setwd</span><span class=p>(</span><span class=s>&#34;../&#34;</span><span class=p>)</span>
+</span></span></code></pre></div><h2 id=データ生成>データ生成</h2><h3 id=連番のベクトルを作成する-seq----2014-12-08--->連番のベクトルを作成する (seq)</h3><p>コロンを使用した範囲指定により、連番要素からなるベクトルを簡単に生成することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>5</span>  <span class=c1># c(1, 2, 3, 4, 5) と同様</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>5</span><span class=o>:</span><span class=m>1</span>  <span class=c1># c(5, 4, 3, 2, 1) と同様</span>
+</span></span></code></pre></div><p>下記のように、ついでに演算を行うことで柔軟なベクトル生成を行えます。この例では、1, 2, 3 というシーケンスのそれぞれの要素に +1 したシーケンスを生成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=p>(</span><span class=m>1</span><span class=o>:</span><span class=m>3</span><span class=p>)</span><span class=m>+1</span>  <span class=c1># c(2, 3, 4) や 2:4 と同様</span>
+</span></span></code></pre></div><p>ちなみに、演算子 <code>:</code> は、<code>+</code> よりも結合度が高いため、上記の例のカッコを省略しても同様に動作します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>3+1</span>  <span class=c1>#=&gt; 2, 3, 4</span>
+</span></span></code></pre></div><p>上記の結果は、ちょっと直感に反するかもしれません。
+演算子 <code>+</code> を先に評価するには、次のようにする必要があります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=p>(</span><span class=m>3+1</span><span class=p>)</span>  <span class=c1>#=&gt; 1, 2, 3, 4</span>
+</span></span></code></pre></div><p><code>seq()</code> 関数を使用すると、より柔軟にシーケンスデータを生成できます。
+下記の例では、0.1 刻みのデータを作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>seq</span><span class=p>(</span><span class=n>from</span><span class=o>=</span><span class=m>0</span><span class=p>,</span> <span class=n>to</span><span class=o>=</span><span class=m>0.5</span><span class=p>,</span> <span class=n>by</span><span class=o>=</span><span class=m>0.1</span><span class=p>)</span>  <span class=c1>#=&gt; 0.0, 0.1, 0.2, 0.3, 0.4, 0.5</span>
+</span></span></code></pre></div><p><code>len</code> パラメータを使うと、何分割するかを指定することができます。
+下記の例では、-π～π の範囲の値を 100 等分して得られるシーケンスデータを生成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>seq</span><span class=p>(</span><span class=o>-</span><span class=kc>pi</span><span class=p>,</span> <span class=kc>pi</span><span class=p>,</span> <span class=n>len</span><span class=o>=</span><span class=m>100</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=nf>sin</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>
+</span></span></code></pre></div><p>ちなみに sin 波は <code>plot(sin, -pi, pi)</code> とすることで滑らかに描画できます。</p><h3 id=繰り返しのベクトルを作成する-rep----2015-04-12--->繰り返しのベクトルを作成する (rep)</h3><p><strong><code>rep()</code></strong> 関数を使用すると、すでに存在するベクトルデータ内の要素を繰り返したベクトルデータを作成することができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>例: ベクトル全体を 5 回繰り返す</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>rep</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>times</span><span class=o>=</span><span class=m>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>例: 各要素ごとに 5 回繰り返す</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>rep</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>each</span><span class=o>=</span><span class=m>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>1</span> <span class=m>1</span> <span class=m>1</span> <span class=m>1</span> <span class=m>2</span> <span class=m>2</span> <span class=m>2</span> <span class=m>2</span> <span class=m>2</span> <span class=m>3</span> <span class=m>3</span> <span class=m>3</span> <span class=m>3</span> <span class=m>3</span></span></span></code></pre></div></div></figure><h3 id=ベクトルに対して算術演算を行う----2014-12-08--->ベクトルに対して算術演算を行う</h3><p>ベクトルに対してスカラ値の算術演算を行うと、<strong>各要素に対して演算</strong> が行われます。
+結果的に、元のベクトルと同じ数の要素のベクトルが作成されます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>+</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>101</span> <span class=m>102</span> <span class=m>103</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>-</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>-99</span> <span class=m>-98</span> <span class=m>-97</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>*</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>100</span> <span class=m>200</span> <span class=m>300</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>/</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>0.01</span> <span class=m>0.02</span> <span class=m>0.03</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=n>^</span> <span class=m>2</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span><span class=p>,</span> <span class=m>4</span><span class=p>,</span> <span class=m>9</span>
+</span></span></code></pre></div><p>スカラ値に作用する算術系関数をベクトルに適用した場合も、ほぼ同様の振る舞いをします。
+下記の例では、ベクトルの各要素に対して <code>log10()</code> を適用しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>10</span><span class=p>,</span> <span class=m>100</span><span class=p>,</span> <span class=m>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>log10</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>0</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span>
+</span></span></code></pre></div><p>この性質を利用して、下記の様に x 軸のベクトルデータから、y 軸のベクトルデータを作成するという使い方ができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>例: y = x^2 のグラフを表示</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>5</span>    <span class=c1># 1～5 までの連番データを生成 (1, 2, 3, 4, 5)</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=n>x^2</span>     <span class=c1># 各要素の二乗からなるデータを生成 (1, 4, 9, 16, 25)</span>
+</span></span><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>)</span>  <span class=c1># 二次元グラフとしてプロット</span></span></span></code></pre></div></div></figure><p>この例では <code>y</code> というオブジェクトを作成していますが、プロット系の関数に渡す時に直接データ生成してしまうこともできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>x^2</span><span class=p>)</span>
+</span></span></code></pre></div><p>他にもいろいろな演算や関数を組み合わせてデータを生成することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=m>1</span><span class=o>+</span><span class=nf>sqrt</span><span class=p>(</span><span class=n>x</span><span class=p>))</span>
+</span></span></code></pre></div><h3 id=ベクトル同士の演算を行う----2014-12-09--->ベクトル同士の演算を行う</h3><p>ベクトル同士の算術演算を行うと、対応する各要素ごとに算術演算が行われます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>y</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>100</span><span class=p>,</span> <span class=m>200</span><span class=p>,</span> <span class=m>300</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>101</span> <span class=m>202</span> <span class=m>303</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>-</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span>  <span class=m>-99</span> <span class=m>-198</span> <span class=m>-297</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>*</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>100</span> <span class=m>400</span> <span class=m>900</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>/</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>0.01</span> <span class=m>0.01</span> <span class=m>0.01</span>
+</span></span></code></pre></div><p>要素数の異なるベクトル同士で算術演算を行うと、<strong>少ない方の要素が繰り返し参照</strong> されます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>y</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>100</span><span class=p>,</span> <span class=m>200</span><span class=p>,</span> <span class=m>300</span><span class=p>,</span> <span class=m>400</span><span class=p>,</span> <span class=m>500</span><span class=p>,</span> <span class=m>600</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>101</span> <span class=m>202</span> <span class=m>301</span> <span class=m>402</span> <span class=m>501</span> <span class=m>602</span>
+</span></span></code></pre></div><p>要素数がちょうど整数倍になっていないときは警告が出ます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>y</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>100</span><span class=p>,</span> <span class=m>200</span><span class=p>,</span> <span class=m>300</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>101</span> <span class=m>202</span> <span class=m>301</span>
+</span></span><span class=line><span class=cl><span class=n>Warning</span> <span class=n>message</span><span class=o>:</span>
+</span></span><span class=line><span class=cl><span class=n>In</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span> <span class=o>:</span> <span class=n>longer</span> <span class=n>object</span> <span class=n>length</span> <span class=n>is</span> <span class=n>not</span> <span class=n>a</span> <span class=n>multiple</span> <span class=n>of</span> <span class=n>shorter</span> <span class=n>object</span> <span class=n>length</span>
+</span></span></code></pre></div><h3 id=2-つのデータを結合する-c----2014-12-10--->2 つのデータを結合する (c)</h3><p>任意の数のベクトルを結合するには <strong><code>c()</code></strong> を使います。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>a</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>3</span>
+</span></span><span class=line><span class=cl><span class=nf>c</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>)</span>     <span class=c1>#=&gt; 1, 2, 3, 1, 2, 3</span>
+</span></span><span class=line><span class=cl><span class=nf>c</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=o>*</span><span class=m>2</span><span class=p>)</span>   <span class=c1>#=&gt; 1, 2, 3, 2, 4, 6</span>
+</span></span><span class=line><span class=cl><span class=nf>c</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a^2</span><span class=p>)</span>   <span class=c1>#=&gt; 1, 2, 3, 1, 4, 9</span>
+</span></span><span class=line><span class=cl><span class=nf>c</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=m>7</span><span class=p>)</span>  <span class=c1>#=&gt; 1, 2, 3, 1, 2, 3, 7</span>
+</span></span></code></pre></div><h3 id=ベクトルの各要素にプレフィックスサフィックスを付ける-paste----2015-04-12--->ベクトルの各要素にプレフィックス、サフィックスを付ける (paste)</h3><p><strong><code>paste</code></strong> 関数を使用すると、2 つ以上のベクトルデータの各要素を文字列結合したベクトルデータを生成することができます。
+サイズの異なるデータを与えた場合、少ない方のデータが繰り返し適用されます。
+これを利用して、ベクトルの各要素にプレフィックスやサフィックスを付けることができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>プレフィックスの追加（各要素の前に A を追加）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>paste</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=m>1</span><span class=o>:</span><span class=m>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;A 1&#34;</span> <span class=s>&#34;A 2&#34;</span> <span class=s>&#34;A 3&#34;</span></span></span></code></pre></div></div></figure><p>上記のように、デフォルトではスペースを挟んで結合されます。
+セパレータは <code>sep</code> パラメータで変更できるので、次のように空文字列を指定することでスペースを挟まずに結合することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>paste</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=m>1</span><span class=o>:</span><span class=m>3</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;A1&#34;</span> <span class=s>&#34;A2&#34;</span> <span class=s>&#34;A3&#34;</span>
+</span></span></code></pre></div><p><code>paste()</code> 関数に渡すベクトルの順序を変更すれば、サフィックスを付加することができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>サフィックスの追加（各要素の後ろに x を追加）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>paste</span><span class=p>(</span><span class=m>1</span><span class=o>:</span><span class=m>3</span><span class=p>,</span> <span class=s>&#39;x&#39;</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;1x&#34;</span> <span class=s>&#34;2x&#34;</span> <span class=s>&#34;3x&#34;</span></span></span></code></pre></div></div></figure><p>3 つ以上のベクトルを結合することもできます。
+次の例では、3 つのベクトルを結合して連番からなるファイル名を作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>paste</span><span class=p>(</span><span class=s>&#39;data&#39;</span><span class=p>,</span> <span class=m>1</span><span class=o>:</span><span class=m>5</span><span class=p>,</span> <span class=s>&#39;.zip&#39;</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;data1.zip&#34;</span> <span class=s>&#34;data2.zip&#34;</span> <span class=s>&#34;data3.zip&#34;</span> <span class=s>&#34;data4.zip&#34;</span> <span class=s>&#34;data5.zip&#34;</span>
+</span></span></code></pre></div><h3 id=ベクトルのサイズを切り詰める拡張する-length----2015-04-12--->ベクトルのサイズを切り詰める、拡張する (length)</h3><p><strong><code>length()</code></strong> 関数を代入の左辺に持ってくると、ベクトルのサイズを変更することができます。
+現在の要素数よりも小さいサイズを指定すれば切り詰めることになり、大きいサイズを指定すれば拡張することになります。
+拡張された部分の要素の値は <strong><code>NA</code></strong> となります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span> <span class=m>6</span> <span class=m>7</span> <span class=m>8</span> <span class=m>9</span> <span class=m>10</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># サイズを切り詰める</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>length</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=o>&lt;-</span> <span class=m>5</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># サイズを拡張する</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>length</span><span class=p>(</span><span class=n>x</span><span class=p>)</span> <span class=o>&lt;-</span> <span class=m>10</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>2</span> <span class=m>3</span> <span class=m>4</span> <span class=m>5</span> <span class=kc>NA</span> <span class=kc>NA</span> <span class=kc>NA</span> <span class=kc>NA</span> <span class=kc>NA</span>
+</span></span></code></pre></div><h3 id=ベクトルのサブセットを生成するベクトルのフィルタ----2015-04-12--->ベクトルのサブセットを生成する（ベクトルのフィルタ）</h3><p>ベクトルデータに対して、<strong><code>[]</code></strong> 演算子を使って <strong>インデックスベクトル (index vector)</strong> を指定すると、そのベクトルの要素を特定の条件で組み合わせたベクトルを作成することができます。
+インデックスベクトルに指定するベクトルの型により、動作が変わります。</p><ul><li>数値ベクトル（<code>1 〜 length(x)</code> の範囲の数値で構成されるベクトル）を指定した場合<ul><li>指定した要素位置で構成されたベクトルを作成</li></ul></li><li>論理ベクトル（<code>TRUE</code>, <code>FALSE</code> で構成されるベクトル）を指定した場合<ul><li><code>TRUE</code> になる位置の要素のみで構成されたベクトルを作成（フィルタ）</li></ul></li></ul><h4 id=インデックスベクトルとして数値ベクトルを指定する>インデックスベクトルとして数値ベクトルを指定する</h4><p>下記は、数値ベクトルで示した位置の要素から構成されるベクトルを作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=s>&#39;B&#39;</span><span class=p>,</span> <span class=s>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span><span class=nf>[c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>3</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;A&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;C&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;A&#34;</span>
+</span></span></code></pre></div><p>Python のリスト（配列）と同様のインデックスアクセスや配列スライシングを行えるのは、この仕組みのおかげです。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=s>&#39;B&#39;</span><span class=p>,</span> <span class=s>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x[2]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;B&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=s>&#39;B&#39;</span><span class=p>,</span> <span class=s>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x[2</span><span class=o>:</span><span class=m>3</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;C&#34;</span>
+</span></span></code></pre></div><p>範囲外のインデックスを指定すると、その位置の要素は <code>NA</code> になります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=s>&#39;B&#39;</span><span class=p>,</span> <span class=s>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x[1</span><span class=o>:</span><span class=m>5</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;A&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;C&#34;</span> <span class=kc>NA</span> <span class=kc>NA</span>
+</span></span></code></pre></div><p>数値ベクトルを作成する関数（<code>rep()</code> など）と組み合わせて使用することで、柔軟なベクトル作成を行うことができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#39;A&#39;</span><span class=p>,</span> <span class=s>&#39;B&#39;</span><span class=p>,</span> <span class=s>&#39;C&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span><span class=nf>[rep</span><span class=p>(</span><span class=nf>c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>2</span><span class=p>),</span> <span class=n>times</span><span class=o>=</span><span class=m>3</span><span class=p>)</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=s>&#34;A&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;A&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;A&#34;</span> <span class=s>&#34;B&#34;</span> <span class=s>&#34;B&#34;</span>
+</span></span></code></pre></div><p>負の数値からなる数値ベクトルを渡すと、その位置の要素を削除したベクトルを作成することができます。
+次の例では、2 番目と、3 番目の要素を削除したベクトルを作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=m>1</span><span class=o>:</span><span class=m>5</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span><span class=nf>[c</span><span class=p>(</span><span class=m>-2</span><span class=p>,</span> <span class=m>-3</span><span class=p>)</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>1</span> <span class=m>4</span> <span class=m>5</span>
+</span></span></code></pre></div><h3 id=インデックスベクトルとして論理ベクトルを指定する>インデックスベクトルとして論理ベクトルを指定する</h3><p>下記は、インデックスベクトルとして、論理ベクトルを指定する例です。
+この仕組みを使うと、ベクトルから <strong>条件に合致する要素だけを抽出する</strong> ことができます。
+次の例では、数値ベクトルから偶数のみを取り出しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>4</span><span class=p>,</span> <span class=m>7</span><span class=p>,</span> <span class=m>3</span><span class=p>,</span> <span class=m>2</span><span class=p>,</span> <span class=m>6</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>x[x</span><span class=o>%%</span><span class=m>2</span> <span class=o>==</span> <span class=m>0</span><span class=n>]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>4</span> <span class=m>2</span> <span class=m>6</span>
+</span></span></code></pre></div><p>内部的には <code>x%%2==0</code> というところで、以下のような <code>TRUE</code> と <code>FALSE</code> から成る論理ベクトルを作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=kc>TRUE</span> <span class=kc>FALSE</span> <span class=kc>FALSE</span> <span class=kc>TRUE</span> <span class=kc>TRUE</span>
+</span></span></code></pre></div><p>この論理ベクトルの中で、<code>TRUE</code> になっている位置（偶数）の要素を抽出していることになります。</p><h3 id=ランダムな正規分布を生成する-rnorm----2014-12-09--->ランダムな正規分布を生成する (rnorm)</h3><p><strong><code>rnorm()</code></strong> を使用すると、指定した数のランダムな正規分布データを作成することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>rnorm</span><span class=p>(</span><span class=m>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>hist</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>breaks</span><span class=o>=</span><span class=m>30</span><span class=p>)</span>
+</span></span></code></pre></div><figure class=xImage><img width height=auto src=../r/img-normdist1.svg alt=/r/img-normdist1.svg></figure><p>標準偏差 (standard deviation) はデフォルトで 1 となりますが、<strong><code>sd</code></strong> パラメータで任意の標準偏差を指定することもできます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=n>x</span> <span class=o>&lt;-</span> <span class=nf>rnorm</span><span class=p>(</span><span class=m>1000</span><span class=p>,</span> <span class=n>sd</span><span class=o>=</span><span class=m>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>hist</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>breaks</span><span class=o>=</span><span class=m>30</span><span class=p>)</span>
+</span></span></code></pre></div><figure class=xImage><img width height=auto src=../r/img-normdist2.svg alt=/r/img-normdist2.svg></figure><h2 id=データフレーム>データフレーム</h2><h3 id=データフレームとは----2015-05-04--->データフレームとは</h3><p>データフレームは、カラム名のあるレコードの集まりを表現します。
+リレーショナル・データベースのレコードや、エクセルのシートのような表形式のデータを想像すると分かりやすいです。
+R の起動時に、デフォルトで <strong><code>women</code></strong> というデータフレームが定義されているので、それを表示してみます（データ数が多いので <code>head</code> 関数を使って、表示数を減らしています）</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=nf>head</span><span class=p>(</span><span class=n>women</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>   <span class=n>height</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>      <span class=m>58</span>    <span class=m>115</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>      <span class=m>59</span>    <span class=m>117</span>
+</span></span><span class=line><span class=cl><span class=m>3</span>      <span class=m>60</span>    <span class=m>120</span>
+</span></span><span class=line><span class=cl><span class=m>4</span>      <span class=m>61</span>    <span class=m>123</span>
+</span></span><span class=line><span class=cl><span class=m>5</span>      <span class=m>62</span>    <span class=m>126</span>
+</span></span><span class=line><span class=cl><span class=m>6</span>      <span class=m>63</span>    <span class=m>129</span>
+</span></span></code></pre></div><p><code>height</code> と <code>weight</code> という名前のカラムが定義されていることがわかります。
+左側の 1 から始まる数値は、データの行番号を示しています。</p><h3 id=データフレームから特定のカラムを抽出する----2015-05-05--->データフレームから特定のカラムを抽出する</h3><p>下記のようにすると、データフレーム内の特定のカラムのみをベクトルデータとして取得することができます。
+カラムのインデックス（1 から始まる）あるいは、カラム名で指定することができます。
+インデックスを囲む括弧 (bracket) が 2 重になっていることに注意してください。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>カラムを抽出（ベクトルとして取得）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women[[1]]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>58</span> <span class=m>59</span> <span class=m>60</span> <span class=m>61</span> <span class=m>62</span> <span class=m>63</span> <span class=m>64</span> <span class=m>65</span> <span class=m>66</span> <span class=m>67</span> <span class=m>68</span> <span class=m>69</span> <span class=m>70</span> <span class=m>71</span> <span class=m>72</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women[[</span><span class=s>&#34;height&#34;</span><span class=n>]]</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>58</span> <span class=m>59</span> <span class=m>60</span> <span class=m>61</span> <span class=m>62</span> <span class=m>63</span> <span class=m>64</span> <span class=m>65</span> <span class=m>66</span> <span class=m>67</span> <span class=m>68</span> <span class=m>69</span> <span class=m>70</span> <span class=m>71</span> <span class=m>72</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women</span><span class=o>$</span><span class=n>height</span>
+</span></span><span class=line><span class=cl><span class=n>[1]</span> <span class=m>58</span> <span class=m>59</span> <span class=m>60</span> <span class=m>61</span> <span class=m>62</span> <span class=m>63</span> <span class=m>64</span> <span class=m>65</span> <span class=m>66</span> <span class=m>67</span> <span class=m>68</span> <span class=m>69</span> <span class=m>70</span> <span class=m>71</span> <span class=m>72</span></span></span></code></pre></div></div></figure><p>次の例では別の形式でカラムを指定していますが、このようにすると、指定したカラムのデータがベクトルではなくデータフレームとして返されます。
+つまり、データフレームのサブセットを作成していることになります。
+<code>c()</code> を使用して、カラムを複数指定することも可能です。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>カラムを抽出（データフレームとして取得）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women[1]</span>
+</span></span><span class=line><span class=cl>  <span class=n>height</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>     <span class=m>58</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=m>59</span>
+</span></span><span class=line><span class=cl><span class=m>3</span>     <span class=m>60</span>
+</span></span><span class=line><span class=cl><span class=kc>...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women</span><span class=nf>[c</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=m>2</span><span class=p>)</span><span class=n>]</span>
+</span></span><span class=line><span class=cl>  <span class=n>height</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>     <span class=m>58</span>    <span class=m>115</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=m>59</span>    <span class=m>117</span>
+</span></span><span class=line><span class=cl><span class=m>3</span>     <span class=m>60</span>    <span class=m>120</span>
+</span></span><span class=line><span class=cl><span class=kc>...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women[</span><span class=s>&#34;height&#34;</span><span class=n>]</span>
+</span></span><span class=line><span class=cl>  <span class=n>height</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>     <span class=m>58</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=m>59</span>
+</span></span><span class=line><span class=cl><span class=m>3</span>     <span class=m>60</span>
+</span></span><span class=line><span class=cl><span class=kc>...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>women</span><span class=nf>[c</span><span class=p>(</span><span class=s>&#34;height&#34;</span><span class=p>,</span> <span class=s>&#34;weight&#34;</span><span class=p>)</span><span class=n>]</span>
+</span></span><span class=line><span class=cl>  <span class=n>height</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>     <span class=m>58</span>    <span class=m>115</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=m>59</span>    <span class=m>117</span>
+</span></span><span class=line><span class=cl><span class=m>3</span>     <span class=m>60</span>    <span class=m>120</span>
+</span></span><span class=line><span class=cl><span class=kc>...</span></span></span></code></pre></div></div></figure><h3 id=ベクトルからデータフレームを作成する-dataframe----2015-05-05--->ベクトルからデータフレームを作成する (data.frame)</h3><p><strong><code>data.frame</code></strong> 関数を使うと、ベクトルデータからデータフレームを作成することができます。
+下記の例では、<code>name</code> と <code>price</code> というベクトルデータからデータフレームを作成しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>name</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=s>&#34;apple&#34;</span><span class=p>,</span> <span class=s>&#34;banana&#34;</span><span class=p>,</span> <span class=s>&#34;strawberry&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>price</span> <span class=o>&lt;-</span> <span class=nf>c</span><span class=p>(</span><span class=m>200</span><span class=p>,</span> <span class=m>100</span><span class=p>,</span> <span class=m>300</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>df</span> <span class=o>&lt;-</span> <span class=nf>data.frame</span><span class=p>(</span><span class=n>name</span><span class=p>,</span> <span class=n>price</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>df</span>
+</span></span><span class=line><span class=cl>        <span class=n>name</span> <span class=n>price</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>      <span class=n>apple</span>   <span class=m>200</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=n>banana</span>   <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=m>3</span> <span class=n>strawberry</span>   <span class=m>300</span>
+</span></span></code></pre></div><p>デフォルトでは、パラメータとして渡したオブジェクト名が、そのままデータフレームのカラム名になります。
+名前付きパラメータとして渡すことで、任意のカラム名に変更することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>df</span> <span class=o>&lt;-</span> <span class=nf>data.frame</span><span class=p>(</span><span class=n>n</span><span class=o>=</span><span class=n>name</span><span class=p>,</span> <span class=n>p</span><span class=o>=</span><span class=n>price</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=n>df</span>
+</span></span><span class=line><span class=cl>           <span class=n>n</span>   <span class=n>p</span>
+</span></span><span class=line><span class=cl><span class=m>1</span>      <span class=n>apple</span> <span class=m>200</span>
+</span></span><span class=line><span class=cl><span class=m>2</span>     <span class=n>banana</span> <span class=m>100</span>
+</span></span><span class=line><span class=cl><span class=m>3</span> <span class=n>strawberry</span> <span class=m>300</span>
+</span></span></code></pre></div></div><div class=article__footer><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fr%2f" name=HOGE><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fr%2f&text=R%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fr%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg></span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fr%2f&title=R%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../r/>まくまく R ノート</a></div></div></article><script>const SIDEBAR_HIDE_THRESHOLD=800,SIDEBAR_WIDTH=250,OFFSET=10;let w=window.innerWidth;w>=SIDEBAR_HIDE_THRESHOLD&&(w-=SIDEBAR_WIDTH),w-=OFFSET,w>=728?rakuten_size="728x200":w>=600?rakuten_size="600x200":w>=468?rakuten_size="468x160":w>=336?rakuten_size="336x280":w>=300?rakuten_size="300x250":w>=250?rakuten_size="250x250":rakuten_size="200x350",rakuten_design="slide",rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e",rakuten_items="ctsmatch",rakuten_genreId=0,rakuten_target="_blank",rakuten_theme="gray",rakuten_border="off",rakuten_auto_mode="on",rakuten_genre_title="off",rakuten_recommend="on",rakuten_txtColor="333333",rakuten_moverColor="30C030",rakuten_bgColor="FFFFFF",rakuten_captionColor="333333"</script><script src=https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js></script></div><div class=l-withSidebar__sidebarRight><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku.blog/p/8t6hr3d/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class=navigation__item href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku77.github.io/mac/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://toushi.maku.blog/p/etedykx/>MetaTrader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class=navigation__item href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/r/>R</a><li><a class=navigation__item href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/rust/>Rust</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav><style>.codoc-support{display:inline-block;margin:0!important;padding:12px!important;width:200px!important;max-width:100%}.codoc-support .codoc-support-title{font-size:smaller!important;white-space:nowrap;margin-bottom:12px!important}.codoc-support .codoc-btn{width:160px!important}</style><script src=https://codoc.jp/js/cms.js data-css=black data-usercode=tp6ZPzTj3w defer></script><div id=codoc-entry-4gYwTntzzw class=codoc-entries data-without-body=1 data-support-button-text="（っ'-')╮シュッ🔴" data-show-like=0 data-show-about-codoc=0 data-show-powered-by=0 data-support-message=まくに投げ銭できます。></div></div></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll("a[href^=http]");for(let n=0;n<e.length;++n){const t=e[n];if(t.href.startsWith("https://maku77.github.io"))continue;const s=t.getElementsByTagName("img");if(s.length>0)continue;const o=t.getElementsByTagName("svg");if(o.length>0)continue;t.classList.add("xExternalLinkIcon"),t.setAttribute("target","_blank"),t.setAttribute("rel","noopener")}})</script></body></html>
