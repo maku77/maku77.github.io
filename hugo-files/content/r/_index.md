@@ -352,7 +352,7 @@ dev.off()    # 作図デバイス(svg)を閉じる
 
 ### ファイルの出力先ディレクトリ
 
-ファイルがどのディレクトリに出力されるかは、**`getwd()`** で確認できます。
+どこに画像ファイルが出力されたかを調べるには、**`getwd()`** を使用します。
 
 ```r
 > getwd()
@@ -795,4 +795,236 @@ R の起動時に、デフォルトで **`women`** というデータフレー�
 2     banana 100
 3 strawberry 300
 ```
+
+
+その他
+----
+
+### 標準で利用可能な標準データセット一覧を表示する (data)
+
+```r
+> data()
+```
+
+{{< accordion title="実行結果" >}}
+{{< code >}}
+Data sets in package 'datasets':
+
+AirPassengers           Monthly Airline Passenger Numbers 1949-1960
+BJsales                 Sales Data with Leading Indicator
+BJsales.lead (BJsales)
+                        Sales Data with Leading Indicator
+BOD                     Biochemical Oxygen Demand
+CO2                     Carbon Dioxide Uptake in Grass Plants
+ChickWeight             Weight versus age of chicks on different diets
+DNase                   Elisa assay of DNase
+EuStockMarkets          Daily Closing Prices of Major European Stock
+                        Indices, 1991-1998
+Formaldehyde            Determination of Formaldehyde
+HairEyeColor            Hair and Eye Color of Statistics Students
+Harman23.cor            Harman Example 2.3
+Harman74.cor            Harman Example 7.4
+Indometh                Pharmacokinetics of Indomethacin
+InsectSprays            Effectiveness of Insect Sprays
+JohnsonJohnson          Quarterly Earnings per Johnson & Johnson Share
+LakeHuron               Level of Lake Huron 1875-1972
+LifeCycleSavings        Intercountry Life-Cycle Savings Data
+Loblolly                Growth of Loblolly pine trees
+Nile                    Flow of the River Nile
+Orange                  Growth of Orange Trees
+OrchardSprays           Potency of Orchard Sprays
+PlantGrowth             Results from an Experiment on Plant Growth
+Puromycin               Reaction Velocity of an Enzymatic Reaction
+Seatbelts               Road Casualties in Great Britain 1969-84
+Theoph                  Pharmacokinetics of Theophylline
+Titanic                 Survival of passengers on the Titanic
+ToothGrowth             The Effect of Vitamin C on Tooth Growth in
+                        Guinea Pigs
+UCBAdmissions           Student Admissions at UC Berkeley
+UKDriverDeaths          Road Casualties in Great Britain 1969-84
+UKgas                   UK Quarterly Gas Consumption
+USAccDeaths             Accidental Deaths in the US 1973-1978
+USArrests               Violent Crime Rates by US State
+USJudgeRatings          Lawyers' Ratings of State Judges in the US
+                        Superior Court
+USPersonalExpenditure   Personal Expenditure Data
+UScitiesD               Distances Between European Cities and Between
+                        US Cities
+VADeaths                Death Rates in Virginia (1940)
+WWWusage                Internet Usage per Minute
+WorldPhones             The World's Telephones
+ability.cov             Ability and Intelligence Tests
+airmiles                Passenger Miles on Commercial US Airlines,
+                        1937-1960
+airquality              New York Air Quality Measurements
+anscombe                Anscombe's Quartet of 'Identical' Simple Linear
+                        Regressions
+attenu                  The Joyner-Boore Attenuation Data
+attitude                The Chatterjee-Price Attitude Data
+austres                 Quarterly Time Series of the Number of
+                        Australian Residents
+beaver1 (beavers)       Body Temperature Series of Two Beavers
+beaver2 (beavers)       Body Temperature Series of Two Beavers
+cars                    Speed and Stopping Distances of Cars
+chickwts                Chicken Weights by Feed Type
+co2                     Mauna Loa Atmospheric CO2 Concentration
+crimtab                 Student's 3000 Criminals Data
+discoveries             Yearly Numbers of Important Discoveries
+esoph                   Smoking, Alcohol and (O)esophageal Cancer
+euro                    Conversion Rates of Euro Currencies
+euro.cross (euro)       Conversion Rates of Euro Currencies
+eurodist                Distances Between European Cities and Between
+                        US Cities
+faithful                Old Faithful Geyser Data
+fdeaths (UKLungDeaths)
+                        Monthly Deaths from Lung Diseases in the UK
+freeny                  Freeny's Revenue Data
+freeny.x (freeny)       Freeny's Revenue Data
+freeny.y (freeny)       Freeny's Revenue Data
+infert                  Infertility after Spontaneous and Induced
+                        Abortion
+iris                    Edgar Anderson's Iris Data
+iris3                   Edgar Anderson's Iris Data
+islands                 Areas of the World's Major Landmasses
+ldeaths (UKLungDeaths)
+                        Monthly Deaths from Lung Diseases in the UK
+lh                      Luteinizing Hormone in Blood Samples
+longley                 Longley's Economic Regression Data
+lynx                    Annual Canadian Lynx trappings 1821-1934
+mdeaths (UKLungDeaths)
+                        Monthly Deaths from Lung Diseases in the UK
+morley                  Michelson Speed of Light Data
+mtcars                  Motor Trend Car Road Tests
+nhtemp                  Average Yearly Temperatures in New Haven
+nottem                  Average Monthly Temperatures at Nottingham,
+                        1920-1939
+npk                     Classical N, P, K Factorial Experiment
+occupationalStatus      Occupational Status of Fathers and their Sons
+precip                  Annual Precipitation in US Cities
+presidents              Quarterly Approval Ratings of US Presidents
+pressure                Vapor Pressure of Mercury as a Function of
+                        Temperature
+quakes                  Locations of Earthquakes off Fiji
+randu                   Random Numbers from Congruential Generator
+                        RANDU
+rivers                  Lengths of Major North American Rivers
+rock                    Measurements on Petroleum Rock Samples
+sleep                   Student's Sleep Data
+stack.loss (stackloss)
+                        Brownlee's Stack Loss Plant Data
+stack.x (stackloss)     Brownlee's Stack Loss Plant Data
+stackloss               Brownlee's Stack Loss Plant Data
+state.abb (state)       US State Facts and Figures
+state.area (state)      US State Facts and Figures
+state.center (state)    US State Facts and Figures
+state.division (state)
+                        US State Facts and Figures
+state.name (state)      US State Facts and Figures
+state.region (state)    US State Facts and Figures
+state.x77 (state)       US State Facts and Figures
+sunspot.month           Monthly Sunspot Data, from 1749 to "Present"
+sunspot.year            Yearly Sunspot Data, 1700-1988
+sunspots                Monthly Sunspot Numbers, 1749-1983
+swiss                   Swiss Fertility and Socioeconomic Indicators
+                        (1888) Data
+treering                Yearly Treering Data, -6000-1979
+trees                   Diameter, Height and Volume for Black Cherry
+                        Trees
+uspop                   Populations Recorded by the US Census
+volcano                 Topographic Information on Auckland's Maunga
+                        Whau Volcano
+warpbreaks              The Number of Breaks in Yarn during Weaving
+women                   Average Heights and Weights for American Women
+
+
+Use 'data(package = .packages(all.available = TRUE))'
+to list the data sets in all *available* packages.
+{{< /code >}}
+{{< /accordion >}}
+
+### データが正規分布に従っているかを調べる
+
+#### Shapiro-Wilk 検定
+
+Shapiro-Wilk の検定は、データが正規分布に従っているかどうかを検定する統計検定の 1 つです。
+R では **`shapiro.test()`** 関数を使用することで、Shapiro-Wilk の検定を行うことができます。
+
+{{< code lang="r" title="women データセットの weight カラムを検定" >}}
+> shapiro.test(women[["weight"]])
+
+	Shapiro-Wilk normality test
+
+data:  women[["weight"]]
+W = 0.96036, p-value = 0.6986
+{{< /code >}}
+
+{{< code lang="r" title="trees データセットの Volume カラムを検定" >}}
+> shapiro.test(trees[["Volume"]])
+
+	Shapiro-Wilk normality test
+
+data:  trees[["Volume"]]
+W = 0.88757, p-value = 0.003579
+{{< /code >}}
+
+{{% note title="p 値" %}}
+p 値 (`p-value`) は、帰無仮説を棄却してしまう「タイプ 1 の誤り」の確率を示しています。
+有意水準を 10% とした場合、p 値が 0.10 未満であれば帰無仮説「正規分布に従う」を棄却することができます。
+つまり、`tree` データセットの `Volume` カラムは正規分布に従っていないと判断できます。
+{{% /note %}}
+
+Shapiro-Wilk の検定以外にも、**Q-Q プロット** や **ヒストグラム** を使ってデータが正規分布に従っているかどうかを確認することができます。
+
+#### Q-Q プロット
+
+Q-Q プロットは、データが正規分布に従っているかどうかを視覚的に確認するためのグラフです。
+R では **`qqnorm()`** 関数を使用することで、Q-Q プロットを描画することができます。
+
+```r
+> qqnorm(trees[["Height"]])
+```
+
+{{< image src="img-qqnorm.png" >}}
+
+#### ヒストグラム
+
+ヒストグラムは、データの分布を視覚的に確認するためのグラフです。
+R では **`hist()`** 関数を使用することで、ヒストグラムを描画することができます。
+
+```r
+> hist(trees[["Height"]])
+```
+
+{{< image src="img-hist.png" >}}
+
+### 自己相関関係（1 時点前のデータとの関連をプロットする）
+
+```r
+> data <- AirPassengers
+> plot(x=data[1:99], y=data[2:100])
+```
+
+{{< image src="img-passengers-corr.png" >}}
+
+時系列データの自己相関を調べる際に使用します。
+データが左下から右上に向かって直線的に分布している場合、1 時点前のデータとの相関が高いことを示しています。
+ここでは、1 時点前（ラグ＝1）のデータとの関連をプロットしていますが、2 時点前、3 時点前といった関連を調べることもできます。
+
+x 軸にラグ、y 軸に自己相関係数の値をプロットした図を、**コレログラム** と呼びます。
+R ではコレログラムを描画するための **`acf()`** 関数が用意されています (ACF: Auto-Correlation Function)。
+
+```r
+> acf(AirPassengers, plot=TRUE)
+```
+
+{{< image src="img-acf.png" >}}
+
+上記のように `plot=TRUE`（デフォルト）とするとコレログラムを描画し、`plot=FALSE` とすると自己相関係数の値のみを返します。
+`type="partial"` オプションを指定すると、y 軸の値を「偏自己相関係数」とすることができます (Partial ACF)。
+
+```r
+> acf(AirPassengers, plot=TRUE, type="partial")
+```
+
+{{< image src="img-acf-partial.png" >}}
 
