@@ -2,7 +2,7 @@
 title: "Vim のキーマップの基本 (map, noremap)"
 url: "p/nqqixxy/"
 date: "2013-07-18"
-tags: ["date"]
+tags: ["vim"]
 aliases: /vim/keymap/basic.html
 ---
 
