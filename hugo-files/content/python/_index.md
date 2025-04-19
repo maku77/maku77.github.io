@@ -58,8 +58,9 @@ categoryIcon: _index.svg
   - [Python でモジュールを import する方法のまとめ](/p/zdxfvct/)
   - [import 時のモジュールの検索パスを調べる (`sys.path`)](/p/o4m4jyg/)
 - 型 / 変数
-  - [Python の型の一覧、ある値の型を調べる (type)](syntax/types.html)
-  - [Python で定数を定義する](syntax/const.html)
+  - [Python の型アノテーションのまとめ](/p/rx77njz/)
+  - [Python の型の一覧、ある値の型を調べる (`type`)](/p/a8cta8q/)
+  - [Python で定数を定義する (`typing.Final`)](/p/37hwzxi/)
 - 制御構文
   - [Python の if 構文](syntax/if.html)
   - [Python の switch 構文](syntax/switch.html)
