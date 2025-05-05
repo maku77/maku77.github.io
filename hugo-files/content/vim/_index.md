@@ -179,6 +179,7 @@ Vim の設定
 * [省略形を用いたテキスト入力を行えるようにする (`abbrevaite`)](settings/abbreviate.html)
 * [スペルチェックを有効にする (`spell)`](settings/spell.html)
 * [Java や C/C++ のコメント記述に便利な `formatoptions` の設定](settings/formatoptions.html)
+* [Vim のインサートモードを抜けるときに自動で IME をオフにする (macOS, Karabiner-Elements)](/p/bbkb63f/)
 
 
 Vim プログラミング（マクロ）／特殊用途
