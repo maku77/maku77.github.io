@@ -35,8 +35,16 @@ jobs:
       - name: Merge build results without overriding
         run: cp -RTnv hugo-files/public _site
 
-      - name: Rename and copy Hugo's sitemap.xml
-        run: cp hugo-files/public/sitemap.xml _site/sitemap-hugo.xml
+      - name: Merge sitemap.xml files
+        run: |
+          SITEMAP_JEKYLL="_site/sitemap.xml"
+          SITEMAP_HUGO="hugo-files/public/sitemap.xml"
+          SITEMAP_MERGED="sitemap-merged.xml"
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' > $SITEMAP_MERGED
+          perl -0777 -ne 'print "$1\n" while /(<url>.*?<\/url>)/gs' $SITEMAP_JEKYLL >> $SITEMAP_MERGED
+          perl -0777 -ne 'print "$1\n" while /(<url>.*?<\/url>)/gs' $SITEMAP_HUGO >> $SITEMAP_MERGED
+          echo '</urlset>' >> $SITEMAP_MERGED
+          mv $SITEMAP_MERGED $SITEMAP_JEKYLL
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
