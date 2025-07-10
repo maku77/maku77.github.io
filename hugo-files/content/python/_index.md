@@ -14,6 +14,7 @@ categoryIcon: _index.svg
 
 - コーディングスタイル
   - [Python のコーディングスタイル](/p/pyk3j2h/)
+  - [Visual Studio Code で Python 用の Linter ＆フォーマッターの Ruff を使う](https://maku.blog/p/6hnm4hy/)
   - [Visual Studio Code で Python 用のフォーマッター (Black) を使う](https://maku.blog/p/4oybku6/)
 - ドキュメンテーション
   - [ドキュメンテーションコメント (docstring) を記述する](/p/y2biqz7/)
