@@ -1,6 +1,8 @@
 ---
-title: "Windows の右クリックから Vim を開けるようにする"
+title: "Windows の右クリックメニューに「Vimで開く」を追加する"
+url: "p/wwatzd9/"
 date: "2013-06-10"
+tags: ["vim"]
 ---
 
 （Windows Vista、Windows 7 で動作確認）

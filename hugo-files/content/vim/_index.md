@@ -48,8 +48,8 @@ categoryIcon: logo-vim.svg
 
 - [ファイル名を指定してファイルを開く (`:e`, `:edit`, `:view`)](/p/6aycfga/)
 - [カーソル位置の単語をファイル名としてファイルを開く (`gf`, `Ctrl-w gf`, `Ctrl-w f`)](/p/sok5efu/)
-- [編集中のファイルと拡張子だけが異なるファイルを開く (%<)（Hello.cpp を編集中に Hello.h を開く）](file/open-other-ext.html)
-- [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (:E, :Ve, :He)](file/explore.html)
+- [編集中のファイルと拡張子だけが異なるファイルを開く (`%<`)（Hello.cpp を編集中に Hello.h を開く）](/p/j3w2dpc/)
+- [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (`:E`, `:Ve`, `:He`)](/p/928ca4t/)
 - [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
 
 ### ファイルを保存する
@@ -104,7 +104,7 @@ categoryIcon: logo-vim.svg
 
 応用操作
 ----
-* [Vim 上でディレクトリツリーを表示する (NERDTree)](advanced/nerd-tree.html)
+* [Vim 上でディレクトリツリーを表示する (NERDTree)](/p/8qeuow8/)
 * [折りたたみ機能 (folding) を使用する](advanced/folding.html)
 * [指定した行範囲を一時的に表示する](advanced/show-lines.html)
 * [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
@@ -120,10 +120,9 @@ categoryIcon: logo-vim.svg
 インストール／環境
 ----
 * [Neovim 用のプラグインマネージャー lazy.nvim をインストールする](/p/cfc9tpn/)
-* [MacOSX に香り屋版の GVim をインストールする](install/kaoriya-gvim.html)
-* [Vundle をインストールして Vim のプラグイン環境を作る](install/vundle.html)
-* [Windows の右クリックから Vim を開けるようにする](install/windows-right-click.html)
-* [Windows でファイルを開くときに既存の GVim 内のタブで開く](install/windows-open-tab.html)
+* [Vundle をインストールして Vim のプラグイン環境を作る](/p/b85489c/)
+* [Windows の右クリックメニューに「Vimで開く」を追加する](/p/wwatzd9/)
+* [Windows でファイルを開くときに既存の GVim 内のタブで開く](/p/6mdd9es/)
 
 
 Vim の設定
