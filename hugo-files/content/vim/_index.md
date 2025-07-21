@@ -183,8 +183,8 @@ Vim の設定
 
 Vim プログラミング（マクロ）／特殊用途
 ----
-* [（外部サイト）Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
-* [カーソル位置の単語を取得する (cword)](misc/cword.html)
-* [カーソル位置の文字の文字コードを表示する (ascii)](misc/ascii.html)
+* [カーソル位置の文字の文字コードを表示する (`:ascii`)](/p/6bpmxey/)
+* [カーソル位置の単語を取得する (`<cword>`)](/p/f448waf/)
+* [（参考サイト）Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 
 
