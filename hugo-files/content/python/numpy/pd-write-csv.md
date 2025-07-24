@@ -77,7 +77,7 @@ idx3,1,5,CCC
 df.to_csv("output.tsv", sep="\t")
 {{< /code >}}
 
-{{< code lang="tsv" title="output.tsv" >}}
+{{< code title="output.tsv" >}}
 	col1	col2	col3
 idx1	2	4	AAA
 idx2	5	9	BBB

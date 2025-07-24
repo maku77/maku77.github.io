@@ -13,7 +13,7 @@ $ docker run -d --restart always redis
 
 Docker Compose ファイルを使う場合は次のように記述します。
 
-{{< code lang="yml" title="docker-compose.yml" >}}
+{{< code lang="yaml" title="docker-compose.yml" >}}
 version: '3.8'
 
 services:

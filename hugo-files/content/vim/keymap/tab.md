@@ -9,7 +9,7 @@ aliases: /vim/keymap/tab.html
 Vim のキーマップ設定で、`Ctrl + TAB` でタブを切り替えるように設定してみます。
 また、`Ctrl + Shift + TAB` で 1 つ前のタブに戻れるようにします。
 
-{{< code lang="vimrc" title="~/.vimrc" >}}
+{{< code lang="vim" title="~/.vimrc" >}}
 "Go to next tab
 nmap <C-Tab> :tabnext<CR>
 

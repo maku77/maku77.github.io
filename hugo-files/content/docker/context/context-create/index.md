@@ -199,7 +199,7 @@ services:
 このパスは、おそらくリモートホスト上では意味を持ちません。
 このような振る舞いを防ぐには、`source` パスを最初から絶対パスで指定する必要があります。
 
-{{< code lang="yml" hl_lines="3" >}}
+{{< code lang="yaml" hl_lines="3" >}}
     volumes:
       - type: bind
         source: /opt/meili_data  # ターゲットホスト上の絶対パスを想定して記述

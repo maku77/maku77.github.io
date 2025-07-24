@@ -196,7 +196,7 @@ GitHub 上で設定するシークレット変数をシミュレートするた�
 あるいは、__`--secret-file`__ オプションで、キー＆バリュー情報を列挙したシークレットファイルを読み込むことができます（このオプションを指定しなくても、`act` はデフォルトで `.secrets` という名前のファイルを読み込みます）。
 シークレットファイルのフォーマットは `.env` と同等です。
 
-{{< code lang="env" title="my.secrets" >}}
+{{< code lang="ini" title="my.secrets" >}}
 # この行はコメント
 MY_SECRET1=value1
 MY_SECRET2=value2
