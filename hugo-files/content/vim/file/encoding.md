@@ -1,40 +1,39 @@
 ---
-title: "ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)"
+title: "Vim でファイルのエンコーディング形式、改行コードを変更する (fenc, ff)"
+url: "p/g2qyu9b/"
 date: "2008-02-01"
+tags: ["vim"]
+aliases: ["/vim/file/encoding.html"]
 ---
 
 
 改行コードの変更
 ----
 
-現在編集中のファイルの改行コードを変更するには、
+Vim でファイルの改行コードを変更するには、次のように **`fileformat (ff)`** オプションの値を設定してから `:w` で保存します。
 
-~~~ vim
-:set ff=unix    "<NL>
-:set ff=dos     "<CR> <NL>
-:set ff=mac     "<CR>
-~~~
-
-のように現在の `fileformat (ff)` オプションを変更し、`:w` で保存します。
+```vim
+:set ff=unix  "<NL>
+:set ff=dos   "<CR> <NL>
+:set ff=mac   "<CR>
+```
 
 現在の改行コードは以下のように確認できます。
 
-~~~ vim
+```vim
 :set ff?
-~~~
+```
 
 
 新規ファイルを作成したときの改行コード
 ----
 
-新規ファイルを `:vi new.txt` というように作成する場合は、その改行コードは `fileformats` オプションの先頭に記述されたフォーマットになります。
+新規ファイルを `:vi new.txt` というように作成する場合、デフォルトの改行コードは **`fileformats`** オプションの先頭に記述されたフォーマットになります（末尾に `s` が付くことに注意）。
 例えば、以下のように `.vimrc` ファイルに記述されていると、新規ファイルの改行コードのフォーマットは UNIX 形式 (NL) になります。
 
-#### ~/.vimrc
-
-~~~ vim
+{{< code lang="vim" title="~/.vimrc" >}}
 set fileformats=unix,dos,mac
-~~~
+{{< /code >}}
 
 また、この設定は、既存のファイルを開くときに認識する改行コードのリストとしても使用されます。
 DOS 形式 (CR+NL) の改行コードで保存されたテキストファイルを開くとき、`fileformats` に `unix` としか設定されていない場合は、`unix` 形式の改行コードで開かれてしまうので注意してください。
@@ -46,11 +45,11 @@ DOS 形式 (CR+NL) の改行コードで保存されたテキストファイル�
 
 現在編集中のファイルのエンコーディング形式を変更するには、
 
-~~~ vim
+```vim
 :set fenc=utf-8
 :set fenc=euc-jp
 :set fenc=shift_jis
-~~~
+```
 
 のように現在の `fileencoding (fenc)` オプションを変更し、`:w` で保存します。
 指定できるエンコーディング形式名の一覧は、`:help encoding-values` で確認することができます。
@@ -61,9 +60,9 @@ DOS 形式 (CR+NL) の改行コードで保存されたテキストファイル�
 
 `fileencoding` は、ファイルを保存するときに使用されるエンコーディング形式の設定ですが、新しいファイルを `:vi new.txt` のように作成する場合のエンコーディング形式としても使われます。
 
-~~~
+```vim
 :set fileencoding=euc-jp
-~~~
+```
 
 `fileencoding` の値が空の場合は、`encoding` の値が使用されます。
 `utf-8` に設定しておく場合は、全ての文字を正しく処理できるように、Vim が内部で使用するエンコーディング形式を示す `encoding` の値も `utf-8` に設定しておきましょう。
@@ -75,9 +74,9 @@ Vim が内部で使用するエンコーディング形式（encoding は utf-8 
 Vim が内部で使用しているエンコーディング形式は `encoding` に設定されています。
 この値は以下のように確認できます。
 
-~~~
+```vim
 :set encoding?
-~~~
+```
 
 この値は、デフォルトではシステムのロケール設定をもとに設定されます。
 Windows で日本語を使用している場合は、おそらく cp932 (Shift-JIS) になっています。
@@ -86,9 +85,9 @@ Windows で日本語を使用している場合は、おそらく cp932 (Shift-J
 
 Vim に、ちゃんと UTF-8 としてテキストを処理するように指示するには、`.vimrc` ファイルに以下のように設定しておきます。
 
-~~~
+```vim
 set encoding=utf-8
-~~~
+```
 
 つまり、Vim で UTF-8 のテキストを問題なく開くには、少なくとも `encoding` が `utf-8` に設定されていないといけません。
 `.vimrc` に必ず上のように記述しておきましょう。
@@ -101,26 +100,14 @@ Vim のヘルプを見ると、`encoding` の設定は、システムデフォ�
 ほとんどのケースでは `utf-8` に設定しておけばよいでしょう。
 
 
-Windows の GVim で set encoding=utf-8 すると文字化け
-----
-
-Windows の本家 GVim で `encoding` を `utf-8` に設定すると、エラーメッセージなどが文字化けすることがあります（Kaoriya 版の Vim は大丈夫）。
-この場合、`gvim.exe` ファイルがあるディレクトリ内の、以下のファイルを入れ替える必要があります。
-
-- iconv.dll
-- libintl.dll
-
-参考 ⇒ [http://magicant.txt-nifty.com/main/2010/04/windows-gvim-1b.html](http://magicant.txt-nifty.com/main/2010/04/windows-gvim-1b.html)
-
-
 ファイルを開くときに認識するエンコーディング形式を指定する
 ----
 
 既存のファイルを開くときは、`fileencodings` に指定したエンコーディングが順番に試されて、ファイルを正常に開けたものが使用されます。
 
-~~~
+```vim
 :set fileencodings=ucs-bom,utf-8,default,latin1
-~~~
+```
 
 ファイルを正常に開けた時点で、そのエンコーディング形式が `fileencoding` に設定されます（`fileencodings` ではなくて、`s` のない `fileencoding` ということに注意）。
 
@@ -139,14 +126,12 @@ UTF-8、EUC-JP、Shift-JIS のファイルを読み書きできるようにす�
 
 様々なエンコーディング形式で保存された日本語ファイルを開くには、下記のように設定しておくのがよいでしょう。
 
-#### ~/.vimrc あるいは %HOME%/_vimrc
-
-~~~
+{{< code lang="vim" title="~/.vimrc" >}}
 set encoding=utf-8  "Vim が内部で使用するエンコーディング形式
 set fileencoding=utf-8  "ファイルを新規作成するとき
 set fileencodings=ucs-bom,utf-8,euc-jp,cp932,latin1  "ファイルを開くとき
 set fileformats=unix,dos,mac
-~~~
+{{< /code >}}
 
 #### 概要説明
 

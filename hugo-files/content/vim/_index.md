@@ -50,19 +50,19 @@ categoryIcon: logo-vim.svg
 - [カーソル位置の単語をファイル名としてファイルを開く (`gf`, `Ctrl-w gf`, `Ctrl-w f`)](/p/sok5efu/)
 - [編集中のファイルと拡張子だけが異なるファイルを開く (`%<`)（Hello.cpp を編集中に Hello.h を開く）](/p/j3w2dpc/)
 - [ディレクトリエクスプローラー (Explore) を使用してファイルを開く (`:E`, `:Ve`, `:He`)](/p/928ca4t/)
-- [カレントディレクトリを Windows エクスプローラーで開く](file/win-explorer.html)
+- [Vim でカレントディレクトリを Windows エクスプローラーで開く](/p/s8wxbon/)
 
 ### ファイルを保存する
 
-* [ファイルへの保存コマンド :w、:x の基本](file/save.html)
-* [指定した行範囲だけ別のファイルに保存する](file/save-lines.html)
+- [Vim のファイルの保存コマンド `:w`、`:x` の基本](/p/9pyh4ip/)
+- [Vim で指定した行範囲だけ別のファイルに保存する](/p/zmnwu3z/)
 
 ### その他
 
-* [別ファイルの内容や外部コマンドの実行結果をカーソル位置に挿入する (:read)](file/read.html)
-* [ファイルのエンコーディング形式、改行コードを変更する (fenc, ff)](file/encoding.html)
-* [スワップファイルからファイルを復旧する (:recover)](file/recover.html)
-* [2 つのファイルの差分を取る・マージする (vimdiff, vim -d)](file/vimdiff.html)
+- [Vim で別ファイルの内容や外部コマンドの出力を挿入する (`:read`)](/p/oh8nhyw/)
+- [Vim でファイルのエンコーディング形式、改行コードを変更する (`fenc`, `ff`)](/p/g2qyu9b/)
+- [Vim でスワップファイルからファイルを復旧する (`:recover`)](/p/z8fh4xj/)
+- [Vim で 2 つのファイルの差分を取る・マージする (`vimdiff`, `vim -d`)](/p/78gvwox/)
 
 
 編集操作 <!-- edit -->

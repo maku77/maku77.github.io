@@ -1,6 +1,9 @@
 ---
-title: "2 つのファイルの差分を取る・マージする (vimdiff, vim -d)"
+title: "Vim で 2 つのファイルの差分を取る・マージする (vimdiff, vim -d)"
+url: "p/78gvwox/"
 date: "2020-01-24"
+tags: ["vim"]
+aliases: ["/vim/file/vimdiff.html"]
 ---
 
 2 つのテキストファイルの差分を取る
@@ -32,7 +35,7 @@ Vim（あるいは gVim）には、テキストファイルの差分を取る **
 $ gvimdiff a.txt b.txt
 ```
 
-![vimdiff-001.png](./vimdiff-001.png){: .center }
+{{< image src="img-001.png" >}}
 
 左右にスプリットされた画面になり、内容が異なる部分（2 行目の `BBBBB` と `XXXXX`）がハイライト表示されます。
 ウィンドウ間を移動するには `Ctrl-W` `Ctrl-W` と入力します。
@@ -74,7 +77,7 @@ diff モードで比較表示を行っているときに、差分のある行に
 
 左側にカーソルがあるときに、`do`、`dp` を入力すると次のような動きになります。
 
-![vimdiff-002.png](./vimdiff-002.png){: .center }
+{{< image src="img-002.png" >}}
 
 
 （トラブルシューティング）Windows で vimdiff コマンドが見つからない
@@ -83,7 +86,7 @@ diff モードで比較表示を行っているときに、差分のある行に
 Windows では `vimdiff (gvimdiff)` コマンドは、`vimdiff.bat (gvimdiff.bat)` というバッチファイルでインストールされます（中で `vim.exe -d` や `gvim.exe -d` を呼び出しています）。
 `vimdiff` コマンドが見つからない場合は、 [Vim のインストーラ](https://www.vim.org/download.php#pc) で、**bat ファイルを作成** にチェックを入れてインストールしてください。
 
-![vimdiff-003.jpg](./vimdiff-003.jpg){: .center }
+{{< image src="img-003.jpg" >}}
 
 デフォルトでは、`C:\Windows` ディレクトリの下に `.bat` ファイルを作成してくれますね。
 何てことするんだ！
