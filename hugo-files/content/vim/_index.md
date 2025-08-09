@@ -105,15 +105,14 @@ categoryIcon: logo-vim.svg
 応用操作
 ----
 * [Vim 上でディレクトリツリーを表示する (NERDTree)](/p/8qeuow8/)
-* [折りたたみ機能 (folding) を使用する](advanced/folding.html)
-* [指定した行範囲を一時的に表示する](advanced/show-lines.html)
-* [一時的にシェル（ターミナルやコマンドプロンプト）を起動する](advanced/shell.html)
-* [キーボードマクロを記録して一連のキー入力を繰り返し実行する](advanced/macro.html)
-* [プリンタで印刷する (hardcopy)](advanced/hardcopy.html)
-* [行の情報を表示する](advanced/line-info.html)
-* [ファイルに保存した ex スクリプトを実行する](advanced/run-ex-script.html)
+* [Vim で折りたたみ機能 (folding) を使用する](/p/sxouvi5/)
+* [Vim で指定した行範囲を一時的に表示する](/p/k7r37a7/)
+* [Vim でキーボードマクロを記録して一連のキー入力を繰り返し実行する](/p/bmriv55/)
+* [Vim で編集中のファイルを印刷する (`:hardcopy`)](/p/nw89tw2/)
+* [Vim で行情報を表示する](/p/3m53tcz/)
+* [Vim で外部の ex スクリプトを実行する](/p/rocrnht/)
 * プログラマ向け操作
-    * [プログラムの関数定義などにジャンプする（tags ファイルの利用）](advanced/tags.html)
+    * [Vim でプログラムの関数定義などにジャンプする（tags ファイルの利用）](/p/qt8z5d3/)
 * [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (`keywordprg`)](/p/3hp29j9/)
 
 
