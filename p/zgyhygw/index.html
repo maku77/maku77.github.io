@@ -18,8 +18,8 @@ Windows の場合: C:\Users\maku\AppData\Local\Android\Sdk\emulator\emulator.exe
 エミュレーターを起動するときに AVD を指定するのが楽になります。</p><h3 id=エミュレーターを起動する-emulator>エミュレーターを起動する (emulator)</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> emulator @AVD_NAME
 </span></span><span class=line><span class=cl><span class=gp>$</span> emulator -avd AVD_NAME
 </span></span></code></pre></div><p>ここで指定する AVD 名は、前述の <code>emulator -list-avds</code> コマンドで表示されたものの中から選択します。
-AVD 名の一覧を表示して、ユーザーに起動する AVD を選択させるバッチファイルなどを作っておくと便利です。</p><div class=xAccordion><input id=id-894635721 type=checkbox>
-<label class=xAccordion_title for=id-894635721>emu.cmd（AVD を選択して起動するバッチファイル）</label><div class=xAccordion_body><div class=highlight><pre tabindex=0 class=chroma><code class=language-bat data-lang=bat><span class=line><span class=cl><span class=p>@</span><span class=k>echo</span> off
+AVD 名の一覧を表示して、ユーザーに起動する AVD を選択させるバッチファイルなどを作っておくと便利です。</p><div class=xAccordion><input id=id-362917584 type=checkbox>
+<label class=xAccordion_title for=id-362917584>emu.cmd（AVD を選択して起動するバッチファイル）</label><div class=xAccordion_body><div class=highlight><pre tabindex=0 class=chroma><code class=language-bat data-lang=bat><span class=line><span class=cl><span class=p>@</span><span class=k>echo</span> off
 </span></span><span class=line><span class=cl><span class=k>setlocal</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>echo</span> Available AVDs:
