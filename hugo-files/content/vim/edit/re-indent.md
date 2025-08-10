@@ -3,7 +3,7 @@ title: "Vim/NeoVim で選択した範囲を自動インデントする (=)"
 url: "p/pxpgasg/"
 date: "2009-12-07"
 tags: ["vim"]
-aliases: /vim/edit/re-indent.html
+aliases: ["/vim/edit/re-indent.html"]
 ---
 
 自動インデントの実行

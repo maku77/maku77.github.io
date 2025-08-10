@@ -1,12 +1,15 @@
 ---
-title: "カーソル位置の数字をインクリメント／デクリメントする"
+title: "Vim でカーソル位置の数字をインクリメント／デクリメントする"
+url: "p/in6mo7q/"
 date: "2008-11-12"
+tags: ["vim"]
+aliases: ["/vim/edit/increment.html"]
 ---
 
 カーソル位置の数字をインクリメント／デクリメントする
 ----
 
-![increment1.gif](increment1.gif){: .center }
+{{< image src="img-001.gif" >}}
 
 数字を表すテキストにカーソルを合わせて <kbd>CTRL-A</kbd> と入力すると、その数値をインクリメントする（数字を1つ増やす）ことができます。
 逆に <kbd>CTRL-X</kbd> でデクリメントする（数字を1つ減らす）ことができます。
@@ -30,10 +33,9 @@ date: "2008-11-12"
 <kbd>SHIFT-V</kbd> や <kbd>CTRL-V</kbd> のビジュアルモードで選択した範囲にある数値をまとめてインクリメントすることもできます。
 下記のデモでは、<kbd>SHIFT-V</kbd> で複数行を選択してから、<kbd>CTRL-A</kbd> で複数の数値をまとめてインクリメントしています。
 
-![increment2.gif](increment2.gif){: .center }
+{{< image src="img-002.gif" >}}
 
 応用例として、<kbd>CTRL-A</kbd> と入力する前に <kbd>g</kbd> を入力しておくと、次のようにそれぞれの数値に足される数自体がインクリメントされていきます。
 連番からなる数値の羅列を作りたいときに便利です。
 
-![increment3.gif](increment3.gif){: .center }
-
+{{< image src="img-003.gif" >}}

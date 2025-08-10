@@ -68,38 +68,38 @@ categoryIcon: logo-vim.svg
 編集操作 <!-- edit -->
 ----
 
-* [挿入モード（インサートモード）のまま実行できる操作の一覧](edit/insert-mode.html)
-* [XML/HTML の編集に便利なコマンド](edit/xml-and-html.html)
+* [Vim で挿入モード（インサートモード）のまま実行できる操作の一覧](/p/hk22h6b/)
+* [Vim でXML/HTML の編集に便利なコマンド](/p/sznjxob/)
 
 ### 文字の追加
-* [補完機能を使用してテキストを入力する](edit/complete.html)
-* [同じテキストを指定した回数だけ繰り返し挿入する](edit/repeated-insert.html)
-* [複数行の行頭に同じテキストを追加する](edit/insert-to-head.html)
-* [上の行の文字、下の行の文字をコピーする (CTRL-Y, CTRL-E)](edit/duplicate-chars.html)
+* [Vim で補完機能を使用してテキストを入力する](/p/qmuxpqp/)
+* [Vim で同じテキストを指定した回数だけ繰り返し挿入する](/p/cismh7n/)
+* [Vim で複数行の行頭に同じテキストを挿入する](/p/mp48ku2/)
+* [Vim で上の行の文字、下の行の文字をコピーする (CTRL-Y, CTRL-E)](/p/4xbztoe/)
 
 ### 削除
-* [空行（改行だけの行）を削除する](edit/remove-empty-lines.html)
-* [行末の余分なスペースをまとめて削除する](edit/remove-trailing-spaces.html)
-* [記号（引用符など）で囲まれた範囲のテキストを削除する](edit/remove-surrounded.html)
-* [正規表現にマッチする行を削除する](/p/ngf6w24/)
+* [Vim で空行（改行だけの行）を削除する](/p/6idyjje/)
+* [Vim で行末の余分なスペースをまとめて削除する](/p/pdvgf4v/)
+* [Vim で記号（引用符など）で囲まれた範囲のテキストを削除する](/p/bbsprto/)
+* [Vim で正規表現にマッチする行を削除する](/p/ngf6w24/)
 
 ### 整形／変換
-* [行を連結する](edit/join.html)
-* [文字を入れ替える、行を入れ替える（スワップ操作）](edit/swap-chars.html)
-* [インデント用のスペースを入力する（シフトコマンド） (`>>`, `<<`, `Ctrl-T`, `Ctrl-D`)](/p/i2m4nqt/)
-* [選択した範囲を自動インデントする (`=`)](/p/pxpgasg/)
-* [すでに入力されているタブをスペースに変換する (`:retab`)](/p/w4qm7ok/)
-* [テキストを中央寄せ／左寄せ／右寄せする](edit/adjust.html)
-* [大文字と小文字を変換する](edit/uppercase-lowercase.html)
-* [カーソル位置の数字をインクリメント／デクリメントする](edit/increment.html)
+* [Vim で行を連結する (`J`, `gJ`)](/p/etgm2a4/)
+* [Vim で文字を入れ替える、行を入れ替える（スワップ操作） (`xp`, `ddp`)](/p/xr9stqi/)
+* [Vim/NeoVim でインデント用のスペースを入力する（シフトコマンド） (`>>`, `<<`, `Ctrl-T`, `Ctrl-D`)](/p/i2m4nqt/)
+* [Vim/NeoVim で選択した範囲を自動インデントする (=)](/p/pxpgasg/)
+* [Vim/NeoVim ですでに入力されているタブをスペースに変換する (:retab)](/p/w4qm7ok/)
+* [Vim でテキストを中央寄せ／左寄せ／右寄せする](/p/sh79ewb/)
+* [Vim で大文字と小文字を変換する (`U`, `u`)](/p/iin6vwz/)
+* [Vim でカーソル位置の数字をインクリメント／デクリメントする (`CTRL-A`, `CTRL-X`)](/p/in6mo7q/)
 * ソート
-    * [行をソートして重複行を削除する](edit/unique-lines.html)
-    * [行を逆順にソートする](edit/reverse-sort.html)
+    * [Vim で行をソートして重複行を削除する (`:sort u`)](/p/ybvwp6b/)
+    * [Vim で行を逆順にソートする (`:sort!`)](/p/g9cckyt/)
 
 ### カット＆ペースト
-* [挿入モード、コマンドモードでの貼り付け](edit/paste-in-insert-mode.html)
-* [最後にヤンクしたテキストを確実に貼り付ける](edit/paste-register-0.html)
-* [切り取り＆貼り付け操作、レジスタの扱いについて理解する](edit/register.html)
+* [Vim で挿入モード、コマンドモードでの貼り付け](/p/xqq89n2/)
+* [Vim で最後にヤンクしたテキストを確実に貼り付ける](/p/7jkhjzf/)
+* [Vim で切り取り＆貼り付け操作、レジスタの扱いについて理解する](/p/fmbya48/)
 
 
 応用操作

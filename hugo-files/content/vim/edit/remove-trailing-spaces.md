@@ -1,13 +1,16 @@
 ---
-title: "行末の余分なスペースをまとめて削除する"
+title: "Vim で行末の余分なスペースをまとめて削除する"
+url: "p/pdvgf4v/"
 date: "2018-11-01"
+tags: ["vim"]
+aliases: ["/vim/edit/remove-trailing-spaces.html"]
 ---
 
 ノーマルモードから下記のように実行すると、行末にある余計なスペースをまとめて削除することができます。
 
-~~~ vim
+{{< code lang="vim" >}}
 :%s/\s*$//
-~~~
+{{< /code >}}
 
 #### 各項目の意味
 

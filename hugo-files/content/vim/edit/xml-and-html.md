@@ -1,6 +1,9 @@
 ---
-title: "XML/HTML の編集に便利なコマンド"
+title: "Vim でXML/HTML の編集に便利なコマンド"
+url: "p/sznjxob/"
 date: "2014-03-31"
+tags: ["vim"]
+aliases: ["/vim/edit/xml-and-html.html"]
 ---
 
 XML や HTML ファイルを編集しているときは、`c`（置換）や、`d`（削除）コマンドの後ろに編集範囲を表す `it` や `at` を指定することで、素早い編集が可能になります。

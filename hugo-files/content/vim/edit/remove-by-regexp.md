@@ -3,7 +3,7 @@ title: "Vim で正規表現にマッチする行を削除する"
 url: "p/ngf6w24/"
 date: "2012-12-06"
 tags: ["vim"]
-aliases: /vim/edit/remove-by-regexp.html
+aliases: ["/vim/edit/remove-by-regexp.html"]
 ---
 
 正規表現に一致するテキストが見つかった行をすべて削除する

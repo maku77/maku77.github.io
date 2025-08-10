@@ -1,6 +1,9 @@
 ---
-title: "空行（改行だけの行）を削除する"
+title: "Vim で空行（改行だけの行）を削除する"
+url: "p/6idyjje/"
 date: "2015-01-20"
+tags: ["vim"]
+aliases: ["/vim/edit/remove-empty-lines.html"]
 ---
 
 編集中のファイル全体の空行を削除する

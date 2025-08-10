@@ -1,6 +1,9 @@
 ---
-title: "行を逆順にソートする"
+title: "Vim で行を逆順にソートする (:sort!)"
+url: "p/g9cckyt/"
 date: "2011-12-27"
+tags: ["vim"]
+aliases: ["/vim/edit/reverse-sort.html"]
 ---
 
 ex コマンドで実行できる `sort` は、デフォルトでは昇順に行ソートしますが、末尾に `!` を付加することで逆順（降順）ソートすることが可能です。
