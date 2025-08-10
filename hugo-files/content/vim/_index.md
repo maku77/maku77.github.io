@@ -134,8 +134,8 @@ Vim の設定
 - [Vim/NeoVim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
 - [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
-- [モードラインでファイルごとに書式を設定する](settings/modeline.html)
-- [バックアップファイル／スワップファイル／アンドゥファイルの設定 (backup, swapfile, undofile)](settings/backup.html)
+- [Vimの設定: モードラインを使ってファイル単位で書式設定する (`modeline`)](/p/39fajvt/)
+- [Vimの設定: バックアップファイル／スワップファイル／アンドゥファイルの設定 (`backup`, `swapfile`, `undofile`)](/p/xv4yhu2/)
 - [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (`autochdir`)](/p/dpccbv7/)
 
 ### キーマップ設定 <!-- keymap -->
@@ -157,15 +157,15 @@ Vim の設定
 
 ### 表示の設定
 * [行番号を表示する (`set number`, `vim.opt.number`)](/p/t8o6tum/)
-* [80文字目に縦線を表示する (colorcolumn)](settings/colorcolumn.html)
-* [構文強調（シンタックスハイライト）を有効にする (syntax)](settings/syntax.html)
-* [カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn)](settings/cursorline.html)
+* [Vim で80文字目に縦線を表示する (`colorcolumn`)](/p/ngz6n6i/)
+* [Vim で構文強調（シンタックスハイライト）を有効にする (`syntax`)](/p/wcfbnqj/)
+* [Vim でカーソル下の行や列をハイライト表示する (`cursorline`, `cursorcolumn`)](/p/osrx94g/)
 * [Vim/NeoVim で GUI モード用のフォントを設定する (`guifont`)](/p/e3xdbxe/)
 * [制御文字（改行、タブ文字、行末のスペースなど）を表示する (`list`, `listchars`)](/p/s596qii/)
 * [全角スペースを見えるように表示する](/p/preoa93/)
-* [■や※などの記号が重なって表示される問題の解決 (ambiwidth)](settings/ambiwidth.html)
-* [GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)](settings/window-size.html)
-* [ステータスラインの表示内容を設定する (statusline, laststatus)](settings/statusline.html)
+* [Vim で■や※などの記号が重なって表示される問題の解決 (`ambiwidth`)](/p/fp2xk7y/)
+* [Vim でGVim 起動時のウィンドウの幅、高さを設定する (`columns`, `lines`)](/p/syn3cyx/)
+* [Vim でステータスラインの表示内容を設定する (`statusline`, `laststatus`)](/p/oegfris/)
 
 ### 入力に関する設定
 * [OS のクリップボードとヤンクレジスターを連動させる (`clipboard`)](/p/nnhefs3/)
@@ -174,9 +174,9 @@ Vim の設定
 * [自動インデントモードを有効にする (`autoindent`, `smartindent`, `cindent`)](/p/oe94dkh/)
 * [ビジュアルモードで簡単にインデントを行えるようにする](/p/hoihkfy/)
 * [インサートモード中に `Backspace` キーや `CTRL-W` で文字を削除するときの振る舞いを変更する (`backspace`)](/p/b9tsccu/)
-* [省略形を用いたテキスト入力を行えるようにする (`abbrevaite`)](settings/abbreviate.html)
-* [スペルチェックを有効にする (`spell)`](settings/spell.html)
-* [Java や C/C++ のコメント記述に便利な `formatoptions` の設定](settings/formatoptions.html)
+* [Vim で省略形を用いたテキスト入力を行えるようにする (`abbrevaite`)](/p/qxjtb39/)
+* [Vim でスペルチェックを有効にする (`spell`)](/p/fweeaqx/)
+* [Vimの設定: Java や C/C++ のコメント記述に便利な `formatoptions` 設定](/p/i9y5wsd/)
 * [Vim のインサートモードを抜けるときに自動で IME をオフにする (macOS, Karabiner-Elements)](/p/bbkb63f/)
 
 
