@@ -1,6 +1,9 @@
 ---
-title: "ネイティブサービスの実装 (3) サービスのインタフェースを定義する"
+title: "Android Nativeメモ: ネイティブサービスの実装 (3) サービスのインタフェースを定義する"
+url: "p/33w8db9/"
 date: "2011-05-09"
+tags: ["android"]
+aliases: [/android/native-service3.html]
 ---
 
 クライアント側のコードをすっきりさせたい
@@ -8,9 +11,7 @@ date: "2011-05-09"
 
 `IBinder` クラスの `transact()` インタフェースだけでサービスの機能にアクセスするのは分かりにくく、すべてのクライアントコードに本質的ではない `Parcel` オブジェクトの生成コードが表れてしまいます。
 
-#### 例: CalcService を利用する煩雑なクライアントコード
-
-```cpp
+{{< code lang="cpp" title="例: CalcService を利用する煩雑なクライアントコード" >}}
 sp<IServiceManager> sm = defaultServiceManager();
 sp<IBinder> binder = sm->getService(String16("CalcService"));
 
@@ -20,7 +21,7 @@ data.writeInt32(100);
 data.writeInt32(50);
 binder->transact(0, data, &reply);  // Add function
 LEGI("CalcService returns: %d", reply.readInt32());
-```
+{{< /code >}}
 
 サービスのインタフェースを定義し、そのインタフェース経由で機能にアクセスできるようにすればクライアント側のコードがすっきりします。
 Binder フレームワークには、このためのヘルパークラスなどが用意されていて、これらをうまく使用すると、以下のような感じで `CalcService` にアクセスできるようになります。
@@ -33,7 +34,7 @@ sp<ICalcService> calc = interface_cast<ICalcService>(binder);
 int result = calc.add(100, 50);  // すっきり！
 ```
 
-まぁ、簡単に言ってしまえば、`IBinder` を直接使うのではなく、分かりやすいラッパークラスを用意してやりましょうということ。
+簡単に言ってしまえば、`IBinder` を直接使うのではなく、分かりやすいラッパークラスを用意してやりましょうということです。
 `interface_cast` というテンプレート関数は、`IInterface.h` で定義されていて、上記のサンプルコードは以下のように展開されます。
 
 ```cpp
@@ -53,29 +54,25 @@ sp<ICalcService> calc = ICalcService::asInterface(binder);
 例えば、サービスクラス `CalcService` にアクセスするためのインタフェースは、`ICalcService` という名前で作成し、ここに `add()` や `subtract()` などの分かりやすいアクセスメソッドを用意してやります。
 `IInterface.h` に定義されているマクロが、プレフィックスとして `I` を付ける前提のコードになっているので、このように「`I` + サービス名」というネーミングをしなければいけません。
 
-#### ICalcService.h
-
-```cpp
+{{< code lang="cpp" title="ICalcService.h" >}}
 class ICalcService : public IInterface {
 public:
     DECLARE_META_INTERFACE(CalcService);
     virtual int add(int a, int b) = 0;
     virtual int subtract(int a, int b) = 0;
 };
-```
+{{< /code >}}
 
 `DECLARE_META_INTERFACE` というマクロは以下のように展開されます。
 この中で、`IBinder` オブジェクトから `ICalcService` オブジェクトを取得するための `asInterface()` も定義されます。
 
-#### ICalcService.h
-
-```cpp
+{{< code lang="cpp" title="ICalcService.h" >}}
 static const android::String16 descriptor;
 static android::sp<ICalcService> asInterface(const android::sp<android::IBinder>& obj);
 virtual const android::String16& getInterfaceDescriptor() const;
 ICalcService();
 virtual ~ICalcService();
-```
+{{< /code >}}
 
 これらの実装を提供するための、`IMPLEMENT_META_INTERFACE` というマクロも用意されています。
 例えば、
@@ -86,9 +83,7 @@ IMPLEMENT_META_INTERFACE(CalcService, "sample.CalcService");
 
 と記述しておくと、以下のように展開されます。
 
-#### ICalcService.cpp
-
-```cpp
+{{< code lang="cpp" title="ICalcService.cpp" >}}
 const android::String16 ICalcService::descriptor("sample.CalcService");
 
 const android::String16& ICalcService::getInterfaceDescriptor() const {
@@ -108,7 +103,7 @@ android::sp<ICalcService> ICalcService::asInterface(const android::sp<android::I
 
 ICalcService::ICalcService() {};
 ICalcService::~ICalcService() {};
-```
+{{< /code >}}
 
 この中で、`asInterface()` で取得するオブジェクトとして、`BpCalcService` というオブジェクトを生成するように実装されます。
 つまり、`ICalcService` というインタフェースを実装する `BpCalcService` クラスを作成する必要があります。
@@ -176,17 +171,17 @@ int main() {
 完全なコードと実行テスト
 ----
 
-- [CalcClient2.zip](files/20110509-CalcClient2.zip)
-- [CalcService2.zip](files/20110509-CalcService2.zip)
+- [CalcClient2.zip](20110509-CalcClient2.zip)
+- [CalcService2.zip](20110509-CalcService2.zip)
 
 ここでは、クライアントが使用する `ICalcService.h` とその実装を、クライアントプログラム (CalcClient) に埋め込んでしまっていますが、複数のプログラムから使用するインタフェースとして切り出したい場合は、
 
-- ICalcService.h（サービスインタフェース）
-- ICalcService.so（サービスインタフェースを実装した共有ライブラリ）
+- `ICalcService.h` ... サービスインタフェース
+- `ICalcService.so` ... サービスインタフェースを実装した共有ライブラリ
 
 といったファイルとして切り出して、共有できるように配置します。
 
-CalcClient と CalcService プログラムをセット上の `/system/bin` に転送したら、以下のように CalcService サービスを起動し、CalcClient プログラムを使ってサービスにアクセスします。
+CalcClient と CalcService プログラムをデバイス上の `/system/bin` に転送したら、以下のように CalcService サービスを起動し、CalcClient プログラムを使ってサービスにアクセスします。
 
 ```
 # CalcService &

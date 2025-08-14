@@ -1,19 +1,20 @@
 ---
-title: "android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト"
+title: "Androidベンダー向けメモ: android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト"
+url: "p/7zgfhqz/"
 date: "2011-04-08"
+tags: ["android"]
+aliases: [/android/defines-in-makefile.html]
 ---
 
-下記のスクリプトを `android/build/core` 以下で実行すると、Android の Makefile (.mk) 用に定義されている関数を一覧で取得できます。
+下記の bash スクリプトを `android/build/core` 以下で実行すると、Android の `Makefile` (`.mk`) 用に定義されている関数を一覧で取得できます。
 Android が定義している関数はハイフンを単語区切りにしているみたいです。
 
-#### list_defines.sh
-```bash
+{{< code lang="bash" title="list_defines.sh" >}}
 #!/bin/bash
 find -name '*.mk' -o -name 'Makefile' | xargs grep '^define ' | sed 's/^\(.\+\):\(.\+\)/\2  ...  \1/' | sort | uniq
-```
+{{< /code >}}
 
-#### 使用例
-```
+{{< code lang="console" title="実行結果" >}}
 $ cd android/build/core
 $ ./list_defines.sh
 
@@ -214,5 +215,5 @@ define true-or-empty  ...  ./definitions.mk
 define uniq-word  ...  ./node_fns.mk
 define unzip-jar-files  ...  ./definitions.mk
 define word-color  ...  ./definitions.mk
-```
+{{< /code >}}
 

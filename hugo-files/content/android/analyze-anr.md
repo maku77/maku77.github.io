@@ -1,9 +1,12 @@
 ---
 title: "ANR の原因を突き止める"
+url: "p/be5zj9v/"
 date: "2010-08-16"
+tags: ["android"]
+aliases: [/android/analyze-anr.html]
 ---
 
-メインスレッドなどでブロックするコードがあると、ANR (Application Not Responding) が発生し、アプリケーションが強制終了されます。
+Android のメインスレッドを長期間ブロックするコードがあると、ANR (Application Not Responding) が発生してアプリケーションが強制終了されます。
 端末の画面上で Not responding ダイアログが表示されたら `[Force Close]` ボタンを押すと、以下のようなログが出るので、kill されたプロセス ID を確認します。
 
 ```
@@ -15,9 +18,9 @@ I Process : Sending signal. PID: 854 SIG: 9
 ANR の詳細は、`/data/anr/traces.txt` に出力されています。
 このテキストファイルを見てそのプロセス ID に関するコールスタックを確認すると、具体的にどのメソッドでブロックしてしまっているかがわかります。
 
-```
+```console
 $ adb pull /data/anr/traces.txt
-$ gvim traces.txt
+$ vim traces.txt
 ```
 
 例えば、以下のように出力されていれば、`VideoView.java` 258 行目の `MediaPlayer.prepareAsync` 呼び出しでブロックしていることが分かります。

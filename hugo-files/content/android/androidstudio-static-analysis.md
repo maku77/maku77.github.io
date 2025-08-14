@@ -1,6 +1,9 @@
 ---
-title: "Android Studio で静的解析プラグインを使用する"
+title: "Android Studio で静的解析プラグインを使用する (CheckStyle, FindBugs)"
+url: "p/web92kb/"
 date: "2015-12-09"
+tags: ["android"]
+aliases: [/android/androidstudio-static-analysis.html]
 ---
 
 Gradle で Checkstyle や FindBugs のタスクを実行するのもよいですが、Android Studio に Plugin を入れておくと、警告箇所を簡単に調べられるようになります。

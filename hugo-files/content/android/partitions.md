@@ -1,6 +1,9 @@
 ---
-title: "Android デバイスのパーティション構成概要"
+title: "Androidベンダー向けメモ: Android デバイスのパーティション構成概要"
+url: "p/ks84q3k/"
 date: "2013-11-07"
+tags: ["android"]
+aliases: [/android/partitions.html]
 ---
 
 パーティション構成
@@ -8,21 +11,17 @@ date: "2013-11-07"
 
 Android のパーティション構成は、およそ下記のようになっています。
 
-```
-/boot -- Android kernel と ramdisk
-/system -- Android OS およびプリインアプリなど
-/recovery -- リカバリ時に /boot パーティションの代わりに起動されるリカバリ OS
-/data -- GooglePlay からインストールしたアプリやユーザデータ（書き込み可能）
-/cache -- アプリ用キャッシュ（リカバリイメージのダウンロードもここに入る）
-```
+- **`/boot`** ... Android kernel と ramdisk
+- **`/system`** ... Android OS およびプリインアプリなど
+- **`/recovery`** ... リカバリ時に `/boot` パーティションの代わりに起動されるリカバリ OS
+- **`/data`** ... GooglePlay からインストールしたアプリやユーザデータ（書き込み可能）
+- **`/cache`** ... アプリ用キャッシュ（リカバリイメージのダウンロードもここに入る）
 
 
 Nexus7 (2013) の情報を見てみる
 ----
 
-### マウント情報の表示
-
-```
+{{< code title="マウント情報の表示" >}}
 $ mount  （あるいは cat /proc/mounts）
 rootfs / rootfs ro,relatime 0 0
 tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,mode=755 0 0
@@ -41,11 +40,9 @@ none /dev/cpuctl cgroup rw,relatime,cpu 0 0
 /dev/block/platform/msm_sdcc.1/by-name/userdata /data ext4 rw,seclabel,nosuid,nodev,noatime,nomblk_io_submit,errors=panic,data=ordered 0 0
 /dev/block/platform/msm_sdcc.1/by-name/persist /persist ext4 rw,seclabel,nosuid,nodev,relatime,nodelalloc,data=ordered 0 0
 /dev/fuse /mnt/shell/emulated fuse rw,nosuid,nodev,relatime,user_id=1023,group_id=1023,default_permissions,allow_other 0 0
-```
+{{< /code >}}
 
-### ファイルシステム情報の表示
-
-```
+{{< code title="ファイルシステム情報の表示" >}}
 $ df
 Filesystem               Size     Used     Free   Blksize
 /dev                   911.4M    48.0K   911.3M   4096
@@ -57,5 +54,5 @@ Filesystem               Size     Used     Free   Blksize
 /data                   26.1G     2.7G    23.4G   4096
 /persist                14.5M     4.2M    10.2M   4096
 /mnt/shell/emulated     26.1G     2.7G    23.4G   4096
-```
+{{< /code >}}
 

@@ -1,9 +1,14 @@
 ---
-title: "サポートされている Locale の一覧 (Android 4.0)"
+title: "Androidベンダー向けメモ: Android 4.0 でサポートされている Locale の一覧"
+url: "p/ypihqom/"
 date: "2012-09-18"
+tags: ["android"]
+aliases: [/android/supported-locales.html]
 ---
 
 下記は、Android 4.0 においてサポートされている Locale の一覧です。
+Android の UI 上の言語名は ICU のライブラリから取得した情報をもとに表示されるのですが、中国語に関しては例外的に、表示上の言語名が「繁体字」or「簡体字」のようになるように拡張されています。
+これらの文言は `android/packages/apps/Settings/res/values/arrays.xml` 内で定義されています。
 
 ```
 af_ZA: Afrikaans (South Africa) / アフリカーンス語 (南アフリカ)
@@ -57,16 +62,10 @@ zh_TW: Chinese (Taiwan) / 中国語 (台湾)  ★「繁体」
 zu_ZA: Zulu (South Africa) / ズールー語 (南アフリカ)
 ```
 
-★Android の UI 上の言語名は ICU のライブラリから取得した情報をもとに表示されるのですが、中国語に関しては例外的に、表示上の言語名が「繁体字」or「簡体字」のようになるように拡張されています。
-これらの文言は `android/packages/apps/Settings/res/values/arrays.xml` 内で定義されています。
-
-
 上記の一覧は、通常の PC 上でロケールシンボル（`en_US` など）に対応する言語名、国名を出力したものです。
 下記のようなコードを実行して出力しています。
 
-#### Main.java
-
-```java
+{{< code lang="java" title="Main.java" >}}
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -95,5 +94,5 @@ public class Main {
         }
     }
 }
-```
+{{< /code >}}
 

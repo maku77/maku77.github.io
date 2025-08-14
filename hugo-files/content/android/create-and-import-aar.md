@@ -1,12 +1,15 @@
 ---
-title: "AAR 形式のファイルを作成する/使用する"
+title: "Androidメモ: AAR 形式のファイルを作成する/使用する"
+url: "p/3m9f8yv/"
 date: "2015-11-16"
+tags: ["android"]
+aliases: [/android/create-and-import-aar.html]
 ---
 
 AAR とは
 ----
 
-Android Studio では、従来の JAR 形式のライブラリファイルに加え、[AAR (Android Archive) 形式のライブラリ](http://tools.android.com/tech-docs/new-build-system/aar-format) を作成することができます。
+Android Studio では、従来の JAR 形式のライブラリファイルに加え、[AAR (Android Archive) 形式のライブラリ](https://tools.android.com/tech-docs/new-build-system/aar-format) を作成することができます。
 
 JAR ライブラリとは違い、AAR ライブラリは Android 固有のアセット、リソース、`AndroidManifest.xml` などを含めることができます。
 AAR ライブラリには `AndroidManifest.xml` を含めることができるので、`uses-library` 宣言をライブラリ内で完結させるといったことが可能になります。
@@ -66,22 +69,18 @@ AAR ライブラリを使用する
 上記の手順を行うと、AAR ライブラリだけを含んだサブプロジェクト（ここでは `mylib-release` とします）が生成されます。
 プロジェクトの `settings.gradle` には、自動的に下記のようにサブプロジェクトへの参照情報が追記されます。
 
-#### settings.gradle
-
-```groovy
+{{< code lang="groovy" title="settings.gradle" >}}
 include ':app', ':mylib-release'
-```
+{{< /code >}}
 
 あとは、このライブラリを使用したい `app` プロジェクトから依存関係を設定すれば OK です。
 
-#### app/build.gradle
-
-```groovy
+{{< code lang="groovy" title="app/build.gradle" >}}
 dependencies {
     compile project(':mylib-release')
     ...
 }
-```
+{{< /code >}}
 
 これで、AAR ライブラリで定義した Java のクラスファイルなどを参照できるようになります。
 

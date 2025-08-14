@@ -54,99 +54,94 @@ Tools
 * [ADB で指定したアプリを強制終了する (am force-stop)](/p/9yse3iz/)
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](/p/jfqtfyn/)
 * [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
-* [ADB でスリープ状態に入る／スリープから抜ける](adb/go-to-sleep.html)
+* [ADB でスリープ状態に入る／スリープから抜ける](/p/cfqazd7/)
 * [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
 * [ADB からキー入力やテキスト入力を行う (`input text`, `input keyevent`)](/p/gorux24/)
 * [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](/p/bg2g4bu/)
 * [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj/)
 * [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
-* [Android Studio で静的解析プラグインを使用する](androidstudio-static-analysis.html)
-* [ANR の原因を突き止める](analyze-anr.html)
+* [旧）Android Studio で静的解析プラグインを使用する (CheckStyle, FindBugs)](/p/web92kb/)
+* [ANR の原因を突き止める](/p/be5zj9v/)
 * [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
 * [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
 * [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
+* Logcat
+  * [Logcat のログ出力をフィルタする](/p/asryvzc/)
 * 旧）各種デバイスの ADB 接続
   * [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
   * [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
   * [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
   * [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
-  * [Eclipse から Android SDK を使えるようにする (ADK)](install-adk.html)
-
-### Logcat
-
-* [Logcat のログ出力をフィルタする](filter-logcat.html)
+  * [Eclipse から Android SDK を使えるようにする (ADK)](/p/4ch6hjg/)
 
 
-ビルド関連
+ビルド関連／Gradle
 ----
 
-### Gradle
-
 * [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
-* [リソース名に正しくプレフィックスが付いているか確認する](resource-prefix.html)
-* [Android Studio を使っているときの Gradle 関連ファイル](gradle-related-files.html)
+* [Android Gradleメモ: リソース名に正しくプレフィックスが付いているか確認する (`resourcePrefix`)](/p/4zogpen/)
+* [Android Gradleメモ: Android の Gradle 関連ファイルまとめ](/p/8f3pcke/)
 * [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
 * [サブモジュールで使用する SDK バージョンを統一する](gradle/align-sdk-versions.html)
 * [外部から提供された AAR ファイルを利用する](gradle/external-aar.html)
 * [APK ファイル名のサフィックスにバージョンを追加する](gradle/add-version-name-to-apk.html)
 * [Lint エラーが発生した場合もビルドを継続する](gradle/ignore-lint-errors.html)
 * [Android アプリが使用している依存ライブラリをツリー構造で表示する（dependencies/androidDependencies タスク）](gradle/dependency-tree.html)
-* Gradle 全般の説明は [こちらを参照](../gradle/)
+* [Anrdoidトラブルシューティング: repo init でエラーが出る場合](trouble/repo-init-error.html)
+* Gradle 全般の説明は [こちらを参照](/gradle/)
 
-### Android Studio
 
-* [AAR 形式のファイルを作成する/使用する](create-and-import-aar.html)
+Android Studio
+----
+
+* [Androidメモ: AAR 形式のファイルを作成する/使用する](/p/3m9f8yv/)
 * [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
 * [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
 * [Android Studio の便利なショートカット (1) コードの調査／メソッド間のジャンプ](studio/shortcut-method-jump.html)
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
 
-Android デバイス開発者向け（ベンダ向け情報）
+Androidベンダー向けメモ（Android デバイス開発者向け）
 ----
 
-* [root ユーザで adb 接続する](adb-with-root.html)
-* [Sleep モードに遷移する](go-to-sleep.html)
-* [現在の Configuration を変更する](change-configuration.html)
-* [LowMemoryKiller によるプロセス kill の優先順位の仕組み](low-memory-killer1.html)
-* [LowMemoryKiller の too many background によるプロセス kill の仕組み](low-memory-killer2.html)
-* [Android デバイスのパーティション構成概要](partitions.html)
-* [make 後の生成イメージが格納されるディレクトリを調べる](product-out-dir.html)
-* [インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる](check-user-id.html)
-* [android/build/core 以下の *.mk ファイルで定義されている関数 (define) のリスト](defines-in-makefile.html)
-* [ART/Dalvik VM のバージョンを調べる](dalvik-version.html)
-* [Locale を切り替える](change-locale.html)
-* [サポートされている Locale の一覧 (Android 4.0)](supported-locales.html)
+* [Androidベンダー向けメモ: LowMemoryKiller の仕組み](/p/qmcauwd/)
+* [Androidベンダー向けメモ: コンソールからキーの入出力を行う (`getevent/sendevent`)](/p/gufweuc/)
+* [Androidベンダー向けメモ: root ユーザで adb 接続する](/p/4ucsovh/)
+* Locale
+  * [Androidベンダー向けメモ: Android の Locale を切り替える（Configuration 値の変更）](/p/dzocr3s/)
+  * [Androidベンダー向けメモ: Android 4.0 でサポートされている Locale の一覧](/p/ypihqom/)
+* [Androidベンダー向けメモ: ART/Dalvik VM のバージョンを調べる (`dalvikvm -showversion`)](/p/5at33s8/)
+* [Androidベンダー向けメモ: make 後の生成イメージが格納されるディレクトリを調べる (`$ANDROID_PRODUCT_OUT`)](/p/xsdpj94/)
+* [Androidベンダー向けメモ: インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる (`packages.xml`)](/p/okshfzt/)
+* [Androidベンダー向けメモ: Android デバイスのパーティション構成概要 (Nexus7)](/p/ks84q3k/)
+* [Androidベンダー向けメモ: android/build/core 以下の `*.mk` ファイルで定義されている関数 (`define`) のリスト](/p/7zgfhqz/)
 * [製品にパッケージングする APK を指定する](vendor/package-apks.html)
 * [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
 * [システムプロパティのあれこれ](vendor/system-property.html)
 * [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
-* [getevent/sendevent で入力デバイスへの入力情報を取得する／入力を行う](/p/gufweuc/)
 * [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
 
 
-Android Framework/SDK
+Android アプリ実装／Framework／SDK
 ----
 
 * [Jetpack Compose の宣言型 (declarative) の UI 定義とは？](fw/compose.html)
 * [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
 * [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
 * [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
+* [Androidメモ: AsyncTask による非同期処理と UI 更新処理](/p/o3hggfz/)
 
-### 設定 (SharedPreferences)
+### 設定（Settings、SharedPreferences）
 
 * [SharedPreferences でアプリの設定値を保存する](fw/shared-preference.html)
 * [Preference フレームワークを使って設定画面を簡単に作成する](fw/preference-fw.html)
+* [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
+* [Androidメモ: 現在のスクリーンレイアウトサイズを取得する (`Configuration`)](/p/7e9mdcp/)
 
+### ファイル、I/O（入出力）、ネットワーク
 
-Java レイヤ
-----
-
-* [特殊ディレクトリの情報を取得する](special-dir-info.html)
-* [AsyncTask による非同期処理と UI 更新処理](async-task.html)
-
-### I/O（入出力）
-
+* [Androidメモ: ネットワーク情報を取得する (`ConnectivityManager`, `NetworkInfo`)](/p/rm9ve9q/)
+* [Androidメモ: Androidの特殊ディレクトリの情報を取得する (`android.os.Environment`)](/p/vjcad5m/)
 * [キーイベント (KeyEvent) を見やすく出力する](io/print-keyevents.html)
 * [タッチイベントをハンドルする](io/handle-touch-events.html)
 * [Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する](io/keyboard-long-press.html)
@@ -176,34 +171,14 @@ Java レイヤ
 * [別プロセスのサービスへバインドする (Remote Bind)](service/remote-bind.html)
 * [サービスからコールバックできるようにする](service/callback.html)
 
-### 設定 (Settings)
 
-* [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
-
-
-Native レイヤ
+Native レイヤー実装
 ----
 
-* [RefBase によるスマートポインタ](refbase-smart-pointer.html)
-* [ネイティブサービスの実装 (1) Binder 関連のクラス](native-service1.html)
-* [ネイティブサービスの実装 (2) サービスの実装から利用まで](native-service2.html)
-* [ネイティブサービスの実装 (3) サービスのインタフェースを定義する](native-service3.html)
-
-### ServiceManager 関連
-
-* [ServiceManager に登録されたサービスを列挙する](list-services.html)
-
-
-トラブルシューティング
-----
-
-* [repo init でエラーが出る場合](trouble/repo-init-error.html)
-
-
-その他
-----
-
-* [ネイティブライブラリの展開先](install-path-of-native-libs.html)
-* [現在のスクリーンレイアウトサイズを取得する](screen-layout-size.html)
-* [ネットワーク関連の情報を取得する](network-info.html)
+* [Android Nativeメモ: C++ 実装用のスマートポインタ (`RefBase`, `sp`) を使用する](/p/w48omg6/)
+* [Android Nativeメモ: ネイティブサービスの実装 (1) Binder 関連のクラス](/p/ds6rhco/)
+* [Android Nativeメモ: ネイティブサービスの実装 (2) サービスの実装から利用まで](/p/edjwtcr/)
+* [Android Nativeメモ: ネイティブサービスの実装 (3) サービスのインタフェースを定義する](/p/33w8db9/)
+* [Android Nativeメモ: ServiceManager に登録されたサービスを列挙する](/p/qn635m9/)
+* [Android Nativeメモ: ネイティブライブラリ (.so) の展開先](/p/9dzwawd/)
 

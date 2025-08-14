@@ -1,31 +1,32 @@
 ---
-title: "ネイティブサービスの実装 (1) Binder 関連のクラス"
+title: "Android Nativeメモ: ネイティブサービスの実装 (1) Binder 関連のクラス"
+url: "p/ds6rhco/"
 date: "2011-04-27"
+tags: ["android"]
+aliases: [/android/native-service1.html]
 ---
 
 Binder 関連クラス
 ----
 
-ネイティブレイヤのサービスを実装するには、以下のような Binder 関連クラスを使用します。
+Android のネイティブレイヤのサービスを実装するには、以下のような Binder 関連クラスを使用します。
 
 ### 継承構造
 
-```
-RefBase …… 各種オブジェクトの生存期間を参照カウンタ
-  +-- IBinder …… サービスの基底クラス。プロセス間通信の共通インタフェースとしても使われる。
-  |     +-- BpBinder …… クライアント側のプロキシクラス（ServiceManager が自動的にインスタンスを生成する）
-  |     +-- BBinder …… サービスの基底クラス（基本的な実装を提供）
-  |           +-- BnInterface
-  +-- IInterface …… クライアントに提供するサービスインタフェースの基底クラス
-  +-- BpRefBase
-        +-- BpInterface …… クライアントに提供するサービスインタフェースの実装
-```
+- **`RefBase`** ... 各種オブジェクトの生存期間を参照カウンタ
+  - **`IBinder`** ... サービスの基底クラス。プロセス間通信の共通インタフェースとしても使われる。
+    - **`BpBinder`** ... クライアント側のプロキシクラス（ServiceManager が自動的にインスタンスを生成する）
+    - **`BBinder`** ... サービスの基底クラス（基本的な実装を提供）
+      - **`BnInterface`**
+  - **`IInterface`** ... クライアントに提供するサービスインタフェースの基底クラス
+  - **`BpRefBase`**
+      - **`BpInterface`** ... クライアントに提供するサービスインタフェースの実装
 
 ### ポイント
 
-* (a) サービスクラスは BBinder をサブクラス化して作成する。
-* (b) サービスにアクセスするインタフェースは IInterface をサブクラス化して作成する。
-* (c) サービスにアクセスするインタフェースの実装は BpInterface をサブクラス化して作成する。
+* (a) サービスクラスは `BBinder` をサブクラス化して作成する。
+* (b) サービスにアクセスするインタフェースは `IInterface` をサブクラス化して作成する。
+* (c) サービスにアクセスするインタフェースの実装は `BpInterface` をサブクラス化して作成する。
 
 (a) さえ準備してサービスを立ち上げれば、クライアントは `IBinder` インタフェースでサービスにアクセスできるようになります。
 (b)、(c) はまともなサービスインタフェースとしてクライアントに公開する場合に必要です。
@@ -34,16 +35,16 @@ RefBase …… 各種オブジェクトの生存期間を参照カウンタ
 ### ファイルのパス
 
 - クラス定義
-    - frameworks/base/include/binder/Binder.h (BBinder, BpRefBase)
-    - frameworks/base/include/binder/BpBinder.h (BpBinder)
-    - frameworks/base/include/binder/IBinder.h (IBinder)
-    - frameworks/base/include/binder/IInterface.h (IInterface, BnInterface, BpInterface)
-    - frameworks/base/include/utils/RefBase.h (RefBase)
-    - frameworks/base/include/utils/StrongPointer.h (sp)
+  - frameworks/base/include/binder/Binder.h (`BBinder`, `BpRefBase`)
+  - frameworks/base/include/binder/BpBinder.h (`BpBinder`)
+  - frameworks/base/include/binder/IBinder.h (`IBinder`)
+  - frameworks/base/include/binder/IInterface.h (`IInterface`, `BnInterface`, `BpInterface`)
+  - frameworks/base/include/utils/RefBase.h (`RefBase`)
+  - frameworks/base/include/utils/StrongPointer.h (`sp`)
 - 実装
-    - frameworks/base/libs/binder/BpBinder.cpp
-    - frameworks/base/libs/binder/IInterface.cpp
-    - frameworks/base/libs/utils/RefBase.cpp
+  - frameworks/base/libs/binder/BpBinder.cpp
+  - frameworks/base/libs/binder/IInterface.cpp
+  - frameworks/base/libs/utils/RefBase.cpp
 
 
 Binder 関連クラスをざっと眺めてみる
@@ -55,6 +56,8 @@ Binder 関連クラスをざっと眺めてみる
 
 ### IInteface
 
+`IInterface` クラスは、ユーザが定義するサービスのインタフェースのベースクラスになります。
+
 ```cpp
 class IInterface : public virtual RefBase {
 public:
@@ -65,8 +68,6 @@ protected:
     virtual IBinder* onAsBinder() = 0;
 };
 ```
-
-`IInterface` クラスは、ユーザが定義するサービスのインタフェースのベースクラスになります。
 
 ```cpp
 class IEchoService : public IInterface {
@@ -148,7 +149,7 @@ class BnInterface : public INTERFACE, public BBinder {
 };
 ```
 
-使い方は、こんな感じ。
+こんな感じで使います。
 
 ```cpp
 class BnMyClass : public BnInterface<IMyClass> {

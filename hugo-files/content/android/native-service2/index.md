@@ -1,6 +1,9 @@
 ---
-title: "ネイティブサービスの実装 (2) サービスの実装から利用まで"
+title: "Android Nativeメモ: ネイティブサービスの実装 (2) サービスの実装から利用まで"
+url: "p/edjwtcr/"
 date: "2011-04-27"
+tags: ["android"]
+aliases: [/android/native-service2.html]
 ---
 
 サービスの実装
@@ -12,9 +15,7 @@ date: "2011-04-27"
 一番重要なメソッドは、サービスの機能を提供する `onTransact()` メソッドです。
 例えば、計算を行うためのサービス `CalcService` を考えます。
 
-#### CalcService.h
-
-```cpp
+{{< code lang="cpp" title="CalcService.h" >}}
 #include <binder/Binder.h>
 
 class CalcService : public android::BBinder {
@@ -27,7 +28,7 @@ public:
     );
     virtual ~CalcService() {}
 };
-```
+{{< /code >}}
 
 クライアントからの入力値は `data` パラメータで受け取り、クライアントへの戻り値は `reply` パラメータに格納します。
 この `CalcService` に複数の機能（足し算、引き算など）を持たせたい場合は、`onTransact()` メソッドの第一引数で渡される `code`（int 値）をもとに処理を分岐させます。
@@ -112,8 +113,8 @@ int main() {
 完全なコードと実行テスト
 ----
 
-- [CalcService.zip](files/20110509-CalcService.zip)
-- [CalcClient.zip](files/20110509-CalcClient.zip)
+- [CalcService.zip](20110509-CalcService.zip)
+- [CalcClient.zip](20110509-CalcClient.zip)
 
 実行ファイルをデバイスに転送したら、以下のように CalcService サービスを起動できます。
 

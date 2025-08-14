@@ -1,13 +1,15 @@
 ---
-title: "ServiceManager に登録されたサービスを列挙する"
+title: "Android Nativeメモ: ServiceManager に登録されたサービスを列挙する"
+url: "p/qn635m9/"
 date: "2011-05-09"
+tags: ["android"]
+aliases: [/android/list-services.html]
 ---
 
 下記は、デバイス上の ServiceManager に登録されたサービスを列挙するためのプログラムです。
-Android make でビルドすると、**ListServices** という実行ファイルが生成されます。
+Android の make でビルドすると、**`ListServices`** という実行ファイルが生成されます。
 
-#### main.cpp
-```cpp
+{{< code lang="cpp" title="main.cpp" >}}
 #undef LOG_TAG
 #define LOG_TAG "ListServices"
 
@@ -33,10 +35,9 @@ int main() {
         LOGI("[%2d] %s", i + 1, String8(services[i]).string());
     }
 }
-```
+{{< /code >}}
 
-#### ListServices/Android.mk
-```make
+{{< code lang="makefile" title="ListServices/Android.mk" >}}
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -46,7 +47,7 @@ LOCAL_SRC_FILES := main.cpp
 LOCAL_SHARED_LIBRARIES := libcutils
 
 include $(BUILD_EXECUTABLE)
-```
+{{< /code >}}
 
 `m` コマンドなどで `ListServices` をビルドしたら、デバイスに転送してシェル上で実行します。
 下記のように、ServiceManager に登録されたサービスが列挙されます。

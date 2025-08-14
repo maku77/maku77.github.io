@@ -1,7 +1,13 @@
 ---
-title: "特殊ディレクトリの情報を取得する"
+title: "Androidメモ: Androidの特殊ディレクトリの情報を取得する (android.os.Environment)"
+url: "p/vjcad5m/"
 date: "2010-06-15"
+tags: ["android"]
+aliases: [/android/special-dir-info.html]
 ---
+
+Android の特殊ディレクトリの情報を取得するには、**`android.os.Environment`** クラスを使用します。
+以下は、いくつかの主要なディレクトリのパスを取得する方法です。
 
 ```java
 java.io.File dataDir = android.os.Environment.getDataDirectory();
