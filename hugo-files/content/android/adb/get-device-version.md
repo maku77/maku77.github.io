@@ -1,9 +1,9 @@
 ---
 title: "ADB で Android 端末のバージョンや API レベルを調べる (getprop)"
-permalink: "p/bg2g4bu/"
+url: "p/bg2g4bu/"
 date: "2022-04-21"
-redirect_from:
-  - /android/adb/get-device-version
+tags: ["android"]
+aliases: ["/android/adb/get-device-version.html"]
 ---
 
 ADB 経由で __`adb shell getprop`__ コマンドを実行すると、Android 端末に設定されたシステムプロパティの一覧を取得することができます。

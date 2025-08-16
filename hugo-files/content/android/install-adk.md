@@ -1,23 +1,24 @@
 ---
-title: "Eclipse から Android SDK を使えるようにする (ADK)"
+title: "Androidメモ: Eclipse から Android SDK を使えるようにする (ADK)"
 url: "p/4ch6hjg/"
 date: "2010-04-11"
 tags: ["android"]
 aliases: [/android/install-adk.html]
 ---
 
-前提: Android SDK がインストール済みであること。
+Android SDK がインストール済みであることを前提にしています。
+
 
 Eclipse に Android Development Toolkit (ADK) をインストール
 ----
 
 Eclipse から Android SDK を使用するには、**ADK** というプラグインをインストールします。
 
-1. Eclipse メニューから [Help] => [Install New Software...]。
-   - Work with: の欄に "https://dl-ssl.google.com/android/eclipse/" と入力してインストール。
+1. Eclipse メニューから `Help` => `Install New Software...` と選択。
+   - Work with: の欄に `https://dl-ssl.google.com/android/eclipse/` と入力してインストール。
 2. Android SDK のパスを設定
-   - Eclipse のメニューから [Window] => [Preferences]。
-   - [Android] を選択し、SDK Location に SDK を展開したディレクトリのパスを入力。
+   - Eclipse のメニューから `Window` => `Preferences` を選択。
+   - `Android` を選択し、SDK Location に SDK を展開したディレクトリのパスを入力。
      （これをやっておかないと、New Android Project のダイアログで Android SDK has not been setup. と出てプロジェクトを作成できません）
 
 ### プロキシ設定
@@ -33,32 +34,30 @@ Eclipse から Android SDK を使用するには、**ADK** というプラグイ
 Android SDK の Package のアップデート
 ----
 
-1. Eclipse のメニューから [Window] => [Android SDK and ADV Manager]。
-2. [Available Packages] を選択し、URL を選択して、[Install Selected] をクリック。
+1. Eclipse のメニューから `Window` => `Android SDK and ADV Manager`。
+2. `Available Packages` を選択し、URL を選択して、`Install Selected` をクリック。
 
 
 ### SDK のアップデート中に fetching... から進まない場合
 
-プロキシ設定を行う必要があります。Eclipse そのもののプロキシ設定ではなく、**Android SDK and AVD Manager** ウィンドウの [Settings] という項目で設定します。
+プロキシ設定を行う必要があるかもしれません。
+Eclipse そのもののプロキシ設定ではなく、**Android SDK and AVD Manager** ウィンドウの `Settings` という項目で設定します。
 
-```
-HTTP Proxy Server: proxy.example.com
-HTTP Proxy Port: 10080
-```
-
-のような感じで設定します。
+- 設定例
+  - HTTP Proxy Server: `proxy.example.com`
+  - HTTP Proxy Port: `10080`
 
 
 Eclipse & Android SDK で Hello World
 ----
 
-1. Eclipse のメニューから [File] => [New] => [Android Project]。
+1. Eclipse のメニューから `File` => `New` => `Android Project`。
 2. New Android Project ダイアログが出るので適当に入力。
-   - Project name: HelloAndroid
-   - Application name: Hello, Android
-   - Package name: org.example.hello
-   - Create Activity: Hello
-3. [Run] => [Run] でエミュレータを起動できる。
+   - Project name: `HelloAndroid`
+   - Application name: `Hello, Android`
+   - Package name: `org.example.hello`
+   - Create Activity: `Hello`
+3. `Run` => `Run` でエミュレータを起動できる。
 
 ### トラブルシューティング: An SDK Target must be specified.
 

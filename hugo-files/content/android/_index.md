@@ -53,26 +53,25 @@ Tools
 * [ADB で Activity や Service を起動するインテントを投げる (am start/start-service/broadcast)](/p/eezeq4g/)
 * [ADB で指定したアプリを強制終了する (am force-stop)](/p/9yse3iz/)
 * [ADB で特定のブロードキャストインテントをレシーブするアプリを列挙する (dumpsys activity broadcasts)](/p/jfqtfyn/)
-* [ADB でディレクトリ内のファイルをすべて取得する (adb pull)](adb/adb-pull-dir.html)
+* [Androidメモ: ADB でディレクトリ内のファイルをすべて取得する (adb pull)](/p/36huwqe/)
 * [ADB でスリープ状態に入る／スリープから抜ける](/p/cfqazd7/)
-* [ADB で WakeLock を強制的に外す](adb/unlock-wakelock.html)
+* [Androidメモ: ADB で WakeLock を強制的に外す](/p/xx3mb8e/)
 * [ADB からキー入力やテキスト入力を行う (`input text`, `input keyevent`)](/p/gorux24/)
 * [ADB で Android 端末のバージョンや API レベルを調べる (getprop)](/p/bg2g4bu/)
 * [ADB で Android 端末にインストールされているパッケージの一覧を取得する (pm list packages)](/p/uh84kfj/)
-* [TCP/IP で adb 接続する](adb/connect-adb-with-tcpip.html)
+* [Androidメモ: TCP/IP で adb 接続する](/p/492mmkw/)
 * [旧）Android Studio で静的解析プラグインを使用する (CheckStyle, FindBugs)](/p/web92kb/)
 * [ANR の原因を突き止める](/p/be5zj9v/)
-* [ADB 経由でスクリーンキャプチャを取得する](adb/screencapture.html)
+* [Androidメモ: ADB 経由でスクリーンキャプチャを取得する (`screencap`)](/p/kp3ubcu/)
 * [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
 * [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
 * Logcat
   * [Logcat のログ出力をフィルタする](/p/asryvzc/)
-* 旧）各種デバイスの ADB 接続
-  * [Nexus7 (2013) に adb 接続する](adb/connect-adb-to-nexus.html)
-  * [Xperia Tablet Z に adb 接続する](adb/connect-adb-to-xperia-tablet-z.html)
-  * [Sony Tablet S に adb 接続する](adb/connect-adb-to-sony-tablet-s.html)
-  * [SHARP IS03 に adb 接続する](adb/connect-adb-to-sharp-is03.html)
-  * [Eclipse から Android SDK を使えるようにする (ADK)](/p/4ch6hjg/)
+* 旧）各種デバイスの ADB 接続: <a style="display: inline" href="/p/5b6pmtc/">Nexus7 (2013)</a> /
+  <a style="display: inline" href="/p/eq3tw6z/">Xperia Tablet Z</a> /
+  <a style="display: inline" href="/p/gg59gt5/">Sony Tablet S</a> /
+  <a style="display: inline" href="/p/4hhc7ba/">SHARP IS03</a>
+* [旧）Androidメモ: Eclipse から Android SDK を使えるようにする (ADK)](/p/4ch6hjg/)
 
 
 ビルド関連／Gradle

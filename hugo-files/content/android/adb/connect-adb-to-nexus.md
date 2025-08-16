@@ -1,6 +1,9 @@
 ---
-title: "Nexus7 (2013) に adb 接続する"
+title: "Androidメモ: Nexus7 (2013) に adb 接続する"
+url: "p/5b6pmtc/"
 date: "2013-11-06"
+tags: ["android"]
+aliases: ["/android/adb/connect-adb-to-nexus.html"]
 ---
 
 Android タブレットの Nexus7 に、`adb` コマンドで接続するまでの手順です。
@@ -23,7 +26,7 @@ Android の設定メニューに「開発者向けオプション」を表示
 Windows 7 に USB Driver をインストール
 ----
 
-* http://developer.android.com/sdk/win-usb.html
+* https://developer.android.com/sdk/win-usb.html
 
 の指示に従ってドライバのダウンロード、インストールをすれば OK です。
 簡単に手順をまとめると、
@@ -34,30 +37,30 @@ Windows 7 に USB Driver をインストール
 4. "Other devices/Nexus 7" を右クリック => "Update Driver Software..."
    （"Portable Devices/Nexus 7" の方と間違えないように。"Other devices" の方が表示されない場合は、USBデバッグが ON になっていない可能性が高いです。）
 5. ドライバの入っているディレクトリを選択
-  - SDK Manager でダウンロードした場合: <android-sdk>/extras/google/usb_driver
-  - 手動ダウンロードした場合: 展開してできた usb_driver ディレクトリを選択
+   - SDK Manager でダウンロードした場合: `<android-sdk>/extras/google/usb_driver`
+   - 手動ダウンロードした場合: 展開してできた `usb_driver` ディレクトリを選択
 
 
 ADB を最新版に更新
 ----
 
 1. SDK Manager で以下を最新にアップデートしておく（これやらないと adb devices で認識しないことあり）
-  - Android SDK Platoform-tools（2013-11-06 時点で rev.19）
+   - Android SDK Platoform-tools（2013-11-06 時点で rev.19）
 
 
 コマンドラインから ADB 接続
 ----
 
-```
-> adb kill-server
-> adb devices
+```console
+$ adb kill-server
+$ adb devices
 ```
 
 ここで Nexus7 の画面に「USBデバッグを許可しますか？」のダイアログが出るので「OK」を選択。
 これで Nexus7 に ADB 接続できるようになります。
 
-```
-> adb shell
+```console
+$ adb shell
 shell@flo:/ $
 ```
 

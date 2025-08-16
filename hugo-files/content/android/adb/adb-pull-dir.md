@@ -1,9 +1,12 @@
 ---
-title: "ADB でディレクトリ内のファイルをすべて取得する (adb pull)"
+title: "Androidメモ: ADB でディレクトリ内のファイルをすべて取得する (adb pull)"
+url: "p/36huwqe/"
 date: "2011-07-29"
+tags: ["android"]
+aliases: ["/android/adb/adb-pull-dir.html"]
 ---
 
-__`adb pull`__ コマンドは、単一のファイルだけではなく、ディレクトリごとファイルを取得するのにも使用できます。
+Android SDK の __`adb pull`__ コマンドは、単一のファイルだけではなく、ディレクトリごとファイルを取得するのにも使用できます。
 下記の例では、Android デバイス上の `/system/lib` ディレクトリ内のファイルをすべて取得しています。
 
 ```console
