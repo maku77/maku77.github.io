@@ -1,6 +1,9 @@
 ---
-title: "Make 変数でビルド範囲を制御する"
+title: "Androidベンダー向けメモ: Make 変数でビルド範囲を制御する"
+url: "p/mco3pis/"
 date: "2010-09-06"
+tags: ["android"]
+aliases: ["/android/vendor/control-build-target.html"]
 ---
 
 Android のワンショット make の仕組みでは、`Android.mk` に基づいてビルド処理が行われますが、下位ディレクトリにある `Android.mk` はデフォルトでは検索しないようになっています。
@@ -8,7 +11,7 @@ Android のワンショット make の仕組みでは、`Android.mk` に基づ�
 
 下記の例では、`CONFIG_HOGE` という Make 変数の値により、下位ディレクトリのモジュールのビルドを制御しています。
 
-```makefile
+```
 ifeq ($(CONFIG_HOGE),true)
     include $(call all-subdir-makefiles)
 endif

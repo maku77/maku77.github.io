@@ -1,6 +1,9 @@
 ---
-title: "システムプロパティのあれこれ"
+title: "Androidベンダー向けメモ: システムプロパティのあれこれ"
+url: "p/4yw4wwr/"
 date: "2010-05-08"
+tags: ["android"]
+aliases: ["/android/vendor/system-property.html"]
 ---
 
 システムプロパティの定義方法
@@ -19,7 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 `default.prop` に以下のような感じで追加すると、デバイス起動時にシステムプロパティとして設定されます。
 
-```
+```ini
 persist.sys.timezone=Asia/Tokyo
 ```
 
@@ -36,11 +39,13 @@ Android デバイス起動時にシステムプロパティが設定される流
 ----
 
 1. init process が以下からプロパティをロードする 
-  - /default.prop
-  - /system/build.prop
-  - /system/default.prop
-  - /data/local.prop
-2. システムプロパティ情報を提供するための unix domain socket server が作成される。socket のパスは `/dev/socket/property_service` で、サイズは環境変数の `ANDROID_PROPERTY_WORKSPACE` で取得する。Bionic libc のライブラリ `libcutils` がこの shared memory に対してシステムプロパティを読み書きするインタフェースを提供する。
+   - `/default.prop`
+   - `/system/build.prop`
+   - `/system/default.prop`
+   - `/data/local.prop`
+2. システムプロパティ情報を提供するための unix domain socket server が作成される。
+   socket のパスは `/dev/socket/property_service` で、サイズは環境変数の `ANDROID_PROPERTY_WORKSPACE` で取得する。
+   Bionic libc のライブラリ `libcutils` がこの shared memory に対してシステムプロパティを読み書きするインタフェースを提供する。
 
 
 システムプロパティの get/set
@@ -81,20 +86,16 @@ public static boolean getBoolean(String key, boolean def)
 public static void set(String key, String val)
 ```
 
-これは Android platform で使われているプライベートなクラスなので、Android アプリからは通常使用しません。
-扱い的には internal usage only とされているが、internal usage って何のことを言っているのかが曖昧。
-
+これは Android platform で使われているプライベートなクラスなので、Android アプリからは通常使用しません（internal usage only とされていますが、internal usage が何のことを言っているのかが曖昧です）。
 `SystemProperties` は JNI を使って、`libcutils` のネイティブコードを叩いています。
-get は通常できるが、set は UID が適切にセットされていないとできないっぽいです（2016-03-16 追記: 現状これらは hide API 扱いなので、いずれも通常のアプリケーションからは使用できません）。
+通常 get 操作はできますが、set 操作は UID が適切にセットされていないとできないっぽいです（2016-03-16 追記: 現状これらは hide API 扱いなので、いずれも通常のアプリケーションからは使用できません）。
 
 似たようなものに、通常の J2SE アプリケーションで使用可能な `java.lang.System` クラスの `getProperty()` 系 API がありますが、この API で取得するプロパティは VM に関するプロパティであり、情報が異なります。
 
 ### from shell (script)
 
-Bionic libc の `libcutils` に、コマンドラインツールとして以下のコマンドが用意されています。これらは shell script からも実行可能です。
+Bionic libc の `libcutils` に、コマンドラインツールとして以下のコマンドが用意されています。これらは shell スクリプトからも実行可能です。
 
-```
-getprop (例: getprop com.example.key)
-setprop (例: setprop com.example.key value)
-```
+- **`getprop`** ... 例: `getprop com.example.key`
+- **`setprop`** ... 例: `setprop com.example.key value`
 

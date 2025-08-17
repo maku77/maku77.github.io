@@ -100,7 +100,7 @@ Android Studio
 * [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
 
 
-Androidベンダー向けメモ（Android デバイス開発者向け）
+Androidベンダー向けメモ（Android デバイス開発者向け） <!-- vendor -->
 ----
 
 * [Androidベンダー向けメモ: LowMemoryKiller の仕組み](/p/qmcauwd/)
@@ -114,11 +114,11 @@ Androidベンダー向けメモ（Android デバイス開発者向け）
 * [Androidベンダー向けメモ: インストールされた各 APK パッケージに割り当てられたユーザー ID を調べる (`packages.xml`)](/p/okshfzt/)
 * [Androidベンダー向けメモ: Android デバイスのパーティション構成概要 (Nexus7)](/p/ks84q3k/)
 * [Androidベンダー向けメモ: android/build/core 以下の `*.mk` ファイルで定義されている関数 (`define`) のリスト](/p/7zgfhqz/)
-* [製品にパッケージングする APK を指定する](vendor/package-apks.html)
-* [Make 変数でビルド範囲を制御する](vendor/control-build-target.html)
-* [システムプロパティのあれこれ](vendor/system-property.html)
-* [findmakefile で Android.mkのあるディレクトリを調べる](vendor/findmakefile.html)
-* [libhardware.so が hardware サポートライブラリをロードする仕組み](vendor/libhardware.html)
+* [Androidベンダー向けメモ: 製品にパッケージングする APK を指定する (`PRODUCT_PACKAGES`)](/p/n8n3mwo/)
+* [Androidベンダー向けメモ: Make 変数でビルド範囲を制御する](/p/mco3pis/)
+* [Androidベンダー向けメモ: システムプロパティのあれこれ](/p/4yw4wwr/)
+* [Androidベンダー向けメモ: `findmakefile` コマンドで `Android.mk` のあるディレクトリを調べる](/p/63w3r2r/)
+* [Androidベンダー向けメモ: libhardware.so が hardware サポートライブラリをロードする仕組み](/p/6qsndck/)
 
 
 Android アプリ実装／Framework／SDK
