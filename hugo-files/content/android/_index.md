@@ -63,8 +63,8 @@ Tools
 * [旧）Android Studio で静的解析プラグインを使用する (CheckStyle, FindBugs)](/p/web92kb/)
 * [ANR の原因を突き止める](/p/be5zj9v/)
 * [Androidメモ: ADB 経由でスクリーンキャプチャを取得する (`screencap`)](/p/kp3ubcu/)
-* [StrictMode を有効にして望ましくない実装を検出する](analyze/strict-mode.html)
-* [StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)](analyze/strict-mode-toaster.html)
+* [Androidメモ: StrictMode を有効にして望ましくない実装を検出する](/p/yvit8zb/)
+* [Androidメモ: StrictMode の違反メッセージを Toast で表示する (`StrictModeToaster`)](/p/gv2dqi3/)
 * Logcat
   * [Logcat のログ出力をフィルタする](/p/asryvzc/)
 * 旧）各種デバイスの ADB 接続: <a style="display: inline" href="/p/5b6pmtc/">Nexus7 (2013)</a> /
@@ -141,9 +141,9 @@ Android アプリ実装／Framework／SDK
 
 * [Androidメモ: ネットワーク情報を取得する (`ConnectivityManager`, `NetworkInfo`)](/p/rm9ve9q/)
 * [Androidメモ: Androidの特殊ディレクトリの情報を取得する (`android.os.Environment`)](/p/vjcad5m/)
-* [キーイベント (KeyEvent) を見やすく出力する](io/print-keyevents.html)
-* [タッチイベントをハンドルする](io/handle-touch-events.html)
-* [Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する](io/keyboard-long-press.html)
+* [Androidメモ: キーイベント (KeyEvent) を見やすく出力する](/p/8nbd6ca/)
+* [Androidメモ: タッチイベントをハンドルする](/p/35cr5fp/)
+* [Androidメモ: Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する](/p/2imy2j9/)
 
 ### UI（描画）
 
@@ -162,7 +162,7 @@ Android アプリ実装／Framework／SDK
 
 ### 数値／文字列
 
-* [数値をある範囲内［min, max］に丸める (MathUtils.clamp)](numstr/clamp.html)
+* [Androidメモ: 数値をある範囲内［min, max］に丸める (`MathUtils.clamp`)](/p/qyh8496/)
 
 ### Service（サービス）
 

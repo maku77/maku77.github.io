@@ -1,35 +1,34 @@
 ---
-title: "StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)"
+title: "Androidメモ: StrictMode の違反メッセージを Toast で表示する (StrictModeToaster)"
+url: "p/gv2dqi3/"
 date: "2019-10-16"
+tags: ["android"]
+aliases: ["/android/analyze/strict-mode-toaster.html"]
 ---
 
-[StrictMode の設定](./strict-mode.html)をしておくと、メインスレッドから I/O アクセスなどを行った場合に、違反 (violation) 通知を受けることができます。
-
-StrictMode の設定時に、`ThreadPolicy.Builder.penaltyLog()` を呼び出しておくと、違反時に LogCat にメッセージを出力してくれるのですが、ここではさらに Toast で violation 名を表示するようにしてみます。
+Android アプリの実装内で [StrictMode の設定](/p/yvit8zb/)をしておくと、メインスレッドから I/O アクセスなどを行った場合に違反 (violation) 通知を受けることができます。
+例えば StrictMode の設定時に、`ThreadPolicy.Builder.penaltyLog()` を呼び出しておくと、violation 発生時に Logcat に警告メッセージを出力してくれるようになります。
+ここではさらに Toast で発生した violation の名称を表示するようにしてみます。
 violation 発生時に Toast 表示を行うことで、violation の見逃しを防ぎやすくなります。
 
 
 StrictModeToaster クラスで violation をトースト表示する
 ----
 
-下記の **`StrictModeToaster`** クラスを使用すると、StrictMode の violation が発生したときに、violation 名を Toast 表示することができます。
-同時に、violation の詳細内容（コールスタック）が LogCat に出力されます。
+下記の **`StrictModeToaster`** クラスを使用すると、StrictMode の violation が発生したときに、violation 名を Toast で表示することができます。
+同時に、violation の詳細内容（コールスタック）が Logcat に出力されます。
 使い方は、Application クラスなどの先頭で `StrictModeToaster.setup()` を呼び出すだけです。
 
-#### App.kt
-
-```kotlin
+{{< code lang="kotlin" title="App.kt" >}}
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
         StrictModeToaster.setup(applicationContext)
     }
 }
-```
+{{< /code >}}
 
-#### StrictModeToaster.kt
-
-```kotlin
+{{< code lang="kotlin" title="StrictModeToaster.kt" >}}
 package com.example.myapp
 
 import android.content.Context
@@ -100,7 +99,9 @@ object StrictModeToaster {
             Toast.makeText(appContext, message, Toast.LENGTH_LONG).show()
         }
     }
-```
+}
+{{</ code >}}
+
 
 StrictModeToaster クラスの説明
 ----
@@ -110,7 +111,7 @@ StrictModeToaster クラスの説明
 `StrictModeToaster.setup()` を実行すると、DEBUG ビルドのときのみ StrictMode に関する設定が行われるようになっています。
 デバッグビルドかのチェックには、よく `BuildConfig.DEBUG` に設定されている Boolean フラグを見たりするのですが、このクラスはビルド時にアプリパッケージ以下に自動生成されるクラスなので、汎用的なライブラリの実装からは参照できません。
 ここでは、`ApplicationInfo.flags` を見て、デバッグビルドかどうかの判別を行うようにしています。
-`build.gradle` や `AndroidManifest.xml` で余計な設定をしていない限り、デバッグビルド時に FLAG_DEBUGGABLE のビットが 1 になります。
+`build.gradle` や `AndroidManifest.xml` で余計な設定をしていない限り、デバッグビルド時に `FLAG_DEBUGGABLE` のビットが 1 になります。
 
 ### violation 発生時のハンドル
 

@@ -1,18 +1,22 @@
 ---
-title: "Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する"
+title: "Androidメモ: Emulator での開発時にキーボードによるキー入力が長押しかどうかを判別する"
+url: "p/2imy2j9/"
 date: "2020-02-13"
+tags: ["android"]
+aliases: ["/android/io/keyboard-long-press.html"]
 ---
 
-Android TV の実機上では、リモコンの決定キー (`KEYCODE_DPAD_ENTER`) を長押しすると、`KeyEvent.isLongPress` が `true` になるので、このフラグを見て長押し時の処理を記述することができます。
-
-一方、Android アプリの開発をエミュレーターで行っているとき、キーボードの Enter キー (`KEYCODE_ENTER`) を、`KEYCODE_DPAD_ENTER` の代わりにしようとしても、**`KeyEvent.isLongPress` が `true` になってくれません**。
+Android アプリの開発をエミュレーターで行っているとき、キーボードの Enter キー (`KEYCODE_ENTER`) の長押しを **`KeyEvent.isLongPress` で判定しようとしてもうまくいきません（`true` になりません）。
 なぜなら、キーボードのハードウェア的なキーリピート（正確には OS によるキーリピート）が働いてしまい、長押しではなくキー連打だと判定されてしまうからです。
+
+{{< note title="Android TV における D-Pad 操作の場合" >}}
+Android TV 用のアプリを開発している場合は、リモコンの決定キー (`KEYCODE_DPAD_ENTER`) を長押しすると、`KeyEvent.isLongPress` が正しく `true` になります。
+エミュレーターでの開発時に、`KEYCODE_DPAD_ENTER` の代わりにキーボードの Enter キー (`KEYCODE_ENTER`) で代替しようとすると、長押しが判定できないという罠にはまります。
+{{< /note >}}
 
 下記の `LongKeyPressChecker` クラスは、キーボードからのキー入力であっても、そのキーが長押しされているかどうかを判別できるようにするためのユーティリティクラスです。
 
-#### LongKeyPressChecker.kt
-
-```kotlin
+{{< code lang="kotlin" title="LongKeyPressChecker.kt" >}}
 import android.view.KeyEvent
 
 /**
@@ -66,14 +70,12 @@ class LongKeyPressChecker {
         return false
     }
 }
-```
+{{< /code >}}
 
 使い方は簡単で、`View.onKeyDown` などの先頭で `isLongPressed` メソッドを呼び出すだけです。
 次のようにすれば、キーボードの Enter キー (`KEYCODE_ENTER`) が長押しされたかどうかを判別できます。
 
-#### MainActivity.kt
-
-```kotlin
+{{< code lang="kotlin" title="MainActivity.kt" >}}
 class MainActivity : FragmentActivity(R.layout.main_activity) {
 
     private val longKeyPressChecker = LongKeyPressChecker()
@@ -93,10 +95,9 @@ class MainActivity : FragmentActivity(R.layout.main_activity) {
 
     // ...
 }
-```
+{{< /code >}}
 
 仕組みとしては、前回のキー入力から時間をあけずに（上記の例では `REPEAT_INTERVAL_MILLIS` ミリ秒以内）に、同じキーが何回も（上記の例では `LONG_PRESSED_COUNT` 回）押されたかを判別しているだけです。
-
 なので、短時間にキー連打すると、長押しと判定されてしまう可能性があります。
 また、Windows などの OS のキーリピート設定により、キー押しっぱなし時のカウント速度が変わってくることに注意してください。
 
