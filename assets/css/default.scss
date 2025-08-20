@@ -585,12 +585,15 @@ iframe.xHtmlDemo {
     color: $COLOR_PAGE_TITLE;
     font-size: 2rem;
     padding-top: 16px;
+    margin: 0;
   }
 
   &_title {
+    background: transparent;
     color: $COLOR_PAGE_TITLE;
     font-size: 1.5rem;
     padding: 0 0.2em 0 0.2em;
+    margin: 0;
   }
 
   &_category {
