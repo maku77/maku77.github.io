@@ -124,16 +124,16 @@ Androidベンダー向けメモ（Android デバイス開発者向け） <!-- ve
 Android アプリ実装／Framework／SDK
 ----
 
-* [Jetpack Compose の宣言型 (declarative) の UI 定義とは？](fw/compose.html)
-* [Activity の起動モードと起動フラグ（タスクとアフィニティ）](fw/task-and-affinity.html)
-* [SpeechRecognizer で音声入力を実現する](fw/speech-recognizer.html)
-* [リソース ID を示す変数やパラメータにアノテーションを付ける](fw/res-annotation.html)
+* [Androidメモ: Jetpack Compose の宣言型 (declarative) の UI 定義とは？](/p/4kdso44/)
+* [Androidメモ: Activity の起動モードと起動フラグ（タスクとアフィニティ）](/p/4zpco9q/)
+* [Androidメモ: SpeechRecognizer で音声入力を実現する](/p/bcmfu3e/)
+* [Androidメモ: リソース ID を示す変数やパラメータにアノテーションを付ける](/p/33jn7zy/)
 * [Androidメモ: AsyncTask による非同期処理と UI 更新処理](/p/o3hggfz/)
 
 ### 設定（Settings、SharedPreferences）
 
-* [SharedPreferences でアプリの設定値を保存する](fw/shared-preference.html)
-* [Preference フレームワークを使って設定画面を簡単に作成する](fw/preference-fw.html)
+* [Androidメモ: SharedPreferences でアプリの設定値を保存する](/p/d7dho89/)
+* [Androidメモ: Preference フレームワークを使って設定画面を簡単に作成する](/p/b9ij3zq/)
 * [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
 * [Androidメモ: 現在のスクリーンレイアウトサイズを取得する (`Configuration`)](/p/7e9mdcp/)
 

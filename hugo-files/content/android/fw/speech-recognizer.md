@@ -1,6 +1,9 @@
 ---
-title: "SpeechRecognizer で音声入力を実現する"
+title: "Androidメモ: SpeechRecognizer で音声入力を実現する"
+url: "p/bcmfu3e/"
 date: "2014-01-23"
+tags: ["android"]
+aliases: ["/android/fw/speech-recognizer.html"]
 ---
 
 SpeechRecognizer の基本
@@ -15,9 +18,7 @@ Android 2.2 Froyo (API Level 8) で追加された SpeechRecognizer を使うと
 4. あとは `RecognitionListener` のコールバックを適宜処理。
 5. `SpeechRecognizer#cancel()` で音声入力を終了。
 
-#### コード抜粋
-
-~~~ java
+{{< code lang="java" title="SpeechRecognizer の基本的な使い方" >}}
 // import android.speech.RecognitionListener;
 // import android.speech.SpeechRecognizer;
 
@@ -31,34 +32,33 @@ private void startSpeechRecognition() {
      mRecognizer.setRecognitionListener(mRecognitionListener);
      mRecognizer.startListening(new Intent());
 }
-~~~
+{{< /code >}}
 
-SpeechRecognizer を利用するには、`RECORD_AUDIO` パーミッションを付加しておく必要があります。
+SpeechRecognizer を利用するには、**`RECORD_AUDIO`** パーミッションを付加しておく必要があります。
 パーミッションが付加されていない場合、`SpeechRecognizer#startListening()` 実行時に、`RecognitionListener#onError(int error)` で、`SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS (9)` が報告されます。
 
-#### AndroidManifest.xml
-
-~~~ xml
+{{< code lang="xml" title="AndroidManifest.xml" >}}
 <?xml version="1.0" encoding="utf-8"?>
 <manifest ...>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     ...
 </manifest>
-~~~
+{{< /code >}}
+
 
 RecognitionListener によるイベント処理
 ----
 
 `SpeechRecognizer#startListening()` を実行すると、以下のようなイベントを捕捉できるようになります。
 
-- `onReadyForSpeech` -- `SpeechRecognizer#startListening()` すると呼び出される
-- `onBeginningOfSpeech` -- マイクに向かってしゃべり始めると呼び出される
-- `onEndOfSpeech` -- しゃべり終わると呼び出される
-- `onResults` -- 音声認識の結果が渡される
+- **`onReadyForSpeech`** ... `SpeechRecognizer#startListening()` すると呼び出される
+- **`onBeginningOfSpeech`** ... マイクに向かってしゃべり始めると呼び出される
+- **`onEndOfSpeech`** ... しゃべり終わると呼び出される
+- **`onResults`** ... 音声認識の結果が渡される
 
 `RecognitionListener#onResults()` で渡される Bundle オブジェクトから、音声認識の結果を取得することができます。
 
-~~~ java
+```java
 private RecognitionListener mRecognitionListener = new RecognitionListener() {
     @Override
     public void onResults(Bundle results) {
@@ -70,7 +70,7 @@ private RecognitionListener mRecognitionListener = new RecognitionListener() {
     }
     ...
 };
-~~~
+```
 
 
 音声認識に使用する言語を指定する
@@ -78,9 +78,7 @@ private RecognitionListener mRecognitionListener = new RecognitionListener() {
 
 `SpeechRecognizer#startListening()` を実行するときに指定する Intent をカスタマイズすることで、音声認識に使用する言語を設定することができます。
 
-#### 例: アメリカ英語で音声認識する
-
-~~~ java
+{{< code lang="java" title="例: アメリカ英語で音声認識する" >}}
 // private SpeechRecognizer mRecognizer;
 // private RecognitionListener mRecognitionListener = new RecognitionListener() {...}; 
 
@@ -96,19 +94,16 @@ private void startRecognition() {
     intent.putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE, lang);
     mRecognizer.startListening(intent);
 }
-~~~
+{{< /code >}}
 
 
 音声認識で取得する結果の数を設定する
 ----
 
-
 SpeechRecognizer での音声認識の結果は、デフォルトでは複数の候補が得られるようになっています。
 取得する結果の数を変更するには、以下のように `SpeechRecognizer#startListening()` で渡す Intent でカスタマイズします。
 
-#### 例: 音声認識で得られる結果を 1 つにする
-
-~~~ java
+{{< code lang="java" title="例: 音声認識の結果を 1 つにする" >}}
 // private SpeechRecognizer mRecognizer;
 // private RecognitionListener mRecognitionListener = new RecognitionListener() {...};
 
@@ -121,12 +116,12 @@ private void startRecognition() {
     intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
     mRecognizer.startListening(intent);
 }
-~~~
+{{< /code >}}
 
 `EXTRA_MAX_RESULTS` で設定した数が反映されるかどうかは、Android のバージョンにも依存するようです。
 いずれにしても、結果を 1 つだけ取得したいのであれば、`RecognitionListener#onResult()` で取得した認識結果の最初だけを取得すればよいでしょう。
 
-~~~ java
+```java
 private RecognitionListener mRecognitionListener = new RecognitionListener() {
     @Override
     public void onResults(Bundle results) {
@@ -137,7 +132,7 @@ private RecognitionListener mRecognitionListener = new RecognitionListener() {
     }
     ...
 }
-~~~
+```
 
 
 音声認識のエラーコードをテキストに変換する
@@ -147,9 +142,7 @@ SpeechRecognizer で音声入力をするときにエラーが発生すると、
 このとき、引数でエラーコードが渡されるのですが、分かりやすいテキストに変換したいところです。
 現時点でテキストに変換する方法は提供されていないようなので、ここでは、適当なユーティリティを作って対応します。
 
-#### SpeechRecognizerUtil.java
-
-~~~ java
+{{< code lang="java" title="SpeechRecognizerUtil.java" >}}
 package com.example.myfirstapp;
 
 import android.speech.SpeechRecognizer;
@@ -179,11 +172,9 @@ public class RecognizerUtil {
           return "Unknown error";
      }
 }
-~~~
+{{< /code >}}
 
-#### 使用例
-
-~~~ java
+{{< code lang="java" title="RecognitionListener#onError() での使用例" >}}
 private RecognitionListener mRecognitionListener = new RecognitionListener() {
     @Override
     public void onError(int error) {
@@ -191,7 +182,7 @@ private RecognitionListener mRecognitionListener = new RecognitionListener() {
     }
     ...
 }
-~~~
+{{< /code >}}
 
 
 音声認識を連続して実行する
@@ -205,10 +196,7 @@ private RecognitionListener mRecognitionListener = new RecognitionListener() {
 
 二回目以降の `startListening()` を呼び出す前には、一度 SpeechRecognizer を `destroy()` して、再生成しないとうまくいかないことがあるようです（`startListening()` を読んでも実際には何も起こらない）。
 
-
-#### SpeechRecognizer を連続実行するサンプルコード
-
-~~~ java
+{{< code lang="java" title="SpeechRecognizer を連続実行するサンプルコード" >}}
 package com.example.myfirstapp;
 
 import java.util.ArrayList;
@@ -275,5 +263,5 @@ public class MainActivity extends Activity {
           mRecognizer.startListening(intent);
      }
 }
-~~~
+{{< /code >}}
 

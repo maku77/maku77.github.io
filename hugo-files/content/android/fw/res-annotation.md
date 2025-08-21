@@ -1,7 +1,10 @@
 ---
-title: "リソース ID を示す変数やパラメータにアノテーションを付ける"
+title: "Androidメモ: リソース ID を示す変数やパラメータにアノテーションを付ける"
+url: "p/33jn7zy/"
 date: "2019-02-18"
+tags: ["android"]
 description: "Android の Annotation Support Library は、int 型変数の用途を限定するためのアノテーションを提供しています。このアノテーションを使用することで、想定外の値が int 変数に格納されてしまうのを防ぐことができます。"
+aliases: ["/android/fw/res-annotation.html"]
 ---
 
 リソース ID を表す int 変数に付けるアノテーション

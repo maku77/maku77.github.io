@@ -1,7 +1,10 @@
 ---
-title: "SharedPreferences でアプリの設定値を保存する"
+title: "Androidメモ: SharedPreferences でアプリの設定値を保存する"
+url: "p/d7dho89/"
 date: "2010-05-29"
+tags: ["android"]
 lastmod: "2019-08-07"
+aliases: ["/android/fw/shared-preference.html"]
 ---
 
 SharedPreferences とは
@@ -29,14 +32,16 @@ SharedPreferences による値を書き込む
 このとき第 1 パラメータで指定した名前が XML ファイルの名前に使用されます（拡張子 `.xml` は省略して指定します）。
 第 2 パラメータには、Android 7.0 (API level24) 以降では `Context.MODE_PRIVATE` しか指定できません。
 
+```java
+SharedPreferences pref = context.getSharedPreferences("my_settings", Context.MODE_PRIVATE);
+```
+
 `SharedPreferences` の値の編集を編集したいときは、[edit()](https://developer.android.com/reference/android/content/SharedPreferences.html#edit()) メソッドを使って [SharedPreferences.Editor](https://developer.android.com/reference/android/content/SharedPreferences.Editor.html) オブジェクトを取得する必要があります。
-値の編集が終わったら、最後に [Editor#commit()](https://developer.android.com/reference/android/content/SharedPreferences.Editor.html#commit()) メソッドを呼び出すことで、`SharedPreferences` に変更が反映されます。
+値の編集が終わったら、最後に [Editor#commit()](https://developer.android.com/reference/android/content/SharedPreferences.Editor.html#commit()) メソッドを呼び出すことで `SharedPreferences` に変更が反映されます。
 このメソッドを呼び出し忘れると何も保存されないので注意してください。
 `commit()` の呼び出しが面倒に感じるかもしれませんが、このような仕組みになっているおかげで、変更内容を一括で（アトミックに）反映することができ、効率的なファイルへの書き込みやイベント通知を行えるようになっています。
 
-#### Java の場合
-
-```java
+{{< code lang="java" title="SharedPreferences に値を書き込む（Java）" >}}
 // import android.content.SharedPreferences;
 SharedPreferences pref = context.getSharedPreferences("my_settings", Context.MODE_PRIVATE);
 SharedPreferences.Editor editor = pref.edit();
@@ -44,54 +49,48 @@ editor.putString("stringValue", "ほげ");
 editor.putBoolean("booleanValue", true);
 editor.putInt("intValue", 100);
 editor.commit();
-```
+{{< /code >}}
 
-#### Kotlin の場合
-
-```kotlin
+{{< code lang="kotlin" title="SharedPreferences に値を書き込む（Kotlin）" >}}
 getSharedPreferences("my_settings", Context.MODE_PRIVATE).edit().apply {
     putString("stringValue", "ほげ")
     putBoolean("booleanValue", true)
     putInt("intValue", 100)
     commit()
 }
-```
+{{< /code >}}
 
-アプリのパッケージ名が `com.example.hello` だとすると、上記のような `SharedPreferences` 設定は `/data/data/com.example.hello/shared_prefs/my_settings.xml` というファイルに保存されます。
+アプリのパッケージ名が `com.example.hello` だとすると、上記のような `SharedPreferences` 設定は下記のようなファイルとして保存されます。
 
-```xml
+{{< code lang="xml" title="/data/data/com.example.hello/shared_prefs/my_settings.xml" >}}
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
     <string name="stringValue">ほげ</string>
     <int name="intValue" value="100" />
     <boolean name="booleanValue" value="true" />
 </map>
-```
+{{< /code >}}
 
 
 SharedPreferences から値を読み出す
 ----
 
-保存された `SharedPreferences` の値を読み出すには、次のようにします。
-指定したキーが存在しない場合には、第２引数で指定したデフォルト値が返されます。
+保存された `SharedPreferences` の値を読み出すには次のようにします。
+指定したキーが存在しない場合には、第 2 引数で指定したデフォルト値が返されます。
 
-#### Java の場合
-
-```java
+{{< code lang="java" title="SharedPreferences から値を読み出す（Java）" >}}
 SharedPreferences pref = context.getSharedPreferences("my_settings", Context.MODE_PRIVATE);
 String stringValue = pref.getString("stringValue", "");
 boolean booleanValue = pref.getBoolean("booleanValue", false);
 int intValue = pref.getInt("intValue", 0);
-```
+{{< /code >}}
 
-#### Kotlin の場合
-
-```kotlin
+{{< code lang="kotlin" title="SharedPreferences から値を読み出す（Kotlin）" >}}
 val pref = getSharedPreferences("my_settings", Context.MODE_PRIVATE)
 val stringValue = pref.getString("stringValue", "")
 val booleanValue = pref.getBoolean("booleanValue", false)
 val intValue = pref.getInt("intValue", 0)
-```
+{{< /code >}}
 
 値の編集は行わないので、`SharedPreferences.Editor` オブジェクトを生成する必要はないところがポイントです。
 
@@ -102,27 +101,23 @@ SharedPreferences の値を削除する
 `SharedPreferences` にすでに保存されているキー＆バリューを削除するには、`SharedPreferences.Editor` の `remove(key)` メソッドを使用します。
 この場合も、最後に `commit()` が必要なことに注意してください。
 
-#### Java の場合
-
-```java
+{{< code lang="java" title="SharedPreferences の値を削除する（Java）" >}}
 SharedPreferences pref = context.getSharedPreferences("my_settings", Context.MODE_PRIVATE);
 SharedPreferences.Editor editor = pref.edit();
 editor.remove("stringValue");
 editor.remove("booleanValue");
 editor.remove("intValue");
 editor.commit();
-```
+{{< /code >}}
 
-#### Kotlin の場合
-
-```kotlin
+{{< code lang="kotlin" title="SharedPreferences の値を削除する（Kotlin）" >}}
 getSharedPreferences("my_settings", Context.MODE_PRIVATE).edit().apply {
     remove("stringValue")
     remove("booleanValue")
     remove("intValue")
     commit()
 }
-```
+{{< /code >}}
 
 キー名を指定せずに、すべてのキー＆バリューを削除するには、`Editor#clear()` メソッドを使用します。
 
@@ -140,21 +135,20 @@ getSharedPreferences("my_settings", Context.MODE_PRIVATE).edit().apply {
 上記では、`Context#getSharedPreferences()` メソッドを使って `SharedPreferences` オブジェクトを作成していましたが、他にも、アプリ全体用、Activity 用に `SharedPreferences` オブジェクトを作成するメソッドが用意されています。
 それぞれ、作成される XML ファイルのパスが変わってきます。
 
+- <b>ファイル名指定（解説済みのはこれ）</b>
+  - API: **`Context#getSharedPreferences("sample", Context.MODE_PRIVATE)`**
+  - ファイルパス: `/data/data/<package名>/shared_prefs/sample.xml`
+  - 指定したファイル名の単位で `SharedPreferences` を作成します。用途別に設定ファイルを分けて管理することができます。
 - <b>アプリ用（デフォルト SharedPreferences）</b>
-    - API: **`PreferenceManager.getDefaultSharedPreferences(context)`**
-    - ファイルパス: `/data/data/<package名>/shared_prefs/<pacakge名>_preferences.xml`
-    - アプリ全体で使用する `SharedPreferences` を作成します。アプリ全体で 1 つのファイルが使用されます。[Preference フレームワークを使って設定画面](./preference-fw.html) を作成した場合も、このデフォルトの SharedPreferences ファイルが使用されます。
+  - API: **`PreferenceManager.getDefaultSharedPreferences(context)`**
+  - ファイルパス: `/data/data/<package名>/shared_prefs/<pacakge名>_preferences.xml`
+  - アプリ全体で使用する `SharedPreferences` を作成します。アプリ全体で 1 つのファイルが使用されます。[Preference フレームワークを使って設定画面を作成](/p/b9ij3zq/) した場合も、このデフォルトの SharedPreferences ファイルが使用されます。
 - <b>Activity 用</b>
-    - API: **`Activity#getPreferences(Context.MODE_PRIVATE)`**
-    - ファイルパス: `/data/data/<package名>/shared_prefs/<Activity名>.xml`
-    - `Activity` ごとに専用の `SharedPreferences` を作成します。その `Activity` の設定のために使用します。
-- <b>ファイル名指定</b>
-    - API: **`Context#getSharedPreferences("sample", Context.MODE_PRIVATE)`**
-    - ファイルパス: `/data/data/<package名>/shared_prefs/sample.xml`
-    - 指定したファイル名の単位で `SharedPreferences` を作成します。用途別に設定ファイルを分けて管理することができます。
+  - API: **`Activity#getPreferences(Context.MODE_PRIVATE)`**
+  - ファイルパス: `/data/data/<package名>/shared_prefs/<Activity名>.xml`
+  - `Activity` ごとに専用の `SharedPreferences` を作成します。その `Activity` の設定のために使用します。
 
-### （コラム）デフォルトの SharedPreferences ファイルだけで十分？
-
+{{% note title="デフォルトの SharedPreferences ファイルだけで十分？" %}}
 SharedPreferences の保存先 XML は、ファイル名を指定できる `Context#getSharedPreferences(String, int)` のバージョンを使用すれば切り替えることができますが、多くのアプリケーションでは `PreferenceManager.getDefaultSharedPreferences(Context)` によるデフォルトの SharedPreferences ファイルを使えば十分だったりします。
 というのも、設定項目のキー名を工夫すればある程度の数の設定項目はうまく階層化して管理できるからです。
 例えば、デバッグ用の設定項目を `debug.notification` のようなキー名にしておけば、他の重要な設定項目と混ざってしまうことはありません。
@@ -164,11 +158,14 @@ Google の [Settings Design Guidelines](https://source.android.com/devices/tech/
 > In some cases, it may be helpful to duplicate an individual setting on two different screens. Different situations can trigger users to change a setting, so including the setting in multiple places will help users find this item.
 
 このようなケースにおいても、設定ファイルが分かれていない方が都合がよいです。
-また、Android は [設定画面を作成する](./preference-fw.html) ために `PreferenceFragmentCompat` クラスを提供していますが、このクラスも内部では、デフォルトの SharedPreferences ファイルを使用することを前提にした作りになっています。
+また、Android は [設定画面を作成する](/p/b9ij3zq/) ために `PreferenceFragmentCompat` クラスを提供していますが、このクラスも内部では、デフォルトの SharedPreferences ファイルを使用することを前提にした作りになっています。
+{{% /note %}}
 
 
 SharedPreferences オブジェクトの変更を監視する
 ----
+
+### リスナーの登録
 
 `SharedPreferences` オブジェクトに **`SharedPreferences.OnSharedPreferencesChangeListener`** を登録すると、値の変更を監視することができます。
 まずは、値の変更を監視したい任意のクラスでこのリスナーを実装します。
@@ -185,7 +182,7 @@ class MainActivity : FragmentActivity(R.layout.activity_main), SharedPreferences
 }
 ```
 
-あとは、`SharedPreferences` オブジェクトの `registerOnSharedPreferenceChangeListener` を使ってリスナーを登録するだけです。
+あとは、`SharedPreferences` オブジェクトの **`registerOnSharedPreferenceChangeListener`** を使ってリスナーを登録するだけです。
 
 ```kotlin
 val pref = getSharedPreferences("my_settings", Context.MODE_PRIVATE)
@@ -196,4 +193,6 @@ pref.registerOnSharedPreferenceChangeListener(this)
 
 `onSharedPreferenceChanged` は、設定画面で**ひとつの設定値を変更する度に**呼び出されます。
 設定画面を閉じてからまとめて変更値を取得したい場合は、設定画面の `Activity` を `startActivityForResult()` で開き、画面を閉じたタイミング (`onActivityResult`) で `SharedPreferences` から情報を取得するとよいでしょう。
+
+とはいえ、世の中的には「設定変更は項目ごとに直ちに反映」が主流になっているようです。
 

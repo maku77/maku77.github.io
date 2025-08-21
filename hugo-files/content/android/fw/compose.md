@@ -1,6 +1,9 @@
 ---
-title: "Jetpack Compose の宣言型 (declarative) の UI 定義とは？"
+title: "Androidメモ: Jetpack Compose の宣言型 (declarative) の UI 定義とは？"
+url: "p/4kdso44/"
 date: "2021-07-07"
+tags: ["android"]
+aliases: ["/android/fw/compose.html"]
 ---
 
 Jetpack Compose の宣言型プログラミングとは？
@@ -49,7 +52,7 @@ Compose を使うと、最終的な表示結果を意識すればよいので、
 
 Compose のトップページで次のように記述されているのは、こういうことです。
 
-> ### 直感的
+> <b>直感的</b>
 >
 > UI を記述するだけで、残りの部分は Compose で処理されます。アプリの状態が変更されると、UI が自動的に更新されます。
 
@@ -80,9 +83,9 @@ fun Button(label: String, onPress: () -> Unit) {
 ```
 
 ほぼ同じです。
-React のフックの仕組み (`useState` など）も上記のように対応するものがあります。
+React のフックの仕組み (`useState` など）に対応するもの (`mutableStateOf`) もあります。
 
-あと、宣言型 (declarative) なパラダイムは、次のような IaC (Infrastructure as Code) の世界でも取り入れられています。
+宣言型 (declarative) なパラダイムは、次のような IaC (Infrastructure as Code) の世界でも取り入れられています。
 
 - Ansible
 - Azure ResourceManager
@@ -107,7 +110,7 @@ Android は ~~ちょっと古い~~ 枯れた技術しか使わないというイ
 なんだかんだ言っても、Anrdoid の標準開発言語である Kotlin が使える Jetpack Compose が主流になっていきそうな気はします。
 
 
-Jetpack Compose を使う
+Jetpack Compose を使ってみる
 ----
 
 ここで、Compose を使った実装方法を詳細に述べることはしませんが、Jetpack Compose は簡単に使い始めることができます。
