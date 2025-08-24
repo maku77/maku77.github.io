@@ -41,25 +41,21 @@ export PATH=$PATH:$ANDROID_HOME/tools
 emulator コマンドの使用例
 ----
 
-### AVD（エミュレーター端末）のリストを表示する (emulator -list-avds)
-
-```console
+{{< code lang="console" title="AVD（エミュレーター端末）のリストを表示する (emulator -list-avds)" >}}
 $ emulator -list-avds
 phone-s
 phone-t
 tv-s
 tv-t
-```
+{{< /code >}}
 
 AVD 名には、上記のようなシンプルな名前を付けておくのがおすすめです。
 エミュレーターを起動するときに AVD を指定するのが楽になります。
 
-### エミュレーターを起動する (emulator)
-
-```console
+{{< code lang="console" title="エミュレーターを起動する (emulator)" >}}
 $ emulator @AVD_NAME
 $ emulator -avd AVD_NAME
-```
+{{< /code >}}
 
 ここで指定する AVD 名は、前述の `emulator -list-avds` コマンドで表示されたものの中から選択します。
 AVD 名の一覧を表示して、ユーザーに起動する AVD を選択させるバッチファイルなどを作っておくと便利です。
@@ -85,14 +81,12 @@ emulator @%AvdName%
 adb コマンドの使用例
 ----
 
-### 稼働中のエミュレーターの一覧を表示する (adb devices)
-
-```console
+{{< code lang="console" title="稼働中のエミュレーターの一覧を表示する (adb devices)" >}}
 $ adb devices
 List of devices attached
 emulator-5554	device
 emulator-5556	device
-```
+{{< /code >}}
 
 上記の例では、2 つのエミュレーターが起動しており、それぞれのシリアル（識別子のようなもの）は `emulator-5554` と `emulator-5556` であることがわかります。
 複数のエミュレーターが起動している場合、ほとんどのケースでは `adb` コマンド実行時に操作対処とするエミュレーターを __`-s`__ オプションで指定する必要があります。
@@ -116,12 +110,10 @@ emulator-5556  device product:sdk_google_atv64_amati_arm64 model:sdk_google_atv6
 $ adb -t 1 logcat
 ```
 
-### エミュレーターを停止する (adb emu kill)
-
-```console
+{{< code lang="console" title="エミュレーターを停止する (adb emu kill)" >}}
 $ adb emu kill
 $ adb -s emulator-5554 emu kill  # 複数のエミュレーターを起動している場合
-```
+{{< /code >}}
 
 画面上からエミュレーターが消えているのに、なぜかエミュレーターが起動し続けている（`adb devices` のリストから消えない）という状態になってしまった場合は、このコマンドを実行すれば確実に終了できます。
 
@@ -139,14 +131,12 @@ $ adb reboot
 $ adb emu restart
 {{< /code >}}
 
-### その他の adb emu サブコマンド
-
-```console
+{{< code lang="console" title="その他の adb emu サブコマンド" >}}
 $ adb emu rotate         # 画面を回転
 $ adb emu avd name       # AVD 名を表示
 $ adb emu avd status     # AVD の状態を表示
 $ adb emu avd bugreport  # バグレポートを生成
-```
+{{< /code >}}
 
 `adb emu` コマンドにはあまりドキュメントがなかったりしますが、__`adb emu help-verbose`__ で簡単なコマンド一覧を表示できます。
 もしかすると便利なコマンドが見つかるかもしれません。

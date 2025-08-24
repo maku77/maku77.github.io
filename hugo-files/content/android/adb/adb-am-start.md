@@ -54,11 +54,9 @@ Intent 引数（`<INTENT>` の部分）の指定方法は、[Specification for I
 
 下記は、`am start` コマンドによる Activity の起動例です。
 
-### Activity のクラス名（コンポーネント名）を直接指定して起動する
-
-```console
+{{< code lang="console" title="Activity のクラス名（コンポーネント名）を直接指定して起動する" >}}
 $ am start -n com.example.myapp/.MainActivity
-```
+{{< /code >}}
 
 ### アクションを指定して起動する
 
@@ -89,10 +87,10 @@ __`am start-service`__ コマンドで任意のサービスを起動すること
 例えば、アプリのパッケージ名 (`com.example.myapp`) とサービスのクラス名 (`com.example.myapp.services.MyApp`) が分かっているのであれば、次のようにサービスを起動できます。
 ちなみに、`-n` オプションの後ろの部分を「コンポーネント名」と呼びます。
 
-```console
+{{< code lang="console" title="サービスを起動する" >}}
 $ adb shell am start-service -n com.example.myapp/.services.MyService
 Starting service: Intent { cmp=com.example.myapp/.services.MyService }
-```
+{{< /code >}}
 
 Foreground サービスとして起動する場合は、`am start-service` の代わりに、__`am start-foreground-service`__ を使用します。
 
@@ -121,11 +119,11 @@ $ adb shell dumpsys activity s MyService | grep isForeground
 
 サービスを停止するには、__`am stop-service`__ コマンドを使います。
 
-```console
+{{< code lang="console" title="サービスを停止する" >}}
 $ adb shell am stop-service -n com.example.myapp/.services.MyService
 Stopping service: Intent { cmp=com.example.myapp/.services.MyService }
 Service stopped
-```
+{{< /code >}}
 
 （おまけ）`adb shell am help` によるヘルプ表示の抜粋です。
 

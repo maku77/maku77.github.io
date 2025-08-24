@@ -77,27 +77,27 @@ Tools
 ビルド関連／Gradle
 ----
 
-* [Android アプリ用の Gradle スクリプトの基本](gradle/gradle-for-android.html)
+* [Android Gradleメモ: Android アプリ用の Gradle スクリプトの基本](/p/ams6xga/)
 * [Android Gradleメモ: リソース名に正しくプレフィックスが付いているか確認する (`resourcePrefix`)](/p/4zogpen/)
 * [Android Gradleメモ: Android の Gradle 関連ファイルまとめ](/p/8f3pcke/)
-* [BuildConfig クラスでアプリの動作を切り替える](gradle/build-config.html)
-* [サブモジュールで使用する SDK バージョンを統一する](gradle/align-sdk-versions.html)
-* [外部から提供された AAR ファイルを利用する](gradle/external-aar.html)
-* [APK ファイル名のサフィックスにバージョンを追加する](gradle/add-version-name-to-apk.html)
-* [Lint エラーが発生した場合もビルドを継続する](gradle/ignore-lint-errors.html)
-* [Android アプリが使用している依存ライブラリをツリー構造で表示する（dependencies/androidDependencies タスク）](gradle/dependency-tree.html)
-* [Anrdoidトラブルシューティング: repo init でエラーが出る場合](trouble/repo-init-error.html)
-* Gradle 全般の説明は [こちらを参照](/gradle/)
+* [Android Gradleメモ: BuildConfig クラスでアプリの動作を切り替える](/p/xtzsj3m/)
+* [Android Gradleメモ: サブモジュールで使用する SDK バージョンを統一する](/p/52e5rvv/)
+* [Android Gradleメモ: 外部から提供された AAR ファイルを利用する](/p/9giv5yz/)
+* [Android Gradleメモ: APK ファイル名のサフィックスにバージョンを追加する](/p/pneeb8x/)
+* [Android Gradleメモ: Lint エラーが発生した場合もビルドを継続する (`abortOnError`)](/p/o46hp5y/)
+* [Android Gradleメモ: Android アプリが使用している依存ライブラリをツリー構造で表示する（dependencies/androidDependencies タスク）](/p/kma3bsu/)
+* [Androidメモ: repo init でエラーが出る場合](/p/zh3w2tz/)
+* [◆Gradle 全般の説明はこちら](/gradle/)
 
 
 Android Studio
 ----
 
 * [Androidメモ: AAR 形式のファイルを作成する/使用する](/p/3m9f8yv/)
-* [Android Studio に割り当てるメモリを増やす](studio/increase-memory.html)
-* [Android Studio で新規ファイル作成時に Copyright を自動挿入する](studio/auto-copyright.html)
-* [Android Studio の便利なショートカット (1) コードの調査／メソッド間のジャンプ](studio/shortcut-method-jump.html)
-* [Android Studio の便利なショートカット (2) ブックマーク](studio/shortcut-bookmark.html)
+* [Androidメモ: Android Studio に割り当てるメモリを増やす](/p/b5ivaja/)
+* [Androidメモ: Android Studio で新規ファイル作成時に Copyright を自動挿入する](/p/hv7we2a/)
+* [Androidメモ: Android Studio の便利なショートカット (1) コードの調査／メソッド間のジャンプ](/p/3vejawn/)
+* [Androidメモ: Android Studio の便利なショートカット (2) ブックマーク](/p/6qqdsxw/)
 
 
 Androidベンダー向けメモ（Android デバイス開発者向け） <!-- vendor -->
@@ -134,7 +134,7 @@ Android アプリ実装／Framework／SDK
 
 * [Androidメモ: SharedPreferences でアプリの設定値を保存する](/p/d7dho89/)
 * [Androidメモ: Preference フレームワークを使って設定画面を簡単に作成する](/p/b9ij3zq/)
-* [画面消灯 (SCREEN OFF) までの時間を取得・設定する](settings/screen-off-timeout.html)
+* [Androidメモ: 画面消灯 (SCREEN OFF) までの時間を取得・設定する](/p/fkn27wa/)
 * [Androidメモ: 現在のスクリーンレイアウトサイズを取得する (`Configuration`)](/p/7e9mdcp/)
 
 ### ファイル、I/O（入出力）、ネットワーク
@@ -147,18 +147,18 @@ Android アプリ実装／Framework／SDK
 
 ### UI（描画）
 
-* [常に画面の最前面に表示されたままになる View を作る (TYPE_APPLICATION_OVERLAY)](ui/always-top.html)
-* [Kotlin で OpenGL ES を使って 3D 表示するアプリを作る](ui/opengl.html)
-* [RecyclerView の基本](ui/recycler-view.html)
-* [任意の View をフォーカスする](ui/focus-view.html)
-* [ソフトウェアキーボードを常に表示する](ui/show-keyboard-all-the-time.html)
-* [カスタムビューを作成する](ui/create-custom-view.html)
-* [カスタムビューの子ビューがフォーカスを得たことを検出する](ui/custom-view-focus.html)
-* [カスタムビューでソフトウェア D-Pad を表示する](ui/software-dpad.html)
-* [ValueAnimator でアニメーションに使用する値を計算する](ui/value-animator.html)
-* [ScrollView を一番下までスクロールさせる](ui/scroll-to-bottom.html)
-* [Canvas に複数行のテキストを描画する](ui/draw-multiline-text-on-canvas.html)
-* [Canvas への描画時にアンチエイリアスを有効にする](ui/antialias-on-canvas.html)
+* [Androidメモ: 常に画面の最前面に表示されたままになる View を作る (`TYPE_APPLICATION_OVERLAY`)](/p/7kkqw4q/)
+* [Androidメモ: Kotlin で OpenGL ES を使って 3D 表示するアプリを作る](/p/j4eyu47/)
+* [Androidメモ: RecyclerView の基本](/p/cdtcqag/)
+* [Androidメモ: 任意の View をフォーカスする (`requestFocus`)](/p/fnjj2c7/)
+* [Androidメモ: ソフトウェアキーボードを常に表示する (`setSoftInputMode`)](/p/p4y55j2/)
+* [Androidメモ: カスタムビューを作成する](/p/4c5st3s/)
+* [Androidメモ: カスタムビューの子ビューがフォーカスを得たことを検出する](/p/7rhpaxa/)
+* [Androidメモ: カスタムビューでソフトウェア D-Pad を表示する](/p/nfguckx/)
+* [Androidメモ: `ValueAnimator` でアニメーション処理に使用する値を計算する](/p/xx9qovn/)
+* [Androidメモ: `ScrollView` を一番下までスクロールさせる (`fullScroll`)](/p/e6fmtba/)
+* [Androidメモ: Canvas に複数行のテキストを描画する](/p/j7yysr5/)
+* [Androidメモ: Canvas への描画時にアンチエイリアスを有効にする (`Paint#setAntiAlias`)](/p/8wsrauw/)
 
 ### 数値／文字列
 
@@ -166,9 +166,9 @@ Android アプリ実装／Framework／SDK
 
 ### Service（サービス）
 
-* [同じプロセス内のサービスへバインドする (Local Bind)](service/local-bind.html)
-* [別プロセスのサービスへバインドする (Remote Bind)](service/remote-bind.html)
-* [サービスからコールバックできるようにする](service/callback.html)
+* [Androidメモ: 同じプロセス内のサービスへバインドする (Local Bind)](/p/mavfgi7/)
+* [Androidメモ: 別プロセスのサービスへバインドする (Remote Bind)](/p/qjc27rj/)
+* [Androidメモ: サービスからコールバックできるようにする](/p/z2oqmoj/)
 
 
 Native レイヤー実装

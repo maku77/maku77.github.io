@@ -37,18 +37,14 @@ const (
 パッケージ外に公開する定数値は、名前を大文字で始めます（関数や変数と同様です）。
 逆に、小文字で始まる定数値は、同じパッケージ内からのみ参照可能です。
 
-#### mypkg/mypkg.go
-
-```go
+{{< code lang="go" title="mypkg/mypkg.go" >}}
 package mypkg
 
 const PublicConst = 100   // 別のパッケージから mypkg.PublicConst で参照可能
 const privateConst = 200  // mypkg 内からのみ参照可能
-```
+{{< /code >}}
 
-#### main.go
-
-```go
+{{< code lang="go" title="main.go" >}}
 package main
 
 import "fmt"
@@ -57,7 +53,7 @@ import "mypkg"
 func main() {
 	fmt.Println(mypkg.PublicConst)  //=> 100
 }
-```
+{{< /code >}}
 
 標準パッケージの `math` パッケージも、円周率πを `math.Pi` という大文字で始まる定数名で公開しています。
 

@@ -75,9 +75,7 @@ Log.i("HOGE", "        curAdj=" + app.curAdj + ", adjType=" + app.adjType +
               ", hidden=" + (app.hidden ? 1 : 0) + ", keeping=" + (app.keeping ? 1 : 0));
 ```
 
-#### 出力結果
-
-```
+{{< code lang="text" title="出力結果" >}}
 08-30 10:07:30.023   433   451 I HOGE    : [25] com.android.inputmethod.latin(pid=553, uid=10046)
 08-30 10:07:30.023   433   451 I HOGE    :         curAdj=1, adjType=service, hidden=0, keeping=1
 08-30 10:07:30.023   433   451 I HOGE    : [24] system(pid=433, uid=1000)
@@ -86,7 +84,7 @@ Log.i("HOGE", "        curAdj=" + app.curAdj + ", adjType=" + app.adjType +
 08-30 10:07:30.023   433   451 I HOGE    :         curAdj=0, adjType=top-activity, hidden=0, keeping=1
 08-30 10:07:30.023   433   451 I HOGE    : [22] com.google.tv.chrome(pid=1006, uid=1098)
 08-30 10:07:30.023   433   451 I HOGE    :         curAdj=0, adjType=broadcast, hidden=0, keeping=1
-```
+{{< /code >}}
 
 
 LowMemoryKiller の too many background によるプロセス kill の仕組み"

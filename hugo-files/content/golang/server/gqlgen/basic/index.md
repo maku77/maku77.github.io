@@ -138,12 +138,7 @@ type Mutation {
 GraphQL リゾルバーの実装
 ----
 
-### graph/resolver.go
-
-`resolver.go` は、GraphQL リゾルバーのルート定義的なファイルです。
-GraphQL サーバーが利用する `Resolver` 構造体の型を定義しておきます。
-
-```go
+{{< code lang="go" title="graph/resolver.go" >}}
 package graph
 
 import "example.com/myapp/graph/model"
@@ -151,7 +146,10 @@ import "example.com/myapp/graph/model"
 type Resolver struct {
 	todos []*model.Todo
 }
-```
+{{< /code >}}
+
+`resolver.go` は、GraphQL リゾルバーのルート定義的なファイルです。
+GraphQL サーバーが利用する `Resolver` 構造体の型を定義しておきます。
 
 `Resolver` は、`model.Todo` のスライス (`todos`) を保持しています。
 この値は GraphQL サーバーが動作している間だけメモリ上に保持されます（いわゆるステートです）。
@@ -160,11 +158,7 @@ type Resolver struct {
 肝心のリゾルバー関数の定義が見当たりませんが、それらは `graph/schema.resolvers.go` という別ファイルで定義するようになっています。
 Go 言語の仕様上、同じパッケージ内であればどのファイルで定義してもよいのですが、`graph/schema.graphqls` というスキーマファイル名に対応するリゾルバーファイル名になっているようです（このあたりのファイル構成は gqlgen のバージョンによって変わるかもしれません）。
 
-### graph/schema.resolvers.go
-
-mutation 操作用の `CreateTodo` 関数と、query 操作用の `Todos` 関数の実装が空っぽになっているので、次のような感じで実装します。
-
-```go
+{{< code lang="go" title="graph/schema.resolvers.go" >}}
 // createTodo mutation 用のリゾルバー
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
 	todo := &model.Todo{
@@ -180,7 +174,9 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	return r.todos, nil
 }
-```
+{{< /code >}}
+
+mutation 操作用の `CreateTodo` 関数と、query 操作用の `Todos` 関数の実装が空っぽになっているので、次のような感じで実装します。
 
 やっていることは単純で、`CreateTodo` 関数で `model.Todo` オブジェクトを生成して `Resolver` の `todos` スライスに追加し、`Todos` 関数でそのスライスの内容を返すように実装しています。
 `todos` スライスの値はメモリ上に保持されるので、GraphQL サーバーを起動してから `createTodo` mutation を呼び出し、続けて `todos` query を呼び出せば、その値を取得できるはずです。
