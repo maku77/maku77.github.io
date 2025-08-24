@@ -8,19 +8,18 @@
 </span></span><span class=line><span class=cl>	<span class=nx>fuga</span> <span class=p>=</span> <span class=mi>200</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
 </span></span></code></pre></div><h2 id=定数値をパッケージ外に公開する>定数値をパッケージ外に公開する</h2><p>パッケージ外に公開する定数値は、名前を大文字で始めます（関数や変数と同様です）。
-逆に、小文字で始まる定数値は、同じパッケージ内からのみ参照可能です。</p><h4 id=mypkgmypkggo>mypkg/mypkg.go</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>mypkg</span>
+逆に、小文字で始まる定数値は、同じパッケージ内からのみ参照可能です。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>mypkg/mypkg.go</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>mypkg</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>const</span> <span class=nx>PublicConst</span> <span class=p>=</span> <span class=mi>100</span>   <span class=c1>// 別のパッケージから mypkg.PublicConst で参照可能
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>const</span> <span class=nx>privateConst</span> <span class=p>=</span> <span class=mi>200</span>  <span class=c1>// mypkg 内からのみ参照可能
-</span></span></span></code></pre></div><h4 id=maingo>main.go</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>main.go</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;mypkg&#34;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>mypkg</span><span class=p>.</span><span class=nx>PublicConst</span><span class=p>)</span>  <span class=c1>//=&gt; 100
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
-</span></span></code></pre></div><p>標準パッケージの <code>math</code> パッケージも、円周率πを <code>math.Pi</code> という大文字で始まる定数名で公開しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span></span></span></code></pre></div></div></figure><p>標準パッケージの <code>math</code> パッケージも、円周率πを <code>math.Pi</code> という大文字で始まる定数名で公開しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;fmt&#34;</span>
 </span></span><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;math&#34;</span>
