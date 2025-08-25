@@ -1,6 +1,9 @@
 ---
-title: "ホストオンリーネットワークを構成する (private network)"
+title: "Vagrantメモ: ホストオンリーネットワークを構成する (private network)"
+url: "p/oyoyz27/"
 date: "2016-10-31"
+tags: ["vagrant"]
+aliases: ["/vagrant/host-only-network.html"]
 ---
 
 ホストオンリーネットワークの特徴
@@ -33,14 +36,12 @@ date: "2016-10-31"
 仮想マシンには `192.168.100.10` という IP アドレスを割り当てます。
 仮想マシンの IP アドレスの末尾は１にしないようにしてください（後述）。
 
-#### Vagrantfile（DHCP で構成する）
-
-```ruby
+{{< code lang="ruby" title="Vagrantfile（DHCP で構成する）" >}}
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/precise64"
   config.vm.network "private_network", ip: "192.168.100.10"
 end
-```
+{{< /code >}}
 
 あとは Vagrant 仮想マシンをリロードすれば設定が反映されます。
 

@@ -1,9 +1,12 @@
 ---
-title: "不要な Vagrant 仮想マシンを削除する (vagrant destroy)"
+title: "Vagrantメモ: 不要な Vagrant 仮想マシンを削除する (vagrant destroy)"
+url: "p/2gdbr8x/"
 date: "2016-10-27"
+tags: ["vagrant"]
+aliases: ["/vagrant/destroy-vm.html"]
 ---
 
-Vagrant で試行錯誤して仮想マシンを作っていると、依然作成した仮想マシンのゴミが残ってしまうことがあります。
+Vagrant で試行錯誤して仮想マシンを作っていると、以前作成した仮想マシンのゴミが残ってしまうことがあります。
 ポートフォワード設定が重複してしまうと、新しい仮想マシンの起動も下記のように失敗してしまいます。
 
 ```

@@ -1,6 +1,9 @@
 ---
-title: "Vagrant とは？ Vagrant をインストールする"
+title: "Vagrantメモ: Vagrant とは？ Vagrant をインストールする"
+url: "p/dwwvd7z/"
 date: "2016-10-18"
+tags: ["vagrant"]
+aliases: ["/vagrant/what-is-vagrant.html"]
 ---
 
 Vagrant とは？
@@ -34,5 +37,5 @@ AWS などのクラウド環境を使用する場合は、VirtualBox のイン�
 
 - [Oracle VM VirtualBox](https://www.virtualbox.org/)
 
-VirtualBox 5.1.8 for Window のパッケージサイズは 117 MB です。
+VirtualBox 5.1.8 for Windows のパッケージサイズは 117 MB です。
 

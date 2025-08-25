@@ -1,6 +1,9 @@
 ---
-title: "不要な box を削除する (vagrant remove box)"
+title: "Vagrantメモ: 不要な box を削除する (vagrant remove box)"
+url: "p/6wsa466/"
 date: "2016-11-01"
+tags: ["vagrant"]
+aliases: ["/vagrant/remove-box.html"]
 ---
 
 box ファイルとは

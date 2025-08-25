@@ -1,6 +1,9 @@
 ---
-title: "Vagrant の仮想マシンに SSH で接続する"
+title: "Vagrantメモ: Vagrant の仮想マシンに SSH で接続する"
+url: "p/itd26k3/"
 date: "2016-10-19"
+tags: ["vagrant"]
+aliases: ["/vagrant/ssh.html"]
 ---
 
 vagrant ssh コマンドで SSH 接続する
@@ -9,7 +12,7 @@ vagrant ssh コマンドで SSH 接続する
 `vagrant up` コマンドによる仮想マシンの起動が終わると、SSH でシェル接続が可能になります。
 通常、SSH での接続にはサーバアドレスやユーザ ID の指定などが必要ですが、Vagrant によって立ち上げられた仮想マシンには、`vagrant ssh` コマンドを使用して簡単に SSH 接続できるようになっています。
 
-```
+```console
 $ vagrant ssh
 
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
@@ -23,15 +26,12 @@ vagrant@precise64:~$
 
 `vagrant ssh` 経由で Vagrant の仮想マシンに接続するには、OpenSSH ベースの SSH クライアントがインストールされている必要があります。
 
-#### SSH クライアントがインストールされていない場合のエラー
-
-```
+{{< code lang="console" title="SSH クライアントがインストールされていない場合のエラー" >}}
 $ vagrant ssh
 `ssh` executable not found in any directories in the %PATH% variable.
-```
+{{< /code >}}
 
-#### OpenSSH ではない SSH クライアントがインストールされている場合（ここでは PuTTy）のエラー
-```
+{{< code lang="console" title="OpenSSH ではない SSH クライアントがインストールされている場合（ここでは PuTTy）のエラー" >}}
 $ vagrant ssh
 The `ssh` executable found in the PATH is a PuTTY Link SSH client.
 Vagrant is only compatible with OpenSSH SSH clients. Please install
@@ -42,7 +42,7 @@ Host: 127.0.0.1
 Port: 2222
 Username: vagrant
 Private key: D:/z/vagrant/.vagrant/machines/default/virtualbox/private_key
-```
+{{< /code >}}
 
 Windows 用の OpenSSH クライアントは下記からダウンロードできます。
 
@@ -55,7 +55,7 @@ Windows 用の OpenSSH クライアントは下記からダウンロードでき
 `vagrant ssh` コマンド経由ではなく、直接 `ssh` コマンドを使用して仮想マシンに接続したい場合は、接続先のアドレスや、ユーザ名、Private キーなどの情報を知る必要があります。
 これらの情報を調べるには、`vagrant ssh-config` を使用します。
 
-```
+```console
 $ vagrant ssh-config
 Host default
   HostName 127.0.0.1 ★
@@ -72,7 +72,7 @@ Host default
 上記の★のついた部分が SSH 接続に必要な情報です。
 これらの情報を `ssh` コマンドのパラメータで指定することで、Vagrant 仮想マシンに SSH 接続することができます。
 
-```
+```console
 $ ssh vagrant@127.0.0.1 -p 2222 -i /Users/maku/sample/.vagrant/machines/default/virtualbox/private_key
 
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)

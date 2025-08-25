@@ -1,9 +1,12 @@
 ---
-title: "Vagrant により仮想マシンを立ち上げる"
+title: "Vagrantメモ: Vagrant により仮想マシンを立ち上げる"
+url: "p/4trtqtw/"
 date: "2016-10-19"
+tags: ["vagrant"]
+aliases: ["/vagrant/up-and-running.html"]
 ---
 
-Vagrant は、仮想マシンの構成をするための情報として **Vagrantfile** というファイルを参照するので、まずはこのファイルを作成する必要があります。
+Vagrant は、仮想マシンの構成をするための情報として **`Vagrantfile`** というファイルを参照するので、まずはこのファイルを作成する必要があります。
 
 Vagrantfile を生成する
 ----
@@ -21,7 +24,7 @@ the comments in the Vagrantfile as well as documentation on
 ```
 
 仮想マシンのベースとなる OS イメージのことを **box** と呼びます。
-デフォルトで使用可能な box は下記のようなものが用意されており、他の box は [HashiCorp's Atras](https://atlas.hashicorp.com/boxes/search) で探すことができます。
+デフォルトで使用可能な box は下記のようなものが用意されており、他の box は [HashiCorp's Atlas](https://atlas.hashicorp.com/boxes/search) で探すことができます。
 
 - **ubuntu/trusty64**: Ubuntu 14.04 LTS 64-bit (Trusty Tahr)
 - **hashicorp/precise64**: Ubuntu 12.04 LTS 64-bit (Precise Pangolin)
@@ -31,13 +34,11 @@ the comments in the Vagrantfile as well as documentation on
 `vagrant init` を実行すると、次のような Vagrantfile ファイルがカレントディレクトリに生成されます。
 Vagrantfile のあるディレクトリが、Vagrant プロジェクトのルートとなります。
 
-#### Vagrantfile（コメント群は省略）
-
-```ruby
+{{< code lang="ruby" title="Vagrantfile（コメント群は省略）" >}}
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/precise64"
 end
-```
+{{< /code >}}
 
 仮想マシンを立ち上げる
 ----
@@ -130,7 +131,7 @@ $ vagrant halt
 仮想マシンそのものを削除してしまいたい場合は、`vagrant destroy` コマンドを実行します。
 
 ```
-$ vagrant destory
+$ vagrant destroy
     default: Are you sure you want to destroy the 'default' VM? [y/N]
 ==> default: Destroying VM and associated drives...
 ```
