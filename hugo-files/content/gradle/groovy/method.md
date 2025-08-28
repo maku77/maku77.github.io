@@ -1,12 +1,14 @@
 ---
 title: "Groovy でメソッドを定義する"
+url: "p/6qzzzry/"
 date: "2015-07-08"
+tags: ["gradle, groovy"]
+aliases: ["/gradle/groovy/method.html"]
 ---
 
 下記のサンプルでは、2 つの変数を足し合わせる `add` メソッドを定義しています。
 
-#### sample.groovy
-```groovy
+{{< code lang="groovy" title="sample.groovy" >}}
 // メソッドの定義
 def add(a, b) {
     a + b
@@ -15,12 +17,12 @@ def add(a, b) {
 // メソッドの呼び出し
 def val = add(100, 200)
 println val
-```
+{{< /code >}}
 
 Groovy では、他の多くのスクリプト言語と同様に、メソッド内で最後に評価された式の値がそのまま戻り値となるので、`return` キーワードを省略することができます。
-
 また、パラメータの型や、戻り値の型も明示する必要はありません（最初に `def` とだけ書けばよい）。
-もちろん、Java と同様に型を明示しておくこともできます。
+
+次のように型を明示することもできます。
 
 ```groovy
 int add(int a, int b) {
@@ -40,7 +42,7 @@ def val = greet('Jack')
 println val  //=> null
 ```
 
-メソッドの呼び出し時にパラメータが 1 つ以上ある場合は、括弧を省略して呼び出すことができます。
+メソッド呼び出し時のパラメータを囲む括弧は、次のように省略することができます。
 
 ```groovy
 def val = add 100, 200

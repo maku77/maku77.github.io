@@ -1,15 +1,18 @@
 ---
 title: "Groovy でクラスを定義する"
+url: "p/j5bvcq9/"
 date: "2015-07-08"
+tags: ["gradle, groovy"]
+aliases: ["/gradle/groovy/class.html"]
 ---
 
-Groovy では、クラスやメソッドの可視性はデフォルトで `public` になります。
-下記の例では、2 つのフィールドと、2 つのメソッドを持つ `Book` クラスを作成しています。
-2 つのメソッドのうち 1 つは、`toString()` をオーバライドしていいます。
+クラスを定義する
+----
 
-#### sample.groovy
+Groovy では、クラスやメソッドの可視性はデフォルトで public になります。
+下記の `Book` クラスは `title` と `authors` フィールドを持っており、両方とも外部から参照できます。
 
-```groovy
+{{< code lang="groovy" title="sample.groovy" >}}
 class Book {
     def title
     def authors = []
@@ -25,17 +28,15 @@ def book = new Book()
 book.title = 'Title1'
 book.authors << 'Author1' << 'Author2' << 'Author3'
 println book
-```
+{{< /code >}}
 
-#### 実行例
-
-```sh
+{{< code lang="console" title="実行例" >}}
 $ groovy sample.groovy
-Title1, [Author1, Author2]
-```
+Title1, [Author1, Author2, Author3]
+{{< /code >}}
 
 上記の例では、`book.title` というプロパティに直接アクセスしているかのように見えますが、内部的には、自動的に生成された `book.getTitle()` という getter メソッドが呼び出されています。
-同様に、`book.setTitle()` とい setter メソッドも自動的に生成されています。
+同様に、`book.setTitle()` という setter メソッドも自動的に生成されています。
 
 つまり、下記の 2 つのコードは同じ動作をします。
 

@@ -1,6 +1,9 @@
 ---
 title: "Groovy と Java の違い"
+url: "p/som2e4k/"
 date: "2015-07-07"
+tags: ["gradle, groovy"]
+aliases: ["/gradle/groovy/groovy-and-java.html"]
 ---
 
 Groovy は Java と異なり、下記のような特徴を持っています。

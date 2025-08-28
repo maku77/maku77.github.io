@@ -1,7 +1,11 @@
 ---
 title: "Gradle"
-date: "2015-07-01"
-layout: category-index
+date: "2025-08-26"
+url: "/gradle/"
+
+categoryName: "まくまく Gradle ノート"
+categoryUrl: "/gradle/"
+categoryIcon: _logo-gradle.svg
 ---
 
 インストールと設定／管理
@@ -76,15 +80,15 @@ Gradle のコマンド
 
 Groovy スクリプト
 ----
-* [Groovy と Java の違い](groovy/groovy-and-java.html)
-* [Groovy で assert を使用する](groovy/assert.html)
-* [Groovy でメソッドを定義する](groovy/method.html)
-* [Groovy でクラスを定義する](groovy/class.html)
-* [Groovy で文字列リテラルを扱う](groovy/string-literal.html)
-* [Groovy で List を扱う](groovy/list.html)
-* [Groovy で Map を扱う](groovy/map.html)
-* [Groovy のクロージャ](groovy/closure.html)
-* [Groovy でパスワードなどをユーザに入力させる](groovy/input-password.html)
+* [Groovy と Java の違い](/p/som2e4k/)
+* [Groovy で assert を使用する](/p/m9veity/)
+* [Groovy でメソッドを定義する](/p/6qzzzry/)
+* [Groovy でクラスを定義する](/p/j5bvcq9/)
+* [Groovy で文字列リテラルを扱う](/p/v8m6rme/)
+* [Groovy でリスト (List) を扱う](/p/z9qmfd4/)
+* [Groovy でマップ (Map) を扱う](/p/ohhdpvf/)
+* [Groovy のクロージャ](/p/b962btg/)
+* [Groovy でパスワードなどをユーザに入力させる (`readPassword`)](/p/yxha7mn/)
 
 独自の Gradle プラグインを作成する
 ----

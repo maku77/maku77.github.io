@@ -1,11 +1,15 @@
 ---
-title: "Groovy で Map を扱う"
+title: "Groovy でマップ (Map) を扱う"
+url: "p/ohhdpvf/"
 date: "2015-07-08"
+tags: ["gradle, groovy"]
+aliases: ["/gradle/groovy/map.html"]
 ---
 
 Groovy の Map の基本
 ----
-Groovy の Map インスタンスは、List インスタンスと同様に `[` と `]` を使用して定義することができます。
+
+Groovy の Map インスタンスは、List インスタンスと同様に **`[`** と **`]`** を使用して定義することができます。
 ただし、各要素はコロン (`:`) で区切って、キーと値を指定します。
 内部的には、`java.util.LinkedHashMap` インスタンスが生成されています。
 
@@ -18,15 +22,18 @@ assert map.xxx == 100
 assert map['xxx'] == 100
 ```
 
+
 Map の要素を列挙する
 ----
-Map の要素は、List の要素と同様に `each` メソッドを使ってイテレートすることができます。
+
+Map の要素は、List の要素と同様に **`each`** メソッドを使ってイテレートすることができます。
 
 ```groovy
 map.each { key, val ->
     println key + ':' + val
 }
 ```
+
 
 空の Map インスタンスを生成する
 ---
