@@ -10,11 +10,10 @@ categoryIcon: _logo-gradle.svg
 
 インストールと設定／管理
 ----
-* [Gradle をインストールする (Mac OSX)](settings/install-gradle-to-mac.html)
-* [Gradle をインストールする (Windows)](settings/install-gradle-to-win.html)
-* [Gradle のプロキシを設定する](settings/proxy-settings.html)
-* [Gradle デーモンを使って gradle コマンドを高速化する](settings/gradle-daemon.html)
-* [Gradle によるビルドのボトルネックを探す（プロファイリング）](settings/profiling.html)
+* [Gradle をインストールする (macOS/Windows)](/p/6qdfg4d/)
+* [Gradle のプロキシを設定する (`gradle.properties`)](/p/5x6qgkx/)
+* [Gradle デーモンを使って `gradle` コマンドを高速化する (`org.gradle.daemon`)](/p/szhzejv/)
+* [Gradle によるビルドのボトルネックを探す（プロファイリング） (`--profile`)](/p/ofoencn/)
 
 Gradle の基本
 ----
