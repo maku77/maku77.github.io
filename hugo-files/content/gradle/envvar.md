@@ -1,28 +1,27 @@
 ---
 title: "Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する"
+url: "p/2uxzo7h/"
 date: "2016-10-13"
+tags: ["gradle"]
+aliases: ["/gradle/envvar.html"]
 ---
 
 環境変数で Gradle プロジェクトのプロパティを設定する
 ----
 
-現在使用している PC の環境変数として、`ORG_GRADLE_PROJECT_` というプレフィックスで始まる変数を定義しておくと、Gradle のビルドスクリプト内から、プロジェクトのプロパティとして参照できるようになります。
-ユーザごとに異なる設定（ユーザ ID やパスワード）などの設定を行いたい場合に使用すると便利です。
+OS の環境変数として **`ORG_GRADLE_PROJECT_`** というプレフィックスで始まる変数を定義しておくと、Gradle のビルドスクリプト内から、プロジェクトのプロパティとして参照できるようになります。
+ユーザごとに異なる値（ユーザ ID やパスワード）を設定したいときに便利です。
 下記の例では、Maven サーバ用のアクセス情報を示すプロパティ（`MAVEN_USERNAME` など）を設定しています。
 
-#### ~/.bash_profile
-
-```sh
+{{< code lang="bash" title="~/.bash_profile" >}}
 export ORG_GRADLE_PROJECT_MAVEN_URL=http://repo.mycompany.com/maven2
 export ORG_GRADLE_PROJECT_MAVEN_USERNAME=xxx
 export ORG_GRADLE_PROJECT_MAVEN_PASSWORD=yyy
-```
+{{< /code >}}
 
 あとは、下記のようにビルドスクリプトの中から簡単に参照することができます。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 repositories {
     maven {
         credentials {
@@ -32,14 +31,14 @@ repositories {
         url MAVEN_URL
     }
 }
-```
+{{< /code >}}
 
 
 プロパティが設定されているかどうか確認する
 ----
 
-定義されていないプロパティを参照しようとすると、エラーになってしまいます。
-プロジェクトのプロパティが定義されているかどうかを調べるには、下記のように `project.has` メソッドを使用します（`project.` は省略できます）。
+定義されていないプロパティを参照しようとするとエラーが発生します。
+プロジェクトのプロパティが定義されているかどうかを調べるには、以下のように `project.has` メソッドを使用します（`project.` は省略可能です）。
 
 ```groovy
 if (!project.has('MAVEN_USERNAME')) {

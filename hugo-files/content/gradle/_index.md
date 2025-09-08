@@ -17,8 +17,8 @@ categoryIcon: _logo-gradle.svg
 
 Gradle の基本
 ----
-* [プロジェクトとタスクとアクション](basics/project-and-task.html)
-* [Gradle 実行時の 3 つのフェーズ](basics/three-phases.html)
+* [Gradle のプロジェクトとタスクとアクションを理解する](/p/yqpxbpa/)
+* [Gradle 実行時の 3 つのフェーズ (initialization, configuration, execution)](/p/o7yqmcx/)
 * [Gradle のタスクを定義する (task)](define-gradle-tasks.html)
 * [Gradle でデフォルトタスクを指定する (defaultTasks)](default-task.html)
 * [Gradle でタスクの依存関係を表現する (dependsOn)](task-dependency.html)
@@ -28,7 +28,7 @@ Gradle の基本
 * [Gradle Wrapper スクリプト (gradlew) をサブプロジェクトから簡単に呼び出せるようにする](gradle-wrapper-wrapper.html)
 
 ### Maven リポジトリ
-* [独自の Maven リポジトリを使用する](repository/specify-maven-url.html)
+* [Gradle で独自の Maven リポジトリを使用する](/p/tmkh8p6/)
 
 Gradle で Java プロジェクトを扱う (java プラグイン)
 ----
@@ -54,7 +54,7 @@ Gradle でマルチプロジェクトを扱う
 Gradle で静的解析 (static analysis) を行う
 ----
 * [Gradle で Checkstyle による静的解析を実行する](checkstyle.html)
-* [Gradle で PMD による静的解析を実行する](pmd/pmd.html)
+* [Gradle で PMD による静的解析を実行する](/p/pz9gz3h/)
 
 
 Gradle での I/O（ファイル入出力、環境変数、ユーザ入力）
@@ -64,11 +64,11 @@ Gradle での I/O（ファイル入出力、環境変数、ユーザ入力）
 * [Gradle でファイルをコピーするためのタスクを作成する](gradle-copy-files.html)
 * [Gradle でファイルをリネームする](gradle-rename-files.html)
 * [Gradle のテンプレート機能によりファイル内容を書き換える](gradle-template-engine.html)
-* [Gradle でディレクトリ内のファイルを ZIP 圧縮する](file/zip.html)
+* [Gradle でディレクトリ内のファイルを ZIP 圧縮する](/p/p6bu2pa/)
 
 ### プロパティ
 * [Gradle でプロパティファイル (.properties) を読み込む](property-file.html)
-* [Gradle のプロパティを環境変数 (ORG_GRADLE_PROJECT) で定義する](envvar.html)
+* [Gradle のプロパティを環境変数 (`ORG_GRADLE_PROJECT`) で定義する](/p/2uxzo7h/)
 
 
 Gradle のコマンド
@@ -92,8 +92,8 @@ Groovy スクリプト
 独自の Gradle プラグインを作成する
 ----
 
-* [Gradle プラグインを作成する (1) Plugin クラスの基本](plugin/plugin-class.html)
-* [Gradle プラグインを作成する (2) JAR へのパッケージング](plugin/packaging.html)
+* [Gradle プラグインを作成する (1) Plugin クラスの基本](/p/negnqwf/)
+* [Gradle プラグインを作成する (2) JAR へのパッケージング](/p/dyas9zg/)
 
 Android 開発における Gradle
 ----

@@ -1,10 +1,13 @@
 ---
 title: "Gradle で PMD による静的解析を実行する"
+url: "p/pz9gz3h/"
 date: "2015-09-14"
+tags: ["gradle"]
+aliases: ["/gradle/pmd/pmd.html"]
 ---
 
 PMD プラグインの基本
-====
+----
 
 Gradle には標準の静的解析プラグインとして、PMD が組み込まれています。
 PMD でソースコードを解析すると、潜在的な不具合や、複雑度が高く将来的に負債になりそうなコードを検出することができます。
@@ -23,8 +26,7 @@ PMD の設定
 
 PMD による静的解析を実施するには、下記のような感じで **pmd** プラグインを読み込んで設定します。
 
-#### build.gradle
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
 apply plugin: 'pmd'
 
@@ -54,7 +56,7 @@ pmd {
         'java-unusedcode'        // find unused or ineffective code
     ]
 }
-```
+{{< /code >}}
 
 PMD プラグインによって、**pmdMain** や **pmdTest** などのタスクが定義されます。
 これらのタスクは、**check** タスクに依存するタスクとして定義されるので、**check** タスクを定義する **java** プラグインも読み込んでおく必要があります。
@@ -62,11 +64,13 @@ PMD プラグインによって、**pmdMain** や **pmdTest** などのタスク
 * **pmdMain** タスク（製品コード src/java/main に対する解析）
 * **pmdTest** タスク（テストコード src/java/test に対する解析）
 
+
 PMD による解析の実行
 ----
-`pmdMain` あるいは `check` タスクを実行することで、PMD による静的解析を実行することができます。
 
-```
+PMD による静的解析を行うには、**`pmdMain`** あるいは **`check`** タスクを実行します。
+
+```console
 $ gradle pmdMain
 :pmdMain
 11 PMD rule violations were found. See the report at: /home/maku/myapp/build/reports/pmd/main.html
@@ -74,20 +78,19 @@ $ gradle pmdMain
 BUILD SUCCESSFUL
 ```
 
-PMD による解析結果は、下記のように出力されます。
+PMD による解析結果は、下記のようなパスに出力されます。
 
-* **build/reports/pmd/main.html** （Web ブラウザで確認できる HTML 形式レポート）
-* **build/reports/pmd/main.xml** （Jenkins など CI サーバで統計を取るための XML データ）
+* **`build/reports/pmd/main.html`** ... Web ブラウザで確認できる HTML 形式レポート
+* **`build/reports/pmd/main.xml`** ... Jenkins など CI サーバで統計を取るための XML データ
 
 
 マルチプロジェクトで PMD を使用する
-====
-マルチプロジェクト構成のプロジェクトでは、サブプロジェクト内で共通の PMD 設定を使用できると便利です。
-ここでは、共通の PMD 設定を下記のように定義し、すべてのサブプロジェクトに適用してみます。
+----
 
-#### gradle/pmd.gradle
+マルチプロジェクト構成のプロジェクトでは、サブプロジェクト内で共通の PMD 設定を参照できると便利です。
+ここでは、共通の PMD 設定を `pmd.gradle` というファイルで定義し、すべてのサブプロジェクトに適用してみます。
 
-```groovy
+{{< code lang="groovy" title="gradle/pmd.gradle" >}}
 apply plugin: 'pmd'
 
 pmd {
@@ -102,13 +105,11 @@ pmd {
         ...
     ]
 }
-```
+{{< /code >}}
 
-そして、ルートプロジェクトのビルドスクリプト内で、下記のようにロードすれば OK です。
+ルートプロジェクトのビルドスクリプト (`build.gradle`) 内で、下記のように **`subproject`** を使ってすべてのサブプロジェクトに適用します。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 subprojects {
     apply plugin: 'java'
     apply from: "$rootDir/gradle/pmd.gradle"
@@ -116,10 +117,10 @@ subprojects {
         mavenCentral()
     }
 }
-```
+{{< /code >}}
 
 PMD ルールセットいろいろ
-====
+----
 
 PMD で設定できるルールセットは、他にもいろいろ定義されています。
 
@@ -136,19 +137,17 @@ PMD で設定できるルールセットは、他にもいろいろ定義され�
 
 
 PMD のルールを XML ファイルで定義する
-====
+----
 
 PMD のルールセットは、XML 形式の別ファイルに定義しておくことができます。
 複数のプロジェクトで使用するルールセットを定義する場合は、このように設定ファイルとして作成して共有するのがよいでしょう。
-ここでは、プロジェクトのルートディレクトリの `config/pmd-settings.xml` として配置することにします。
+ここでは、プロジェクトのルートディレクトリに `config/pmd-settings.xml` として配置することにします。
 
 * [ルールセットファイルのサンプル (config/pmd-settings.xml)](pmd-settings.xml)
 
-Gradle スクリプトの中では、下記のように `ruleSetFiles` でルールセットの XML ファイルを指定します。
+Gradle スクリプトの中では、下記のように **`ruleSetFiles`** でルールセットの XML ファイルを指定します。
 
-#### gradle/pmd.gradle
-
-```groovy
+{{< code lang="groovy" title="gradle/pmd.gradle" >}}
 apply plugin: 'pmd'
 
 pmd {
@@ -159,9 +158,9 @@ pmd {
     ruleSetFiles = files("$rootDir/config/pmd-settings.xml")
     ruleSets = []  // To apply only the custom rules
 }
-```
+{{< /code >}}
 
-ポイントは、`ruleSets` を空っぽにしておくことです。
+ポイントは、`ruleSets` の方を空っぽにしておくことです。
 この指定を忘れると、XML ファイルで定義したルールと、デフォルトのルールの両方が有効になってしまいます（少なくとも上記で使用している ver 5.3.3 では）。
 XML ファイルの中で、何らかのルールを無効 (`exclude`) にしている場合は、忘れずに `ruleSets` を空にしておかないと、ルールの無効化がうまくいかなかったりします。
 
