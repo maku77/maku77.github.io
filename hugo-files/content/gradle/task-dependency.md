@@ -1,7 +1,10 @@
 ---
 title: "Gradle でタスクの依存関係を表現する"
+url: "p/sifxuig/"
 date: "2015-07-09"
 lastmod: "2021-02-03"
+tags: ["gradle"]
+aliases: ["/gradle/task-dependency.html"]
 ---
 
 タスク間に依存関係を設定する
@@ -14,9 +17,7 @@ lastmod: "2021-02-03"
 タスク定義時の __`dependsOn`__ 引数（厳密にはマップキー）でタスク間の依存関係を設定することができます。
 次の例では、`hello1` タスクに依存する `hello2` タスクを定義しています。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 task hello1 {
     doLast { println 'Hello 1' }
 }
@@ -24,11 +25,11 @@ task hello1 {
 task hello2(dependsOn: hello1) {
     doLast { println 'Hello 2' }
 }
-```
+{{< /code >}}
 
 `hello2` タスクを実行するときに、先に `hello1` タスクが実行されるようになります。
 
-```sh
+```console
 $ gradle -q hello2
 Hello 1
 Hello 2
@@ -103,15 +104,13 @@ task hello2 {
 複数のタスクに依存するタスクを定義することもできます。
 下記の例では、`hello1` タスクと `hello2` タスクの両方に依存する `hello3` タスクを定義しています。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 task hello1 { doLast { println 'Hello 1' }}
 task hello2 { doLast { println 'Hello 2' }}
 task hello3 { doLast { println 'Hello 3' }}
 
 hello3.dependsOn hello1, hello2
-```
+{{< /code >}}
 
 `Task#dependsOn` メソッドは、依存関係を __追加する__ ためのメソッドなので、次のように別々に依存関係を追加しても同様です。
 
@@ -140,14 +139,12 @@ task hello3(dependsOn: [hello1, hello2]) {
 
 上記のように依存関係を定義することで、`hello3` タスクの実行前に `hello1` タスクと `hello2` タスクが実行されることが保証されます。
 
-#### 実行結果
-
-```sh
+{{< code lang="console" title="実行結果" >}}
 $ gradle hello3
 Hello 1
 Hello 2
 Hello 3
-```
+{{< /code >}}
 
 ### タスクの実行順序の制御
 
@@ -165,8 +162,7 @@ task hello3(dependsOn: hello2) { doLast { println 'Hello 3' }}
 
 ただし、こうすると、`hello2` タスクの実行時にも必ず `hello1` タスクが実行されることになってしまいます。
 
-
-```
+```console
 $ gradle -q hello2
 Hello 1
 Hello 2
@@ -190,7 +186,7 @@ hello3.dependsOn hello1, hello2
 
 これで、`hello2` タスクの単独実行時には `hello1` タスクを実行しないで済みます。
 
-```
+```console
 $ gradle -q hello2
 Hello 2
 

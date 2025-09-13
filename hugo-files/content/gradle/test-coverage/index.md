@@ -1,6 +1,9 @@
 ---
 title: "Gradle で JUnit のカバレッジレポートを生成する (JaCoCo)"
+url: "p/tesecus/"
 date: "2015-09-25"
+tags: ["gradle"]
+aliases: ["/gradle/test-coverage.html"]
 ---
 
 JaCoCo Plugin を使用すると、JUnit などによるユニットテスト結果のカバレッジレポートを生成することができます。
@@ -8,15 +11,11 @@ JaCoCo Plugin を使用すると、JUnit などによるユニットテスト結
 
 * [Gradle JaCoCo Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
 
-#### HTML 形式のカバレッジレポートの例
+{{< image border="true" w="800" src="img-001.png" title="HTML 形式の JaCoCo カバレッジレポートの例" >}}
 
-![test-coverage.png](test-coverage.png)
+下記は `jacoco` というタスクを定義する例です。
 
-下記は jacoco というタスクを定義する例です。
-
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
@@ -42,12 +41,12 @@ task jacoco(type: JacocoReport, dependsOn: 'test') {
         csv.enabled = true
     }
 }
-```
+{{< /code >}}
 
-カバレッジレポートを生成するには、ユニットテストの結果が必要なので、jacoco タスクは test タスクに依存するように定義しています。
+カバレッジレポートを生成するには、ユニットテストの結果が必要なので、`jacoco` タスクは `test` タスクに依存するように定義しています。
 テストカバレッジを生成するには、下記のように実行します。
 
-```
+```console
 $ gradle jacoco
 :compileJava
 :processResources UP-TO-DATE
@@ -65,10 +64,10 @@ Total time: 8.697 secs
 
 タスクの実行に成功すると、下記のようなファイルが生成されます。
 
-* build/jacoco/test.exec（Jenkins の JaCoCo プラグインなどで使用）
-* build/reports/jacoco/jacoco/html/index.html（ブラウザ表示用のレポート）
-* build/reports/jacoco/jacoco/jacoco.csv（CSV 形式のレポート）
-* build/reports/jacoco/jacoco/jacoco.xml（XML 形式のレポート）
+* `build/jacoco/test.exec` ... Jenkins の JaCoCo プラグインなどで使用
+* `build/reports/jacoco/jacoco/html/index.html` ... ブラウザ表示用のレポート
+* `build/reports/jacoco/jacoco/jacoco.csv` ... CSV 形式のレポート
+* `build/reports/jacoco/jacoco/jacoco.xml` ... XML 形式のレポート
 
 ちなみに、Jenkins の JaCoCo プラグインなどでカバレッジレポートを生成する場合は、上記のタスクで生成した exec ファイルのフォーマットと、Jenkins のプラグインが想定するフォーマットのバージョンが合っていないとうまくカバレッジレポートが生成されない（0% になってしまう）ので、Jenkins と連携させる場合は、下記のように明確にバージョン指定しておいた方がよいです。
 jacoco 0.7.4 と 0.7.5 ではフォーマットが変わっていてハマりました。
@@ -84,17 +83,15 @@ jacoco {
 ----
 
 通常の Java プロジェクトではなく、Android プロジェクトのユニットテスト結果に対するレポートを作成するには、例えば以下のような感じで定義します。
-java プラグインの代わりに com.android.application プラグインを読み込んでいるところ、test タスクの代わりに testDebug タスクに依存するようにするところなどが異なります。
+`java` プラグインの代わりに `com.android.application` プラグインを読み込んでいるところ、`test` タスクの代わりに `testDebug` タスクに依存するようにするところなどが異なります。
 
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle（Android アプリの場合）" >}}
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
 android {
-    /* skip */
+    /* 省略 */
 }
 
 jacoco {
@@ -115,5 +112,5 @@ task jacoco(type: JacocoReport, dependsOn: 'testDebug') {
     sourceDirectories = files('src/main/java')
     executionData = files('build/jacoco/testDebug.exec')
 }
-```
+{{< /code >}}
 

@@ -1,11 +1,14 @@
 ---
 title: "Gradle でユニットテストの結果をコンソールに詳しく表示する"
+url: "p/8ot95rq/"
 date: "2015-09-24"
+tags: ["gradle"]
+aliases: ["/gradle/test-detail-log.html"]
 ---
 
 Gradle でのユニットテストの実行結果が失敗の場合、デフォルトでは下記のようなそっけない表示しかしてくれません。
 
-```
+```console
 $ gradle test
 ...
 com.example.LargeTest > testAdd FAILED
@@ -14,9 +17,9 @@ com.example.LargeTest > testAdd FAILED
 2 tests completed, 1 failed
 ```
 
-build/reports/tests 以下に生成されるテストレポートを見れば、その内容を確認できますが、コンソール上でもう少し詳しい結果を確認したい場合は、-i オプションを指定してログレベルを INFO に設定して test タスクを実行します。
+`build/reports/tests` 以下に生成されるテストレポートを見れば、その内容を確認できますが、コンソール上でもう少し詳しい結果を確認したい場合は、**`-i`** オプションを指定してログレベルを INFO に設定して `test` タスクを実行します。
 
-```
+```console
 $ gradle test -i
 ...
 com.example.SampleTest > testAdd FAILED
@@ -32,7 +35,7 @@ com.example.SampleTest > testAdd FAILED
 ```
 
 ただし、INFO レベルでログを出力すると、余計な出力が多く出てしまって見づらくなります。
-build.gradle スクリプトの中で、下記のように exceptionFormat を指定しておくと、上記のような例外部分だけを詳しく表示してくれるようになります（この場合 -i オプションを付けて test タスクを実行する必要はありません）。
+`build.gradle` スクリプトの中で、下記のように **`exceptionFormat`** を指定しておくと、上記のような例外部分だけを詳しく表示してくれるようになります（この場合 `-i` オプションを付けて `test` タスクを実行する必要はありません）。
 
 ```groovy
 test {
@@ -42,7 +45,7 @@ test {
 }
 ```
 
-デフォルトではメソッドごとのテスト経過は表示されませんが、テスト経過をコンソール上で詳しく確認したい場合は、下記のように **events** 設定を行います。
+デフォルトではメソッドごとのテスト経過は表示されませんが、テスト経過をコンソール上で詳しく確認したい場合は、下記のように **`events`** 設定を行います。
 
 ```groovy
 test {
@@ -52,9 +55,9 @@ test {
 }
 ```
 
-この状態で test タスクを実行すると、それぞれのメソッドごとにテストの経過を確認できるようになります。FAILED や PASSED などのイベント名は実際には分かりやすく色付きで表示されます。
+この状態で `test` タスクを実行すると、それぞれのメソッドごとにテストの経過を確認できるようになります。FAILED や PASSED などのイベント名は実際には分かりやすく色付きで表示されます。
 
-```
+```console
 $ gradle test
 ...
 com.example.LargeTest > testAdd STARTED

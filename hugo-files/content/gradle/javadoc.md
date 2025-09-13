@@ -1,22 +1,23 @@
 ---
-title: "Gradle で Javadoc API Document を出力する"
+title: "Gradle で Javadoc API ドキュメントを出力する"
+url: "p/sj6sc4d/"
 date: "2015-08-03"
+tags: ["gradle"]
+aliases: ["/gradle/javadoc.html"]
 ---
 
 javadoc タスクを使えるようにする
 ----
 
-java プラグインをロードすると、自動的に __javadoc__ タスクが定義されます。
+Gradle で `java` プラグインをロードすると、自動的に **`javadoc`** タスクが定義されます。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
-```
+{{< /code >}}
 
-下記のように実行すると、`src/main/java` 以下の Java ソースコードに記述された Javadoc コメントを元に、__`build/docs/javadocs`__ に API ドキュメントが生成されます。
+下記のように実行すると、`src/main/java` 以下の Java ソースコードに記述された Javadoc コメントを元に、**`build/docs/javadocs`** に API ドキュメントが生成されます。
 
-```sh
+```console
 $ gradle javadoc
 ```
 
@@ -24,11 +25,9 @@ $ gradle javadoc
 javadoc タスクをカスタマイズする
 ----
 
-javadoc タスクをプロジェクトに合わせてカスタマイズしたい場合は、下記のように `Javadoc` 型の新しいタスクを定義します。
+`javadoc` タスクをプロジェクトに合わせてカスタマイズしたい場合は、下記のように **`Javadoc`** 型の新しいタスクを定義します。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
 
 task myJavadoc(type: Javadoc) {
@@ -36,7 +35,7 @@ task myJavadoc(type: Javadoc) {
     description = 'Generates API documents.'
     source = sourceSets.main.allJava
 }
-```
+{{< /code >}}
 
 タスク定義時に `type: Javadoc` と指定することで、Configuration クロージャの中で参照されるオブジェクト（Closure delegate）が、`Task` オブジェクトから `Javadoc` オブジェクトに変わります。
 Configuration クロージャ内で `Javadoc` オブジェクトのメソッドを呼び出すことで、タスクをカスタマイズできるようになっています。

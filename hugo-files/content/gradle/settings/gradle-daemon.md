@@ -59,7 +59,7 @@ Gradle デーモンをデフォルトで有効にする
 設定は下記のいずれかのファイルで行います。
 
 - `<Project>/gradle.properties` ... プロジェクトごとの設定
-- `$HOME/.gradle/gradle.properties ... ユーザごとの設定 - macOS/Linux の場合
+- `$HOME/.gradle/gradle.properties` ... ユーザごとの設定 - macOS/Linux の場合
 - `%USERPROFILE%/.gradle/gradle.properties` ... ユーザごとの設定 - Windows の場合
 
 {{< code lang="groovy" title="gradle.properties" >}}

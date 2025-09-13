@@ -1,13 +1,15 @@
 ---
 title: "Gradle で実行可能な JAR ファイルを作成する"
+url: "p/5iacmi7/"
 date: "2015-07-10"
+tags: ["gradle"]
+aliases: ["/gradle/executable-jar.html"]
 ---
 
-Gradle の java プラグインを使用して、実行可能な JAR ファイルを作成してみます。
+Gradle の `java` プラグインを使用して、実行可能な JAR ファイルを作成してみます。
 ここでは、下記のような簡単な Hello World アプリケーションをビルドします。
 
-#### src/main/java/com/example/Main.java
-```java
+{{< code lang="java" title="src/main/java/com/example/Main.java" >}}
 package com.example;
 
 public class Main {
@@ -15,13 +17,12 @@ public class Main {
         System.out.println("Hello");
     }
 }
-```
+{{< /code >}}
 
-JAR ファイルを特別なパラメータなしで実行できるようにするには、JAR ファイルにアーカイブする Manifest ファイルでエントリポイントとなる Main クラスを指定しておく必要があります。
-ビルドスクリプト内で下記のように記述しておくと、`com.example.Main` をエントリポイントとするような Manifest ファイルを生成してくれるようになります。
+JAR ファイルを特別なパラメータなしで実行できるようにするには、JAR ファイルにアーカイブする `Manifest` ファイルでエントリポイントとなる `Main` クラスを指定しておく必要があります。
+ビルドスクリプト内で下記のように記述しておくと、`com.example.Main` をエントリポイントとするような `Manifest` ファイルを生成してくれるようになります。
 
-#### build.gradle
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
 
 version = 1.0
@@ -31,11 +32,11 @@ jar {
         attributes 'Main-Class': 'com.example.Main'
     }
 }
-```
+{{< /code >}}
 
 ビルドします。
 
-```sh
+```console
 $ gradle build
 ...
 BUILD SUCCESSFUL
@@ -45,7 +46,7 @@ Total time: 1.063 secs
 
 作成された JAR ファイルは、下記のように実行できるようになっているはずです。
 
-```sh
+```console
 $ java -jar build/libs/sample-1.0.jar
 Hello
 ```

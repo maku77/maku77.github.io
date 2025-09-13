@@ -1,11 +1,14 @@
 ---
-title: "Gradle タスクの一覧を表示する (tasks)"
+title: "Gradle タスクの一覧を表示する (gradle tasks)"
+url: "p/qoaky8w/"
 date: "2014-06-17"
+tags: ["gradle"]
+aliases: ["/gradle/gradle-tasks.html"]
 ---
 
-実行可能なタスクの一覧は `tasks` タスクを走らせることで確認できます。
+Gradle で実行可能なタスクの一覧は **`tasks`** タスクを走らせることで確認できます。
 
-```sh
+```console
 $ gradle -q tasks
 
 ------------------------------------------------------------
@@ -29,10 +32,10 @@ tasks - Displays the tasks runnable from root project 'gradle'.
 To see all tasks and more detail, run with --all.
 ```
 
-もう少し詳細に表示したい場合は、`--all` オプションを付けて `tasks` タスクを実行します。
-下記の例は、`apply plugin: 'java'` したときのタスク一覧を確認しています。
+もう少し詳細に表示したい場合は、**`--all`** オプションを付けて `tasks` タスクを実行します。
+下記の例では、`apply plugin: 'java'` したときのタスク一覧を確認しています。
 
-```sh
+```console
 $ gradle -q tasks --all
 
 ------------------------------------------------------------
@@ -83,5 +86,4 @@ Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
 Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration.
 Pattern: clean<TaskName>: Cleans the output files of a task.
 ```
-
 

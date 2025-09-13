@@ -1,7 +1,10 @@
 ---
 title: "Gradle で Java プロジェクトをビルドするときのディレクトリ構成を変更する (sourceSets, buildDir)"
+url: "p/odjj8e7/"
 date: "2015-07-08"
 lastmod: "2021-02-03"
+tags: ["gradle"]
+aliases: ["/gradle/java-project-structure.html"]
 ---
 
 `java` プラグインは、プロジェクトのディレクトリ構成が次のようになっていると想定しています。
@@ -13,9 +16,7 @@ lastmod: "2021-02-03"
 このソースセットの設定を変更するとこで、プロジェクトの都合に合わせたディレクトリ構成に変更できます。
 例えば、製品用の Java ソースコードを __`src`__ ディレクトリ、テスト用の Java ソースコードを __`test`__ ディレクトリ、出力先を __`out`__ ディレクトリに変更するには以下のように設定します。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 apply plugin: 'java'
 
 sourceSets {
@@ -32,7 +33,7 @@ sourceSets {
 }
 
 buildDir = 'out'
-```
+{{< /code >}}
 
 こう書くこともできます。
 
@@ -51,5 +52,5 @@ buildDir = 'out'
 正確には、`srcDirs` メソッドは、__ディレクトリを変更するのではなく追加__ します。
 なので、もともとの `src/main/java` ディレクトリ以下に置かれている Java ソースコードは、相変わらずコンパイルの対象になります。
 
-ちなみに、出力先ディレクトリ (`buildDir`) を変更しておくと、`gradle clean` コマンドでクリーンナップされるディレクトリも変更されます。
+ちなみに、出力先ディレクトリ (`buildDir`) を変更した場合、`gradle clean` コマンドでクリーンナップされるディレクトリも変更されます。
 

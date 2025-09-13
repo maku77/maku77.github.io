@@ -1,25 +1,26 @@
 ---
 title: "Gradle Wrapper スクリプト (gradlew) を作成する"
-lastmod: "2019-04-25"
+url: "p/m7u5dgp/"
 date: "2015-07-10"
+lastmod: "2019-04-25"
+tags: ["gradle"]
+aliases: ["/gradle/gradle-wrapper.html"]
 ---
 
 Gradle Wrapper とは
 ----
 
-Gradle Wrapper スクリプト (**gradlew**) を作成しておくと、Gradle の実行環境をインストールしていない環境でも `gradle` コマンドを実行するのと同様のビルドを行えるようになります。
-Gradle Wrapper は、具体的には下記のようなスクリプトファイルです。
+Gradle Wrapper スクリプト (**`gradlew`**) を作成しておくと、Gradle の実行環境をインストールしていない環境でも `gradle` コマンドを実行するのと同様のビルドを行えるようになります。
+Gradle Wrapper は、実際には下記のようなスクリプトファイルです。
 
-* gradlew（Linux 用のシェルスクリプト）
-* gradlew.bat（Windows 用のバッチファイル）
+* `gradlew` ... Linux 用のシェルスクリプト
+* `gradlew.bat` ... Windows 用のバッチファイル
 
 プロジェクトに `gradlew` が用意されている場合は、`gradle` コマンドの代わりにそちらを使えば OK です。例えば、`build` タスクを実行したい場合は、下記のように実行します。
 
-#### gradle コマンドの代わりに gradlew コマンドを使用
-
-```
+{{< code lang="console" title="gradle コマンドの代わりに gradlew コマンドを使用" >}}
 $ gradlew build
-```
+{{< /code >}}
 
 仕組みは単純で、Gradle がインストールされていない環境で `gradlew` コマンドを実行すると、最初に Gradle の実行環境がインストールされてビルドが実行されるようになっています。
 Gradle の実行環境の実体は `~/.gradle/wrapper/dists/gradle-1.12-bin` といったディレクトリにインストールされ、次回の `gradlew` コマンド実行時には、そこにあるファイルが使用されるようになります（この動きを特に意識する必要はありません）。
@@ -30,34 +31,32 @@ Gradle Wrapper の作成
 
 Gradle Wrapper のスクリプトファイル、およびその実行に必要なライブラリ群は、下記のコマンドで生成することができます。
 
-```
+```console
 $ gradle wrapper
 ```
 
 これだけでも十分なのですが、下記のように `wrapper` タスクのコンフィギュレーションを定義しておくことで、どのバージョンの Gradle 相当の Gradle Wrapper を作成するかを指定することができます（他にもいろいろな設定を行うことができます。詳しくは [Wrapper の DSL ドキュメント](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html) を参照してください）。
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 wrapper {
     gradleVersion = '5.0'
 }
-```
+{{< /code >}}
 
 上記のようなバージョン指定を行わない場合は、Gradle Wrapper 作成時に使用した `gradle` コマンドのバージョンに相当する Gradle Wrapper が作成されます。
 ビルド環境をより明確にするためにも、上記のタスクは定義しておいた方がよいでしょう。
 
-<div class="note">
-（2019-04-25 追記）昔は下記のように <code>wrapper</code> タスクを定義する方法が用いられていました。
+{{% note title="コラム (2019-04-25)" %}}
+昔は下記のように `wrapper` タスクを定義する方法が用いられていました。
 
-<pre>
+```groovy
 task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
 }
-</pre>
+```
 
-ただし、Gradle 4.4 以降で上記のようなタスク定義を行うと、<code>Cannot add task 'wrapper' as a task with that name already exists.</code> というタスクの重複定義エラーが発生するので、コンフィギュレーションブロックの定義の形に修正する必要があります。
-</div>
+ただし、Gradle 4.4 以降で上記のようなタスク定義を行うと、`Cannot add task 'wrapper' as a task with that name already exists.` というタスクの重複定義エラーが発生するので、コンフィギュレーションブロックの定義の形に修正する必要があります。
+{{% /note %}}
 
 Gradle Wrapper の生成に成功すると、次のようなファイル群が生成されます。
 
@@ -71,7 +70,7 @@ Gradle Wrapper の生成に成功すると、次のようなファイル群が�
   +-- gradlew.bat  （Windows 用のコマンド）
 ```
 
-Git などのコードリポジトリには、**上記のファイル群をすべてコミット**するようにします。
+Git などのコードリポジトリには、**上記のファイル群をすべてコミット** するようにします。
 そうすれば、他の開発メンバは提供されている `gradlew` コマンドを実行するだけで、プロジェクトのビルドを行えるようになります。
 
 
@@ -81,17 +80,15 @@ Gradle Wrapper のバージョンアップ
 Gradle の最新バージョンは [こちら](https://services.gradle.org/distributions/) で確認できます。
 プロジェクトで使用している Gradle Wrapper のバージョンを変更したい場合は、下記のように `wrapper` タスクのバージョン情報を更新し、
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 wrapper {
     gradleVersion = '5.4'
 }
-```
+{{< /code >}}
 
 この `wrapper` タスクを実行します。
 
-```
+```console
 $ gradlew wrapper
 ```
 
@@ -99,16 +96,16 @@ $ gradlew wrapper
 
 - `gradle/wrapper/gradle-wrapper.properties`
 
-上記には、Gradlew Wrapper 実行時に取得する Gradle のバージョンが記述されており、次回からの `gradlew` コマンドは新しい Gradle バージョンで実行されるようになります。
-**Gradle の実体である jar ファイルが実際に取得されるのは、もう一度 `gradlew` コマンドを実行したとき**のようなので、もう一回同じコマンドを実行しておきます。
+上記には、Gradle Wrapper 実行時に取得する Gradle のバージョンが記述されており、次回からの `gradlew` コマンドは新しい Gradle バージョンで実行されるようになります。
+**Gradle の実体である jar ファイルが実際に取得されるのは、もう一度 `gradlew` コマンドを実行したとき** のようなので、もう一回同じコマンドを実行しておきます。
 
-```
+```console
 $ gradlew wrapper
 ```
 
-これで、一連の Gradlew Wrapper 関連ファイルが更新されるので、Git でコミットすれば Gradle Wrapper のバージョン更新作業は完了です。
+これで、一連の Gradle Wrapper 関連ファイルが更新されるので、Git でコミットすれば Gradle Wrapper のバージョン更新作業は完了です。
 
-```
+```console
 $ git add build.gradle
 $ git add gradle/wrapper
 $ git add gradlew
@@ -134,11 +131,9 @@ Caused by: java.nio.charset.IllegalCharsetNameException: UTF-8"-Xmx64m
 
 どうも、バッチファイルの記述がおかしくなっているようです。
 
-#### gradlew.bat （L.33 あたり）
-
-```bat
+{{< code lang="bat" title="gradlew.bat（L.33 あたり）" >}}
 set GRADLE_OPTS="-Dfile.encoding=UTF-8""-Xmx64m" "-Xms64m"
-```
+{{< /code >}}
 
 を下記のように修正します（パラメータ間のスペースが足りないので追加）。
 
