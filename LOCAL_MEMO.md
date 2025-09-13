@@ -6,7 +6,7 @@
   - `aliases: /java/xxxx.html`（元の Jekyll 版の URL）
   - インデックスページのリンクを __`/p/xxxxxxx/`__ に変える（前後にスラッシュを付ける）
 
-- Blog へ移行する場合
+- 《まくろぐ》へ移行する場合
   - maku77.github.io (Hugo) 内に転送用のページを作る
   - まとめて aliases ディレクトリとかに入れておく（ファイル名はもとの html ファイル名が分かりやすい感じで）
     ```yaml

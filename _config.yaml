@@ -223,17 +223,6 @@ defaults:
       category_long_desc: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
   -
     scope:
-      path: "mac"
-      type: "pages"
-    values:
-      category_title: "Mac"
-      category_id: "mac"
-      category_logo: "logo-mac.svg"
-      category_og_image: "logo-mac.png"
-      category_desc: "天才星人まくのMacノート"
-      category_long_desc: "Mac OS 関連のメモ。"
-  -
-    scope:
       path: "middleman"
       type: "pages"
     values:
