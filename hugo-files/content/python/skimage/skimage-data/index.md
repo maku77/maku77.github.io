@@ -80,8 +80,8 @@ scikit-image の `data` パッケージは他にもいくつかの画像デー�
 | {{< image src="img-thumb-text.png" >}} | `data.text()` | `(172, 448)` | グレースケール |
 | {{< image src="img-thumb-rocket.png" >}} | `data.rocket()` | `(427, 640, 3)` | カラー |
 
-{{< accordion title="（おまけ）上記の一覧を出力するコード" >}}
-{{< code lang="python" >}}
+{{% accordion title="（おまけ）上記の一覧を出力するコード" %}}
+```python
 import matplotlib.pyplot as plt
 from skimage import data
 
@@ -101,6 +101,6 @@ for name in images:
     cmap = plt.cm.gray if img.ndim == 2 else None
     plt.imshow(img, cmap=cmap)
     plt.show()
-{{< /code >}}
-{{< /accordion >}}
+```
+{{% /accordion %}}
 
