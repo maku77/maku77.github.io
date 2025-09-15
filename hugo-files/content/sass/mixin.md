@@ -1,13 +1,18 @@
 ---
-title: "Mixin でスタイルを組み合わせる (@mixin)"
+title: "Sassメモ: Mixin でスタイルを組み合わせる (@mixin, @include)"
+url: "p/awmebxk/"
 date: "2018-12-19"
+tags: ["sass"]
 description: "Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。"
+aliases: ["/sass/mixin.html"]
 ---
+
+Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。
 
 Mixin の基本
 ----
 
-Sass の Mixin 機能は、ひとまとまりのスタイルを Mixin として定義 (`@mixin`) しておき、複数の場所からそのスタイルをインクルード (`@include`) して使用する仕組みです。
+Sass の Mixin 機能は、ひとまとまりのスタイルを Mixin として定義 (**`@mixin`**) しておき、複数の場所からそのスタイルをインクルード (**`@include`**) して使用する仕組みです。
 Mixin は、スタイルセットを提供する関数のようなものと考えるとわかりやすいです。
 
 便利な Mixin を SCSS ファイルにまとめて定義しておけば、再利用可能な Sass ライブラリとして使用できます。
@@ -15,9 +20,7 @@ Mixin は、スタイルセットを提供する関数のようなものと考�
 
 下記の例では、`round-box` という名前の Mixin を定義して、`pre` 要素と `.ad-widget` クラスのスタイル定義からインクルードしています。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin round-box {
   border: solid 1px gray;
   border-radius: 5px;
@@ -33,11 +36,9 @@ pre {
   @include round-box;
   background: #ccc;
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 pre {
   border: solid 1px gray;
   border-radius: 5px;
@@ -51,7 +52,7 @@ pre {
   padding: 10px;
   background: #ccc;
 }
-~~~
+{{< /code >}}
 
 Mixin で定義したスタイルセットが、`@include` した位置に展開されていることが分かります。
 
@@ -70,9 +71,7 @@ Mixin の定義のトップレベルで `&` を参照すると、呼び出し元
 
 下記は、`::after` 疑似要素を使用した典型的な clearfix イディオムを、Mixin で定義する例です。
 
-#### 入力
-
-~~~ scss
+{{< code lang="scss" title="入力" >}}
 @mixin clearfix {
   &::after {
     content: '';
@@ -86,11 +85,9 @@ Mixin の定義のトップレベルで `&` を参照すると、呼び出し元
   float: left;
   margin: 10px;
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 .breadcrumb {
   float: left;
   margin: 10px;
@@ -101,7 +98,7 @@ Mixin の定義のトップレベルで `&` を参照すると、呼び出し元
   display: block;
   clear: both;
 }
-~~~
+{{< /code >}}
 
 
 ルートレベルでの Mixin の @include
@@ -109,9 +106,7 @@ Mixin の定義のトップレベルで `&` を参照すると、呼び出し元
 
 下記のように、入れ子スタイルで定義した Mixin は、ルートレベルで `@include` して使用することができます。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin pretty-link {
   a {
     font-weight: bolder;
@@ -126,11 +121,9 @@ Mixin の定義のトップレベルで `&` を参照すると、呼び出し元
 
 // ルートレベルでインクルードできる
 @include pretty-link;
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 a {
   font-weight: bolder;
   text-decoration: none;
@@ -147,7 +140,7 @@ a:hover {
 a:focus {
   background: #fdd;
 }
-~~~
+{{< /code >}}
 
 
 引数付きの Mixin を定義する
@@ -156,9 +149,7 @@ a:focus {
 Mixin には任意の数の引数を渡すことができます。
 下記の `color-box` は、2つの引数 (`$color`、`$border-width`) を受け取るように定義しています。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin color-box($color, $border-width) {
   color: $color;
   background: lighten($color, 45%);
@@ -173,11 +164,9 @@ Mixin には任意の数の引数を渡すことができます。
 .error {
   @include color-box(red, 3px);
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 .warn {
   color: darkorange;
   background: #fff4e6;
@@ -191,16 +180,14 @@ Mixin には任意の数の引数を渡すことができます。
   border: solid red 3px;
   padding: 0.5em;
 }
-~~~
+{{< /code >}}
 
 
 ### デフォルト引数
 
 Mixin の引数名の後ろに `: デフォルト値` と記述することで、引数ごとのデフォルト値を設定しておくことができます。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin color-box($color: black, $border-width: 1px) {
   color: $color;
   background: lighten($color, 45%);
@@ -211,54 +198,48 @@ Mixin の引数名の後ろに `: デフォルト値` と記述することで�
 .error {
   @include color-box(red);  // 2番目のパラメータのみ省略
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 .error {
   color: red;
   background: #ffe6e6;
   border: solid red 1px;
   padding: 0.5em;
 }
-~~~
+{{< /code >}}
 
 すべてのパラメータを省略する場合は、下記のいずれの書き方でも OK です。
 
-~~~ scss
+```scss
 @include color-box();
 @include color-box;
-~~~
-
+```
 
 ### 名前付き引数 (Keyword arguments)
 
 Mixin をインクルード (`@include`) するとき、パラメータの値を名前付きで指定することができます。
 名前付き引数として値を指定するときは、引数の指定順序は任意となります。
 
-~~~ scss
+```scss
 @include color-box($border-width: 3px, $color: red);
-~~~
+```
 
 名前付き引数を使用すると記述量は若干増えますが、それぞれのパラメータが何を表しているか明確になるというメリットがあります。
 
 また、名前付き引数を使用することで、任意の位置のデフォルト引数のみを省略することが可能になります。
 次の例では、1番目の引数 `$color` を省略し、2番目の引数 `$border-width` のみを指定して Mixin をインクルードしています。
 
-~~~ scss
+```scss
 @include color-box($border-width: 3px);
-~~~
-
+```
 
 ### 可変長引数
 
 Mixin の引数の末尾に `...` を付けると、その引数を可変長引数として扱うことができます。
 例えば、CSS の `box-shadow` プロパティはもともと可変長のパラメータを受け付けますが、このようなプロパティを扱う Mixin は次のように定義することができます。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin box-shadow($shadows...) {
   -moz-box-shadow: $shadows;
   -webkit-box-shadow: $shadows;
@@ -268,25 +249,21 @@ Mixin の引数の末尾に `...` を付けると、その引数を可変長引�
 .box {
   @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 .box {
   -moz-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
   -webkit-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
   box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
 }
-~~~
+{{< /code >}}
 
 上記のように、**Mixin はベンダープレフィックスの必要なプロパティをまとめて定義するためにも利用することができます**。
 
 ちなみに、`...` というキーワードは、リスト変数の値を展開して、複数のパラメータとして Mixin や関数に渡すためにも使用します。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin fancy-border($color, $width, $style) {
   border: $width $style $color;
   border-radius: 5px;
@@ -301,11 +278,9 @@ $value-map: (color: red, width: 3px, style: dashed);
 .failure {
   @include fancy-border($value-map...);
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 .success {
   border: 1px solid green;
   border-radius: 5px;
@@ -315,26 +290,24 @@ $value-map: (color: red, width: 3px, style: dashed);
   border: 3px dashed red;
   border-radius: 5px;
 }
-~~~
+{{< /code >}}
 
 
 スタイルセットを Mixin のパラメータとして渡す（コンテントブロック） (@content)
 ----
 
-Mixin の定義の中で `@content` を参照すると、呼び出し側から渡されたスタイル定義をそこに展開することができます。
+Mixin の定義の中で **`@content`** を参照すると、呼び出し側から渡されたスタイル定義をそこに展開することができます。
 呼び出し側では、次のような構文でスタイル定義のブロックを Mixin に渡します。
 
-~~~
+```
 @include <Mixin名> {
-  スタイル定義
+  Mixinに渡すスタイル定義
 }
-~~~
+```
 
-この仕組みは、**同じ条件のメディアクエリを複数のスタイルに対して適用するときに便利**です。
+この仕組みは、**同じ条件のメディアクエリを複数のスタイルに対して適用するときに便利** です。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @mixin media-large {
   // スクリーンの横幅が広い端末（PCなど）の場合
   @media screen and (min-width: 800px) {
@@ -356,11 +329,9 @@ main {
     width: 20rem;
   }
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 main {
   margin: 1em;
 }
@@ -379,11 +350,11 @@ main {
     width: 20rem;
   }
 }
-~~~
+{{< /code >}}
 
-スクリーンサイズのブレイクポイントとする横幅などは、下記のように変数に定義しておくとメンテナンスしやすいかもしれません。
+スクリーンサイズのブレイクポイントとする横幅などは、下記のように変数に定義しておくとメンテナンスしやすくなります。
 
-~~~ scss
+```scss
 $LARGE_SCREEN_WIDTH: 800px;
 
 @mixin media-large {
@@ -391,7 +362,7 @@ $LARGE_SCREEN_WIDTH: 800px;
     @content;
   }
 }
-~~~
+```
 
 ちなみに、Mixin の中で `content-exists()` 関数を使用すると、コンテントブロックが Mixin に渡されたかどうかを調べることができます。
 
@@ -401,7 +372,7 @@ Mixin 名の中のハイフンとアンダースコアは同じ
 
 変数名や関数名も同様ですが、Mixin の名前の中で使用したハイフン (`-`) と、アンダースコア (`_`) は相互に置き換えが可能になっています。
 
-~~~ scss
+```scss
 @mixin foo-bar {
   color: red;
 }
@@ -409,21 +380,21 @@ Mixin 名の中のハイフンとアンダースコアは同じ
 main {
   @include foo_bar;  // ハイフンをアンダースコアに変えても参照できる
 }
-~~~
+```
 
 ただし、この振る舞いは歴史的な理由によるものなので、ハイフンで定義したものはハイフンを使って参照すべきでしょう。
 
 
-Mixin と @extend ディレクティブの違い
+Mixin と `@extend` ディレクティブの違い
 ----
 
-Sass の [@extend ディレクティブ](extend.html)も似たような機能を提供していますが、`@extend` はあくまで**セレクタを継承**する機能であり、Mixin 機能より若干複雑な振る舞いをします。
-Mixin 機能は**スタイルそのものを使いまわす**ものであり、`@extend` ディレクティブの振る舞いよりシンプルです（機能としては強力ですが）。
+Sass の [@extend ディレクティブ](/p/nkv6w5b/)も似たような機能を提供していますが、`@extend` はあくまで **セレクタを継承** する機能であり、Mixin 機能より若干複雑な振る舞いをします。
+Mixin 機能は **スタイルそのものを使いまわす** ものであり、`@extend` ディレクティブの振る舞いよりシンプルです（機能としては強力ですが）。
 
 Mixin と `@extend` の違いをざっとあげると下記のような感じでしょうか。
 
+- Mixin はパラメータを扱うことができる。Mixin の定義側にコンテントブロックを渡すこともできる。
 - Mixin は `@extend` とは異なり、セレクタの組み合わせによるルールが継承されない。
-- Mixin はパラメータを扱うことができる。
 - Mixin をインクルードした場所にスタイル定義がコピーされて展開されるため、出力後の CSS は `@extend` を使ったものよりも冗長になる可能性がある。
 
 
@@ -432,9 +403,7 @@ Mixin の利用例: ベンダープレフィックス
 
 Mixin は、ベンダープレフィックスが必要なプロパティをまとめて指定するためにも活用できます。
 
-#### border-radius 用の Mixin
-
-~~~ scss
+{{< code lang="scss" title="border-radius 用の Mixin" >}}
 @mixin border-radius($radius: 5px) {
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
@@ -444,11 +413,9 @@ Mixin は、ベンダープレフィックスが必要なプロパティをま�
 .box {
   @include border-radius(10px);
 }
-~~~
+{{< /code >}}
 
-#### box-shadow 用の Mixin
-
-~~~ scss
+{{< code lang="scss" title="box-shadow 用の Mixin" >}}
 @mixin box-shadow($shadows...) {
   -moz-box-shadow: $shadows;
   -webkit-box-shadow: $shadows;
@@ -458,5 +425,5 @@ Mixin は、ベンダープレフィックスが必要なプロパティをま�
 .box {
   @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
 }
-~~~
+{{< /code >}}
 

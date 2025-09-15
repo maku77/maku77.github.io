@@ -1,29 +1,30 @@
 ---
-title: "関数を定義する (@function)"
+title: "Sassメモ: 関数を定義する (@function)"
+url: "p/3htu3om/"
 date: "2018-12-20"
+tags: ["sass"]
 description: "Sass では独自の関数を定義することができ、任意の場所から呼び出すことできます。"
+aliases: ["/sass/function.html"]
 ---
 
 Sass (SCSS) で独自関数を定義するには、下記のような構文の **`@function`** ディレクティブを使用します。
 
-~~~
+```
 @function 関数名($引数1, $引数2) {
   @return 戻り値;
 }
-~~~
+```
 
 関数名は、組み込みの関数とコンフリクトしないように、何らかのプレフィックスを付けることが推奨されています。
 ライブラリなどを作っているのでなければ、`my-` とか `x-` とか付けておけば大丈夫だと思います。
-関数には **`f-` プレフィックス（function の f）、Mixin には `m-` プレフィックスを付ける**、というルールなども分かりやすいかもしれません。
+**関数には `f-` プレフィックス、Mixin には `m-` プレフィックスを付ける**、といったルールを決めておくと分かりやすいかもしれません。
 
 関数は Mixin と似ているように思われるかもしれませんが、Mixin がひとまとまりのルールセットを呼び出し側にインクルードするのに対し、関数は何らかの値を受け取って、その演算結果を値として返すために使用します（関数の方が粒度が小さい）。
 
 下記の `my-hover-color` 関数は、パラメータで指定された色より若干明る目の色を返します。
 ボタン要素にマウスカーソルを重ねたときの背景色を作成するために使用しています。
 
-#### 入力 (SCSS)
-
-~~~ scss
+{{< code lang="scss" title="入力 (SCSS)" >}}
 $LIGHTEN_RATE: 20%;
 
 @function my-hover-color($color) {
@@ -38,11 +39,9 @@ button {
     background: my-hover-color(black);
   }
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 button {
   color: white;
   background: black;
@@ -51,14 +50,14 @@ button {
 button:hover {
   background: #333333;
 }
-~~~
+{{< /code >}}
 
 Mixin と同様に、パラメータは名前付き引数として設定することができます。
 パラメータが複数あるときは、この形式で呼び出すようにすると可読性を上げられるかもしれません。
 
-~~~ scss
+```scss
 background: my-hover-color($color: black);
-~~~
+```
 
 
 デフォルト引数
@@ -69,9 +68,7 @@ background: my-hover-color($color: black);
 下記の例では、`my-add` 関数の2番目のパラメータのデフォルト値を 100 に設定しています。
 呼び出しに2番目のパラメータの指定を省略すると、100 が使用されます。
 
-#### 入力 (SCSS)
-
-~~~
+{{< code lang="scss" title="入力 (SCSS)" >}}
 @function my-add($a, $b: 100) {
   @return $a + $b;
 }
@@ -80,16 +77,14 @@ main {
   margin-left: my-add(1px, 2px);
   margin-right: my-add(1px);
 }
-~~~
+{{< /code >}}
 
-#### 出力 (CSS)
-
-~~~ css
+{{< code lang="css" title="出力 (CSS)" >}}
 main {
   margin-left: 3px;
   margin-right: 101px;
 }
-~~~
+{{< /code >}}
 
 
 可変長引数
@@ -100,7 +95,7 @@ main {
 下記の `my-sum` 関数は、任意の数の数値を受け取り、合計値を返します。
 ここでは、その結果を `@debug` ディレクティブを使用して出力しています。
 
-~~~ scss
+```scss
 @function my-sum($values...) {
   $sum: 0;
   @each $x in $values {
@@ -110,7 +105,7 @@ main {
 }
 
 @debug my-sum(1, 2, 3, 4, 5);  //=> 15
-~~~
+```
 
 
 関数名の中のハイフンとアンダースコアは同じ
