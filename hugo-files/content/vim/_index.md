@@ -93,8 +93,8 @@ categoryIcon: logo-vim.svg
 * [Vim で大文字と小文字を変換する (`U`, `u`)](/p/iin6vwz/)
 * [Vim でカーソル位置の数字をインクリメント／デクリメントする (`CTRL-A`, `CTRL-X`)](/p/in6mo7q/)
 * ソート
-    * [Vim で行をソートして重複行を削除する (`:sort u`)](/p/ybvwp6b/)
-    * [Vim で行を逆順にソートする (`:sort!`)](/p/g9cckyt/)
+  * [Vim で行をソートして重複行を削除する (`:sort u`)](/p/ybvwp6b/)
+  * [Vim で行を逆順にソートする (`:sort!`)](/p/g9cckyt/)
 
 ### カット＆ペースト
 * [Vim で挿入モード、コマンドモードでの貼り付け](/p/xqq89n2/)
@@ -112,9 +112,9 @@ categoryIcon: logo-vim.svg
 * [Vim で行情報を表示する](/p/3m53tcz/)
 * [Vim で外部の ex スクリプトを実行する](/p/rocrnht/)
 * プログラマ向け操作
-    * [Vim でプログラムの関数定義などにジャンプする（tags ファイルの利用）](/p/qt8z5d3/)
+  * [Vim でプログラムの関数定義などにジャンプする（tags ファイルの利用）](/p/qt8z5d3/)
 * [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (`keywordprg`)](/p/3hp29j9/)
-
+* [NeoVim を manpager として使用する（man ページを NeoVim で表示する）](/p/hfwenni/)
 
 インストール／環境
 ----
