@@ -1,6 +1,9 @@
 ---
-title: "Kotlin とは？ Kotlin をインストールする"
+title: "Kotlinメモ: Kotlin とは？ Kotlin をインストールする"
+url: "p/5zibnsn/"
 date: "2019-01-07"
+tags: ["kotlin"]
+aliases: ["/kotlin/intro/install.html"]
 ---
 
 Kotlin の特徴
@@ -18,7 +21,7 @@ Kotlin には次のような特徴があります。
 * Java で作成されたフレームワークやライブラリをそのまま使用することができます。
 * Gradle や Ant などを使ってビルドすることができます。
 * 上記のような特徴により、**1 つのプロジェクト内に Java のコードと Kotlin のコードを共存**させることができます。
-* **Java に比べて少ない記述量**で同等以上のことを実現することができます。文末のセミコロンがいらなかったり、型名を省略できたり、ラッパー関数があったり。
+* **Java に比べて少ない記述量**で同等以上のことを実現することができます。文末のセミコロンが不要だったり、型名を省略できたり、ラッパー関数があったりします。
 * Java と同様に静的型付き言語 (Statically typed language) ですが、多くの場合はコンパイラによる推論 (type inference) により型名を省略できます（コンパイル時に型が確定することは変わりありません）。
 * **Null 非許容型などを言語的にサポート**するため、メンテナンス性の高いコードを記述できます。
 * Java と同様にオブジェクト指向言語として扱えますが、**関数型プログラミング (Functional programming) を言語レベルでサポート**しています。
@@ -38,7 +41,7 @@ Kotlin の開発環境のインストールと HelloWorld
 
 - [Kotlin Playground](https://play.kotlinlang.org/)
 
-![install-try-kotlin.png](install-try-kotlin.png){: .center }
+{{< image src="img-001.png" >}}
 
 左側のペーンでサンプルコードを選択して Run ボタンを押せば、実行結果が下の出力エリアに表示されます。
 エディタ部分には、任意のコードを入力することができるため、簡単な文法テストだけであれば、このサイト上だけで済ませてしまうことができます。
@@ -53,21 +56,21 @@ Kotlin のスタンドアロン・コンパイラをインストールしてお�
 
 #### macOS の場合 (Homebrew)
 
-```
+{{< code lang="console" >}}
 $ brew update
 $ brew install kotlin
-```
+{{< /code >}}
 
 macOS であれば、Homebrew（`brew` コマンド）などを使ってインストールしてしまうのが簡単です。
 
 
 #### Windows の場合
 
-```
+{{< code lang="console" >}}
 C:\> choco install kotlinc
-```
+{{< /code >}}
 
-Windows であれば、[Chocolately](https://chocolatey.org/install) を使ってインストールしてしまうのが簡単です。
+Windows であれば、[Chocolatey](https://chocolatey.org/install) を使ってインストールしてしまうのが簡単です。
 コマンドプロンプトを「管理者として実行」で起動して、上記のようにタイプするだけでインストールできます。
 
 GitHub 上 [Kotlin リリースページ](https://github.com/JetBrains/kotlin/releases/) から、実行バイナリを直接ダウンロードして使う方法もあります。
@@ -76,26 +79,20 @@ GitHub 上 [Kotlin リリースページ](https://github.com/JetBrains/kotlin/re
 `kotlinc` コマンドが実行できるようになったら、下記のようなサンプルコードをコンパイルして実行してみましょう。
 ビルド後のアプリケーションは、Java アプリケーションと同様に `java` コマンドを使用して実行することができます。
 
-#### sample.kt
-
-~~~ kt
+{{< code lang="kotlin" title="sample.kt" >}}
 fun main(args: Array<String>) {
     println("Hello, world!")
 }
-~~~
+{{< /code >}}
 
-#### コンパイル
-
-~~~
+{{< code lang="console" title="コンパイル" >}}
 $ kotlinc sample.kt -include-runtime -d sample.jar
-~~~
+{{< /code >}}
 
-#### 実行
-
-~~~
+{{< code lang="console" title="実行" >}}
 $ java -jar sample.jar
 Hello, world!
-~~~
+{{< /code >}}
 
 `kotlinc` でコンパイルしたアプリケーションの実行には、Kotlin ランタイムが必要です。
 `kotlinc` の **`-include-runtime`** オプションは、生成する JAR ファイル内にこの Kotlin ランタイムを含めてしまう指定です。
@@ -112,7 +109,7 @@ Kotlin の生みの親である JetBrains 社が作成している IDE ですの
 
 IntelliJ IDEA でプロジェクトを作成するときに、Kotlin を選択すれば開発準備 OK です。
 
-![install-idea.png](install-idea.png){: .center }
+{{< image src="img-002.png" >}}
 
 
 ### IDE (Android Studio) を使用する
@@ -120,5 +117,5 @@ IntelliJ IDEA でプロジェクトを作成するときに、Kotlin を選択�
 Kotlin で Android アプリを作成するときは、[Android Studio](https://developer.android.com/studio/) に Kotlin サポートを追加して使用します。
 プロジェクトの作成時に下記のように **Include Kotlin support** にチェックを入れてやれば、スケルトンコードも Kotlin ファイルとして生成されます（`MainActivity.kt` などが生成されます）。
 
-![install-studio.png](install-studio.png){: .center }
+{{< image src="img-003.png" >}}
 

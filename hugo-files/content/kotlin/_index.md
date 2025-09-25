@@ -9,8 +9,8 @@ categoryIcon: _logo-kotlin.svg
 
 はじめに／環境
 ----
-* [Kotlin とは？ Kotlin をインストールする](intro/install.html)
-* [VSCode で Kotlin の開発環境を構築する](intro/vscode.html)
+* [Kotlin とは？ Kotlin をインストールする](/p/5zibnsn/)
+* [VS Code で Kotlin の開発環境を構築する](/p/2hbwijq/)
 
 
 変数／関数
