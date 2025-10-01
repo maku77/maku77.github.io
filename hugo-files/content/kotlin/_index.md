@@ -36,6 +36,7 @@ categoryIcon: _logo-kotlin.svg
 
 クラス
 ----
+### クラスの基本
 * [クラスを定義する／コンストラクタを定義する (`class`)](/p/4qqytis/)
 * [継承可能なクラスを作成する (`open`, `abstract`, `override`)](/p/r4wcjss/)
 * [シールクラスで継承可能なクラスを制限する (sealed class)](/p/d8kkspv/)
@@ -52,7 +53,12 @@ categoryIcon: _logo-kotlin.svg
 * iterator を定義して for-in ループで要素を処理できるようにする (iterator) <!-- (operator/operator-iterator.html) -->
 * 範囲演算子を定義して .. で指定した範囲の要素を取得できるようにする (`rangeTo`) <!-- (operator/operator-range.html) -->
 
-### 応用
+### ジェネリクス (Generics)【応用】
+* [ジェネリクスの基本](/p/yepnwyf/)
+* [`reified` でジェネリクスの型情報を維持する](/p/u32ykpo/)
+* [ジェネリクスの共変 (covariant) と不変 (invariant) について理解する](/p/irsz3gs/)
+
+### その他
 * [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
 * [クラス名を文字列で取得する](misc/class-name.html)
 * [クラス内の `MutableList`を immutable な `List` にして公開する](misc/return-as-immutable.html)
@@ -84,18 +90,10 @@ object キーワード
 * レシーバー付きラムダ (with)
 
 
-ジェネリクス (Generics)
+パッケージ
 ----
-* [ジェネリクス: ジェネリクスの基本](generics/basic.html)
-* [ジェネリクス: `reified` でジェネリクスの型情報を維持する](/p/u32ykpo/)
-* [ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する](generics/variant.html)
-
-
-文字列／数値
-----
-* [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](numstr/string-template.html)
-* [文字列と数値を変換する (`toIntOrNull`, `toInt`)](numstr/convert.html)
-* [文字列をデリミタ文字で分割する (`split`)](numstr/split.html)
+* [Kotlin のパッケージの扱い方を理解する](/p/u8mz82t/)
+* [パッケージのトップレベルに関数、プロパティ、定数を定義する](/p/xgn46vo/)
 
 
 配列／コレクション
@@ -125,15 +123,18 @@ object キーワード
 ### セット (Set)
 * [セットの集合演算を行う](collection/set-operation.html)
 
+
+文字列／数値
+----
+* [文字列リテラルの中で変数や式を展開する（文字列テンプレート）](/p/n3mn3og/)
+* [文字列と数値を変換する (`toIntOrNull`, `toInt`)](/p/cdxns9p/)
+* [文字列をデリミタ文字で分割する (`split`)](/p/mngmt9c/)
+
+
 日時（日付／時刻）
 ----
 
 * [Kotlin で日時（日付／時刻）を扱う方法いろいろ](misc/time.html)
-
-パッケージ
-----
-* [Kotlin のパッケージの考え方を理解する](package/basic.html)
-* [パッケージのトップレベルに関数、プロパティ、定数を定義する](/p/xgn46vo/)
 
 
 その他

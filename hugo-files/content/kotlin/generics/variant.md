@@ -1,28 +1,29 @@
 ---
-title: "ジェネリクス: 共変 (covariant) と不変 (invariant) について理解する"
+title: "Kotlinメモ: ジェネリクスの共変 (covariant) と不変 (invariant) について理解する"
+url: "p/irsz3gs/"
 date: "2019-12-20"
+tags: ["kotlin"]
+aliases: ["/kotlin/generics/variant.html"]
 ---
 
 共変である (covariant) とはどういうことか？
 ----
 
-`Int` は `Any` として使用することができます（`Any` は Java で言うところの `Object`）。
+Kotlin の `Int` は `Any` として使用することができます（`Any` は Java で言うところの `Object` です）。
 それでは、
 
 1. `List<Int>` は `List<Any>` として扱うことができるでしょうか？
 2. `MutableList<Int>` は `MutableList<Any>` として扱うことができるでしょうか？
 
-その答えは、使用している Generic クラスが、その型パラメータに関して **共変である (covariant) か不変であるか (invariant)** どうかによって決まります。
+その答えは、使用している Generic クラスが、その型パラメータに関して **共変である (covariant)** か **不変であるか (invariant)** によって決まります。
 
 1. `List<Int>` は `List<Any>` として**使える**（`List` は共変である (= covariant)）
 2. `MutableList<Int>` は `MutableList<Any>` としては**使えない**（`MutableList` は共変ではない (= invariant)）
 
 「Generic クラスが共変である」とは、型引数に指定した型の親子関係が、Generic クラスによって生成された型の親子関係と等しくなるということを意味します。
-例えば、`List<E>` はその型パラメータ `E` に関して共変なので、`List<Int>` を `List<Any>` として扱うことが可能です（`List<Int>` は `List<Any>` のサブタイプとみなされます）。
+例えば、`List<E>` はその型パラメータ `E` に関して共変であり、`List<Int>` を `List<Any>` として扱うことが可能です（`List<Int>` は `List<Any>` のサブタイプとみなされます）。
 
-#### List&lt;Int&gt; は List&lt;Any&gt; として扱える
-
-```kotlin
+{{< code lang="kotlin" title="List<Int> は List<Any> として扱える" >}}
 fun showElems(list: List<Any>) {
     for (e in list) {
         println(e)
@@ -33,17 +34,15 @@ fun main() {
     val a = listOf(0, 1, 2)  // List<Int>
     showElems(a)  // OK!
 }
-```
+{{< /code >}}
 
-一方で、`MutableList<E>` は型パラメータ `E` に関して共変ではないので、`MutableList<Int>` は `MutableList<Any>` として扱うことができません。
+一方で、`MutableList<E>` は型パラメータ `E` に関して共変ではなく、`MutableList<Int>` は `MutableList<Any>` として扱うことができません。
 まったく互換性のない型として扱われます。
 
 なぜこのような差が出てくるのでしょうか？
 次のようなコードを考えると分かりやすいと思います。
 
-#### MutableList&lt;Int&gt; は MutableList&lt;Any&gt; としては扱えない
-
-```kotlin
+{{< code lang="kotlin" title="MutableList<Int> は MutableList<Any> としては扱えない" >}}
 fun addElems(list: MutableList<Any>) {
     list.add("Hello")
     list.add("World")
@@ -53,7 +52,7 @@ fun main() {
     val a = mutableListOf(0, 1, 2)  // MutableList<Int>
     addElems(a)  // Compile Error!
 }
-```
+{{< /code >}}
 
 仮に上記のようなコードが合法とされてしまうと、`MutableList<Int>` 型のオブジェクトに、`Int` 以外の任意の要素を追加できることになってしまいます。
 だから、`MutableList<E>` は型パラメータ `E` に関して共変ではない、と定義されているのです。
@@ -81,7 +80,7 @@ class Holder<out T>(val elem: T) {
 
 型パラメータに `out` を付けるということは、その Generic クラスの実装において、型パラメータを出力用としてしか使用しないという宣言でもあります。
 出力用というのは、戻り値の位置のみでその型パラメータを使用するということです。
-そのため、このようなクラスを producer と読んだりして、サンプルコードのクラス名として `Producer` が使われたりします。
+そのため、このようなクラスを producer と呼ぶことがあり、クラス名に `Producer` が使われたりします。
 個人的にはそういった命名はサンプルコードとしては分かりにくいと思うので、ここでは `Holder` というクラス名にしています。
 
 専門用語では、getter などの出力位置で使うことを **out position** で使用する、setter などの入力位置で使うことを **in position** で使用すると言います。
@@ -220,7 +219,7 @@ intList.sortWith(anyComp)
 
 `in` 修飾子を付けられる型パラメータは、in position でしか使われないものに限定されます（正確には、public メソッドの戻り値のような、out position では一切使われないもの）。
 そのジェネリッククラスの中では、型パラメータを受け入れる（あるいは消費する）用途にしか使用しないため、そのジェネリッククラスのことを consumer と呼んだりします。
-なので、サンプルコードでは反変 (contravariant) なジェネリッククラスの名前が `Comsumer` になっていたりします。
+なので、サンプルコードでは反変 (contravariant) なジェネリッククラスの名前が `Consumer` になっていたりします。
 
 Kotlin の `Continuation` インタフェースも、反変なジェネリックインタフェースのひとつです。
 
@@ -238,18 +237,18 @@ declaration-site variance（宣言箇所分散）と use-site variance（利用�
 
 前述の `Holder` クラスの説明の場所でも少し出てきましたが、ジェネリッククラスの型パラメータに、`out` や `in` などの分散修飾子 (variance modifier) を付ける場合、Kotlin ではその付加タイミングが 2 パターンあります。
 
-* `declaration-site variance（宣言箇所分散）` ... クラスやインタフェースの宣言時に型パラメータを `out` や `in` で修飾する
-* `use-site variance（使用箇所分散）` ... すでに定義されているジェネリッククラスを使うときに型引数に `out` や `in` を付ける
+* **declaration-site variance（宣言箇所分散）** ... クラスやインタフェースの宣言時に型パラメータを `out` や `in` で修飾する
+* **use-site variance（使用箇所分散）** ... すでに定義されているジェネリッククラスを使うときに型引数に `out` や `in` を付ける
 
 ### declaration-site variance（宣言箇所分散）
 
-次の、`List` インタフェースのように、インタフェースを宣言する時点で、型パラメータに `out` や `in` 修飾子を付けてしまう方法です。
+次の `List` インタフェースのように、インタフェースを宣言する時点で型パラメータに `out` や `in` 修飾子を付けてしまう方法です。
 
 ```kotlin
 interface List<out E> : Collection<E> { ... }
 ```
 
-この場合、この `List` インタフェースを使う場所では、デフォルトで共変 (covariant) として扱われます。
+この `List` インタフェースを使う場所では、デフォルトで共変 (covariant) として扱われます。
 例えば、`List<Number>` を受け取る関数には、`List<Int>` や `List<Double>` を渡すことができます。
 
 ```kotlin
@@ -272,7 +271,7 @@ val nums: List<Number> = listOf<Int>(1, 2, 3)  // OK
 逆に、`MutableList` インタフェースは共変 (convariant) として定義されていない（＝不変 (invariant)) ので、次のような代入ができません。
 
 ```kotlin
-val nums: MutableList<Number> = mutableListOf<Int>(1, 2, 3)  // NG
+val nums: MutableList<Number> = mutableListOf<Int>(1, 2, 3)  // ERROR
 ```
 
 
@@ -289,7 +288,7 @@ val list: MutableList<Number> = mutableListOf<Int>(1, 2, 3)  // ERROR
 このような不変 (invariant) クラスであっても、使用する場所で `out` キーワードを付ければ、その部分だけでは共変であるとみなして使用することができます。
 その副作用として、in position で要素を扱うことができなくなるので、`add()` メソッドなどを呼び出せなくなります。
 
-```
+```kotlin
 val list: MutableList<out Number> = mutableListOf<Int>(1, 2, 3)
 list.add(1.5)  // ERROR
 ```
@@ -323,7 +322,7 @@ copyArray(arr1, arr2)  // ERROR
 ```
 
 そこで、使用箇所分散 (use-site variance) の仕組みを使って、`dst` パラメータの型パラメータに `in` キーワードを付けて、反変 (contravariant) にします。
-`in` キーワードが付けられるということは、この `dst` オブジェクトは、`T` 型の要素を取り込むだけ (consume) という宣言になります。
+`in` キーワードが付けられることにより、この `dst` オブジェクトは、`T` 型の要素を取り込むだけ（consume するだけ）ですよと宣言していることになります。
 
 
 ```kotlin
@@ -394,7 +393,7 @@ objs[0] = "ABC";  // Runtime ERROR
 `Array<Int>` と `Array<Any>` の間には互換性がないため、上記の Java の例のように、想定外の型の要素が格納されてしまう心配がありません。
 
 
-List&lt;Any?&gt; と List&lt;*&gt; (star projection) の違い
+`List<Any?>` と `List<*>` (star projection) の違い
 ----
 
 ジェネリクス型のオブジェクトを受け取る関数を定義するときに、要素の型情報を特に意識しないケースでは、型パラメータの代わりに、より簡潔な **スタープロジェクション (star projection)** の構文を使用することができます。
@@ -430,7 +429,7 @@ fun <T> dump(list: List<T>)
 
 ```kotlin
 fun addSomething(list: MutableList<*>) {
-    list.add("Hello")  // ERROR: 勝手にStringを入れちゃだめ
+    list.add("Hello")  // ERROR: 勝手にString型のリストだと想定しちゃだめ
 }
 
 fun main() {
@@ -443,7 +442,7 @@ fun main() {
 
 ```kotlin
 fun addSomething(list: MutableList<Any?>) {
-    list.add("Hello")
+    list.add("Hello")  // OK: このリストには何でも入れられる
 }
 
 fun main() {
@@ -483,8 +482,8 @@ covariant（共変）や invariant（不変）、contravariant（反変）など
 
 型の互換性を示すものなのだから、もっとわかりやすく、互換性とか変換性のように呼ぶべきだと思いますが、ちょっと抽象的すぎなのであまりいい用語がなかったのかもしれません。
 でも少なくとも、分散とか変な呼び方をして、理解しにくくしてしまうのは悪い傾向かと思います。
-誰かもっといい名前を付けて！
+誰かもっといい名前を付けて欲しいです！
 
-あと、型パラメータに制約を付けるときの upper bound（上限境界）とか、lower bound（下限境界）とかいう用語も、ネーミングセンスよくないですね。
-わざと分かりにくくしているのではないかという都市伝説。。。
+あと、型パラメータに制約を付けるときの upper bound（上限境界）とか、lower bound（下限境界）とかいう用語も、ネーミングがよくないですね。
+わざと分かりにくくしているのではないかという噂も。。。
 

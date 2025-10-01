@@ -1,10 +1,15 @@
 ---
-title: "文字列と数値を変換する (toIntOrNull, toInt)"
+title: "Kotlinメモ: 文字列と数値を変換する (toIntOrNull, toInt)"
+url: "p/cdxns9p/"
 date: "2019-04-24"
+tags: ["kotlin"]
+aliases: ["/kotlin/numstr/convert.html"]
 ---
 
 文字列 (String) → 数値 (Int)
 ----
+
+### `toIntOrNull()`
 
 Kotlin は `String` クラスに **`toIntOrNull()`** 拡張関数を定義しており、これを使うと任意の文字列を数値型 (Int) に変換することができます。
 その名の通り、変換できない文字列の場合は `null` を返します。
@@ -22,9 +27,11 @@ val num2 = "FFFF".toIntOrNull(16)     //=> 65535
 val num3 = "0xFFFF".toIntOrNull(16)   //=> null
 ```
 
-上記の結果からもわかるように、16進数表記の文字列にプレフィックスとして `0x` が付いていると、`toIntOrNull()` は `null` を返すということに注意しなきゃですね。
+上記の結果からもわかるように、16進数表記の文字列にプレフィックスとして `0x` が付いていると、`toIntOrNull()` は `null` を返すということに注意してください。
 
-似たような **`String#toInt()`** がありますが、こちらはパースに失敗したときに `null` を返すのではなく、`NumberFormatException` を投げます。
+### `toInt()`
+
+似たようなメソッドに **`String#toInt()`** がありますが、こちらはパースに失敗したときに `null` を返すのではなく、`NumberFormatException` を投げます。
 必要に応じて使い分けましょう。
 
 ```kotlin
@@ -57,7 +64,7 @@ println(num.toString(2))   //=> "-11111111"
 println(num.toString(8))   //=> "-377"
 println(num.toString(16))  //=> "-ff"
 println(Integer.toBinaryString(num))  //=> "11111111111111111111111100000001"
-println(Integer.toOctalString(num))  //=>  "37777777401"
-println(Integer.toHexString(num))  //=> "ffffff01"
+println(Integer.toOctalString(num))   //=> "37777777401"
+println(Integer.toHexString(num))     //=> "ffffff01"
 ```
 

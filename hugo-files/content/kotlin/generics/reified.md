@@ -1,5 +1,5 @@
 ---
-title: "Kotlinメモ: ジェネリクス: reified でジェネリクスの型情報を維持する"
+title: "Kotlinメモ: reified でジェネリクスの型情報を維持する"
 url: "p/u32ykpo/"
 date: "2019-12-27"
 tags: ["kotlin"]
@@ -10,10 +10,10 @@ aliases: [/kotlin/generics/reified.html]
 具体化型パラメータ (reified type parameters)
 ----
 
-Java の頃から変わっていませんが、ジェネリクスの型引数で指定した型情報は、**コンパイル時にイレイジャ (erasure) によって削除**されます。
+Java の頃から変わっていませんが、ジェネリクスの型引数で指定した型情報は、**コンパイル時にイレイジャ (erasure) によって削除されます**。
 つまり、実行時にその型情報を参照することはできません。
 これは、JVM の仕組みによるもので、erased at runtime と呼ばれたりします。
-Kotlin では、**`reified type parameter`** という機能を使うことで、型引数で指定した型情報を残すことができます。
+Kotlin では、**reified type parameter** という機能を使うことで、型引数で指定した型情報を残すことができます。
 
 例えば、次のように、いろいろな型の要素を含んだリストから、指定した型の要素だけを取り出すためのジェネリック関数 `filterByType()` を作りたいとします。
 
@@ -29,9 +29,7 @@ println(strList)  //=> ["A", "B"]
 
 この `filterByType()` 関数は、次のような感じで実装できそうな気がします。
 
-#### 間違ったコード
-
-```kotlin
+{{< code lang="kotlin" title="間違ったコード" >}}
 fun <T> filterByType(list: List<*>): List<T> {
     val result = mutableListOf<T>()
     list.forEach {
@@ -40,17 +38,15 @@ fun <T> filterByType(list: List<*>): List<T> {
     }
     return result
 }
-```
+{{< /code >}}
 
 しかし、ジェネリクスの型情報はイレイジャによってコンパイル時に失われるため、`if (it is T)` という実行時の型判定を行うことができません。
 `T` という型情報は、コンパイル時の整合性の確認には活用されますが、実行時には役に立たないということです。
 
-そこで、`reified` の出番です。
+そこで、**`reified`** の出番です。
 Kotlin では、上記の関数を **`inline` で定義し、さらに型パラメータに `reified` キーワードを付ける** ことにより、実行時まで型情報が残され、うまく動作するようになります。
 
-#### 正しいコード
-
-```kotlin
+{{< code lang="kotlin" title="正しいコード" >}}
 inline fun <reified T> filterByType(list: List<*>): List<T> {
     val result = mutableListOf<T>()
     list.forEach {
@@ -58,7 +54,7 @@ inline fun <reified T> filterByType(list: List<*>): List<T> {
     }
     return result
 }
-```
+{{< /code >}}
 
 仕組みとしては、型情報を伴ったコードがその場にインライン展開されるため、型の判定も正しく行えるということのようです。
 
@@ -68,7 +64,7 @@ reified の使用例
 
 ### Kotlin の filterIsInstance
 
-Kotlin の標準ライブラリでも、下記のような拡張関数が定義されていたりします。
+Kotlin の標準ライブラリでは、下記のような拡張関数が定義されていたりします。
 
 ```kotlin
 fun <reified R> Array<*>.filterIsInstance(): List<R>
@@ -97,7 +93,7 @@ inline fun <reified T : Activity> Context.startActivity() {
 }
 ```
 
-次のように、簡潔な形で `Activity` を起動することができます。
+これを利用すると、次のように簡潔な形で `Activity` を起動することができます。
 
 ```kotlin
 startActivity<MyActivity>()

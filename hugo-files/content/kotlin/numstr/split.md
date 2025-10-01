@@ -1,6 +1,9 @@
 ---
-title: "文字列をデリミタ文字で分割する (split)"
+title: "Kotlinメモ: 文字列をデリミタ文字で分割する (split)"
+url: "p/mngmt9c/"
 date: "2019-05-08"
+tags: ["kotlin"]
+aliases: ["/kotlin/numstr/split.html"]
 ---
 
 カンマで文字列を分割する
@@ -23,7 +26,7 @@ val arr = s.split(",").map { it.trim() }
 println(arr)  //=> ["AAA", "BBB", "CCC"]
 ```
 
-頻繁に使用する場合は、次にように `String` クラスに拡張関数を作ってしまうのもよいかもしれません。
+頻繁に使用する場合は、次のように `String` クラスに拡張関数を作ってしまうのもよいかもしれません。
 
 ```kotlin
 /**
@@ -64,5 +67,5 @@ for (String elem : arr) {
 }
 ```
 
-バックスラッシュ使ってエスケープしたりとか面倒ですね。
+Java の場合はバックスラッシュを使ってエスケープしたりとか面倒ですね。
 
