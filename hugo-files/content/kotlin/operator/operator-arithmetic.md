@@ -1,6 +1,9 @@
 ---
-title: "算術演算子を定義してオブジェクトに + や += を適用できるようにする"
+title: "Kotlinメモ: 算術演算子を定義してオブジェクトに + や += を適用できるようにする"
+url: "p/wf7yjbm/"
 date: "2019-07-16"
+tags: ["kotlin"]
+aliases: /kotlin/operator/operator-arithmetic.html
 ---
 
 Kotlin では、`+` や `+=` などの演算子をオーバーロードして、独自の振る舞いを定義することができます（Java では演算子のオーバーロードはできません）。

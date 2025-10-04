@@ -1,6 +1,9 @@
 ---
-title: "比較演算子を定義してオブジェクト同士の比較やソートを行えるようにする (equals, compareTo)"
+title: "Kotlinメモ: 比較演算子を定義してオブジェクト同士の比較やソートを行えるようにする (equals, compareTo)"
+url: "p/ojwakt8/"
 date: "2020-01-17"
+tags: ["kotlin"]
+aliases: /kotlin/operator/operator-compare.html
 ---
 
 オブジェクトを `==`、`!=`、`>`、`<`、`>=`、`<=` などの比較演算子で大小比較したいときや、ソート系の関数を適用できるようにするには、**`equals`** メソッドや、**`compareTo`** メソッドを定義します。
@@ -159,12 +162,10 @@ fun main() {
 }
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 [Complex(re=1, im=3), Complex(re=2, im=5), Complex(re=4, im=2)]
 [Complex(re=4, im=2), Complex(re=2, im=5), Complex(re=1, im=3)]
-```
+{{< /code >}}
 
 `sorted` 系メソッドが上記のように、ソート結果を戻り値で返すのに対し、`sort` 系メソッドは自分自身のリストを書き換えます（リスト生成に `listOf` ではなく `mutableListOf` を使う必要があります）。
 

@@ -1,6 +1,9 @@
 ---
-title: "インデックス演算子を定義して配列のようにアクセス可能なクラスを作る (index operator)"
+title: "Kotlinメモ: インデックス演算子を定義して配列のようにアクセス可能なクラスを作る (index operator)"
+url: "p/rtajezj/"
 date: "2020-01-16"
+tags: ["kotlin"]
+aliases: /kotlin/operator/operator-index.html
 ---
 
 インデックス演算子の実体は set と get
