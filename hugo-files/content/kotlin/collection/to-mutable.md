@@ -1,6 +1,9 @@
 ---
-title: "immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)"
+title: "Kotlinメモ: immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)"
+url: "p/r5f583b/"
 date: "2019-09-17"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/to-mutable.html"]
 ---
 
 Kotlin の `List` インタフェースや `Map` インタフェースは immutable（不変）なインタフェースとして定義されており、`add` や `set` といった要素を変更するメソッドが定義されていません。
@@ -11,7 +14,7 @@ toMutableList
 `listOf()` などで生成した immutable（不変）なリストから mutable なリストを生成するには、**`toMutableList()`** メソッドを使用します。
 
 ```kotlin
-val list1 = listOf(1, 2, 3)  // intArrayOf でも OK
+val list1 = listOf(1, 2, 3)
 val list2 = list1.toMutableList()
 list2.add(4)  // list2 += 4 でも OK
 
@@ -37,7 +40,7 @@ println(set1)  //=> [1, 2, 3]
 println(set2)  //=> [1, 2, 3, 4]
 ```
 
-`toMutableList()` が `toMutableSet()` に変わっただけですね。
+使用するメソッドが `toMutableList()` から `toMutableSet()` に変わっただけです。
 
 マップの場合も同様です。
 
@@ -50,11 +53,11 @@ println(map1)  //=> {one=1, two=2, three=3}
 println(map2)  //=> {one=1, two=2, three=3, four=4}
 ```
 
-要素の追加が `add()` から `put()` に変わったくらいです。
+要素の追加に使用するメソッドが `add()` から `put()` に変わるくらいです。
 
 
 関連記事
 ----
 
-- [クラス内の MutableList を immutable な List にして公開する](../misc/return-as-immutable.html)
+- [Kotlinメモ: クラス内の `MutableList` を immutable な `List` にして公開する](/p/9fwrpnu/)
 

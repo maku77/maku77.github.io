@@ -1,9 +1,12 @@
 ---
-title: "クラス内の MutableList を immutable な List にして公開する"
+title: "Kotlinメモ: クラス内の MutableList を immutable な List にして公開する"
+url: "p/9fwrpnu/"
 date: "2019-09-17"
+tags: ["kotlin"]
+aliases: ["/kotlin/misc/return-as-immutable.html"]
 ---
 
-- 参考: [immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](../collection/to-mutable.html)
+- 参考: [Kotlinメモ: immutable なコレクションを mutable に変換する (`toMutableList`, `toMutableSet`, `toMutableMap`)](/p/r5f583b/)
 
 上記の記事では、immutable（不変）な `List` から `MutableList` を生成する例を示していますが、逆に、mutable（可変）なオブジェクトを immutable にして見せたいことがあります。
 定型的なのは、クラス内のフィールドとして `MutableList` を持っているときに、不変なリストとして外部に公開したいケースです。
@@ -66,7 +69,7 @@ class TitleList {
 ```
 
 このように、外部からの変更の恐れをなくすために丸ごとコピーしちゃう手法を **防御的コピー (defencive copying)** と呼びます。
-Effective Java の「項目39 必要な場合には、防御的にコピーする」に詳しく記述されています。
+Effective Java の「項目39: 必要な場合には、防御的にコピーする」に詳しく記述されています。
 
 
 おまけ Android の LiveData の例

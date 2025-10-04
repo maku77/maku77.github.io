@@ -1,6 +1,9 @@
 ---
-title: "演算子の前後で改行したいときは必ず後ろで改行する"
+title: "Kotlinメモ: 演算子の前後で改行したいときは必ず後ろで改行する"
+url: "p/bmwa9t8/"
 date: "2019-12-04"
+tags: ["kotlin"]
+aliases: ["/kotlin/misc/break-after-operator.html"]
 ---
 
 Kotlin のコードにおいて、演算子の前後で改行をするときは、改行位置に気を付けないといけません。
@@ -40,27 +43,23 @@ Java の場合は、セミコロンが出てくるまで式が続いていると
 
 ちなみに Ruby も同じで、演算子の後ろで改行しなければいけません。
 
-#### Ruby
-
-```ruby
+{{< code lang="ruby" title="Ruby" >}}
 x = 100 -
   1
 y = 100
   - 1
 puts x  #=> 99
 puts y  #=> 100
-```
+{{< /code >}}
 
 Python の場合は、そもそも演算子の前後で改行しようとするとエラーになりますね。
 バックスラッシュを入れれば連結できますが。
 
-#### Python
-
-```python
+{{< code lang="python" title="Python" >}}
 x = 100 - \
     1
 y = 100 \
     - 1
 print(x)  #=> 99
 print(y)  #=> 99
-````
+{{< /code >}}

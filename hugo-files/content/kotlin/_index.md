@@ -53,23 +53,21 @@ categoryIcon: _logo-kotlin.svg
 * iterator を定義して for-in ループで要素を処理できるようにする (iterator) <!-- (operator/operator-iterator.html) -->
 * 範囲演算子を定義して .. で指定した範囲の要素を取得できるようにする (`rangeTo`) <!-- (operator/operator-range.html) -->
 
+### object キーワード
+* [オブジェクト宣言でシングルトンを作成する (object declaration)](/p/wc8f9y8/)
+* [オブジェクト式で無名オブジェクトを生成する (object expression)](/p/8yzdom9/)
+* [コンパニオンオブジェクトでクラスに静的メソッドを追加する (companion object)](/p/n2jphu2/)
+
 ### ジェネリクス (Generics)【応用】
 * [ジェネリクスの基本](/p/yepnwyf/)
 * [`reified` でジェネリクスの型情報を維持する](/p/u32ykpo/)
 * [ジェネリクスの共変 (covariant) と不変 (invariant) について理解する](/p/irsz3gs/)
 
-### その他
-* [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](misc/companion-vs-declaration.html)
-* [クラス名を文字列で取得する](misc/class-name.html)
-* [クラス内の `MutableList`を immutable な `List` にして公開する](misc/return-as-immutable.html)
-* [インラインクラスでプリミティブ型の型安全性を確保する (inline class)](misc/inline-class.html)
-
-
-object キーワード
-----
-* [オブジェクト宣言でシングルトンを作成する (object declaration)](/p/wc8f9y8/)
-* [オブジェクト式で無名オブジェクトを生成する (object expression)](/p/8yzdom9/)
-* [コンパニオンオブジェクトでクラスに静的メソッドを追加する (companion object)](/p/n2jphu2/)
+### その他 <!-- misc -->
+* [コンパニオンオブジェクトとクラス内オブジェクト宣言の違い](/p/rej4be5/)
+* [クラス名を文字列で取得する (`class.java.simpleName`)](/p/omkgowq/)
+* [クラス内の `MutableList` を不変 (immutable) な `List` にして公開する](/p/9fwrpnu/)
+* [インラインクラスでプリミティブ型の型安全性を確保する (inline class)](/p/khn4o5z/)
 
 
 型（タイプ）
@@ -101,7 +99,7 @@ object キーワード
 ### 共通
 * [コレクションの基本的な使い方 (`List`, `Set`, `Map`)](collection/basic.html)
 * [immutable なコレクションと mutable なコレクション (`List`, `Set`, `Map`)](collection/immutable-and-mutable.html)
-* [immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](collection/to-mutable.html)
+* [Kotlinメモ: immutable なコレクションを mutable に変換する (toMutableList, toMutableSet, toMutableMap)](/p/r5f583b/)
 * [配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）](collection/create-sequence.html)
 * [プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する](collection/primitive-array.html)
 * [プリミティブ型配列 (IntArray) の内容を見やすく出力する (contentToString)](collection/content-to-string.html)
@@ -131,16 +129,16 @@ object キーワード
 * [文字列をデリミタ文字で分割する (`split`)](/p/mngmt9c/)
 
 
-日時（日付／時刻）
+日時（日付／時刻） <!-- misc -->
 ----
 
-* [Kotlin で日時（日付／時刻）を扱う方法いろいろ](misc/time.html)
+* [Kotlin で日時（日付／時刻）を扱う方法いろいろ](/p/9c9d2t7/)
 
 
-その他
+その他 <!-- misc -->
 ----
-* [ドキュメンテーションコメントを記述する (KDoc)](misc/kdoc.html)
-* [Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）](misc/readability.html)
-* [ある処理にかかった時間を計測する (measureTimeMillis/Micros)](misc/measure-time.html)
-* [演算子の前後で改行したいときは必ず後ろで改行する](misc/break-after-operator.html)
+* [Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)](/p/wjgs3fp/)
+* [Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）](/p/otwhjds/)
+* [ある処理にかかった時間を計測する (`measureTimeMillis`/`Micros`)](/p/zmr4tpu/)
+* [演算子の前後で改行したいときは必ず後ろで改行する](/p/bmwa9t8/)
 

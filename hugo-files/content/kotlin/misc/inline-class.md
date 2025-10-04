@@ -1,7 +1,9 @@
 ---
-title: "インラインクラスでプリミティブ型の型安全性を確保する (inline class)"
+title: "Kotlinメモ: インラインクラスでプリミティブ型の型安全性を確保する (inline class)"
+url: "p/khn4o5z/"
 date: "2020-11-04"
-tags: ["Kotlin"]
+tags: ["kotlin"]
+aliases: ["/kotlin/misc/inline-class.html"]
 ---
 
 インラインクラスの基本
@@ -23,14 +25,13 @@ val name: Name = Name("Maku")
 違いはコンパイル後のバイトコードに現れます。
 上記のコードはコンパイル時にインライン展開され、次のようなコードを記述したのと同様に扱われます。
 
-```kotlin
-// コンパイル後のコード
+{{< code lang="kotlin" title="コンパイル後のコード" >}}
 val name: String = "Maku"
-```
+{{< /code >}}
 
-つまり、コンパイル時は具体的な型（`Name` 型）で型チェックを行いつつも、実行時にはプリミティブ型になっているのでパフォーマンスが悪化しない、といったことが実現できます。
+つまり、**コンパイル時は具体的な型（`Name` 型）で型チェックを行いつつも、実行時にはプリミティブ型になっているのでパフォーマンスが悪化しない**、という両方の利点を享受できます。
 
-現状、インラインクラスは、init ブロックを持てない、[バッキングフィールド](https://kotlinlang.org/docs/reference/properties.html#backing-fields)を持てない、といった制約がありますが、単純な getter プロパティや関数を持つことはできます。
+現状、インラインクラスは、init ブロックを持てない、[バッキングフィールド](https://kotlinlang.org/docs/properties.html#backing-fields)を持てない、といった制約がありますが、単純な getter プロパティや関数を持つことはできます。
 
 ```kotlin
 inline class Name(private val name: String) {
@@ -42,8 +43,8 @@ inline class Name(private val name: String) {
     }
 }
 
-val name: Name = Name("Maku")  //=> val name: String = "Maku"
-name.greet()                   //=> name.greet() ???
+val name: Name = Name("Maku")  //=> val name: String = "Maku" に置き換えられる
+name.greet()                   //=> String オブジェクトの greet() を呼び出す？
 ```
 
 上記の `name` 変数はコンパイル時に `String` オブジェクトに置き換えられるので、`name.greet()` の部分でエラーになりそうですが、コンパイラがうまいこと静的関数を生成して問題なく動作するようにしてくれます。
@@ -296,17 +297,17 @@ inline class CategoryId(val id: Int)
 
 #### 方法3: build.gradle (.kts) にコンパイラオプションを指定する方法
 
-```groovy
-# build.gradle
+{{< code lang="groovy" title="build.gradle" >}}
 compileKotlin {
     kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
 }
+{{< /code >}}
 
-# build.gradle.kts
+{{< code lang="kotlin" title="build.gradle.kts" >}}
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.freeCompilerArgs += "-Xinline-classes"
 }
-```
+{{< /code >}}
 
 いずれも、Android Studio を使用している場合は、`inline` にカーソルを合わせて `Alt + Enter` で自動入力できます。
 
@@ -314,14 +315,12 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 次のように 1 ファイル内でたくさんインラインクラスを定義している場合、detekt などの静的解析で警告が発生することがあります。
 
-#### types.kt
-
-```kotlin
+{{< code lang="kotlin" title="types.kt" >}}
 package com.example.myapp
 
 inline class GenreId(val id: Int)
 inline class EventId(val id: Int)
-```
+{{< /code >}}
 
 ```
 class GenreId should be declared in a file named GenreId.kt

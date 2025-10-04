@@ -1,7 +1,10 @@
 ---
-title: "Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)"
-linkTitle: "ドキュメンテーションコメントを記述する (KDoc)"
+title: "Kotlinメモ: Kotlin のコードにドキュメンテーションコメントを記述する (KDoc)"
+url: "p/wjgs3fp/"
 date: "2019-03-05"
+tags: ["kotlin"]
+linkTitle: "ドキュメンテーションコメントを記述する (KDoc)"
+aliases: ["/kotlin/misc/kdoc.html"]
 ---
 
 ドキュメンテーションコメントとは
@@ -79,7 +82,7 @@ Javadoc ではパラメータの説明は `@param` タグ、戻り値の説明�
 
 上記のようなコメントは冗長なので、下記のようにシンプルに記述すればよいということですね。
 
-```
+```kotlin
 /**
  * Sums two values, [a] and [b].
  */
@@ -163,15 +166,17 @@ Javadoc コメント内の文章に装飾を加える場合は、HTML タグや 
 
 #### コードブロック
 
-    ```kotlin
-    fun hello() {
-        Log.i(TAG, "hello")
-    }
-    ```
+{{< code lang="markdown" >}}
+```kotlin
+fun hello() {
+    Log.i(TAG, "hello")
+}
+```
+{{< /code >}}
 
 #### リスト
 
-```
+```markdown
 - apple
 - banana
 - orange
@@ -183,7 +188,7 @@ Javadoc コメント内の文章に装飾を加える場合は、HTML タグや 
 
 #### その他
 
-```
+```markdown
 ## 見出しを入れることができます
 
 アスタリスクで囲むと *強調* されて表示されます。
@@ -205,9 +210,7 @@ Gradle の **`org.jetbrains.dokka`** プラグインが [Maven リポジトリ (
 
 ### 通常の Java アプリの場合
 
-#### build.gradle
-
-```groovy
+{{< code lang="groovy" title="build.gradle" >}}
 buildscript {
     ext.dokka_version = '0.9.+'
     repositories {
@@ -219,7 +222,7 @@ buildscript {
 }
 
 apply plugin: 'org.jetbrains.dokka'
-```
+{{< /code >}}
 
 ### Android アプリの場合
 
@@ -227,9 +230,7 @@ Android プロジェクトでは、`org.jetbrains.dokka` プラグインの代�
 Android 用のプラグインを使用することで、自動生成される `R` クラスなどのドキュメントが無駄に出力されないようになります。
 `dependencies` で指定する ID が微妙に異なるので注意してください。
 
-#### ルートの build.gradle
-
-```groovy
+{{< code lang="groovy" title="ルートの build.gradle" >}}
 buildscript {
     ext.dokka_version = '0.9.+'
     repositories {
@@ -239,26 +240,22 @@ buildscript {
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokka_version"
     }
 }
-```
+{{< /code >}}
 
 Android のプロジェクトでは、`app` ディレクトリなどのサブプロジェクト構成になっていると思います。
 各サブプロジェクトの `build.gradle` で `com.android.application` や `com.android.library` プラグインを適用した後で、`org.jetbrains.dokka-android` プラグインを適用します。
 
-#### app/build.gradle
-
-```groovy
+{{< code lang="groovy" title="app/build.gradle" >}}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
-```
+{{< /code >}}
 
 これで、Gradle の **`dokka`** タスクを実行して API ドキュメントを生成できるようになります。
 
-#### 実行例
-
-```
+{{< code lang="console" title="実行例" >}}
 $ ./gradlew dokka
-```
+{{< /code >}}
 
 デフォルトでは、各プロジェクトの **`build/dokka`** ディレクトリ内に API ドキュメントが出力されます。
 

@@ -1,6 +1,9 @@
 ---
-title: "Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）"
+title: "Kotlinメモ: Kotlin で読みやすいコードを書く方法（可読性の高い Kotlin コードとは）"
+url: "p/otwhjds/"
 date: "2019-10-31"
+tags: ["kotlin"]
+aliases: ["/kotlin/misc/readability.html"]
 ---
 
 Effective Kotlin という電子書籍に、Kotlin コードの可読性に関していろいろためになることが書いてあるのでメモメモ。
@@ -192,7 +195,7 @@ getData()?.let { view.showData(it) } ?: view.showError()
 ```
 
 万が一、ラムダ式で呼び出している `showData()` が `null` を返すような実装をしていたら、`showError()` まで呼ばれてしまいます。これは恐ろしい。。。
-`Unit?` の方が有用なケースってあまりないはずなので、結論としては、`Unit?` なんて使うなということです。
+`Unit?` の方が有用なケースってあまりないはずなので、結論としては、**`Unit?` なんて使うな** ということです。
 
 
 型が明確でないときは省略しない (Specify the variable type when it is not clear)
@@ -362,7 +365,7 @@ fun Tree<Int>.sum(): Int = when (this) {
 }
 ```
 
-標準ライブラリも `sum` は関数として提供しますね。
+標準ライブラリでも `sum` は関数として提供していますね。
 
 ```kotlin
 val s = (1..100).sum()
@@ -450,19 +453,19 @@ sendEmail(
 ```kotlin
 fun call(before: () -> Unit = {}, after: () -> Unit = {}) {
     before()
-    print(" MIDDLE ")
+    print(" ---- ")
     after()
 }
 
-call({ print("CALL") })  //=> CALL MIDDLE
-call { print("CALL") }   //=> MIDDLE CALL
+call({ print("CALL") })  //=> CALL ----
+call { print("CALL") }   //=> ---- CALL
 ```
 
 名前付き引数で、次のように呼び出せば間違えることがありません。
 
 ```kotlin
-call(before = { print("CALL") })  //=> CALL MIDDLE
-call(after = { print("CALL") })   //=> MIDDLE CALL
+call(before = { print("CALL") })  //=> CALL ----
+call(after = { print("CALL") })   //=> ---- CALL
 ```
 
 3rd パーティライブラリを使う場合も、このような名前付き引数は活用できるケースはよくあります。
