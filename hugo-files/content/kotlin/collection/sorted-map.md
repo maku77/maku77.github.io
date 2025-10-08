@@ -1,6 +1,9 @@
 ---
-title: "マップをソートしてループ処理する (toSortedMap)"
+title: "Kotlinメモ: マップをソートしてループ処理する (toSortedMap)"
+url: "/p/8msfk3j/"
 date: "2019-06-03"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/sorted-map.html"]
 ---
 
 マップをキーでソートする
@@ -16,13 +19,11 @@ for ((k, v) in map.toSortedMap()) {
 }
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 AAA -> 1
 BBB -> 2
 CCC -> 3
-```
+{{< /code >}}
 
 `forEach` メソッドを使ってループを記述すると、処理の流れが左から右へ一方向になるので、若干可読性が上がるかもしれません。
 
@@ -56,13 +57,11 @@ val pairs = map.toList().sortedBy { it.second }
 pairs.forEach { (k, v) -> println("$k, $v") }
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 BBB, 1
 CCC, 2
 AAA, 3
-```
+{{< /code >}}
 
 ### toSortedMap() にカスタム Comparator を渡す方法
 

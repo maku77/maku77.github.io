@@ -1,6 +1,9 @@
 ---
-title: "セットの集合演算を行う"
+title: "Kotlinメモ: セットの集合演算を行う"
+url: "/p/oc2j8u9/"
 date: "2020-01-17"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/set-operation.html"]
 ---
 
 `Set` オブジェクト同士を `+` や `-` などで演算を行うと、和集合や差集合を求めることができます。

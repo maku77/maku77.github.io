@@ -1,6 +1,9 @@
 ---
-title: "マップからキーのリスト、値のリストを作成する (keys, values)"
+title: "Kotlinメモ: マップからキーのリスト、値のリストを作成する (keys, values)"
+url: "/p/6r9c6vu/"
 date: "2019-06-03"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/keys-values.html"]
 ---
 
 マップはキーと値のペアを保持するコレクションですが、**`keys`** プロパティでキーだけのリスト、**`values`** プロパティで値だけのリストを取得することができます。

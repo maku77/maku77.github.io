@@ -1,9 +1,12 @@
 ---
-title: "マップの値を始めて取得しようとしたときに初期化する（Map の遅延初期化）(getOrPut)"
+title: "Kotlinメモ: マップの値を初めて取得しようとしたときに初期化する（Map の遅延初期化）(getOrPut)"
+url: "/p/u4j3e9t/"
 date: "2019-10-24"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/map-get-or-put.html"]
 ---
 
-`MutableMap` の [getOrPut メソッド](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-put.html) を使用すると、指定されたキーに対応する値が見つからないときに、その値をラムダ式によって初期化した上で返すことができます。
+`MutableMap` の [`getOrPut` メソッド](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-put.html) を使用すると、指定されたキーに対応する値が見つからないときに、その値をラムダ式によって初期化した上で返すことができます。
 
 ```kotlin
 val map = mutableMapOf<String, Int>()

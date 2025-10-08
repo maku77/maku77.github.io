@@ -1,6 +1,9 @@
 ---
-title: "プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する"
+title: "Kotlinメモ: プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する"
+url: "/p/az53za7/"
 date: "2020-02-25"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/primitive-array.html"]
 ---
 
 いつ Int はプリミティブ型として扱われるか？
@@ -40,6 +43,7 @@ println(intArr2.javaClass.simpleName)  // Java では Integer[] に相当
 プリミティブ型配列には、`IntArray` 以外にも次のようなものが用意されています。
 
 | Kotlin の型 | Java の型 |
+| ---- | ---- |
 | `CharArray` | `char[]` |
 | `ByteArray` | `byte[]` |
 | `ShortArray` | `short[]` |
@@ -60,5 +64,5 @@ val floatArr = floatArrayOf(1.0f, 2.0f, 3.0f)  // float[]
 val doubleArr = doubleArrayOf(1.0, 2.0, 3.0)   // double[]
 ```
 
-- 参考: [配列とリストの生成方法いろいろ（連番からなる配列やリストを作成する）](./create-sequence.html)
+- 参考: [配列とリストの生成方法いろいろ（連番からなる配列やリストを作成する）](/p/fo685z4/)
 

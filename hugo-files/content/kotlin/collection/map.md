@@ -1,6 +1,9 @@
 ---
-title: "コレクションの要素をもとに別のコレクションを作成する (map)"
+title: "Kotlinメモ: コレクションの要素をもとに別のリストを作成する (map)"
+url: "/p/v5wjmyk/"
 date: "2019-06-03"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/map.html"]
 ---
 
 配列やリストに対する map
@@ -31,7 +34,7 @@ fun main() {
 }
 ```
 
-上記の `books.map { it.title }` という部分は、[メンバ参照の記法](../basic/member-reference.html) を使用して `books.map(Book::title)` と記述することもできます。
+上記の `books.map { it.title }` という部分は、[メンバ参照の記法](/p/r2gqqnt/) を使用して **`books.map(Book::title)`** と記述することもできます。
 
 
 マップに対する map
@@ -49,9 +52,7 @@ val list = map.map { e -> e.key.repeat(e.value) }
 println(list)
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 [A, BB, CCC]
-```
+{{< /code >}}
 

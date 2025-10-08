@@ -1,6 +1,9 @@
 ---
-title: "コレクションの最初・最後の要素を取得する (first, last)"
+title: "Kotlinメモ: コレクションの最初・最後の要素を取得する (first, last)"
+url: "/p/swvgt89/"
 date: "2019-04-26"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/first-last.html"]
 ---
 
 先頭要素を取得する (first)
@@ -28,10 +31,8 @@ println(map.keys.first())  // これなら OK
 
 `first()` のパラメータに条件式を渡すと、**最初にその条件に一致する値**を取り出すことができます。
 
-#### 例: 最初の偶数を見つける
-
-```kotlin
+{{< code lang="kotlin" title="例: 最初の偶数を見つける" >}}
 val list = listOf(5, 1, 4, 2, 3)
 println(list.first({ it % 2 == 0 }))  //=> 4
-```
+{{< /code >}}
 

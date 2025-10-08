@@ -1,6 +1,9 @@
 ---
-title: "プリミティブ型配列 (IntArray) の内容を見やすく出力する (contentToString)"
+title: "Kotlinメモ: プリミティブ型配列 (IntArray) の内容を見やすく出力する (contentToString)"
+url: "/p/4j2zidk/"
 date: "2020-02-26"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/content-to-string.html"]
 ---
 
 配列クラスの contentToString メソッド
@@ -10,10 +13,8 @@ date: "2020-02-26"
 
 このような場合は、Kotlin が拡張関数として用意している **`contentToString()`** メソッドを使用すると、読みやすい形式で配列の内容を出力できます。
 
-#### プログラム例
-
-```kotlin
-// ジェネリクス型配列の場合
+{{< code lang="kotlin" title="実装例" >}}
+// ジェネリック型配列の場合
 val arr1: Array<Int> = arrayOf(1, 2, 3)
 println(arr1)
 println(arr1.contentToString())
@@ -22,16 +23,14 @@ println(arr1.contentToString())
 val arr2: IntArray = intArrayOf(1, 2, 3)
 println(arr2)
 println(arr2.contentToString())
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 [Ljava.lang.Integer;@31befd9f
 [1, 2, 3]
 [I@2c7b84de
 [1, 2, 3]
-```
+{{< /code >}}
 
 ちなみに、`contentToString()` 拡張関数の実装は、`java.util.Arrays.toString(this)` を呼び出しているだけです。
 

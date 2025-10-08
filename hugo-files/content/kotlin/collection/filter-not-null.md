@@ -1,6 +1,9 @@
 ---
-title: "配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)"
+title: "Kotlinメモ: 配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)"
+url: "/p/wz5cnqq/"
 date: "2019-04-24"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/filter-not-null.html"]
 ---
 
 filterNotNull 関数による null 要素の削除
@@ -63,9 +66,7 @@ Kotlin には、この 2 つの操作を一発で行うための **`mapNotNull`*
 val categories = pages.mapNotNull { it.category }
 ```
 
-#### 全体のコード
-
-```kotlin
+{{< code lang="kotlin" title="全体のコード" >}}
 data class Page(val title: String, val category: String? = null)
 
 fun main() {
@@ -77,11 +78,9 @@ fun main() {
     val categories = pages.mapNotNull { it.category }
     println(categories)
 }
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 [Category1, Category2]
-```
+{{< /code >}}
 

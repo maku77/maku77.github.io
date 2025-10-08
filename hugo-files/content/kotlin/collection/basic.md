@@ -1,6 +1,9 @@
 ---
-title: "コレクションの基本的な使い方 (List, Set, Map)"
+title: "Kotlinメモ: コレクションの基本的な使い方 (List, Set, Map)"
+url: "/p/by55kee/"
 date: "2019-06-03"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/basic.html"]
 ---
 
 リスト (List)
@@ -69,7 +72,7 @@ for ((k, v) in map) {
 }
 ```
 
-セット生成後に要素を追加・削除したい場合は、**`mutableMapOf`** 関数でセットを作成しておく必要があります。
+マップ生成後に要素を追加・削除したい場合は、**`mutableMapOf`** 関数でマップを作成しておく必要があります。
 
 ```kotlin
 val map: MutableMap<String, Int> = mutableMapOf("AAA" to 1, "BBB" to 2, "CCC" to 3)
@@ -89,5 +92,5 @@ immutable と mutable について
 Kotlin では、コレクション系のクラスを扱うとき、immutable（不変）なインタフェースと mutable（可変）なインタフェースを明示的に使い分けます。
 詳しくは下記の記事を参照してください。
 
-* [immutable なコレクションと mutable なコレクション (List, Set, Map)](./immutable-and-mutable.html)
+* [immutable なコレクションと mutable なコレクション (`List`, `Set`, `Map`)](/p/9557oxs/)
 

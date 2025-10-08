@@ -1,6 +1,9 @@
 ---
-title: "immutable なコレクションと mutable なコレクション (List, Set, Map)"
+title: "Kotlinメモ: immutable なコレクションと mutable なコレクション (List, Set, Map)"
+url: "/p/9557oxs/"
 date: "2019-04-24"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/immutable-and-mutable.html"]
 ---
 
 Kotlin で immutable なリストを生成するときは `listOf`、mutable なリストを生成するときは `mutableListOf` を使って生成していると思います。
@@ -56,9 +59,7 @@ addAll(src, dst)
 3 大コレクション (List、Set、Map) の全体像
 ----
 
-<a href="./immutable-and-mutable.puml.txt">
-![immutable-and-mutable.svg](./immutable-and-mutable.svg){: .center }
-</a>
+{{< image src="img-001.svg" >}}
 
 Kotlin では、`List` や `Set`、`Map` などの基本的なコレクションインタフェースはリードオンリーなインタフェースとして定義されており、それぞれ編集可能なインタフェースとして `MutableList`、`MutableMap`、`MutableSet` インタフェースを用意しています。
 

@@ -1,6 +1,9 @@
 ---
-title: "配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）"
+title: "Kotlinメモ: 配列とリストの生成方法まとめ（連番からなる配列やリストを作成する）"
+url: "/p/fo685z4/"
 date: "2020-02-26"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/create-sequence.html"]
 ---
 
 空の配列やリスト
@@ -133,5 +136,5 @@ val x = CharArray(3) { 'A' + it }  // => ['A', 'B', 'C']
 
 ちなみに、`Set` や `Map` の初期化はこのようなラムダ式では行えないようです（ラムダを受け取るコンストラクタが存在しない）。
 
-- 参考: [プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する](./primitive-array.html)
+- 参考: [プリミティブ型の配列には IntArray や LongArray などの専用クラスを使うことを検討する](/p/az53za7/)
 

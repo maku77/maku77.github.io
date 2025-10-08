@@ -1,6 +1,9 @@
 ---
-title: "コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)"
+title: "Kotlinメモ: コレクション内の最小・最大の値を見つける (min, max, minBy, maxBy)"
+url: "/p/kqpvcpj/"
 date: "2019-04-26"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/min-max.html"]
 ---
 
 
@@ -45,11 +48,9 @@ fun main() {
 
 `min`/`max` 関数の代わりに、[minBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-by.html)/[maxBy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-by.html) 関数を使用すると、関数の呼び出し時に**ラムダ式で比較する値を指定**することができます。
 
-#### 例: price プロパティが最小のものを取り出す
-
-```kotlin
+{{< code lang="kotlin" title="例: price プロパティが最小のものを取り出す" >}}
 val cheapestBook = books.minBy { it.price }
-```
+{{< /code >}}
 
 `minBy`/`maxBy` 関数を使用すると、`Comparable` でない要素を含むコレクションから（あるプロパティが）最小・最大である要素を取り出すことができます。
 また、呼び出し時に比較に使用するプロパティを指定できるので、必要に応じて参照するプロパティを変えて最小値・最大値を取り出すことができます。

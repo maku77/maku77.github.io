@@ -1,6 +1,9 @@
 ---
-title: "コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)"
+title: "Kotlinメモ: コレクションから条件に一致する要素のみを取り出す (filter, filterNot, filterKeys, filterValues)"
+url: "/p/y2z9krm/"
 date: "2019-06-03"
+tags: ["kotlin"]
+aliases: ["/kotlin/collection/filter.html"]
 ---
 
 リストや配列のフィルタ (filter, filterNot)
@@ -32,7 +35,7 @@ val ms = names.filterNot { it.startsWith("M") }
 
 コレクション内から要素が null でないものを取り出したいときは、`filterNotNull` や `mapNotNull` を使用すると簡潔に記述できます。
 
-- [配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)](./filter-not-null.html)
+- [配列やリストから null 以外の要素のみを抽出する (filterNotNull, mapNotNull)](/p/wz5cnqq/)
 
 
 マップのフィルタ (filterKeys, filterValues)
