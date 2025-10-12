@@ -10,7 +10,7 @@ categoryIcon: _index.svg
 シェルスクリプト / Bash プログラミング
 ----
 
-* [シェルスクリプトのコーディングスタイル](basic/coding-style.html)
+* [シェルスクリプトのコーディングスタイル](/p/oukq4dh/)
 
 ### 変数
 * [変数の基本](var/basic.html)
@@ -18,14 +18,14 @@ categoryIcon: _index.svg
 * [シェル変数/環境変数がセットされているか調べる](var/check-if-var-is-set.html)
 * [Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）](var/expansion.html)
 * 配列
-    * [配列を作成する](var/create-array.html)
-    * [配列をループ処理する](var/loop-array.html)
-    * [配列のサイズ（要素数）を調べる](var/array-size.html)
-    * [配列に要素を追加する](var/add-elem-to-array.html)
-    * [配列と配列を結合する](var/concat-arrays.html)
+  * [配列を作成する](var/create-array.html)
+  * [配列をループ処理する](var/loop-array.html)
+  * [配列のサイズ（要素数）を調べる](var/array-size.html)
+  * [配列に要素を追加する](var/add-elem-to-array.html)
+  * [配列と配列を結合する](var/concat-arrays.html)
 * 数値
-    * [数値変数を加算／減算する](var/add-and-sub.html)
-    * [ランダムな数値を取得する ($RANDOM)](number/random.html)
+  * [数値変数を加算／減算する](var/add-and-sub.html)
+  * [ランダムな数値を取得する ($RANDOM)](number/random.html)
 
 ### 制御構文
 * [if-else による分岐処理](syntax/if.html)
@@ -34,21 +34,22 @@ categoryIcon: _index.svg
     * [ループ内での複数の出力をまとめてリダイレクト、パイプ処理する](syntax/loop-output.html)
 
 ### 起動時の処理 <!-- startup -->
-* [コマンドライン引数を取得する (`$1`, `$@`, `$*`)](/p/c2kx7er/)
-* [コマンドライン引数の数が正しいかチェックする (`$#`)](/p/4tbzpyf/)
-* [名前付きのコマンドラインオプションを扱う (`getopts`)](/p/2fyizgw/)
+* コマンドライン引数
+  1. [コマンドライン引数の基本 (`$1`, `$@`, `$*`)](/p/c2kx7er/)
+  1. [コマンドライン引数の数が正しいかチェックする (`$#`)](/p/4tbzpyf/)
+  1. [名前付きのコマンドラインオプションを扱う (`getopts`)](/p/2fyizgw/)
 * [ある環境変数が定義されているかチェックする (`test -z`)](/p/r3myewb/)
 * [ある外部コマンドが使用できるかチェックする (`type -P`)](/p/xi5sjju/)
 
 ### 関数
-* [関数を定義する (function)](syntax/function.html)
+* [関数を定義する (`function`)](syntax/function.html)
 * [関数へパラメータを渡す](syntax/pass-params-to-function.html)
 * [関数内でローカル変数を扱う](syntax/local-var-in-function.html)
 * [関数から戻り値を返す](syntax/return-value-from-function.html)
 * [関数のデフォルト引数を定義する](syntax/default-params.html)
 
 ### パス
-* [絶対パスと相対パスの変換 (basename, dirname)](path/absolute-path-to-relative-path.html)
+* [絶対パスと相対パスの変換 (`basename`, `dirname`)](path/absolute-path-to-relative-path.html)
 * [指定したファイルの絶対パスを取得する](path/absolute-path-of-file.html)
 * [カレントディレクトリの絶対パスを取得する](path/absolute-path-of-current-dir.html)
 * [実行中のシェルスクリプトのファイル名を取得する](path/path-of-script.html)
@@ -63,10 +64,10 @@ categoryIcon: _index.svg
 * [ディレクトリ内のファイルを順に処理する (`for`, `while`)](/p/or3cmv6/)
 * [外部コマンドの実行結果を 1 行ずつ処理する (`for`, `while`, `read`)](/p/s9r9q7n/)
 * [テキストファイルを 1 行ずつ読み込む (`read`)](/p/co9p7nj/)
-* [expect で外部コマンドの出力を待機する](/p/3i3j2hx/)
+* [`expect` で外部コマンドの出力を待機する](/p/3i3j2hx/)
 
 ### 日時
-* [今日の日付から YYYYMMDD のような文字列を作成する (date)](time/date-string.html)
+* [今日の日付から YYYYMMDD のような文字列を作成する (`date`)](time/date-string.html)
 
 ### トラブルシューティング
 * [改行コードが原因の関数定義の syntax error](trouble/function-syntax-error.html)
@@ -108,7 +109,7 @@ Linux システム／管理
 ----
 ### コマンド
 * [Linux カーネル／OS のバージョンを調べる](linux-version.html)
-* [bash のバージョンを調べる ($BASH_VERSION)](bash-version.html)
+* [bash のバージョンを調べる (`$BASH_VERSION`)](bash-version.html)
 * [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
 * [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)
@@ -120,17 +121,17 @@ Linux システム／管理
 * [Linux システムコールを使用して core dump を吐かないようにする (setrlimit)](manage/setrlimit.html)
 
 
-Linux コマンド全般　
+Linux コマンド全般
 ----
-* [Linuxコマンド: ファイルやディレクトリを検索する (find, grep)](/p/hudubr8/)
-* [Windows で Linux 系のコマンドを使用できるようにする (Gow)](basic/gow.html)
-* [rsync コマンドでディレクトリを同期する](basic/rsync.html)
-* [行番号付きでテキストファイルの内容を出力する (cat -b)](basic/cat-with-line-number.html)
-* [あるファイルがテキストファイルかどうか調べる (file)](basic/check-if-text-file.html)
-* [リダイレクトとパイプ処理のまとめ](basic/redirect-and-pipe.html)
-* [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ](basic/avoid-overridden-by-redirect.html)
-* [ls コマンドが使えないときに echo コマンドで代用する](basic/echo-instead-of-ls.html)
-* [いずれかの文字列を含むファイルだけを列挙する](basic/ls-with-pattern-matching.html)
+* [Linuxコマンド: ファイルやディレクトリを検索する (`find`, `grep`)](/p/hudubr8/)
+* [Windows で Linux 系のコマンドを使用できるようにする (Gow)](/p/qijsiy5/)
+* [`rsync` コマンドでディレクトリを同期する](/p/dvd889d/)
+* [行番号付きでテキストファイルの内容を出力する (`cat -n`, `cat -b`)](/p/sybn8yf/)
+* [あるファイルがテキストファイルかどうか調べる (`file`)](/p/ams75pd/)
+* [リダイレクトとパイプ処理のまとめ](/p/knkamyp/)
+* [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ (`set -o noclobber`)](/p/jw5xt77/)
+* [`ls` コマンドが使えないときに `echo` コマンドで代用する](/p/z3dxcch/)
+* [`ls` コマンドでパターンに一致するファイルだけを列挙する](/p/vtkjxha/)
 
 ### curl コマンド
 * [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)

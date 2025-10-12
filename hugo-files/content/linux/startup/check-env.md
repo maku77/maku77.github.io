@@ -1,5 +1,5 @@
 ---
-title: "シェルスクリプト: ある環境変数が定義されているかチェックする (test -z)"
+title: "Linuxシェルスクリプト: ある環境変数が定義されているかチェックする (test -z)"
 url: "p/r3myewb/"
 date: "2010-06-13"
 tags: ["Linux"]
@@ -14,13 +14,16 @@ aliases: /linux/startup/check-env.html
 {{< code lang="bash" title="sample.sh" >}}
 #!/bin/bash
 
-if [ -z $SRC_ROOT ]; then
+if [ -z "$SRC_ROOT" ]; then
   echo 'Please set the "SRC_ROOT" environment variable and try again.' >&2
   exit -1
 fi
 
 echo 'Program continues...'
 {{< /code >}}
+
+`-z` は、指定された変数の文字列長が 0 であるかを調べるオプションです。
+`SRC_ROOT` 変数にスペースを含む文字列が設定されている場合に備えて、`"$SRC_ROOT"` のようにダブルクォートで囲むことをお勧めします。
 
 {{% note %}}
 `echo` の出力を `>&2` とリダイレクトすると標準エラー出力へ出力できます。
@@ -39,13 +42,13 @@ Program continues...
 ----
 
 ```bash
-if [ -z $SRC_ROOT ]; then
+if [ -z "$SRC_ROOT" ]; then
 ```
 
 という条件判定は、次のように __`test`__ コマンドを使うのと同等です。
 
 ```bash
-if test -z $SRC_ROOT; then
+if test -z "$SRC_ROOT"; then
 ```
 
 __`test -z`__ コマンドは、指定された変数値の文字列長が 0 かどうかを確認するコマンドです。

@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: 外部コマンドの実行結果を 1 行ずつ処理する (for, while, read)"
+title: "Linuxシェルスクリプト: 外部コマンドの実行結果を 1 行ずつ処理する (for, while, read)"
 url: "p/s9r9q7n/"
 date: "2017-11-01"
 tags: ["Linux"]

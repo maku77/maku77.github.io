@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: ディレクトリ内のファイルを順に処理する (for, while)"
+title: "Linuxシェルスクリプト: ディレクトリ内のファイルを順に処理する (for, while)"
 url: "p/or3cmv6/"
 date: "2011-02-06"
 tags: ["Linux"]
@@ -43,4 +43,6 @@ find . -type f | while read x; do
   echo "$x"
 done
 ```
+
+- 参考: [外部コマンドの実行結果を 1 行ずつ処理する (`for`, `while`, `read`)](/p/s9r9q7n/)
 

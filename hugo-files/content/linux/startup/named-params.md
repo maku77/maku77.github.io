@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: 名前付きのコマンドラインオプションを扱う (getopts)"
+title: "Linuxシェルスクリプト: 名前付きのコマンドラインオプションを扱う (getopts)"
 url: "p/2fyizgw/"
 date: "2022-12-05"
 tags: ["Linux"]

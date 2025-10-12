@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: echo の結果を標準エラー出力 (stderr) に出力する"
+title: "Linuxメモ: echo の結果を標準エラー出力 (stderr) に出力する"
 url: "p/q2k3j2h/"
 date: "2022-12-05"
 tags: ["Linux"]
@@ -74,18 +74,22 @@ EOF
 
 コマンドの出力をさまざまな形でリダイレクトすることで、本来の標準出力、標準エラー出力への出力を次のように振り分けることができます。
 
-出力先の凡例 ... <code style="color:blue">STDOUT</code>: 標準出力、<code style="color:red">STDERR</code>: 標準エラー出力、<code style="color:green">FILE</code>: ファイル、`─`: 出力されない
-
 | コマンド形式 | 標準出力 | 標準エラー出力 |
 | ---- | :--: | :--: |
 | `command` | <code style="color:blue">STDOUT</code> | <code style="color:red">STDERR</code> |
-| `command >&2`<br>`command 1>&2` | <code style="color:red">STDERR</code> | <code style="color:red">STDERR</code> |
+| `command 1>&2`<br><code>command&nbsp;&nbsp;>&2</code> | <code style="color:red">STDERR</code> | <code style="color:red">STDERR</code> |
 | `command 2>&1` | <code style="color:blue">STDOUT</code> | <code style="color:blue">STDOUT</code> |
 | `command > /dev/null` | `─` | <code style="color:red">STDERR</code> |
 | `command > /dev/null 2>&1` | `─` | `─` |
 | `command > file` | <code style="color:green">FILE</code> | <code style="color:red">STDERR</code> |
 | `command > file 2>&1` | <code style="color:green">FILE</code> | <code style="color:green">FILE</code> |
 | `command 2>&1 > file` | <code style="color:green">FILE</code> | <code style="color:blue">STDOUT</code> |
+
+<div style="text-align: right">
+<code style="color:blue">STDOUT</code>: 標準出力 / <code style="color:red">STDERR</code>: 標準エラー出力 / <code style="color:green">FILE</code>: ファイル / <code>─</code>: 出力されない
+</div>
+
+例えば `echo Hello` とすると、通常は `Hello` が標準出力に出力されますが、`echo Hello 1>&2` とすると、標準出力が標準エラー出力に切り替わって `Hello` が標準エラー出力に出力されるようになります。
 
 読み解き方:
 

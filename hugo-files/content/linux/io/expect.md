@@ -7,12 +7,12 @@ description: "expect コマンドを使用すると、任意のコマンドの�
 aliases: /linux/io/expect.html
 ---
 
-expect コマンドを使用すると、任意のコマンドの出力を待ち受けて、自動でそれに応答するといったことを実現できます。
+Linux や macOS の **`expect`** コマンドを使用すると、任意のコマンドの出力を待ち受けて、自動でそれに応答するといったことを実現できます。
 
 expect の基本的な使い方
 ----
 
-Linux のコマンド __`expect`__ がインストールされていない場合は、パッケージ管理ツール（`apt` や `yum`）を使用してインストールしてください（macOS には最初からインストールされています）。
+`expect` がインストールされていない場合は、パッケージ管理ツール（`apt` や `yum`）を使用してインストールしてください（macOS には最初からインストールされています）。
 まずは、簡単な例として、下記のような簡単なユーザ入力を必要とするスクリプトを自動で動作させてみます。
 
 {{< code lang="bash" title="greet.sh" >}}
@@ -30,7 +30,7 @@ $ ./greet.sh
 Enter your name:
 ```
 
-このような状態になったときに、自動的に入力を行うには、下記のように __`expect -c`__ コマンドを使ったシェルスクリプトを作成します。
+このような状態になったときに、自動的に入力を行うには、下記のように **`expect -c`** コマンドを使ったシェルスクリプトを作成します。
 
 {{< code lang="bash" title="sample.sh" >}}
 #!/bin/bash
@@ -48,11 +48,11 @@ expect -c "
 この中でダブルクォートを使用したいときは、`\"` のようにエスケープしなければいけないことに注意してください。
 スクリプト中の各行は次のような意味を持っています。
 
-- {{< label-code "set timeout 3" >}} 外部プログラムの実行を 3 秒待つ
-- {{< label-code "spawn ./greet.sh" >}} 指定した外部プログラム (`./greet.sh`) を実行する
-- {{< label-code "expect \"Enter your name:\"" >}} 外部プログラムの出力 (`Enter your name:`) を待つ
-- {{< label-code "send \"Maku\n\"" >}} 外部プログラムに Maku と入力して、最後に Enter を入力する
-- {{< label-code "interact" >}} 外部プログラムとのインタラクションへ戻る
+- `set timeout 3` ... 外部プログラムの実行を 3 秒待つ
+- `spawn ./greet.sh` ... 指定した外部プログラム (`./greet.sh`) を実行する
+- `expect "Enter your name:"` ... 外部プログラムの出力 (`Enter your name:`) を待つ
+- `send "Maku\n"` ... 外部プログラムに Maku → Enter と入力する
+- `interact` ... 外部プログラムとのインタラクションへ戻る
 
 上記のシェルスクリプトを実行すると、外部プログラム `greet.sh` の入力待ちに対して、自動的に `Maku` という入力を行います。
 

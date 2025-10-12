@@ -1,6 +1,9 @@
 ---
-title: "Windows で Linux 系のコマンドを使用できるようにする (Gow)"
+title: "Linuxメモ: Windows で Linux 系のコマンドを使用できるようにする (Gow)"
+url: "p/qijsiy5/"
 date: "2012-11-19"
+tags: ["linux"]
+aliases: /linux/basic/gow.html
 ---
 
 Gow のインストール
@@ -11,16 +14,14 @@ Gow のインストール
 Gow をインストールすると、Windows で Linux の主なコマンド群をサクッと使うことができるようになります。
 インストーラを実行するだけで数秒でインストールできるので、簡単なコマンドを使うために Cygwin のような大げさな環境をインストールしなくても済みます。
 
-Gow で使えるようなる Linux 系コマンドの一覧
+Gow で使えるようになる Linux 系コマンドの一覧
 ---
 
 [Gow - executables_list](https://github.com/bmatzelle/gow/wiki/executables_list)
 
 Gow がインストールされている環境であれば、以下のように確認することもできます。
 
-#### Gow 0.7 で確認
-
-```
+{{< code title="Gow 0.7 で確認" >}}
 C:\> gow -l
 Available executables:
 
@@ -36,5 +37,4 @@ Available executables:
   tee, test, touch, tr, uname, unexpand, uniq, unix2dos, unlink, unrar,
   unshar, uudecode, uuencode, vim, wc, wget, whereis, which, whoami,
   xargs, yes, zip
-```
-
+{{< /code >}}

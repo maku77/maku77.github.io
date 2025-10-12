@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: コマンドライン引数を取得する ($1, $@, $*)"
+title: "Linuxシェルスクリプト: コマンドライン引数の基本 ($1, $@, $*)"
 url: "p/c2kx7er/"
 date: "2008-10-29"
 tags: ["Linux"]
@@ -49,7 +49,7 @@ $ ./sample.sh AAA
 
 {{% note title="引数とパラメーターの違い" %}}
 正確には、__引数 (arguments)__ という用語は、スクリプトや関数を呼び出す側が渡す値のことを示し、__パラメーター (parameters)__ という用語は、呼び出される側のスクリプトや関数が、その値を参照するときに使う変数のことを示します。
-ただ、どちらのケースでもパラメーターという用語を使っているドキュメントもよく見かけるので、あまり気にしないのがよさそうです。
+ただ、どちらのケースでもパラメーターという用語を使っているドキュメントもよく見かけるので、あまり気にしない方がよさそうです。
 {{% /note %}}
 
 
@@ -107,13 +107,13 @@ $ ./sample.sh AAA "BBB CCC DDD"
 シェルスクリプト実行時に渡されたコマンドライン引数は、特殊変数 __`$@`__ を使って参照することができます。
 以下の例では、`for in` ループを使って、`$@` の要素を 1 つずつ取り出して処理しています（おまけでカウンター変数 `$count` をインクリメントしながらループしてます）。
 
-{{< code lang="bash" title="sample.sh" >}}
+{{< code lang="bash" title="sample.sh" hl_lines="4" >}}
 #!/bin/bash
 
-count=1
+count=0
 for arg in "$@"; do
-  echo "$count: $arg"
   let count=$count+1
+  echo "$count: $arg"
 done
 {{< /code >}}
 
@@ -126,19 +126,19 @@ $ ./sample.sh AAA BBB "CCC DDD"
 
 実は、特殊変数の指定部分 `in "$@"` は省略して記述することができます。
 
-{{< code lang="bash" title="sample.sh" >}}
+{{< code lang="bash" title="sample.sh" hl_lines="4" >}}
 #!/bin/bash
 
-count=1
+count=0
 for arg; do
-  echo "$count: $arg"
   let count=$count+1
+  echo "$count: $arg"
 done
 {{< /code >}}
 
 明示的に `in "$@"` を記述する場合は、`$@` の部分をダブルクォートで囲むことを忘れないようにしてください（詳しくは後述）。
 
-### while ループを使う方法
+### while ループ + shift を使う方法
 
 __`shift`__ コマンドを実行することで、`$1`〜`$9` に格納されたパラメータを 1 つずつ前にシフトすることができます。
 `shift` コマンドを実行するたびに `$1` に格納されていたパラメータは破棄され、パラメータ数を表す `$#` の値が 1 つずつ減っていきます。
@@ -146,14 +146,14 @@ __`shift`__ コマンドを実行することで、`$1`〜`$9` に格納され�
 下記の例では、パラメータ数 (`$#`) が 1 以上の間、処理を続ける `while` ループを定義しています。
 `$1` はコマンドラインパラメータの最初の要素を参照する変数ですが、直後の `shift` によってパラメータを 1 つずつシフトしているので、結果としてすべてのパラメータを順番に参照することができます。
 
-{{< code lang="bash" title="sample.sh" >}}
+{{< code lang="bash" title="sample.sh" hl_lines="7" >}}
 #!/bin/bash
 
-count=1
+count=0
 while [ "$#" -ge "1" ]; do
+  let count=$count+1
   echo "$count: $1"
   shift
-  let count=$count+1
 done
 {{< /code >}}
 

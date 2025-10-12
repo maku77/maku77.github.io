@@ -1,5 +1,5 @@
 ---
-title: "Linux シェルスクリプト: echo で出力する文字の色を変える"
+title: "Linuxメモ: echo で出力する文字の色を変える"
 url: "p/fufwdub/"
 date: "2011-05-11"
 tags: ["Linux"]

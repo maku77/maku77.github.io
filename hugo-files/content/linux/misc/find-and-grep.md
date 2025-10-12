@@ -1,5 +1,5 @@
 ---
-title: "Linuxコマンド: ファイルやディレクトリを検索する (find, grep)"
+title: "Linuxメモ: ファイルやディレクトリを検索する (find, grep)"
 url: "p/hudubr8/"
 date: "2008-09-08"
 lastmod: "2022-05-08"
