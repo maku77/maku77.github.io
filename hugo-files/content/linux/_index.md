@@ -28,10 +28,10 @@ categoryIcon: _index.svg
   * [ランダムな数値を取得する ($RANDOM)](number/random.html)
 
 ### 制御構文
-* [if-else による分岐処理](syntax/if.html)
-* [case による分岐処理](syntax/case.html)
-* [for/while によるループ処理](syntax/for.html)
-    * [ループ内での複数の出力をまとめてリダイレクト、パイプ処理する](syntax/loop-output.html)
+* [`if-else` による分岐処理](/p/seogpah/)
+* [`case` による分岐処理](/p/hro2nd4/)
+* [`for/while` によるループ処理](/p/eimpfje/)
+  * [ループ内での複数の出力をまとめてリダイレクト、パイプ処理する](/p/tmm4zvz/)
 
 ### 起動時の処理 <!-- startup -->
 * コマンドライン引数
@@ -42,11 +42,11 @@ categoryIcon: _index.svg
 * [ある外部コマンドが使用できるかチェックする (`type -P`)](/p/xi5sjju/)
 
 ### 関数
-* [関数を定義する (`function`)](syntax/function.html)
-* [関数へパラメータを渡す](syntax/pass-params-to-function.html)
-* [関数内でローカル変数を扱う](syntax/local-var-in-function.html)
-* [関数から戻り値を返す](syntax/return-value-from-function.html)
-* [関数のデフォルト引数を定義する](syntax/default-params.html)
+* [関数を定義する (`function`)](/p/em67j5z/)
+* [関数へパラメータを渡す (`$1`, `$2`, `$3`)](/p/ecj6wbo/)
+* [関数内でローカル変数を扱う (`local`)](/p/52i36fy/)
+* [関数から戻り値を返す (`$?`)](/p/8uionzb/)
+* [関数のデフォルト引数を定義する](/p/7ovg5nr/)
 
 ### パス
 * [絶対パスと相対パスの変換 (`basename`, `dirname`)](path/absolute-path-to-relative-path.html)
