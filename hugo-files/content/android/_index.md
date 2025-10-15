@@ -86,8 +86,10 @@ Tools
 * [Android Gradleメモ: APK ファイル名のサフィックスにバージョンを追加する](/p/pneeb8x/)
 * [Android Gradleメモ: Lint エラーが発生した場合もビルドを継続する (`abortOnError`)](/p/o46hp5y/)
 * [Android Gradleメモ: Android アプリが使用している依存ライブラリをツリー構造で表示する（dependencies/androidDependencies タスク）](/p/kma3bsu/)
-* [Androidメモ: repo init でエラーが出る場合](/p/zh3w2tz/)
-* [◆Gradle 全般の説明はこちら](/gradle/)
+* トラブルシューティング: <!-- trouble -->
+  * [JDK のバージョンが原因でビルドが失敗する場合](/p/jhsiowu/)
+  * [repo init でエラーが出る場合](/p/zh3w2tz/)
+* [◆Gradle 全般の説明は → こちら](/gradle/)
 
 
 Android Studio

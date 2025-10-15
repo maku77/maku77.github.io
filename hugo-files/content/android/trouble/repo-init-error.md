@@ -1,5 +1,5 @@
 ---
-title: "Androidメモ: repo init でエラーが出る場合"
+title: "Androidトラブルシューティング: repo init でエラーが出る場合"
 url: "p/zh3w2tz/"
 date: "2012-02-21"
 tags: ["android"]
