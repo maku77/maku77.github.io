@@ -9,7 +9,7 @@ aliases: /linux/startup/check-env.html
 環境変数がセットされているかを確認する
 ----
 
-下記の例では、`SRC_ROOT` という環境変数が設定されているかを調べ、設定されていない場合はメッセージを終了しています。
+下記の例では、`SRC_ROOT` という環境変数が設定されているかを調べ、設定されていない場合はメッセージを表示して終了しています。
 
 {{< code lang="bash" title="sample.sh" >}}
 #!/bin/bash

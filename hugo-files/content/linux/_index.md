@@ -2,7 +2,7 @@
 title: "Linux/Shell"
 url: "/linux/"
 
-categoryName: "まくまく Linux/ShellScript ノート"
+categoryName: "まくまく Linux ノート"
 categoryUrl: "/linux/"
 categoryIcon: _index.svg
 ---
@@ -18,7 +18,7 @@ categoryIcon: _index.svg
 * [配列を扱う](/p/m82nd2v/)
 * 数値を扱う
   * [数値変数を加算／減算する](/p/3cukwcu/)
-  * [ランダムな数値を取得する ($RANDOM)](number/random.html)
+  * [ランダムな数値を取得する (`$RANDOM`)](/p/5fhvypy/)
 * [シェル変数/環境変数がセットされているか調べる](/p/xi5nrtd/)
 * [Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）](/p/jsctar8/)
 
@@ -35,6 +35,7 @@ categoryIcon: _index.svg
   1. [名前付きのコマンドラインオプションを扱う (`getopts`)](/p/2fyizgw/)
 * [ある環境変数が定義されているかチェックする (`test -z`)](/p/r3myewb/)
 * [ある外部コマンドが使用できるかチェックする (`type -P`)](/p/xi5sjju/)
+* [シェルスクリプトを実行したユーザの名前を調べる (`$USER`)](/p/3eofc3v/)
 
 ### 関数
 * [関数を定義する (`function`)](/p/em67j5z/)
@@ -52,9 +53,9 @@ categoryIcon: _index.svg
 * [実行中のシェルスクリプトがあるディレクトリに移動する](path/move-to-script-dir.html)
 
 ### 入出力 (I/O) <!-- io -->
-* [echo の結果を標準エラー出力 (stderr) に出力する (`1>&2`)](/p/q2k3j2h/)
-* [echo で出力した文字列の中の連続するスペースが 1 つのスペースになってしまうのを防ぐ](/p/25gqyai/)
-* [echo で出力する文字の色を変える](/p/fufwdub/)
+* [`echo` の結果を標準エラー出力 (stderr) に出力する (`1>&2`)](/p/q2k3j2h/)
+* [`echo` で出力した文字列の中の連続するスペースが 1 つのスペースになってしまうのを防ぐ](/p/25gqyai/)
+* [`echo` で出力する文字の色を変える](/p/fufwdub/)
 * [ユーザ入力を取得する (`read`)](/p/6m6n5k3/)
 * [ディレクトリ内のファイルを順に処理する (`for`, `while`)](/p/or3cmv6/)
 * [外部コマンドの実行結果を 1 行ずつ処理する (`for`, `while`, `read`)](/p/s9r9q7n/)
@@ -62,7 +63,7 @@ categoryIcon: _index.svg
 * [`expect` で外部コマンドの出力を待機する](/p/3i3j2hx/)
 
 ### 日時
-* [今日の日付から YYYYMMDD のような文字列を作成する (`date`)](/p/7aj35xe/)
+* [今日の日付から `YYYYMMDD` のような文字列を作成する (`date`)](/p/7aj35xe/)
 
 ### トラブルシューティング
 * [改行コードが原因の関数定義の syntax error](/p/c2ycgaj/)
@@ -73,7 +74,7 @@ Linux コマンド全般
 
 ### コマンド
 * [ファイルやディレクトリを検索する (`find`, `grep`)](/p/hudubr8/)
-* [ディレクトリ内のファイルを zip ファイルにバックアップする](/p/3qnenzf/)
+* [ディレクトリ内のファイルを `zip` ファイルにバックアップする](/p/3qnenzf/)
 * [`rsync` コマンドでディレクトリを同期する](/p/dvd889d/)
 * [行番号付きでテキストファイルの内容を出力する (`cat -n`, `cat -b`)](/p/sybn8yf/)
 * [あるファイルがテキストファイルかどうか調べる (`file`)](/p/ams75pd/)
