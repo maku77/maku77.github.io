@@ -1,6 +1,9 @@
 ---
-title: "Linux のメモリ情報を調べるコマンド"
+title: "Linuxメモ: Linux のメモリ情報を調べるコマンド"
+url: "p/2tumm9k/"
 date: "2011-01-20"
+tags: ["linux"]
+aliases: /linux/memory.html
 ---
 
 free コマンド
@@ -9,52 +12,50 @@ free コマンド
 `free` コマンドを使用して、Linux システム全体の空きメモリ容量 (KByte) を調べることができます。
 内部的には、`/proc/meminfo` の内容を整形して表示しています。
 
-#### 実行例（Ubuntu 10.04 の場合）
-
-```
+{{< code lang="console" title="実行例（Ubuntu 10.04 の場合）" >}}
 $ free
              total       used       free     shared    buffers     cached
 Mem:       4057716    3110204     947512          0     255708    2091224
 -/+ buffers/cache:     763272    3294444★ ←実質的な空き容量はここを見る
 Swap:     11884536      60600   11823936
-```
+{{< /code >}}
 
 Linux では、ディスクアクセスの負荷軽減のために、空きメモリをバッファ領域（ファイルのメタ情報などを保持）とキャッシュ領域（ファイルの内容そのものをキャッシュ）に割り当てています。
 上記の **Mem:** の行の **free** 値 `947512` は、空き容量からバッファ領域 (**buffers**) とキャッシュ領域 (**cached**) に割り当てた分を差し引いた値を示しているので、free の値はいつも小さくなります。
 実質的な空き容量を求めるには、free の値に buffers と cached の分を足してやる必要があります。
-その下の行の **-/+ buffers/cache:** というところがこの計算をした結果を示しており、一行目の `free`、`bufferes`、`cached` をすべて足した、実質的な空き容量が表示されています。
+その下の行の **-/+ buffers/cache:** というところがこの計算をした結果を示しており、一行目の `free`、`buffers`、`cached` をすべて足した、実質的な空き容量が表示されています。
 
 ```
 3294444（実質 free） = 947512 (mem free) + 255708 (buffers) + 2091224 (cached)
 ```
 
-#### おまけ: free コマンドの help やオプション
+### おまけ: free コマンドの help やオプション
 
 下記は `free` コマンドのヘルプ説明です。
 
-> free - Display amount of free and used memory in the system
-> free displays the total amount of free and used physical and swap memory in the system, as well as the buffers used by the kernel.  The shared memory column should be ignored; it is obsolete.
+```
+free - Display amount of free and used memory in the system
+  free displays the total amount of free and used physical and swap memory
+  in the system, as well as the buffers used by the kernel.
+  The shared memory column should be ignored; it is obsolete.
+```
 
 `free` コマンドは、下記のようなオプションを組み合わせて使用することが多いです。
 
-```
-$ free -m    （KByte ではなく MByte 単位で表示）
-$ free -s 5  （５秒間隔でポーリングして表示）
+```console
+$ free -m    # KByte ではなく MByte 単位で表示
+$ free -s 5  # 5 秒間隔でポーリングして表示
 ```
 
-#### 参考
+- 参考: [Linuxトラブルシューティング探偵団　番外編（1）：減り続けるメモリ残量！ 果たしてその原因は!? (2/3) - ＠IT](http://www.atmarkit.co.jp/ait/articles/0810/01/news134_2.html)
 
-- [free - MAN PAGE](https://linuxjm.osdn.jp/html/procps/man1/free.1.html)
-- [Linuxトラブルシューティング探偵団　番外編（1）：減り続けるメモリ残量！ 果たしてその原因は!? (2/3) - ＠IT](http://www.atmarkit.co.jp/ait/articles/0810/01/news134_2.html)
 
 /proc/meminfo を直接見る
 ----
 
 `free` コマンドなどは、`proc/meminfo` の内容を整形して出力していますが、`proc/meminfo` を直接参照すると下記のような情報を取得することができます。
 
-#### 実行例（Ubuntu 10.04 の場合）
-
-```
+{{< code lang="console" title="実行例（Ubuntu 10.04 の場合）" >}}
 $ cat /proc/meminfo
 MemTotal:        4057720 kB
 MemFree:         1622196 kB
@@ -97,7 +98,7 @@ HugePages_Surp:        0
 Hugepagesize:       2048 kB
 DirectMap4k:      190436 kB
 DirectMap2M:     4001792 kB
-```
+{{< /code >}}
 
 
 procrank コマンド
@@ -120,14 +121,12 @@ vmstat コマンド
 
 > vmstat reports information about processes, memory, paging, block IO, traps, disks and cpu activity.  The first report produced gives averages since the last reboot.  Additional reports give information on a sampling period of length delay.  The process and memory reports are instantaneous in either case.
 
-#### 実行例（Ubuntu 10.04 の場合）
-
-```
+{{< code lang="console" title="実行例（Ubuntu 10.04 の場合）" >}}
 $ vmstat
 procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
  0  0   1080 1621568 337804 1236444    0    0     3     4   21   33  0  0 100  0
-```
+{{< /code >}}
 
 下記のようなオプションを指定すると、MByte 単位で、５秒間隔でポーリングして表示できます。
 

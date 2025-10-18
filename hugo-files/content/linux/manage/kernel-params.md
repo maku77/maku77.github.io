@@ -1,9 +1,12 @@
 ---
-title: "カーネルに渡されたパラメータを調べる (/proc/cmdline)"
+title: "Linuxメモ: カーネルに渡されたパラメータを調べる (/proc/cmdline)"
+url: "p/3wheif6/"
 date: "2011-02-01"
+tags: ["linux"]
+aliases: /linux/kernel-params.html
 ---
 
-`/proc/cmdline` の内容を出力すると、カーネルへ渡されたコマンドラインパラメータを調べることができます。
+**`/proc/cmdline`** の内容を出力すると、カーネルへ渡されたコマンドラインパラメータを調べることができます。
 
 ```
 $ cat /proc/cmdline

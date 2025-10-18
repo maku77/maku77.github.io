@@ -85,11 +85,11 @@ Linux コマンド全般
 * [`ls` コマンドでパターンに一致するファイルだけを列挙する](/p/vtkjxha/)
 
 ### システム／管理
-* [Linux カーネル／OS のバージョンを調べる](linux-version.html)
-* [bash のバージョンを調べる (`$BASH_VERSION`)](bash-version.html)
-* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
-* [カーネルに渡されたパラメータを調べる (`/proc/cmdline`)](kernel-params.html)
-* [Linux のメモリ情報を調べるコマンド](memory.html)
+* [Linux カーネル／OS のバージョンを調べる](/p/odgqrwa/)
+* [bash のバージョンを調べる (`$BASH_VERSION`)](/p/9w4ywr2/)
+* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](/p/ycrtvgk/)
+* [カーネルに渡されたパラメータを調べる (`/proc/cmdline`)](/p/3wheif6/)
+* [Linux のメモリ情報を調べるコマンド](/p/2tumm9k/)
 * [NTP でシステム時刻を設定する](/p/4zi9s4y/)
 * [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (`cpulimit`)](/p/t8yiqm8/)
 * [Linux システムコールを使用して core dump を吐かないようにする (`setrlimit`)](/p/afze7gn/)

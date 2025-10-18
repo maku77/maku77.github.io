@@ -1,6 +1,9 @@
 ---
-title: "bash のバージョンを調べる ($BASH_VERSION)"
+title: "Linuxメモ: bash のバージョンを調べる ($BASH_VERSION)"
+url: "p/9w4ywr2/"
 date: "2010-07-20"
+tags: ["linux"]
+aliases: /linux/bash-version.html
 ---
 
 現在使用している bash のバージョンは、`$BASH_VERSION` 環境変数で参照することができます。
