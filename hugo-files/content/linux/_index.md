@@ -45,12 +45,11 @@ categoryIcon: _index.svg
 * [関数のデフォルト引数を定義する](/p/7ovg5nr/)
 
 ### パス
-* [絶対パスと相対パスの変換 (`basename`, `dirname`)](path/absolute-path-to-relative-path.html)
-* [指定したファイルの絶対パスを取得する](path/absolute-path-of-file.html)
-* [カレントディレクトリの絶対パスを取得する](path/absolute-path-of-current-dir.html)
-* [実行中のシェルスクリプトのファイル名を取得する](path/path-of-script.html)
-* [実行中のシェルスクリプトがあるディレクトリの絶対パスを取得する](path/absolute-path-of-script-dir.html)
-* [実行中のシェルスクリプトがあるディレクトリに移動する](path/move-to-script-dir.html)
+* [絶対パスと相対パスの変換 (`basename`, `dirname`)](/p/3qgbv7i/)
+* [カレントディレクトリや指定したファイルの絶対パスを取得する](/p/arxcjmp/)
+* [実行中のシェルスクリプトのファイル名を取得する (`$0`)](/p/6vkj2pi/)
+* [実行中のシェルスクリプトがあるディレクトリの絶対パスを取得する](/p/m5z4fi3/)
+* [実行中のシェルスクリプトがあるディレクトリに移動する](/p/dpvyxy8/)
 
 ### 入出力 (I/O) <!-- io -->
 * [`echo` の結果を標準エラー出力 (stderr) に出力する (`1>&2`)](/p/q2k3j2h/)
