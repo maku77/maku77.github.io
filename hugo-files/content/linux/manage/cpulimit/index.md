@@ -1,10 +1,9 @@
 ---
-title: "Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)"
+title: "Linuxメモ: Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)"
+url: "p/t8yiqm8/"
 date: "2018-05-02"
-tags:
-    - linux
-    - mac
-    - deep-learning
+tags: ["linux", "mac", "deep-learning"]
+aliases: ["/linux/manage/cpulimit.html"]
 ---
 
 概要
@@ -29,15 +28,15 @@ cpulimit はそれぞれの OS 用のパッケージを使ってインストー�
 
 #### Mac の場合（Homebrew を使用）
 
-~~~
+```console
 $ brew install cpulimit
-~~~
+```
 
 #### Ubuntu (Linux) の場合
 
-~~~
+```console
 $ sudo apt-get install cpulimit
-~~~
+```
 
 
 cpulimit の使い方
@@ -47,9 +46,9 @@ cpulimit の `-l (--limit)` オプションを使用して、特定のプロセ�
 
 ### 例: プロセス番号 12345 を CPU 使用率50％に制限
 
-~~~
+```console
 $ cpulimit -l 50 -p 12345
-~~~
+```
 
 `ps` コマンドなどで実行中のプロセスのプロセス ID を確認することができれば、その ID を指定して CPU 使用率に制限をかけることができます。
 上記のように CPU 使用率を制限した場合、cpulimit のプロセスの方を `Ctrl-C` で停止すれば制限が解除されます。
@@ -57,9 +56,9 @@ $ cpulimit -l 50 -p 12345
 
 ### 例: CPU 使用率を指定して任意のコマンドを起動
 
-~~~
-$ cpulimit -l 50 ＜コマンド＞
-~~~
+```console
+$ cpulimit -l 50 <コマンド>
+```
 
 上記のように実行すると、最初から CPU 使用率に制限をかけた状態で任意のコマンドを起動することができます。
 
@@ -71,31 +70,25 @@ $ cpulimit -l 50 ＜コマンド＞
 例えば、8 コアの CPU の場合、`-l (--limit)` オプションで指定できる値は 0〜800 になります。
 現在の環境でどの範囲の値を指定することができるかは、下記のように `cpulimit` コマンドのヘルプの表示で確認することができます。
 
-~~~
+```console
 $ cpulimit -h | grep percentage
       -l, --limit=N          percentage of cpu allowed from 0 to 800 (required)
-~~~
+```
 
 例えば、下記の画面は Mac のアクティビティモニタ上で CPU の使用率を表示したものですが、先頭に表示されている Python プログラムは 8 コアの CPU すべてを使い、700% 前後の使用率で動作しています。
 
-<figure>
-  <img src="cpulimit1.png" />
-  <figcaption>700% 近くの CPU 使用率</figcaption>
-</figure>
+{{< image w="700" border="true" src="img-001.png" title="700% 近くの CPU 使用率" >}}
 
 次のように実行すれば、このプロセスの CPU 使用率を 200% に制限できます。
 
-~~~
+```console
 $ cpulimit -p 32645 -l 200
 Process 32645 found
-~~~
+```
 
 しばらくすると、アクティビティモニタ上の CPU 使用率も 200% 程度に下がっていることを確認できます。
 
-<figure>
-  <img src="cpulimit2.png" />
-  <figcaption>CPU 使用率が 200% に制限された</figcaption>
-</figure>
+{{< image w="700" border="true" src="img-002.png" title="CPU 使用率が 200% に制限された" >}}
 
 
 cpulimit は内部で何をやっているか？

@@ -114,11 +114,11 @@ Linux システム／管理
 * [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
 * [Linux のメモリ情報を調べるコマンド](memory.html)
 * [NTP でシステム時刻を設定する](settings/ntp.html)
-* [ディレクトリ内のファイルを zip ファイルにバックアップする](manage/backup.html)
-* [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)](manage/cpulimit.html)
+* [ディレクトリ内のファイルを zip ファイルにバックアップする](/p/3qnenzf/)
+* [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)](/p/t8yiqm8/)
 
 ### プログラミング
-* [Linux システムコールを使用して core dump を吐かないようにする (setrlimit)](manage/setrlimit.html)
+* [Linux システムコールを使用して core dump を吐かないようにする (setrlimit)](/p/afze7gn/)
 
 
 Linux コマンド全般
