@@ -13,19 +13,14 @@ categoryIcon: _index.svg
 * [シェルスクリプトのコーディングスタイル](/p/oukq4dh/)
 
 ### 変数
-* [変数の基本](var/basic.html)
-* [定数を定義する (readonly)](var/read-only.html)
-* [シェル変数/環境変数がセットされているか調べる](var/check-if-var-is-set.html)
-* [Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）](var/expansion.html)
-* 配列
-  * [配列を作成する](var/create-array.html)
-  * [配列をループ処理する](var/loop-array.html)
-  * [配列のサイズ（要素数）を調べる](var/array-size.html)
-  * [配列に要素を追加する](var/add-elem-to-array.html)
-  * [配列と配列を結合する](var/concat-arrays.html)
-* 数値
-  * [数値変数を加算／減算する](var/add-and-sub.html)
+* [変数の基本](/p/cjn9dbq/)
+* [定数を定義する (readonly)](/p/dwsvs5j/)
+* [配列を扱う](/p/m82nd2v/)
+* 数値を扱う
+  * [数値変数を加算／減算する](/p/3cukwcu/)
   * [ランダムな数値を取得する ($RANDOM)](number/random.html)
+* [シェル変数/環境変数がセットされているか調べる](/p/xi5nrtd/)
+* [Bash の変数展開機能を活用する（文字列の置換、デフォルト値など）](/p/jsctar8/)
 
 ### 制御構文
 * [`if-else` による分岐処理](/p/seogpah/)
