@@ -62,73 +62,63 @@ categoryIcon: _index.svg
 * [`expect` で外部コマンドの出力を待機する](/p/3i3j2hx/)
 
 ### 日時
-* [今日の日付から YYYYMMDD のような文字列を作成する (`date`)](time/date-string.html)
+* [今日の日付から YYYYMMDD のような文字列を作成する (`date`)](/p/7aj35xe/)
 
 ### トラブルシューティング
-* [改行コードが原因の関数定義の syntax error](trouble/function-syntax-error.html)
-
-
-D-Bus
-----
-
-### D-Bus 全般
-* [D-Bus 関連用語](dbus/words.html)
-* [D-Bus 関連リンクと関連ツール](dbus/links.html)
-* [GDBus と dbus-glib](dbus/gdbus-and-dbus-glib.html)
-
-### dbus-glib
-* [dbus-glib 開発用ライブラリをインストールする](dbus/dbus-glib-1.html)
-* [dbus-glib で method call を実装する（ヘッダファイルの生成）](dbus/dbus-glib-2.html)
-* [dbus-glib で method call を実装する（サーバ側の実装）](dbus/dbus-glib-3.html)
-* [dbus-glib で method call を実装する（クライアント側の実装）](dbus/dbus-glib-4.html)
-
-### GDBubs
-* [GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する](dbus/gdbus.html)
-* [GDBus サーバから signal を発行する](dbus/gdbus-emit-signal.html)
-* [GDBus でバイナリデータ（バイト配列）を受け取る方法](dbus/gdbus-receive-binary.html)
-* [glib の GVariant を使ってみる](dbus/gvariant.html)
-
-### D-Bus Java
-* [D-Bus Java をインストールする](dbus/dbus-java-install.html)
-* [D-Bus Java で Session bus に接続してメソッドを呼び出す](dbus/dbus-java-session-bus.html)
-* [D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル](dbus/dbus-java-p2p-client.html)
-
-### dbus-python
-* [dbus-python の公式サンプルコード](dbus/dbus-python/sample.html)
-* [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）](dbus/dbus-python/server-and-client-1.html)
-* [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](dbus/dbus-python/server-and-client-2.html)
-* [dbus-python で D-Bus の P2P クライアントを実装する](dbus/dbus-python/p2p-client.html)
-
-
-Linux システム／管理
-----
-### コマンド
-* [Linux カーネル／OS のバージョンを調べる](linux-version.html)
-* [bash のバージョンを調べる (`$BASH_VERSION`)](bash-version.html)
-* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
-* [カーネルに渡されたパラメータを調べる (/proc/cmdline)](kernel-params.html)
-* [Linux のメモリ情報を調べるコマンド](memory.html)
-* [NTP でシステム時刻を設定する](settings/ntp.html)
-* [ディレクトリ内のファイルを zip ファイルにバックアップする](/p/3qnenzf/)
-* [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (cpulimit)](/p/t8yiqm8/)
-
-### プログラミング
-* [Linux システムコールを使用して core dump を吐かないようにする (setrlimit)](/p/afze7gn/)
+* [改行コードが原因の関数定義の syntax error](/p/c2ycgaj/)
 
 
 Linux コマンド全般
 ----
-* [Linuxコマンド: ファイルやディレクトリを検索する (`find`, `grep`)](/p/hudubr8/)
-* [Windows で Linux 系のコマンドを使用できるようにする (Gow)](/p/qijsiy5/)
+
+### コマンド
+* [ファイルやディレクトリを検索する (`find`, `grep`)](/p/hudubr8/)
+* [ディレクトリ内のファイルを zip ファイルにバックアップする](/p/3qnenzf/)
 * [`rsync` コマンドでディレクトリを同期する](/p/dvd889d/)
 * [行番号付きでテキストファイルの内容を出力する (`cat -n`, `cat -b`)](/p/sybn8yf/)
 * [あるファイルがテキストファイルかどうか調べる (`file`)](/p/ams75pd/)
 * [リダイレクトとパイプ処理のまとめ](/p/knkamyp/)
 * [Linux でリダイレクトによってファイルが上書きされてしまうのを防ぐ (`set -o noclobber`)](/p/jw5xt77/)
+* [Windows で Linux 系のコマンドを使用できるようにする (Gow)](/p/qijsiy5/)
+* [`curl` で HTTP のレスポンスヘッダのみを確認する例](/p/2fnpkp9/)
 * [`ls` コマンドが使えないときに `echo` コマンドで代用する](/p/z3dxcch/)
 * [`ls` コマンドでパターンに一致するファイルだけを列挙する](/p/vtkjxha/)
 
-### curl コマンド
-* [プロキシ経由で curl コマンドを実行する](tool/curl-via-proxy.html)
-* [curl で HTTP のレスポンスヘッダのみを確認する](tool/curl-response-header.html)
+### システム／管理
+* [Linux カーネル／OS のバージョンを調べる](linux-version.html)
+* [bash のバージョンを調べる (`$BASH_VERSION`)](bash-version.html)
+* [Linux の各種 ID（プロセス ID やユーザ ID など）についてのメモ](linux-ids.html)
+* [カーネルに渡されたパラメータを調べる (`/proc/cmdline`)](kernel-params.html)
+* [Linux のメモリ情報を調べるコマンド](memory.html)
+* [NTP でシステム時刻を設定する](/p/4zi9s4y/)
+* [Deep Learning や仮想通貨のマイニング時に CPU 使用率が 100% になってしまうのを防ぐ (`cpulimit`)](/p/t8yiqm8/)
+* [Linux システムコールを使用して core dump を吐かないようにする (`setrlimit`)](/p/afze7gn/)
+
+
+D-Bus
+----
+
+* D-Bus 全般
+  * [D-Bus 関連用語](dbus/words.html)
+  * [D-Bus 関連リンクと関連ツール](dbus/links.html)
+  * [GDBus と dbus-glib](dbus/gdbus-and-dbus-glib.html)
+* dbus-glib
+  * [dbus-glib 開発用ライブラリをインストールする](dbus/dbus-glib-1.html)
+  * [dbus-glib で method call を実装する（ヘッダファイルの生成）](dbus/dbus-glib-2.html)
+  * [dbus-glib で method call を実装する（サーバ側の実装）](dbus/dbus-glib-3.html)
+  * [dbus-glib で method call を実装する（クライアント側の実装）](dbus/dbus-glib-4.html)
+* GDBubs
+  * [GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する](dbus/gdbus.html)
+  * [GDBus サーバから signal を発行する](dbus/gdbus-emit-signal.html)
+  * [GDBus でバイナリデータ（バイト配列）を受け取る方法](dbus/gdbus-receive-binary.html)
+  * [glib の GVariant を使ってみる](dbus/gvariant.html)
+* D-Bus Java
+  * [D-Bus Java をインストールする](dbus/dbus-java-install.html)
+  * [D-Bus Java で Session bus に接続してメソッドを呼び出す](dbus/dbus-java-session-bus.html)
+  * [D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル](dbus/dbus-java-p2p-client.html)
+* dbus-python
+  * [dbus-python の公式サンプルコード](dbus/dbus-python/sample.html)
+  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）](dbus/dbus-python/server-and-client-1.html)
+  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](dbus/dbus-python/server-and-client-2.html)
+  * [dbus-python で D-Bus の P2P クライアントを実装する](dbus/dbus-python/p2p-client.html)
 

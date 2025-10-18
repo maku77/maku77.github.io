@@ -1,9 +1,12 @@
 ---
-title: "curl で HTTP のレスポンスヘッダのみを確認する"
+title: "Linuxメモ: curl で HTTP のレスポンスヘッダのみを確認する例"
+url: "p/2fnpkp9/"
 date: "2016-09-14"
+tags: ["linux"]
+aliases: /linux/tool/curl-response-header.html
 ---
 
-```
+```console
 $ curl -s -D - localhost:8080 -o /dev/null
 HTTP/1.1 403 Forbidden
 Date: Wed, 14 Sep 2016 12:46:40 GMT
