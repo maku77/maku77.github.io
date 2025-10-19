@@ -1,6 +1,9 @@
 ---
-title: "dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）"
+title: "Linuxメモ: dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）"
+url: "p/zkx7oe6/"
 date: "2012-09-05"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-python/server-and-client-2.html
 ---
 
 dbus-python のサーバ＆クライアント実装において、シグナルを使用するサンプルです。

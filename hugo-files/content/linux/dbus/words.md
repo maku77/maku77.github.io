@@ -1,6 +1,9 @@
 ---
-title: "D-Bus 関連用語"
+title: "Linuxメモ: D-Bus 関連用語"
+url: "p/y3w7mc2/"
 date: "2012-05-14"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/words.html
 ---
 
 D-Bus 系のライブラリを使用するにあたって、知っておくべき用語を解説します。
@@ -15,7 +18,7 @@ system bus
 : システム内で１つだけ存在する。カーネルレイヤの情報も収集し、USB 接続の検出などにも使われている。
 
 session buses
-: インユーザごとに存在する。一番よく使われるバス。Desktop bus とも呼ばれる。
+: ユーザごとに存在する。一番よく使われるバス。Desktop bus とも呼ばれる。
 
 private buses
 : ２アプリが Peer-to-Peer で接続するためのバス。

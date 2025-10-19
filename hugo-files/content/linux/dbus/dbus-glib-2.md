@@ -1,6 +1,9 @@
 ---
-title: "dbus-glib で method call を実装する（ヘッダファイルの生成）"
+title: "Linuxメモ: dbus-glib で method call を実装する（ヘッダファイルの生成）"
+url: "p/uzr93f8/"
 date: "2012-05-08"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-glib-2.html
 ---
 
 ここでは、D-Bus (GLib bindings) を使って、リモートメソッド呼び出しを実現してみます。
@@ -18,9 +21,7 @@ date: "2012-05-08"
 
 `dbus-binding-tool` を使って、XML ファイルからサーバ、クライアント実装用のヘッダファイルを生成できます。
 
-#### interface.xml
-
-```xml
+{{< code lang="xml" title="interface.xml" >}}
 <?xml version="1.0"?>
 <node name="/com/example/MyApp">
     <interface name="com.example.MyApp.Calc">
@@ -36,14 +37,12 @@ date: "2012-05-08"
         </method>
     </interface>
 </node>
-```
+{{< /code >}}
 
-#### ヘッダファイルの生成
-
-```
+{{< code lang="console" title="ヘッダファイルの生成" >}}
 $ dbus-binding-tool --mode=glib-server --prefix=ServerImpl interface.xml > server_autogen.h
 $ dbus-binding-tool --mode=glib-client interface.xml > client_autogen.h
-```
+{{< /code >}}
 
 サーバ側のヘッダファイルを生成するときは、必ずプレフィックスを指定する必要があるようです。
 これは、メソッド実装側のメソッド名のプレフィックスとして付きます。

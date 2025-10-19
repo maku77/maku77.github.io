@@ -1,6 +1,9 @@
 ---
-title: "GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する"
+title: "Linuxメモ: GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する"
+url: "p/ce62z6o/"
 date: "2012-06-11"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/gdbus.html
 ---
 
 GDBus 用のスタブを自動生成する
@@ -9,16 +12,14 @@ GDBus 用のスタブを自動生成する
 `gdbus-codegen` コマンドを使用すると、以下のような introspection データからスタブとなるコードを作成することができます。
 `gdbus-codegen` コマンドがインストールされていない場合は以下のようにインストールできます。
 
-```
+```console
 $ sudo apt-get install libglib2.0-dev
 $ sudo apt-get install libglib2.0-doc
 ```
 
 ここでは、足し算と引き算を行う `com.example.MyApp.Calc` インタフェースを考えてみます。
 
-#### interface.xml
-
-```xml
+{{< code lang="xml" title="interface.xml" >}}
 <?xml version="1.0"?>
 <node name="/com/example/MyApp">
     <interface name="com.example.MyApp.Calc">
@@ -34,16 +35,16 @@ $ sudo apt-get install libglib2.0-doc
         </method>
     </interface>
 </node>
-```
+{{< /code >}}
 
 以下のように実行すると、`calc.h` と `calc.c` が生成されます。
 
-```
+```console
 $ gdbus-codegen --generate-c-code=calc interface.xml
 ```
 
-* [calc.h](./gdbus/calc.h)
-* [calc.c](./gdbus/calc.c)
+* [calc.h](./calc.h)
+* [calc.c](./calc.c)
 
 
 GDBus プログラムをビルドするための Makefile を作成する
@@ -52,9 +53,7 @@ GDBus プログラムをビルドするための Makefile を作成する
 GDBus を使ったコードをビルドのための `Makefile` を用意します。
 ここでは、例として `server.cpp` というソースコードから、`server` というプログラムを生成することにします。
 
-#### Makefile
-
-```makefile
+{{< code lang="makefile" title="Makefile" >}}
 CXX = clang++
 MY_LIBS = glib-2.0 gio-unix-2.0
 CPPFLAGS = $(shell pkg-config --cflags ${MY_LIBS})
@@ -62,7 +61,7 @@ LDLIBS = $(shell pkg-config --libs ${MY_LIBS})
 
 server: server.cpp calc.o
 client: client.cpp calc.o
-```
+{{< /code >}}
 
 glib-2.0、gio-unix-2.0 のインクルードパスや、ライブラリ指定は、`pkg-config` コマンドを利用して生成しています。
 `glib-object.h` で定義されている、`g_type_init()` などを呼び出すためには、gio-unix-2.0 というライブラリも必要です。
@@ -78,7 +77,7 @@ GDBus を使ったサーバとクライアントを実装する
 
 ### サーバ側の実装
 
-* [server.cpp](./gdbus/server.cpp)
+* [server.cpp](./server.cpp)
 
 `gdbus-codegen` で生成したヘッダファイルを除くと、以下のような `handle_XXX` という関数ポインタをもつ構造体が定義されています。
 Introspection XML で、`Add` メソッドと `Subtract` メソッドを定義したので、`handle_add` と `handle_subtract` という関数ポインタが生成されていることが分かります。
@@ -145,11 +144,11 @@ void handleConnect(GDBusServer *server, GDBusConnection *conn, gpointer data) {
 
 ### クライアント側の実装
 
-* [client.cpp](./gdbus/client.cpp)
+* [client.cpp](./client.cpp)
 
 クライアントの実装でプロキシオブジェクトを生成するには、`gdbus-codegen` で自動生成された `XXX_proxy_new_sync()` などの関数を使用します。
 プロキシオブジェクトを生成したら、各メソッドを呼び出せるようになります。
-メソッドの呼び出しは、`gdbus-coden` で生成された `_call_XXX_sync()` などの関数を使用します。
+メソッドの呼び出しは、`gdbus-codegen` で生成された `_call_XXX_sync()` などの関数を使用します。
 
 ```cpp
 gint ret;

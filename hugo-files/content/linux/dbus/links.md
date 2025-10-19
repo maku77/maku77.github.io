@@ -1,6 +1,9 @@
 ---
-title: "D-Bus 関連リンクと関連ツール"
+title: "Linuxメモ: D-Bus 関連リンクと関連ツール"
+url: "p/rexgyo3/"
 date: "2012-05-10"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/links.html
 ---
 
 GDBus

@@ -1,6 +1,9 @@
 ---
-title: "GDBus サーバから signal を発行する"
+title: "Linuxメモ: GDBus サーバから signal を発行する"
+url: "p/o5744xu/"
 date: "2012-06-25"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/gdbus-emit-signal.html
 ---
 
 GDBus のサーバ実装側からシグナルを発行するには、`gdbus-codegen` で生成されたヘッダファイルに定義されている、`xxx_emit_xxx` という関数を呼び出します。

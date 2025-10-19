@@ -1,6 +1,9 @@
 ---
-title: "dbus-python の公式サンプルコード"
+title: "Linuxメモ: dbus-python の公式サンプルコード"
+url: "p/k2c9k5k/"
 date: "2012-09-04"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-python/sample.html
 ---
 
 dbus-python のサンプルコード
@@ -23,9 +26,7 @@ python-dbus のインストール
 Python で `import dbus` の実行時にエラーが発生する場合は、`python-dbus` がインストールされていません。
 以下のようにしてインストールしてください。
 
-#### Ubuntu の場合
-
-```
+{{< code lang="console" title="Ubuntu の場合" >}}
 $ sudo apt-get install python-dbus
-```
+{{< /code >}}
 

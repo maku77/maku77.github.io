@@ -1,15 +1,16 @@
 ---
-title: "D-Bus Java で Session bus に接続してメソッドを呼び出す"
+title: "Linuxメモ: D-Bus Java で Session bus に接続してメソッドを呼び出す"
+url: "p/atszfrg/"
 date: "2012-05-15"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-java-session-bus.html
 ---
 
 D-Bus Java の `CreateInterface` コマンドを使用すると、API インタフェースを定義した XML ファイル (introspection data) から、Java のインタフェースを作成することができます。
 
 ここでは、以下のような XML ファイルからインタフェースを生成します（セッションバスなどで公開されているオブジェクトに接続して生成することもできます）。
 
-#### interface.xml
-
-```xml
+{{< code lang="xml" title="interface.xml" >}}
 <?xml version="1.0"?>
 <node name="/com/example/MyApp">
     <interface name="com.example.MyApp.Calc">
@@ -25,19 +26,15 @@ D-Bus Java の `CreateInterface` コマンドを使用すると、API インタ�
         </method>
     </interface>
 </node>
-```
+{{< /code >}}
 
-#### 生成
-
-```
+{{< code lang="console" title="生成" >}}
 $ CreateInterface interface.xml > Calc.java
-```
+{{< /code >}}
 
 以下のようなファイルが生成されます。シンプル！
 
-#### Calc.java
-
-```java
+{{< code lang="java" title="Calc.java" >}}
 /* File: com/example/MyApp/Calc.java */
 package com.example.MyApp;
 import org.freedesktop.dbus.DBusInterface;
@@ -46,19 +43,17 @@ public interface Calc extends DBusInterface {
     public int Add(int val1, int val2);
     public int Subtract(int val1, int val2);
 }
-```
+{{< /code >}}
 
 次に、これを使ってクライアントのコードを記述します。
 GLib bindings を使った場合のコードと比べると、かなりシンプルです。
 
-```
+```console
 $ mkdir -p com/example/MyApp
 $ mv Calc.java com/example/MyApp
 ```
 
-#### Main.java
-
-```java
+{{< code lang="java" title="Main.java" >}}
 import org.freedesktop.dbus.DBusConnection;
 import org.freedesktop.dbus.exceptions.DBusException;
 import com.example.MyApp.Calc;
@@ -93,14 +88,12 @@ public class Main {
         conn.disconnect();  // これがないとプログラム終了しない
     }
 }
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code lang="plaintext" title="実行結果" >}}
 300
 -100
-```
+{{< /code >}}
 
 #### ソースコード一式
 

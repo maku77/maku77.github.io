@@ -1,6 +1,9 @@
 ---
-title: "dbus-python で D-Bus の P2P クライアントを実装する"
+title: "Linuxメモ: dbus-python で D-Bus の P2P クライアントを実装する"
+url: "p/pzyxbo7/"
 date: "2012-09-05"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-python/p2p-client.html
 ---
 
 python-dbus では、今のところ P2P 用のサーバを作成できないようです。

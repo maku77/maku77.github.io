@@ -99,26 +99,26 @@ D-Bus
 ----
 
 * D-Bus 全般
-  * [D-Bus 関連用語](dbus/words.html)
-  * [D-Bus 関連リンクと関連ツール](dbus/links.html)
-  * [GDBus と dbus-glib](dbus/gdbus-and-dbus-glib.html)
+  * [D-Bus 関連用語](/p/y3w7mc2/)
+  * [D-Bus 関連リンクと関連ツール](/p/rexgyo3/)
+  * [GDBus と dbus-glib](/p/gqfnr2z/)
 * dbus-glib
-  * [dbus-glib 開発用ライブラリをインストールする](dbus/dbus-glib-1.html)
-  * [dbus-glib で method call を実装する（ヘッダファイルの生成）](dbus/dbus-glib-2.html)
-  * [dbus-glib で method call を実装する（サーバ側の実装）](dbus/dbus-glib-3.html)
-  * [dbus-glib で method call を実装する（クライアント側の実装）](dbus/dbus-glib-4.html)
+  * [dbus-glib 開発用ライブラリをインストールする](/p/pksy5or/)
+  * [dbus-glib で method call を実装する（ヘッダファイルの生成）](/p/uzr93f8/)
+  * [dbus-glib で method call を実装する（サーバ側の実装）](/p/ed9gaii/)
+  * [dbus-glib で method call を実装する（クライアント側の実装）](/p/53cn789/)
 * GDBubs
-  * [GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する](dbus/gdbus.html)
-  * [GDBus サーバから signal を発行する](dbus/gdbus-emit-signal.html)
-  * [GDBus でバイナリデータ（バイト配列）を受け取る方法](dbus/gdbus-receive-binary.html)
-  * [glib の GVariant を使ってみる](dbus/gvariant.html)
+  * [GDBus で簡単な P2P（クライアント＆サーバ）アプリを実装する](/p/ce62z6o/)
+  * [GDBus サーバから signal を発行する](/p/o5744xu/)
+  * [GDBus でバイナリデータ（バイト配列）を受け取る方法](/p/y7cx287/)
+  * [glib の GVariant を使ってみる](/p/4w6f4u5/)
 * D-Bus Java
-  * [D-Bus Java をインストールする](dbus/dbus-java-install.html)
-  * [D-Bus Java で Session bus に接続してメソッドを呼び出す](dbus/dbus-java-session-bus.html)
-  * [D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル](dbus/dbus-java-p2p-client.html)
+  * [D-Bus Java をインストールする](/p/dqd9932/)
+  * [D-Bus Java で Session bus に接続してメソッドを呼び出す](/p/atszfrg/)
+  * [D-Bus Java で P2P D-Bus サーバに接続してメソッドを呼び出すサンプル](/p/uznw8u8/)
 * dbus-python
-  * [dbus-python の公式サンプルコード](dbus/dbus-python/sample.html)
-  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）](dbus/dbus-python/server-and-client-1.html)
-  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](dbus/dbus-python/server-and-client-2.html)
-  * [dbus-python で D-Bus の P2P クライアントを実装する](dbus/dbus-python/p2p-client.html)
+  * [dbus-python の公式サンプルコード](/p/k2c9k5k/)
+  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）](/p/app39n9/)
+  * [dbus-python で Session bus を使用するサーバ＆クライアントを実装する（シグナルの実装）](/p/zkx7oe6/)
+  * [dbus-python で D-Bus の P2P クライアントを実装する](/p/pzyxbo7/)
 

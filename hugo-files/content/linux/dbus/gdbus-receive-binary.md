@@ -1,15 +1,16 @@
 ---
-title: "GDBus でバイナリデータ（バイト配列）を受け取る方法"
+title: "Linuxメモ: GDBus でバイナリデータ（バイト配列）を受け取る方法"
+url: "p/y7cx287/"
 date: "2012-06-22"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/gdbus-receive-binary.html
 ---
 
 D-Bus メソッド経由でバイト配列を送ろうとして、パラメータのタイプを `ay` と定義して、`gdbus-codegen` でコード生成すると、デフォルトでは `gchar*` 型の文字列データとしてパラメータが定義されてしまいます。
 `gchar*` データとしてやりとりしようとすると、0 を含むデータを受け取れなくなってしまうので、`GVariant*` としてバイナリデータを受け取る必要があります。
 そのためには、Introspection XML の `arg` 要素の子要素として、以下のように `annotation` 要素を追加します。
 
-#### introspection.xml（抜粋）
-
-```xml
+{{< code lang="xml" title="introspection.xml（抜粋）" >}}
 ...
 <method name="PushBinaryData">
     <arg type="ay" name="data" direction="in">
@@ -17,7 +18,7 @@ D-Bus メソッド経由でバイト配列を送ろうとして、パラメー�
     </arg>
 </method>
 ...
-```
+{{< /code >}}
 
 すると、GDBus サーバ側のハンドラでは `GVariant*` 型のパラメータとしてデータを受信できるようになるので、以下のように内部のデータを取得できます。
 データのサイズも、`GVariant` オブジェクトから取得することができます。

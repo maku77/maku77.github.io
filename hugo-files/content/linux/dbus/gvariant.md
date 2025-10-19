@@ -1,6 +1,9 @@
 ---
-title: "glib の GVariant を使ってみる"
+title: "Linuxメモ: glib の GVariant を使ってみる"
+url: "p/4w6f4u5/"
 date: "2012-06-20"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/gvariant.html
 ---
 
 GVariant 型とは
@@ -15,27 +18,23 @@ GDBus のライブラリを使って、array や dictionary などのデータ�
 `GVariant` オブジェクトが保持するデータの型は、**type strings** という文字列で表現されます。
 例えば、`GVariant` オブジェクトの type strings が、
 
-```
+```plaintext
 "s"
 ```
 
 と定義されている場合、その `GVariant` オブジェクトは 1 つの文字列データを保持しています。
 以下のサンプルコードは、1 つの文字列データを保持する `GVariant` オブジェクトを作成し、そこから文字列データを取り出す例です。
 
-#### Makefile
-
-```makefile
+{{< code lang="makefile" title="Makefile" >}}
 CXX = clang++
 MY_LIBS = glib-2.0
 CPPFLAGS = $(shell pkg-config --cflags ${MY_LIBS})
 LDLIBS = $(shell pkg-config --libs ${MY_LIBS})
 
 sample: sample.cpp
-```
+{{< /code >}}
 
-#### sample.cpp
-
-```cpp
+{{< code lang="cpp" title="sample.cpp" >}}
 #include <glib.h>
 
 int main() {
@@ -48,7 +47,7 @@ int main() {
     g_print("value = %s\n", val);
     g_free(val);
 }
-```
+{{< /code >}}
 
 特に、`GVariant` オブジェクトが１つのデータだけを保持している場合は、専用の関数を使えば type strings の指定は必要なくなります。
 

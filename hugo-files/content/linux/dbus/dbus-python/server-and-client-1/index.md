@@ -1,13 +1,16 @@
 ---
-title: "dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）"
+title: "Linuxメモ: dbus-python で Session bus を使用するサーバ＆クライアントを実装する（単純なメソッドの実装）"
+url: "p/app39n9/"
 date: "2012-09-05"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/dbus-python/server-and-client-1.html
 ---
 
 dbus-python を利用したサーバとクライアントの実装例です。
 ここでは、`SetCount()` と `GetCount()` だけを行える `Counter` オブジェクトを提供するサービスと、クライアントを作成してみます。
 インタフェース名などは以下のようにします。
 
-```
+```plaintext
 Bus name: com.example.CounterService
 Object path: /com/example/CounterObject
 Interface: com.example.Counter

@@ -1,6 +1,9 @@
 ---
-title: "GDBus と dbus-glib"
+title: "Linuxメモ: GDBus と dbus-glib"
+url: "p/gqfnr2z/"
 date: "2012-05-09"
+tags: ["linux", "d-bus"]
+aliases: /linux/dbus/gdbus-and-dbus-glib.html
 ---
 
 D-Bus の low-level API は **libdbus** というライブラリで提供されています。
