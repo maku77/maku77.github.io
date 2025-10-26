@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim で自動インデントモードを有効にする (autoindent, smartindent, cindent)"
+title: "Vim/Neovim で自動インデントモードを有効にする (autoindent, smartindent, cindent)"
 url: "p/oe94dkh/"
 date: "2007-11-16"
 tags: ["vim"]

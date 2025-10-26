@@ -5,14 +5,14 @@ date: "2020-02-29"
 lastmod: "2024-06-21"
 tags: ["neovim", "vim"]
 changes:
-  - 2024-06-21: NeoVim の設定方法を追加。
+  - 2024-06-21: Neovim の設定方法を追加。
 aliases: /vim/keymap/open-folder.html
 ---
 
-Vim/NeoVim で次の設定を行っておくと、現在編集中のファイルが格納されたディレクトリをショートカットキー（ここでは `F12` キー）一発で開くことができます。
+Vim/Neovim で次の設定を行っておくと、現在編集中のファイルが格納されたディレクトリをショートカットキー（ここでは `F12` キー）一発で開くことができます。
 Windows の場合は `start` コマンドを使って「エクスプローラー」を開き、Mac の場合は `open` コマンドを使って「Finder」を開くようにしています。
 
-NeoVim（Lua スクリプト）の場合
+Neovim（Lua スクリプト）の場合
 ----
 
 {{< code lang="lua" title="~/.config/nvim/init.lua" >}}

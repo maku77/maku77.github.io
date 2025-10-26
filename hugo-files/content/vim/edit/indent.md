@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim でインデント用のスペースを入力する（シフトコマンド）"
+title: "Vim/Neovim でインデント用のスペースを入力する（シフトコマンド）"
 url: "p/i2m4nqt/"
 date: "2007-02-20"
 tags: ["vim"]

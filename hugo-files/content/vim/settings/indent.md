@@ -1,11 +1,11 @@
 ---
-title: "Vim/NeoVim でインデント（シフトコマンド）を設定する (shiftwidth, shiftround)"
+title: "Vim/Neovim でインデント（シフトコマンド）を設定する (shiftwidth, shiftround)"
 url: "p/b5o6ksu/"
 date: "2007-02-20"
 lastmod: "2024-06-10"
 tags: ["vim"]
 changes:
-  - 2024-06-10: NeoVim の設定方法を追加
+  - 2024-06-10: Neovim の設定方法を追加
 aliases: /vim/settings/indent.html
 ---
 
@@ -33,7 +33,7 @@ __`shiftwidth`__ オプションに設定した値は、`>>` コマンドなど�
 :set shiftround  "シフトコマンドでのインデント量を丸める
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim（~/.config/nvim/init.lua の場合）" >}}
+{{< code lang="lua" title="Neovim（~/.config/nvim/init.lua の場合）" >}}
 vim.opt.shiftround = true  -- シフトコマンドでのインデント量を丸める
 {{< /code >}}
 

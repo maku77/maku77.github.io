@@ -1,11 +1,11 @@
 ---
-title: "Vim/NeoVim でインサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (backspace)"
+title: "Vim/Neovim でインサートモード中に Backspace キーや CTRL-W で文字を削除するときの振る舞いを変更する (backspace)"
 url: "p/b9tsccu/"
 date: "2018-11-07"
 lastmod: "2024-06-10"
 tags: ["vim"]
 changes:
-  - 2024-06-10: NeoVim の設定について追記。
+  - 2024-06-10: Neovim の設定について追記。
 aliases: /vim/settings/backspace.html
 ---
 
@@ -38,8 +38,8 @@ set backspace=indent,eol,start
 - <kbd>CTRL-U</kbd>: **カーソル位置から行頭までを削除する。ただし、インサートモードに入ったときのカーソル位置も行頭とみなす。**
 
 
-backspace オプション (NeoVim の場合）
+backspace オプション (Neovim の場合）
 ----
 
-NeoVim の場合は、`backspace` オプションの設定値が __デフォルトで `indent,eol,start`__ となっているため、何も設定しなくても <kbd>Backspace</kbd> キーが直感的に振る舞います（編集開始位置よりも前の文字を削除できます）。
+Neovim の場合は、`backspace` オプションの設定値が __デフォルトで `indent,eol,start`__ となっているため、何も設定しなくても <kbd>Backspace</kbd> キーが直感的に振る舞います（編集開始位置よりも前の文字を削除できます）。
 

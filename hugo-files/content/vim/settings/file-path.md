@@ -1,10 +1,10 @@
 ---
-title: "Vim/NeoVim の設定ファイルのパスを確認する ($MYVIMRC)"
+title: "Vim/Neovim の設定ファイルのパスを確認する ($MYVIMRC)"
 url: "p/7mabuvq/"
 date: "2007-12-26"
 lastmod: "2024-01-10"
 changes:
-  - 2024-01-10: NeoVim の説明を追加
+  - 2024-01-10: Neovim の説明を追加
 tags: ["vim"]
 aliases: /vim/settings/rc-files.html
 ---
@@ -12,7 +12,7 @@ aliases: /vim/settings/rc-files.html
 設定ファイルのパスを調べる
 ----
 
-Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:echo` コマンドを使って以下のように確認することができます。
+Vim や Neovim の設定ファイル（やディレクトリ）のパスは、`:echo` コマンドを使って以下のように確認することができます。
 
 - Vim の場合:
   - __`:echo $MYVIMRC`__<br>
@@ -21,7 +21,7 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
   - __`:echo $MYGVIMRC`__<br>
     出力例: `C:\Users\maku\_gvimrc` （Windows の場合）<br>
     出力例: `/User/maku/.gvimrc` （Linux/macOS の場合）
-- NeoVim の場合（`init.lua` と `init.vim` のうち実際に読み込まれたファイルのパス）:
+- Neovim の場合（`init.lua` と `init.vim` のうち実際に読み込まれたファイルのパス）:
   - __`:echo $MYVIMRC`__ or __`:=vim.env.MYVIMRC`__<br>
     出力例: `C:\Users\maku\AppData\Local\nvim\init.lua` （Windows の場合）<br>
     出力例: `/Users/maku/.config/nvim/init.lua` （Linux/macOS の場合）
@@ -41,13 +41,13 @@ Vim や NeoVim の設定ファイル（やディレクトリ）のパスは、`:
 - Vim の場合
   - Windows の場合: __`%USERPROFILE%/_vimrc`__ （ただし `HOME` 環境変数が設定されている場合は `%HOME%/_vimrc`）
   - Linux/macOS の場合: __`~/.vimrc`__
-- NeoVim の場合
+- Neovim の場合
   - Windows の場合: __`%USERPROFILE%\AppData\Local\nvim\init.vim`__
   - Linux/macOS の場合: __`~/.config/nvim/init.vim`__
 
-Vim/NeoVim の設定ファイルは基本的に自分で作成する必要があります。
+Vim/Neovim の設定ファイルは基本的に自分で作成する必要があります。
 
-{{< code lang="console" title="NeoVim の設定ファイル (init.lua) を作成する" >}}
+{{< code lang="console" title="Neovim の設定ファイル (init.lua) を作成する" >}}
 $ mkdir -p ~/.config/nvim
 $ touch ~/.config/nvim/init.lua
 {{< /code >}}

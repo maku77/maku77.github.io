@@ -1,22 +1,22 @@
 ---
-title: "Vim/NeoVim で制御文字（改行、タブ文字、行末のスペースなど）を表示する (list, listchars)"
+title: "Vim/Neovim で制御文字（改行、タブ文字、行末のスペースなど）を表示する (list, listchars)"
 url: "p/s596qii/"
 date: "2011-04-24"
 lastmod: "2024-06-10"
 tags: ["vim"]
 changes:
-  - 2024-06-10: NeoVim の設定について追記。
+  - 2024-06-10: Neovim の設定について追記。
 aliases: /vim/settings/show-space.html
 ---
 
 list モードとは
 ----
 
-Vim/NeoVim の __`list`__ モードを有効にすると、テキストファイル内の制御文字や空白文字（タブや末尾のスペースなど）を視覚的に表示することができます。
+Vim/Neovim の __`list`__ モードを有効にすると、テキストファイル内の制御文字や空白文字（タブや末尾のスペースなど）を視覚的に表示することができます。
 例えば、プログラミング言語の Python などでコーディングを行っているときは、タブ文字と通常のスペースを意識して使い分けなければいけないので、このような非表示文字を目に見えるように設定しておくことには意味があります。
 もちろん通常の文章を記述するときにも、行末の余計なスペースなどを簡単に見つけられるようになるので、この設定は常に有効にしておくことをオススメします。
 
-list モードは、Vim でも NeoVim でもデフォルトでは無効になっているため、明示的に有効化する必要があります。
+list モードは、Vim でも Neovim でもデフォルトでは無効になっているため、明示的に有効化する必要があります。
 
 ```vim
 :set list    "制御文字を表示
@@ -37,18 +37,18 @@ list モードは、Vim でも NeoVim でもデフォルトでは無効になっ
 
 ### デフォルト設定
 
-`listchars` のデフォルト値は Vim と NeoVim で次のように異なっています。
+`listchars` のデフォルト値は Vim と Neovim で次のように異なっています。
 
 ```vim
 " Vim のデフォルト設定
 set listchars=eol:$
 
-" NeoVim のデフォルト設定
+" Neovim のデフォルト設定
 set listchars=tab:>\ ,trail:-,nbsp:+
 ```
 
 Vim のデフォルト設定では、タブ文字が __`^I  `__、改行が __`$`__ で表示されます。
-NeoVim のデフォルト設定では、タブ文字が __`>   `__、行末のスペースが __`-`__ で表示されます。
+Neovim のデフォルト設定では、タブ文字が __`>   `__、行末のスペースが __`-`__ で表示されます。
 
 ### listchars の設定例
 
@@ -58,7 +58,7 @@ set listchars=tab:>.,trail:_,eol:$
 set list
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 -- 制御文字の表示設定（方法 1）オススメ
 vim.opt.listchars = { tab = ">.", trail = "_", eol = "$" }
 vim.opt.list = true

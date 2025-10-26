@@ -1,20 +1,20 @@
 ---
-title: "Vim/NeoVim で OS のクリップボードとヤンクレジスターを連動させる (clipboard)"
+title: "Vim/Neovim で OS のクリップボードとヤンクレジスターを連動させる (clipboard)"
 url: "p/nnhefs3/"
 date: "2024-06-11"
 tags: ["vim"]
 ---
 
-Vim/NeoVim のデフォルト設定では、__`y`__ でテキストをヤンク（コピー）したときに、OS のクリップボードにテキストの内容がコピーされません。
+Vim/Neovim のデフォルト設定では、__`y`__ でテキストをヤンク（コピー）したときに、OS のクリップボードにテキストの内容がコピーされません。
 別のアプリ上で `Ctrl+C` でコピーした内容も、Vim の __`p`__ でペーストすることができません。
 これでは不便なので、多くの場合は次のように OS のクリップボードと連動させます。
 
-{{< code lang="vim" title="Vim (~/.vimrc) や NeoVim (init.vim) の場合" >}}
+{{< code lang="vim" title="Vim (~/.vimrc) や Neovim (init.vim) の場合" >}}
 " OS のクリップボードと連動させる
 set clipboard+=unnamed,unnamedplus
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim (init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (init.lua) の場合" >}}
 -- OS のクリップボードと連動させる
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 {{< /code >}}

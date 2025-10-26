@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim で選択した範囲を自動インデントする (=)"
+title: "Vim/Neovim で選択した範囲を自動インデントする (=)"
 url: "p/pxpgasg/"
 date: "2009-12-07"
 tags: ["vim"]

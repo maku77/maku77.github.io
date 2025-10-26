@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim ですでに入力されているタブをスペースに変換する (:retab)"
+title: "Vim/Neovim ですでに入力されているタブをスペースに変換する (:retab)"
 url: "p/w4qm7ok/"
 date: "2009-12-07"
 tags: ["vim"]

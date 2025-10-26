@@ -1,5 +1,5 @@
 ---
-title: "Vim/NeoVim でビジュアルモードで簡単にインデントを行えるようにする"
+title: "Vim/Neovim でビジュアルモードで簡単にインデントを行えるようにする"
 url: "p/hoihkfy/"
 date: "2013-05-26"
 tags: ["vim"]

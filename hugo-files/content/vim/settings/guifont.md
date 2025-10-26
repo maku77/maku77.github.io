@@ -1,18 +1,18 @@
 ---
-title: "Vim/NeoVim で GUI モード用のフォントを設定する (guifont)"
+title: "Vim/Neovim で GUI モード用のフォントを設定する (guifont)"
 url: "p/e3xdbxe/"
 date: "2008-05-12"
 lastmod: "2024-10-28"
 tags: ["neovim", "vim"]
 changes:
-  - 2024-10-28: NeoVim（nvim-qt の設定方法を追加）
+  - 2024-10-28: Neovim（nvim-qt の設定方法を追加）
 aliases: /vim/settings/font-dialog.html
 ---
 
 フォント設定ダイアログを開く
 ----
 
-nvim-qt や gVim などの GUI モードで動作する Vim/NeoVim 環境では、次のようにフォント設定ダイアログを開くことができます。
+nvim-qt や gVim などの GUI モードで動作する Vim/Neovim 環境では、次のようにフォント設定ダイアログを開くことができます。
 
 ```vim
 :set guifont=*
@@ -33,18 +33,18 @@ set guifont?
 設定ファイルでフォントを指定する
 ----
 
-### NeoVim (nvim-qt) の場合
+### Neovim (nvim-qt) の場合
 
-GUI モードの NeoVim（`nvim-qt` など）のフォントを設定するには、コマンドラインモードでの `:set guifont=Consolas:h14` に相当する下記のようなコードを実行すれば OK です。
+GUI モードの Neovim（`nvim-qt` など）のフォントを設定するには、コマンドラインモードでの `:set guifont=Consolas:h14` に相当する下記のようなコードを実行すれば OK です。
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 vim.o.guifont = "Consolas:h14"
 {{< /code >}}
 
 現在の環境が GUI モードで動作しているかどうかを調べるには、`vim.fn.has('gun_running')` の値が 1 かどうかをチェックします。
 下記は、[HackGen フォント](https://github.com/yuru7/HackGen/releases)を使用するように設定した例です。
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 --
 -- GUI モード（nvim-qt など）のフォント設定
 --

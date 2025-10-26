@@ -1,11 +1,11 @@
 ---
-title: "Vim/NeoVim でタブ文字に関する設定を行う (tabstop, expandtab, softtabstop)"
+title: "Vim/Neovim でタブ文字に関する設定を行う (tabstop, expandtab, softtabstop)"
 url: "p/8okf7d3/"
 date: "2007-04-11"
 lastmod: "2024-06-10"
 tags: ["vim"]
 changes:
-  - 2024-06-10: NeoVim の設定方法を追記
+  - 2024-06-10: Neovim の設定方法を追記
 aliases: /vim/settings/tab.html
 ---
 
@@ -18,7 +18,7 @@ aliases: /vim/settings/tab.html
 :set tabstop=4  "タブ 1 文字の表示幅 (default: 8)
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 vim.opt.tabstop = 4  -- タブ 1 文字の表示幅 (default: 8)
 {{< /code >}}
 
@@ -39,7 +39,7 @@ TAB キーを押したときに、タブ文字の代わりに半角スペース 
 :set softtabstop=-1  "タブキーで入力するスペース数 (-1: tabstop に合わせる)
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 vim.opt.expandtab = true  -- タブキーでスペースを入力する (default: false)
 vim.opt.softtabstop = -1  -- タブキーで入力するスペース数 (-1: tabstop に合わせる)
 {{< /code >}}

@@ -1,11 +1,11 @@
 ---
-title: "Vim/NeoVim で全角スペースを見えるように表示する"
+title: "Vim/Neovim で全角スペースを見えるように表示する"
 url: "p/preoa93/"
 date: "2009-02-03"
 lastmod: "2024-06-10"
 tags: ["vim"]
 changes:
-  - 2024-06-10: NeoVim の設定方法を追記。
+  - 2024-06-10: Neovim の設定方法を追記。
 aliases: /vim/settings/show-double-byte-space.html
 ---
 
@@ -21,7 +21,7 @@ hi DoubleByteSpace term=underline ctermbg=blue guibg=darkgray
 match DoubleByteSpace /　/
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim (~/.config/nvim/init.lua) の場合" >}}
+{{< code lang="lua" title="Neovim (~/.config/nvim/init.lua) の場合" >}}
 -- Show double byte spaces
 vim.cmd[[
   hi DoubleByteSpace term=underline ctermbg=blue guibg=darkgray

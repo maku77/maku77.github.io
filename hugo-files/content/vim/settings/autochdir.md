@@ -45,7 +45,7 @@ Vim のカレントディレクトリは、Vim で最初に開いたファイル
 set autochdir
 {{< /code >}}
 
-{{< code lang="lua" title="NeoVim の場合 (~/.config/nvim/init.lua)" >}}
+{{< code lang="lua" title="Neovim の場合 (~/.config/nvim/init.lua)" >}}
 -- Change the current working directory automatically
 vim.opt.autochdir = true
 {{< /code >}}

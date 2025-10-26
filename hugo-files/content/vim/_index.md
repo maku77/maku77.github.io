@@ -86,9 +86,9 @@ categoryIcon: logo-vim.svg
 ### 整形／変換
 * [Vim で行を連結する (`J`, `gJ`)](/p/etgm2a4/)
 * [Vim で文字を入れ替える、行を入れ替える（スワップ操作） (`xp`, `ddp`)](/p/xr9stqi/)
-* [Vim/NeoVim でインデント用のスペースを入力する（シフトコマンド） (`>>`, `<<`, `Ctrl-T`, `Ctrl-D`)](/p/i2m4nqt/)
-* [Vim/NeoVim で選択した範囲を自動インデントする (=)](/p/pxpgasg/)
-* [Vim/NeoVim ですでに入力されているタブをスペースに変換する (:retab)](/p/w4qm7ok/)
+* [Vim/Neovim でインデント用のスペースを入力する（シフトコマンド） (`>>`, `<<`, `Ctrl-T`, `Ctrl-D`)](/p/i2m4nqt/)
+* [Vim/Neovim で選択した範囲を自動インデントする (=)](/p/pxpgasg/)
+* [Vim/Neovim ですでに入力されているタブをスペースに変換する (:retab)](/p/w4qm7ok/)
 * [Vim でテキストを中央寄せ／左寄せ／右寄せする](/p/sh79ewb/)
 * [Vim で大文字と小文字を変換する (`U`, `u`)](/p/iin6vwz/)
 * [Vim でカーソル位置の数字をインクリメント／デクリメントする (`CTRL-A`, `CTRL-X`)](/p/in6mo7q/)
@@ -114,7 +114,7 @@ categoryIcon: logo-vim.svg
 * プログラマ向け操作
   * [Vim でプログラムの関数定義などにジャンプする（tags ファイルの利用）](/p/qt8z5d3/)
 * [カーソル位置の単語に対して任意のコマンド（ヘルプなど）を実行する (`keywordprg`)](/p/3hp29j9/)
-* [NeoVim を manpager として使用する（man ページを NeoVim で表示する）](/p/hfwenni/)
+* [Neovim を manpager として使用する（man ページを Neovim で表示する）](/p/hfwenni/)
 
 インストール／環境
 ----
@@ -131,7 +131,7 @@ Vim の設定
 - [Neovim カスタマイズのために Lua 言語をざっと理解する](/p/d3exkpu/)
 
 ### ファイル・ディレクトリに関する設定と操作
-- [Vim/NeoVim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
+- [Vim/Neovim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
 - [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [Vimの設定: モードラインを使ってファイル単位で書式設定する (`modeline`)](/p/39fajvt/)
@@ -160,7 +160,7 @@ Vim の設定
 * [Vim で80文字目に縦線を表示する (`colorcolumn`)](/p/ngz6n6i/)
 * [Vim で構文強調（シンタックスハイライト）を有効にする (`syntax`)](/p/wcfbnqj/)
 * [Vim でカーソル下の行や列をハイライト表示する (`cursorline`, `cursorcolumn`)](/p/osrx94g/)
-* [Vim/NeoVim で GUI モード用のフォントを設定する (`guifont`)](/p/e3xdbxe/)
+* [Vim/Neovim で GUI モード用のフォントを設定する (`guifont`)](/p/e3xdbxe/)
 * [制御文字（改行、タブ文字、行末のスペースなど）を表示する (`list`, `listchars`)](/p/s596qii/)
 * [全角スペースを見えるように表示する](/p/preoa93/)
 * [Vim で■や※などの記号が重なって表示される問題の解決 (`ambiwidth`)](/p/fp2xk7y/)
