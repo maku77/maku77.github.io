@@ -13,7 +13,7 @@ categoryIcon: logo-vim.svg
 - [ヘルプコマンドの使い方 (`:help`, `:helpgrep`)](/p/fdep5i7/)
 - 移動
   - [カーソルの移動方法まとめ](/p/etvrhdd/)
-  - [画面スクロール方法まとめ](/p/gu9om5z/)
+  - [Vim/Neovim の画面スクロール方法まとめ (`scroll`, `scrolljump`, `scrolloff`)](/p/gu9om5z/)
   - [カーソル位置にマークしてジャンプしてこれるようにする](/p/i3ao6oc/)
   - [C/C++ の変数／マクロの定義位置にジャンプする](/p/96itrdp/)
 - [文字の削除方法まとめ（テキストオブジェクト） (`d`, `delete`)](/p/qbmdoef/)
@@ -124,15 +124,19 @@ categoryIcon: logo-vim.svg
 * [Windows でファイルを開くときに既存の GVim 内のタブで開く](/p/6mdd9es/)
 
 
-Vim の設定
+Vim の設定 <!-- settings -->
 ----
 
 ### Lua
 - [Neovim カスタマイズのために Lua 言語をざっと理解する](/p/d3exkpu/)
 
+{{% private %}}
+- [Neovim の設定ファイルをモジュール化して管理する](/p/t76nvuq/)
+{{% /private %}}
+
 ### ファイル・ディレクトリに関する設定と操作
 - [Vim/Neovim の設定ファイルのパスを確認する (`$MYVIMRC`)](/p/7mabuvq/)
-- [設定ファイル (`.vimrc`) を開く、リロードする](/p/zneoq8d/)
+- [Vim/Neovim で設定ファイル (`.vimrc`, `init.lua`) を開く、リロードする](/p/zneoq8d/)
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [Vimの設定: モードラインを使ってファイル単位で書式設定する (`modeline`)](/p/39fajvt/)
 - [Vimの設定: バックアップファイル／スワップファイル／アンドゥファイルの設定 (`backup`, `swapfile`, `undofile`)](/p/xv4yhu2/)
@@ -144,7 +148,7 @@ Vim の設定
 - [現在のキーマップの一覧を表示する (`map`)](/p/7uxykzp/)
 - [`<Leader>` キーを使ったキーコンビネーションを定義する (`mapleader`)](/p/c9kmay4/)
 - キーマップ設定の例
-  - [ショートカットキーで設定ファイル (`.vimrc`) を開く](/p/r5fcfgk/)
+  - [ショートカットキーで設定ファイル (`.vimrc`, `init.lua`) を開く](/p/r5fcfgk/)
   - [ショートカットキーで日時を挿入する](/p/8xk6jnw/)
   - [ショートカットキーでタブを切り替える](/p/ksmwhv8/)
   - [ショートカットキーでカレントディレクトリを Windows エクスプローラーや Mac の Finder で開く](/p/tqmr4od/)

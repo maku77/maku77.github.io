@@ -2,10 +2,11 @@
 title: "Vim で <Leader> キーを使ったキーコンビネーションを定義する (mapleader)"
 url: "p/c9kmay4/"
 date: "2020-04-04"
-lastmod: "2024-10-20"
+lastmod: "2025-10-26"
 tags: ["vim"]
 changes:
   - 2024-10-24: LocalLeader キーの説明を追加
+  - 2025-10-26: Neovim の設定方法を追加
 aliases: /vim/keymap/mapleader.html
 ---
 
@@ -44,13 +45,18 @@ Leader キーを使ったキーマッピングには、次のような利点が�
 Leader キーを設定する (mapleader)
 ----
 
-Leader キーを任意のキーに設定するには、次のように __`g:mapleader`__ 変数を設定します。
+### Vim の場合
+
+Leader キーを任意のキーに設定するには、次のように __`g:mapleader`__ グローバル変数を設定します。
 デフォルトではバックスラッシュキーが使用されますが、決して押しやすいキーではないので、スペースキーやカンマを Leader キーとして使用する人が多いようです。
 
-```vimrc
+{{< code lang="vimrc" title="~/.vimrc" >}}
+" Leader キーをスペースキーに変更
 let g:mapleader = "\<Space>"
+
+" Leader キーをカンマに変更
 let g:mapleader = ","
-```
+{{< /code >}}
 
 スペースキーを表現するときは、**`"\<Space>"`** と記述することに注意してください。
 同様に、`CTRL-W` という入力は `"\<C-W>"` と記述します（参考: `:help expr-quote`, `:help key-notation`）。
@@ -64,22 +70,38 @@ Leader キーをスペースキーに割り当てた場合でも、スペース�
 このあたりの振る舞いは、`timeout`、`ttimeout`、`timeoutlen` などのオプションで調整できます。
 {{% /note %}}
 
+### Neovim の場合
+
+{{< code lang="lua" title="~/.config/nvim/init.lua" >}}
+-- Leader キーをスペースキーに変更
+vim.g.mapleader = " "
+{{< /code >}}
+
 
 Leader キーを使ったキーマップの例
 ----
 
-```vimrc
-" Leader キーをスペースキーに変更 （注: <Leader> を参照する前に設定する）
+{{< code lang="vimrc" title="~/.vimrc (Vim)" >}}
+" Leader キーをスペースキーに変更 （注: <Leader> を参照する前に設定すること）
 let g:mapleader = "\<Space>"
 
 " タブの切り替え
-nnoremap <Leader>h :<C-u>tabprev<CR>
-nnoremap <Leader>l :<C-u>tabnext<CR>
+nnoremap <Leader>h :tabprev<CR>
+nnoremap <Leader>l :tabnext<CR>
 
 " NERDTree 用のキーマップ
-nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
-nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
-```
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+{{< /code >}}
+
+{{< code lang="lua" title="~/.config/nvim/init.lua (Neovim)" >}}
+-- Leader キーをスペースキーに変更 （注: <Leader> を参照する前に設定すること）
+vim.g.mapleader = " "
+
+-- タブの切り替え
+vim.keymap.set("n", "<Leader>h", ":tabprev<CR>")
+vim.keymap.set("n", "<Leader>l", ":tabnext<CR>")
+{{< /code >}}
 
 `<Leader>` は小文字で `<leader>` と記述することもできます。
 
@@ -108,7 +130,7 @@ E121: Undefined variable: g:mapleader
 
 ### LocalLeader キー
 
-`<Leader>` とは別に、バッファローカルな Leader キーとして参照可能な __`<LocalLeader>`__ が用意されています。
+`<Leader>` とは別に、バッファローカルな Leader キーとして参照可能な **`<LocalLeader>`** が用意されています。
 `<LocalLeader>` 用のキーは、**`b:maplocalleader`** 変数で設定します。
 
 ```vimrc
@@ -116,10 +138,9 @@ E121: Undefined variable: g:mapleader
 let b:maplocalleader = ","
 
 " バッファローカルなキーマップ
-nnoremap <buffer> <LocalLeader>h :<C-u>tabprev<CR>
-nnoremap <buffer> <LocalLeader>l :<C-u>tabnext<CR>
+nnoremap <buffer> <LocalLeader>h :tabprev<CR>
+nnoremap <buffer> <LocalLeader>l :tabnext<CR>
 ```
-
 
 ### VS Code での Leader キー設定
 

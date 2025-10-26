@@ -194,39 +194,6 @@ print("Hello, Neovim!")
 {{< /code >}}
 
 
-2014-01-27: キーマッピング時に <silent> を挟むと実行時にエコー出力しない
-----
-
-```
-nmap <silent> ;s :call ToggleSyntax()<CR>
-```
-
-文字列を連結
-
-```
-let var .= expr
-let var = str1 . str2
-
-nmap <silent> ]] :let &tabstop += 1<CR>
-nmap <silent> [[ :let &tabstop -= &tabstop > 1 ? 1 : 0<CR>
-```
-
-
-Vim の真偽値
-----
-
-Vim ではブール値コンテキストで「偽 (false)」とみなされるのは数値の 0 のみです。
-文字列がブール値コンテキストで指定された場合、整数値に変換されて評価されます。
-
-```
-0         => false
-1         => true
-'100aaa'  => true
-'aaa100'  => false
-'0.1'     => false
-```
-
-
 文字列と数値の比較／文字列と文字列の比較
 ----
 
@@ -286,21 +253,4 @@ endif
 ```
 
 ブール値のコンテキストに指定された文字列は整数値に変換されるため、ほとんどの場合 false と評価されてしまいます。
-
-
-F5キーで任意の function を実行する
-----
-
-[2012-06-11]
-
-下記のようにすると、F5 キーを押したときに、Run() が実行されるようになります。
-
-```
-command! Run call s:Run()
-nmap <F5> :Run<CR>
-
-function! s:Run()
-     echo "Hello"
-endfunction
-```
 

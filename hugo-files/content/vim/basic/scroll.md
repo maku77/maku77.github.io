@@ -1,9 +1,12 @@
 ---
-title: "Vim の画面スクロール方法まとめ"
+title: "Vim/Neovim の画面スクロール方法まとめ (scroll, scrolljump, scrolloff)"
 url: "p/gu9om5z/"
 date: "2007-01-30"
+lastmod: "2025-10-26"
 tags: ["vim"]
 aliases: /vim/basic/scroll.html
+changes:
+  - 2025-10-26: Neovim の設定例を追加
 ---
 
 画面スクロール操作
@@ -47,20 +50,34 @@ aliases: /vim/basic/scroll.html
 ----
 
 `Ctrl-d` や `Ctrl-u` による画面スクロール行数は、__`scroll`__ オプションで設定できます。
+個人的には、一度に画面半分もスクロールされると脳がついていけないので、3 行くらいのスクロールに変更しておくと使いやすいです。
 
 ```vim
 :set scroll=3
 ```
 
-`scroll` オプションのデフォルトは 0 になっており、この場合だけは「画面に表示されている行数の半分だけスクロールする」という特殊な動きをします。
-個人的には、一度に画面半分もスクロールされると脳がついていけないので、3 行くらいのスクロールに変更しておくことをオススメします。
+ただし、この設定は Vim エディタのウィンドウサイズを変更したタイミングなどでリセットされてしまいます。
+そのため、設定ファイルで `scroll` オプションを設定するときは、下記のように `autocmd` を使ってバッファ切り替え時に再設定するようにしておくとよいでしょう。
 
-{{< code lang="vim" title="~/.vimrc" >}}
-au BufEnter * set scroll=3
+{{< code lang="vim" title="~/.vimrc（Vimの設定ファイル）" >}}
+" Number of lines to scroll with CTRL-U and CTRL-D commands.
+" scroll 値は自動的に変更されてしまうため、バッファ切替時に再設定しておく。
+autocmd BufEnter  *  setlocal scroll=3
+{{< /code >}}
+
+{{< code lang="lua" title="~/.config/nvim/init.lua（Neovimの設定ファイル）" >}}
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    -- Number of lines to scroll with CTRL-U and CTRL-D commands.
+    -- scroll 値は自動的に変更されてしまうため、バッファ切替時に再設定しておく。
+    vim.opt_local.scroll = 3
+  end,
+})
 {{< /code >}}
 
 
-画面上端、下端でのスクロール方法の設定 (scrolljump)
+画面上端、下端でのスクロール方法の設定 (scrolljump, scrolloff)
 ----
 
 1 番上の行にカーソルがあるときに、さらに上へカーソルを移動させようとするとスクロールが発生します。
@@ -71,9 +88,14 @@ au BufEnter * set scroll=3
 ```
 
 カーソルが画面の上端、下端まで行く前にスクロールを開始するには、__`scrolloff`__ オプションで何行残してスクロールを開始するかを指定します（デフォルトは 0）。
-この値を 0 以外にしておくと、作業効率が上がります。
+この値を 0 以外にしておくと、スクロールが早めに始まるので作業効率が上がります。
 
 ```vim
 :set scrolloff=5
 ```
+
+{{< code lang="lua" title="~/.config/nvim/init.lua（Neovimの設定ファイル）" >}}
+-- Number of context lines to keep above and below the cursor (default: 0).
+vim.opt.scrolloff = 10
+{{< /code >}}
 
