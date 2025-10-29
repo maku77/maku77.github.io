@@ -129,6 +129,7 @@ Vim の設定 <!-- settings -->
 
 ### Lua
 - [Neovim カスタマイズのために Lua 言語をざっと理解する](/p/d3exkpu/)
+- [Neovim の設定ファイル (`init.lua`) を GitHub や Dropbox で管理する](/p/pzakg36/)
 
 {{% private %}}
 - [Neovim の設定ファイルをモジュール化して管理する](/p/t76nvuq/)
