@@ -157,6 +157,7 @@ Vim の設定 <!-- settings -->
 ### autocmd（自動コマンド）による設定
 - [`autocmd` で自動コマンドを登録する](/p/rj6oatw/)
 - `autocmd` 設定の例
+  - [Neovim設定例: ヤンク時に選択範囲をハイライト表示する (`TextYankPost`)](/p/9qyei4z/)
   - [編集中のスクリプト（Ruby や Python など）をショートカットキーで実行する](/p/nwqjyx8/)
   - [開いたファイルがあるディレクトリをカレントディレクトリにする](/p/4ekh9ba/)
 
