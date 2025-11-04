@@ -1,5 +1,5 @@
 ---
-title: "Vim でGVim 起動時のウィンドウの幅、高さを設定する (columns, lines)"
+title: "GVim 起動時のウィンドウの幅、高さを設定する (columns, lines)"
 url: "p/syn3cyx/"
 date: "2007-11-14"
 tags: ["vim"]

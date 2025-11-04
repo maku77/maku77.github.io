@@ -29,6 +29,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+kbd {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: normal;
+  border: solid 1px $COLOR_CODE;
+  border-radius: 0.4em;
+  padding: 0.1em 0.3em;
+}
+
 a {
   text-decoration: none;
   font-weight: bolder;
