@@ -141,7 +141,7 @@ Vim の設定 <!-- settings -->
 - [設定ファイルから別の設定ファイルを読み込む (`source`, `dofile`)](/p/dnso7ds/)
 - [Vimの設定: モードラインを使ってファイル単位で書式設定する (`modeline`)](/p/39fajvt/)
 - [Vimの設定: バックアップファイル／スワップファイル／アンドゥファイルの設定 (`backup`, `swapfile`, `undofile`)](/p/xv4yhu2/)
-- [ウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (`autochdir`)](/p/dpccbv7/)
+- [Vim/Neovim でウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (`autochdir`)](/p/dpccbv7/)
 
 ### キーマップ設定 <!-- keymap -->
 - [キーマップの基本 (`map`, `noremap`)](/p/nqqixxy/)

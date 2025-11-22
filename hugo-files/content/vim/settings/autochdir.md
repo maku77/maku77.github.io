@@ -1,5 +1,5 @@
 ---
-title: "Vim でウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)"
+title: "Vim/Neovim でウィンドウ（タブ）移動時にカレントディレクトリも自動で移動する (autochdir)"
 url: "p/dpccbv7/"
 date: "2020-05-29"
 tags: ["neovim", "vim"]

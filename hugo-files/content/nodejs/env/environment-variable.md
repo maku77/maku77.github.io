@@ -1,11 +1,14 @@
 ---
-title: "Node.js で環境変数を参照する (process.env)"
+title: "Node.jsメモ: 環境変数を参照する (process.env)"
+url: "p/e44uun8/"
 date: "2012-12-07"
+tags: ["nodejs"]
 lastmod: "2021-06-20"
+aliases: /nodejs/env/environment-variable.html
 ---
 
 Node.js で環境変数を扱いたいときは、**`process.env`** オブジェクトを参照します。
-`process` モジュールはデフォルトで使用可能になっているので、`require` する必要はありません。
+`process` モジュールはデフォルトで参照できるようになっているので、`require` でモジュールを読み込む必要はありません。
 
 
 指定した環境変数を取得する
@@ -13,7 +16,7 @@ Node.js で環境変数を扱いたいときは、**`process.env`** オブジェ
 
 `process.env.環境変数名` とすれば、任意の環境変数を参照できます。
 
-```
+```console
 $ node
 > console.log(process.env.HOME);
 D:\x\home
@@ -37,7 +40,7 @@ if (process.env.HTTP_PROXY != undefined) {
 const port = process.env.MYSERVER_PORT ?? 50000;
 ```
 
-`??` 演算子は ES2020 で導入された [Nullish Coalescing](https://maku.blog/p/5oyaju5/) という仕組みで、ある変数値の値を参照しつつ、その値が `undefined` あるいは `null` の場合に、右側に指定した値を代わりに返してくれます。
+`??` 演算子は ES2020 で導入された [Nullish Coalescing](https://maku.blog/p/5oyaju5/) という仕組みで、ある変数の値を参照しつつ、その値が `undefined` あるいは `null` の場合に、右側に指定した値を代わりに返してくれます。
 上の例の場合は、環境変数 `MYSERVER_PORT` が設定されていないときに、デフォルトのポート番号として 50000 が使用されます。
 
 `??` 演算子が導入される前は、次のように `undefined` 判定を行う必要がありました。
@@ -63,7 +66,7 @@ ES2020 以降の環境では、Null 合体演算子 (`??`) を使えば万事解
 
 `process.env` オブジェクトにどのように環境変数が格納されているかは、下記のようにインタラクティブモードで出力すれば簡単に確認することができます。
 
-```
+```console
 $ node
 > process.env
 {
@@ -105,5 +108,5 @@ keys.sort().forEach(key => {
 関連記事
 ----
 
-- [環境変数の代わりに .env ファイルを使用する (dotenv)](./dotenv.html)
+- [環境変数の代わりに .env ファイルを使用する (dotenv)](/p/6kruhwy/)
 

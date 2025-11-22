@@ -1,12 +1,13 @@
 ---
-title: "Vim/Neovim の画面スクロール方法まとめ (scroll, scrolljump, scrolloff)"
+title: "Vim/Neovim の画面スクロール方法まとめ (scrolljump, scrolloff, scroll)"
 url: "p/gu9om5z/"
 date: "2007-01-30"
-lastmod: "2025-10-26"
+lastmod: "2025-11-04"
 tags: ["vim"]
 aliases: /vim/basic/scroll.html
 changes:
   - 2025-10-26: Neovim の設定例を追加
+  - 2025-11-04: scroll オプションの設定は telescope.nvim と相性が悪いことを追記
 ---
 
 画面スクロール操作
@@ -46,6 +47,29 @@ changes:
 {{< /code >}}
 
 
+画面上端、下端でのスクロール方法の設定 (scrolljump, scrolloff)
+----
+
+1 番上の行にカーソルがあるときに、さらに上へカーソルを移動させようとするとスクロールが発生します。
+このときのスクロール行数は __`scrolljump`__ オプションで指定することができます（デフォルトは 1）。
+
+```vim
+:set scrolljump=1
+```
+
+カーソルが画面の上端、下端まで行く前にスクロールを開始するには、__`scrolloff`__ オプションで何行残してスクロールを開始するかを指定します（デフォルトは 0）。
+この値を 0 以外にしておくと、スクロールが早めに始まるので作業効率が上がります。
+
+```vim
+:set scrolloff=5
+```
+
+{{< code lang="lua" title="~/.config/nvim/init.lua（Neovimの設定ファイル）" >}}
+-- Number of context lines to keep above and below the cursor (default: 0).
+vim.opt.scrolloff = 10
+{{< /code >}}
+
+
 画面スクロール量の設定 (scroll)
 ----
 
@@ -76,26 +100,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 {{< /code >}}
 
-
-画面上端、下端でのスクロール方法の設定 (scrolljump, scrolloff)
-----
-
-1 番上の行にカーソルがあるときに、さらに上へカーソルを移動させようとするとスクロールが発生します。
-このときのスクロール行数は __`scrolljump`__ オプションで指定することができます（デフォルトは 1）。
-
-```vim
-:set scrolljump=1
-```
-
-カーソルが画面の上端、下端まで行く前にスクロールを開始するには、__`scrolloff`__ オプションで何行残してスクロールを開始するかを指定します（デフォルトは 0）。
-この値を 0 以外にしておくと、スクロールが早めに始まるので作業効率が上がります。
-
-```vim
-:set scrolloff=5
-```
-
-{{< code lang="lua" title="~/.config/nvim/init.lua（Neovimの設定ファイル）" >}}
--- Number of context lines to keep above and below the cursor (default: 0).
-vim.opt.scrolloff = 10
-{{< /code >}}
+（追記）この `scroll` オプションの指定は、`telescope.nvim` プラグインとの相性が悪いようです（`telescope` のウィンドウを開いたときにエラーが発生します）。
+現状この設定はコメントアウトしています。
 

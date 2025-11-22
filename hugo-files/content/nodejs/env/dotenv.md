@@ -1,7 +1,10 @@
 ---
-title: "環境変数の代わりに .env ファイルを使用する (dotenv)"
+title: "Node.jsメモ: 環境変数の代わりに .env ファイルを使用する (dotenv)"
+url: "p/6kruhwy/"
 date: "2019-03-26"
+tags: ["nodejs"]
 lastmod: "2019-10-11"
+aliases: /nodejs/env/dotenv.html
 ---
 
 dotenv モジュールとは
@@ -9,15 +12,15 @@ dotenv モジュールとは
 
 Node.js のプログラムから環境変数を参照するには `process.env` を参照します。
 
-- 参考: [Node.js で環境変数を参照する (process.env)](./environment-variable.html)
+- 参考: [Node.js で環境変数を参照する (process.env)](/p/e44uun8/)
 
-ユーザー設定を環境変数で行うようにしているアプリはよくあるのですが、たかが 1 つのアプリのために環境変数を設定するのは嫌だというユーザーは少なからずいます（設定がどこで行われているのかわかりにくいという理由もあります）。
+ユーザー設定を環境変数で行うようにしているアプリはよくあるのですが、たかが 1 つのアプリのために環境変数を設定するのは面倒だというユーザーは少なくありません（設定がどこで行われているのかわかりにくいという理由もあります）。
 
-**`dotenv`** モジュールを使用すると、カレントディレクトリに置かれた **`.env`** ファイルを読み込み、そこに記述されたキー＆バリューのペアを `process.env` 経由で参照できるようになります。
+**`dotenv`** モジュールを使用すると、カレントディレクトリに置かれた **`.env`** ファイルを読み込み、そこに記述されたキーと値のペアを `process.env` 経由で参照できるようになります。
 
 - [dotenv - npm](https://www.npmjs.com/package/dotenv)
 
-つまり、**ユーザはアプリの設定を、従来通り環境変数で行うこともできるし、`.env` ファイルでも行うことができるようになります**。
+つまり、**ユーザーはアプリの設定を、従来通り環境変数で行うこともできるし、`.env` ファイルでも行うことができるようになります**。
 環境変数を使ってアプリの挙動を変えるような実装をしている場合は、`.env` ファイルによる設定もサポートしておくと親切です。
 クラウドサービスと連携するアプリケーションなどは、**接続キー** などの情報を `.env` ファイルで指定できるようにしているものがよくあります。
 
@@ -28,9 +31,8 @@ dotenv モジュールのインストール
 `dotenv` モジュールは `npm` コマンドで下記のようにインストールすることができます。
 インストールされたモジュールは `node_modules` ディレクトリに格納されます。
 
-```
+```console
 $ npm install dotenv
-$ npm install dotenv --save  # package.json に依存情報を追記する場合
 ```
 
 
@@ -39,22 +41,18 @@ dotenv モジュールの基本的な使い方
 
 まず、サンプルの設定ファイルとして、プロジェクトのルートディレクトリに、下記のような `.env` ファイルを作成します。
 
-#### .env
-
-```
+{{< code title=".env" >}}
 # これはコメント行
 KEY1=VALUE1
 KEY2=VALUE2
 KEY3=VALUE3
-```
+{{< /code >}}
 
 `.env` ファイルの内容を読み込んで、`process.env` オブジェクトのプロパティとして参照できるようにするには、アプリの最初の方で下記のように実行します。
 
-#### sample.js
-
-```js
+{{< code lang="js" title="sample.js" >}}
 require('dotenv').config();
-```
+{{< /code >}}
 
 基本的には**やることはこれだけ**です。
 仮に、**`.env` ファイルが見つからない場合は、単純に無視されるだけ**なので、上記のコードは安心して入れておくことができます。
@@ -99,24 +97,20 @@ console.log(process.env.KEY1);  //=> VALUE1
 dotenv によって読み込んだ値のみを参照する
 ----
 
-`dotenv.config()` によって返されるオブジェクトの **`parsed`** プロパティを参照すると、`.env` ファイルで設定されているキー＆バリューをオブジェクトの形で参照することができます。
+`dotenv.config()` によって返されるオブジェクトの **`parsed`** プロパティを参照すると、`.env` ファイルで設定されているキーと値をオブジェクトの形で参照することができます。
 
-#### sample.js
-
-```js
+{{< code lang="js" title="sample.js" >}}
 const dotenv = require('dotenv');
 const result = dotenv.config();
 console.log(result.parsed);
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code lang="console" title="実行結果" >}}
 $ node sample.js
 { KEY1: 'VALUE1', KEY2: 'VALUE2', KEY3: 'VALUE3' }
-```
+{{< /code >}}
 
-ちなみに、`.env` ファイルが存在しない場合は result は `undefined` になり、`.env` ファイルの記述が空っぽのときは result は `{}` （空オブジェクト）になります。
+ちなみに、`.env` ファイルが存在しない場合は result は `undefined` になり、`.env` ファイルの内容が空のときは result は `{}` （空オブジェクト）になります。
 
 
 カレントディレクトリではなく、js ファイルと同じディレクトリにある .env ファイルを読み込む
@@ -128,7 +122,7 @@ $ node sample.js
 path.resolve(process.cwd(), '.env');
 ```
 
-通常はあまり問題になることはありませんが、`js` ファイルが置かれたディレクトリ以外から `node` コマンドを実行する場合（例: `node myapp/main.js` みたいに実行した場合）は、`.env` ファイルが読み込めずに混乱するかもしれません。
+通常はあまり問題になることはありませんが、`js` ファイルが置かれたディレクトリ以外から `node` コマンドを実行する場合（例: `node myapp/main.js` のように実行した場合）は、`.env` ファイルが読み込めずに混乱するかもしれません。
 
 カレントディレクトリではなく、プログラム（`.js` ファイル）自体が置かれたディレクトリ内にある `.env` ファイルを読み込むようにするには、`dotenv.config()` の `path` オプションで下記のようにパス指定します。
 
@@ -150,7 +144,7 @@ dotenv によって .env ファイルの内容がうまく反映されない場�
 require('dotenv').config({ debug: true });
 ```
 
-```
+```console
 $ node sample.js
 [dotenv][DEBUG] did not match key and value when parsing line 1: THIS_IS_AN_INVALID_LINE
 ```

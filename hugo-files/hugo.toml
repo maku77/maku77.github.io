@@ -1,13 +1,14 @@
 baseURL = "https://maku77.github.io/"
+relativeurls = true
 enableRobotsTXT = true
-# googleAnalytics = "UA-63069513-1"
-googleAnalytics = "G-X5962TDYXS"
-languageCode = "ja-jp"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
-relativeurls = true
-theme = "maku77"
+languageCode = "ja-jp"
+timeZone = "Asia/Tokyo"
 title = "天才まくまくノート"
+# googleAnalytics = "UA-63069513-1"
+googleAnalytics = "G-X5962TDYXS"
+theme = "maku77"
 
 [markup.goldmark.renderer]
   unsafe = true

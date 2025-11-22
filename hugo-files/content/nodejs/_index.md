@@ -10,15 +10,15 @@ categoryIcon: "logo-nodejs.svg"
 Node.js 実行環境など
 ----
 
-- [Node.js とは - Node.js をインストールする](/p/z5ap5bf/)
+- [Node.js とは／Node.js をインストールする](/p/z5ap5bf/)
 - [`nvm` で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)](/p/3x95seb/)
-- [`corepack` で `yarn` や `pnpm` などのパッケージマネージャーを管理する](/p/tzwio3y/)
+- [`corepack` を使ってプロジェクト内で使用する `pnpm`/`yarn` のバージョンを管理する](/p/tzwio3y/)
 - [Node.js スクリプトにシェバング (`#!`) を付けてコマンドとして起動できるようにする](/p/ptactsj/)
 - [Node.js で assert を使用する](assert.html)
-- [Node.js で環境変数を参照する (process.env)](env/environment-variable.html)
-- [環境変数の代わりに .env ファイルを使用する (dotenv)](env/dotenv.html)
-- [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](env/v8-version.html)
-- [nodemon で Node.js サーバの再起動を自動化する](env/nodemon.html)
+- [Node.js で環境変数を参照する (`process.env`)](/p/e44uun8/)
+- [環境変数の代わりに `.env` ファイルを使用する (`dotenv`)](/p/6kruhwy/)
+- [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](/p/cf7eoyo/)
+- [`nodemon` で Node.js サーバの再起動を自動化する](/p/rvghobv/)
 
 ### モジュール／パッケージ
 - [Node.js 用モジュールの作り方（require でロード可能な Node モジュールを作成する）](module/create-module.html)
