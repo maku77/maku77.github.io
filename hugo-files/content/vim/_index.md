@@ -32,8 +32,8 @@ categoryIcon: logo-vim.svg
 
 - [Vim 内で grep を実行して見つかったファイルへジャンプする (`:vimgrep`, `:grep`)](/p/c4q8amz/)
 - [Vim でカレントファイル内の文字列を検索する (`/`, `?`, `*`, `#`)](/p/u4gw7c3/)
-- [Vim で大文字と小文字を区別しないで検索する (`ignorecase`, `\c`)](/p/mfcba2q/)
-- [Vim の検索に関する設定 (`ignorecase`, `smartcase`, `wrapscan`, `hlsearch`, `incsearch`)](/p/v4cuc9g/)
+- [Vim/Neovim で大文字と小文字を区別しないで検索する (`ignorecase`, `\c`)](/p/mfcba2q/)
+- [Vim/Neovim の検索に関する設定 (`ignorecase`, `smartcase`, `wrapscan`, `hlsearch`, `incsearch`)](/p/v4cuc9g/)
 
 ### コマンドライン
 
