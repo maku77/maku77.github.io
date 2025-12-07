@@ -1,6 +1,9 @@
 ---
-title: "Node.js が require() で検索するパスのまとめ"
+title: "Node.jsメモ: Node.js が require() で検索するパスのまとめ"
+url: "p/ysmmmia/"
 date: "2014-09-22"
+tags: ["nodejs"]
+aliases: /nodejs/module/require.html
 ---
 
 `require()` によって Node.js がどのようにロードするモジュールを検索するかは、[Node.js の Modules のドキュメント](https://nodejs.org/api/modules.html#modules_all_together) に詳しく説明されていますが、若干複雑なのでここでまとめておきます。
@@ -11,7 +14,7 @@ require の使い分け
 
 `require` でモジュールをロードするとき、多くは下記の 3 パターンのロード方法に分類できます。
 
-~~~ javascript
+```javascript
 // コアモジュール、あるいは node_modules にインストールしたパッケージのロード
 const crypto = require('crypto');
 
@@ -20,7 +23,7 @@ const myLocalModule = require('./path/to/myLocalModule');
 
 // JSON ファイルのロード
 const jsonData = require('./path/to/data.json');
-~~~
+```
 
 簡単にまとめると、
 
@@ -60,7 +63,7 @@ require がどのようにモジュールを検索するか？
 
 ### require('./name') としたとき
 
-`require` のパラメータが `'./name'`、`'../name'`、`'/name'` というように、`./` や `/` で始まるパスで指定された場合は、そのファイルが置かれたディレクトリからの相対パス（あるいは絶体パス）で、下記のようにファイルが検索されます。
+`require` のパラメータが `'./name'`、`'../name'`、`'/name'` というように、`./` や `/` で始まるパスで指定された場合は、そのファイルが置かれたディレクトリからの相対パス (あるいは絶対パス) で、下記のようにファイルが検索されます。
 
 1. `name` という名前のファイルを探す。
 2. `name.js` という名前のファイルを探す。
@@ -79,7 +82,7 @@ require がどのようにモジュールを検索するか？
 2. `/aaa/bbb/mylib.js` という JavaScript ファイル
 3. `/aaa/bbb/mylib.json` という JSON ファイル
 4. `/aaa/bbb/mylib.node` というバイナリ addon ファイル
-5. `/aaa/bbb/mylib/package.json` に `name` フィールドがあれば、`mylib/<mainフィールドの値>` が指定されたものとして同様に検索
+5. `/aaa/bbb/mylib/package.json` に `main` フィールドがあれば、`mylib/<mainフィールドの値>` が指定されたものとして同様に検索
 6. `/aaa/bbb/mylib/index.js` という JavaScript ファイル
 7. `/aaa/bbb/mylib/index.json` という JSON ファイル
 8. `/aaa/bbb/mylib/index.node` というバイナリ addon ファイル
@@ -111,36 +114,28 @@ Node.js は、`require` による同一モジュールの読み込みを効率�
 主にメモリ効率や速度向上のための仕組みですが、副次的な作用として、モジュールインスタンスが複数のクライアントモジュール間で共有されることに注意してください。
 次のサンプルコードの動作を見るとわかりやすいです。
 
-#### mylib.js
-
-~~~ javascript
+{{< code lang="javascript" title="mylib.js" >}}
 exports.value = 100;
-~~~
+{{< /code >}}
 
-#### stranger.js
-
-~~~ javascript
+{{< code lang="javascript" title="stranger.js" >}}
 const mylib = require('./mylib');
 mylib.value = 200;
-~~~
+{{< /code >}}
 
-#### main.js（エントリポイント）
-
-~~~ javascript
+{{< code lang="javascript" title="main.js（エントリポイント）" >}}
 const mylib = require('./mylib');
 console.log(mylib.value);
 
 const stranger = require('./stranger');
 console.log(mylib.value);
-~~~
+{{< /code >}}
 
-#### 実行結果
-
-~~~
+{{< code title="実行結果" >}}
 $ node main.js
 100
 200  ★mylib.value の値が書き換わっている
-~~~
+{{< /code >}}
 
 `mylib` モジュールは、`value` 変数を公開しています。
 `mylib.value` の値は最初 100 ですが、`stranger.js` の中で間接的に 200 に書き換えられています。
@@ -157,23 +152,19 @@ Windows 環境において、`mylib.js` と `MYLIB.js` は同一のファイル�
 下記の例を見てください。
 前述の `main.js` をちょっとだけ書き換えて、`require` パラメータで指定するモジュールのパスを大文字に変更しています。
 
-#### main.js
-
-~~~ javascript
+{{< code lang="javascript" title="main.js" >}}
 const mylib = require('./MYLIB');  // 大文字で指定
 console.log(mylib.value);
 
 const stranger = require('./stranger');
 console.log(mylib.value);
-~~~
+{{< /code >}}
 
-#### 実行結果
-
-~~~
+{{< code title="実行結果" >}}
 $ node main.js
 100
 100  ★stranger.js の中の変更は main.js に影響しない
-~~~
+{{< /code >}}
 
 このようにすると、`main.js` の中の `mylib` インスタンスと、`stranger.js` の中の `mylib` インスタンスは別々のインスタンスとして扱われるため、`stranger.js` の中での `mylib` インスタンスの変更は `main.js` 側に影響しません。
 
