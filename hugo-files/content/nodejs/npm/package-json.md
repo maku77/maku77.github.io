@@ -1,7 +1,67 @@
 ---
-title: "package.json ファイルで依存パッケージを管理する"
-date: "2018-11-27"
+title: "Node.jsメモ: package.json による依存パッケージの管理方法まとめ"
+url: "p/9m96xqi/"
+date: "2014-03-18"
+lastmod: "2018-11-27"
+tags: ["nodejs"]
+aliases:
+  - /nodejs/npm/package-dependencies.html
+  - /nodejs/npm/npm-init.html
+  - /nodejs/npm/npm-help-json.html
 ---
+
+Node.js アプリケーションが使用する依存パッケージの情報は、**`package.json`** というファイルに記述します。
+
+
+package.json ファイルのひな型を生成する (npm init)
+----
+
+下記のコマンドを実行すると、対話形式で `package.json` ファイルを作成することができます。
+
+```console
+$ npm init
+```
+
+何も入力せずに Enter を連打していくと、以下のようなファイルが生成されます。
+
+{{< code lang="json" title="package.json" >}}
+{
+  "name": "sample",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
+{{< /code >}}
+
+すでにカレントディレクトリに `package.json` がある場合でも、`npm init` は、単純な上書きはしないで、足りないプロパティだけ補ってくれます。
+副次的な作用として、フォーマットの整形にも使えます。
+
+
+最小限の package.json
+----
+
+Node.js アプリケーションのマニフェストファイルである `package.json` には、最低限以下のような情報を記述しておきます。
+
+{{< code lang="json" title="package.json" >}}
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.2.x",
+    "jade": "*"
+  }
+}
+{{< /code >}}
+
+アプリの名前 (`name`)、バージョン (`version`)、npm registry に公開しないこと (`"private": true`)、依存するモジュール (`dependencies`) などを記載しています。
+
 
 依存パッケージは dependencies プロパティで指定する
 ----
@@ -9,24 +69,22 @@ date: "2018-11-27"
 `package.json` ファイルの `dependencies` プロパティには、現在開発中の Node パッケージ（アプリケーション）が依存するパッケージを列挙しておくことができます。
 下記の例では、このパッケージ（アプリ）を使用するには、`request` パッケージと `request-promise` パッケージが必要であることを示しています（バージョンの指定方法は後述）。
 
-#### package.json
-
-~~~ json
+{{< code lang="js" title="package.json" >}}
 {
   "name": "myapp",
-  ...
+  // ...
   "dependencies": {
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
   }
 }
-~~~
+{{< /code >}}
 
 カレントディレクトリにこの `package.json` ファイルがある状態で、下記のように実行すると、`dependencies` プロパティに列挙された依存パッケージが `node_modules` ディレクトリに自動的にインストールされます。
 
-~~~
+```console
 $ npm install
-~~~
+```
 
 正確には、`devDependencies` プロパティに列挙された依存パッケージも一緒にインストールされます（詳細は後述）。
 
@@ -102,49 +160,54 @@ dependencies プロパティと devDependencies プロパティ
 **開発時（テスト時）のみ使用するパッケージの依存関係は、`dependencies` プロパティではなく、`devDependencies` プロパティに記述**します。
 `dependencies` プロパティの方には、そのパッケージ（やアプリ）を使用するユーザ環境で必要なパッケージのみを列挙してください。
 
-`dependencies` プロパティに記述された依存パッケージがインストールされるのは、以下のようにパッケージ名指定でそのパッケージをインストールしたときです。
-つまり、パッケージの使用者としてパッケージをインストールしたときは、**`dependencies` プロパティに従って依存モジュールがインストールされます**。
-
-#### dependencies に書かれた依存パッケージがインストールされる
-
-~~~
-$ npm install <pkg>
-~~~
-
-一方で、パッケージ自体の開発者は、ローカルディレクトリに `package.json` ファイルがある状態で、次のようなコマンドを実行して依存パッケージを一括インストールするはずです。
+パッケージそのものの開発者は、ローカルディレクトリに `package.json` ファイルがある状態で、次のようなコマンドを実行して依存パッケージを一括インストールするはずです。
 この場合は、`dependencies` プロパティに書かれた依存モジュールに加え、**`devDependencies` プロパティに書かれた依存モジュールも一緒にインストールされます**。
 
-#### dependencies と devDependencies に書かれた依存パッケージがインストールされる
-
-~~~
+{{< code lang="console" title="dependencies と devDependencies に書かれた依存パッケージがインストールされる" >}}
 $ npm install
-~~~
+{{< /code >}}
 
-ローカルディレクトリに `package.json` がある環境でも、`dependencies` プロパティに列挙された依存モジュールのみをインストールしたい場合は、下記のように **`--production` オプション**を使用します。
+`dependencies` プロパティに列挙された依存モジュールのみをインストールしたい場合は、下記のように **`--production` オプション**を使用します。
 
-~~~
+{{< code lang="console" title="dependencies に書かれた依存パッケージのみがインストールされる" >}}
 $ npm install --production
-~~~
+{{< /code >}}
 
 
 パッケージのインストール時に package.json を更新する
 ----
 
-`npm install` コマンドを使ってパッケージをインストールするときに、**`--save` オプション**を付加すると、カレントディレクトリにある `package.json` の `dependencies` プロパティの記述も更新することができます。
+`npm install` コマンドを使ってパッケージをインストールするときに、**`--save` オプション**を付加すると、`package.json` の `dependencies` プロパティの記述も更新することができます。
 
-#### package.json の dependencies プロパティに追加
-
-~~~
+{{< code lang="console" title="package.json の dependencies プロパティに追加" >}}
 $ npm install --save <pkg>
-~~~
+{{< /code >}}
 
-開発のみに使用するパッケージの依存情報 (`devDependencies`) を追加するときは、`--save` オプションの代わりに **`--save-dev` オプション**を使用します。
+開発のみに使用するパッケージの依存情報 (`devDependencies`) を追加するときは、`--save` オプションの代わりに **`--save-dev` オプション** を使用します。
 
-#### package.json の devDependencies プロパティに追加
-
-~~~
+{{< code lang="console" title="package.json の devDependencies プロパティに追加" >}}
 $ npm install --save-dev <pkg>
-~~~
+{{< /code >}}
+
+{{% note title="--save は省略可能" %}}
+npm 5.0.0 以降では `--save` オプションがデフォルトで有効になっているため、省略しても同じ効果があります。
+`--save-dev` オプションは引き続き明示的な指定が必要です。
+{{% /note %}}
+
+
+package.json の書式、説明を確認する (npm help json)
+----
+
+Node パッケージに関する情報（モジュールの名前や説明、依存パッケージなどの情報）は、`package.json` というファイルに記述します。
+以下のコマンドで、`package.json` の書き方のヘルプを見ることができます（Web ブラウザ上で表示されます）。
+
+```console
+$ npm help json
+```
+
+表示される内容は、下記のサイトのものと同様です。
+
+- [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
 
 参考

@@ -1,20 +1,21 @@
 ---
-title: "npm コマンドでインストールされている Node.js 用パッケージの一覧を表示する (npm list, ll)"
+title: "Node.jsメモ: npm コマンドでインストールされている Node.js 用パッケージの一覧を表示する (npm list, ll)"
+url: "p/7srzpt3/"
 date: "2018-11-22"
+tags: ["nodejs"]
+aliases: /nodejs/npm/npm-list.html
 ---
 
 `npm install` によってインストールされた Node パッケージの一覧は、**`npm list`** コマンドで確認することができます（エイリアスとして `npm ls` も使用可能）。
 
-~~~
+```console
 $ npm list      # ローカルモードでインストールしたパッケージを一覧表示
 $ npm list -g   # グローバルモードでインストールしたパッケージを一覧表示
-~~~
+```
 
 各パッケージが依存しているパッケージに関しても、階層構造ですべて表示してくれます。
 
-#### 実行例（require パッケージがインストールされている場合）
-
-~~~
+{{< code title="例: require パッケージがインストールされている場合" >}}
 D:\y\sandbox> npm list
 D:\y\sandbox
 `-- require@2.4.20
@@ -25,11 +26,11 @@ D:\y\sandbox
     | `-- wordwrap@0.0.3
     `-- source-map@0.1.43
       `-- amdefine@1.0.1
-~~~
+{{< /code >}}
 
 `npm list` の代わりに、**`npm la`** や **`npm ll`** を使用すると、より詳細な情報を表示することができます。
 
-~~~
+```
 D:\y\sandbox> npm ll
 
 | D:\y\sandbox
@@ -66,5 +67,5 @@ D:\y\sandbox> npm ll
           Provide AMD's define() API for declaring modules in the AMD format
           git+https://github.com/jrburke/amdefine.git
           http://github.com/jrburke/amdefine
-~~~
+```
 

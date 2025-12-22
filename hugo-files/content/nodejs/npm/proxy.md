@@ -1,6 +1,9 @@
 ---
-title: "npm コマンド用に HTTP プロキシを設定する (npm config)"
+title: "Node.jsメモ: npm コマンド用に HTTP プロキシを設定する (npm config)"
+url: "p/45tu88x/"
 date: "2012-11-26"
+tags: ["nodejs"]
+aliases: /nodejs/npm/proxy.html
 ---
 
 プロキシ経由でインターネットに接続しなければいけない環境（企業内ネットワークなど）では、`npm` コマンドのプロキシ設定を行う必要があります。
@@ -15,7 +18,7 @@ $ npm config set proxy http://proxy.example.com:8080/
 #### プロキシ設定を削除する
 
 ```
-$ npm config delete proxy  #設定を削除する場合
+$ npm config delete proxy  # 設定を削除する場合
 ```
 
 #### 現状のプロキシ設定を確認する

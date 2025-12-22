@@ -1,27 +1,26 @@
 ---
-title: "npm でインストール可能なパッケージのバージョンを調べる"
+title: "Node.jsメモ: npm でインストール可能なパッケージのバージョンを調べる"
+url: "p/6u8xexa/"
 date: "2014-09-23"
+tags: ["nodejs"]
+aliases: /nodejs/npm/package-version.html
 ---
 
-`npm info` コマンドを使用すると、NPM repository で管理されているパッケージの情報を調べることができます。
+**`npm info`** コマンドを使用すると、NPM リポジトリで管理されているパッケージの情報を調べることができます。
 
-#### 例: 最新の Express のバージョンを表示する
-
-```
+{{< code lang="console" title="例: 最新の Express のバージョンを表示する" >}}
 $ npm info express version
 4.9.4
-```
+{{< /code >}}
 
-#### 例: インストール可能な Express のバージョンのリストを表示する
-
-```
+{{< code lang="console" title="例: インストール可能な Express のバージョンのリストを表示する" >}}
 $ npm info express versions
 [ '0.14.0',
   '0.14.1',
   ...
   '4.9.3',
   '4.9.4' ]
-```
+{{< /code >}}
 
 最後のパラメータを変更することで、パッケージに関するいろいろな情報を表示することができます。
 

@@ -1,6 +1,9 @@
 ---
-title: "npm run のスクリプトの中でディレクトリの削除を行う (rimraf)"
+title: "Node.jsメモ: npm run のスクリプトの中でディレクトリを削除する (rimraf)"
+url: "p/wzufzn6/"
 date: "2019-10-07"
+tags: ["nodejs"]
+aliases: /nodejs/npm/npm-run-rimraf.html
 ---
 
 なぜ rimraf が必要か？
@@ -8,15 +11,13 @@ date: "2019-10-07"
 
 TypeScript などのトランスパイラを使って Node.js アプリを開発していると、ビルド結果を格納するディレクトリを削除する `clean` コマンド（NPM スクリプト）を定義したくなります。
 
-#### package.json
-
-```json
+{{< code lang="json" title="package.json" >}}
 {
   "scripts": {
     "clean": "rm -rf build"
   }
 }
-```
+{{< /code >}}
 
 これはこれで間違いではないのですが、Linux の `rm` コマンドを使用しているので、OS 依存の `package.json` になってしまいます。
 
@@ -32,7 +33,7 @@ rimraf の使い方
 
 `rimraf` コマンドは NPM パッケージとして提供されているので、下記のように簡単にインストールすることができます。
 
-```
+```console
 $ npm install --save-dev rimraf
 ```
 
@@ -53,7 +54,7 @@ $ npm install --save-dev rimraf
 あとは、下記のように `clean` スクリプトを起動するだけで、`build` ディレクトリを削除することができます。
 `build` ディレクトリが存在しない場合は何も起こりません。
 
-```
+```console
 $ npm run clean
 ```
 
