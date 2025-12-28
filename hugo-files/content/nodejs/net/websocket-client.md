@@ -1,6 +1,9 @@
 ---
-title: "WebSocket クライアントを作成する"
+title: "Node.jsメモ: WebSocket クライアントを作成する"
+url: "p/iuah33v/"
 date: "2014-03-05"
+tags: ["nodejs"]
+aliases: [/nodejs/net/websocket-client.html]
 ---
 
 JavaScript の WebSocket API を使うときの流れは以下のようになります。
@@ -11,16 +14,14 @@ JavaScript の WebSocket API を使うときの流れは以下のようになり
    - `onclose`: 切断時のイベント
    - `onmessage`: メッセージ受信時のイベント
    - `onerror`: エラー発生時のイベント
-3. 任意のタイミングで、
+3. 任意のタイミングで
    - `send()`: データの送信
    - `close()`: 切断
 
 次のサンプルでは、`ws://echo.websocket.org/` に接続しています。
-この WebSocket サーバは開発者向けに公開されており、`WebSocket#send()` で送ったメッセージをそのまま返してくるように実装されています。
+この WebSocket サーバは開発者向けに公開されており、`WebSocket#send()` で送信したメッセージをそのまま返す仕様になっています。
 
-#### index.html
-
-```html
+{{< code lang="html" title="index.html" >}}
 <script>
 var socket = new WebSocket('ws://echo.websocket.org/');
 
@@ -51,5 +52,5 @@ socket.onerror = function (evt) {
   console.log('Error: ' + evt.data);
 };
 </script>
-```
+{{< /code >}}
 

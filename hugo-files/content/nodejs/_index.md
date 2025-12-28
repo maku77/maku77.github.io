@@ -43,7 +43,7 @@ Node.js 実行環境など
 ----
 - [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io/stdio.html)
 - [コマンドライン引数（パラメータ）を取得する (process.argv)](io/cmdline-args.html)
-- [キーボードからの入力を取得する (reaqline.question)](io/readline-from-keyboard.html)
+- [キーボードからの入力を取得する (readline.question)](io/readline-from-keyboard.html)
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
 ### ファイル／ディレクトリ
@@ -78,7 +78,7 @@ Node.js 実行環境など
 
 デバッグ／テスト
 ----
-- [プログラムの実行時間を計測する `(console.time`, `console.timeEnd`)](time/console-time.html)
+- [プログラムの実行時間を計測する (`console.time`, `console.timeEnd`)](time/console-time.html)
 - [現在位置のスタックトレースを出力する (`console.trace`)](/p/oeka5t6/)
 
 
@@ -89,19 +89,19 @@ Node.js 実行環境など
 - [Node.js で URL のパスを結合する (url-join)](https://maku.blog/p/oj9nzgt/)
 
 ### HTTP 通信 / HTTP サーバ
-- [http 標準モジュールを使用して HTTP サーバを立てる](net/http-server.html)
-- [http 標準モジュールを使用して HTTP 通信を行う](net/http-module.html)
-- [node-fetch モジュールを使用して HTTP 通信を行う](net/node-fetch.html)
-- [request モジュールを使用して HTTP 通信を行う (deprecated)](net/request-module.html)
-- [request-promise モジュールを使用して HTTP 通信を行う (deprecated)](net/request-promise-module.html)
-- [プロキシ経由の HTTP 通信を行う（global-agent モジュール）](net/global-agent.html)
-- [プロキシ経由の HTTP 通信を行う（request モジュール）](net/proxy-in-request.html)
+- [http 標準モジュールを使用して HTTP サーバを立てる](/p/7cmeoeh/)
+- [http 標準モジュールを使用して HTTP 通信を行う](/p/vo8hdpa/)
+- [node-fetch モジュールを使用して HTTP 通信を行う](/p/6hndyxs/)
+- [request モジュールを使用して HTTP 通信を行う (deprecated)](/p/5y9mne4/)
+- [request-promise モジュールを使用して HTTP 通信を行う (deprecated)](/p/r8qw3qs/)
+- [プロキシ経由の HTTP 通信を行う（global-agent モジュール）](/p/vwu58as/)
+- [プロキシ経由の HTTP 通信を行う（request モジュール）](/p/y2oxwej/)
 
 ### WebSocket 通信
-- [WebSocket のクライアントを作成する](net/websocket-client.html)
-- [Node.js で WebSocket サーバを作る（簡単な echo サーバ）](net/websocket-echo-server.html)
-- [Node.js で WebSocket サーバを作る（chat サーバ）](net/websocket-chat-server.html)
-- [WebSocket サーバに接続してきたクライアントの情報を調べる](net/websocket-client-info.html)
+- [WebSocket のクライアントを作成する](/p/iuah33v/)
+- [Node.js で WebSocket サーバを作る（簡単な echo サーバ）](/p/zrifcfx/)
+- [Node.js で WebSocket サーバを作る（簡単な chat サーバ）](/p/hfrkkyx/)
+- [WebSocket サーバに接続してきたクライアントの情報を調べる](/p/hn2896q/)
 
 ### Web サーバ (Express)
 - [Express の特徴](express/features.html)
@@ -122,7 +122,7 @@ Node.js 実行環境など
 - [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
 
 ### リバースプロキシ
-- [Node.js でお手軽リバースプロキシを作る](net/reverse-proxy.html)
+- [Node.js でお手軽リバースプロキシを作る](/p/7i26pjh/)
 
 
 Node.js の制御構文

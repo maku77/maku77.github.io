@@ -1,22 +1,22 @@
 ---
-title: "Node.js で WebSocket サーバを作る（簡単な echo サーバ）"
+title: "Node.jsメモ: Node.js で WebSocket サーバを作る（簡単な echo サーバ）"
+url: "p/zrifcfx/"
 date: "2014-03-05"
+tags: ["nodejs"]
+aliases: [/nodejs/net/websocket-echo-server.html]
 ---
 
-ここでは、Node.js で WebSocket サーバを作成するために、`websocket.io` モジュールを使用します。
+ここでは、Node.js の `websocket.io` モジュールを使って、簡単な WebSocket echo サーバを作成する方法を説明します。
+まず、`websocket.io` モジュールをインストールします。
 
-#### websocket.io モジュールのインストール
-
-```
+{{< code lang="console" title="websocket.io モジュールのインストール" >}}
 $ npm install websocket.io
-```
+{{< /code >}}
 
 下記は、クライアントから送られてきたメッセージ（テキスト）をそのまま送り返す、WebSocket による echo サーバの例です。
 
-#### サーバ側 (server.js)
-
-```javascript
-var ws = require('websocket.io274');
+{{< code lang="js" title="サーバ側 (server.js)" >}}
+var ws = require('websocket.io');
 
 // WebSocket サーバの起動
 var server = ws.listen(5000, function () {
@@ -27,7 +27,7 @@ var server = ws.listen(5000, function () {
 server.on('connection', function (client) {
     console.log('Client connected');
 
-    // クライアントからメッセージ受信した時
+    // クライアントからメッセージを受信した時
     client.on('message', function (msg) {
         console.log('Message from client: ' + msg);
         client.send(msg);
@@ -43,11 +43,11 @@ server.on('connection', function (client) {
         console.log('Error: ' + err.code);
     });
 });
-```
+{{< /code >}}
 
-#### クライアント側 (index.html)
+上記の WebSocket サーバを起動した後、下記のようなクライアントで接続してメッセージを送信します。
 
-```html
+{{< code lang="html" title="クライアント側 (index.html)" >}}
 <script>
 var socket = new WebSocket('ws://localhost:5000/');
 
@@ -76,11 +76,9 @@ socket.onmessage = function (event) {
     }
 };
 </script>
-```
+{{< /code >}}
 
-#### 実行時のログ
-
-```
+{{< code title="実行時のログ" >}}
 # クライアント側
 Connected
 Send: AAAAA
@@ -97,5 +95,5 @@ Message from client: AAAAA
 Message from client: BBBBB
 Message from client: CCCCC
 Client disconnected
-```
+{{< /code >}}
 

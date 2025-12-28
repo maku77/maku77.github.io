@@ -1,13 +1,15 @@
 ---
-title: "request-promise モジュールを使用して HTTP 通信を行う"
+title: "Node.jsメモ: request-promise モジュールを使用して HTTP 通信を行う"
+url: "p/r8qw3qs/"
 date: "2018-11-27"
+tags: ["nodejs"]
+aliases: [/nodejs/net/request-promise-module.html]
 ---
 
-request パッケージと request-promise パッケージ
-----
+## request パッケージと request-promise パッケージ
 
-「[request モジュールを使用して HTTP 通信を行う](request-module.html)」の記事で説明しているように、`request` パッケージを使用すると、HTTP 通信による情報取得を簡単に行えます。
-`request` パッケージの拡張版として、**`request-promise`** パッケージが提供されており、`request` パッケージの代わりに使用することで、ECMAScript 2015 のPromise、ECMAScript 2017 の async/await を使用したコーディングを行うことができます。
+「[request モジュールを使用して HTTP 通信を行う](/p/5y9mne4/)」の記事で説明しているように、`request` パッケージを使用すると、HTTP 通信による情報取得を簡単に行えます。
+`request` パッケージの拡張版として、**`request-promise`** パッケージが提供されており、`request` パッケージの代わりに使用することで、ECMAScript 2015 の Promise や ECMAScript 2017 の async/await を使用したコーディングを行うことができます。
 
 - [request-promise パッケージ](https://github.com/request/request-promise)
 
@@ -17,37 +19,35 @@ Promise や async/await の使い方に関しては下記の記事で説明し�
 - [Promise な非同期処理を async/await でさらに読みやすくする](/js/async/async-await.html)
 
 
-request-promise パッケージのインストール
-----
+## request-promise パッケージのインストール
 
 `request-promise` パッケージは、`npm install` コマンドで簡単にインストールすることができます。
-間接的に `request` パッケージに依存している (peed dependencies) ため、`request` パッケージも一緒にインストールしておく必要があります。
+`request` パッケージに依存している (peer dependencies) ため、`request` パッケージも一緒にインストールしておく必要があります。
 
-~~~
+```console
 $ npm install request
 $ npm install request-promise
-~~~
+```
 
-ついでに `package.json` の `dependencies` エントリに追加したい場合は、次のように `--save` オプションを追加してインストールします。
+`package.json` の `dependencies` エントリに追加したい場合は、次のように `--save` オプションを追加してインストールします。
 
-~~~
+```console
 $ npm install --save request
 $ npm install --save request-promise
-~~~
+```
 
-TypeScript で開発している方は、DefinitelyTyped プロジェクトで提供されている型情報 [@types/request-promise](https://www.npmjs.com/package/@types/request-promise) をインストールしましょう。
+TypeScript で開発している場合は、DefinitelyTyped プロジェクトで提供されている型情報 [@types/request-promise](https://www.npmjs.com/package/@types/request-promise) をインストールしましょう。
 
-~~~
+```console
 $ npm install --save-dev @types/request-promise
-~~~
+```
 
 
-request-promise の基本的な使い方
-----
+## request-promise の基本的な使い方
 
-`request-promise` による HTTP リクエストは、下記のように `Promise.then`、`Promise.catch` を使用してハンドルすることができます。
+`request-promise` による HTTP リクエストは、下記のように `Promise.then` と `Promise.catch` を使用してハンドルすることができます。
 
-~~~ javascript
+```javascript
 const rp = require('request-promise');
 
 rp('https://www.yahoo.co.jp')
@@ -57,28 +57,28 @@ rp('https://www.yahoo.co.jp')
   .catch(function (err) {
     console.error(err);
   });
-~~~
+```
 
 さらに、ECMAScript 2017 の async/await を使用すると、同期的な記述を行うことができます。
 
-~~~ javascript
+```javascript
 const rp = require('request-promise');
 
 async function getHtml(url) {
   try {
     let html = await rp(url);
-    console.log(html)
+    console.log(html);
   } catch (err) {
     console.error(err);
   }
 }
 
 getHtml('https://www.yahoo.co.jp');
-~~~
+```
 
 ### TypeScript の @types/request-promise モジュールを使う場合
 
-TypeScript で型安全なコードを書きたいのであれば、次のような感じでインポートして使用します。
+TypeScript で型安全なコードを書きたい場合は、次のようにインポートして使用します。
 
 ```ts
 import * as rp from 'request-promise';
