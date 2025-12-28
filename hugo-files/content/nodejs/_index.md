@@ -47,9 +47,9 @@ Node.js 実行環境など
 - [外部プログラムを実行してその出力を取得する](io/child-process.html)
 
 ### ファイル／ディレクトリ
-- [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (__filename, __dirname)](io/filename.html)
-- [エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (require.main.filename)](io/main-filename.html)
-- [パスを結合する (path.join)](io/path-join.html)
+- [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (`__filename`, `__dirname`)](io/filename.html)
+- [エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (`require.main.filename`)](io/main-filename.html)
+- [パスを結合する (`path.join`)](io/path-join.html)
 - [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
 - [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
 
@@ -78,8 +78,8 @@ Node.js 実行環境など
 
 デバッグ／テスト
 ----
-- [プログラムの実行時間を計測する (console.time, console.timeEnd)](time/console-time.html)
-- [現在位置のスタックトレースを出力する (console.trace)](debug/console-trace.html)
+- [プログラムの実行時間を計測する `(console.time`, `console.timeEnd`)](time/console-time.html)
+- [現在位置のスタックトレースを出力する (`console.trace`)](/p/oeka5t6/)
 
 
 ネットワーク
@@ -129,14 +129,13 @@ Node.js の制御構文
 ----
 
 ### 例外処理
-1. [try ～ catch による例外処理](exception/try-and-catch.html)
-1. [Uncaught Exception（未捕捉例外）をハンドルする](exception/uncaught-exception.html)
-1. [ドメインごとに Uncaught Exception（未捕捉例外）をハンドルする](exception/domain-for-exception.html)
+- [try ～ catch による例外処理の基本](/p/uqx7hq7/)
+- [Uncaught Exception（未捕捉例外）をハンドルする](/p/4zwjrzz/)
 
 ### 非同期処理
-- [util.promisify でコールバックベースの関数を Promise 化する](async/promisify.html)
+- [`util.promisify` でコールバックベースの関数を Promise 化する](/p/62d6wuc/)
 - async.js による非同期処理
-    1. [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
-    1. [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
-    1. [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
+  - [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
+  - [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
+  - [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
 

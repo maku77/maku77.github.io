@@ -1,17 +1,18 @@
 ---
-title: "現在位置のスタックトレースを出力する (console.trace)"
+title: "Node.jsメモ: 現在位置のスタックトレースを出力する (console.trace)"
+url: "p/oeka5t6/"
 date: "2018-11-22"
+tags: ["nodejs"]
+aliases: /nodejs/debug/console-trace.html
 ---
 
-Node.js にグローバルで定義されている `console` オブジェクトの `trace` メソッドを呼び出すと、現在位置でのスタックトレースを標準エラー出力に出力してくれます。
+Node.js にグローバルで定義されている `console` オブジェクトの `trace` メソッドを呼び出すと、現在位置のスタックトレースを標準エラー出力に出力してくれます。
 
 - 参考: [console.trace メソッドの定義](https://nodejs.org/api/console.html#console_console_trace_message_args)
 
 下記のサンプルでは、`world()` 関数の中で `console.trace()` を呼び出しています。
 
-#### sample.js
-
-~~~ javascript
+{{< code lang="javascript" title="sample.js" >}}
 function hello() {
     world();
 }
@@ -21,11 +22,9 @@ function world() {
 }
 
 hello();
-~~~
+{{< /code >}}
 
-#### 実行結果
-
-~~~
+{{< code lang="console" title="実行結果" >}}
 $ node sample.js
 Trace
     at world (D:\sandbox\test-node\sample.js:8:13)
@@ -38,7 +37,7 @@ Trace
     at Function.Module._load (internal/modules/cjs/loader.js:529:3)
     at Function.Module.runMain (internal/modules/cjs/loader.js:741:12)
     at startup (internal/bootstrap/node.js:285:19)
-~~~
+{{< /code >}}
 
 出力されたトレースの上の方を見ると、`hello()` → `world()` という順に呼び出されていることが分かります。
 

@@ -1,12 +1,15 @@
 ---
-title: "util.promisify でコールバックベースの関数を Promise 化する"
+title: "Node.jsメモ: util.promisify でコールバックベースの関数を Promise 化する"
+url: "p/62d6wuc/"
 date: "2020-06-03"
+tags: ["nodejs"]
+aliases: /nodejs/async/promisify.html
 ---
 
 util.promisify の概要
 ----
 
-Node.js v.8.0.0 で導入された [util.promisify 関数](https://nodejs.org/api/util.html#util_util_promisify_original) を使用すると、コールバックベースの関数を簡単に `Promise` クラスでラップすることができます。
+Node.js v8.0.0 で導入された [util.promisify 関数](https://nodejs.org/api/util.html#util_util_promisify_original) を使用すると、コールバックベースの関数を簡単に `Promise` クラスでラップすることができます。
 
 次の例では、`fs.stat` 関数を `Promise` 化した `stat` 関数を作成しています。
 
@@ -44,7 +47,7 @@ function div(num1, num2, callback) {
 }
 ```
 
-上記の例では、0 除算によるエラーが発生した場合は、コールバック関数の第 1 パラメータでエラーメッセージを返すように実装しています。
+上記の例では、0 除算によるエラーが発生した場合、コールバック関数の第 1 パラメータでエラーメッセージを返すように実装しています。
 このように、コールバック関数の第 1 パラメータをエラー情報として使うものを、[エラー・ファースト・コールバック (error-first callback)](https://jsprimer.net/basic/async/#error-first-callback) といい、非同期関数のコールバックは伝統的にこのような形式に従っていました。
 
 上記の `div` 関数をそのまま使おうとすると、下記のようなコードになります。
@@ -85,7 +88,7 @@ divPromise(5, 2).then(value => {
 });
 ```
 
-この例はとてもシンプルなのでありがたみが感じられませんが、コールバック呼び出しの構造が複雑になってくると、`Promise` 化しないとやっていられなくなります。
+この例はとてもシンプルなので、ありがたみが感じられませんが、コールバック呼び出しの構造が複雑になってくると `Promise` 化しないとやっていられなくなります。
 でも、上記のような `Promise` 化のためのコードをたくさん書くのはとても面倒です。
 そこで、`util.promisify()` の出番です。
 
@@ -99,14 +102,14 @@ util.promisify による Promise 化
 
 ```javascript
 const util = require('util');
-const divPromise = util.pomisify(div);
+const divPromise = util.promisify(div);
 ```
 
-`util.promisify()` で `Promise` 化する関数は、次のような条件を満たす Error-first callback スタイルの関数でなければいけません。
+`util.promisify()` で `Promise` 化する関数は、次のような条件を満たすエラーファーストコールバックスタイルの関数でなければいけません。
 
 * 最後のパラメータとしてコールバック関数を受け取る
 * コールバック関数の第 1 パラメータはエラー情報を示す `(err, value, ...)`
-* 関数の呼び出しが正常に終わった場合は、コールバック関数の第 1 パラメータは `null` で呼び出される
+* 関数の呼び出しが正常に終わった場合、コールバック関数の第 1 パラメータは `null` で呼び出される
 
 `util.promisify()` で `Promise` 化した関数は、自力で `Promise` 化したものと同様に、次のようにチェーン呼び出しできるようになります。
 
@@ -118,7 +121,7 @@ divPromise(5, 2).then(result => {
 });
 ```
 
-ECMAScript 2017 の `async/await` シンタックスシュガーを使えば、次のようにも書けますね。
+ECMAScript 2017 の `async/await` 構文を使えば、次のようにも書けます。
 
 ```javascript
 async function main() {
@@ -133,7 +136,7 @@ async function main() {
 main();
 ```
 
-コールバックなコードが消えてとてもスッキリします。
+コールバックのコードが消えてとてもスッキリします。
 
 
 おまけ: TypeScript で util.promisify を使う
@@ -141,7 +144,7 @@ main();
 
 上記では JavaScript のサンプルを示しましたが、TypeScript でもう少しタイプセーフに記述したときのサンプルも載せておきます。
 
-まずは、題材とした `div` 関数の実装から。<s>コールバック関数の型付けが面倒ですね。</s>
+まずは、題材とした `div` 関数の実装から。
 
 ```typescript
 function div(num1: number, num2: number,
