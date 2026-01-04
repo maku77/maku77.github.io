@@ -1,51 +1,47 @@
 ---
-title: "jQuery クライアントと Express サーバで JSON データを送受信する"
+title: "Node.jsメモ: jQuery クライアントと Express サーバで JSON データを送受信する例"
+url: "p/twrqbe3/"
 date: "2013-11-05"
+tags: ["nodejs"]
+aliases: /nodejs/express/exchange-json.html
 ---
 
 クライアント (jQuery) からサーバ (Express) への JSON データ送信（GET メソッド）
 ----
 
-#### クライアント（送信側）
-
-```javascript
+{{< code lang="javascript" title="クライアント（送信側）" >}}
 var jsonData = { aaa: 100, bbb: {ccc: 200} };
 $.ajax({
     type: 'GET',
     url: 'http://localhost:7000/api',
     data: jsonData,
-    contentType: 'application/json’,  // 送信側のヘッダ情報
+    contentType: 'application/json',  // 送信側のヘッダ情報
     success: function(data, status, xhr) { alert('OK'); },
     error: function(xhr, status, err) { alert('ERROR'); }
 });
-```
+{{< /code >}}
 
-#### Express サーバ（受信側）
-
-```javascript
+{{< code lang="javascript" title="Express サーバ（受信側）" >}}
 app.get('/api', function(req, res) {
     var jsonData = req.query;
     console.dir(jsonData);
 
-    res.send('');  // とりあえずレスポンス処理終わらせる
+    res.send('');  // とりあえずレスポンス処理を終わらせる
 });
-```
+{{< /code >}}
 
 
 サーバ (Express) からクライアントへの JSON データ送信（GET メソッド）
 ----
 
-#### Express サーバ（送信側）
-
-```javascript
+{{< code lang="javascript" title="Express サーバ（送信側）" >}}
 app.get('/api', function(req, res) {
     var obj = {aaa:100, bbb:200};
     res.json(obj);
 });
-```
+{{< /code >}}
 
 `res.send()` あるいは `res.json()` メソッドで、`Array` や `Object` を送信すると、下記のレスポンスヘッダが設定されて JSON データとして送信されます。
-通常は、`res.json()` を使っておけば問題ないでしょう。
 
 ```
 Content-Type: application/json; charset=utf-8
@@ -60,6 +56,8 @@ app.get('/api', function(req, res) {
     res.json(str);  // res.send(str) はダメ！
 });
 ```
+
+オブジェクトであっても文字列であっても、JSON データを返したいときは `res.json()` メソッドを使っておけば間違いありません。
 
 `Content-Type` を明示的に指定するのであれば、`res.send()` でも JSON 形式の文字列を送信することができます。
 
@@ -90,21 +88,19 @@ res.json(500, { error: 'message' });
 
 JSON データを受け取るクライアント側は、例えば下記のように実装します（jQuery を使用した場合）。
 
-#### クライアント（受信側）
-
-```javascript
+{{< code lang="javascript" title="クライアント（受信側）" >}}
 $.ajax({
     type: 'GET',
     url: 'http://localhost:7000/api',
     dataType: 'json',  // サーバから取得するデータの型
     success: function(data, status, xhr) {
-        alert('OK’);
+        alert('OK');
         console.dir(data);
     },
     error: function(xhr, status, err) {
-        alert('ERROR’);
+        alert('ERROR');
         console.dir(err);
     }
 });
-```
+{{< /code >}}
 

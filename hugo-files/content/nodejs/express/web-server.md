@@ -1,6 +1,9 @@
 ---
-title: "Express で Web サーバを作成する"
+title: "Node.jsメモ: Express で Web サーバを作成する"
+url: "p/7ee8e5h/"
 date: "2013-10-22"
+tags: ["nodejs"]
+aliases: /nodejs/express/web-server.html
 ---
 
 Express のメインオブジェクトは Application オブジェクトと呼ばれ、以下のようにして生成します。
@@ -21,9 +24,7 @@ app.get('/', function(req, res) {
 
 上記では、ルートパスにアクセスしたときのレスポンスを定義していますが、Backbone.js や CodeIgniter のように、柔軟に URI ルーティング設定を行うことができます。
 
-#### server.js
-
-```javascript
+{{< code lang="javascript" title="server.js" >}}
 var express = require('express');
 var app = express();
 
@@ -38,14 +39,12 @@ app.get('/hello/:name', function(req, res) {
 app.listen(3000, function() {
     console.log('Express server started on port 3000...');
 });
-```
+{{< /code >}}
 
-#### 実行
-
-```
+{{< code lang="console" title="実行" >}}
 $ node server.js
 Express server started on port 3000...
-```
+{{< /code >}}
 
 Web サーバを起動したら、`http://localhost:3000/` にアクセスして `Hello Express!` と表示されれば成功です。
 `http://localhost:3000/hello/Maku` のようにアクセスすると、`Hello Maku` と表示されます。

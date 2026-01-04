@@ -86,7 +86,7 @@ Node.js 実行環境など
 ----
 
 ### URL
-- [Node.js で URL のパスを結合する (url-join)](https://maku.blog/p/oj9nzgt/)
+- [Node.js で URL のパスを結合する (`url-join`)](https://maku.blog/p/oj9nzgt/)
 
 ### HTTP 通信 / HTTP サーバ
 - [http 標準モジュールを使用して HTTP サーバを立てる](/p/7cmeoeh/)
@@ -104,22 +104,21 @@ Node.js 実行環境など
 - [WebSocket サーバに接続してきたクライアントの情報を調べる](/p/hn2896q/)
 
 ### Web サーバ (Express)
-- [Express の特徴](express/features.html)
-- [Express をインストールする](express/install.html)
-- [Express で Web サーバを作成する](express/web-server.html)
-- [GET/POST メソッドで送られてきたデータを取得する](express/handle-get-and-post-data.html)
-- [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](express/regexp-in-routing.html)
-- [Express で next() により次のハンドラへ処理を委譲する](express/next.html)
-- [RESTful API として検索用の URL を定義する (req.query)](express/url-for-search.html)
-- [jQuery クライアントと Express サーバで JSON データを送受信する](express/exchange-json.html)
-- [Express サーバの HTTP アクセスログを表示する (express.logger() / morgan)](express/access-log.html)
-- [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](express/internal-server-error.html)
-- [Express の動作環境を切り替える（NODE_ENV 変数）](express/switch-env.html)
-- [Express で静的ファイル（static ファイル）をホスティングする](express/static-file.html)
-- [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する](express/reverse-proxy-addr.html)
-- [Express でテンプレートエンジンとして Jade を使用する](express/jade-with-express.html)
-- [Express で Basic 認証を有効にする](express/basic-authentication.html)
-- [Express で CORS の設定を行う（クロスドメインでの Ajax を許可）](express/cors.html)
+- [Express の特徴とインストール](/p/h5yxgh9/)
+- [Express で Web サーバを作成する](/p/7ee8e5h/)
+- [Express で GET/POST リクエストをハンドルする](/p/7wjhpud/)
+- [Express のルート定義の URL のパラメータで数字のみを受け付けるようにする](/p/f2ow3kr/)
+- [Express の `next()` メソッドで次のハンドラへ処理を委譲する](/p/izz3fkg/)
+- [Express で検索用の URL を定義する (`req.query`)](/p/ryqsrbv/)
+- [jQuery クライアントと Express サーバで JSON データを送受信する例](/p/twrqbe3/)
+- [Express サーバの HTTP アクセスログを表示する (`express.logger()`, `morgan`)](/p/i5h4yx6/)
+- [Express サーバの Internal Server Error を分かりやすく HTTP ページで表示する](/p/4duroxg/)
+- [Express の動作を環境ごとに切り替える（`NODE_ENV` 変数）](/p/3eqz2eo/)
+- [Express で静的ファイル（static ファイル）をホスティングする](/p/sururg6/)
+- [リバースプロキシ経由で Express サーバにアクセスしたときのクライアントのアドレスを取得する (`x-forwarded-for`)](/p/hvoegru/)
+- [Express でテンプレートエンジンを使用する (Jade)](/p/gnewjs4/)
+- [Express で Basic 認証を有効にする (`basicAuth`)](/p/mv6umxp/)
+- [Express で CORS 設定を行う（クロスドメインでのアクセスを許可する）](/p/unsuyqg/)
 
 ### リバースプロキシ
 - [Node.js でお手軽リバースプロキシを作る](/p/7i26pjh/)
