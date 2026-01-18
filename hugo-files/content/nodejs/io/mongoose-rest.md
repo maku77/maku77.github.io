@@ -1,6 +1,9 @@
 ---
-title: "mongoose と Express で RESTful Web API を作成する"
+title: "Node.jsメモ: mongoose と Express で RESTful Web API を作成する"
+url: "p/ttx5vvz/"
 date: "2014-02-11"
+tags: ["nodejs"]
+aliases: /nodejs/io/mongoose-rest.html
 ---
 
 以下のような HTTP リクエストをハンドルする RESTful Web API を、Express（Web サーバー）と mongoose（MongoDB）を使って作成するサンプルです。
@@ -18,41 +21,38 @@ $ node app
 Listening on port 5000
 ```
 
-#### app.js
+{{< code lang="javascript" title="app.js" >}}
+import express from 'express';
+import memos from './routes/memos.js';
 
-```js
-var memos = require('./routes/memos');
-var express = require('express');
-var app = express();
+const app = express();
 
 // Setup middlewares
-app.use(express.bodyParser());  // Handle POST messages
+app.use(express.json());  // Handle POST messages
 
 // RESTful CRUD APIs
 app.post('/memos', memos.createMemo);     // [C]REATE
 app.get('/memos', memos.readAllMemos);    // [R]EAD
 app.get('/memos/:id', memos.readMemo);    // [R]EAD
 app.put('/memos/:id', memos.updateMemo);  // [U]PDATE
-app.del('/memos/:id', memos.deleteMemo);  // [D]ELETE
+app.delete('/memos/:id', memos.deleteMemo);  // [D]ELETE
 
 // Start a server
-app.listen(5000, function() {
+app.listen(5000, () => {
   console.log('Listening on port 5000');
 });
-```
+{{< /code >}}
 
-#### routes/memos.js
-
-```js
+{{< code lang="javascript" title="routes/memos.js" >}}
 /**
  * A route definition for /memos.
  */
-var memodb = require('../memodb');
+import memodb from '../memodb.js';
 
 // CREATE
-exports.createMemo = function (req, res) {
-  var memo = req.body;
-  memodb.Memo.create(memo, function (err) {
+export const createMemo = (req, res) => {
+  const memo = req.body;
+  memodb.Memo.create(memo, (err) => {
     if (err) {
       res.json({error: err.message});
       return;
@@ -62,8 +62,8 @@ exports.createMemo = function (req, res) {
 };
 
 // READ (all)
-exports.readAllMemos = function (req, res) {
-  memodb.Memo.find(function (err, memos) {
+export const readAllMemos = (req, res) => {
+  memodb.Memo.find((err, memos) => {
     if (err) {
       res.json({error: err.message});
       return;
@@ -73,9 +73,9 @@ exports.readAllMemos = function (req, res) {
 };
 
 // READ (one)
-exports.readMemo = function (req, res) {
-  var id = req.params.id;
-  memodb.Memo.findById(id, function (err, memo) {
+export const readMemo = (req, res) => {
+  const id = req.params.id;
+  memodb.Memo.findById(id, (err, memo) => {
     if (err) {
       res.json({error: err.message});
       return;
@@ -85,10 +85,10 @@ exports.readMemo = function (req, res) {
 };
 
 // UPDATE
-exports.updateMemo = function (req, res) {
-  var id = req.params.id;
-  var memo = req.body;
-  memodb.Memo.findByIdAndUpdate(id, memo, function (err) {
+export const updateMemo = (req, res) => {
+  const id = req.params.id;
+  const memo = req.body;
+  memodb.Memo.findByIdAndUpdate(id, memo, (err) => {
     if (err) {
       res.json({error: err.message});
       return;
@@ -98,9 +98,9 @@ exports.updateMemo = function (req, res) {
 };
 
 // DELETE
-exports.deleteMemo = function (req, res) {
-  var id = req.params.id;
-  memodb.Memo.findOneAndRemove({_id: id}, function (err) {
+export const deleteMemo = (req, res) => {
+  const id = req.params.id;
+  memodb.Memo.findOneAndRemove({_id: id}, (err) => {
     if (err) {
       res.json({error: err.message});
       return;
@@ -108,27 +108,26 @@ exports.deleteMemo = function (req, res) {
     res.json({message: 'The memo has been deleted'});
   });
 };
-```
+{{< /code >}}
 
-#### memodb.js
+{{< code lang="javascript" title="memodb.js" >}}
+import mongoose from 'mongoose';
 
-```js
-var mongoose = require('mongoose');
-var DB_URL = 'mongodb://localhost/memodb';
+const DB_URL = 'mongodb://localhost/memodb';
 
 // Create models.
-var MemoSchema = new mongoose.Schema({
+const MemoSchema = new mongoose.Schema({
   title: String,
   body: String,
   created: { type: Date, default: Date.now }
 });
 
-var Memo = mongoose.model('Memo', MemoSchema);
+const Memo = mongoose.model('Memo', MemoSchema);
 
 // Error handlers.
-mongoose.connection.on('error', function (err) {
+mongoose.connection.on('error', (err) => {
   console.log('ERROR: Could not connect to MongoDB');
-  console.log('ERROR:', err.message);
+  console.log(`ERROR: ${err.message}`);
   process.exit(1);
 });
 
@@ -136,16 +135,16 @@ mongoose.connection.on('error', function (err) {
 mongoose.connect(DB_URL);
 
 // Create sample data if there is no data in DB.
-Memo.count(function (err, count) {
+Memo.count((err, count) => {
   if (count > 0) {
     return;
   }
-  Memo.create({title: 'Title 1'}, function() {});
-  Memo.create({title: 'Title 2'}, function() {});
-  Memo.create({title: 'Title 3'}, function() {});
+  Memo.create({title: 'Title 1'}, () => {});
+  Memo.create({title: 'Title 2'}, () => {});
+  Memo.create({title: 'Title 3'}, () => {});
 });
 
 // Export interfaces.
-exports.Memo = Memo;
-```
+export default { Memo };
+{{< /code >}}
 

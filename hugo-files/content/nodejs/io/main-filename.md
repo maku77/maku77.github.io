@@ -1,6 +1,9 @@
 ---
-title: "エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (require.main.filename)"
+title: "Node.jsメモ: エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (require.main.filename)"
+url: "p/jm48fwe/"
 date: "2019-03-27"
+tags: ["nodejs"]
+aliases: /nodejs/io/main-filename.html
 ---
 
 require.main.filename の基本
@@ -11,20 +14,16 @@ require.main.filename の基本
 下記のサンプルでは、`main.js` から `mylib/foo.js` を呼び出しており、呼び出される側で `require.main.filename` の値を出力しています。
 参考のため、自分自身のファイル名を示す `__filename` の値も出力しています。
 
-#### main.js
+{{< code lang="javascript" title="main.js" >}}
+import './mylib/foo.js';
+{{< /code >}}
 
-```js
-require('./mylib/foo.js');
-```
+{{< code lang="javascript" title="mylib/foo.js" >}}
+import path from 'node:path';
 
-#### mylib/foo.js
-
-```js
-const path = require('path');
-
-console.log('エントリ: ' + require.main.filename);
-console.log('自分自身: ' + __filename);
-```
+console.log(`エントリ: ${require.main.filename}`);
+console.log(`自分自身: ${__filename}`);
+{{< /code >}}
 
 `main.js` ファイルをエントリポイントとして実行すると、下記のような結果になります。
 
@@ -52,18 +51,17 @@ $ node mylib/foo.js
 
 例えば、アプリのルートディレクトリに設定ファイル (`app.config`) を置くという仕様にした場合、下記のようにして `app.config` のフルパスを構築することができます（エントリポイントの `index.js` が置かれたディレクトリをルートと呼んでいます）。
 
-#### mylib/aaa/bbb/hello.js
+{{< code lang="javascript" title="mylib/aaa/bbb/hello.js" >}}
+import path from 'node:path';
 
-```js
-const path = require('path');
 const configPath = path.join(path.dirname(require.main.filename), 'app.config');
-```
+{{< /code >}}
 
-### コラム: Azure 上で実行する場合の注意
-
-Microsoft Azure 上の Node.js 実行環境でアプリケーションのホストを行う場合は、iisnode という特殊な環境で実行されるため、**`require.main.filename` の値が想定通りにならないケースがある**ようです。
+{{% note title="Azure 上で実行する場合の注意" %}}
+Microsoft Azure 上の Node.js 実行環境でアプリケーションのホストを行う場合は、iisnode という特殊な環境で実行されるため、**`require.main.filename` の値が想定通りにならない** ケースがあるようです。
 そのため、上記のようにアプリケーションの設定ファイルのパスを構築すると、「設定ファイルが見つかりません」というエラーになる可能性があります。
 Azure 上で実行することを想定している場合は、現状は階層の深さを意識して `path.join(__dirname, '../../../app.config')` のようにパス構築するか、メインモジュールから `__dirname` の値を渡すようにした方がよさそうです。
+{{% /note %}}
 
 
 応用例: 自分自身がエントリポイントとなって実行されたか判別する
@@ -81,5 +79,5 @@ if (require.main.filename === __filename) {
 
 このあたりの詳しい話は、下記の記事を参考にしてください。
 
-- [モジュール自身のコードにテストコードを記述する (require.main)](../module/require-main.html)
+- [モジュール自身のコードにテストコードを記述する (`require.main`)](/p/3b52x28/)
 

@@ -41,39 +41,31 @@ Node.js 実行環境など
 
 入出力 (I/O)
 ----
-- [標準出力 (stdout)、標準エラー出力 (stderr) への出力](io/stdio.html)
-- [コマンドライン引数（パラメータ）を取得する (process.argv)](io/cmdline-args.html)
-- [キーボードからの入力を取得する (readline.question)](io/readline-from-keyboard.html)
-- [外部プログラムを実行してその出力を取得する](io/child-process.html)
+
+### 標準入出力／外部プログラム実行
+- [標準出力 (stdout)、標準エラー出力 (stderr) への出力](/p/sffabwx/)
+- [コマンドライン引数（パラメータ）を取得する (`process.argv`)](/p/9i67itz/)
+- [キーボードからの入力を取得する (`readline.question`)](/p/9pjvmzj/)
+- [外部プログラムを実行してその出力を取得する (`child_process`)](/p/8kgdvvd/)
 
 ### ファイル／ディレクトリ
-- [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (`__filename`, `__dirname`)](io/filename.html)
-- [エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (`require.main.filename`)](io/main-filename.html)
-- [パスを結合する (`path.join`)](io/path-join.html)
-- [指定したパスがディレクトリかどうか調べる](io/is-directory.html)
-- [カレントディレクトリ以下のファイルを列挙する](io/walk-dir.html)
+- [実行中の JavaScript ファイルのパスやディレクトリ名を取得する (`__filename`, `__dirname`)](/p/d48fxh9/)
+- [エントリポイントとなった JavaScript ファイルのパスやディレクトリ名を取得する (`require.main.filename`)](/p/jm48fwe/)
+- [パスを結合する (`path.join`)](/p/32q8w98/)
+- [指定したパスがディレクトリかどうか調べる (`fs.Stats.isDirectory`)](/p/af2r6mq/)
+- [カレントディレクトリ以下のファイルを列挙する (`fs.readdir`)](/p/ke25m82/)
 
-#### CSV
-- [CSV ファイルを読み込む](io/csv.html)
-
-#### Yaml
-- [Yaml ファイルを読み書きする (js-yaml)](io/yaml.html)
+#### CSV / Yaml
+- [CSV ファイルを読み込む (`csv`)](/p/r7ckr36/)
+- [Yaml ファイルを読み書きする (`js-yaml`)](/p/fpxsu6v/)
 
 ### SQLite データベース
-- [SQLite を使用する (1) node-sqlite3 のインストール](io/sqlite1.html)
-- [SQLite を使用する (2) node-sqlite3 による逐次処理](io/sqlite2.html)
-- [SQLite を使用する (3) SELECT 文を実行する](io/sqlite3.html)
+- [`node-sqlite3` で SQLite データベースを扱う](/p/oxxpf3h/)
 
 ### MongoDB データベース
-- [mongoose (1) mongoose をインストールする](io/mongoose1.html)
-- [mongoose (2) データベースへ接続する](io/mongoose2.html)
-- [mongoose (3) モデルクラスを作成する](io/mongoose3.html)
-- [mongoose (4-1) DB にドキュメントを追加する](io/mongoose4-1.html)
-- [mongoose (4-2) DB からドキュメントを検索する](io/mongoose4-2.html)
-- [mongoose (4-3) DB のドキュメントを更新する](io/mongoose4-3.html)
-- [mongoose (4-4) DB からドキュメントを削除する](io/mongoose4-4.html)
-- [mongoose と Express で RESTful Web API を作成する](io/mongoose-rest.html)
-- [mongojs で MongoDB を扱う](io/mongojs.html)
+- [`mongoose` で MongoDB を扱う](/p/wfrqz8r/)
+  - [実装例: `mongoose` と Express で RESTful Web API を作成する](/p/ttx5vvz/)
+- [`mongojs` で MongoDB を扱う](/p/exs9wor/)
 
 
 デバッグ／テスト

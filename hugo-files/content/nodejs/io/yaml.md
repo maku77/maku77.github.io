@@ -1,7 +1,10 @@
 ---
-title: "Yaml ファイルを読み書きする (js-yaml)"
+title: "Node.jsメモ: Yaml ファイルを読み書きする (js-yaml)"
+url: "p/fpxsu6v/"
 date: "2019-04-05"
+tags: ["nodejs"]
 description: "NPM のパッケージとして公開されている js-yaml を使用すると、Node.js のプログラムから簡単に Yaml ファイルを扱うことができるようになります。"
+aliases: /nodejs/io/yaml.html
 ---
 
 js-yaml パッケージのインストール
@@ -22,13 +25,11 @@ js-yaml で Yaml ファイルを読み込む
 
 例えば、ここでは下記のような Yaml ファイルを読み込んでみます（出典は[こちら](https://en.wikipedia.org/wiki/YAML)）。
 
-<div class="note">
-YAML ファイルの拡張子は、<code>.yaml</code> が使われていたり、<code>.yml</code> が使われていたりしますが、<a target="_blank" href="https://yaml.org/faq.html">YAML 公式サイト</a>では <code>.yaml</code> を使うことを推奨しているようです。
-</div>
+{{% note title=".yaml or .yml" %}}
+YAML ファイルの拡張子は、`.yaml` が使われていたり `.yml` が使われていたりしますが、[YAML 公式サイト](https://yaml.org/)では `.yaml` を使うことを推奨しているようです。
+{{% /note %}}
 
-#### data.yaml
-
-```yaml
+{{< code lang="yaml" title="data.yaml" >}}
 ---
 receipt:     Oz-Ware Purchase Invoice
 date:        2012-08-06
@@ -47,38 +48,36 @@ items:
       size:      8
       price:     133.7
       quantity:  1
-```
+{{< /code >}}
 
 `js-yaml` モジュールの **`safeLoad`** 関数を使用すると、パラメータで渡した Yaml テキストを JavaScript のオブジェクトに変換することができます。
 **`safeLoad` 関数には、ファイル名を渡すのではなく、Yaml 形式のテキストを渡す必要がある**ことに注意してください。
 下記のサンプルでは、Yaml ファイルの内容を `fs.readFileSync()` で取得し、その結果を `js-yaml` の `safeLoad` 関数でパースしています。
 
-#### main.js （Yaml ファイルの読み込み）
+{{< code lang="javascript" title="main.js （Yaml ファイルの読み込み）" >}}
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
 
-```js
 /**
  * 指定されたパスの Yaml ファイルを読み込みます。
  */
 function loadYamlFile(filename) {
-  const fs = require('fs');
-  const yaml = require('js-yaml');
-  const yamlText = fs.readFileSync(filename, 'utf8')
-  return yaml.safeLoad(yamlText);
+  const yamlText = fs.readFileSync(filename, 'utf8');
+  return yaml.load(yamlText);
 }
 
 // Entry point
-if (require.main === module) {
-  const path = require('path');
-
-  try {
-    const data = loadYamlFile(path.join(__dirname, 'data.yaml'));
-    console.log(data);
-    console.log(data.items[1].price);
-  } catch (err) {
-    console.error(err.message);
-  }
+try {
+  // Node.js 20.11.0+ では import.meta.dirname が使える
+  // それ以前のバージョンでは path.dirname(fileURLToPath(import.meta.url)) を使用
+  const data = loadYamlFile(path.join(import.meta.dirname, 'data.yaml'));
+  console.log(data);
+  console.log(data.items[1].price);
+} catch (err) {
+  console.error(err.message);
 }
-```
+{{< /code >}}
 
 #### 実行結果
 
@@ -111,11 +110,10 @@ js-yaml で Yaml ファイルを書き出す
 
 下記の例では、`books` オブジェクトの内容を Yaml 形式のテキストに変換し、`books.yaml` ファイルに保存しています。
 
-#### main.js （Yaml ファイルへの保存）
+{{< code lang="javascript" title="main.js （Yaml ファイルへの保存）" >}}
+import fs from 'node:fs';
+import yaml from 'js-yaml';
 
-```js
-const fs = require('fs');
-const yaml = require('js-yaml');
 const books = [
   { name: 'タイトル1', authors: ['著者A', '著者B'] },
   { name: 'タイトル2', authros: ['著者C', '著者D'] }
@@ -138,7 +136,7 @@ fs.writeFile('books.yaml', yamlText, 'utf8', (err) => {
 //   console.error(err.message);
 //   process.exit(1);
 // }
-```
+{{< /code >}}
 
 #### books.yaml （作成された Yaml ファイル）
 

@@ -1,40 +1,39 @@
 ---
-title: "ディレクトリ内のファイルを列挙する"
+title: "Node.jsメモ: ディレクトリ内のファイルを列挙する"
+url: "p/ke25m82/"
 date: "2015-05-09"
+tags: ["nodejs"]
+aliases: /nodejs/io/walk-dir.html
 ---
 
 ディレクトリ内のファイルやディレクトリを列挙する（一階層のみ）
 ----
 
-Node.js の標準モジュールである `fs` モジュールの `readdir()` を使用して、指定したディレクトリ内のファイル、ディレクトリを列挙することができます。
+Node.js の標準モジュールである `fs` モジュールの **`readdir()`** を使用して、指定したディレクトリ内のファイルやディレクトリを列挙することができます。
 
-- [fs.readdir function](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
+- [`fs.readdir` function](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
 
-見つかったファイル群は、コールバックの第 2 引数に配列の形で渡されます。
-ドット (`.`) で始まるファイルやディレクトリは検索対象になりますが、カレントディレクトリ (`.`) や、親ディレクトリ (`..`) は結果に入りません。
+見つかったファイルリストは、コールバック関数の第 2 引数として渡されます。
+ドットで始まるファイルやディレクトリは検索対象になりますが、カレントディレクトリ (`.`) や、親ディレクトリ (`..`) は結果に入りません。
 
 下記は、カレントディレクトリ内のファイルとディレクトリを列挙するサンプルです。
 
-#### sample.js
+{{< code lang="javascript" title="sample.js" >}}
+import fs from 'node:fs';
 
-```javascript
-var fs = require('fs');
-
-fs.readdir('.', function (err, files) {
+fs.readdir('.', (err, files) => {
   if (err) {
     console.error(err);
   } else {
     console.log(files);
   }
 });
-```
+{{< /code >}}
 
-#### 実行例
-
-```
+{{< code lang="console" title="実行例" >}}
 $ node sample
 [ 'dummy.txt', 'dummy_dir', 'sample.js' ]
-```
+{{< /code >}}
 
 指定したディレクトリが存在しない場合は、`ENOENT (-2)` エラーが発生します。
 
@@ -70,40 +69,34 @@ dir1
 `walkDir('dir1', callback)` と呼び出した場合に、`callback` の第二引数に、`dir2/file2` のようなファイルパスを表す文字列が渡されて呼び出されます。
 このコールバックはファイルが見つかるごとに呼び出されます（ファイルパスをリスト形式で受け取るバージョンは後述）。
 
-#### 使用例
+{{< code lang="javascript" title="使用例" >}}
+import { walkDir } from './dirutil.js';
 
-```javascript
-var dirutil = require('./dirutil');
-dirutil.walkDir('dir1', function (err, path) {
+walkDir('dir1', (err, path) => {
   console.log(path);
 });
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code lang="console" title="実行結果" >}}
 file1
 dir2/file2
 dir3/file3
-```
+{{< /code >}}
 
 上記の例では、ファイルが見つかる度にコールバックが呼び出されますが、この実装はちょっと使いにくいかもしれません。
 再帰的に検索して見つかったファイルのパスを、配列データとしてまとめて受け取るには、下記のように実装します。
 
 - [dirutil.js（見つかったファイルを配列で返すバージョン）](./dirutil2.js)
 
-#### 使用例
+{{< code lang="javascript" title="使用例" >}}
+import { walkDir } from './dirutil.js';
 
-```javascript
-var dirutil = require('./dirutil');
-dirutil.walkDir('dir1', function (err, list) {
+walkDir('dir1', (err, list) => {
   console.log(list);
 });
-```
+{{< /code >}}
 
-#### 実行結果
-
-```
+{{< code lang="console" title="実行結果" >}}
 [ 'file1', 'dir2/file2', 'dir3/file3' ]
-```
+{{< /code >}}
 
