@@ -14,11 +14,11 @@ require.main.filename の基本
 下記のサンプルでは、`main.js` から `mylib/foo.js` を呼び出しており、呼び出される側で `require.main.filename` の値を出力しています。
 参考のため、自分自身のファイル名を示す `__filename` の値も出力しています。
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import './mylib/foo.js';
 {{< /code >}}
 
-{{< code lang="javascript" title="mylib/foo.js" >}}
+{{< code lang="js" title="mylib/foo.js" >}}
 import path from 'node:path';
 
 console.log(`エントリ: ${require.main.filename}`);
@@ -51,7 +51,7 @@ $ node mylib/foo.js
 
 例えば、アプリのルートディレクトリに設定ファイル (`app.config`) を置くという仕様にした場合、下記のようにして `app.config` のフルパスを構築することができます（エントリポイントの `index.js` が置かれたディレクトリをルートと呼んでいます）。
 
-{{< code lang="javascript" title="mylib/aaa/bbb/hello.js" >}}
+{{< code lang="js" title="mylib/aaa/bbb/hello.js" >}}
 import path from 'node:path';
 
 const configPath = path.join(path.dirname(require.main.filename), 'app.config');

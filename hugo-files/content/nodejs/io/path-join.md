@@ -8,7 +8,7 @@ aliases: /nodejs/io/path-join.html
 
 ディレクトリ名を表すパスと、ディレクトリ名あるいはファイル名を結合するには、Node.js の標準モジュール `path` が提供している `path.join` メソッドを使用します。
 
-{{< code lang="javascript" title="例: 実行中のスクリプトのディレクトリ名と hoge.txt というファイル名を結合したパスを取得" >}}
+{{< code lang="js" title="例: 実行中のスクリプトのディレクトリ名と hoge.txt というファイル名を結合したパスを取得" >}}
 import path from 'node:path';
 
 const filepath = path.join(__dirname, 'hoge.txt');

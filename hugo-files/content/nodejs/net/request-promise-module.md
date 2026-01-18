@@ -47,7 +47,7 @@ $ npm install --save-dev @types/request-promise
 
 `request-promise` による HTTP リクエストは、下記のように `Promise.then` と `Promise.catch` を使用してハンドルすることができます。
 
-```javascript
+```js
 const rp = require('request-promise');
 
 rp('https://www.yahoo.co.jp')
@@ -61,7 +61,7 @@ rp('https://www.yahoo.co.jp')
 
 さらに、ECMAScript 2017 の async/await を使用すると、同期的な記述を行うことができます。
 
-```javascript
+```js
 const rp = require('request-promise');
 
 async function getHtml(url) {

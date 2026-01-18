@@ -9,14 +9,14 @@ aliases: /nodejs/express/web-server.html
 Express のメインオブジェクトは Application オブジェクトと呼ばれ、以下のようにして生成します。
 慣習的に変数名は `app` にします。
 
-```javascript
+```js
 var express = require('express');
 var app = express();
 ```
 
 Web サーバに対して GET メソッドによるリクエストが来たときの処理は、以下のように指定します。
 
-```javascript
+```js
 app.get('/', function(req, res) {
     res.send('Hello Express!');
 });
@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 
 上記では、ルートパスにアクセスしたときのレスポンスを定義していますが、Backbone.js や CodeIgniter のように、柔軟に URI ルーティング設定を行うことができます。
 
-{{< code lang="javascript" title="server.js" >}}
+{{< code lang="js" title="server.js" >}}
 var express = require('express');
 var app = express();
 
@@ -55,14 +55,14 @@ Web サーバを起動したら、`http://localhost:3000/` にアクセスして
 
 『パーフェクト JavaScript』と『プロになるための JavaScript 入門』 の HelloWorld では、以下のように Application オブジェクトを作成していますが、
 
-```javascript
+```js
 var express = require('express');
 var app = express.createServer();
 ```
 
 `express.createServer` は既に deprecated API になっているので、次のように Application オブジェクトを生成するのが正解です。
 
-```javascript
+```js
 var express = require("express");
 var app = express();
 ```

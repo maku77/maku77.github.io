@@ -12,7 +12,7 @@ child_process.exec による外部プログラムの実行
 Node.js の標準モジュールである [`child_process` モジュール](https://nodejs.org/api/child_process.html) を使用すると、任意のシェルコマンドを実行し、その結果（標準出力や標準エラー出力）を取得することができます。
 下記のサンプルでは、シェルコマンドとして `echo Hello World` を実行して、その出力である `Hello World` というテキストを取得しています。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 import { exec } from 'node:child_process';
 
 // シェル上で実行するコマンド
@@ -47,7 +47,7 @@ stdout maxBuffer exceeded
 
 このバッファサイズは、`child_process.exec` の第 2 引数のオプションパラメータで変更することができます。
 
-{{< code lang="javascript" title="stdout のバッファサイズを 1MB に拡張" >}}
+{{< code lang="js" title="stdout のバッファサイズを 1MB に拡張" >}}
 exec(COMMAND, { maxBuffer: 1024 * 1024 }, (error, stdout, stderr) => {
   // ...
 });

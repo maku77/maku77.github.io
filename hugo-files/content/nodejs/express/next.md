@@ -8,7 +8,7 @@ aliases: /nodejs/express/next.html
 
 Express のルーティングハンドラーを設定する際には、下記のように `app.get()` や `app.post()` メソッドを使用します。
 
-```javascript
+```js
 app.get('/path', function(req, res, next) {
     // handler code
 });
@@ -18,7 +18,7 @@ app.get('/path', function(req, res, next) {
 `app.get()` に指定したハンドラの第 3 パラメータの `next` メソッドを呼び出すと、次のハンドラに処理を委譲することができます。
 例えば、
 
-```javascript
+```js
 app.get('/test', ...);
 app.get('/test', ...);
 ```
@@ -27,7 +27,7 @@ app.get('/test', ...);
 `next()` を明示的に呼び出さない場合は、最初に設定したハンドラしか呼び出されません。
 下記の例では、`/test/hello` というパスでアクセスした場合にだけ、２番目のハンドラに処理を委譲します。
 
-```javascript
+```js
 app.get('/test/:id', function(req, res, next) {
     if (req.params.id === 'hello') {
         next();  // delegate to the second handler

@@ -26,7 +26,7 @@ Express から Jade を使用する
 Express では Node.js で使用可能なテンプレートエンジンをすべて利用することができます。
 例えば、テンプレートエンジンとして Jade を使用するには、以下のように **`Application#set('view engine', ...)`** を使って変数設定しておく必要があります。
 
-```javascript
+```js
 // view engine の指定。Jade テンプレートエンジンを使用する場合は 'jade'
 app.set('view engine', 'jade');
 
@@ -36,7 +36,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 View ファイル（テンプレートファイル）を使って HTML を出力するには、**`Response#render()`** メソッドを使用します（拡張子 `.jade` は省略できます）。
 
-```javascript
+```js
 app.get('/', function(req, res) {
     // Render by using /views/index.jade
     res.render('index');
@@ -56,7 +56,7 @@ html
 View ファイルを修正したときに、Web サーバを再起動する必要はありません。
 Web ブラウザ側で再読み込みするだけで反映されます。
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var app = express();
 

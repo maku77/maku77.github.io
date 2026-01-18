@@ -10,7 +10,7 @@ Express で HTTP サーバログを表示するには、Logger 系のミドル�
 `Application` オブジェクトの **`use()`** メソッドで、以下のように Logger 系ミドルウェアを設定するだけです。
 Express 3 では、Express に `logger` ミドルウェアが組み込まれていましたが、Express 4 からは、独立したミドルウェア (**`morgan`**) をロードする必要があります。
 
-```javascript
+```js
 // Express 3 まで（Express オブジェクトからミドルウェア生成可能）
 app.use(express.logger());
 
@@ -28,7 +28,7 @@ app.use(morgan('combined'));
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.122 Safari/537.36"
 ```
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
@@ -43,7 +43,7 @@ app.listen(3000);
 
 上記では、組み込み定義のログフォーマット `combined` を指定していますが、フォーマットは自由に指定することができます。
 
-```javascript
+```js
 app.use(morgan(':method :url :status'));
 ```
 

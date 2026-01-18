@@ -9,7 +9,7 @@ aliases: /nodejs/express/internal-server-error.html
 Express サーバで、インターナルサーバエラー (5xx) が発生した場合、クライアントの Web ブラウザには、デフォルトでそっけないテキスト形式のスタックトレースが表示されます。
 Express が提供している `errorHandler` ミドルウェアを適用すると、もう少しリッチな Internal Server Error のページを表示できます。
 
-```javascript
+```js
 app.use(app.router);
 app.use(express.errorHandler());
 ```
@@ -20,7 +20,7 @@ app.use(express.errorHandler());
 
 Express 4 では、ミドルウェアが Express から独立したモジュール (`errorhandler`) に分けられたので、下記のようにすることがドキュメントに記載されています。
 
-```javascript
+```js
 // Express 4 以降
 var errorhandler = require('errorhandler');
 app.use(errorhandler());

@@ -16,7 +16,7 @@ Node.js の `require` は、外部の JSON ファイルを読み込むのにも�
 }
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 var settings = require('./settings.json');  // 拡張子は省略可能
 console.log(settings.srcDir);   //=> 'src/main/js'
 console.log(settings.testDir);  //=> 'src/test/js'

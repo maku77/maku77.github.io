@@ -9,7 +9,7 @@ aliases: /nodejs/express/basic-authentication.html
 Express に標準で付属している **`basicAuth`** ミドルウェアを使用すると、簡単に Basic 認証をかけることができます。
 次の例では、サイト全体に Basic 認証をかけています（ユーザー名: `user`、パスワード: `pass`）。
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 const express = require('express');
 const app = express();
 
@@ -27,7 +27,7 @@ app.listen(3000, function() {
 特定のパス以下にだけ Basic 認証をかけるには、`app.get()` や `app.post()` でルーティング設定するときに `basicAuth` ミドルウェアのオブジェクトを渡します。
 下記の例では、`/private` という URI でアクセスしたときに Basic 認証がかかります。
 
-```javascript
+```js
 const auth = express.basicAuth('user', 'pass');
 
 // ここには Basic 認証をかけない

@@ -15,7 +15,7 @@ Uncaught Exception を処理する
 
 - [参考: Node.js - Process Event: 'uncaughtException'](https://nodejs.org/api/process.html#process_event_uncaughtexception)
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 process.on('uncaughtException', function (err) {
     console.log(err.name);
     console.log(err.message);
@@ -55,7 +55,7 @@ ReferenceError: foo is not defined
 `Domain` オブジェクトの `run` メソッドを使って任意の処理を実行すると、その中 (ドメイン) で発生したエラーが `Domain` オブジェクトによってハンドルされるようになります。
 エラー発生時に実行したいエラーハンドラは、`Domain` オブジェクトの `error` イベントハンドラとしてあらかじめ設定しておく必要があります。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 var domain = require('domain');
 
 // ドメインの作成

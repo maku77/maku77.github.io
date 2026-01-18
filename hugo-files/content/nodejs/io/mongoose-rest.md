@@ -21,7 +21,7 @@ $ node app
 Listening on port 5000
 ```
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 import express from 'express';
 import memos from './routes/memos.js';
 
@@ -43,7 +43,7 @@ app.listen(5000, () => {
 });
 {{< /code >}}
 
-{{< code lang="javascript" title="routes/memos.js" >}}
+{{< code lang="js" title="routes/memos.js" >}}
 /**
  * A route definition for /memos.
  */
@@ -110,7 +110,7 @@ export const deleteMemo = (req, res) => {
 };
 {{< /code >}}
 
-{{< code lang="javascript" title="memodb.js" >}}
+{{< code lang="js" title="memodb.js" >}}
 import mongoose from 'mongoose';
 
 const DB_URL = 'mongodb://localhost/memodb';

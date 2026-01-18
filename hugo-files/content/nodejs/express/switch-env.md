@@ -9,7 +9,7 @@ aliases: /nodejs/express/switch-env.html
 Express は、**`NODE_ENV`** 環境変数を見て、現在の実行環境を判断する機能を持っています。
 現在設定されている `NODE_ENV` の値は、**`app.get('env')`** で参照可能です。
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var app = express();
 console.log(app.get('env'));  // development
@@ -35,7 +35,7 @@ development
 この値を利用して、実行環境ごとに異なる処理を実行することができます。
 下記の例では、`development` 環境のときのみ、サーバ側のアクセスログをターミナルに表示するようにしています。
 
-```javascript
+```js
 var logger = require('morgan');
 
 if ('development' == app.get('env')) {
@@ -68,7 +68,7 @@ Express 3 までは、`app.configure()` メソッドを使用することでも�
 
 以下のように読み込んで使うことができます。
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var app = express();
 

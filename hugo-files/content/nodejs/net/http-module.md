@@ -13,7 +13,7 @@ aliases: [/nodejs/net/http-module.html]
 レスポンスのデータは、分割された `data` イベントとして受信されるので、`data` イベントが呼び出されるたびに受信したデータを結合していく必要があります。
 短いデータを受信する場合は結合しなくても全体を受信できてしまうため、この点に気付きにくいので注意が必要です。
 
-```javascript
+```js
 var http = require('http');
 var uri = 'http://www.example.com/';
 
@@ -42,7 +42,7 @@ HTTP リクエストの内容をより詳細に設定したい場合は、`http.
 
 下記の例では、HTTP GET 時のリクエストヘッダとして `user-agent` などを設定しています。
 
-```javascript
+```js
 var http = require('http');
 
 var options = {

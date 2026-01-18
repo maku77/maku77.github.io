@@ -14,7 +14,7 @@ require の使い分け
 
 `require` でモジュールをロードするとき、多くは下記の 3 パターンのロード方法に分類できます。
 
-```javascript
+```js
 // コアモジュール、あるいは node_modules にインストールしたパッケージのロード
 const crypto = require('crypto');
 
@@ -114,16 +114,16 @@ Node.js は、`require` による同一モジュールの読み込みを効率�
 主にメモリ効率や速度向上のための仕組みですが、副次的な作用として、モジュールインスタンスが複数のクライアントモジュール間で共有されることに注意してください。
 次のサンプルコードの動作を見るとわかりやすいです。
 
-{{< code lang="javascript" title="mylib.js" >}}
+{{< code lang="js" title="mylib.js" >}}
 exports.value = 100;
 {{< /code >}}
 
-{{< code lang="javascript" title="stranger.js" >}}
+{{< code lang="js" title="stranger.js" >}}
 const mylib = require('./mylib');
 mylib.value = 200;
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js（エントリポイント）" >}}
+{{< code lang="js" title="main.js（エントリポイント）" >}}
 const mylib = require('./mylib');
 console.log(mylib.value);
 
@@ -152,7 +152,7 @@ Windows 環境において、`mylib.js` と `MYLIB.js` は同一のファイル�
 下記の例を見てください。
 前述の `main.js` をちょっとだけ書き換えて、`require` パラメータで指定するモジュールのパスを大文字に変更しています。
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 const mylib = require('./MYLIB');  // 大文字で指定
 console.log(mylib.value);
 

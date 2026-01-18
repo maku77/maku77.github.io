@@ -31,7 +31,7 @@ Node モジュールで公開するプロパティや関数は、以下のいず
 
 下記の例では、`exports` のプロパティ経由で、`name` 変数、`add` 関数を公開しています。
 
-{{< code lang="javascript" title="mymodule.js（Node モジュール）" >}}
+{{< code lang="js" title="mymodule.js（Node モジュール）" >}}
 // 公開される変数や関数
 exports.name = 'magu';
 exports.add = function(a, b) { return privFunc(a, b); }
@@ -44,7 +44,7 @@ function privFunc(a, b) { return a + b + secret; }
 この Node モジュールは、以下のように `require()` 関数でロードして使用します。
 同じディレクトリに置いたモジュールは、プレフィックスに `./` を付けた相対パスで指定します（拡張子の `.js` は省略可能です）。
 
-{{< code lang="javascript" title="main.js（Node モジュールを使用する）" >}}
+{{< code lang="js" title="main.js（Node モジュールを使用する）" >}}
 var mymodule = require('./mymodule');  // mymodule.js のロード
 console.log(mymodule.name);            //=> 'magu'
 console.log(mymodule.add(1, 2));       //=> 103
@@ -58,14 +58,14 @@ console.log(mymodule.add(1, 2));       //=> 103
 
 `module.exports` にオブジェクトを代入すると、`require` 時にそのオブジェクト自体が返されるようになります。
 
-{{< code lang="javascript" title="mymodule.js" >}}
+{{< code lang="js" title="mymodule.js" >}}
 module.exports = {
   name: 'magu',
   add: function(a, b) { return a + b; }
 };
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 var mymodule = require('./mymodule');  // mymodule.js のロード
 console.log(mymodule.name);            //=> 'magu'
 console.log(mymodule.add(1, 2));       //=> 3
@@ -80,13 +80,13 @@ console.log(mymodule.add(1, 2));       //=> 3
 JavaScript では関数もオブジェクト（関数オブジェクト）なので、`module.exports` に関数を代入することができます。
 この場合、`require` 時に関数オブジェクト自体が返されることになります。
 
-{{< code lang="javascript" title="greet.js" >}}
+{{< code lang="js" title="greet.js" >}}
 module.exports = function(name) {
   console.log('Hello ' + name);
 }
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 var greet = require('./greet');  // greet.js のロード
 greet('Joe');                    //=> 'Hello Joe'
 {{< /code >}}
@@ -98,7 +98,7 @@ greet('Joe');                    //=> 'Hello Joe'
 
 下記は、`Counter` クラスを提供するモジュール (`counter.js`) の実装例です。
 
-{{< code lang="javascript" title="counter.js" >}}
+{{< code lang="js" title="counter.js" >}}
 function Counter() {
   this.val = 0;
 }
@@ -115,7 +115,7 @@ Counter.prototype.getCount = function () {
 module.exports = Counter;
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 var Counter = require('./counter.js');  // コンストラクタが返される
 
 var c = new Counter();
@@ -133,7 +133,7 @@ console.log(c.getCount());  //=> 3
 
 一連のクラスを同時に扱う必要があるフレームワークのような機能を提供したい場合は、下記のように一度の `require()` 呼び出しで複数のクラスを参照できるようにしておくと便利です。
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 var animal = require('./animal');
 
 var cat = new animal.Cat();
@@ -144,7 +144,7 @@ dog.greet();
 
 下記のような書き方もよく見ますね。
 
-```javascript
+```js
 var Cat = require('./animal').Cat;
 var Dog = require('./animal').Dog;
 var cat = new Cat();
@@ -153,7 +153,7 @@ var dog = new Dog();
 
 これを実現する簡単な方法は、下記のように `animal.js` の中で複数のコンストラクタを定義する方法です。
 
-{{< code lang="javascript" title="animal.js" >}}
+{{< code lang="js" title="animal.js" >}}
 module.exports = {
   Cat: function () { /* Cat コンストラクタ実装 */ },
   Dog: function () { /* Dog コンストラクタ実装 */ },
@@ -175,7 +175,7 @@ module.exports = {
 
 Node.js の `require()` 関数は柔軟なファイル検索を行ってくれるため、
 
-```javascript
+```js
 var animal = require('./animal');
 ```
 
@@ -183,14 +183,14 @@ var animal = require('./animal');
 この `animal/index.js` ファイルの中で、関連するクラスファイルをさらに `require()` で読み込むようにすれば、各クラスごとに別ファイルで管理できるようになります。
 
 
-{{< code lang="javascript" title="animal/index.js（Cat クラスと Dog クラスを同時に読み込む）" >}}
+{{< code lang="js" title="animal/index.js（Cat クラスと Dog クラスを同時に読み込む）" >}}
 module.exports = {
   Cat: require('./cat.js'),
   Dog: require('./dog.js'),
 };
 {{< /code >}}
 
-{{< code lang="javascript" title="animal/cat.js（Cat クラス）" >}}
+{{< code lang="js" title="animal/cat.js（Cat クラス）" >}}
 function Cat() {
   this.value = 'Meow!';
 }
@@ -202,7 +202,7 @@ Cat.prototype.greet = function() {
 module.exports = Cat;  // コンストラクタを公開
 {{< /code >}}
 
-{{< code lang="javascript" title="animal/dog.js（Dog クラス）" >}}
+{{< code lang="js" title="animal/dog.js（Dog クラス）" >}}
 function Dog() {
   this.value = 'Bow wow!';
 }
@@ -216,7 +216,7 @@ module.exports = Dog;  // コンストラクタを公開
 
 このように `cat.js` と `dog.js` をファイルに分割したことにより、副次的な作用として、下記のように単一のクラスだけを読み込むこともできるようになります。
 
-```javascript
+```js
 // Cat クラスだけをロード
 var Cat = require('./animal/cat');
 ```

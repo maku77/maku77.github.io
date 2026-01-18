@@ -35,7 +35,7 @@ node-fetch を使用する
 次のサンプルコードは、`node-fetch` が提供する `fetch` 関数を使って、HTTP GET リクエストを送信する例です。
 Promise に対応しているので、非同期処理を `.then` ～ `.catch` のチェーンで簡潔に記述することができます。
 
-```javascript
+```js
 const fetch = require('node-fetch');
 const URL = 'https://example.com';
 
@@ -55,7 +55,7 @@ fetch(URL)
 
 `async` / `await` を使って、次のように同期的な処理として記述することもできます。
 
-```javascript
+```js
 const fetch = require('node-fetch');
 const URL = 'https://example.com';
 

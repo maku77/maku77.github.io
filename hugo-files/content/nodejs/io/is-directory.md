@@ -11,7 +11,7 @@ Node.js の標準モジュール `fs` が提供している **`fs.stat(path, cal
 - 参考: [Node.js - `fs.stat` メソッド](https://nodejs.org/api/fs.html#fsstatpath-options-callback)
 - 参考: [Node.js - `fs.Stats` クラス](https://nodejs.org/api/fs.html#fs_class_fs_stats)
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import fs from 'node:fs';
 
 fs.stat('/dir/path', (err, stats) => {
@@ -22,7 +22,7 @@ fs.stat('/dir/path', (err, stats) => {
 
 `fs.Stats` オブジェクトには、**`isDirectory()`** メソッドが用意されているので、これを利用して指定したパスがディレクトリかどうかを調べることができます。
 
-```javascript
+```js
 fs.stat('/dir/path', (err, stats) => {
   if (err) throw err;
   if (stats.isDirectory()) {
@@ -36,7 +36,7 @@ fs.stat('/dir/path', (err, stats) => {
 
 - 参考: [Node.js - `fs.statSync` メソッド](https://nodejs.org/api/fs.html#fsstatsyncpath-options)
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import fs from 'node:fs';
 
 const stats = fs.statSync('/dir/path');

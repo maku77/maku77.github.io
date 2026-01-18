@@ -18,7 +18,7 @@ Node.js の標準モジュールである `fs` モジュールの **`readdir()`*
 
 下記は、カレントディレクトリ内のファイルとディレクトリを列挙するサンプルです。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 import fs from 'node:fs';
 
 fs.readdir('.', (err, files) => {
@@ -69,7 +69,7 @@ dir1
 `walkDir('dir1', callback)` と呼び出した場合に、`callback` の第二引数に、`dir2/file2` のようなファイルパスを表す文字列が渡されて呼び出されます。
 このコールバックはファイルが見つかるごとに呼び出されます（ファイルパスをリスト形式で受け取るバージョンは後述）。
 
-{{< code lang="javascript" title="使用例" >}}
+{{< code lang="js" title="使用例" >}}
 import { walkDir } from './dirutil.js';
 
 walkDir('dir1', (err, path) => {
@@ -88,7 +88,7 @@ dir3/file3
 
 - [dirutil.js（見つかったファイルを配列で返すバージョン）](./dirutil2.js)
 
-{{< code lang="javascript" title="使用例" >}}
+{{< code lang="js" title="使用例" >}}
 import { walkDir } from './dirutil.js';
 
 walkDir('dir1', (err, list) => {

@@ -16,7 +16,7 @@ $ npm install csv
 下記の例では、`input.csv` という入力ファイルを読み込んで、各行ごとに配列データとして取得しています。
 `Parser` オブジェクトを作成するときに、`trim` オプションを `true` に設定しているので、カンマの前後のスペースが自動的に削除されています。
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import fs from 'node:fs';
 import path from 'node:path';
 import csv from 'csv';
@@ -45,7 +45,7 @@ $ node main
 さらに、`columns` オプションを `true` に設定することで、CSV ファイルの一行目をヘッダとして扱うことができます。
 この場合、一行目に記述したカラム名をプロパティ名としたオブジェクトとして、各行のデータが取得されます。
 
-{{< code lang="javascript" title="main.js（一部抜粋）" >}}
+{{< code lang="js" title="main.js（一部抜粋）" >}}
 const parser = csv.parse({columns: true, trim: true}, (err, data) => {
   console.log(data);
 });
@@ -59,7 +59,7 @@ $ node main
 
 カラム名をプログラム内で指定するには、`columns` オプションにカラム名の配列を指定します。
 
-{{< code lang="javascript" title="main.js（一部抜粋）" >}}
+{{< code lang="js" title="main.js（一部抜粋）" >}}
 const parser = csv.parse({columns: ['c1', 'c2', 'c3'], trim: true}, (err, data) => {
   console.log(data);
 });

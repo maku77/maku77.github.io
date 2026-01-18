@@ -24,7 +24,7 @@ $ npm list             # 確認
 mongojs の使用例
 ----
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import mongojs from 'mongojs';
 
 const db = mongojs.connect('mydb', ['mycollection']);
@@ -65,7 +65,7 @@ moja
 
 こんな感じで、DB への接続部分だけ module として分離しておくのもよいですね。
 
-{{< code lang="javascript" title="db.js（DB 接続部分を分離）" >}}
+{{< code lang="js" title="db.js（DB 接続部分を分離）" >}}
 import mongojs from 'mongojs';
 
 const db = 'mydb';
@@ -73,7 +73,7 @@ const collections = ['mycollection'];
 export default mongojs.connect(db, collections);
 {{< /code >}}
 
-{{< code lang="javascript" title="main.js" >}}
+{{< code lang="js" title="main.js" >}}
 import db from './db.js';
 
 db.mycollection.find(/* ... */);

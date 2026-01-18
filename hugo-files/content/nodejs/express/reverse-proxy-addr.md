@@ -9,7 +9,7 @@ aliases: /nodejs/express/reverse-proxy-addr.html
 クライアントからの Node サーバーへのアクセスがリバースプロキシ経由になる場合、**`req.ip`** で取得できる IP アドレスは、リバースプロキシのアドレスになってしまいます。
 これを防ぐには、Express の `Application` オブジェクトを使って次のように設定します。
 
-```javascript
+```js
 app.set('trust proxy', true);
 ```
 

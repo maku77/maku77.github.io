@@ -13,7 +13,7 @@ Node.js v8.0.0 で導入された [util.promisify 関数](https://nodejs.org/api
 
 次の例では、`fs.stat` 関数を `Promise` 化した `stat` 関数を作成しています。
 
-```javascript
+```js
 const util = require('util');
 const fs = require('fs');
 
@@ -37,7 +37,7 @@ stat('.').then((stats) => {
 
 ここでは、次のような、割り算の計算結果をコールバックで返す関数を題材にして説明します。
 
-```javascript
+```js
 function div(num1, num2, callback) {
   if (num2 == 0) {
     callback('ERROR: Zero division');
@@ -52,7 +52,7 @@ function div(num1, num2, callback) {
 
 上記の `div` 関数をそのまま使おうとすると、下記のようなコードになります。
 
-```javascript
+```js
 div(5, 2, (err, value) => {
   if (err) {
     console.error(err);
@@ -64,7 +64,7 @@ div(5, 2, (err, value) => {
 
 `Promise` チェーン (`then` & `catch`) による呼び出しを行えるように、自力で `Promise` 化を行う場合は、次のような実装をすることになります。
 
-```javascript
+```js
 function divPromise(num1, num2) {
   return new Promise((resolve, reject) => {
     div(num1, num2, (err, value) => {
@@ -80,7 +80,7 @@ function divPromise(num1, num2) {
 
 これで、次のようなチェーン呼び出しができるようになります。
 
-```javascript
+```js
 divPromise(5, 2).then(value => {
   console.log(`Result: ${value}`);
 }).catch(err => {
@@ -100,7 +100,7 @@ util.promisify による Promise 化
 
 例えば、前述の `div()` 関数を `Promise` 化するには、下記のようにするだけで済みます。
 
-```javascript
+```js
 const util = require('util');
 const divPromise = util.promisify(div);
 ```
@@ -113,7 +113,7 @@ const divPromise = util.promisify(div);
 
 `util.promisify()` で `Promise` 化した関数は、自力で `Promise` 化したものと同様に、次のようにチェーン呼び出しできるようになります。
 
-```javascript
+```js
 divPromise(5, 2).then(result => {
   console.log(`Result: ${result}`);
 }).catch(err => {
@@ -123,7 +123,7 @@ divPromise(5, 2).then(result => {
 
 ECMAScript 2017 の `async/await` 構文を使えば、次のようにも書けます。
 
-```javascript
+```js
 async function main() {
   try {
     const result = await divPromise(5, 2);

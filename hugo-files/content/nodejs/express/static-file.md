@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/public'));
 URL には `public` というパスは含まれないことに注意してください。
 URL にプレフィックスを入れたい場合は、下記のようにミドルウェア設定時にプレフィックスを指定します。
 
-```javascript
+```js
 app.use('/assets', express.static(__dirname + '/public'));
 ```
 
@@ -36,7 +36,7 @@ app.use('/assets', express.static(__dirname + '/public'));
 
 下記は全体のコードです。
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var app = express();
 

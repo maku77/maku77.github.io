@@ -54,7 +54,7 @@ items:
 **`safeLoad` 関数には、ファイル名を渡すのではなく、Yaml 形式のテキストを渡す必要がある**ことに注意してください。
 下記のサンプルでは、Yaml ファイルの内容を `fs.readFileSync()` で取得し、その結果を `js-yaml` の `safeLoad` 関数でパースしています。
 
-{{< code lang="javascript" title="main.js （Yaml ファイルの読み込み）" >}}
+{{< code lang="js" title="main.js （Yaml ファイルの読み込み）" >}}
 import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
@@ -110,7 +110,7 @@ js-yaml で Yaml ファイルを書き出す
 
 下記の例では、`books` オブジェクトの内容を Yaml 形式のテキストに変換し、`books.yaml` ファイルに保存しています。
 
-{{< code lang="javascript" title="main.js （Yaml ファイルへの保存）" >}}
+{{< code lang="js" title="main.js （Yaml ファイルへの保存）" >}}
 import fs from 'node:fs';
 import yaml from 'js-yaml';
 

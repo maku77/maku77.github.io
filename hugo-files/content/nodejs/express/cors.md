@@ -8,7 +8,7 @@ aliases: /nodejs/express/cors.html
 
 Express で特定のリクエスト時にクロスドメイン通信を許すには、下記のように特定のリクエストに対する `response` で **`Access-Control-Allow-Origin`** ヘッダーを追加します。
 
-```javascript
+```js
 const express = require('express');
 const app = express();
 
@@ -20,7 +20,7 @@ app.get('/books', function (request, response) {
 
 アプリケーション全体で CORS 設定を行うには、次のように **`app.use()`** を使ってすべてのレスポンスに適用するようにします。
 
-```javascript
+```js
 // CORS settings.
 const allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -40,7 +40,7 @@ res.header('Access-Control-Allow-Origin', 'https://example.com');
 特定のサブドメインからのアクセスだけを許可するには、以下のようにします。
 `Access-Control-Allow-Origin` ヘッダーに指定できるドメインは 1 つだけなので、プログラム内で動的にサブドメイン名を設定する必要があります。
 
-```javascript
+```js
 // CORS settings.
 const allowCrossDomain = function(req, res, next) {
   if (req.headers.origin.endsWith('.example.com')) {

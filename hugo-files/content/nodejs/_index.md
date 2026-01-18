@@ -14,7 +14,7 @@ Node.js 実行環境など
 - [`nvm` で複数の Node.js バージョンを切り替えて使用する (Node Version Manager)](/p/3x95seb/)
 - [`corepack` を使ってプロジェクト内で使用する `pnpm`/`yarn` のバージョンを管理する](/p/tzwio3y/)
 - [Node.js スクリプトにシェバング (`#!`) を付けてコマンドとして起動できるようにする](/p/ptactsj/)
-- [Node.js で assert を使用する](assert.html)
+- [Node.js で assert を使用する](/p/3x3y8h8/)
 - [Node.js で環境変数を参照する (`process.env`)](/p/e44uun8/)
 - [環境変数の代わりに `.env` ファイルを使用する (`dotenv`)](/p/6kruhwy/)
 - [Node.js がどのバージョンの V8 エンジンで動作しているか調べる](/p/cf7eoyo/)
@@ -70,7 +70,7 @@ Node.js 実行環境など
 
 デバッグ／テスト
 ----
-- [プログラムの実行時間を計測する (`console.time`, `console.timeEnd`)](time/console-time.html)
+- [プログラムの実行時間を計測する (`console.time`, `console.timeEnd`)](/p/226tint/)
 - [現在位置のスタックトレースを出力する (`console.trace`)](/p/oeka5t6/)
 
 
@@ -125,8 +125,5 @@ Node.js の制御構文
 
 ### 非同期処理
 - [`util.promisify` でコールバックベースの関数を Promise 化する](/p/62d6wuc/)
-- async.js による非同期処理
-  - [非同期処理のフロー制御を行う (1) async.js を使う準備](async-js1.html)
-  - [非同期処理のフロー制御を行う (2) 複数の非同期処理の結果を同時に取得 (async.parallel)](async-js2.html)
-  - [非同期処理のフロー制御を行う (3) 複数の非同期処理を指定した順に実行する (async.series, async.waterfall)](async-js3.html)
+- [`async.js` による非同期処理](/p/4fzs5fs/)
 

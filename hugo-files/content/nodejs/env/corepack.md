@@ -12,7 +12,7 @@ corepack とは
 ----
 
 Node.js の実行環境には、パッケージマネージャーとして標準で `npm` コマンドが搭載されていますが、`npm` の代わりに `yarn` や `pnpm` などを導入しているプロジェクトが多くあります。
-従来は、これらのコマンドを `npm install -g pnpm` のように別途インストールする必要がありましたが、Node.js に標準搭載された [`corepack`](https://github.com/nodejs/corepack) の仕組みを使用すると、初めからインストールされているかのように`yarn` や `pnpm` コマンドを実行できるようになります。
+従来は、これらのコマンドを `npm install -g pnpm` のように別途インストールする必要がありましたが、Node.js に標準搭載された [`corepack`](https://github.com/nodejs/corepack) の仕組みを使用すると、はじめからインストールされているかのように `yarn` や `pnpm` コマンドを実行できるようになります。
 
 `corepack` が使用するパッケージマネージャーは、`package.json` の __`packageManager`__ プロパティで宣言しておくことができるので、プロジェクト内で使用するパッケージマネージャーとそのバージョンを統一できます。
 

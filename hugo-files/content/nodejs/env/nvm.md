@@ -35,10 +35,9 @@ nvm のインストール
 `nvm` コマンドは次のように簡単にインストールできます。
 
 ### macOS や Linux の場合
-
-```console
+{{< code lang="console" title="macOS や Linux の場合" >}}
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
+{{< /code >}}
 
 最新バージョンのインストール方法は [nvm-sh/nvm - GitHub](https://github.com/nvm-sh/nvm) の公式サイトで確認してください。
 インストール後は、ターミナル（bash など）を再起動するか、`source ~/.bashrc` を実行すると `nvm` コマンドを実行できるようになります。

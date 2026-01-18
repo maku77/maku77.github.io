@@ -23,7 +23,7 @@ console で文字列を出力する
 
 これらのメソッドは、単純な文字列を渡すこともできますし、C 言語の `printf` 関数のようにフォーマット文字列を指定することもできます。
 
-```javascript
+```js
 console.log('Hello World');
 console.log('Count: %d', 100);
 console.log('Hello: %s', 'Tom');

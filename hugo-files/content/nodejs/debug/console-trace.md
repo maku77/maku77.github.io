@@ -12,7 +12,7 @@ Node.js にグローバルで定義されている `console` オブジェクト�
 
 下記のサンプルでは、`world()` 関数の中で `console.trace()` を呼び出しています。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 function hello() {
     world();
 }

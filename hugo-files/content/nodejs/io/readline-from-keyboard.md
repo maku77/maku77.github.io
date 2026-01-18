@@ -15,7 +15,7 @@ aliases: /nodejs/io/readline-from-keyboard.html
 
 下記の例では、プロンプトでユーザ名の入力を促し、入力された名前を使って挨拶文を表示します。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 import readline from 'node:readline';
 
 const rl = readline.createInterface({
@@ -42,7 +42,7 @@ Hello, Maku!
 `readline` モジュールは基本的に非同期に結果を受け取るように設計されているため、同期的にユーザ入力を取得したい場合は、Promise を使用した処理が必要になります。
 下記の例では、ECMAScript 2017 の `async`、`await` を利用して同期的にキーボードからの入力を取得しています。
 
-{{< code lang="javascript" title="sample.js" >}}
+{{< code lang="js" title="sample.js" >}}
 import readline from 'node:readline';
 
 // ユーザからのキーボード入力を取得する Promise を生成する

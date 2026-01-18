@@ -11,7 +11,7 @@ Express によるリクエストハンドリング
 
 Express の `Application` オブジェクトのメソッドである `app.get()` や `app.post()` を使うと、HTTP の GET/POST リクエストをハンドルすることができます。
 
-```javascript
+```js
 app.get('/path', function(req, res) {
     // GET リクエストをハンドルするコード
 });
@@ -49,7 +49,7 @@ GET メソッドにおけるデータ受信の例
 </html>
 {{< /code >}}
 
-{{< code lang="javascript" title="app.js" >}}
+{{< code lang="js" title="app.js" >}}
 var express = require('express');
 var app = express();
 
@@ -92,7 +92,7 @@ POST メソッドにおけるデータ受信の例
 
 POST メソッドで送られたデータを `req.body` プロパティで参照するには、**`bodyParser`** ミドルウェアを設定しておく必要があります。
 
-{{< code lang="javascript" title="app.js" hl_lines="4" >}}
+{{< code lang="js" title="app.js" hl_lines="4" >}}
 var express = require('express');
 var app = express();
 
@@ -114,14 +114,14 @@ app.listen(3000, function() {
 ここでは、フォームから送られたデータを `req.query['name']` や `req.body['name']` のように取得しましたが、GET/POST で JSON データなどを直接送ってきた場合は、そのオブジェクトを `req.query` や `req.body` で直接取得することができます。
 例えば、jQuery の `$.post()` で以下のように JSON データを送ったとします。
 
-```javascript
+```js
 var data = {title:'Title1', body:'Body1'};
 $.post('/memos/create', data, function() {}, 'JSON');
 ```
 
 このようにクライアントから送られたデータは、以下のように取得できます。このケースでも `bodyParser` ミドルウェアは必要です。
 
-```javascript
+```js
 app.use(express.bodyParser());
 app.post('/memos/create', function(req, res) {
     var data = req.body;

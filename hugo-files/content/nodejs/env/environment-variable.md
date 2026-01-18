@@ -24,7 +24,7 @@ D:\x\home
 
 下記は、環境変数 `HTTP_PROXY` の設定の有無に応じて処理を振り分ける例です。
 
-```javascript
+```js
 if (process.env.HTTP_PROXY != undefined) {
   // Proxy 環境で動作している場合
 } else {
@@ -36,7 +36,7 @@ if (process.env.HTTP_PROXY != undefined) {
 
 環境変数が設定されていない場合（`undefined` の場合）にデフォルト値を設定したいのであれば、下記のように `??`（Null 合体演算子）を使います。
 
-```javascript
+```js
 const port = process.env.MYSERVER_PORT ?? 50000;
 ```
 
@@ -45,7 +45,7 @@ const port = process.env.MYSERVER_PORT ?? 50000;
 
 `??` 演算子が導入される前は、次のように `undefined` 判定を行う必要がありました。
 
-```javascript
+```js
 let port = process.env.MYSERVER_PORT;
 if (typeof port === 'undefined') port = 50000;
 // 簡易的に if (port != undefined) でも OK
@@ -53,7 +53,7 @@ if (typeof port === 'undefined') port = 50000;
 
 これはちょっと冗長なので、次のように `||` 演算子を使う方法もよく使われていました。
 
-```javascript
+```js
 const port = process.env.MYSERVER_PORT || 50000;
 ```
 
@@ -86,7 +86,7 @@ $ node
 
 Node.js 環境の全ての環境変数を、変数名でソートして列挙したいときは次のようにします。
 
-```javascript
+```js
 Object.keys(process.env).sort().forEach(key => {
   console.log(`${key}: ${process.env[key]}`)
 });
@@ -97,7 +97,7 @@ Object.keys(process.env).sort().forEach(key => {
 環境変数名の配列を `filter` 関数でフィルタしてやれば、注目している環境変数だけを列挙できます。
 次の例では、`NODE` で始まる環境変数のみを列挙しています。
 
-```javascript
+```js
 const keys = Object.keys(process.env).filter((v) => v.startsWith('NODE'));
 keys.sort().forEach(key => {
   console.log(`${key}: ${process.env[key]}`)
