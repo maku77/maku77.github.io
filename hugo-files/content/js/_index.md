@@ -25,8 +25,8 @@ categoryIcon: logo-javascript.svg
 
 デバッグ
 ----
-- [デバッグ出力用の print 関数の統一について](debug/debug-print.html)
-- [ある処理を 1 秒間に何回実行できるかプロファイリングする](debug/profile-function.html)
+- [デバッグ出力用の print 関数の統一について](/p/r5vogb3/)
+- [ある処理を 1 秒間に何回実行できるかプロファイリングする](/p/zy772in/)
 
 
 数値／文字列 (Number/String) <!-- numstr -->
@@ -34,8 +34,7 @@ categoryIcon: logo-javascript.svg
 
 ### 数値
 
-- [実数の小数点数以下を丸めて整数に変換する (floor, ceil, round)](numstr/real-to-int.html)
-- [数値の小数点以下 N 桁までに丸めて表示する (toFixed)](numstr/tofixed.html)
+- [実数の小数点以下の切り上げ、切り捨て、整数への変換 (`floor`, `ceil`, `round`, `toFixed`)](/p/92v7zx8/)
 
 ### 文字列
 
