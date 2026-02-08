@@ -55,7 +55,7 @@ Hugo v0.110.0 でコンフィグファイル名が `config.toml` から `hugo.to
 ここでは、`googleAnalytics` というパラメータで、Google Analytics 用のトラッキング ID が設定されているかどうかをチェックしています。
 
 ```go-html-template
-{{ with $.Site.GoogleAnalytics }}
+{{ with $.Site.Config.Services.GoogleAnalytics.ID }}
   Google Analytics のトラッキング ID は <b>{{ . }}</b> です。
 {{ else }}
   Google Analytics のトラッキング ID が設定されていません。

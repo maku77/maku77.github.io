@@ -6,8 +6,6 @@ pygmentsUseClasses = true
 languageCode = "ja-jp"
 timeZone = "Asia/Tokyo"
 title = "天才まくまくノート"
-# googleAnalytics = "UA-63069513-1"
-googleAnalytics = "G-X5962TDYXS"
 theme = "maku77"
 
 [markup.goldmark.renderer]
@@ -24,3 +22,8 @@ theme = "maku77"
 [module]
 [[module.imports]]
   path = "github.com/maku77/hugo-module-maku-common"
+
+[services.googleAnalytics]
+  id = "G-X5962TDYXS"
+  # id = "UA-63069513-1"
+

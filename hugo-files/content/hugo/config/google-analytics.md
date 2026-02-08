@@ -8,6 +8,7 @@ description: "Google Analytics を使用すると、Web サイトのアクセス
 changes:
   - 2023-05-28: Google Analytics 4 (GA4) の記載を追加
   - 2024-10-26: .Site.IsServer を hugo.IsServer に変更
+  - 2026-02-08: .Site.GoogleAnalytics was deprecated in Hugo v0.120.0 and will be removed in Hugo 0.137.0. Use .Site.Config.Services.GoogleAnalytics.ID instead.
 aliases: /hugo/settings/google-analytics.html
 ---
 
@@ -40,10 +41,11 @@ languageCode = "ja-jp"
 title = "まく日記"
 theme = "maku"
 
-googleAnalytics = "G-12345ABCDE"
+[services.googleAnalytics]
+  id = "G-12345ABCDE"
 {{< /code >}}
 
-上記のように設定すると、テンプレートファイルの中から、__`.Site.GoogleAnalytics`__ でトラッキング ID を参照できるようになります。
+上記のように設定すると、テンプレートファイルの中から、__`.Site.Config.Services.GoogleAnalytics.ID`__ でトラッキング ID を参照できるようになります。
 
 
 トラッキングコード (JS) を自動で埋め込むようにする
@@ -68,7 +70,7 @@ Google Analytics を有効にするには、各ページの `head` 要素の先�
 
 {{< code lang="go-html-template" title="layouts/partials/analytics.html" >}}
 {{ if not hugo.IsServer }}
-{{ with .Site.GoogleAnalytics }}
+{{ with .Site.Config.Services.GoogleAnalytics.ID }}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
