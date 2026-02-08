@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #ddd;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+    .box {
+      background: white;
+      margin: 1em 2em;
+      padding: 1em 0;
+      border: solid 1px black;
+    }
+    .box ul, .box ol {
+      margin: 0;
+      padding: 0;
+    }
+    .box li {
+      margin: 0;
+    }
+
+    .box-config ul, .box-config ol {
+      padding-left: 2em;
+    }
+    .box-config li > ul, .box-config li > ol {
+      padding-left: 1em;
+    }
+    .message-large-screen {
+      display: none;
+    }
+    .message-small-screen {
+      display: block;
+      margin: 0 1em;
+    }
+    @media (min-width: 35rem) {
+      .box-config ul, .box-config ol {
+        padding-left: 3em;
+      }
+      .box-config li > ul, .box-config li > ol {
+        padding-left: 2em;
+      }
+      .message-large-screen {
+        display: block;
+        margin: 0 1em;
+      }
+      .message-small-screen {
+        display: none;
+      }
+    }
+  </style>
+  <title>リスト要素のマージン設定のデモページ (8)</title>
+</head>
+<body>
+
+<div class="box box-config">
+  <ul>
+    <li>あああああ
+      <ul>
+        <li>いいいいい
+          <ul>
+            <li>ううううう</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ol>
+    <li>あああああ
+      <ol>
+        <li>いいいいい
+          <ol>
+            <li>ううううう</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<div class="message-large-screen">
+画面サイズが <span style="font-size:20pt;color:blue">大きい</span> ときのインデントです。<br>
+画面サイズを縮めてみてください。
+</div>
+<div class="message-small-screen">
+画面サイズが <span style="font-size:20pt;color:red">小さい</span> ときのインデントです。<br>
+画面サイズを広げてみてください。
+</div>
+
+</body>
+</html>

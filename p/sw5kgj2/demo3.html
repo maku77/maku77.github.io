@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #ddd;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+    .box {
+      background: white;
+      margin: 1em 2em;
+      padding: 1em 0;
+      border: solid 1px black;
+    }
+    .box ul {
+      margin: 0;
+      padding: 0;
+      background: rgba(255, 100, 150, 0.3);
+    }
+    .box li {
+      margin: 0;
+      padding: 2px 0;
+      border-bottom: dashed 1px black;
+    }
+
+    .box-config ul {
+      margin-left: 3em;
+    }
+  </style>
+  <title>リスト要素のマージン設定のデモページ (3)</title>
+</head>
+<body>
+
+<h2>ul { padding-left: 0; margin-left: 3em; }</h2>
+<div class="box box-config">
+  <ul>
+    <li>あああああ</li>
+    <li>あああああ</li>
+    <li>あああああ
+      <ul>
+        <li>いいいいい</li>
+        <li>いいいいい</li>
+        <li>いいいいい
+          <ul>
+            <li>ううううう</li>
+            <li>ううううう</li>
+            <li>ううううう</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
