@@ -57,7 +57,7 @@ categoryIcon: _index.svg
 * [小文字と大文字の変換を行う](numstr/case-conversion.html)
 * [小文字と大文字の判別を行う](numstr/is-lower-case.html)
 * [ある文字が空白文字（スペース）かどうかを判別する](numstr/is-space.html)
-* [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する](numstr/normalize-string.html)
+* [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (`java.text.Normalizer`)](/p/j3jbsey/)
 * [コードポイントに対応するユニコード文字 (char) を取得する](numstr/code-point-to-char.html)
 * [ある文字のコードポイントに対応するユニコード名を調べる](numstr/unicode-name.html)
 * [対応している文字セット (Charset) の一覧を取得する](numstr/available-charsets.html)

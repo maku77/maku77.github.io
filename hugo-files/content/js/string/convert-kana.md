@@ -1,6 +1,9 @@
 ---
-title: "文字列内のひらがなとカタカナを変換する"
+title: "JavaScriptメモ: 文字列内のひらがなとカタカナを変換する"
+url: "p/ci73hgm/"
 date: "2020-02-17"
+tags: ["javascript"]
+aliases: /js/string/convert-kana.html
 ---
 
 「ひらがな → カタカナ」の変換
@@ -59,4 +62,3 @@ console.log(diff.toString(16));  //=> 60
 
 - [ひらがなとカタカナを正規表現で表す｜まくろぐ](https://maku.blog/p/kkaq7q5)
 - [TypeScriptサンプル: 文字列内のひらがなとカタカナを変換する｜まくろぐ](https://maku.blog/p/tzjvcad)
-

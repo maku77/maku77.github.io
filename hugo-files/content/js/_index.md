@@ -42,31 +42,31 @@ categoryIcon: logo-javascript.svg
 - [JavaScript の文字列処理チートシート](/p/y4ccxc8/)
 {{% /private %}}
 
-- [`new String` は避ける](string/dont-use-new-string.html)
-- [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal) (ECMAScript 2015)](string/template-literal.html)
-- [`==` と `===` による文字列比較の違い](string/compare.html)
-- [文字列を大小比較すると何が起こるか](string/compare-large-and-small.html)
-- [文字列と文字列、数値を結合する](string/concat.html)
-- [文字列と数値を変換する](string/convert.html)
-- [文字列の小文字と大文字を変換する (`toLowerCase`, `toUpperCase`)](string/uppercase.html)
+- [`new String` は避ける](/p/is2iir3/)
+- [テンプレート文字列の機能で文字列リテラル中の変数を展開する (template literal) (ECMAScript 2015)](/p/p3fzkd7/)
+- [`==` と `===` による文字列比較の違い](/p/squitgq/)
+- [文字列を大小比較すると何が起こるか](/p/iakd4aw/)
+- [文字列と文字列、数値を結合する](/p/egfww25/)
+- [文字列と数値を変換する](/p/upvd655/)
+- [文字列の小文字と大文字を変換する (`toLowerCase`, `toUpperCase`)](/p/xbyztsb/)
 - 検索
   - [文字列の中から文字列を検索する (`String#search`, `RegExp#test`)](/p/p5nx3n9/)
-  - [文字列内に NG ワード（禁止語句）が含まれていないか調べる (`RegExp#test`)](string/ng-word.html)
+  - [文字列内に NG ワード（禁止語句）が含まれていないか調べる (`RegExp#test`)](/p/fg35hk8/)
 - 分割／抽出
   - [文字列をデリミタで分割する／1文字ずつに分割する (`String#split`)](/p/dpp4v8n/)
   - [文字列から正規表現パターンに一致する部分を取り出す (`String#match`, `RegExp#exec`)](/p/tvuztbm/)
 - 置換
   - [文字列を置換する (`String#replace`, `String#replaceAll`)](/p/8pnuzk4/)
 - 編集
-  - [文字列の先頭と末尾の空白を削除する (`String#trim`) (ECMAScript 2015)](string/trim.html)
+  - [文字列の先頭と末尾の空白を削除する (`String#trim`) (ECMAScript 2015)](/p/hpvmzdu/)
   - [文字列を指定の長さになるまでパディング（埋め合わせ）する (`String#padStart`, `#String#padEnd`)](/p/buatano/)
-- [文字列の長さを取得する (`length`)](string/length.html)
-- [部分文字列を取得する (`substring`, `slice`)](string/substring.html)
-- [文字列内の1文字を取得する／1文字ずつループ処理する (`charAt`)](string/char-at.html)
-- [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize) (ECMAScript2015)](string/normalize.html)
-- [文字列内のひらがなとカタカナを変換する](string/convert-kana.html)
+- [文字列の長さを取得する (`length`)](/p/f9anam8/)
+- [部分文字列を取得する (`substring`, `slice`)](/p/tkd8fi2/)
+- [文字列内の1文字を取得する／1文字ずつループ処理する (`charAt`)](/p/sbc3jzk/)
+- [全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する (normalize) (ECMAScript2015)](/p/7b6o87n/)
+- [文字列内のひらがなとカタカナを変換する](/p/ci73hgm/)
 - 旧記事
-  - [テンプレートを使ってテキストを生成する (Underscore.js)](string/template.html)
+  - [テンプレートを使ってテキストを生成する (Underscore.js)](/p/gamk5vt/)
 
 
 配列／連想配列 (Array)

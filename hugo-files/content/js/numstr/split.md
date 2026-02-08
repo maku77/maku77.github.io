@@ -38,7 +38,7 @@ const arr = s.trim().split(/\s*,\s*/);  // => ["aaa", "bbb", "ccc"]
 あるいは、以下のように分割した後の各文字列に対して `trim()` を実行するという方法もありますが、元の文字列に 1 回だけ `trim()` をかけた方が効率がよいでしょう。
 
 ```javascript
-const arr = s.split(',').map(function(val, i){ return val.trim() });
+const arr = s.split(',').map((val) => val.trim());
 ```
 
 文字列を一文字ずつに分割する

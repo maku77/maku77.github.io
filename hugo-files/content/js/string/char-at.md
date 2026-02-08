@@ -1,6 +1,9 @@
 ---
-title: "文字列内の１文字を取得する／１文字ずつループ処理する (charAt)"
+title: "JavaScriptメモ: 文字列内の１文字を取得する／１文字ずつループ処理する (charAt)"
+url: "p/sbc3jzk/"
 date: "2012-10-26"
+tags: ["javascript"]
+aliases: /js/string/char-at.html
 ---
 
 文字列内の１文字を取得する
@@ -9,7 +12,7 @@ date: "2012-10-26"
 ECMAScript の仕様に従うのであれば、文字列内の任意の位置の文字を取得するには `charAt()` を使用します。
 
 ```javascript
-var s = 'ABCDE';
+const s = 'ABCDE';
 console.log(s.charAt(2));  //=> 'C'
 ```
 
@@ -25,32 +28,30 @@ console.log(s[2]);  //=> 'C'
 
 文字列の長さだけ for ループを回せば、文字列内の文字を１文字ずつ処理することができます。
 
-~~~javascript
-var s = 'ABCDE';
-for (var i = 0; i < s.length; ++i) {
-  console.log((i + 1) + '文字目: ' + s.charAt(i));
+```javascript
+const s = 'ABCDE';
+for (let i = 0; i < s.length; ++i) {
+  console.log(`${i + 1}文字目: ${s.charAt(i)}`);
 }
-~~~
+```
 
-#### 実行結果
-
-~~~
+{{< code title="実行結果" >}}
 1文字目: A
 2文字目: B
 3文字目: C
 4文字目: D
 5文字目: E
-~~~
+{{< /code >}}
 
 `split` メソッドで１文字ずつの配列に分割してしまってから、その配列をループ処理するという方法もありますね。
 
-~~~javascript
-var s = 'ABCDE';
-var arr = s.split('');
-for (var i = 0; i < arr.length; ++i) {
-  console.log((i + 1) + '文字目: ' + arr[i]);
+```javascript
+const s = 'ABCDE';
+const arr = s.split('');
+for (let i = 0; i < arr.length; ++i) {
+  console.log(`${i + 1}文字目: ${arr[i]}`);
 }
-~~~
+```
 
 
 文字列内の１文字だけ変更することはできない
@@ -61,5 +62,3 @@ JavaScript の文字列は不変 (immutable) なので、以下のように文�
 ```javascript
 s[2] = 'X';  // NG
 ```
-
-
