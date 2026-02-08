@@ -1,93 +1,1307 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 天才まくまくノート</title><link>https://maku77.github.io/docker/</link><description>Recent content in Docker on 天才まくまくノート</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>サーバー再起動時に Docker コンテナを自動起動する</title><link>https://maku77.github.io/p/rh8qm2n/</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rh8qm2n/</guid><description>VPS などのサーバーを再起動したときに Docker コンテナを自動起動するには、docker container run コマンドでコンテナを起動するときに、--restart フラグを付けて 再起動ポリシー を設定します。
-$ docker run -d --restart always redis Docker Compose ファイルを使う場合は次のように記述します。
-docker-compose.yml version: &amp;#39;3.8&amp;#39; services: redis: image: redis container_name: redis restart: always 起動方法 $ docker compose up -d 正確には VPS サーバーの再起動時というより、Docker デーモンの再起動時に、コンテナの再起動ポリシーによりコンテナが再起動されるという流れになります。 VPS サーバーが起動したときに Docker デーモンを自動起動するようにする設定は、systemd などのプロセスマネージャーで別途設定しておく必要があります。
-☝️ ワンポイント VPS サーバー再起動時の Docker コンテナー自動起動の流れ:
-プロセスマネージャー (systemd) により Docker デーモンが起動する Docker の再起動ポリシーによりコンテナが起動する</description></item><item><title>WSL2 内の Docker サーバーに LAN 内の別 PC からアクセスする (netsh)</title><link>https://maku77.github.io/p/w6cjckc/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w6cjckc/</guid><description>別 PC から WSL2 内のサーバーへのアクセス Windows の WSL2 環境で Docker コンテナを動かしているとき、そこで起動した Web サーバーなどへは、LAN 内の別 PC からはデフォルトではアクセスできません。
-LAN 内の別 PC ---&amp;gt; Windows ---&amp;gt; WSL2 (Docker) このようなアクセスを許可するには、Windows のコマンドプロンプトを管理者として実行し、次のように netsh interface portproxy コマンドでポートフォワード設定をしてやる必要があります。 netsh ユーティリティ（ネットワークサービスシェル）は、Windows 上の様々なネットワーク構成を設定／参照するためのコマンドです。
-Windows のポートフォワード設定を追加する C:\&amp;gt; netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=80 connectaddress=172.28.72.28 connectport=80 上記の例では、外部からの Windows の 80 番ポートへのアクセス (0.0.0.0:80) を、WSL2 の 80 番ポート（この例では 172.28.72.28:80）へ転送するように設定しています。
-現在のポートフォワード設定 (portproxy) は次のように確認できます。
-Windows のポートフォワード設定を確認する C:\&amp;gt; netsh interface portproxy show all ipv4 をリッスンする: ipv4 に接続する: Address Port Address Port --------------- ---------- --------------- ---------- 0.</description></item><item><title>Docker Compose でリバースプロキシを立てて別の Docker Compose 内のコンテナに接続する</title><link>https://maku77.github.io/p/5f2j2hz/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5f2j2hz/</guid><description>何をするか？ 複数の Web アプリを 1 つの VPS（レンタルサーバー）でホスティングする場合、一般的にはリバースプロキシ（nginx など）を立てて、各 Web アプリのバックエンドに繋ぐことになります。 例えば、nginx のバーチャルホスト機能を使って、app1.example.com というアドレスと app2.example.com というアドレスでアクセスされたときに、それぞれ別の Web アプリサーバー（バックエンド）に処理を振り分けます。 ここでは、リバースプロキシと 2 つの Web アプリを別々の Docker Compose で立ち上げて連携する方法を説明します。
-図: リバースプロキシによる Docker Compose 連携 1 セットの Web アプリであれば、1 つの Docker Compose 内に関連するコンテナをすべて含めてしまうのが楽ですが、ここでは、独立した 2 つの Web アプリを 1 つの物理サーバー (VPS) 上で運用することを考えているので、別々の Docker Compose に分けています。 もちろん、各アプリが使用する DB コンテナなどは、それぞれの Docker Compose 内にある想定ですが、上記の図では省略しています。
-ここで紹介しているソースコードは GitHub に置いてあります。
-テスト用の事前準備（hosts ファイル） 今回使用する nginx の設定ファイルでは、app1.example.com と app2.example.com という仮のドメインを使用していますが、本来は実在するドメインでなければいけません。 この設定のままテストしたい場合は、OS の hosts ファイルに次のようなエントリを追加して、ローカルホスト (127.</description></item><item><title>Docker コンテキストを切り替えてリモートホスト上で Docker コマンドを実行する</title><link>https://maku77.github.io/p/qatbs9p/</link><pubDate>Sat, 26 Nov 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qatbs9p/</guid><description>Docker コンテキストとは？ Docker コンテキストは、ひとことで言うと、Docker CLI で入力したコマンド (docker) の操作対象ホストを切り替えるための仕組みです。
-図: Docker コンテキストの切り替え 例えば、Conoha などの VPS サーバー や、Azure (ACI)、AWS (ECS) といったクラウドサービス上の Docker エンジンに対して、ローカルホストから docker コマンドを実行できるようになります。 カレントコンテキストは、docker compose use コマンドで簡単に切り替えることができるので、ローカルでのコンテナのテストが終わったら、コンテキストを Azure (ACI) に切り替えてクラウド環境上で docker compose up するといったことが簡単にできます。
-当然、接続先のコンテナサービスごとに接続プロトコルは異なるのですが、Docker は標準で Azure や AWS をターゲットとしたコンテキストの作成に対応しており、実際に docker コマンドを実行するときは接続プロトコルを意識しないで済むようになっています。 ここでは、より汎用的な SSH 接続を用いるコンテキストを作成し、リモートホスト上の Docker エンジンに対して Docker コマンドを実行してみます。
-前提条件:
-リモートホストに Docker がインストールされていること リモートホストに SSH キーで SSH 接続できるようなっていること（参考: SSH の使い方） 接続先のユーザーが sudo なしで docker コマンドを実行できるようなっていること（参考: docker グループへの追加） デフォルト・コンテキスト Docker Desktop をインストールすると、デフォルトのコンテキストとして、default という名前のコンテキストが作成されます。 Docker コンテキストの一覧を表示するには、docker context ls コマンドを使用します。</description></item><item><title>Docker Compose で環境変数を使用する (env_file, environment)</title><link>https://maku77.github.io/p/8r3cmu5/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8r3cmu5/</guid><description>環境変数を参照する Docker Compose の Compose ファイル (docker-compose.yml) 内では、次のように OS（シェル）の環境変数の値を参照することができます。
-例: 環境変数 TAG の値を参照する services: web: image: &amp;#34;webapp:${TAG}&amp;#34; この仕組みを利用すると環境に依存する値をハードコードしなくて済むようになるため、汎用的な docker-compose.yml を記述できるようになります。 上記の例では、${TAG} のように記述していますが、多くのケースでは $TAG のようにカッコを省略することができます。 ドル記号 ($) そのものを扱いたい場合は、$$ のように記述する必要があります。
-.env ファイル .env ファイルは自動で読み込まれる docker compose up コマンドは、プロジェクトディレクトリに置いてある環境ファイル .env を読み込んでくれます。 .env ファイルには、次のように複数の環境変数を定義しておくことができます。
-.env の記述例 # この行はコメント MYAPP_PORT=3000 DB_PASSWORD=mypassword 別の .env ファイルを参照する docker compose コマンドの --env-file オプションを指定すると、参照する .env ファイルを切り替えることができます。
-例: .env ではなく .env.prod を参照する $ docker compose --env-file .env.prod up 優先順位 シェル環境で同じ名前の環境変数がセットされている場合（例: export MYAPP_PORT=4000）は、そちらが優先して使われます。 つまり、.</description></item><item><title>Docker Compose の基本</title><link>https://maku77.github.io/p/qm5k2hx/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qm5k2hx/</guid><description>Docker Compose とは？ Docker Compose (docker compose) を使うと、複数の Docker コンテナをまとめてコントロールすることができます。 各コンテナの起動時に必要となるパラメーターや連携方法を docker-compose.yml という YAML ファイルにまとめて記述できるため、すべてのコンテナの起動を docker compose up というシンプルなコマンドで行うことができます。
-Docker Compose は複数のコンテナをコントロールすることを想定していますが、単一のコンテナを起動するときにも便利 です。 例えば、Dockerfile を使ったイメージビルド、ポート番号のマッピング、ネットワークの定義などを docker-compose.yml で定義しておいて、docker compose up コマンド一発で実行できます。
-docker-compose.yml の中では環境変数の値を参照できる（例: ${APP_PORT}）ため、環境ごとに異なる値をハードコードしなくて済みます。 また、docker compose up コマンドは、環境変数を定義した .env ファイルを自動的に読み込んでくれます。
-単一のコンテナを起動してみる Docker Compose で簡単な nginx サーバーを立ち上げてみます。 Docker Compose は、デフォルトで カレントディレクトリ名をプロジェクト名として使用します（-p オプションで任意のプロジェクト名を付けることもできます）。 ここでは、myproject というディレクトリを作って、その中に Compose ファイル (docker-compose.yml) を配置することにします。
-$ mkdir myproject $ cd myproject 次のようなシンプルな Compose ファイルを作成します。
-docker-compose.yml services: web: image: nginx ports: - &amp;#34;80:80&amp;#34; 各サービス（コンテナ）の定義は、services プロパティの下に記述していきます。 この例では、web という名前のサービスを 1 つだけ定義しており、その下の image プロパティで nginx のイメージを使うよう指示しています。 さらに、ports プロパティで、ホストの 80 番ポートへのアクセスをコンテナの 80 番ポートへ転送しています。 この定義で生成されるコンテナの名前は web ではなく、プロジェクト名や連番が付加された myproject-web-1 という名前になります。</description></item><item><title>Docker Compose をデタッチモードで起動する (docker compose up -d)</title><link>https://maku77.github.io/p/94m3izf/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/94m3izf/</guid><description>docker compose up コマンドを実行すると、現在のターミナル（端末）に入出力がアタッチされて Docker Compose のログが出力されるようになるため、その端末では別の入力作業ができなくなってしまいます（Ctrl-D で停止できます）。
-$ docker compose up [+] Running 2/0 ⠿ Network myproject_default Created ⠿ Container myproject-web-1 Created Attaching to myproject-web-1 ...（省略）... myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker processes myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker process 31 myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker process 32 ...（省略）... docker compose up コマンドを実行するときに、-d (--detach) オプションを指定すると、Docker Compose がデタッチモードで起動（バックグラウンド実行）されるため、その端末を引き続き使用できるようになります。
-$ docker compose up -d [+] Running 1/1 ⠿ Container myproject-web-1 Started $ （次のコマンドを入力可能） 表示されなくなったログは、docker compose logs コマンドで確認できます。</description></item><item><title>Docker Hub のイメージを検索する (docker search)</title><link>https://maku77.github.io/p/4ohyhxe/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4ohyhxe/</guid><description>docker search コマンドを使って、Docker Hub（レジストリ）で公開されているイメージを検索することができます。 次の例では、ubuntu というキーワードでイメージを検索しています。 Docker Hub 上で付けられたスターの数や、公式イメージかどうかもチェックできます。
-$ docker search ubuntu NAME DESCRIPTION STARS OFFICIAL AUTOMATED ubuntu Ubuntu is a Debian-based Linux operating sys… 14524 [OK] websphere-liberty WebSphere Liberty multi-architecture images … 286 [OK] ubuntu-upstart DEPRECATED, as is Upstart (find other proces… 112 [OK] neurodebian NeuroDebian provides neuroscience research s… 91 [OK] open-liberty Open Liberty multi-architecture images based… 53 [OK] ubuntu/nginx Nginx, a high-performance reverse proxy &amp;amp; we… 52 ubuntu-debootstrap DEPRECATED; use &amp;#34;ubuntu&amp;#34; instead 46 [OK] ubuntu/apache2 Apache, a secure &amp;amp; extensible open-source HT… 36 ubuntu/mysql MySQL open source fast, stable, multi-thread… 34 kasmweb/ubuntu-bionic-desktop Ubuntu productivity desktop for Kasm Workspa… 29 ubuntu/prometheus Prometheus is a systems and service monitori… 27 ubuntu/squid Squid is a caching proxy for the Web.</description></item><item><title>Docker コンテナからホスト側のサーバーにアクセスする (host.docker.internal)</title><link>https://maku77.github.io/p/najs2ah/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/najs2ah/</guid><description>コンテナからホスト側のサーバーにアクセスする Docker コンテナの中から、ホスト側で動作しているサービス（Web サーバーなど）にアクセスするには、IP アドレスの代わりに特殊な DNS 名 host.docker.internal を使用します（localhost だとコンテナ自身を参照してしまうのでうまくいきません）。
-コンテナからホスト上のサービスにアクセスする $ curl http://host.docker.internal:8000/ 接続テスト テストとして、ホスト上で Web サーバーを起動してコンテナからアクセスしてみます。 まず、何でもいいのでホスト側で Web サーバーを起動します。
-Docker で nginx サーバーを起動する方法 $ docker container run --rm -p 8000:80 --name webserver nginx:alpine Python のワンライナーで Web サーバーを起動する方法 $ python -m http.server 8000 Serving HTTP on :: port 8000 (http://[::]:8000/) ... 参考: Python で簡易的な HTTP サーバを立てる (http.server, SimpleHTTPServer) 次に、コンテナ側からこの Web サーバーに curl でアクセスできるか確認します。 ここでは、軽量のコンテナとして Alpine Linux を使っています。
-コンテナからホスト側の Web サーバーにアクセス $ docker container run --rm -it alpine ash / # apk add curl / # curl http://host.</description></item><item><title>Docker のネットワークについて理解する (none, host, bridge)</title><link>https://maku77.github.io/p/7fjnqtw/</link><pubDate>Wed, 15 Jun 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7fjnqtw/</guid><description>Docker の 3 つのネットワーク Docker をインストールすると、デフォルトで none、host、bridge という 3 つのネットワークが生成されます。 docker network ls コマンドの出力の NAME カラムを見ると、これら 3 つの名前があることを確認できます。
-$ docker network ls NETWORK ID NAME DRIVER SCOPE 1d32c46c83f6 bridge bridge local a97adbf7b226 host host local 7543afe52cd6 none null local none Docker コンテナにネットワークインタフェースを持たせたくない場合に指定します。 つまり、外部との通信が一切できないコンテナになります。 host ホスト側のネットワークインタフェースを共有するときに指定します。 つまり、ホストと同じ IP アドレスがコンテナに割り当てられます。 bridge 一番よく使用されるネットワークで、bridge という名前の仮想ブリッジに接続されたネットワーク環境であることを示します。 docker container create (run) でコンテナを作成するときにネットワーク (--net) を指定しないと、デフォルトでこの bridge が使われます。 Linux のブリッジ機能を利用しており、このネットワークに参加したコンテナからは、インターネットにアクセスすることができます。 同じ bridge に接続するコンテナは、同じ仮想ブリッジで接続された状態（同じネットワークに所属する状態）になるため、相互に通信ができます（ping など）。 Docker コンテナを作成する際には、どのネットワークを使うかを --net オプションで指定します。 指定しない場合はデフォルトで bridge が使われます。</description></item><item><title>Docker のコンテナイメージを削除する (docker image rm/prune)</title><link>https://maku77.github.io/p/8fjnqtw/</link><pubDate>Sun, 12 Jun 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8fjnqtw/</guid><description>docker image rm （指定したコンテナイメージを削除する） 使い方 docker image pull や docker container run 経由でダウンロードした Docker イメージを削除するには、docker image rm コマンド（旧: docker rmi）を使用します。
-$ docker image rm ＜イメージ＞ 削除するイメージは、イメージ名:タグ名 や イメージID の形で指定します。
-$ docker image rm ubuntu:20.04 $ docker image rm 54c9d81cbb44 ダウンロード済みのイメージの一覧は docker image ls コマンド（旧: docker images）で確認できます。
-$ docker image ls REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu 20.04 54c9d81cbb44 2 weeks ago 72.8MB ヘルプ $ docker help image rm Usage: docker image rm [OPTIONS] IMAGE [IMAGE.</description></item><item><title>Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する</title><link>https://maku77.github.io/p/z3n4hye/</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/z3n4hye/</guid><description>マルチステージビルドとは？ ある GitHub のリポジトリに、Dockerfile と src/hello.go（Go 言語のコード）が入っているとします。
-myapp/ +-- Dockerfile （アプリのビルド＆実行コンテナイメージの生成用） +-- src/hello.go （Hello World アプリのソースコード） この Dockerfile で作成したいのは、Go ソースコードをビルドしてできた hello アプリを実行するための Docker イメージです。 つまり、この Dockerfile ファイルには、次のようなイメージ生成手順を記述することになります。
-src/hello.go をビルドして、実行ファイル hello を生成する。 hello を実行するための Docker コンテナイメージを生成する。 ここで 1 つ疑問が出てきます。 最終的な Docker イメージでは hello アプリの実行環境さえ整っていればよいはずですが、上記の手順通りに Docker イメージを構築すると、Go 言語のビルド環境まで含まれてしまいそうです。 hello アプリを実行するための軽量なイメージを作るにはどうしたらよいでしょうか？ このようなケースで便利なのが、Docker の マルチステージビルド です。
-なお、アプリのソースコード (src/hello.go) には何を使ってもよいのですが、ここでは次のような簡単な Hello World コードを使うことにします。
-src/hello.go package main import &amp;#34;fmt&amp;#34; func main() { fmt.Printf(&amp;#34;Hello World\n&amp;#34;) } シングルステージビルドの場合 マルチステージビルドの効果を実感するために、まずはシングルステージによるビルド（従来のビルド方法）で Docker コンテナをビルドしてみます。</description></item><item><title>Docker コンテナとホスト PC の間でファイルをコピーする (docker container cp)</title><link>https://maku77.github.io/p/cqar8o5/</link><pubDate>Mon, 21 Feb 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cqar8o5/</guid><description>docker container cp コマンドを使用すると、Docker コンテナ内の任意のファイルやディレクトリを、ホスト PC にコピーすることができます。
-例えば、以下のようにすると、mycon コンテナ内の /work/hello というファイルを、ホスト側のカレントディレクトリにコピーすることができます。
-$ docker container cp mycon:/work/hello ./ ディレクトリごと丸ごとコピーすることもできます。
-$ docker container cp mycon:/work/imgs ./imgs 逆に、ホスト側のファイルを Docker コンテナにコピーすることもできます。
-$ docker container cp hoge.txt mycon:/work/tempdir</description></item><item><title>Docker のマウント機能でファイルを永続化する（ボリュームマウント、バインドマウント、tmpfs マウント）</title><link>https://maku77.github.io/p/hxhzgxf/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hxhzgxf/</guid><description>Docker の 3 種類のマウント Docker コンテナ内で作成・編集した作業ファイルは、コンテナを停止 (docker container stop) しても消えてしまうことはありませんが、コンテナを削除 (docker container rm) した場合には消えてしまいます。 これは、コンテナ内のファイル群が、コンテナ内に閉じて存在しているからです（だからこそコンテナなのですが）。
-Docker のマウント機能を用いると、コンテナ内の特定のディレクトリパス（の中のファイル群）をホスト PC 上のファイルシステムに関連付けることができるため、コンテナのライフサイクルとは切り離して作業ファイルを管理できるようになります。 マウントには下記で説明する 3 種類がありますが、作業ファイルをホスト PC 側に永続化したい場合は、「ボリュームマウント」か「バインドマウント」というマウントタイプを使用します。 もうひとつの「tmpfs マウント」は、その名のとおりテンポラリファイルにのみ使用できます。
-図: Docker の 3 種類のマウント（公式サイトより） ボリュームマウント ホスト PC 上にコンテナ用のデータファイルを作成 し、コンテナ内の特定のディレクトリパスにマッピングします。 このデータファイルはポータビリティが高く、クラウド上に保存するということもできます（ボリュームドライバーが必要）。 複数のコンテナから 1 つのボリュームを共有することも可能です。 コンテナ内で作成したファイルの永続化には、このボリュームの使用が推奨されています。 バインドマウント ホスト PC の特定のディレクトリ（絶対パス指定） を、コンテナ内の特定のディレクトリパスにマッピングします。 ボリュームと比べてポータビリティが低いため、名前付きボリュームの使用が推奨されてます。例えば、バインドマウントでは、ホスト側の多数のファイルとマッピングされてしまうため別環境に移しにくいとか、マウント時のパス表現が OS に依存してしまうといった欠点があります。 ホスト側からコンテナで操作したファイルをささっと覗いて見たいときはバインドマウントは便利ですが、これはコンテナ内で作成した危険なファイルが、そのままホスト上にも作られてしまうということを示しています。 tmpfs マウント ホスト PC のメモリ領域 を、コンテナ内の特定のディレクトリパスにマッピングします。コンテナ上でファイル生成を行うと、実際には一時的なメモリ領域に保存されることになるので、ここに保存されたファイルはコンテナを停止すると消えてしまいます。一時的なファイルを格納するディレクトリを tmpfs マウントすることで、コンテナサイズの増加を防ぐことができ（書き込みレイヤーに出力されない）、パフォーマンスの向上を見込めます。 上記で、「ホスト PC」といっているのは Docker コンテナの実行環境のことであり、Windows や macOS で Docker Desktop を使用している場合は、正確には Linux VM のことを示します。</description></item><item><title>Android ビルド環境を構築するための Dockerfile</title><link>https://maku77.github.io/p/ao8p7n4/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ao8p7n4/</guid><description>下記の Dockerfile を使うと、Ubuntu 14.04 あるいは、Ubuntu 12.04 をベースにした Android ビルド用の Docker イメージを作成することができます。
-Dockerfile (Ubuntu 14.04) FROM ubuntu:14.04 # Set the proxies if needed. # ENV http_proxy http://proxy.example.com:10080/ # ENV https_proxy http://proxy.example.com:10080/ # Suppress errors on interactive installer ENV DEBIAN_FRONTEND noninteractive # To install i386 packages such as zlib1g-dev:i386 RUN dpkg --add-architecture i386 # The following is based on http://source.android.com/source/initializing.html # For installing openjdk-7-jdk, --no-install-recommends option has to be added # not to struggle with &amp;#39;colord&amp;#39; and &amp;#39;sgml-base&amp;#39; errors.</description></item><item><title>Docker チートシート／Docker コマンドの一覧</title><link>https://maku77.github.io/p/p4o6m3i/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/p4o6m3i/</guid><description>Registry / Repository / Image / Tag の概念 図: Docker のコンテナレジストリ／リポジトリ／イメージ／タグの関係 DockerHub などのレジストリ上では、複数のリポジトリが管理されている。 Top-level リポジトリでは、ubuntu や devian といった有名どころなものが管理されている。 Top-level リポジトリ以外に、ユーザリポジトリがあり、こちらは &amp;lt;user&amp;gt;/ というプレフィックスが付く。 各リポジトリ内には複数のイメージがあり、イメージ ID やタグで指定できる。 1 つのイメージに対しては唯一の ID が付けられるが、タグは複数付けられていることがある。 docker image（イメージ関連のコマンド） コマンド 旧コマンド 説明 docker image build docker build Dockerfile からイメージをビルドする
-Build an image from a Dockerfile docker image history docker history イメージのレイヤ構造を表示する
-Show the history of an image docker image import docker import tar ファイルからファイルシステムイメージを作成する
-Import the contents from a tarball to create a filesystem image docker image inspect docker inspect イメージの詳細を表示する</description></item><item><title>Docker で apt-get install するときに TERM 系のエラーが出る</title><link>https://maku77.github.io/p/3i2iygw/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3i2iygw/</guid><description>docker image build などで apt-get install を実行中に、下記のようなエラーが出ることがあります。
-debconf: unable to initialize frontend: Dialog debconf: (TERM is not set, so the dialog frontend is not usable.) debconf: falling back to frontend: Readline debconf: unable to initialize frontend: Readline このような場合、Dockerfile で下記のように環境変数を設定してから apt-get するとエラーが出なくなります。
-ENV DEBIAN_FRONTEND noninteractive あるいは、apt-get 実行時に下記のようにプレフィックスで設定することもできます。
-DEBIAN_FRONTEND=noninteractive apt-get install -y ... DEBIAN_FRONTEND というのは、Debian Installer が使うフロントエンド (UI) を指定するもので、noninteractive にすることで、ユーザの入力を受け付けないインストールが可能になります。
-参考: http://www.debian.org/releases/sarge/s390/ch05s02.html.ja</description></item><item><title>Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき</title><link>https://maku77.github.io/p/6g3j2iz/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6g3j2iz/</guid><description>ubuntu:14.04 などのベースイメージに対して、zlib1g-dev:i386 などの i386 系のパッケージをインストールしようとしたときに下記のようなエラーがでることがあります。
-E: Unable to locate package zlib1g-dev これを防ぐには、Dockerfile で下記のように実行するようにしておきます。
-RUN dpkg --add-architecture i386</description></item><item><title>リポジトリ名のついていない Docker イメージをすべて削除する</title><link>https://maku77.github.io/p/oziyhxf/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oziyhxf/</guid><description>普通に Docker コンテナ上で編集作業などを行っていると、Docker イメージのキャッシュがどんどん増えていってしまいます。
-$ docker image ls REPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZE &amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 8a15692b92ea About an hour ago 1.077 GB &amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 0bcfd9025fab About an hour ago 1.077 GB &amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 4a0a98efbd7e About an hour ago 802.8 MB ... docker image ls コマンドの出力で、REPOSITORY 名が &amp;lt;none&amp;gt; になっているイメージをすべて削除するには、例えば以下のようにします。
-$ sudo docker rmi $(docker images | awk &amp;#39;/^&amp;lt;none&amp;gt;/ {print $3}&amp;#39;) 参考: Docker のコンテナイメージを削除する (docker image rm/prune)</description></item><item><title>Docker でイメージを取得してコンテナを起動する (docker image pull, docker container run)</title><link>https://maku77.github.io/p/y2biqx6/</link><pubDate>Sun, 15 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y2biqx6/</guid><description>コンテナイメージをダウンロードする (docker image pull) Docker でコンテナを作成するためには、ベースとなるイメージが必要です。 多くのイメージが Docker Hub に用意されているので、通常はここからベースとなるイメージを取得します。 ここでは、Ubuntu 20.04 のイメージをダウンロードしてみます。 docker image pull（旧: docker pull）コマンドに、ダウンロードしたいイメージ名 ubuntu と、バージョンを表すタグ 20.04 を指定してダウンロードします。 省略するとデフォルトタグとして、最新バージョンを表す lastest が使用されます。
-イメージを取得する $ docker image pull ubuntu:20.04 20.04: Pulling from library/ubuntu Digest: sha256:669e010b58baf5beb2836b253c1fd5768333f0d1dbcb834f7c07a4dc93f474be Status: Downloaded newer image for ubuntu:20.04 docker.io/library/ubuntu:20.04 ダウンロード済みのイメージの一覧は docker image ls コマンド（旧: docker images）で確認できます。
-イメージの一覧を表示する $ docker image ls REPOSITORY TAG IMAGE ID CREATED SIZE ubuntu 20.04 54c9d81cbb44 2 weeks ago 72.8MB Docker イメージを削除したくなったときは、次のように docker image rm コマンド（旧: docker rmi ）で削除できます。</description></item><item><title>Docker イメージを Docker Hub に登録する (docker image push)</title><link>https://maku77.github.io/p/rwco2dp/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rwco2dp/</guid><description>作成した Docker イメージを Docker Hub リポジトリに登録すると、世界中のユーザがそのイメージを使えるようになります（プライベートにすることもできます）。 まずは、下記のサイトで、Docker Hub リポジトリのアカウントを作成しておく必要があります。
-https://hub.docker.com アップロード予定の Docker イメージは、下記のように作成済みであるとします。
-ローカルのイメージの一覧を確認 $ docker image ls REPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZE maku77/sample v1 8a6608d7d353 7 minutes ago 188.3 MB Docker イメージのアップロードには、docker image push コマンドを使用します。
-レジストリにイメージをデプロイ $ docker image push maku77/sample:v1 ... （Docker Hub のログインパスワードなどを入力） ... Pushing tag for rev [8a6608d7d353] on {https://cdn-registry-1.docker.io/v1/repositories/maku77/sample/tags/v1} Docker Hub で公開されているイメージは、docker search コマンドで検索することができるので、たった今登録したイメージを検索してみます。
-レジストリ上のイメージを検索 $ docker search maku77 NAME DESCRIPTION STARS OFFICIAL AUTOMATED maku77/sample 0 これで、任意の Docker ホストからこのイメージをダウンロードして使えるようになりました。</description></item><item><title>Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)</title><link>https://maku77.github.io/p/y8cfimp/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y8cfimp/</guid><description>何をするか？ ここでは、Ubuntu の Docker イメージを使ってコンテナを起動し、その上で実行した bash シェルに接続して自由にコマンドを実行できるようにします。 docker container run、start、attach、exec など似たようなコマンドがたくさんありますが、用途はそれぞれ違うのでここでひととおり理解しておきましょう。
-コマンド 意味 docker container run 「イメージの取得」「コンテナの作成」「コンテナの起動」を連続して行う docker container start 作成済みのコンテナを「起動」する docker container attach 動作しているコンテナに「接続」する docker container exec 動作しているコンテナで「プロセスを起動」する docker container run はコンテナの「作成」と「起動」 docker container run（旧: docker run）は、もっとも頻繁に紹介されているコマンドですが、内部で複数のことを行うので 一番分かりにくいコマンド かもしれません。 docker container run は次のようなことを一度に実行します。
-指定したイメージがなければダウンロード (docker image pull) Docker コンテナを作成する (docker container create) Docker コンテナを起動する (docker container start) 例えば、次のコマンドを実行すると、Docker イメージ (ubuntu:20.04) のダウンロード、Docker コンテナ (mycon) の作成、そのコンテナの起動までを一気に実行します。
-$ docker container run --name mycon -it ubuntu:20.</description></item><item><title>Docker コンテナ側の公開ポートがホスト側のどのポートにマッピングされているか調べる (docker container port)</title><link>https://maku77.github.io/p/ow258be/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ow258be/</guid><description>docker container port コマンドの使い方 docker container port（あるいは docker port）コマンドを使用すると、Docker コンテナの中で公開されているポート番号 (private port) が、ホスト側のどのポート番号にマッピングされているかを調べることができます。
-$ docker container port &amp;lt;コンテナ名&amp;gt; [コンテナ側ポート番号] 例えば、my-nginx コンテナの中で Web サーバーが動作しているとして、それがホスト側から見てどのポート番号にマッピングされているかを調べるには以下のようにします。
-$ docker container port my-nginx 80/tcp -&amp;gt; 0.0.0.0:8000 80/tcp -&amp;gt; :::8000 この例では、コンテナ側の 80 番ポートが、ホスト側の 8000 番ポートにマッピングされていることがわかります。 つまり、コンテナの Web サーバーには、http://localhost:8000 といったアドレスでアクセスできます。
-特定の（コンテナ側の）ポート番号に関してだけ調べることもできます。 次の例では、コンテナ側の 80 番ポートに対して、ホスト側のどのポートがマッピングされているかを調べています。
-$ docker container port my-nginx 80 0.0.0.0:8000 :::8000 （おまけ）nginx サーバーを立ち上げて実際に試してみる Alpine Linux をベースにした nginx サーバーのイメージ (nginx:alpine) はとても軽量（20MB くらい）なので、これを利用して、上記の docker container port コマンドを試してみます。
-コンテナで nginx サーバーを起動するには次のように実行します。 ここでは、コンテナ名を my-nginx とし、ホスト側の 8000 番ポートとコンテナ側の 80 番ポートを結びつけています。</description></item><item><title>Docker のコンテナイメージを作成する (docker image build, docker container commit)</title><link>https://maku77.github.io/p/5j4k3iy/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5j4k3iy/</guid><description>2 つのイメージ作成方法 Docker イメージの作成方法には、大きく下記の 2 つの方法があります。
-Dockerfile にイメージの作成手順を記載しておき、docker image build で作成 OS イメージをインタラクティブモードで起動し、各種設定を行った後に docker container commit で作成 再現性、ポータビリティといった観点から、Dockerfile を扱うアプローチが推奨されています。
-docker image build アプローチ Dockerfile という、Docker イメージ作成のための手順書を作成しておくと、docker image build（あるいは docker build）コマンドを使って自動的にイメージを作成することができます。 下記は、Debian のイメージをベースにして、Python 3 をインストールしたイメージを作成する場合の Dockerfile の例です。
-Dockerfile # Debian (Wheezy) のイメージをベースにする FROM debian:wheezy # コンテナ構築のためのコマンド実行 RUN apt-get -qq update &amp;amp;&amp;amp; apt-get -y install python3 この Dockerfile を元に Docker イメージを作成するには、下記のように docker image build を実行します。
-コンテナイメージのビルド $ docker image build -t &amp;lt;イメージ名&amp;gt; &amp;lt;Dockerfileのあるディレクトリ&amp;gt; -t の後ろに指定するイメージ名は &amp;lt;user&amp;gt;/&amp;lt;repo&amp;gt;:&amp;lt;tag&amp;gt; という構成で指定します。 末尾のタグ名 (:&amp;lt;tag&amp;gt;) を省略すると、自動的に latest というタグが付けられます。 カレントディレクトリに Dockerfile ファイルがある場合は次のような感じでイメージをビルドします。</description></item><item><title>すべての Docker コンテナを停止／削除する (docker container stop/rm)</title><link>https://maku77.github.io/p/6ehmpsv/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6ehmpsv/</guid><description>全コンテナを停止する すべての Docker コンテナをまとめて停止するには次のようにします。 これは、docker container ps -a -q コマンドですべてのコンテナ ID を取得できることを利用しているため、Linux や macOS 上でしか実行できません（Windows のコマンドプロンプトでは実行できません）。
-すべての Docker コンテナを停止する $ docker container stop $(docker container ps -a -q) 全コンテナを削除する 同様に、次のようにすればすべての Docker コンテナを削除することができます。
-すべての Docker コンテナを削除する $ docker container rm $(docker container ps -a -q) 動作中のコンテナも含めてすべて削除したいときは、docker contaier rm に -f オプションを付けて実行する必要があります。 ただし、これはとても危険なので注意して実行してください。</description></item><item><title>Docker コンテナの詳細情報を表示する (docker container inspect)</title><link>https://maku77.github.io/p/47hs3ck/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/47hs3ck/</guid><description>docker container inspect（あるいは docker inspect）コマンドを使用すると、Docker コンテナの詳細情報を表示することができます。 その Docker コンテナがどのイメージをもとに作成されているのか、環境変数の設定はどうなっているのかなどを JSON 形式で出力してくれます。
-$ docker container inspect my-container [ { &amp;#34;Id&amp;#34;: &amp;#34;ac2dc4e539f1bc7c273beb71d03536e83393d7f673d7ba67994569c75173b2a2&amp;#34;, &amp;#34;Created&amp;#34;: &amp;#34;2022-02-25T05:28:16.4553051Z&amp;#34;, &amp;#34;Path&amp;#34;: &amp;#34;/bin/bash&amp;#34;, &amp;#34;Args&amp;#34;: [], &amp;#34;State&amp;#34;: { &amp;#34;Status&amp;#34;: &amp;#34;exited&amp;#34;, &amp;#34;Running&amp;#34;: false, &amp;#34;Paused&amp;#34;: false, &amp;#34;Restarting&amp;#34;: false, &amp;#34;OOMKilled&amp;#34;: false, &amp;#34;Dead&amp;#34;: false, &amp;#34;Pid&amp;#34;: 0, &amp;#34;ExitCode&amp;#34;: 0, &amp;#34;Error&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;StartedAt&amp;#34;: &amp;#34;2022-02-25T05:29:17.5120196Z&amp;#34;, &amp;#34;FinishedAt&amp;#34;: &amp;#34;2022-02-25T05:29:22.1845301Z&amp;#34; }, &amp;#34;Image&amp;#34;: &amp;#34;sha256:54c9d81cbb440897908abdcaa98674db83444636c300170cfd211e40a66f704f&amp;#34;, ... } ]</description></item><item><title>Docker コンテナをデーモンとして動作させる (docker container run -d, docker container logs)</title><link>https://maku77.github.io/p/dmpsvz3/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dmpsvz3/</guid><description>コンテナのバックグラウンド起動 (docker container run -d) Docker コンテナ内でプログラムが動作している状態をキープするには、何らかの終了しないプログラムを動かす必要があります（典型的には何らかのサーバープログラムです）。 ここでは、5 秒おきに HELLO と表示するプログラムを動かしてみます。 次のような簡単な bash プログラムです。
-/bin/bash -c &amp;#39;while true; do echo HELLO; sleep 5; done&amp;#39; 上記のようなプログラムを、docker run コマンドで単純に Docker コンテナ内で動かすと、起動元の端末（の標準出力）に HELLO と表示され続けてしまいます。 そうではなくて、Docker コンテナ内に閉じて出力するには、docker run コマンドに -d (--detach) オプションを付けて実行します。
-$ docker container run --rm -d --name mycon ubuntu:22.04 /bin/bash -c &amp;#39;while true; do echo HELLO; sleep 5; done&amp;#39; 57bf2e3edddf8dcc786ee42e9b2b5a1f50786d80bd45525afa21debcf108613b 引数の意味:
---rm … コンテナ停止時にコンテナを自動で削除します。 -d (--detach) … コンテナをバックグラウンドで動作させます。 --name mycon … コンテナに mycon という名前を付けます。 ubuntu:22.</description></item><item><title>Docker コンテナ内で動作しているプロセスの一覧を表示する (docker container top)</title><link>https://maku77.github.io/p/s3m4jyg/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/s3m4jyg/</guid><description>docker container top &amp;lt;コンテナ名&amp;gt; コマンドを実行すると、指定した Docker コンテナ内で現在動作しているプロセスを確認することができます（互換性維持のため、docker top コマンドも残されています）。
-$ docker container top my-container PID USER COMMAND 854 root python app.py 855 root sleep 1 末尾に ps コマンドのオプションを指定して、出力内容をカスタマイズできます。 次の例では、-o pid,command と指定することで、出力するフィールドを PID と COMMAND のみにしています。
-$ docker container top my-container -o pid,command PID COMMAND 2007 /usr/bin/qemu-x86_64 /usr/sbin/mysqld mysqld</description></item><item><title>Docker のプロキシ設定</title><link>https://maku77.github.io/p/w69cfim/</link><pubDate>Tue, 10 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w69cfim/</guid><description>Docker ホスト側のプロキシ設定 docker pull などで、Docker Hub リポジトリからイメージを取得するときにプロキシ接続が必要な場合は、Docker コンテナーではなく、Docker ホスト側のプロキシ設定を行う必要があります。 実際には、docker pull コマンドは、docker デーモンに対して命令を送っているだけなので、docker デーモンの方がプロキシ設定を認識する必要があります。 docker デーモンのプロキシ設定は、/etc/default/docker ファイルで行います。
-/etc/default/docker（あるいは docker.io） export http_proxy=&amp;#34;http://proxy.example.com:3128/&amp;#34; 設定変更後は、docker デーモンを再起動すれば OK です。
-$ sudo service docker.io restart これで、無事にプロキシ経由で docker pull できるようになります。
-Docker コンテナ内で使用するプロキシ設定 Docker コンテナの中で、apt-get や curl などを使ったインターネットアクセスを行う場合は、Docker コンテナ側でプロキシの設定を行う必要があります。 docker run で Docker コンテナを起動するときに、-e オプションで http_proxy 環境変数 を渡して起動することができます。
-$ sudo docker run -e http_proxy=http://proxy.example.com:8888/ -it debian:wheezy もちろん、Docker コンテナを起動したあとで、コンテナ上のシェルから環境変数を設定することもできます。
-$ sudo docker run -it debian:wheezy root@7cb147891556:/# export http_proxy=http://proxy.example.com:8888/ root@7cb147891556:/# Docker イメージとして、必ず特定のプロキシを使うことが決まっているのであれば、Docker イメージを作成する際の Dockerfile にプロキシ設定を埋め込んでしまうこともできます。 このプロキシ設定は、Docker イメージを構築する際の、RUN コマンド (apt-get) にも効いてきます。</description></item><item><title>一般ユーザから docker コマンドを実行できるようにする（docker グループへの登録）</title><link>https://maku77.github.io/p/an7o5m3/</link><pubDate>Tue, 10 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/an7o5m3/</guid><description>docker コマンドは、内部で socket を使って通信を行っており、一般ユーザからコマンドを実行すると、permission denied で怒られることがあります。
-$ docker version Client version: 1.0.1 Client API version: 1.12 Go version (client): go1.2.1 Git commit (client): 990021a 2015/03/10 22:50:19 Get http:///var/run/docker.sock/v1.12/version: dial unix //var/run/docker.sock: permission denied 上記の出力を見ると、var/run/docker.sock ファイルへのアクセス権限がないことが分かります。 このような場合は、次のいずれかの方法で docker コマンドを実行できるようになります。
-sudo を付けて実行する ユーザーを docker グループに追加する sudo を付けて実行する方法 sudo をつけてスーパーユーザー権限で docker コマンドを実行する方法です。
-$ sudo docker version Client version: 1.0.1 Client API version: 1.12 Go version (client): go1.2.1 Git commit (client): 990021a Server version: 1.</description></item><item><title>Docker をインストールする (Docker Desktop / Docker Engine)</title><link>https://maku77.github.io/p/96o6n4j/</link><pubDate>Mon, 09 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/96o6n4j/</guid><description>Docker 実行環境のインストール Docker の実行環境（docker コマンド）をインストールするには、下記の公式マニュアルの手順に従ってください。 基本的に、Windows や macOS では Docker Desktop、Linux では Docker Engine をインストールすることになります。
-https://docs.docker.com/get-docker/ 例: Windows の場合 (Docker Desktop) 例: macOS の場合 (Docker Desktop) 例: Ubuntu の場合 (Docker Engine) 例: Debian の場合 (Docker Engine) 例えば、Linux 環境では次のような感じで Docker Engine をインストールできます（詳細は上記の公式ページを参照してください）。
-# インストール $ curl -sSL get.docker.com -o install.sh $ sh install.sh # Docker サービスを systemd で自動起動する設定 $ systemctl enable docker # Docker サービスを直ちに起動 $ systemctl start docker インストール手順を実行後、docker コマンドが使えるようになっていれば準備 OK です。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 天才まくまくノート</title><link>https://maku77.github.io/docker/</link><description>Recent content in Docker on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>サーバー再起動時に Docker コンテナを自動起動する</title><link>https://maku77.github.io/p/rh8qm2n/</link><pubDate>Wed, 31 Jan 2024 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rh8qm2n/</guid><description>&lt;p>VPS などのサーバーを再起動したときに Docker コンテナを自動起動するには、&lt;code>docker container run&lt;/code> コマンドでコンテナを起動するときに、&lt;strong>&lt;code>--restart&lt;/code>&lt;/strong> フラグを付けて &lt;strong>再起動ポリシー&lt;/strong> を設定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker run -d --restart always redis
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Docker Compose ファイルを使う場合は次のように記述します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">docker-compose.yml&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;3.8&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">redis&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">redis&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">redis&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">起動方法&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>正確には VPS サーバーの再起動時というより、Docker デーモンの再起動時に、コンテナの再起動ポリシーによりコンテナが再起動されるという流れになります。
+VPS サーバーが起動したときに Docker デーモンを自動起動するようにする設定は、&lt;code>systemd&lt;/code> などのプロセスマネージャーで別途設定しておく必要があります。&lt;/p>
+&lt;div class="xNote">
+ &lt;span class="xNote_title">☝️ ワンポイント&lt;/span>
+ &lt;span class="xNote_body">&lt;p>VPS サーバー再起動時の Docker コンテナー自動起動の流れ:&lt;/p>
+&lt;ol>
+&lt;li>プロセスマネージャー (systemd) により Docker デーモンが起動する&lt;/li>
+&lt;li>Docker の再起動ポリシーによりコンテナが起動する&lt;/li>
+&lt;/ol>&lt;/span>
+&lt;/div></description></item><item><title>WSL2 内の Docker サーバーに LAN 内の別 PC からアクセスする (netsh)</title><link>https://maku77.github.io/p/w6cjckc/</link><pubDate>Wed, 01 Feb 2023 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w6cjckc/</guid><description>&lt;h2 id="別-pc-から-wsl2-内のサーバーへのアクセス">別 PC から WSL2 内のサーバーへのアクセス&lt;/h2>
+&lt;p>Windows の WSL2 環境で Docker コンテナを動かしているとき、そこで起動した Web サーバーなどへは、LAN 内の別 PC からはデフォルトではアクセスできません。&lt;/p>
+&lt;pre tabindex="0">&lt;code>LAN 内の別 PC ---&amp;gt; Windows ---&amp;gt; WSL2 (Docker)
+&lt;/code>&lt;/pre>&lt;p>このようなアクセスを許可するには、Windows のコマンドプロンプトを管理者として実行し、次のように &lt;strong>&lt;code>netsh interface portproxy&lt;/code>&lt;/strong> コマンドでポートフォワード設定をしてやる必要があります。
+&lt;code>netsh&lt;/code> ユーティリティ（ネットワークサービスシェル）は、Windows 上の様々なネットワーク構成を設定／参照するためのコマンドです。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Windows のポートフォワード設定を追加する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">C:\&amp;gt; netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=80 connectaddress=172.28.72.28 connectport=80&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記の例では、外部からの Windows の 80 番ポートへのアクセス (&lt;code>0.0.0.0:80&lt;/code>) を、WSL2 の 80 番ポート（この例では &lt;code>172.28.72.28:80&lt;/code>）へ転送するように設定しています。&lt;/p>
+&lt;p>現在のポートフォワード設定 (portproxy) は次のように確認できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Windows のポートフォワード設定を確認する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">C:\&amp;gt; netsh interface portproxy show all
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ipv4 をリッスンする: ipv4 に接続する:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Address Port Address Port
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------------- ---------- --------------- ----------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">0.0.0.0 80 172.28.72.28 80&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>必要のなくなったポートフォワード設定は、次のように削除できます（Windows を再起動することでも削除できます）。
+削除するときは、転送元のアドレスとポートを指定するだけで OK です。&lt;/p></description></item><item><title>Docker Compose でリバースプロキシを立てて別の Docker Compose 内のコンテナに接続する</title><link>https://maku77.github.io/p/5f2j2hz/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5f2j2hz/</guid><description>&lt;h2 id="何をするか">何をするか？&lt;/h2>
+&lt;p>複数の Web アプリを 1 つの VPS（レンタルサーバー）でホスティングする場合、一般的にはリバースプロキシ（nginx など）を立てて、各 Web アプリのバックエンドに繋ぐことになります。
+例えば、&lt;a href="https://maku.blog/p/q8tw6c4/">nginx のバーチャルホスト機能&lt;/a>を使って、&lt;code>app1.example.com&lt;/code> というアドレスと &lt;code>app2.example.com&lt;/code> というアドレスでアクセスされたときに、それぞれ別の Web アプリサーバー（バックエンド）に処理を振り分けます。
+ここでは、リバースプロキシと 2 つの Web アプリを別々の Docker Compose で立ち上げて連携する方法を説明します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1000" height="auto" src="../p/5f2j2hz/img-001.drawio.svg" alt="/p/5f2j2hz/img-001.drawio.svg" />
+ &lt;figcaption>図: リバースプロキシによる Docker Compose 連携&lt;/figcaption>
+&lt;/figure>
+
+&lt;p>1 セットの Web アプリであれば、1 つの Docker Compose 内に関連するコンテナをすべて含めてしまうのが楽ですが、ここでは、独立した 2 つの Web アプリを 1 つの物理サーバー (VPS) 上で運用することを考えているので、別々の Docker Compose に分けています。
+もちろん、各アプリが使用する DB コンテナなどは、それぞれの Docker Compose 内にある想定ですが、上記の図では省略しています。&lt;/p>
+&lt;p>ここで紹介しているソースコードは &lt;a href="https://github.com/maku77/p-5f2j2hz">GitHub&lt;/a> に置いてあります。&lt;/p>
+&lt;h2 id="テスト用の事前準備hosts-ファイル">テスト用の事前準備（hosts ファイル）&lt;/h2>
+&lt;p>今回使用する nginx の設定ファイルでは、&lt;code>app1.example.com&lt;/code> と &lt;code>app2.example.com&lt;/code> という仮のドメインを使用していますが、本来は実在するドメインでなければいけません。
+この設定のままテストしたい場合は、OS の &lt;strong>&lt;code>hosts&lt;/code>&lt;/strong> ファイルに次のようなエントリを追加して、ローカルホスト (127.0.0.1) を指すように設定しておきます。&lt;/p></description></item><item><title>Docker コンテキストを切り替えてリモートホスト上で Docker コマンドを実行する</title><link>https://maku77.github.io/p/qatbs9p/</link><pubDate>Sat, 26 Nov 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qatbs9p/</guid><description>&lt;h2 id="docker-コンテキストとは">Docker コンテキストとは？&lt;/h2>
+&lt;p>Docker コンテキストは、ひとことで言うと、Docker CLI で入力したコマンド (&lt;code>docker&lt;/code>) の操作対象ホストを切り替えるための仕組みです。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="700" height="auto" src="../p/qatbs9p/img-001.drawio.svg" alt="/p/qatbs9p/img-001.drawio.svg" />
+ &lt;figcaption>図: Docker コンテキストの切り替え&lt;/figcaption>
+&lt;/figure>
+
+&lt;p>例えば、&lt;a href="https://px.a8.net/svt/ejp?a8mat=3NCT8C+FN831U+50+4YR6O2" rel="nofollow">Conoha&lt;/a>
+&lt;img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=3NCT8C+FN831U+50+4YR6O2" alt="">
+ などの &lt;strong>VPS サーバー&lt;/strong> や、&lt;strong>Azure (ACI)&lt;/strong>、&lt;strong>AWS (ECS)&lt;/strong> といったクラウドサービス上の Docker エンジンに対して、ローカルホストから &lt;code>docker&lt;/code> コマンドを実行できるようになります。
+カレントコンテキストは、&lt;code>docker compose use&lt;/code> コマンドで簡単に切り替えることができるので、ローカルでのコンテナのテストが終わったら、コンテキストを Azure (ACI) に切り替えてクラウド環境上で &lt;code>docker compose up&lt;/code> するといったことが簡単にできます。&lt;/p>
+&lt;p>当然、接続先のコンテナサービスごとに接続プロトコルは異なるのですが、Docker は標準で Azure や AWS をターゲットとしたコンテキストの作成に対応しており、実際に &lt;code>docker&lt;/code> コマンドを実行するときは接続プロトコルを意識しないで済むようになっています。
+ここでは、より汎用的な SSH 接続を用いるコンテキストを作成し、リモートホスト上の Docker エンジンに対して Docker コマンドを実行してみます。&lt;/p>
+&lt;p>前提条件:&lt;/p>
+&lt;ul>
+&lt;li>リモートホストに Docker がインストールされていること&lt;/li>
+&lt;li>リモートホストに SSH キーで SSH 接続できるようなっていること（参考: &lt;a href="https://maku.blog/p/gwnatcs/">SSH の使い方&lt;/a>）&lt;/li>
+&lt;li>接続先のユーザーが &lt;code>sudo&lt;/code> なしで &lt;code>docker&lt;/code> コマンドを実行できるようなっていること（参考: &lt;a href="../p/an7o5m3/">docker グループへの追加&lt;/a>）&lt;/li>
+&lt;/ul>
+&lt;h2 id="デフォルトコンテキスト">デフォルト・コンテキスト&lt;/h2>
+&lt;p>Docker Desktop をインストールすると、デフォルトのコンテキストとして、&lt;strong>&lt;code>default&lt;/code>&lt;/strong> という名前のコンテキストが作成されます。
+Docker コンテキストの一覧を表示するには、&lt;strong>&lt;code>docker context ls&lt;/code>&lt;/strong> コマンドを使用します。&lt;/p></description></item><item><title>Docker Compose で環境変数を使用する (env_file, environment)</title><link>https://maku77.github.io/p/8r3cmu5/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8r3cmu5/</guid><description>&lt;h2 id="環境変数を参照する">環境変数を参照する&lt;/h2>
+&lt;p>Docker Compose の Compose ファイル (&lt;code>docker-compose.yml&lt;/code>) 内では、次のように OS（シェル）の環境変数の値を参照することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 環境変数 TAG の値を参照する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">web&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;webapp:${TAG}&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>この仕組みを利用すると環境に依存する値をハードコードしなくて済むようになるため、汎用的な &lt;code>docker-compose.yml&lt;/code> を記述できるようになります。
+上記の例では、&lt;code>${TAG}&lt;/code> のように記述していますが、多くのケースでは &lt;code>$TAG&lt;/code> のようにカッコを省略することができます。
+ドル記号 (&lt;code>$&lt;/code>) そのものを扱いたい場合は、&lt;code>$$&lt;/code> のように記述する必要があります。&lt;/p>
+&lt;h2 id="env-ファイル">.env ファイル&lt;/h2>
+&lt;h3 id="env-ファイルは自動で読み込まれる">.env ファイルは自動で読み込まれる&lt;/h3>
+&lt;p>&lt;code>docker compose up&lt;/code> コマンドは、プロジェクトディレクトリに置いてある環境ファイル &lt;strong>&lt;code>.env&lt;/code>&lt;/strong> を読み込んでくれます。
+&lt;code>.env&lt;/code> ファイルには、次のように複数の環境変数を定義しておくことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">.env の記述例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># この行はコメント&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">MYAPP_PORT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">DB_PASSWORD&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">mypassword&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="別の-env-ファイルを参照する">別の .env ファイルを参照する&lt;/h3>
+&lt;p>&lt;code>docker compose&lt;/code> コマンドの &lt;strong>&lt;code>--env-file&lt;/code>&lt;/strong> オプションを指定すると、参照する &lt;code>.env&lt;/code> ファイルを切り替えることができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: .env ではなく .env.prod を参照する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker compose --env-file .env.prod up
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="優先順位">優先順位&lt;/h3>
+&lt;p>シェル環境で同じ名前の環境変数がセットされている場合（例: &lt;code>export MYAPP_PORT=4000&lt;/code>）は、そちらが優先して使われます。
+つまり、&lt;code>.env&lt;/code> ファイルで定義されている値は、シェル環境変数がセットされていない場合のデフォルト値のように扱われます。&lt;/p></description></item><item><title>Docker Compose の基本</title><link>https://maku77.github.io/p/qm5k2hx/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qm5k2hx/</guid><description>&lt;h2 id="docker-compose-とは">Docker Compose とは？&lt;/h2>
+&lt;p>Docker Compose (&lt;strong>&lt;code>docker compose&lt;/code>&lt;/strong>) を使うと、複数の Docker コンテナをまとめてコントロールすることができます。
+各コンテナの起動時に必要となるパラメーターや連携方法を &lt;strong>&lt;code>docker-compose.yml&lt;/code>&lt;/strong> という YAML ファイルにまとめて記述できるため、すべてのコンテナの起動を &lt;strong>&lt;code>docker compose up&lt;/code>&lt;/strong> というシンプルなコマンドで行うことができます。&lt;/p>
+&lt;p>Docker Compose は複数のコンテナをコントロールすることを想定していますが、&lt;strong>単一のコンテナを起動するときにも便利&lt;/strong> です。
+例えば、&lt;code>Dockerfile&lt;/code> を使ったイメージビルド、ポート番号のマッピング、ネットワークの定義などを &lt;code>docker-compose.yml&lt;/code> で定義しておいて、&lt;code>docker compose up&lt;/code> コマンド一発で実行できます。&lt;/p>
+&lt;p>&lt;code>docker-compose.yml&lt;/code> の中では&lt;a href="../p/8r3cmu5/">環境変数の値を参照できる&lt;/a>（例: &lt;code>${APP_PORT}&lt;/code>）ため、環境ごとに異なる値をハードコードしなくて済みます。
+また、&lt;code>docker compose up&lt;/code> コマンドは、環境変数を定義した &lt;code>.env&lt;/code> ファイルを自動的に読み込んでくれます。&lt;/p>
+&lt;h2 id="単一のコンテナを起動してみる">単一のコンテナを起動してみる&lt;/h2>
+&lt;p>Docker Compose で簡単な nginx サーバーを立ち上げてみます。
+Docker Compose は、デフォルトで &lt;strong>カレントディレクトリ名をプロジェクト名として使用します&lt;/strong>（&lt;code>-p&lt;/code> オプションで任意のプロジェクト名を付けることもできます）。
+ここでは、&lt;code>myproject&lt;/code> というディレクトリを作って、その中に Compose ファイル (&lt;code>docker-compose.yml&lt;/code>) を配置することにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mkdir myproject
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">cd&lt;/span> myproject
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次のようなシンプルな Compose ファイルを作成します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">docker-compose.yml&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">web&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nginx&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;80:80&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>各サービス（コンテナ）の定義は、&lt;strong>&lt;code>services&lt;/code>&lt;/strong> プロパティの下に記述していきます。
+この例では、&lt;code>web&lt;/code> という名前のサービスを 1 つだけ定義しており、その下の &lt;strong>&lt;code>image&lt;/code>&lt;/strong> プロパティで &lt;code>nginx&lt;/code> のイメージを使うよう指示しています。
+さらに、&lt;strong>&lt;code>ports&lt;/code>&lt;/strong> プロパティで、ホストの 80 番ポートへのアクセスをコンテナの 80 番ポートへ転送しています。
+この定義で生成されるコンテナの名前は &lt;code>web&lt;/code> ではなく、プロジェクト名や連番が付加された &lt;strong>&lt;code>myproject-web-1&lt;/code>&lt;/strong> という名前になります。&lt;/p></description></item><item><title>Docker Compose をデタッチモードで起動する (docker compose up -d)</title><link>https://maku77.github.io/p/94m3izf/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/94m3izf/</guid><description>&lt;p>&lt;code>docker compose up&lt;/code> コマンドを実行すると、現在のターミナル（端末）に入出力がアタッチされて Docker Compose のログが出力されるようになるため、その端末では別の入力作業ができなくなってしまいます（&lt;kbd>Ctrl-D&lt;/kbd> で停止できます）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker compose up
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">[+] Running 2/0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ⠿ Network myproject_default Created
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ⠿ Container myproject-web-1 Created
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Attaching to myproject-web-1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...（省略）...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker processes
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker process 31
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">myproject-web-1 | 2022/07/01 06:50:46 [notice] 1#1: start worker process 32
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...（省略）...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>docker compose up&lt;/code> コマンドを実行するときに、&lt;strong>&lt;code>-d (--detach)&lt;/code>&lt;/strong> オプションを指定すると、Docker Compose がデタッチモードで起動（バックグラウンド実行）されるため、その端末を引き続き使用できるようになります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker compose up -d
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">[+] Running 1/1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ⠿ Container myproject-web-1 Started
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">$&lt;/span> （次のコマンドを入力可能）
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>表示されなくなったログは、&lt;strong>&lt;code>docker compose logs&lt;/code>&lt;/strong> コマンドで確認できます。&lt;/p></description></item><item><title>Docker Hub のイメージを検索する (docker search)</title><link>https://maku77.github.io/p/4ohyhxe/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4ohyhxe/</guid><description>&lt;p>&lt;strong>&lt;code>docker search&lt;/code>&lt;/strong> コマンドを使って、Docker Hub（レジストリ）で公開されているイメージを検索することができます。
+次の例では、&lt;code>ubuntu&lt;/code> というキーワードでイメージを検索しています。
+Docker Hub 上で付けられたスターの数や、公式イメージかどうかもチェックできます。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-container" data-lang="container">$ docker search ubuntu
+NAME DESCRIPTION STARS OFFICIAL AUTOMATED
+ubuntu Ubuntu is a Debian-based Linux operating sys… 14524 [OK]
+websphere-liberty WebSphere Liberty multi-architecture images … 286 [OK]
+ubuntu-upstart DEPRECATED, as is Upstart (find other proces… 112 [OK]
+neurodebian NeuroDebian provides neuroscience research s… 91 [OK]
+open-liberty Open Liberty multi-architecture images based… 53 [OK]
+ubuntu/nginx Nginx, a high-performance reverse proxy &amp;amp; we… 52
+ubuntu-debootstrap DEPRECATED; use &amp;#34;ubuntu&amp;#34; instead 46 [OK]
+ubuntu/apache2 Apache, a secure &amp;amp; extensible open-source HT… 36
+ubuntu/mysql MySQL open source fast, stable, multi-thread… 34
+kasmweb/ubuntu-bionic-desktop Ubuntu productivity desktop for Kasm Workspa… 29
+ubuntu/prometheus Prometheus is a systems and service monitori… 27
+ubuntu/squid Squid is a caching proxy for the Web. Long-t… 25
+ubuntu/bind9 BIND 9 is a very flexible, full-featured DNS… 22
+ubuntu/postgres PostgreSQL is an open source object-relation… 17
+ubuntu/redis Redis, an open source key-value store. Long-… 10
+ubuntu/grafana Grafana, a feature rich metrics dashboard &amp;amp; … 6
+ubuntu/prometheus-alertmanager Alertmanager handles client alerts from Prom… 6
+ubuntu/kafka Apache Kafka, a distributed event streaming … 6
+ubuntu/memcached Memcached, in-memory keyvalue store for smal… 5
+ubuntu/telegraf Telegraf collects, processes, aggregates &amp;amp; w… 4
+ubuntu/zookeeper ZooKeeper maintains configuration informatio… 4
+ubuntu/cortex Cortex provides storage for Prometheus. Long… 3
+ubuntu/cassandra Cassandra, an open source NoSQL distributed … 2
+bitnami/ubuntu-base-buildpack Ubuntu base compilation image 2 [OK]
+ubuntu/loki Grafana Loki, a log aggregation system like … 0
+&lt;/code>&lt;/pre></description></item><item><title>Docker コンテナからホスト側のサーバーにアクセスする (host.docker.internal)</title><link>https://maku77.github.io/p/najs2ah/</link><pubDate>Sat, 02 Jul 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/najs2ah/</guid><description>&lt;h2 id="コンテナからホスト側のサーバーにアクセスする">コンテナからホスト側のサーバーにアクセスする&lt;/h2>
+&lt;p>Docker コンテナの中から、ホスト側で動作しているサービス（Web サーバーなど）にアクセスするには、IP アドレスの代わりに特殊な DNS 名 &lt;strong>&lt;code>host.docker.internal&lt;/code>&lt;/strong> を使用します（&lt;code>localhost&lt;/code> だとコンテナ自身を参照してしまうのでうまくいきません）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">コンテナからホスト上のサービスにアクセスする&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> curl http://host.docker.internal:8000/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="接続テスト">接続テスト&lt;/h2>
+&lt;p>テストとして、ホスト上で Web サーバーを起動してコンテナからアクセスしてみます。
+まず、何でもいいのでホスト側で Web サーバーを起動します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Docker で nginx サーバーを起動する方法&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container run --rm -p 8000:80 --name webserver nginx:alpine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Python のワンライナーで Web サーバーを起動する方法&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> python -m http.server &lt;span class="m">8000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/rr3cmu5/">Python で簡易的な HTTP サーバを立てる (http.server, SimpleHTTPServer)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>次に、コンテナ側からこの Web サーバーに &lt;code>curl&lt;/code> でアクセスできるか確認します。
+ここでは、軽量のコンテナとして Alpine Linux を使っています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">コンテナからホスト側の Web サーバーにアクセス&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ docker container run --rm -it alpine ash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/ # apk add curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/ # curl http://host.docker.internal:8000/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!DOCTYPE html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;html&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...（省略）...&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Docker のネットワークについて理解する (none, host, bridge)</title><link>https://maku77.github.io/p/7fjnqtw/</link><pubDate>Wed, 15 Jun 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7fjnqtw/</guid><description>&lt;h2 id="docker-の-3-つのネットワーク">Docker の 3 つのネットワーク&lt;/h2>
+&lt;p>Docker をインストールすると、デフォルトで &lt;strong>&lt;code>none&lt;/code>&lt;/strong>、&lt;strong>&lt;code>host&lt;/code>&lt;/strong>、&lt;strong>&lt;code>bridge&lt;/code>&lt;/strong> という 3 つのネットワークが生成されます。
+&lt;code>docker network ls&lt;/code> コマンドの出力の &lt;code>NAME&lt;/code> カラムを見ると、これら 3 つの名前があることを確認できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker network ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">NETWORK ID NAME DRIVER SCOPE
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1d32c46c83f6 bridge bridge local
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">a97adbf7b226 host host local
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">7543afe52cd6 none null local
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;dl>
+&lt;dt>none&lt;/dt>
+&lt;dd>Docker コンテナにネットワークインタフェースを持たせたくない場合に指定します。
+つまり、外部との通信が一切できないコンテナになります。&lt;/dd>
+&lt;dt>host&lt;/dt>
+&lt;dd>ホスト側のネットワークインタフェースを共有するときに指定します。
+つまり、ホストと同じ IP アドレスがコンテナに割り当てられます。&lt;/dd>
+&lt;dt>bridge&lt;/dt>
+&lt;dd>一番よく使用されるネットワークで、&lt;code>bridge&lt;/code> という名前の仮想ブリッジに接続されたネットワーク環境であることを示します。
+&lt;code>docker container create (run)&lt;/code> でコンテナを作成するときにネットワーク (&lt;code>--net&lt;/code>) を指定しないと、デフォルトでこの &lt;code>bridge&lt;/code> が使われます。
+Linux のブリッジ機能を利用しており、このネットワークに参加したコンテナからは、インターネットにアクセスすることができます。
+同じ &lt;code>bridge&lt;/code> に接続するコンテナは、同じ仮想ブリッジで接続された状態（同じネットワークに所属する状態）になるため、相互に通信ができます（&lt;code>ping&lt;/code> など）。&lt;/dd>
+&lt;/dl>
+&lt;p>Docker コンテナを作成する際には、どのネットワークを使うかを &lt;code>--net&lt;/code> オプションで指定します。
+指定しない場合はデフォルトで &lt;code>bridge&lt;/code> が使われます。&lt;/p></description></item><item><title>Docker のコンテナイメージを削除する (docker image rm/prune)</title><link>https://maku77.github.io/p/8fjnqtw/</link><pubDate>Sun, 12 Jun 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8fjnqtw/</guid><description>&lt;h2 id="docker-image-rm-指定したコンテナイメージを削除する">docker image rm （指定したコンテナイメージを削除する）&lt;/h2>
+&lt;h3 id="使い方">使い方&lt;/h3>
+&lt;p>&lt;code>docker image pull&lt;/code> や &lt;code>docker container run&lt;/code> 経由でダウンロードした Docker イメージを削除するには、&lt;strong>&lt;code>docker image rm&lt;/code>&lt;/strong> コマンド（旧: &lt;code>docker rmi&lt;/code>）を使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image rm ＜イメージ＞
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>削除するイメージは、&lt;code>イメージ名:タグ名&lt;/code> や &lt;code>イメージID&lt;/code> の形で指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image rm ubuntu:20.04
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image rm 54c9d81cbb44
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ダウンロード済みのイメージの一覧は &lt;strong>&lt;code>docker image ls&lt;/code>&lt;/strong> コマンド（旧: &lt;code>docker images&lt;/code>）で確認できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">ubuntu 20.04 54c9d81cbb44 2 weeks ago 72.8MB
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ヘルプ">ヘルプ&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker &lt;span class="nb">help&lt;/span> image rm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Usage: docker image rm [OPTIONS] IMAGE [IMAGE...]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Remove one or more images
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Aliases:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> rm, rmi, remove
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Options:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -f, --force Force removal of the image
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> --no-prune Do not delete untagged parents
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-image-prune-使用していないコンテナイメージを削除する">docker image prune （使用していないコンテナイメージを削除する）&lt;/h2>
+&lt;h3 id="使い方-1">使い方&lt;/h3>
+&lt;p>&lt;strong>&lt;code>docker image prune&lt;/code>&lt;/strong> コマンドを使用すると、使用していない Docker イメージをまとめて削除することができます。&lt;/p></description></item><item><title>Docker のマルチステージビルドで軽量のアプリ実行用イメージを作成する</title><link>https://maku77.github.io/p/z3n4hye/</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/z3n4hye/</guid><description>&lt;h2 id="マルチステージビルドとは">マルチステージビルドとは？&lt;/h2>
+&lt;p>ある GitHub のリポジトリに、&lt;code>Dockerfile&lt;/code> と &lt;code>src/hello.go&lt;/code>（Go 言語のコード）が入っているとします。&lt;/p>
+&lt;pre tabindex="0">&lt;code>myapp/
+ +-- Dockerfile （アプリのビルド＆実行コンテナイメージの生成用）
+ +-- src/hello.go （Hello World アプリのソースコード）
+&lt;/code>&lt;/pre>&lt;p>この &lt;code>Dockerfile&lt;/code> で作成したいのは、Go ソースコードをビルドしてできた &lt;code>hello&lt;/code> アプリを実行するための Docker イメージです。
+つまり、この &lt;code>Dockerfile&lt;/code> ファイルには、次のようなイメージ生成手順を記述することになります。&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>src/hello.go&lt;/code> をビルドして、実行ファイル &lt;code>hello&lt;/code> を生成する。&lt;/li>
+&lt;li>&lt;code>hello&lt;/code> を実行するための Docker コンテナイメージを生成する。&lt;/li>
+&lt;/ol>
+&lt;p>ここで 1 つ疑問が出てきます。
+最終的な Docker イメージでは &lt;code>hello&lt;/code> アプリの実行環境さえ整っていればよいはずですが、上記の手順通りに Docker イメージを構築すると、Go 言語のビルド環境まで含まれてしまいそうです。
+&lt;code>hello&lt;/code> アプリを実行するための軽量なイメージを作るにはどうしたらよいでしょうか？
+このようなケースで便利なのが、Docker の &lt;strong>マルチステージビルド&lt;/strong> です。&lt;/p>
+&lt;p>なお、アプリのソースコード (&lt;code>src/hello.go&lt;/code>) には何を使ってもよいのですが、ここでは次のような簡単な Hello World コードを使うことにします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">src/hello.go&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Printf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Hello World\n&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="シングルステージビルドの場合">シングルステージビルドの場合&lt;/h2>
+&lt;p>マルチステージビルドの効果を実感するために、まずはシングルステージによるビルド（従来のビルド方法）で Docker コンテナをビルドしてみます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Dockerfile（シングルステージビルド）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> golang:1.17&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /work&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> src .&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> go build hello.go&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">CMD&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;./hello&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Go ソースコードのビルドを行うために、&lt;code>golang:1.17&lt;/code> をベースイメージとして使用しています。
+ビルド手順はシンプルで、ホスト側の &lt;code>src&lt;/code> ディレクトリ以下の Go ソースコードをコンテナ側の &lt;code>/work&lt;/code> にコピーして、&lt;code>go build&lt;/code> でビルドしているだけです。&lt;/p></description></item><item><title>Docker コンテナとホスト PC の間でファイルをコピーする (docker container cp)</title><link>https://maku77.github.io/p/cqar8o5/</link><pubDate>Mon, 21 Feb 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cqar8o5/</guid><description>&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/container_cp/">docker container cp&lt;/a> コマンドを使用すると、Docker コンテナ内の任意のファイルやディレクトリを、ホスト PC にコピーすることができます。&lt;/p>
+&lt;p>例えば、以下のようにすると、&lt;code>mycon&lt;/code> コンテナ内の &lt;code>/work/hello&lt;/code> というファイルを、ホスト側のカレントディレクトリにコピーすることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container cp mycon:/work/hello ./
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ディレクトリごと丸ごとコピーすることもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container cp mycon:/work/imgs ./imgs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>逆に、ホスト側のファイルを Docker コンテナにコピーすることもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container cp hoge.txt mycon:/work/tempdir
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docker のマウント機能でファイルを永続化する（ボリュームマウント、バインドマウント、tmpfs マウント）</title><link>https://maku77.github.io/p/hxhzgxf/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hxhzgxf/</guid><description>&lt;h2 id="docker-の-3-種類のマウント">Docker の 3 種類のマウント&lt;/h2>
+&lt;p>Docker コンテナ内で作成・編集した作業ファイルは、コンテナを停止 (&lt;code>docker container stop&lt;/code>) しても消えてしまうことはありませんが、コンテナを削除 (&lt;code>docker container rm&lt;/code>) した場合には消えてしまいます。
+これは、コンテナ内のファイル群が、コンテナ内に閉じて存在しているからです（だからこそコンテナなのですが）。&lt;/p>
+&lt;p>Docker のマウント機能を用いると、コンテナ内の特定のディレクトリパス（の中のファイル群）をホスト PC 上のファイルシステムに関連付けることができるため、コンテナのライフサイクルとは切り離して作業ファイルを管理できるようになります。
+マウントには下記で説明する 3 種類がありますが、作業ファイルをホスト PC 側に永続化したい場合は、「ボリュームマウント」か「バインドマウント」というマウントタイプを使用します。
+もうひとつの「tmpfs マウント」は、その名のとおりテンポラリファイルにのみ使用できます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="502" height="255" src="../p/hxhzgxf/img-001.png" alt="/p/hxhzgxf/img-001.png" />
+ &lt;figcaption>図: Docker の 3 種類のマウント（公式サイトより）&lt;/figcaption>
+&lt;/figure>
+
+&lt;dl>
+&lt;dt>ボリュームマウント&lt;/dt>
+&lt;dd>&lt;strong>ホスト PC 上にコンテナ用のデータファイルを作成&lt;/strong> し、コンテナ内の特定のディレクトリパスにマッピングします。
+このデータファイルはポータビリティが高く、クラウド上に保存するということもできます（ボリュームドライバーが必要）。
+複数のコンテナから 1 つのボリュームを共有することも可能です。
+コンテナ内で作成したファイルの永続化には、このボリュームの使用が推奨されています。&lt;/dd>
+&lt;dt>バインドマウント&lt;/dt>
+&lt;dd>&lt;strong>ホスト PC の特定のディレクトリ（絶対パス指定）&lt;/strong> を、コンテナ内の特定のディレクトリパスにマッピングします。
+ボリュームと比べてポータビリティが低いため、名前付きボリュームの使用が推奨されてます。例えば、バインドマウントでは、ホスト側の多数のファイルとマッピングされてしまうため別環境に移しにくいとか、マウント時のパス表現が OS に依存してしまうといった欠点があります。
+ホスト側からコンテナで操作したファイルをささっと覗いて見たいときはバインドマウントは便利ですが、これはコンテナ内で作成した危険なファイルが、そのままホスト上にも作られてしまうということを示しています。&lt;/dd>
+&lt;dt>tmpfs マウント&lt;/dt>
+&lt;dd>&lt;strong>ホスト PC のメモリ領域&lt;/strong> を、コンテナ内の特定のディレクトリパスにマッピングします。コンテナ上でファイル生成を行うと、実際には一時的なメモリ領域に保存されることになるので、ここに保存されたファイルはコンテナを停止すると消えてしまいます。一時的なファイルを格納するディレクトリを tmpfs マウントすることで、コンテナサイズの増加を防ぐことができ（書き込みレイヤーに出力されない）、パフォーマンスの向上を見込めます。&lt;/dd>
+&lt;/dl>
+&lt;p>上記で、「ホスト PC」といっているのは Docker コンテナの実行環境のことであり、Windows や macOS で Docker Desktop を使用している場合は、正確には Linux VM のことを示します。&lt;/p></description></item><item><title>Android ビルド環境を構築するための Dockerfile</title><link>https://maku77.github.io/p/ao8p7n4/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ao8p7n4/</guid><description>&lt;p>下記の &lt;code>Dockerfile&lt;/code> を使うと、Ubuntu 14.04 あるいは、Ubuntu 12.04 をベースにした Android ビルド用の Docker イメージを作成することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Dockerfile (Ubuntu 14.04)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> ubuntu:14.04&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># Set the proxies if needed.&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># ENV http_proxy http://proxy.example.com:10080/&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># ENV https_proxy http://proxy.example.com:10080/&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># Suppress errors on interactive installer&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">ENV&lt;/span> DEBIAN_FRONTEND noninteractive&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># To install i386 packages such as zlib1g-dev:i386&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> dpkg --add-architecture i386&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># The following is based on http://source.android.com/source/initializing.html&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># For installing openjdk-7-jdk, --no-install-recommends option has to be added&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># not to struggle with &amp;#39;colord&amp;#39; and &amp;#39;sgml-base&amp;#39; errors.&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -qq update&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get install -y openjdk-7-jdk --no-install-recommends&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get install -y bison g++-multilib git gperf libxml2-utils make zlib1g-dev:i386 zip --no-install-recommends&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># For the repo command&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get install -y curl python --no-install-recommends&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Dockerfile (Ubuntu 12.04)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> ubuntu:12.04&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># Set the proxies if needed.&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># ENV http_proxy http://proxy.examle.com:10080/&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># ENV https_proxy http://proxy.example.com:10080/&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># Suppress errors on interactive installer&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">ENV&lt;/span> DEBIAN_FRONTEND noninteractive&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># The following is based on http://source.android.com/source/initializing.html&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -qq update&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get install -y openjdk-7-jdk --no-install-recommends&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get install -y git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 --no-install-recommends&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>やっていることは、ほぼ下記に記述されている通りです。&lt;/p></description></item><item><title>Docker チートシート／Docker コマンドの一覧</title><link>https://maku77.github.io/p/p4o6m3i/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/p4o6m3i/</guid><description>&lt;h2 id="registry--repository--image--tag-の概念">Registry / Repository / Image / Tag の概念&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="688" height="211" src="../p/p4o6m3i/img-001.png" alt="/p/p4o6m3i/img-001.png" />
+ &lt;figcaption>図: Docker のコンテナレジストリ／リポジトリ／イメージ／タグの関係&lt;/figcaption>
+&lt;/figure>
+
+&lt;ul>
+&lt;li>DockerHub などのレジストリ上では、複数のリポジトリが管理されている。&lt;/li>
+&lt;li>Top-level リポジトリでは、ubuntu や devian といった有名どころなものが管理されている。&lt;/li>
+&lt;li>Top-level リポジトリ以外に、ユーザリポジトリがあり、こちらは &lt;code>&amp;lt;user&amp;gt;/&lt;/code> というプレフィックスが付く。&lt;/li>
+&lt;li>各リポジトリ内には複数のイメージがあり、イメージ ID やタグで指定できる。&lt;/li>
+&lt;li>1 つのイメージに対しては唯一の ID が付けられるが、タグは複数付けられていることがある。&lt;/li>
+&lt;/ul>
+&lt;h2 id="docker-imageイメージ関連のコマンド">docker image（イメージ関連のコマンド）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>旧コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/5j4k3iy/">docker image build&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker build&lt;/code>&lt;/td>
+ &lt;td>Dockerfile からイメージをビルドする&lt;br>Build an image from a Dockerfile&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image history&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker history&lt;/code>&lt;/td>
+ &lt;td>イメージのレイヤ構造を表示する&lt;br>Show the history of an image&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image import&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker import&lt;/code>&lt;/td>
+ &lt;td>tar ファイルからファイルシステムイメージを作成する&lt;br>Import the contents from a tarball to create a filesystem image&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image inspect&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker inspect&lt;/code>&lt;/td>
+ &lt;td>イメージの詳細を表示する&lt;br>Display detailed information on one or more images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image load&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker load&lt;/code>&lt;/td>
+ &lt;td>tar ファイルや標準入力からイメージをロードする&lt;br>Load an image from a tar archive or STDIN&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image ls&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker images&lt;/code>&lt;/td>
+ &lt;td>イメージの一覧を表示する&lt;br>List images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/8fjnqtw/">docker image prune&lt;/a>&lt;/td>
+ &lt;td>なし&lt;/td>
+ &lt;td>使用していないイメージを削除する&lt;br>Remove unused images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image pull&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker pull&lt;/code>&lt;/td>
+ &lt;td>レジストリからイメージを取得する&lt;br>Pull an image or a repository from a registry&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/rwco2dp/">docker image push&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker push&lt;/code>&lt;/td>
+ &lt;td>イメージをリポジトリにプッシュする&lt;br>Push an image or a repository to a registry&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/8fjnqtw/">docker image rm&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker rmi&lt;/code>&lt;/td>
+ &lt;td>イメージを削除する&lt;br>Remove one or more images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image save&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker save&lt;/code>&lt;/td>
+ &lt;td>tar ファイルにイメージを保存する&lt;br>Save one or more images to a tar archive (streamed to STDOUT by default)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker image tag&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker tag&lt;/code>&lt;/td>
+ &lt;td>イメージにタグを付ける&lt;br>Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-containerコンテナ関連のコマンド">docker container（コンテナ関連のコマンド）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>旧コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/y8cfimp/">docker container attach&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker attach&lt;/code>&lt;/td>
+ &lt;td>動作中のコンテナに標準入力や標準出力を接続する&lt;br>Attach local standard input, output, and error streams to a running container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/5j4k3iy/">docker container commit&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker commit&lt;/code>&lt;/td>
+ &lt;td>コンテナの変更内容から新しいイメージを作成する&lt;br>Create a new image from a container&amp;rsquo;s changes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/cqar8o5/">docker container cp&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker cp&lt;/code>&lt;/td>
+ &lt;td>コンテナとホスト間でファイルをコピーする&lt;br>Copy files/folders between a container and the local filesystem&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container create&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker create&lt;/code>&lt;/td>
+ &lt;td>新しいコンテナを作成する&lt;br>Create a new container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container diff&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker diff&lt;/code>&lt;/td>
+ &lt;td>Inspect changes to files or directories on a container&amp;rsquo;s filesystem&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/y8cfimp/">docker container exec&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker exec&lt;/code>&lt;/td>
+ &lt;td>動作中のコンテナで新しいプロセスを起動する&lt;br>Run a command in a running container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container export&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker export&lt;/code>&lt;/td>
+ &lt;td>Export a container&amp;rsquo;s filesystem as a tar archive&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/47hs3ck/">docker container inspect&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker inspect&lt;/code>&lt;/td>
+ &lt;td>コンテナの詳細情報を表示する&lt;br>Display detailed information on one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container kill&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker kill&lt;/code>&lt;/td>
+ &lt;td>Kill one or more running containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container logs&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker logs&lt;/code>&lt;/td>
+ &lt;td>Fetch the logs of a container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container ls&lt;/code>&lt;br>&lt;code>docker container list&lt;/code>&lt;br>&lt;code>docker container pm&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker ps&lt;/code>&lt;/td>
+ &lt;td>コンテナの一覧を表示する&lt;br>List containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container pause&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker pause&lt;/code>&lt;/td>
+ &lt;td>Pause all processes within one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/ow258be/">docker container port&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker port&lt;/code>&lt;/td>
+ &lt;td>コンテナとホスト PC のポートマッピング情報を表示する&lt;br>List port mappings or a specific mapping for the container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container prune&lt;/code>&lt;/td>
+ &lt;td>なし&lt;/td>
+ &lt;td>Remove all stopped containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container rename&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker rename&lt;/code>&lt;/td>
+ &lt;td>Rename a container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container restart&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker restart&lt;/code>&lt;/td>
+ &lt;td>Restart one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container rm&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker rm&lt;/code>&lt;/td>
+ &lt;td>Remove one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/y8cfimp/">docker container run&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker run&lt;/code>&lt;/td>
+ &lt;td>「イメージの取得」「コンテナの作成」「コンテナの起動」を連続して行う&lt;br>Run a command in a new container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/y8cfimp/">docker container start&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker start&lt;/code>&lt;/td>
+ &lt;td>作成済みのコンテナを起動する&lt;br>Start one or more stopped containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container stats&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker stats&lt;/code>&lt;/td>
+ &lt;td>Display a live stream of container(s) resource usage statistics&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container stop&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker stop&lt;/code>&lt;/td>
+ &lt;td>Stop one or more running containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/s3m4jyg/">docker container top&lt;/a>&lt;/td>
+ &lt;td>&lt;code>docker top&lt;/code>&lt;/td>
+ &lt;td>Display the running processes of a container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container unpause&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker unpause&lt;/code>&lt;/td>
+ &lt;td>Unpause all processes within one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container update&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker update&lt;/code>&lt;/td>
+ &lt;td>Update configuration of one or more containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container wait&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker wait&lt;/code>&lt;/td>
+ &lt;td>Block until one or more containers stop, then print their exit codes&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-networkネットワーク関連のコマンド">docker network（ネットワーク関連のコマンド）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>docker network connect&lt;/code>&lt;/td>
+ &lt;td>コンテナをネットワークに接続する &lt;i>(Connect a container to a network)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network create&lt;/code>&lt;/td>
+ &lt;td>ネットワークを作成する &lt;i>(Create a network)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network disconnect&lt;/code>&lt;/td>
+ &lt;td>コンテナをネットワークから切り離す &lt;i>(Disconnect a container from a network)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network inspect&lt;/code>&lt;/td>
+ &lt;td>ネットワークの詳細情報を表示する &lt;i>(Display detailed information on one or more networks)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network ls&lt;/code>&lt;/td>
+ &lt;td>ネットワークの一覧を表示する &lt;i>(List networks)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network prune&lt;/code>&lt;/td>
+ &lt;td>未使用のネットワークをすべて削除する &lt;i>(Remove all unused networks)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker network rm&lt;/code>&lt;/td>
+ &lt;td>ネットワークを削除する &lt;i>(Remove one or more networks)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-volumeボリューム関連のコマンド">docker volume（ボリューム関連のコマンド）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/hxhzgxf/">docker volume create&lt;/a>&lt;/td>
+ &lt;td>ボリュームを作成する &lt;i>(Create a volume)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/hxhzgxf/">docker volume inspect&lt;/a>&lt;/td>
+ &lt;td>ボリュームの詳細情報を表示する &lt;i>(Display detailed information on one or more volumes)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/hxhzgxf/">docker volume ls&lt;/a>&lt;/td>
+ &lt;td>ボリュームの一覧を表示する &lt;i>(List volumes)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/hxhzgxf/">docker volume prune&lt;/a>&lt;/td>
+ &lt;td>使用していないボリュームを削除する &lt;i>(Remove all unused local volumes)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/hxhzgxf/">docker volume rm&lt;/a>&lt;/td>
+ &lt;td>ボリュームを削除する &lt;i>(Remove one or more volumes)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-compose複数コンテナのコントロール">docker compose（複数コンテナのコントロール）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose build&lt;/code>&lt;/td>
+ &lt;td>Build or rebuild services&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose config&lt;/code>&lt;/td>
+ &lt;td>Validate and view the Compose file&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose convert&lt;/code>&lt;/td>
+ &lt;td>Converts the compose file to platform&amp;rsquo;s canonical format&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose cp&lt;/code>&lt;/td>
+ &lt;td>Copy files/folders between a service container and the local filesystem&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose create&lt;/code>&lt;/td>
+ &lt;td>Creates containers for a service&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose down&lt;/code>&lt;/td>
+ &lt;td>Stop and remove containers, networks&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose events&lt;/code>&lt;/td>
+ &lt;td>Receive real time events from containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose exec&lt;/code>&lt;/td>
+ &lt;td>Execute a command in a running container&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose images&lt;/code>&lt;/td>
+ &lt;td>List images used by the created containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose kill&lt;/code>&lt;/td>
+ &lt;td>Force stop service containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose logs&lt;/code>&lt;/td>
+ &lt;td>View output from containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose ls&lt;/code>&lt;/td>
+ &lt;td>List running compose projects&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose pause&lt;/code>&lt;/td>
+ &lt;td>Pause services&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose port&lt;/code>&lt;/td>
+ &lt;td>Print the public port for a port binding&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose ps&lt;/code>&lt;/td>
+ &lt;td>List containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose pull&lt;/code>&lt;/td>
+ &lt;td>Pull service images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose push&lt;/code>&lt;/td>
+ &lt;td>Push service images&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose restart&lt;/code>&lt;/td>
+ &lt;td>Restart containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose rm&lt;/code>&lt;/td>
+ &lt;td>Removes stopped service containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose run&lt;/code>&lt;/td>
+ &lt;td>Run a one-off command on a service&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose start&lt;/code>&lt;/td>
+ &lt;td>Start services&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose stop&lt;/code>&lt;/td>
+ &lt;td>Stop services&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose top&lt;/code>&lt;/td>
+ &lt;td>Display the running processes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose unpause&lt;/code>&lt;/td>
+ &lt;td>Unpause services&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose up&lt;/code>&lt;/td>
+ &lt;td>Create and start containers&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker compose version&lt;/code>&lt;/td>
+ &lt;td>Show the Docker Compose version information&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-contextdocker-コンテキストの切り替え">docker context（Docker コンテキストの切り替え）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/qatbs9p/">docker context create&lt;/a>&lt;/td>
+ &lt;td>コンテキストを作成する &lt;i>(Create new context)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker context export&lt;/code>&lt;/td>
+ &lt;td>コンテキストをエクスポートする &lt;i>(Export a context to a tar or kubeconfig file)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker context import&lt;/code>&lt;/td>
+ &lt;td>コンテキストをインポートする &lt;i>(Import a context from a tar or zip file)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker context inspect&lt;/code>&lt;/td>
+ &lt;td>コンテキストの詳細情報を表示する &lt;i>(Display detailed information on one or more contexts)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/qatbs9p/">docker context list&lt;/a>&lt;/td>
+ &lt;td>コンテキストの一覧を表示する &lt;i>(List available contexts)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/qatbs9p/">docker context rm&lt;/a>&lt;/td>
+ &lt;td>コンテキストを削除する &lt;i>(Remove one or more contexts)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/qatbs9p/">docker context show&lt;/a>&lt;/td>
+ &lt;td>現在のコンテキストを表示する &lt;i>(Print the current context)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker context update&lt;/code>&lt;/td>
+ &lt;td>既存のコンテキストの設定を変更する &lt;i>(Update a context)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/qatbs9p/">docker context use&lt;/a>&lt;/td>
+ &lt;td>カレントコンテキストを切り替える &lt;i>(Set the default context)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="その他のコマンド">その他のコマンド&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;a href="../p/4ohyhxe/">docker search&lt;/a>&lt;/td>
+ &lt;td>Docker Hub 上のイメージを検索する &lt;i>(Search the Docker Hub for images)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker system df&lt;/code>&lt;/td>
+ &lt;td>Show docker disk usage&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker system events&lt;/code>&lt;/td>
+ &lt;td>Get real time events from the server&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker system info&lt;/code>&lt;/td>
+ &lt;td>Display system-wide information&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker system prune&lt;/code>&lt;/td>
+ &lt;td>使用していないデータをまとめて削除 &lt;i>(Remove unused data)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker builder prune&lt;/code>&lt;/td>
+ &lt;td>ビルドキャッシュを削除する &lt;i>(Remove build cache)&lt;/i>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-ファイルの命令">Docker ファイルの命令&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>命令&lt;/th>
+ &lt;th>内容&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code># &amp;lt;comment&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>&lt;code>#&lt;/code> で始まる行はコメント&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>ADD&lt;/code>&lt;/td>
+ &lt;td>ファイルをイメージ上にコピーする（URL 指定でのダウンロードや、tar ファイルの展開を行う）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>CMD&lt;/code>&lt;/td>
+ &lt;td>&lt;code>ENTRYPOINT&lt;/code> が未指定、かつ &lt;code>docker container run&lt;/code> で何も指定されなかったときに実行するコマンド&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>COPY&lt;/code>&lt;/td>
+ &lt;td>ファイルをイメージ上にコピーする&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>ENTRYPOINT&lt;/code>&lt;/td>
+ &lt;td>&lt;code>docker container run&lt;/code> 時に実行するコマンド&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>ENV &amp;lt;name&amp;gt; &amp;lt;value&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>環境変数を設定する&lt;br>例: &lt;code>ENV http_proxy http://proxy.example.com:8888/&lt;/code>&lt;br>例: &lt;code>ENV PATH $PATH:/foo/bar&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>EXPOSE &amp;lt;port&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>ポートを公開する&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>FROM &amp;lt;repo&amp;gt;:&amp;lt;tag&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>ベースイメージを指定する&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>LABEL&lt;/code>&lt;/td>
+ &lt;td>イメージのメタデータとしてラベルを追加する&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>MAINTAINER &amp;lt;name&amp;gt; &amp;quot;&amp;lt;email&amp;gt;&amp;quot;&lt;/code>&lt;/td>
+ &lt;td>イメージのメタデータとしてメンテナ名を追加する（非推奨）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>RUN &amp;lt;command&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>コマンドを実行する（&lt;code>/bin/sh -c&lt;/code> による実行）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>RUN [&amp;quot;&amp;lt;arg1&amp;gt;&amp;quot;, &amp;quot;&amp;lt;arg2&amp;gt;&amp;quot;, &amp;quot;&amp;lt;arg3&amp;gt;&amp;quot;]&lt;/code>&lt;/td>
+ &lt;td>コマンドを実行する（シェルを使わない）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>USER&lt;/code>&lt;/td>
+ &lt;td>&lt;code>RUN&lt;/code>、&lt;code>CMD&lt;/code>、&lt;code>ENTRYPOINT&lt;/code> のコマンドを実行するユーザー&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>VOLUME&lt;/code>&lt;/td>
+ &lt;td>共有可能ボリュームをマウントする&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>WORKDIR &amp;lt;path&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>作業ディレクトリを設定する。&lt;code>RUN&lt;/code>、&lt;code>CMD&lt;/code>、&lt;code>ENTRYPOINT&lt;/code>、&lt;code>ADD&lt;/code>、&lt;code>COPY&lt;/code> 実行時のベースディレクトリとなる。&lt;code>RUN cd&lt;/code> では次の命令に引き継がれないので注意&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Docker で apt-get install するときに TERM 系のエラーが出る</title><link>https://maku77.github.io/p/3i2iygw/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3i2iygw/</guid><description>&lt;p>&lt;code>docker image build&lt;/code> などで &lt;code>apt-get install&lt;/code> を実行中に、下記のようなエラーが出ることがあります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+&lt;/code>&lt;/pre>&lt;p>このような場合、&lt;code>Dockerfile&lt;/code> で下記のように環境変数を設定してから &lt;code>apt-get&lt;/code> するとエラーが出なくなります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>ENV DEBIAN_FRONTEND noninteractive
+&lt;/code>&lt;/pre>&lt;p>あるいは、&lt;code>apt-get&lt;/code> 実行時に下記のようにプレフィックスで設定することもできます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>DEBIAN_FRONTEND=noninteractive apt-get install -y ...
+&lt;/code>&lt;/pre>&lt;p>&lt;code>DEBIAN_FRONTEND&lt;/code> というのは、Debian Installer が使うフロントエンド (UI) を指定するもので、&lt;code>noninteractive&lt;/code> にすることで、ユーザの入力を受け付けないインストールが可能になります。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="http://www.debian.org/releases/sarge/s390/ch05s02.html.ja">http://www.debian.org/releases/sarge/s390/ch05s02.html.ja&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Dockerfile からの apt-get install で zlib1g-dev:i386 がインストールできないとき</title><link>https://maku77.github.io/p/6g3j2iz/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6g3j2iz/</guid><description>&lt;p>ubuntu:14.04 などのベースイメージに対して、&lt;code>zlib1g-dev:i386&lt;/code> などの i386 系のパッケージをインストールしようとしたときに下記のようなエラーがでることがあります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>E: Unable to locate package zlib1g-dev
+&lt;/code>&lt;/pre>&lt;p>これを防ぐには、&lt;code>Dockerfile&lt;/code> で下記のように実行するようにしておきます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="k">RUN&lt;/span> dpkg --add-architecture i386&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>リポジトリ名のついていない Docker イメージをすべて削除する</title><link>https://maku77.github.io/p/oziyhxf/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oziyhxf/</guid><description>&lt;p>普通に Docker コンテナ上で編集作業などを行っていると、Docker イメージのキャッシュがどんどん増えていってしまいます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">REPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZE
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 8a15692b92ea About an hour ago 1.077 GB
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 0bcfd9025fab About an hour ago 1.077 GB
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&amp;lt;none&amp;gt; &amp;lt;none&amp;gt; 4a0a98efbd7e About an hour ago 802.8 MB
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>docker image ls&lt;/code> コマンドの出力で、REPOSITORY 名が &lt;strong>&lt;code>&amp;lt;none&amp;gt;&lt;/code>&lt;/strong> になっているイメージをすべて削除するには、例えば以下のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo docker rmi &lt;span class="k">$(&lt;/span>docker images &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;/^&amp;lt;none&amp;gt;/ {print $3}&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>参考: &lt;a href="../p/8fjnqtw/">Docker のコンテナイメージを削除する (&lt;code>docker image rm/prune&lt;/code>)&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docker でイメージを取得してコンテナを起動する (docker image pull, docker container run)</title><link>https://maku77.github.io/p/y2biqx6/</link><pubDate>Sun, 15 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y2biqx6/</guid><description>&lt;h2 id="コンテナイメージをダウンロードする-docker-image-pull">コンテナイメージをダウンロードする (docker image pull)&lt;/h2>
+&lt;p>Docker でコンテナを作成するためには、ベースとなるイメージが必要です。
+多くのイメージが &lt;a href="https://hub.docker.com/">Docker Hub&lt;/a> に用意されているので、通常はここからベースとなるイメージを取得します。
+ここでは、Ubuntu 20.04 のイメージをダウンロードしてみます。
+&lt;strong>&lt;code>docker image pull&lt;/code>&lt;/strong>（旧: &lt;code>docker pull&lt;/code>）コマンドに、ダウンロードしたいイメージ名 &lt;code>ubuntu&lt;/code> と、バージョンを表すタグ &lt;code>20.04&lt;/code> を指定してダウンロードします。
+省略するとデフォルトタグとして、最新バージョンを表す &lt;code>lastest&lt;/code> が使用されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">イメージを取得する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image pull ubuntu:20.04
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">20.04: Pulling from library/ubuntu
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Digest: sha256:669e010b58baf5beb2836b253c1fd5768333f0d1dbcb834f7c07a4dc93f474be
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Status: Downloaded newer image for ubuntu:20.04
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">docker.io/library/ubuntu:20.04
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ダウンロード済みのイメージの一覧は &lt;strong>&lt;code>docker image ls&lt;/code>&lt;/strong> コマンド（旧: &lt;code>docker images&lt;/code>）で確認できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">イメージの一覧を表示する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">ubuntu 20.04 54c9d81cbb44 2 weeks ago 72.8MB
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Docker イメージを削除したくなったときは、次のように &lt;strong>&lt;code>docker image rm&lt;/code>&lt;/strong> コマンド（旧: &lt;code>docker rmi&lt;/code> ）で削除できます。&lt;/p></description></item><item><title>Docker イメージを Docker Hub に登録する (docker image push)</title><link>https://maku77.github.io/p/rwco2dp/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rwco2dp/</guid><description>&lt;p>作成した Docker イメージを &lt;a href="https://hub.docker.com">Docker Hub&lt;/a> リポジトリに登録すると、世界中のユーザがそのイメージを使えるようになります（プライベートにすることもできます）。
+まずは、下記のサイトで、Docker Hub リポジトリのアカウントを作成しておく必要があります。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.docker.com">https://hub.docker.com&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>アップロード予定の Docker イメージは、下記のように作成済みであるとします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">ローカルのイメージの一覧を確認&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">REPOSITORY TAG IMAGE ID CREATED VIRTUAL SIZE
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">maku77/sample v1 8a6608d7d353 7 minutes ago 188.3 MB
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Docker イメージのアップロードには、&lt;strong>&lt;code>docker image push&lt;/code>&lt;/strong> コマンドを使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">レジストリにイメージをデプロイ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image push maku77/sample:v1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">（Docker Hub のログインパスワードなどを入力）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Pushing tag for rev [8a6608d7d353] on {https://cdn-registry-1.docker.io/v1/repositories/maku77/sample/tags/v1}
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Docker Hub で公開されているイメージは、&lt;code>docker search&lt;/code> コマンドで検索することができるので、たった今登録したイメージを検索してみます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">レジストリ上のイメージを検索&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker search maku77
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">NAME DESCRIPTION STARS OFFICIAL AUTOMATED
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">maku77/sample 0
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>これで、任意の Docker ホストからこのイメージをダウンロードして使えるようになりました。&lt;/p></description></item><item><title>Docker コンテナで起動したシェルに接続する (docker container run/start/exec/attach)</title><link>https://maku77.github.io/p/y8cfimp/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y8cfimp/</guid><description>&lt;h2 id="何をするか">何をするか？&lt;/h2>
+&lt;p>ここでは、Ubuntu の Docker イメージを使ってコンテナを起動し、その上で実行した bash シェルに接続して自由にコマンドを実行できるようにします。
+&lt;strong>&lt;code>docker container run&lt;/code>&lt;/strong>、&lt;strong>&lt;code>start&lt;/code>&lt;/strong>、&lt;strong>&lt;code>attach&lt;/code>&lt;/strong>、&lt;strong>&lt;code>exec&lt;/code>&lt;/strong> など似たようなコマンドがたくさんありますが、用途はそれぞれ違うのでここでひととおり理解しておきましょう。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>コマンド&lt;/th>
+ &lt;th>意味&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>docker container run&lt;/code>&lt;/td>
+ &lt;td>「イメージの取得」「コンテナの作成」「コンテナの起動」を連続して行う&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container start&lt;/code>&lt;/td>
+ &lt;td>作成済みのコンテナを「起動」する&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container attach&lt;/code>&lt;/td>
+ &lt;td>動作しているコンテナに「接続」する&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>docker container exec&lt;/code>&lt;/td>
+ &lt;td>動作しているコンテナで「プロセスを起動」する&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="docker-container-run-はコンテナの作成と起動">docker container run はコンテナの「作成」と「起動」&lt;/h2>
+&lt;p>&lt;strong>&lt;code>docker container run&lt;/code>&lt;/strong>（旧: &lt;code>docker run&lt;/code>）は、もっとも頻繁に紹介されているコマンドですが、内部で複数のことを行うので &lt;strong>一番分かりにくいコマンド&lt;/strong> かもしれません。
+&lt;code>docker container run&lt;/code> は次のようなことを一度に実行します。&lt;/p>
+&lt;ul>
+&lt;li>指定したイメージがなければダウンロード (&lt;code>docker image pull&lt;/code>)&lt;/li>
+&lt;li>Docker コンテナを作成する (&lt;code>docker container create&lt;/code>)&lt;/li>
+&lt;li>Docker コンテナを起動する (&lt;code>docker container start&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>例えば、次のコマンドを実行すると、Docker イメージ (&lt;code>ubuntu:20.04&lt;/code>) のダウンロード、Docker コンテナ (&lt;code>mycon&lt;/code>) の作成、そのコンテナの起動までを一気に実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container run --name mycon -it ubuntu:20.04 /bin/bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>各オプションは次のような意味を持っています。&lt;/p></description></item><item><title>Docker コンテナ側の公開ポートがホスト側のどのポートにマッピングされているか調べる (docker container port)</title><link>https://maku77.github.io/p/ow258be/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ow258be/</guid><description>&lt;h2 id="docker-container-port-コマンドの使い方">docker container port コマンドの使い方&lt;/h2>
+&lt;p>&lt;strong>&lt;code>docker container port&lt;/code>&lt;/strong>（あるいは &lt;code>docker port&lt;/code>）コマンドを使用すると、Docker コンテナの中で公開されているポート番号 (private port) が、ホスト側のどのポート番号にマッピングされているかを調べることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container port &amp;lt;コンテナ名&amp;gt; &lt;span class="o">[&lt;/span>コンテナ側ポート番号&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>例えば、&lt;code>my-nginx&lt;/code> コンテナの中で Web サーバーが動作しているとして、それがホスト側から見てどのポート番号にマッピングされているかを調べるには以下のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container port my-nginx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">80/tcp -&amp;gt; 0.0.0.0:8000
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">80/tcp -&amp;gt; :::8000
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>この例では、コンテナ側の 80 番ポートが、ホスト側の 8000 番ポートにマッピングされていることがわかります。
+つまり、コンテナの Web サーバーには、&lt;code>http://localhost:8000&lt;/code> といったアドレスでアクセスできます。&lt;/p>
+&lt;p>特定の（コンテナ側の）ポート番号に関してだけ調べることもできます。
+次の例では、コンテナ側の 80 番ポートに対して、ホスト側のどのポートがマッピングされているかを調べています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container port my-nginx &lt;span class="m">80&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">0.0.0.0:8000
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">:::8000
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="おまけnginx-サーバーを立ち上げて実際に試してみる">（おまけ）nginx サーバーを立ち上げて実際に試してみる&lt;/h2>
+&lt;p>Alpine Linux をベースにした nginx サーバーのイメージ (&lt;code>nginx:alpine&lt;/code>) はとても軽量（20MB くらい）なので、これを利用して、上記の &lt;code>docker container port&lt;/code> コマンドを試してみます。&lt;/p>
+&lt;p>コンテナで nginx サーバーを起動するには次のように実行します。
+ここでは、コンテナ名を &lt;code>my-nginx&lt;/code> とし、ホスト側の 8000 番ポートとコンテナ側の 80 番ポートを結びつけています。&lt;/p></description></item><item><title>Docker のコンテナイメージを作成する (docker image build, docker container commit)</title><link>https://maku77.github.io/p/5j4k3iy/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5j4k3iy/</guid><description>&lt;h2 id="2-つのイメージ作成方法">2 つのイメージ作成方法&lt;/h2>
+&lt;p>Docker イメージの作成方法には、大きく下記の 2 つの方法があります。&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>&lt;code>Dockerfile&lt;/code>&lt;/strong> にイメージの作成手順を記載しておき、&lt;strong>&lt;code>docker image build&lt;/code>&lt;/strong> で作成&lt;/li>
+&lt;li>OS イメージをインタラクティブモードで起動し、各種設定を行った後に &lt;strong>&lt;code>docker container commit&lt;/code>&lt;/strong> で作成&lt;/li>
+&lt;/ol>
+&lt;p>再現性、ポータビリティといった観点から、&lt;code>Dockerfile&lt;/code> を扱うアプローチが推奨されています。&lt;/p>
+&lt;h2 id="docker-image-build-アプローチ">docker image build アプローチ&lt;/h2>
+&lt;p>&lt;strong>&lt;code>Dockerfile&lt;/code>&lt;/strong> という、Docker イメージ作成のための手順書を作成しておくと、&lt;strong>&lt;code>docker image build&lt;/code>&lt;/strong>（あるいは &lt;code>docker build&lt;/code>）コマンドを使って自動的にイメージを作成することができます。
+下記は、Debian のイメージをベースにして、Python 3 をインストールしたイメージを作成する場合の &lt;code>Dockerfile&lt;/code> の例です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Dockerfile&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Debian (Wheezy) のイメージをベースにする&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="s"> debian:wheezy&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="c"># コンテナ構築のためのコマンド実行&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="k">RUN&lt;/span> apt-get -qq update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> apt-get -y install python3&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>この &lt;code>Dockerfile&lt;/code> を元に Docker イメージを作成するには、下記のように &lt;code>docker image build&lt;/code> を実行します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">コンテナイメージのビルド&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker image build -t &amp;lt;イメージ名&amp;gt; &amp;lt;Dockerfileのあるディレクトリ&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>-t&lt;/code> の後ろに指定するイメージ名は &lt;strong>&lt;code>&amp;lt;user&amp;gt;/&amp;lt;repo&amp;gt;:&amp;lt;tag&amp;gt;&lt;/code>&lt;/strong> という構成で指定します。
+末尾のタグ名 (&lt;code>:&amp;lt;tag&amp;gt;&lt;/code>) を省略すると、自動的に &lt;code>latest&lt;/code> というタグが付けられます。
+カレントディレクトリに &lt;code>Dockerfile&lt;/code> ファイルがある場合は次のような感じでイメージをビルドします。&lt;/p></description></item><item><title>すべての Docker コンテナを停止／削除する (docker container stop/rm)</title><link>https://maku77.github.io/p/6ehmpsv/</link><pubDate>Thu, 12 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6ehmpsv/</guid><description>&lt;h2 id="全コンテナを停止する">全コンテナを停止する&lt;/h2>
+&lt;p>すべての Docker コンテナをまとめて停止するには次のようにします。
+これは、&lt;code>docker container ps -a -q&lt;/code> コマンドですべてのコンテナ ID を取得できることを利用しているため、Linux や macOS 上でしか実行できません（Windows のコマンドプロンプトでは実行できません）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">すべての Docker コンテナを停止する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container stop &lt;span class="k">$(&lt;/span>docker container ps -a -q&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="全コンテナを削除する">全コンテナを削除する&lt;/h2>
+&lt;p>同様に、次のようにすればすべての Docker コンテナを削除することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">すべての Docker コンテナを削除する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container rm &lt;span class="k">$(&lt;/span>docker container ps -a -q&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>動作中のコンテナも含めてすべて削除したいときは、&lt;code>docker contaier rm&lt;/code> に &lt;strong>&lt;code>-f&lt;/code>&lt;/strong> オプションを付けて実行する必要があります。
+ただし、これはとても危険なので注意して実行してください。&lt;/p></description></item><item><title>Docker コンテナの詳細情報を表示する (docker container inspect)</title><link>https://maku77.github.io/p/47hs3ck/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/47hs3ck/</guid><description>&lt;p>&lt;strong>&lt;code>docker container inspect&lt;/code>&lt;/strong>（あるいは &lt;code>docker inspect&lt;/code>）コマンドを使用すると、Docker コンテナの詳細情報を表示することができます。
+その Docker コンテナがどのイメージをもとに作成されているのか、環境変数の設定はどうなっているのかなどを JSON 形式で出力してくれます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container inspect my-container
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">[
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Id&amp;#34;: &amp;#34;ac2dc4e539f1bc7c273beb71d03536e83393d7f673d7ba67994569c75173b2a2&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Created&amp;#34;: &amp;#34;2022-02-25T05:28:16.4553051Z&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Path&amp;#34;: &amp;#34;/bin/bash&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Args&amp;#34;: [],
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;State&amp;#34;: {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Status&amp;#34;: &amp;#34;exited&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Running&amp;#34;: false,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Paused&amp;#34;: false,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Restarting&amp;#34;: false,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;OOMKilled&amp;#34;: false,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Dead&amp;#34;: false,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Pid&amp;#34;: 0,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;ExitCode&amp;#34;: 0,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Error&amp;#34;: &amp;#34;&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;StartedAt&amp;#34;: &amp;#34;2022-02-25T05:29:17.5120196Z&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;FinishedAt&amp;#34;: &amp;#34;2022-02-25T05:29:22.1845301Z&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> },
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> &amp;#34;Image&amp;#34;: &amp;#34;sha256:54c9d81cbb440897908abdcaa98674db83444636c300170cfd211e40a66f704f&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> }
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">]
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docker コンテナをデーモンとして動作させる (docker container run -d, docker container logs)</title><link>https://maku77.github.io/p/dmpsvz3/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dmpsvz3/</guid><description>&lt;h2 id="コンテナのバックグラウンド起動-docker-container-run--d">コンテナのバックグラウンド起動 (docker container run -d)&lt;/h2>
+&lt;p>Docker コンテナ内でプログラムが動作している状態をキープするには、何らかの終了しないプログラムを動かす必要があります（典型的には何らかのサーバープログラムです）。
+ここでは、5 秒おきに &lt;code>HELLO&lt;/code> と表示するプログラムを動かしてみます。
+次のような簡単な bash プログラムです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s1">&amp;#39;while true; do echo HELLO; sleep 5; done&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のようなプログラムを、&lt;code>docker run&lt;/code> コマンドで単純に Docker コンテナ内で動かすと、起動元の端末（の標準出力）に &lt;code>HELLO&lt;/code> と表示され続けてしまいます。
+そうではなくて、Docker コンテナ内に閉じて出力するには、&lt;code>docker run&lt;/code> コマンドに &lt;strong>&lt;code>-d (--detach)&lt;/code>&lt;/strong> オプションを付けて実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container run --rm -d --name mycon ubuntu:22.04 /bin/bash -c &lt;span class="s1">&amp;#39;while true; do echo HELLO; sleep 5; done&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">57bf2e3edddf8dcc786ee42e9b2b5a1f50786d80bd45525afa21debcf108613b
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>引数の意味:&lt;/p>
+&lt;ul>
+&lt;li>&lt;b>&lt;code class="xLabelCode">--rm&lt;/code> … &lt;/b>
+ コンテナ停止時にコンテナを自動で削除します。&lt;/li>
+&lt;li>&lt;b>&lt;code class="xLabelCode">-d (--detach)&lt;/code> … &lt;/b>
+ コンテナをバックグラウンドで動作させます。&lt;/li>
+&lt;li>&lt;b>&lt;code class="xLabelCode">--name mycon&lt;/code> … &lt;/b>
+ コンテナに &lt;code>mycon&lt;/code> という名前を付けます。&lt;/li>
+&lt;li>&lt;b>&lt;code class="xLabelCode">ubuntu:22.04&lt;/code> … &lt;/b>
+ イメージとして Ubuntu 22.04 を使用します。&lt;/li>
+&lt;/ul>
+&lt;p>すると、&lt;code>docker container run&lt;/code> コマンドを実行した側には &lt;code>HELLO&lt;/code> と表示されず、プログラムを実行中の &lt;strong>コンテナ ID&lt;/strong> のみが表示されます。
+実行中の Docker コンテナの一覧は、以下のように &lt;code>docker container ps&lt;/code> コマンドで確認できます。&lt;/p></description></item><item><title>Docker コンテナ内で動作しているプロセスの一覧を表示する (docker container top)</title><link>https://maku77.github.io/p/s3m4jyg/</link><pubDate>Wed, 11 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/s3m4jyg/</guid><description>&lt;p>&lt;strong>&lt;code>docker container top &amp;lt;コンテナ名&amp;gt;&lt;/code>&lt;/strong> コマンドを実行すると、指定した Docker コンテナ内で現在動作しているプロセスを確認することができます（互換性維持のため、&lt;code>docker top&lt;/code> コマンドも残されています）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container top my-container
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">PID USER COMMAND
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">854 root python app.py
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">855 root sleep 1
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>末尾に &lt;code>ps&lt;/code> コマンドのオプションを指定して、出力内容をカスタマイズできます。
+次の例では、&lt;code>-o pid,command&lt;/code> と指定することで、出力するフィールドを &lt;code>PID&lt;/code> と &lt;code>COMMAND&lt;/code> のみにしています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker container top my-container -o pid,command
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">PID COMMAND
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">2007 /usr/bin/qemu-x86_64 /usr/sbin/mysqld mysqld
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docker のプロキシ設定</title><link>https://maku77.github.io/p/w69cfim/</link><pubDate>Tue, 10 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w69cfim/</guid><description>&lt;h2 id="docker-ホスト側のプロキシ設定">Docker ホスト側のプロキシ設定&lt;/h2>
+&lt;p>&lt;code>docker pull&lt;/code> などで、Docker Hub リポジトリからイメージを取得するときにプロキシ接続が必要な場合は、Docker コンテナーではなく、Docker ホスト側のプロキシ設定を行う必要があります。
+実際には、&lt;code>docker pull&lt;/code> コマンドは、docker デーモンに対して命令を送っているだけなので、docker デーモンの方がプロキシ設定を認識する必要があります。
+&lt;strong>docker デーモンのプロキシ設定は、&lt;code>/etc/default/docker&lt;/code> ファイルで行います。&lt;/strong>&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">/etc/default/docker（あるいは docker.io）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">http_proxy&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;http://proxy.example.com:3128/&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>設定変更後は、docker デーモンを再起動すれば OK です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo service docker.io restart
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで、無事にプロキシ経由で &lt;code>docker pull&lt;/code> できるようになります。&lt;/p>
+&lt;h2 id="docker-コンテナ内で使用するプロキシ設定">Docker コンテナ内で使用するプロキシ設定&lt;/h2>
+&lt;p>Docker コンテナの中で、&lt;code>apt-get&lt;/code> や &lt;code>curl&lt;/code> などを使ったインターネットアクセスを行う場合は、Docker コンテナ側でプロキシの設定を行う必要があります。
+&lt;code>docker run&lt;/code> で Docker コンテナを起動するときに、&lt;code>-e&lt;/code> オプションで &lt;strong>&lt;code>http_proxy&lt;/code> 環境変数&lt;/strong> を渡して起動することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo docker run -e &lt;span class="nv">http_proxy&lt;/span>&lt;span class="o">=&lt;/span>http://proxy.example.com:8888/ -it debian:wheezy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>もちろん、Docker コンテナを起動したあとで、コンテナ上のシェルから環境変数を設定することもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo docker run -it debian:wheezy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">root@7cb147891556:/# export http_proxy=http://proxy.example.com:8888/
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">root@7cb147891556:/#
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Docker イメージとして、必ず特定のプロキシを使うことが決まっているのであれば、Docker イメージを作成する際の &lt;code>Dockerfile&lt;/code> にプロキシ設定を埋め込んでしまうこともできます。
+このプロキシ設定は、Docker イメージを構築する際の、&lt;code>RUN&lt;/code> コマンド (&lt;code>apt-get&lt;/code>) にも効いてきます。&lt;/p></description></item><item><title>一般ユーザから docker コマンドを実行できるようにする（docker グループへの登録）</title><link>https://maku77.github.io/p/an7o5m3/</link><pubDate>Tue, 10 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/an7o5m3/</guid><description>&lt;p>&lt;code>docker&lt;/code> コマンドは、内部で socket を使って通信を行っており、一般ユーザからコマンドを実行すると、permission denied で怒られることがあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client version: 1.0.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client API version: 1.12
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Go version (client): go1.2.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Git commit (client): 990021a
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">2015/03/10 22:50:19 Get http:///var/run/docker.sock/v1.12/version: dial unix //var/run/docker.sock: permission denied
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記の出力を見ると、&lt;code>var/run/docker.sock&lt;/code> ファイルへのアクセス権限がないことが分かります。
+このような場合は、次のいずれかの方法で &lt;code>docker&lt;/code> コマンドを実行できるようになります。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>sudo&lt;/code> を付けて実行する&lt;/li>
+&lt;li>ユーザーを &lt;code>docker&lt;/code> グループに追加する&lt;/li>
+&lt;/ul>
+&lt;h2 id="sudo-を付けて実行する方法">sudo を付けて実行する方法&lt;/h2>
+&lt;p>&lt;code>sudo&lt;/code> をつけてスーパーユーザー権限で &lt;code>docker&lt;/code> コマンドを実行する方法です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo docker version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client version: 1.0.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client API version: 1.12
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Go version (client): go1.2.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Git commit (client): 990021a
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Server version: 1.0.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Server API version: 1.12
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Go version (server): go1.2.1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Git commit (server): 990021a
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ユーザーを-docker-グループに追加する方法">ユーザーを docker グループに追加する方法&lt;/h2>
+&lt;p>Docker が使用している socket ファイル (&lt;code>/var/run/docker.sock&lt;/code>) は、&lt;strong>docker グループ&lt;/strong> からのアクセスを許可しています。&lt;/p></description></item><item><title>Docker をインストールする (Docker Desktop / Docker Engine)</title><link>https://maku77.github.io/p/96o6n4j/</link><pubDate>Mon, 09 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/96o6n4j/</guid><description>&lt;h2 id="docker-実行環境のインストール">Docker 実行環境のインストール&lt;/h2>
+&lt;p>Docker の実行環境（&lt;code>docker&lt;/code> コマンド）をインストールするには、下記の公式マニュアルの手順に従ってください。
+基本的に、Windows や macOS では &lt;strong>Docker Desktop&lt;/strong>、Linux では &lt;strong>Docker Engine&lt;/strong> をインストールすることになります。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.docker.com/get-docker/">https://docs.docker.com/get-docker/&lt;/a>
+&lt;ul>
+&lt;li>例: &lt;a href="https://docs.docker.com/desktop/windows/install/">Windows の場合 (Docker Desktop)&lt;/a>&lt;/li>
+&lt;li>例: &lt;a href="https://docs.docker.com/desktop/mac/install/">macOS の場合 (Docker Desktop)&lt;/a>&lt;/li>
+&lt;li>例: &lt;a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu の場合 (Docker Engine)&lt;/a>&lt;/li>
+&lt;li>例: &lt;a href="https://docs.docker.com/engine/install/debian/">Debian の場合 (Docker Engine)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>例えば、Linux 環境では次のような感じで Docker Engine をインストールできます（詳細は上記の公式ページを参照してください）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> インストール
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> curl -sSL get.docker.com -o install.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sh install.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">#&lt;/span> Docker サービスを systemd で自動起動する設定
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> systemctl &lt;span class="nb">enable&lt;/span> docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">#&lt;/span> Docker サービスを直ちに起動
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> systemctl start docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>インストール手順を実行後、&lt;code>docker&lt;/code> コマンドが使えるようになっていれば準備 OK です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> docker system info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="docker-desktop-について">Docker Desktop について&lt;/h2>
+&lt;p>Docker コンテナを動作させるためのコアになる Docker Engine は、Linux OS 上で動作させることを前提としているため、そのままでは Windows や macOS 上で動かすことができません。
+Windows や macOS で Docker を動かすには、まず、Linux VM（仮想環境）を立ち上げ、その上で Docker Engine を動作させる、といった複雑な手順が必要です。&lt;/p></description></item></channel></rss>

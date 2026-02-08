@@ -1,47 +1,771 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sass on 天才まくまくノート</title><link>https://maku77.github.io/sass/</link><description>Recent content in Sass on 天才まくまくノート</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Sun, 30 Dec 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/sass/index.xml" rel="self" type="application/rss+xml"/><item><title>Sassメモ: SCSS 内でのループ処理 (@for, @while)</title><link>https://maku77.github.io/p/ka8a3uc/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ka8a3uc/</guid><description>Sass スクリプトで @for ディレクティブや @while ディレクティブを使用すると、数値によるループ処理を行うことができます。 主に、シンプルな数値のインクリメント（あるいはデクリメント）によるループには @for ディレクティブを使用し、より複雑なループ処理が必要な場合には @while ディレクティブを使用します。
-@for ディレクティブ @for ディレクティブは下記のいずれかの構文で使用します。
-@for 変数 from 開始値 through 終了値 { 処理（スタイル定義など） } @for 変数 from 開始値 to 終了値 { 処理（スタイル定義など） } いずれも 変数 の値が 開始値 から 終了値 に向かってインクリメント（あるいはデクリメント）されながらループ処理されますが、through を使った場合に 終了値 を含む値まで処理されるのに対し、to を使った場合は 終了値 に達する手前の値までしか処理されません。 下記の例を見ると、その違いが分かると思います。
-入力 (SCSS) @for $i from 1 through 3 { .foo-#{$i} { width: 10px * $i; } } @for $i from 1 to 3 { .</description></item><item><title>Sassメモ: SCSS 内での条件分岐処理 (@if-else, if関数)</title><link>https://maku77.github.io/p/rkk224q/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rkk224q/</guid><description>@if ディレクティブ Sass スクリプトの中で @if、@else、@else if ディレクティブを使用することで、条件分岐処理を記述することができます。
-下記の例では、変数 $fruit の値によってスタイルの出力を分岐させています。
-入力 (SCSS) $fruit: banana; p { @if $fruit == apple { color: red; } @else if $fruit == banana { color: yellow; } @else { color: blue; } } 出力 (CSS) p { color: yellow; } 比較演算子としては、==、!=、&amp;gt;、&amp;gt;=、&amp;lt;、&amp;lt;= などを使用することができます。 論理演算子としては、and、or、not などを使用することができます（&amp;amp;&amp;amp; や || などはありません）。
-@if ディレクティブは、Mixin や関数に渡されたパラメータを使って分岐処理したいときによく使用されます。
-入力 (SCSS) @mixin highlight($inverted: false) { @if $inverted { color: white; background: red; } @else { color: red; background: white; } } strong { @include highlight(); } em { @include highlight(true); } 出力 (CSS) strong { color: red; background: white; } em { color: white; background: red; } if 関数 @if ディレクティブに似たものに、if 関数があります。 if 関数は第1パラメータの値が真 (true) の場合に第2パラメータで指定した値を返し、偽 (false) の場合に第3パラメータで指定した値を返します。 Java や C 言語の三項演算子のように使用するものです。</description></item><item><title>Sassメモ: 色（カラー値）を扱う</title><link>https://maku77.github.io/p/7pq84ye/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7pq84ye/</guid><description>Color 型変数の定義方法 CSS では下記のような色の指定方法があります。
-color: red; // 定数名で指定 color: #ff0000; // 16進数で指定 color: rgb(255, 0, 0); // 10進数で指定 color: rgba(255, 0, 0, 0.3); // 10進数で指定（α値あり） color: hsl(0, 100%, 50%); // HSL指定 color: hsla(0, 100%, 50%, 0.3); // HSL指定（α値あり） CSS の rgba 関数は、上記のように4つのパラメータをとりますが、Sass の rgba 関数はより柔軟なパラメータ指定が可能になっています。
-color: rgba(red, 0.3); // 定数名 + α値 color: rgba(#ff0000, 0.3); // 16進数 + α値 また、Sass では名前付きパラメータを使って値を指定できるので、各パラメータの意味を明確にすることができます。
-color: hsl($hue: 0, $saturation: 100%, $lightness: 50%); // 赤になる 色を表す定数の一覧 Sass スクリプトの中で色を表現する方法としては、#ff00ff のような16進数での指定方法以外にも、下記のように色を表す定数を使用する方法があります。</description></item><item><title>Sassメモ: 関数を定義する (@function)</title><link>https://maku77.github.io/p/3htu3om/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3htu3om/</guid><description>Sass (SCSS) で独自関数を定義するには、下記のような構文の @function ディレクティブを使用します。
-@function 関数名($引数1, $引数2) { @return 戻り値; } 関数名は、組み込みの関数とコンフリクトしないように、何らかのプレフィックスを付けることが推奨されています。 ライブラリなどを作っているのでなければ、my- とか x- とか付けておけば大丈夫だと思います。 関数には f- プレフィックス、Mixin には m- プレフィックスを付ける、といったルールを決めておくと分かりやすいかもしれません。
-関数は Mixin と似ているように思われるかもしれませんが、Mixin がひとまとまりのルールセットを呼び出し側にインクルードするのに対し、関数は何らかの値を受け取って、その演算結果を値として返すために使用します（関数の方が粒度が小さい）。
-下記の my-hover-color 関数は、パラメータで指定された色より若干明る目の色を返します。 ボタン要素にマウスカーソルを重ねたときの背景色を作成するために使用しています。
-入力 (SCSS) $LIGHTEN_RATE: 20%; @function my-hover-color($color) { @return lighten($color, $LIGHTEN_RATE); } button { color: white; background: black; &amp;amp;:hover { background: my-hover-color(black); } } 出力 (CSS) button { color: white; background: black; } button:hover { background: #333333; } Mixin と同様に、パラメータは名前付き引数として設定することができます。 パラメータが複数あるときは、この形式で呼び出すようにすると可読性を上げられるかもしれません。</description></item><item><title>Sassメモ: Mixin でスタイルを組み合わせる (@mixin, @include)</title><link>https://maku77.github.io/p/awmebxk/</link><pubDate>Wed, 19 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/awmebxk/</guid><description>Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。
-Mixin の基本 Sass の Mixin 機能は、ひとまとまりのスタイルを Mixin として定義 (@mixin) しておき、複数の場所からそのスタイルをインクルード (@include) して使用する仕組みです。 Mixin は、スタイルセットを提供する関数のようなものと考えるとわかりやすいです。
-便利な Mixin を SCSS ファイルにまとめて定義しておけば、再利用可能な Sass ライブラリとして使用できます。 定義した Mixin は @include して使用しない限り CSS に出力されることはないので、Sass ライブラリの中の Mixin 定義が増えても、最終的な CSS が肥大化する心配はありません。
-下記の例では、round-box という名前の Mixin を定義して、pre 要素と .ad-widget クラスのスタイル定義からインクルードしています。
-入力 (SCSS) @mixin round-box { border: solid 1px gray; border-radius: 5px; padding: 10px; } pre { @include round-box; line-height: 1.3; } .ad-widget { @include round-box; background: #ccc; } 出力 (CSS) pre { border: solid 1px gray; border-radius: 5px; padding: 10px; line-height: 1.</description></item><item><title>Sassメモ: エクステンドでスタイルを継承する (@extend)</title><link>https://maku77.github.io/p/nkv6w5b/</link><pubDate>Wed, 19 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nkv6w5b/</guid><description>Sass (SCSS) の @extend ディレクティブを使用すると、他のセレクタに適用されているスタイル定義を継承して使用することができます。
-@extend の基本 例えば、.sample クラスのスタイル定義の中で下記のように @extend ディレクティブを使用すると、
-.sample { @extend &amp;lt;セレクタ名&amp;gt;; } 指定したセレクタに設定されているスタイル定義を、.sample クラスに継承させることができます。 セレクタ名には、クラス名 (.foo) や HTML のタグ名 (em) などを引用符で囲まずに指定します。
-下記の例では、.warn クラスに対して設定したスタイルを、.error に継承させています。
-入力 (SCSS) .warn { font-weight: bolder; border: solid 3px orange; color: orange; } .error { @extend .warn; border-color: red; color: red; } 出力 (CSS) .warn, .error { font-weight: bolder; border: solid 3px orange; color: orange; } .error { border-color: red; color: red; } これで、.</description></item><item><title>Sassメモ: SCSS でマップ変数を使用する</title><link>https://maku77.github.io/p/rm99r8j/</link><pubDate>Tue, 18 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rm99r8j/</guid><description>マップ変数を作成する Sass においてマップはリストの特殊バージョンで、リストの各要素がキー＆バリューの形 (key1:value1) になったものです。 マップを定義するには、キー＆バリューをカンマで並べ、全体を括弧 () で囲みます。 リストを定義するときは、全体の括弧を省略できるケースがありますが、マップの場合は必ず全体を括弧で囲む必要があります。
-マップ変数を定義する マップ変数を定義する $map: (key1: value1, key2: value2, key3: value3); 空のマップを作成したいときは、空のリストを作成するときと同様に () を使用します。 空のマップを作成しておいて、動的に要素を追加していくという使い方ができます。
-空のマップ変数を定義する（リストでもある） 空のマップ変数を定義する（リストでもある） $map: (); マップの要素をループで処理する (@each) マップの要素もリストの要素と同様に @each ディレクティブを使用してループ処理することができます。 あるルール定義の中で、マップの要素を使用してスタイル定義を出力するために使用します。
-入力 (SCSS) $headers: (h1: 1.6rem, h2: 1.4rem, h3: 1.3rem, h4: 1.2rem); @each $tag, $size in $headers { #{$tag} { font-size: $size; } } 出力 (CSS) h1 { font-size: 1.6rem; } h2 { font-size: 1.4rem; } h3 { font-size: 1.</description></item><item><title>Sassメモ: SCSS でリスト変数を使用する</title><link>https://maku77.github.io/p/gm47at8/</link><pubDate>Tue, 18 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gm47at8/</guid><description>Sass (SCSS) には、複数の値をまとめて管理するためのデータタイプとして list 型が用意されています。
-リスト型の表現方法 リスト型変数の基本 CSS でリスト型の値を定義するときは、スペース区切りかカンマ区切りで複数の値を列挙します。 例えば、次のようなプロパティを表現するために使用されます。
-CSS .sample { margin: 10px 15px 0 0; font-family: Helvetica, Arial, sans-serif; } SCSS の変数には、このようなリストもそのまま格納することができます。
-SCSS $my-margin: 10px 15px 0 0; $my-font: Helvetica, Arial, sans-serif; .sample { margin: $my-margin; font-family: $my-font; } リストのリスト リストの要素としてリストを含めることもできます。 下記の例では、1px 2px と 3px 4px の 2 つのリストを含むリスト変数を定義しています。
-$my-list1: 1px 2px, 3px 4px; $my-list2: (1px 2px) (3px 4px); 空リストと要素が1つだけのリスト 空のリストを定義するときは、() という表現方法を使用します。
-$my-list: (); Sass では、() は空のリストであり、空のマップでもあります。マップは実質的には、キー＆バリューのペア値を格納した「リスト」として扱われるためです。 要素が 1 つだけのリストを表現するには、次のように、要素の後ろにカンマ (,) を記述します。</description></item><item><title>Sassメモ: SCSS で変数を使用する ($var-name, !default)</title><link>https://maku77.github.io/p/vd4ym66/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/vd4ym66/</guid><description>変数定義の基本 SCSS ファイル内で変数を定義するには、下記のような構文を使用します。
-$変数名: 初期値; 下記はカラー値を変数として定義する簡単な例です。
-入力 (SCSS) $main-color: #333; body { color: $main-color; } 出力 (CSS) body { color: #333; } 変数の値をそのままプロパティの値として使用する場合は、上記のように $変数名 の形で参照できます。 何らかのキーワードの一部（セレクタ名の一部など）や、コメントの中で変数の値を参照する場合は、インターポレーションの形式 (#{$変数名}) で参照する必要があります。 インターポレーションで文字列変数の値を参照すると、引用符は削除されて展開されます。
-入力 (SCSS) $prefix: &amp;#34;.maku&amp;#34;; #{$prefix}-shout { font-size: larger; } 出力 (CSS) .maku-shout { font-size: larger; } 変数のスコープ（ローカル変数） 入れ子になったルール定義の中で変数を定義すると、その変数はそのブロック内でのみ参照可能なローカル変数となります。 グローバル変数と同じ名前のローカル変数を定義した場合、ローカル変数が優先されます。
-入力 (SCSS) $color: black; // グローバル変数の定義 body { color: $color; // グローバル変数の参照 } main { $color: red; // ローカル変数の定義 color: $color; // ローカル変数の参照 } 出力 (CSS) body { color: black; } main { color: red; } 変数名のハイフンとアンダースコアは同一視される 歴史的な理由により、SCSS の中で定義した変数名に含まれるハイフン (-) と、アンダースコア (_) は同一のものとして扱われます。 例えば、$main-color という名前で定義した変数は、$main_color という名前でも参照できます。</description></item><item><title>Sassメモ: SCSS ファイルから別の SCSS ファイルをインポートする (@import)</title><link>https://maku77.github.io/p/hqpo9s9/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hqpo9s9/</guid><description>インポートの基本 SCSS の @import ディレクティブを使用すると、SCSS ファイルから別の SCSS ファイルをインポートすることができます。
-入力 (SCSS) @import &amp;#34;colors.scss&amp;#34;; // 拡張子は省略可能 main { color: $main-color; } インポートされるファイル (colors.scss) // 色の定義 $main-color: black; 出力 (CSS) main { color: black; } 複数の SCSS ファイルをインポートしたいときは、複数行に分けて @import ディレクティブを記述してもよいですし、次のようにカンマ区切りでまとめてインポートすることもできます。
-@import &amp;#34;foo&amp;#34;, &amp;#34;bar&amp;#34;, &amp;#34;hoge&amp;#34;; CSS 標準の @import ディレクティブとして使用する @import ディレクティブ自体は、通常の CSS に搭載されている機能であり、上記のように SCSS ファイルをその場所にインポートして展開する機能は、Sass によって追加された拡張機能です。
-次のような一定のルールに従って @import ディレクティブを使用すると、従来の CSS の @import ディレクティブとして使用されたとみなされ、@import の行がそのまま出力されます（インポートしたファイルの内容がインライン展開されません）。
-入力 (SCSS) // 拡張子が .css である @import &amp;#34;colors.css&amp;#34;; // メディアクエリが付いている @import &amp;#34;colors&amp;#34; screen; // URLで指定されている @import &amp;#34;http://example.</description></item><item><title>Sassメモ: SCSS ファイルでのコメントの書き方</title><link>https://maku77.github.io/p/katvaa5/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/katvaa5/</guid><description>SCSS の2種類のコメント形式 CSS のコメントは /* と */ で囲む1種類のコメント形式しかありませんが、SCSS では、一行コメント (//) と、複数行コメント (/* ～ */) の2種類のコメントを使用することができます。 SCSS でのみ使用可能な一行コメント (//) の方は、CSS に変換される際に削除されます。
-複数行コメント（/* から */ まで） &amp;hellip; CSS への変換後もそのままコメントとして残る 一行コメント（// から行末まで） &amp;hellip; CSS への変換時に削除される 入力 (SCSS) /* * このコメントスタイルでは、 * 複数行をコメントアウトすることができます。 * CSS への変換後もコメントとして残ります。 */ body { color: black; } // これらの一行コメントは、 // CSS へ変換する際に削除されます。 strong { color: red; } 出力 (CSS) /* * このコメントスタイルでは、 * 複数行をコメントアウトすることができます。 * CSS への変換後もコメントとして残ります。 */ body { color: black; } strong { color: red; } TODO コメントなど、開発時にのみ参照したいコメントは一行コメントで記述しておくとよいでしょう。</description></item><item><title>Sassメモ: 文字列変数の引用符の展開ルール</title><link>https://maku77.github.io/p/by8fhor/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/by8fhor/</guid><description>引用符で囲まれた文字列、囲まれていない文字列 Sass の文字列変数には、引用符で囲まれた文字列と、囲まれていない文字列の 2 種類があります。 文字列変数を $変数 の形で参照すると、変数定義時の引用符のありなしがそのまま反映されて展開されます。
-入力 (SCSS) $family1: &amp;#34;Lucida Grande&amp;#34;; $family2: &amp;#39;Lucida Sans&amp;#39;; $family3: sans-serif; main { font-family: $family1, $family2, $family3; } 出力 (CSS) main { font-family: &amp;#34;Lucida Grande&amp;#34;, &amp;#34;Lucida Sans&amp;#34;, sans-serif; } インターポレーション セレクタ名やコメント、文字列の中で文字列変数を参照する場合は、#{$変数} のようなインターポレーション形式で参照する必要があります。
-入力 (SCSS) $name: &amp;#34;maku&amp;#34;; /* これはコメントです by #{$name} */ .note-#{$name} { content: &amp;#34;I am #{$name}&amp;#34; } 出力 (CSS) @charset &amp;#34;UTF-8&amp;#34;; /* これはコメントです by maku */ .note-maku { content: &amp;#34;I am maku&amp;#34;; } 入力ファイルのエンコーディング形式を判別して、@charset ディレクティブまで自動で挿入してくれるみたいですね。</description></item><item><title>Sassメモ: Sass とは／sassコマンドのインストール／sassコマンドの使い方</title><link>https://maku77.github.io/p/tx93n26/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/tx93n26/</guid><description>Sass とは Sass は CSS (Cascading Style Sheets) ファイルを効率的に作成するための変換ツールで、Hampton Catlin (ハンプトン・キャトリン) と Nathan Weizenbaum (ネイサン・バイゼンバウム) によって作成されました。 従来の CSS には存在しない変数の仕組みや、ループ処理、モジュールの仕組みなどを使用できるため、効率的に CSS ファイルを作成することができます。 変数の仕組みなどは、CSS のバージョンアップとともにネイティブでサポートされつつありますが、Web ブラウザによって対応状況がまちまちだったりするため、Sass を使って多くのブラウザがサポートしている CSS フォーマットに変換するという方法はまだまだ有効です。
-SASS 記法と SCSS 記法 Sass へのインプットに使用するファイルは、「SASS フォーマット」 あるいは 「SCSS フォーマット」 で記述します。 どちらも変換後は CSS ファイルになるのですが、記述方法が若干異なります。
-SASS 記法: .sass 拡張子でファイルを作成する。Jade や Python のようにインデントによって構造化する。昔使われていた記法。 SCSS 記法: .scss 拡張子でファイルを作成する。CSS と同様に括弧 ({ と }) で構造化する。Sassy CSS の略で、Sass 3.0 で導入された。現在主流の記法。 現在は、CSS と互換性のある SCSS フォーマットで記述するのが主流です。 CSS ファイルは SCSS ファイルとしても正しい文法とみなせるため、とりあえず .scss 拡張子のファイルに従来の CSS フォーマットでスタイル定義しておいて、徐々に SCSS の機能を使って内容を充実させていく、といった使い方が可能です。</description></item><item><title>Sassメモ: SCSS ファイルの書き方の基本</title><link>https://maku77.github.io/p/34uu8u7/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/34uu8u7/</guid><description>Sass (SCSS) を使用すると、CSS では扱えないネスト構造でのスタイル記述が可能になります。 Sass には多くの機能がありますが、このネストの仕組みだけでも Sass 導入の価値があります。
-入れ子構造 従来の CSS は、一階層のセレクタブロック（{ ～ }）でしかルールセットを記述できませんが、SCSS では下記のような入れ子構造で定義していくことができます。
-入力 (SCSS) #main { width: 97%; p, div { font-size: 2em; a { font-weight: bold; } } pre { font-size: 3em; } } 上記のような入れ子構造は子孫セレクタを表現しているとみなされ、Sass プロセッサにより、下記のようにフラットな構造の CSS に展開されます。
-出力 (CSS) #main { width: 97%; } #main p, #main div { font-size: 2em; } #main p a, #main div a { font-weight: bold; } #main pre { font-size: 3em; } 子孫セレクタ以外のセレクタシーケンス（子セレクタ (&amp;gt;) や隣接セレクタ (+)）なども、同様に入れ子の形で定義することができます。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sass on 天才まくまくノート</title><link>https://maku77.github.io/sass/</link><description>Recent content in Sass on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Sun, 30 Dec 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/sass/index.xml" rel="self" type="application/rss+xml"/><item><title>Sassメモ: SCSS 内でのループ処理 (@for, @while)</title><link>https://maku77.github.io/p/ka8a3uc/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ka8a3uc/</guid><description>&lt;p>Sass スクリプトで &lt;strong>&lt;code>@for&lt;/code>&lt;/strong> ディレクティブや &lt;strong>&lt;code>@while&lt;/code>&lt;/strong> ディレクティブを使用すると、数値によるループ処理を行うことができます。
+主に、シンプルな数値のインクリメント（あるいはデクリメント）によるループには &lt;code>@for&lt;/code> ディレクティブを使用し、より複雑なループ処理が必要な場合には &lt;code>@while&lt;/code> ディレクティブを使用します。&lt;/p>
+&lt;h2 id="for-ディレクティブ">&lt;code>@for&lt;/code> ディレクティブ&lt;/h2>
+&lt;p>&lt;code>@for&lt;/code> ディレクティブは下記のいずれかの構文で使用します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>@for 変数 from 開始値 through 終了値 {
+ 処理（スタイル定義など）
+}
+
+@for 変数 from 開始値 to 終了値 {
+ 処理（スタイル定義など）
+}
+&lt;/code>&lt;/pre>&lt;p>いずれも &lt;code>変数&lt;/code> の値が &lt;code>開始値&lt;/code> から &lt;code>終了値&lt;/code> に向かってインクリメント（あるいはデクリメント）されながらループ処理されますが、&lt;code>through&lt;/code> を使った場合に &lt;code>終了値&lt;/code> を含む値まで処理されるのに対し、&lt;code>to&lt;/code> を使った場合は &lt;code>終了値&lt;/code> に達する手前の値までしか処理されません。
+下記の例を見ると、その違いが分かると思います。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@for&lt;/span> &lt;span class="nv">$i&lt;/span> &lt;span class="ow">from&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="ow">through&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">.foo-&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="nv">$i&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">@for&lt;/span> &lt;span class="nv">$i&lt;/span> &lt;span class="ow">from&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="ow">to&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">.bar-&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="nv">$i&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">foo-1&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">foo-2&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">foo-3&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">bar-1&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">bar-2&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>開始値&lt;/code> よりも &lt;code>終了値&lt;/code> の方が小さい場合は、&lt;code>変数&lt;/code> の値は 1 つずつデクリメントされていきます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@for&lt;/span> &lt;span class="nv">$i&lt;/span> &lt;span class="ow">from&lt;/span> &lt;span class="mi">3&lt;/span> &lt;span class="ow">through&lt;/span> &lt;span class="mi">1&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nc">.item-&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="nv">$i&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">item-3&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">item-2&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">item-1&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="while-ディレクティブ">&lt;code>@while&lt;/code> ディレクティブ&lt;/h2>
+&lt;p>&lt;code>@while&lt;/code> ディレクティブを使用すると、ある条件に一致している間処理を続けるループ処理を記述することができます。
+&lt;code>@while&lt;/code> ディレクティブの構文は次の通りです。&lt;/p></description></item><item><title>Sassメモ: SCSS 内での条件分岐処理 (@if-else, if関数)</title><link>https://maku77.github.io/p/rkk224q/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rkk224q/</guid><description>&lt;h2 id="if-ディレクティブ">&lt;code>@if&lt;/code> ディレクティブ&lt;/h2>
+&lt;p>Sass スクリプトの中で &lt;strong>&lt;code>@if&lt;/code>&lt;/strong>、&lt;strong>&lt;code>@else&lt;/code>&lt;/strong>、&lt;strong>&lt;code>@else if&lt;/code>&lt;/strong> ディレクティブを使用することで、条件分岐処理を記述することができます。&lt;/p>
+&lt;p>下記の例では、変数 &lt;code>$fruit&lt;/code> の値によってスタイルの出力を分岐させています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$fruit&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">banana&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@if&lt;/span> &lt;span class="nv">$fruit&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">apple&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">@else if&lt;/span> &lt;span class="nv">$fruit&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">banana&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">yellow&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">@else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">blue&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">yellow&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>比較演算子としては、&lt;code>==&lt;/code>、&lt;code>!=&lt;/code>、&lt;code>&amp;gt;&lt;/code>、&lt;code>&amp;gt;=&lt;/code>、&lt;code>&amp;lt;&lt;/code>、&lt;code>&amp;lt;=&lt;/code> などを使用することができます。
+論理演算子としては、&lt;code>and&lt;/code>、&lt;code>or&lt;/code>、&lt;code>not&lt;/code> などを使用することができます（&lt;code>&amp;amp;&amp;amp;&lt;/code> や &lt;code>||&lt;/code> などはありません）。&lt;/p>
+&lt;p>&lt;code>@if&lt;/code> ディレクティブは、Mixin や関数に渡されたパラメータを使って分岐処理したいときによく使用されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@mixin&lt;/span>&lt;span class="nf"> highlight&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$inverted&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">false&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@if&lt;/span> &lt;span class="nv">$inverted&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">@else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">strong&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@include&lt;/span>&lt;span class="nd"> highlight&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">em&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@include&lt;/span>&lt;span class="nd"> highlight&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">true&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">strong&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">em&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="if-関数">&lt;code>if&lt;/code> 関数&lt;/h2>
+&lt;p>&lt;code>@if&lt;/code> ディレクティブに似たものに、&lt;code>if&lt;/code> 関数があります。
+&lt;code>if&lt;/code> 関数は第1パラメータの値が真 (true) の場合に第2パラメータで指定した値を返し、偽 (false) の場合に第3パラメータで指定した値を返します。
+Java や C 言語の三項演算子のように使用するものです。&lt;/p></description></item><item><title>Sassメモ: 色（カラー値）を扱う</title><link>https://maku77.github.io/p/7pq84ye/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7pq84ye/</guid><description>&lt;h2 id="color-型変数の定義方法">Color 型変数の定義方法&lt;/h2>
+&lt;p>CSS では下記のような色の指定方法があります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 定数名で指定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mh">#ff0000&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 16進数で指定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">rgb&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 10進数で指定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">rgba&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 10進数で指定（α値あり）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">hsl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// HSL指定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">hsla&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// HSL指定（α値あり）
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>CSS の &lt;code>rgba&lt;/code> 関数は、上記のように4つのパラメータをとりますが、Sass の &lt;code>rgba&lt;/code> 関数はより柔軟なパラメータ指定が可能になっています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">rgba&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="no">red&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 定数名 + α値
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">rgba&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mh">#ff0000&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 16進数 + α値
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>また、Sass では名前付きパラメータを使って値を指定できるので、各パラメータの意味を明確にすることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">hsl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$hue&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$saturation&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$lightness&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">50&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 赤になる
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="色を表す定数の一覧">色を表す定数の一覧&lt;/h2>
+&lt;style>
+.local-cells {
+ display: flex;
+ flex-wrap: wrap; /* 子要素が右端に到達したら折り返す */
+ justify-content: center; /* 主軸（水平方向）に中央合わせ */
+}
+
+/* 色ボックス */
+.local-cells > div div:first-child {
+ display: inline-block;
+ margin-right: 0.5em;
+ width: 30px;
+ height: 45px;
+}
+
+/* 色名テキスト */
+.local-cells > div div:nth-child(2) {
+ display: inline-block;
+ vertical-align: top;
+ width: 170px;
+ line-height: 1.3;
+}
+&lt;/style>
+&lt;p>Sass スクリプトの中で色を表現する方法としては、&lt;code>#ff00ff&lt;/code> のような16進数での指定方法以外にも、下記のように色を表す定数を使用する方法があります。&lt;/p></description></item><item><title>Sassメモ: 関数を定義する (@function)</title><link>https://maku77.github.io/p/3htu3om/</link><pubDate>Thu, 20 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3htu3om/</guid><description>&lt;p>Sass (SCSS) で独自関数を定義するには、下記のような構文の &lt;strong>&lt;code>@function&lt;/code>&lt;/strong> ディレクティブを使用します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>@function 関数名($引数1, $引数2) {
+ @return 戻り値;
+}
+&lt;/code>&lt;/pre>&lt;p>関数名は、組み込みの関数とコンフリクトしないように、何らかのプレフィックスを付けることが推奨されています。
+ライブラリなどを作っているのでなければ、&lt;code>my-&lt;/code> とか &lt;code>x-&lt;/code> とか付けておけば大丈夫だと思います。
+&lt;strong>関数には &lt;code>f-&lt;/code> プレフィックス、Mixin には &lt;code>m-&lt;/code> プレフィックスを付ける&lt;/strong>、といったルールを決めておくと分かりやすいかもしれません。&lt;/p>
+&lt;p>関数は Mixin と似ているように思われるかもしれませんが、Mixin がひとまとまりのルールセットを呼び出し側にインクルードするのに対し、関数は何らかの値を受け取って、その演算結果を値として返すために使用します（関数の方が粒度が小さい）。&lt;/p>
+&lt;p>下記の &lt;code>my-hover-color&lt;/code> 関数は、パラメータで指定された色より若干明る目の色を返します。
+ボタン要素にマウスカーソルを重ねたときの背景色を作成するために使用しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$LIGHTEN_RATE&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">@function&lt;/span>&lt;span class="nf"> my-hover-color&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$color&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@return&lt;/span> &lt;span class="nf">lighten&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$color&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$LIGHTEN_RATE&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">button&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">black&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">&amp;amp;&lt;/span>&lt;span class="nd">:hover&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">my-hover-color&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="no">black&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">button&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">white&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">black&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">button&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">hover&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#333333&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Mixin と同様に、パラメータは名前付き引数として設定することができます。
+パラメータが複数あるときは、この形式で呼び出すようにすると可読性を上げられるかもしれません。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">my-hover-color&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">black&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="デフォルト引数">デフォルト引数&lt;/h2>
+&lt;p>関数の引数にはデフォルト値を設定しておくことができます。これも Mixin と同様です。&lt;/p>
+&lt;p>下記の例では、&lt;code>my-add&lt;/code> 関数の2番目のパラメータのデフォルト値を 100 に設定しています。
+呼び出しに2番目のパラメータの指定を省略すると、100 が使用されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@function&lt;/span>&lt;span class="nf"> my-add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$a&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$b&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@return&lt;/span> &lt;span class="nv">$a&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nv">$b&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">margin-left&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">my-add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">margin-right&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nf">my-add&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin-left&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin-right&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">101&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="可変長引数">可変長引数&lt;/h2>
+&lt;p>関数の引数名の後ろに &lt;code>...&lt;/code> を付けると、可変長引数として扱うことができます。&lt;/p></description></item><item><title>Sassメモ: Mixin でスタイルを組み合わせる (@mixin, @include)</title><link>https://maku77.github.io/p/awmebxk/</link><pubDate>Wed, 19 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/awmebxk/</guid><description>&lt;p>Sass のもっとも強力な機能とされている Mixin 機能を使用すると、部分的なスタイル定義をインクルードして使用できるようになります。&lt;/p>
+&lt;h2 id="mixin-の基本">Mixin の基本&lt;/h2>
+&lt;p>Sass の Mixin 機能は、ひとまとまりのスタイルを Mixin として定義 (&lt;strong>&lt;code>@mixin&lt;/code>&lt;/strong>) しておき、複数の場所からそのスタイルをインクルード (&lt;strong>&lt;code>@include&lt;/code>&lt;/strong>) して使用する仕組みです。
+Mixin は、スタイルセットを提供する関数のようなものと考えるとわかりやすいです。&lt;/p>
+&lt;p>便利な Mixin を SCSS ファイルにまとめて定義しておけば、再利用可能な Sass ライブラリとして使用できます。
+定義した Mixin は &lt;code>@include&lt;/code> して使用しない限り CSS に出力されることはないので、Sass ライブラリの中の Mixin 定義が増えても、最終的な CSS が肥大化する心配はありません。&lt;/p>
+&lt;p>下記の例では、&lt;code>round-box&lt;/code> という名前の Mixin を定義して、&lt;code>pre&lt;/code> 要素と &lt;code>.ad-widget&lt;/code> クラスのスタイル定義からインクルードしています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@mixin&lt;/span>&lt;span class="nf"> round-box&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">border&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">solid&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="no">gray&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">border-radius&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">padding&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@include&lt;/span>&lt;span class="nd"> round-box&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">line-height&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.ad-widget&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@include&lt;/span>&lt;span class="nd"> round-box&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">background&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mh">#ccc&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">solid&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="kc">gray&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">padding&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">line-height&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">ad-widget&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">solid&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="kc">gray&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-radius&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">padding&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">background&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#ccc&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Mixin で定義したスタイルセットが、&lt;code>@include&lt;/code> した位置に展開されていることが分かります。&lt;/p></description></item><item><title>Sassメモ: エクステンドでスタイルを継承する (@extend)</title><link>https://maku77.github.io/p/nkv6w5b/</link><pubDate>Wed, 19 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nkv6w5b/</guid><description>&lt;p>Sass (SCSS) の &lt;strong>&lt;code>@extend&lt;/code>&lt;/strong> ディレクティブを使用すると、他のセレクタに適用されているスタイル定義を継承して使用することができます。&lt;/p>
+&lt;h2 id="extend-の基本">&lt;code>@extend&lt;/code> の基本&lt;/h2>
+&lt;p>例えば、&lt;code>.sample&lt;/code> クラスのスタイル定義の中で下記のように &lt;strong>&lt;code>@extend&lt;/code>&lt;/strong> ディレクティブを使用すると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>.sample {
+ @extend &amp;lt;セレクタ名&amp;gt;;
+}
+&lt;/code>&lt;/pre>&lt;p>指定したセレクタに設定されているスタイル定義を、&lt;code>.sample&lt;/code> クラスに継承させることができます。
+セレクタ名には、クラス名 (&lt;code>.foo&lt;/code>) や HTML のタグ名 (&lt;code>em&lt;/code>) などを引用符で囲まずに指定します。&lt;/p>
+&lt;p>下記の例では、&lt;code>.warn&lt;/code> クラスに対して設定したスタイルを、&lt;code>.error&lt;/code> に継承させています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.warn&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-weight&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">bolder&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">border&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">solid&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="no">orange&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">orange&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.error&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">@extend&lt;/span> &lt;span class="nc">.warn&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">border-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">warn&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">error&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-weight&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">bolder&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">solid&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="kc">orange&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">orange&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">error&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">border-color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>これで、&lt;code>.warn&lt;/code> に適用したスタイルが、&lt;code>.error&lt;/code> クラスにも適用されるようになります。
+&lt;code>.error&lt;/code> クラスは &lt;code>.warn&lt;/code> クラスの性質を備えているので、&lt;code>.error&lt;/code> クラスを使用するときに &lt;code>.warn&lt;/code> クラスを同時に指定する必要がありません。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;warn&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>警告メッセージ&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">class&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;error&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>エラーメッセージ&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="extend-は親クラスのセレクタ構造も継承する">&lt;code>@extend&lt;/code> は親クラスのセレクタ構造も継承する&lt;/h2>
+&lt;p>&lt;code>@extend&lt;/code> でスタイルを継承すると、そのスタイルが単純にコピーされたかのように振る舞うだけでなく、特殊化されたスタイル構成も同時に継承されます。
+これが、Extend（継承）という名前のディレクティブになっている理由です。&lt;/p>
+&lt;p>例えば、下記の &lt;code>.warn&lt;/code> クラスは、装飾用の &lt;code>.large&lt;/code> クラスと同時に使用することで、追加のスタイルを付加できるようになっています（連結セレクタ &lt;code>.warn.large&lt;/code> として定義）。
+このような構造があるときに、&lt;code>.error&lt;/code> クラスから &lt;code>@extend&lt;/code> ディレクティブを使って &lt;code>.warn&lt;/code> クラスを継承すると、&lt;code>.error&lt;/code> クラスの方も &lt;code>.large&lt;/code> クラスと組み合わせて使用できるような構造が生成されます。&lt;/p></description></item><item><title>Sassメモ: SCSS でマップ変数を使用する</title><link>https://maku77.github.io/p/rm99r8j/</link><pubDate>Tue, 18 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rm99r8j/</guid><description>&lt;h2 id="マップ変数を作成する">マップ変数を作成する&lt;/h2>
+&lt;p>Sass においてマップはリストの特殊バージョンで、リストの各要素がキー＆バリューの形 (&lt;code>key1:value1&lt;/code>) になったものです。
+マップを定義するには、キー＆バリューをカンマで並べ、全体を括弧 &lt;code>()&lt;/code> で囲みます。
+リストを定義するときは、全体の括弧を省略できるケースがありますが、マップの場合は必ず全体を括弧で囲む必要があります。&lt;/p>
+&lt;h4 id="マップ変数を定義する">マップ変数を定義する&lt;/h4>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">マップ変数を定義する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$map&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="na">key1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">value1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="na">key2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">value2&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="na">key3&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">value3&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>空のマップを作成したいときは、空のリストを作成するときと同様に &lt;code>()&lt;/code> を使用します。
+空のマップを作成しておいて、動的に要素を追加していくという使い方ができます。&lt;/p>
+&lt;h4 id="空のマップ変数を定義するリストでもある">空のマップ変数を定義する（リストでもある）&lt;/h4>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">空のマップ変数を定義する（リストでもある）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$map&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">();&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="マップの要素をループで処理する-each">マップの要素をループで処理する (&lt;code>@each&lt;/code>)&lt;/h2>
+&lt;p>マップの要素もリストの要素と同様に &lt;code>@each&lt;/code> ディレクティブを使用してループ処理することができます。
+あるルール定義の中で、マップの要素を使用してスタイル定義を出力するために使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$headers&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="na">h1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.6&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="na">h2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.4&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="na">h3&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.3&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="na">h4&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.2&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">@each&lt;/span> &lt;span class="nv">$tag&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$size&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nv">$headers&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="si">#{&lt;/span>&lt;span class="nv">$tag&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$size&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">h1&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.6&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">h2&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.4&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">h3&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.3&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">h4&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.2&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="マップ用の関数一覧">マップ用の関数一覧&lt;/h2>
+&lt;p>リスト系の関数と同様に、マップの内容を編集する関数は、新しいマップを作成して戻り値として返します。
+パラメータとして渡したマップの内容は不変であることに注意してください。&lt;/p>
+&lt;h3 id="lengthmap--マップの要素数を取得する">&lt;code>length($map)&lt;/code> &amp;hellip; マップの要素数を取得する&lt;/h3>
+&lt;p>マップもリストも &lt;code>length&lt;/code> 関数を使って要素数を調べることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">length&lt;/span>&lt;span class="o">(())&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">length&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="nt">width&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">10px&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nt">height&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">20px&lt;/span>&lt;span class="o">))&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">length&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="nt">key1&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">null&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nt">null&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">100&lt;/span>&lt;span class="o">))&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="map-getmap-key--指定したキーに対応する値を取得する">&lt;code>map-get($map, $key)&lt;/code> &amp;hellip; 指定したキーに対応する値を取得する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">map-get&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">),&lt;/span> &lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">map-get&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">),&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">map-get&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">),&lt;/span> &lt;span class="s2">&amp;#34;baz&amp;#34;&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="nt">null&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>存在しないキーを指定した場合は、&lt;code>null&lt;/code> を返します。&lt;/p>
+&lt;h3 id="map-mergemap1-map2--2つのマップをマージして新しいマップを作成する">&lt;code>map-merge($map1, $map2)&lt;/code> &amp;hellip; 2つのマップをマージして新しいマップを作成する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">map-merge&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">),&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">))&lt;/span> &lt;span class="o">//&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">map-merge&lt;/span>&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">2&lt;/span>&lt;span class="o">),&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">3&lt;/span>&lt;span class="o">))&lt;/span> &lt;span class="o">//=&amp;gt;&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="nd">:&lt;/span> &lt;span class="nt">3&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>体裁としては2つのマップをマージする関数ですが、&lt;strong>マップに1つのエントリ（キー＆バリュー）を追加するときも、この &lt;code>map-merge&lt;/code> 関数を使用します&lt;/strong>（要素数が1のマップをマージすればよい）。
+2つのマップに同じキーのエントリがある場合は、&lt;code>$map2&lt;/code> の値が優先的に使用されます。&lt;/p></description></item><item><title>Sassメモ: SCSS でリスト変数を使用する</title><link>https://maku77.github.io/p/gm47at8/</link><pubDate>Tue, 18 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gm47at8/</guid><description>&lt;p>Sass (SCSS) には、複数の値をまとめて管理するためのデータタイプとして &lt;code>list&lt;/code> 型が用意されています。&lt;/p>
+&lt;h2 id="リスト型の表現方法">リスト型の表現方法&lt;/h2>
+&lt;h3 id="リスト型変数の基本">リスト型変数の基本&lt;/h3>
+&lt;p>CSS でリスト型の値を定義するときは、スペース区切りかカンマ区切りで複数の値を列挙します。
+例えば、次のようなプロパティを表現するために使用されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">CSS&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">sample&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">15&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Helvetica&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Arial&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">sans-serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>SCSS の変数には、このようなリストもそのまま格納することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">SCSS&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-margin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">15&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-font&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">Helvetica&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">Arial&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="ni">sans-serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.sample&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">margin&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$my-margin&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$my-font&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="リストのリスト">リストのリスト&lt;/h3>
+&lt;p>リストの要素としてリストを含めることもできます。
+下記の例では、&lt;code>1px 2px&lt;/code> と &lt;code>3px 4px&lt;/code> の 2 つのリストを含むリスト変数を定義しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-list1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-list2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="kt">px&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="空リストと要素が1つだけのリスト">空リストと要素が1つだけのリスト&lt;/h3>
+&lt;p>空のリストを定義するときは、&lt;code>()&lt;/code> という表現方法を使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-list&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="note">
+Sass では、&lt;code>()&lt;/code> は空のリストであり、空のマップでもあります。マップは実質的には、キー＆バリューのペア値を格納した「リスト」として扱われるためです。
+&lt;/div>
+&lt;p>要素が 1 つだけのリストを表現するには、次のように、要素の後ろにカンマ (&lt;code>,&lt;/code>) を記述します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$my-list1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;aaa&amp;#34;&lt;/span>&lt;span class="o">,&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 要素として &amp;#34;aaa&amp;#34; を 1 つだけ含むリスト
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nv">$my-list2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">,&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// 要素として 1 2 3 というリストを 1 つだけ含むリスト
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のような簡単な例では括弧 (&lt;code>()&lt;/code>) は省略できますが、リストであることを明確にするためにも括弧は付けておいた方がよいでしょう。&lt;/p>
+&lt;h2 id="リストをループ処理する-each">リストをループ処理する (@each)&lt;/h2>
+&lt;h3 id="単純なリストのループ処理">単純なリストのループ処理&lt;/h3>
+&lt;p>リストの要素をループ処理するには、&lt;strong>&lt;code>@each&lt;/code>&lt;/strong> ディレクティブを使用します。
+あるルールの定義内で、リストやマップの内容をループ処理しながらスタイルのセットを出力するために使用することができます。
+&lt;code>@each&lt;/code> ディレクティブの構文は下記の通りです。&lt;/p></description></item><item><title>Sassメモ: SCSS で変数を使用する ($var-name, !default)</title><link>https://maku77.github.io/p/vd4ym66/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/vd4ym66/</guid><description>&lt;h2 id="変数定義の基本">変数定義の基本&lt;/h2>
+&lt;p>SCSS ファイル内で変数を定義するには、下記のような構文を使用します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>$変数名: 初期値;
+&lt;/code>&lt;/pre>&lt;p>下記はカラー値を変数として定義する簡単な例です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$main-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mh">#333&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$main-color&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mh">#333&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>変数の値をそのままプロパティの値として使用する場合は、上記のように &lt;strong>&lt;code>$変数名&lt;/code>&lt;/strong> の形で参照できます。
+何らかのキーワードの一部（セレクタ名の一部など）や、コメントの中で変数の値を参照する場合は、インターポレーションの形式 (&lt;strong>&lt;code>#{$変数名}&lt;/code>&lt;/strong>) で参照する必要があります。
+インターポレーションで文字列変数の値を参照すると、引用符は削除されて展開されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$prefix&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;.maku&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="si">#{&lt;/span>&lt;span class="nv">$prefix&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nt">shout&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">larger&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">maku-shout&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">larger&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="変数のスコープローカル変数">変数のスコープ（ローカル変数）&lt;/h2>
+&lt;p>入れ子になったルール定義の中で変数を定義すると、その変数はそのブロック内でのみ参照可能なローカル変数となります。
+グローバル変数と同じ名前のローカル変数を定義した場合、ローカル変数が優先されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">black&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// グローバル変数の定義
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$color&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// グローバル変数の参照
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">$color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// ローカル変数の定義
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$color&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// ローカル変数の参照
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">black&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="変数名のハイフンとアンダースコアは同一視される">変数名のハイフンとアンダースコアは同一視される&lt;/h2>
+&lt;p>歴史的な理由により、SCSS の中で定義した変数名に含まれるハイフン (&lt;code>-&lt;/code>) と、アンダースコア (&lt;code>_&lt;/code>) は同一のものとして扱われます。
+例えば、&lt;code>$main-color&lt;/code> という名前で定義した変数は、&lt;code>$main_color&lt;/code> という名前でも参照できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$main-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mh">#333&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$main_color&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このルールは、&lt;a href="../p/awmebxk/">Mixin&lt;/a> の名前や関数の名前にも同様に適用されます。&lt;/p></description></item><item><title>Sassメモ: SCSS ファイルから別の SCSS ファイルをインポートする (@import)</title><link>https://maku77.github.io/p/hqpo9s9/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hqpo9s9/</guid><description>&lt;h2 id="インポートの基本">インポートの基本&lt;/h2>
+&lt;p>SCSS の &lt;strong>&lt;code>@import&lt;/code>&lt;/strong> ディレクティブを使用すると、SCSS ファイルから別の SCSS ファイルをインポートすることができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@import&lt;/span> &lt;span class="s2">&amp;#34;colors.scss&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 拡張子は省略可能
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$main-color&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">インポートされるファイル (colors.scss)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 色の定義
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nv">$main-color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">black&lt;/span>&lt;span class="p">;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">black&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>複数の SCSS ファイルをインポートしたいときは、複数行に分けて &lt;code>@import&lt;/code> ディレクティブを記述してもよいですし、次のようにカンマ区切りでまとめてインポートすることもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="k">@import&lt;/span> &lt;span class="s2">&amp;#34;foo&amp;#34;&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;bar&amp;#34;&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="s2">&amp;#34;hoge&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="css-標準の-import-ディレクティブとして使用する">CSS 標準の &lt;code>@import&lt;/code> ディレクティブとして使用する&lt;/h2>
+&lt;p>&lt;code>@import&lt;/code> ディレクティブ自体は、通常の CSS に搭載されている機能であり、上記のように SCSS ファイルをその場所にインポートして展開する機能は、Sass によって追加された拡張機能です。&lt;/p>
+&lt;p>次のような一定のルールに従って &lt;code>@import&lt;/code> ディレクティブを使用すると、従来の CSS の &lt;code>@import&lt;/code> ディレクティブとして使用されたとみなされ、&lt;code>@import&lt;/code> の行がそのまま出力されます（インポートしたファイルの内容がインライン展開されません）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 拡張子が .css である
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">@import&lt;/span> &lt;span class="s2">&amp;#34;colors.css&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// メディアクエリが付いている
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">@import&lt;/span> &lt;span class="s2">&amp;#34;colors&amp;#34;&lt;/span> &lt;span class="ni">screen&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// URLで指定されている
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">@import&lt;/span> &lt;span class="s2">&amp;#34;http://example.com/colors&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// url() 関数で指定されている
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">@import&lt;/span> &lt;span class="sx">url(colors)&lt;/span>&lt;span class="p">;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="nt">url&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nt">colors&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">css&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="s2">&amp;#34;colors&amp;#34;&lt;/span> &lt;span class="nt">screen&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="s2">&amp;#34;http://example.com/colors&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">import&lt;/span> &lt;span class="nt">url&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nt">colors&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="p">;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="パーシャル-scss-ファイル-partials">パーシャル SCSS ファイル (Partials)&lt;/h2>
+&lt;p>インポートして使用する SCSS ファイルの名前を、アンダースコア (&lt;code>_&lt;/code>) で始まる名前にしておくと、Sass プロセッサによってそのファイル自体が CSS にコンパイルされるのを防ぐことができます。&lt;/p></description></item><item><title>Sassメモ: SCSS ファイルでのコメントの書き方</title><link>https://maku77.github.io/p/katvaa5/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/katvaa5/</guid><description>&lt;h2 id="scss-の2種類のコメント形式">SCSS の2種類のコメント形式&lt;/h2>
+&lt;p>CSS のコメントは &lt;code>/*&lt;/code> と &lt;code>*/&lt;/code> で囲む1種類のコメント形式しかありませんが、SCSS では、一行コメント (&lt;code>//&lt;/code>) と、複数行コメント (&lt;code>/*&lt;/code> ～ &lt;code>*/&lt;/code>) の2種類のコメントを使用することができます。
+SCSS でのみ使用可能な一行コメント (&lt;code>//&lt;/code>) の方は、CSS に変換される際に削除されます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;b>複数行コメント（&lt;code>/*&lt;/code> から &lt;code>*/&lt;/code> まで）&lt;/b> &amp;hellip; CSS への変換後もそのままコメントとして残る&lt;/li>
+&lt;li>&lt;b>一行コメント（&lt;code>//&lt;/code> から行末まで）&lt;/b> &amp;hellip; &lt;strong>CSS への変換時に削除される&lt;/strong>&lt;/li>
+&lt;/ul>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * このコメントスタイルでは、
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 複数行をコメントアウトすることができます。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * CSS への変換後もコメントとして残ります。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">black&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// これらの一行コメントは、
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// CSS へ変換する際に削除されます。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nt">strong&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">color&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="no">red&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="c">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"> * このコメントスタイルでは、
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"> * 複数行をコメントアウトすることができます。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"> * CSS への変換後もコメントとして残ります。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">black&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">strong&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">color&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">red&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>TODO コメントなど、開発時にのみ参照したいコメントは一行コメントで記述しておくとよいでしょう。&lt;/p></description></item><item><title>Sassメモ: 文字列変数の引用符の展開ルール</title><link>https://maku77.github.io/p/by8fhor/</link><pubDate>Mon, 17 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/by8fhor/</guid><description>&lt;h2 id="引用符で囲まれた文字列囲まれていない文字列">引用符で囲まれた文字列、囲まれていない文字列&lt;/h2>
+&lt;p>Sass の文字列変数には、引用符で囲まれた文字列と、囲まれていない文字列の 2 種類があります。
+文字列変数を &lt;strong>&lt;code>$変数&lt;/code>&lt;/strong> の形で参照すると、変数定義時の引用符のありなしがそのまま反映されて展開されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$family1&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;Lucida Grande&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$family2&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;Lucida Sans&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$family3&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">sans-serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$family1&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$family2&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nv">$family3&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Lucida Grande&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Lucida Sans&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">sans-serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="インターポレーション">インターポレーション&lt;/h2>
+&lt;p>セレクタ名やコメント、文字列の中で文字列変数を参照する場合は、&lt;strong>&lt;code>#{$変数}&lt;/code>&lt;/strong> のようなインターポレーション形式で参照する必要があります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$name&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;maku&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/* これはコメントです by #{$name} */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.note-&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="nv">$name&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">content&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;I am &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="nv">$name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">charset&lt;/span> &lt;span class="s2">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">/* これはコメントです by maku */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">note-maku&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;I am maku&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>入力ファイルのエンコーディング形式を判別して、&lt;code>@charset&lt;/code> ディレクティブまで自動で挿入してくれるみたいですね。&lt;/p>
+&lt;p>インターポレーション (&lt;code>#{}&lt;/code>) で文字列変数を参照すると、変数定義時に付いていた引用符が削除されるという効果があります（後述の &lt;code>unquote&lt;/code> 関数を使う方法もあります）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;sans-serif&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$family&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-family&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="si">#{&lt;/span>&lt;span class="nv">$family&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;sans-serif&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">sans-serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="引用符を外す関数-unquote">引用符を外す関数 (unquote)&lt;/h2>
+&lt;p>Sass の &lt;strong>&lt;code>unquote&lt;/code>&lt;/strong> 関数を使用すると、明示的に文字列の引用符 (&lt;code>&amp;quot;&lt;/code>) を取り除くことができます。&lt;/p></description></item><item><title>Sassメモ: Sass とは／sassコマンドのインストール／sassコマンドの使い方</title><link>https://maku77.github.io/p/tx93n26/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/tx93n26/</guid><description>&lt;h2 id="sass-とは">Sass とは&lt;/h2>
+&lt;p>Sass は CSS (Cascading Style Sheets) ファイルを効率的に作成するための変換ツールで、Hampton Catlin (ハンプトン・キャトリン) と Nathan Weizenbaum (ネイサン・バイゼンバウム) によって作成されました。
+従来の CSS には存在しない変数の仕組みや、ループ処理、モジュールの仕組みなどを使用できるため、効率的に CSS ファイルを作成することができます。
+変数の仕組みなどは、CSS のバージョンアップとともにネイティブでサポートされつつありますが、Web ブラウザによって対応状況がまちまちだったりするため、Sass を使って多くのブラウザがサポートしている CSS フォーマットに変換するという方法はまだまだ有効です。&lt;/p>
+&lt;h3 id="sass-記法と-scss-記法">SASS 記法と SCSS 記法&lt;/h3>
+&lt;p>Sass へのインプットに使用するファイルは、&lt;strong>「SASS フォーマット」&lt;/strong> あるいは &lt;strong>「SCSS フォーマット」&lt;/strong> で記述します。
+どちらも変換後は CSS ファイルになるのですが、記述方法が若干異なります。&lt;/p>
+&lt;ul>
+&lt;li>SASS 記法: &lt;strong>&lt;code>.sass&lt;/code>&lt;/strong> 拡張子でファイルを作成する。Jade や Python のようにインデントによって構造化する。昔使われていた記法。&lt;/li>
+&lt;li>SCSS 記法: &lt;strong>&lt;code>.scss&lt;/code>&lt;/strong> 拡張子でファイルを作成する。CSS と同様に括弧 (&lt;code>{&lt;/code> と &lt;code>}&lt;/code>) で構造化する。Sassy CSS の略で、Sass 3.0 で導入された。現在主流の記法。&lt;/li>
+&lt;/ul>
+&lt;p>現在は、CSS と互換性のある SCSS フォーマットで記述するのが主流です。
+CSS ファイルは SCSS ファイルとしても正しい文法とみなせるため、とりあえず &lt;code>.scss&lt;/code> 拡張子のファイルに従来の CSS フォーマットでスタイル定義しておいて、徐々に SCSS の機能を使って内容を充実させていく、といった使い方が可能です。&lt;/p></description></item><item><title>Sassメモ: SCSS ファイルの書き方の基本</title><link>https://maku77.github.io/p/34uu8u7/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/34uu8u7/</guid><description>&lt;p>Sass (SCSS) を使用すると、CSS では扱えないネスト構造でのスタイル記述が可能になります。
+Sass には多くの機能がありますが、このネストの仕組みだけでも Sass 導入の価値があります。&lt;/p>
+&lt;h2 id="入れ子構造">入れ子構造&lt;/h2>
+&lt;p>従来の CSS は、一階層のセレクタブロック（&lt;code>{&lt;/code> ～ &lt;code>}&lt;/code>）でしかルールセットを記述できませんが、SCSS では下記のような入れ子構造で定義していくことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">#main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">width&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">97&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">p&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="nt">div&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">font-weight&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="ni">bold&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記のような入れ子構造は子孫セレクタを表現しているとみなされ、Sass プロセッサにより、下記のようにフラットな構造の CSS に展開されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">width&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">97&lt;/span>&lt;span class="kt">%&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="nt">p&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="nt">div&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="nt">p&lt;/span> &lt;span class="nt">a&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="nt">div&lt;/span> &lt;span class="nt">a&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-weight&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">bold&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">#&lt;/span>&lt;span class="nn">main&lt;/span> &lt;span class="nt">pre&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>子孫セレクタ以外のセレクタシーケンス（子セレクタ (&lt;code>&amp;gt;&lt;/code>) や隣接セレクタ (&lt;code>+&lt;/code>)）なども、同様に入れ子の形で定義することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力 (SCSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nc">.xArticle&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nt">h2&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.4&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">margin-top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="mf">.5&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">+&lt;/span> &lt;span class="nt">ul&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">margin-top&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力 (CSS)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">xArticle&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nt">h2&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">font-size&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.4&lt;/span>&lt;span class="kt">rem&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin-top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">1.5&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">p&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nt">ul&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">margin-top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="kt">em&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="親セレクタの参照-">親セレクタの参照 (&amp;amp;)&lt;/h2>
+&lt;p>SCSS のネストされたスタイル定義において、&lt;code>&amp;amp;&lt;/code> 記号を使用すると、親セレクタの名前を省略して記述することができます。
+この記法は、下記のような &lt;code>:hover&lt;/code> 擬似クラスなどでよく使用されます。&lt;/p></description></item></channel></rss>

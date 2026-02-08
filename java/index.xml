@@ -1,8 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on 天才まくまくノート</title><link>https://maku77.github.io/java/</link><description>Recent content in Java on 天才まくまくノート</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/java/index.xml" rel="self" type="application/rss+xml"/><item><title>クラスやメソッドの依存関係を調べる (jdeps, cfa)</title><link>https://maku77.github.io/p/mpqhkpv/</link><pubDate>Thu, 24 Nov 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/mpqhkpv/</guid><description>パッケージ／クラスレベルの依存関係を調べる (jdeps) JDK 8 に付属している jdeps コマンド を使用すると、JAR ファイル（.class ファイル）から、パッケージレベル、あるいは、クラスレベルの依存関係を調べることができます。
-パッケージレベルの依存関係を調べる すべての依存を表示（グルーピングして表示） $ jdeps app.jar 1 行ごとに「依存元 -&amp;gt; 依存先」というフォーマットで出力 $ jdeps -v app.jar あるパッケージへの依存のみを抽出したい場合は、-e オプションで次のように指定します。
-com.example.util パッケージへの依存のみを表示 $ jdeps -e com.example.util.* app.jar ☝️ ワンポイント 特定のパッケージへの依存は、-p オプションでも検索することができますが、 こちらの場合は、完全にパッケージ名が一致するもののみを抽出します。 あるパッケージより下位のパッケージも含めて検索するには、上記のように -e オプションで正規表現の形でパッケージ名を指定する必要があります。 クラスレベルの依存関係を調べる $ jdeps -verbose:class app.jar メソッドレベルの依存関係を調べる (cfa) YaSuenag さんの作成している cfa (Class File Analyzer) というツールを使用すると、.class ファイルを解析して、メソッドレベルの依存関係を調べることができます。
-https://github.com/YaSuenag/cfa/（fork しておく）
-実行ファイルは cfa.jar です。 Windows であれば、下記のようなバッチファイルを JAR と同じディレクトリにおいて PATH を通しておくと、どのディレクトリからでも cfa と入力するだけで実行できて便利です。
-cfa.cmd @echo off setlocal set jar=&amp;#34;%~dp0%cfa.</description></item><item><title>Javaメモ: 全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する</title><link>https://maku77.github.io/p/j3jbsey/</link><pubDate>Thu, 20 Nov 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/j3jbsey/</guid><description>java.text.Normalizer クラスを使うと、全角文字や半角文字の混在した文字列を一定の規則に基いて正規化することができます。 微妙に表記の異なる文字列同士を比較するような際に使用できます。
-使用例 String s = Normalizer.normalize(&amp;#34;aａAＡｲイﾊﾟパ1１2２＋+-－．.～~）)}｝&amp;#34;, Normalizer.Form.NFKC); 変換結果 AAAAイイパパ1122++--..~~))}} 大まかには、アルファベットや数字、記号は半角に統一され、半角カタカナは全角に統一されるという動きをします。
-2 文字で構成される半角カタカナの「ﾊﾟ」をうまく全角のカタカナ「パ」に変換するには、第2引数 (form) に Normalizer.Form.NFKC を指定する必要があります。</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on 天才まくまくノート</title><link>https://maku77.github.io/java/</link><description>Recent content in Java on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Thu, 24 Nov 2016 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/java/index.xml" rel="self" type="application/rss+xml"/><item><title>クラスやメソッドの依存関係を調べる (jdeps, cfa)</title><link>https://maku77.github.io/p/mpqhkpv/</link><pubDate>Thu, 24 Nov 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/mpqhkpv/</guid><description>&lt;h2 id="パッケージクラスレベルの依存関係を調べる-jdeps">パッケージ／クラスレベルの依存関係を調べる (jdeps)&lt;/h2>
+&lt;p>JDK 8 に付属している &lt;a href="https://docs.oracle.com/javase/jp/8/docs/technotes/tools/unix/jdeps.html">jdeps コマンド&lt;/a> を使用すると、JAR ファイル（.class ファイル）から、パッケージレベル、あるいは、クラスレベルの依存関係を調べることができます。&lt;/p>
+&lt;h3 id="パッケージレベルの依存関係を調べる">パッケージレベルの依存関係を調べる&lt;/h3>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">すべての依存を表示（グルーピングして表示）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> jdeps app.jar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">1 行ごとに「依存元 -&amp;gt; 依存先」というフォーマットで出力&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> jdeps -v app.jar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>あるパッケージへの依存のみを抽出したい場合は、&lt;code>-e&lt;/code> オプションで次のように指定します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">com.example.util パッケージへの依存のみを表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> jdeps -e com.example.util.* app.jar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;div class="xNote">
+ &lt;span class="xNote_title">☝️ ワンポイント&lt;/span>
+ &lt;span class="xNote_body">特定のパッケージへの依存は、&lt;code>-p&lt;/code> オプションでも検索することができますが、
+こちらの場合は、完全にパッケージ名が一致するもののみを抽出します。
+あるパッケージより下位のパッケージも含めて検索するには、上記のように &lt;code>-e&lt;/code> オプションで正規表現の形でパッケージ名を指定する必要があります。&lt;/span>
+&lt;/div>
+&lt;h3 id="クラスレベルの依存関係を調べる">クラスレベルの依存関係を調べる&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> jdeps -verbose:class app.jar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="メソッドレベルの依存関係を調べる-cfa">メソッドレベルの依存関係を調べる (cfa)&lt;/h2>
+&lt;p>YaSuenag さんの作成している &lt;code>cfa&lt;/code> (Class File Analyzer) というツールを使用すると、&lt;code>.class&lt;/code> ファイルを解析して、メソッドレベルの依存関係を調べることができます。&lt;/p>
+&lt;p>&lt;a href="https://github.com/YaSuenag/cfa/">https://github.com/YaSuenag/cfa/&lt;/a>（&lt;a href="https://github.com/maku77/cfa/">fork しておく&lt;/a>）&lt;/p>
+&lt;p>実行ファイルは &lt;code>cfa.jar&lt;/code> です。
+Windows であれば、下記のようなバッチファイルを JAR と同じディレクトリにおいて PATH を通しておくと、どのディレクトリからでも &lt;code>cfa&lt;/code> と入力するだけで実行できて便利です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">cfa.cmd&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bat" data-lang="bat">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">echo&lt;/span> off
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">setlocal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nv">jar&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">%~dp0&lt;/span>&lt;span class="s2">%cfa.jar&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">set&lt;/span> &lt;span class="nv">java&lt;/span>&lt;span class="p">=&lt;/span>java.exe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="k">defined&lt;/span> &lt;span class="nv">JDK_HOME&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">java&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nv">%JDK_HOME%&lt;/span>\bin\java.exe
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">%java%&lt;/span> -jar &lt;span class="nv">%jar%&lt;/span> &lt;span class="nv">%*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endlocal&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>cfa.jar&lt;/code> は、JRE ではなく JDK に付属している java コマンド経由で実行する必要があることに注意してください。
+実行時に下記のようなエラーが発生する場合は、JRE の java コマンドを参照してしまっている可能性が高いです。&lt;/p></description></item><item><title>Javaメモ: 全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する</title><link>https://maku77.github.io/p/j3jbsey/</link><pubDate>Thu, 20 Nov 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/j3jbsey/</guid><description>&lt;p>&lt;strong>&lt;code>java.text.Normalizer&lt;/code>&lt;/strong> クラスを使うと、全角文字や半角文字の混在した文字列を一定の規則に基いて正規化することができます。
+微妙に表記の異なる文字列同士を比較するような際に使用できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">使用例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Normalizer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">normalize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;aａAＡｲイﾊﾟパ1１2２＋+-－．.～~）)}｝&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Normalizer&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">Form&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">NFKC&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">変換結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">AAAAイイパパ1122++--..~~))}}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>大まかには、アルファベットや数字、記号は半角に統一され、半角カタカナは全角に統一されるという動きをします。&lt;/p>
+&lt;p>2 文字で構成される半角カタカナの「ﾊﾟ」をうまく全角のカタカナ「パ」に変換するには、第2引数 (&lt;code>form&lt;/code>) に &lt;code>Normalizer.Form.NFKC&lt;/code> を指定する必要があります。&lt;/p></description></item></channel></rss>

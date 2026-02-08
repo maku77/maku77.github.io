@@ -1,46 +1,1484 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PIC めもめも（PIC アセンブラ） on 天才まくまくノート</title><link>https://maku77.github.io/p/48ipjkq/</link><description>Recent content in PIC めもめも（PIC アセンブラ） on 天才まくまくノート</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 01 Aug 2002 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/p/48ipjkq/index.xml" rel="self" type="application/rss+xml"/><item><title>３軸加速度センサの入力を 200Hz でサンプリング＆シリアル通信するサンプルプログラム ─ PIC めもめも</title><link>https://maku77.github.io/p/w6pogd4/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w6pogd4/</guid><description>３軸加速度センサの入力を 200Hz で A/D 変換し、シリアルポートから 9600bps で 1byte ずつ送信（5msec ごとに 0x00, Ax, Ay, Az の計 4 byte を送信）するサンプルコードです。 最初にデリミタのための 0x00 を送信するようにしているので、0x00, Ax, Ay, Az の 4 byte が 5msec ごとにまとめて送信されます。
-;============================================================================== ; ; File : ad_200hz.asm ; Author: Masatoshi OHTA ; Update: 2002/11/18 ; ; デバイス : PIC16F873 ; 通信スピード : 9600bps ; データ長 : 8bit ; ストップビット: 1bit ; フロー制御 : なし ; ;============================================================================== LIST P=PIC16F873 INCLUDE &amp;#34;P16F873.INC&amp;#34; __CONFIG _HS_OSC &amp;amp; _WDT_OFF ;ウォッチドッグ・タイマ OFF ;============================================================================== ; 変数定義 ;============================================================================== CBLOCK H&amp;#39;20&amp;#39; w_temp ; variable used for context saving status_temp ; variable used for context saving temp ; wait_count ; 遅延サブルーチン用の変数 ENDC ;============================================================================== ; エントリ・ポイント ;============================================================================== ORG 0 goto Start ORG 4 goto Interrupt ;============================================================================== ; メインルーチン ;============================================================================== Start bsf STATUS, RP0 ; Bank1 に切り替え ;[TRISA] 入出力ポートの設定 movlw B&amp;#39;00000111&amp;#39; ; RA0, RA1, RA2 は入力(センサから) movwf TRISA ; ;[ADCON1] アナログ入力にするポート、左詰右詰を決定 movlw B&amp;#39;00000010&amp;#39; ; 左詰、AN0～AN4 全部アナログ入力 movwf ADCON1 ;[TRISC] USART 用入出力ポートの設定 bcf TRISC, 6 ; PortC&amp;lt;6&amp;gt; (TX) is an output ; bsf TRISC, 7 ; PortC&amp;lt;7&amp;gt; (RX) is an input ;[TXSTA] USART 送信ステータスの設定 movlw B&amp;#39;00100000&amp;#39; ; Async mode movwf TXSTA ; ;[SPBRG]USART ボーレートの設定 movlw 0FH ;9600bps 10MHz BRGH=0(低速) movwf SPBRG bcf STATUS, RP0 ; Bank0 に戻す ;[RCSTA] USART 受信ステータスの設定 movlw B&amp;#39;10010000&amp;#39; ; movwf RCSTA ; ;[ADCON0] AD 変換クロックを指定。AD 変換を有効に movlw B&amp;#39;10000001&amp;#39; ; Fosc/32, CH0, ADON=1 movwf ADCON0 ;CCP1 のコンペアモード（SpecialEventTrigger）による割り込みの設定 ;SetupTimer1 movlw B&amp;#39;00000001&amp;#39; movwf T1CON ;SetupCCP1 movlw B&amp;#39;00001011&amp;#39; movwf CCP1CON ;SetCCP1Counter movlw H&amp;#39;30&amp;#39; ; 0x61A8 = 25000 Count (10msec - 100Hz) movwf CCPR1H ; 0x30D4 = 12500 Count ( 5msec - 200Hz) movlw H&amp;#39;D4&amp;#39; movwf CCPR1L ;割り込み許可 bsf STATUS, RP0 ;Go to Bank1 bsf PIE1, CCP1IE ;CCP1 割り込みイネーブル bcf STATUS, RP0 ;Back to Bank0 bsf INTCON, PEIE ;周辺機能割り込みイネーブル (CCP1は周辺機能) bsf INTCON, GIE ;全体の割り込みイネーブル ;****************************************************************************** ; Idle Loop ;****************************************************************************** MainLoop ;Nothing to do.</description></item><item><title>A/D 変換を実行する ─ PIC めもめも</title><link>https://maku77.github.io/p/izgbusm/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/izgbusm/</guid><description>A/D 変換モジュール PIC16F873/876 (28ピン)、PIC16F874/877 (40ピン) などには A/D 変換モジュールが付いています。 28 ピンモジュールには 5 入力、40 ピンモジュールには 8 入力あります。 5 入力全部使えば、3 軸加速度センサと 2 軸ジャイロセンサの出力を 1 つの PIC で A/D 変換することができます（入力が多いほど A/D 変換に時間はかかります）。
-A/D 変換モジュールには次の 4 つのレジスタがあります。
-A/D 変換制御レジスタ 0 ･･･ ADCON0 A/D 変換制御レジスタ 1 ･･･ ADCON1 A/D 変換結果 High レジスタ ･･･ ADRESH A/D 変換結果 Low レジスタ ･･･ ADRESL A/D 変換制御用レジスタ ─ ADCON0 レジスタの構成 ADCON0 レジスタ (1Fh : Bank0) は、クロック、チャンネルの指定、A/D 変換開始などに使用します。
-ADCS1(7) ADCS0(6) CHS2(5) CHS1(4) CHS0(3) GO/DONE(2) ─(1) ADON(0) ADCS1(7) ～ ADCS0(6): AD 変換クロックセレクトビット 00 ･･･ Fosc/2 01 ･･･ Fosc/8 10 ･･･ Fosc/32 11 ･･･ FRC (RC 発振) CHS2(5) ～ CHS0(3): アナログチャネルセレクトビット 000 ･･･ channel 0, (RA0/AN0) 001 ･･･ channel 1, (RA1/AN1) 010 ･･･ channel 2, (RA2/AN2) 011 ･･･ channel 3, (RA3/AN3) 100 ･･･ channel 4, (RA5/AN4) 101 ･･･ channel 5, (RE0/AN5) (※ 28pin デバイスにはありません) 110 ･･･ channel 6, (RE1/AN6) (※ 28pin デバイスにはありません) 111 ･･･ channel 7, (RE2/AN7) (※ 28pin デバイスにはありません) A/D 変換は 1 度に 1 つのポートからの入力に対してしか行なえないので、この 3 bit でどのポートからの入力を変換するか切り替えます。</description></item><item><title>C 言語 → アセンブラ言語 ─ PIC めもめも</title><link>https://maku77.github.io/p/pzazwmj/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pzazwmj/</guid><description>様々な C 言語のコードを PIC アセンブラ言語に変換するためのメモです。
-代入 VAR = 100 MOVLW D&amp;#39;100&amp;#39; MOVF VAR, F VAR1 = VAR2 MOVF VAR2, W MOVWF VAR1 VAR++ INCF VAR, F VAR += 100 MOVLW D&amp;#39;100&amp;#39; ADDWF VAR, F VAR1 += VAR2 MOVF VAR2, W ADDWF VAR1, F ループ for (i = 100; i &amp;gt; 0; i&amp;ndash;) MOVLW D&amp;#39;100&amp;#39; ;100 回ループ MOVWF i LOOP ... DECFSZ i, F GOTO LOOP IF 分岐 if (w == 100) SUBLW 100 ; 100 - w -&amp;gt; w BTFSC STATUS, Z ; w == 100 でなかったらスキップ GOTO W_IS_100 GOTO W_IS_NOT_100 W_IS_100 .</description></item><item><title>CCP (Compare/Capture/PWM) モジュール ─ PIC めもめも</title><link>https://maku77.github.io/p/gx3mib3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gx3mib3/</guid><description>CCP モジュールのモード CCP モジュールには 3 つのモードがあり、それぞれの用途によって使い分けて使用することができます。
-コンペア・モード タイマ 1 のカウントがある値になったときに、何らかのアクションを行います。タイマ 1 の設定をクロック同期モードにしておく必要があります。タイマ 1 を正確なインターバルタイマとして利用できるようになります。 キャプチャー・モード CCP1 (あるいは CCP2) ピンからの入力を元にして、タイマ 1 のカウントを CCPR1H、CCPR1L レジスタ（あるいは CCPR2H、CCPR2L レジスタ）にコピーします。 パルス幅変調モード (PWM: Pulse Width Modulation) 周期的なパルスを発生させ外部機器を操作します。Duty の指定によりパルス幅を調整できます。 コンペア・モードの 4 つのアクション CCP モジュールをコンペア・モードで動作させると、タイマ 1 のカウンタ TMR1L、TMR1H が レジスタ CCPRxL、CCPRxH で指定した値と等しくなったときに、何らかのアクションを行います（CCP モジュールが 2 つある場合、x に 1 または 2 が入ります）。
-TMR1L, TMR1H (タイマ 1 のカウンタ) ↓ 常に比較 → 一致したならアクション発生（アクションは 4 パターンから選択） ↑ CCPRxL, CCPRxH (ユーザが自由に設定する) どんなアクションを行なうかは、CCPxCON&amp;lt;CCPxM0&amp;gt; ～ &amp;lt;CCPxM3&amp;gt; で指定します。</description></item><item><title>MPLAB によるプロジェクト作成 ─ PIC めもめも</title><link>https://maku77.github.io/p/fyzm2ts/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fyzm2ts/</guid><description>MPLAB の設定（デベロップメント・モードの設定） MPLAB を起動し、次のように設定します。
-「Options」 → 「Development Mode」 → 「Tools」タブ &amp;ldquo;Development Mode&amp;rdquo; で MPLAB-SIM Simulator にチェック &amp;ldquo;Processor&amp;rdquo; を使用するデバイスに変更 新規プロジェクトの作成 「Project」 → 「New Project」 &amp;ldquo;File Name&amp;rdquo; にプロジェクト名 (例えば test.prj) を入力 &amp;ldquo;Directories&amp;rdquo; には空白を含まないパス (例えば D:\PIC_ASM\test) を選択して「OK」 「OK」 ボタンを押すと、Edit Project ダイアログが開きます。
-新規ソースの追加（Edit Project ダイアログ） &amp;ldquo;Development Mode&amp;rdquo; が MPLAB-SIM、正しいデバイス名になっているか確認 &amp;ldquo;Project Files&amp;rdquo; の 「Add Node」 ボタンをクリック ASM ファイル名 (例えば test.asm) を入力して 「OK」 &amp;ldquo;Project Files&amp;rdquo; の test [.hex] を選択して 「Node Properties&amp;hellip;」 ボタンをクリック Hex Format ･･･ INHX8M Warning level ･･･ all Case sensitivity … OFF (大文字と小文字を区別しない) Tab size ･･･ 4（タブ使わないかもしれないけどいちおう） 「OK」 この作業では、実際に test.</description></item><item><title>MPLAB のインストール ─ PIC めもめも</title><link>https://maku77.github.io/p/iwkdah6/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/iwkdah6/</guid><description>MPLAB のダウンロード Microchip Technology https://www.microchip.com/ (English) https://www.microchip.co.jp/ (Japanese) MPLAB ダウンロード https://www.microchip.co.jp/tool.htm MPLAB のインストール Mp57full.exe などを実行します。 ほとんどデフォルトのまま Next ボタンで進んでいけば OK です（「Linker script Location」では Install files to MPLAB\Lkr sub directory を選択した方がよいかも）。 Windows を再起動してインストール完了！ 関連ドキュメントへのリンク MPLAB チュートリアル MPLAB チュートリアル (29 Pages) MPLAB プロジェクト・チュートリアル (33 Pages) PIC データシート PIC16F83/4 データシート (912KB) PIC16F873/4/6/7 データシート (1.75MB) その他 MPLAB、MPASM、PICStart Plus を使ったセミナー実習テキスト (1,839KB) （ソースコード）</description></item><item><title>MPLAB-SIM Software Simulator によるデバッグ ─ PIC めもめも</title><link>https://maku77.github.io/p/5n5vokj/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5n5vokj/</guid><description>MPLAB-SIM Software Simulator を使うと、ブレークポイントやトレース機能などを用いてプログラムのデバッグを行なうことができます。
-Absolute List Absolute List 表示では、記述したアセンブラソースとアセンブル後の機械語を照らし合わせて表示することができます。
-「Window」 → 「Absolute Listing」 このコードは、デバッグを進めていくうちに次のように色が付いて作業の目安になるので、デバッグ中はずっと表示しておくとよいです。
-ブレークポイント &amp;hellip; 赤色 トレース範囲 &amp;hellip; 緑色 ブレークポイント ＆ トレース範囲 &amp;hellip; マゼンタ File Register Window File Register Window の表示 「Window」 → 「File Registers」 File Register Window では、SFC (Special Function Register) やユーザ定義の変数の現在の値を確認したり変更したりすることができます。
-レジスタ内容の変更 File Register Window で変更したい範囲を選択 「右クリック」 → 「Fill Register(s)」 ブレークポイントの設定 Absolute List を表示 ブレークポイントを設定したい行で右クリック → 「Break Point(s)」 （あるいは、「Debug」 → 「Break Settings&amp;hellip;」）
-トレースポイントの設定 Absolute List を表示 トレースポイントを設定したい行で右クリック → 「Trace Point(s)」 （あるいは、「Debug」 → 「Trace Settings&amp;hellip;」）</description></item><item><title>PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも</title><link>https://maku77.github.io/p/no9voj9/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/no9voj9/</guid><description>PIC16Fxxx 命令セット (14bit) カテゴリニモニック意味コード 加算・減算 ADDWF f, d W + f → d Add W and f 00 0111 dfff ffff SUBWF f, d f - W → d Subtract W from f 00 0010 dfff ffff ADDLW k W + k → W Add literal and W 11 111x kkkk kkkk SUBLW kk - W → W Subtract W from literal 11 110x kkkk kkkk 論理演算 ANDWF f, d W AND f → d AND W with f 00 0101 dfff ffff IORWF f, d W OR f → d Inclusive OR W with f 00 0100 dfff ffff XORWF f, d W XOR f → d Exclusive OR W with f 00 0110 dfff ffff ANDLW k W AND k → W And literal with W 11 1001 kkkk kkkk IORLW k W OR k → W Inclusive OR literal with W 11 1000 kkkk kkkk XORLW k W XOR k → W Exclusive OR literal with W 11 1010 kkkk kkkk COMF f, d f → d Complement f 00 1001 dfff ffff 移動 MOVF f, d f → d Move f 00 1000 dfff ffff MOVWF f W → f Move W to f 00 0000 1fff ffff MOVLW k k → W Move litaral to W 11 00xx kkkk kkkk クリア CLRF f 0 → f Clear f 00 0001 1fff ffff CLRW W 0 → W Clear W 00 0001 0xxx xxxx インクリメントデクリメント DECF f, d f - 1 → d Decrement f 00 0011 dfff ffff INCF f, d f + 1 → d Increment f 00 1010 dfff ffff DECFSZ f, d f - 1 → dSkip if result = 0 Decrement f, Skip if 0 00 1011 dfff ffff INCFSZ f, d f + 1 → dSkip if result = 0 Increment f, Skip if 0 00 1111 dfff ffff ビット操作 BCF f, b 0 → f[b] Bit Clear f 01 00bb bfff ffff BSF f, b 1 → f[b] Bit set f 01 01bb bfff ffff スキップ BTFSC f, b Skip if f[b] = 0 Bit Test f, Skip if Clear 01 10bb bfff ffff BTFSS f, b Skip if f[b] = 1 Bit Test f, Skip if Set 01 11bb bfff ffff シフト RLF f, d f[n] → d[n+1] f[7] → C → d[0] Rotate Left f through Carry(左巡回シフト) 00 1101 dfff ffff RRF f, d f[n] → d[n-1] f[0] → c → d[7] Rotate Right f through Carry(右巡回シフト) 00 1100 dfff ffff SWAPF f, d f[0:3] → d[4:7] f[4:7] → d[0:3] Swap nibbles in f(上位ビット ⇔ 下位ビット) 00 1110 dfff ffff ジャンプ GOTO k Go to address 10 1kkk kkkk kkkk CALL k Call subroutine 10 0kkk kkkk kkkk RETFIE Return from interrupt 00 0000 0000 1001 RETLW k Return with literal in W 11 01xx kkkk kkkk RETURN Return from Subroutine 00 0000 0000 1000 その他 CLRWDT Clear Watchdog Timer 00 0000 0110 0100 NOP No Operation 00 0000 0xx0 0000 SLEEP Go into standby mode 00 0000 0110 0011 OPCODE フィールドの説明 FieldSizeDescription f7 ワーキングレジスタのアドレス (0x00 ～ 0x7F) W─ ワーキングレジスタ（アキュムレータ） b3 8 ビットファイルレジスタ内のビットアドレス k8/11 リテラル、定数またはラベル (0 ～ 255) or (-128 ～ 127) or (アスキーコード 'A' とか) x─ 無効 (0 or 1) アセンブラは x=0 としてコードを生成します。</description></item><item><title>RA0 の出力を ON/OFF するサンプルプログラム ─ PIC めもめも</title><link>https://maku77.github.io/p/hjocz3n/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hjocz3n/</guid><description>;============================================================================== ; ; File : ra0_test.asm ; Author: Masatoshi OHTA ; Update: 2000-08-20 ; ;============================================================================== LIST P=PIC16F84 INCLUDE &amp;#34;P16F84.INC&amp;#34; __CONFIG _WDT_OFF ; ウォッチドッグ・タイマ OFF ; ;****************************************************************************** ; Entry Point ;****************************************************************************** ORG 0 clrf PCLATH goto Start ;****************************************************************************** ; Main Routine ;****************************************************************************** Start ;**** Set I/O Mode SetIoMode bsf STATUS, RP0 ; Bank1 に切り替え clrf TRISA ; PORTA をすべて出力モードに bcf STATUS, RP0 ; Bank0 に戻す ;**** RA0 を ON/OFF MainLoop bsf PORTA, 0 ; RA0 を High に nop bcf PORTA, 0 ; RA0 を Low に nop goto MainLoop ;****************************************************************************** ; Directive &amp;#39;End of Program&amp;#39; ;****************************************************************************** END</description></item><item><title>USART によるシリアル通信 ─ PIC めもめも</title><link>https://maku77.github.io/p/fewejde/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fewejde/</guid><description>USART 用の送受信ピン TRISC&amp;lt;6, 7&amp;gt; の設定 USART (Universal Synchronous Asynchronous Receiver Transmitter) は次のモードで構成できます。
-非同期（全二重） 同期 ─ マスター（半二重） 同期 ─ スレーブ（半二重） USART による通信は TX (送信)、RX (受信) ピンを使用します（TX を出力ピン、 RX を受信ピンに設定します）。 TRISC&amp;lt;6&amp;gt; が RC6/TX/CK、TRISC&amp;lt;7&amp;gt; が RC7/RX/DT の入出力設定ビットなので、これらの値を次のようにセットします。
-TX, RX の入出力モードの設定 (TX=出力, RX=入力) INIT_TX_TR BSF STATUS, RP0 ; set bank1 BCF TRISC, 6 ; PortC&amp;amp;lt;6&amp;amp;gt; (TX) is an output BSF TRISC, 7 ; PortC&amp;amp;lt;7&amp;amp;gt; (RX) is an input BCF STATUS, RP0 ; set bank0 TRISC&amp;lt;6&amp;gt; をクリアして、 TRISC&amp;lt;7&amp;gt; をセットするだけですね。</description></item><item><title>その他、用語メモ、未分類メモ ─ PIC めもめも</title><link>https://maku77.github.io/p/52s4tfc/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/52s4tfc/</guid><description>発振モード MODE BIT DESCRIPTION FREQ RANGE LP 00 低電力／水晶発振(Low Power Crystal) 200kHz 以下 XT 01 水晶／セラミック発振(Crystal／Resonator) 4MHz 以下 HS 10 高周波水晶／セラミック発振(High Speed Crystal／Resonator) 4MHz ～ 20MHz RC 11 RC 発振(Resister／Capacitor) 1MHz 以下 リセット回路 MCLR に電源をつないでおけば、とりあえずは動作しますが、周辺回路の電源が安定するまで遅延して 4.5V の入力があるべきです。 リセット用の IC にはミツミの PST600C などがあります。
-MAX232 MAX232 ･･･ 1μF のコンデンサを使う MAX232A ･･･ 0.1μF ADM232AAN ･･･ 0.1μF 命令長の違う 3 シリーズ ベースライン・シリーズ ･･･ 12ビット命令 (12C5xx, 16C5xx) ミッドレンジ・シリーズ ･･･ 14ビット命令 ハイエンド・シリーズ ･･･ 16ビット命令 (17Cxxx, 18Cxxx) 一番使われている PIC16Fxxx などはミッドレンジ・シリーズにあたります。</description></item><item><title>タイマ 0 を使用する ─ PIC めもめも</title><link>https://maku77.github.io/p/cnutuna/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cnutuna/</guid><description>タイマ 0 による割り込みの仕組み タイマ 0 では、8bit の TMR0 レジスタをタイマ 0 用のクロック (後述) でインクリメントしていき、オーバフローを意図的に起こすことによって割り込みを実現しています。 TMR0 レジスタにあらかじめ値をセットしておくことによって、割り込み時間を調整することができます。 ただし、TMR0 レジスタは 8bit しかないので、それだけでは最大 256 カウントしかすることができません。 そこで、プリスケーラという 8bit のカウンタを別に用意し、このカウンタが指定した値（2, 4, 8, 16, 32, 64, 128, 256 のいずれか）になった時にはじめて TMR0 レジスタをインクリメントすることにより、65536 (8bit + 8bit) までのカウントを実現しています。 プリスケーラカウンタを使うには、OPTION_REG&amp;lt;PSA(3)&amp;gt; ビットを 0 に設定します。 プリスケーラのスケール値を設定するには、OPTION_REG&amp;lt;PS0(0)&amp;gt; ～ &amp;lt;PS2(2)&amp;gt; で次のように指定します。
-タイマ 0 のプリスケーラのスケール設定 OPTION_REG
-&amp;lt;PS2(2)&amp;gt;OPTION_REG
-&amp;lt;PS1(1)&amp;gt;OPTION_REG
-&amp;lt;PS0(0)&amp;gt; スケール 000 1:2 (256 * 2 = 512カウントまで) 001 1:4 (256 * 4 = 1024カウントまで) 010 1:8 (256 * 8 = 2048カウントまで) 011 1:16 (256 * 16 = 4096カウントまで) 100 1:32 (256 * 32 = 8192カウントまで) 101 1:64 (256 * 64 = 16384カウントまで) 110 1:128 (256 * 128 = 32768カウントまで) 111 1:256 (256 * 256 = 65536カウントまで) ※ タイマ 0 ではプリスケーラカウンタをプログラムから参照することはできません。 参照可能なのは TMR0 レジスタ (256 段階) のみになります。</description></item><item><title>タイマ 1 を使用する ─ PIC めもめも</title><link>https://maku77.github.io/p/ecozpj9/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ecozpj9/</guid><description>タイマ 1 はミッドレンジシリーズの PIC16F84 などで使用することができます。 タイマ 1 を使用することにより、より正確なインターバルタイマとして機能させることができます。
-T1CON レジスタの構成 T1CON レジスタ (10h : Bank0) ─
-(7) ─
-(6) T1CKPS1
-(5) T1CKPS0
-(4) T1OSCEN
-(3) T1SYNC
-(2) TMR1CS
-(1) TMR1ON
-(0) T1CKPS1 (5) ～ T1CKPS0 (4): タイマ 1 入力クロックプリスケール選択ビット 00 ･･･ 1:1 プリスケール値 01 ･･･ 1:2 プリスケール値 10 ･･･ 1:4 プリスケール値 11 ･･･ 1:8 プリスケール値 T1OSCEN (3): タイマ 1 オシレータイネーブルコントロールビット 0 ･･･ オシレータを停止させる。オシレータインバータと帰還抵抗をオフにして消費電流を抑えます。 1 ･･･ オシレータを動作させる。 T1SYNC (2): タイマ 1 外部クロック入力同期コントロールビット If TMR1CS = 1 0 ･･･ 外部クロック入力を同期させる 1 ･･･ 外部クロック入力を同期させない If TMR1CS = 0 このビットは無視されます。TMR1CS = 0 のとき、タイマ 1 は内部クロックを使用します。 TMR1CS (1): タイマ 1 クロックソース選択ビット 0 ･･･ 内部クロック (Fosc/4) 1 ･･･ RC0/T1OSO/T1CKI（立ち上がりエッジ）ピンからの外部クロック TMR1ON (0): タイマ 1 オン・ビット 0 ･･･ タイマ 1 を停止する 1 ･･･ タイマ 1 を動作させる タイマ 1 による割り込みの仕組み タイマ 1 の仕組みは、ほぼタイマ 0 と同じ仕組みになっていますが、タイマ 1 のカウンタは TMR1L (8bit) と TMR1H (8bit) の計 16 bit を使うため、プリスケーラを入れないでも、65,536 までのカウントが可能です。 ただし、プリスケーラはタイマ 0 の時と違い、少なめの 3 bit になっており、スケールは 1:8 までです。 といっても、合計 19bit のカウンタとして働くので、プリスケーラを入れて、524,288 までのカウントが可能となり、システムクロックが 10MHz の場合は約 210 msec までのインターバルを実現することができます（20MHz の場合は約 105 msec まで）。</description></item><item><title>バンクとページの切り替え ─ PIC めもめも</title><link>https://maku77.github.io/p/dtabczb/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dtabczb/</guid><description>バンク ･･･ 汎用レジスタ (RAM) の区分け MOVWF 命令などのデスティネーションアドレスは下のように 7 ビットとなっているので、このままでは 128 バイト分の汎用レジスタにしかアクセスすることができません。
-MOVWF 命令の構造 → 0000001fffffff これを解決するために、SFR (Special Function Register) である STATUS レジスタ の 5, 6 ビット目 (RP0, RP1) をアドレスの拡張に使用します。 これにより 7 + 2 = 9 ビット、つまり 512 バイト分の汎用レジスタにアクセスできるようになります（ただしデバイスごとに使用できるサイズは異なります）。
-バンク STATUS&amp;lt;RP0&amp;gt; STATUS&amp;lt;RP1&amp;gt; アクセスできるアドレス範囲 Bank0 0 0 0x0000 ～ 0x007F (128 bytes) Bank1 1 0 0x0080 ～ 0x00FF (128 bytes) Bank2 0 1 0x0100 ～ 0x017F (128 bytes) Bank3 1 1 0x0180 ～ 0x01FF (128 bytes) PORTA を出力か入力かどちらに使うかの設定をするための TRISA レジスタは Bank1 にあるので、バンクを切り替えて値を設定する必要があります（PORTA は Bank0 にあります）。 バンクを切り替えて TRISA にアクセスする例を示します。</description></item><item><title>ラベル ─ PIC めもめも</title><link>https://maku77.github.io/p/zm6rg3v/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zm6rg3v/</guid><description>ラベル定義の構文 &amp;lt;ラベル名&amp;gt; EQU &amp;lt;リテラル値&amp;gt; EQU 命令を使うことによってラベルを定義することができます。 指定したラベルは、リテラル (k) として使用することができます。 変数領域が割り当てられるわけではないので、定義する時にアドレスを気にしたりする必要はありません。
-例: MAX_VAL を 0xFF として定義 MAX_VAL EQU 0xFF ; MAX_VAL=0xFF これは、C 言語のプリプロセッサの #define のようなものです。
-#define MAX_VAL 0xFF</description></item><item><title>変数の割り当て ─ PIC めもめも</title><link>https://maku77.github.io/p/hoytbx6/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hoytbx6/</guid><description>領域として自由に使用できる汎用レジスタの範囲 ユーザが変数領域として自由に使用できる汎用レジスタ (データ RAM) の範囲の一例です。
-Device Bank0 Bank1 Bank2 Bank3 データ RAM サイズ PIC16F83PIC16CR83 0Ch ～ 2Fh(36 bytes) 8Ch ～ AFh(Bank0 へのマップ) ─ ─ 36 bytes PIC16F84PIC16CR84 0Ch ～ 4Fh(68 bytes) 8Ch ～ CFh(Bank0 へのマップ) ─ ─ 68 bytes PIC16F873PIC16F874 20h ～ 7Fh(96 bytes) A0h ～ FFh(96 bytes) ─ ─ PIC16F876PIC16F877 20h ～ 7Fh(96 bytes) A0h ～ EFh(80 bytes) 110h ～ 16Fh(96 bytes) 190h ～ 1EFh(96 bytes) PIC16F87x の Bank1 ～ 3 の最後の部分には、Bank0 へのマッピングアドレスとして使えるものがあります。 うまく使えば効率的なプログラムが作れるかもしれません。 詳しくは各デバイスのデータシートを参照してください。</description></item><item><title>汎用テクニック ─ PIC めもめも</title><link>https://maku77.github.io/p/p83uim3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/p83uim3/</guid><description>どの Page にあるか分からないサブルーチンにジャンプする ; ; どのページにあるか分からないサブルーチンにジャンプする ; ... MOVLW HIGH(SUB) ; SUB の上位アドレス MOVWF PCLATH ; を PCLATH にセット CALL SUB ... SUB ... RETURN 特定のマスクで 2 つの値を比較 ; ; 特定のマスクで比較 (A と B を 01110000 のビットマスクで比較) ; MOVF A, W XORWF B, W ANDLW B&amp;#39;01110000&amp;#39; BTFSC STATUS, Z GOTO AB_IS_SAME ; 同じだった (→ AB_IS_SAME へ) GOTO AB_IS_NOT_SAME ; 違った (→ AB_IS_NOT_SAME へ) AB_IS_SAME ... GOTO xxx AB_IS_NOT_SAME ... GOTO xxx W レジスタの値 (0～F) を 7 セグメント LED 用の値に変換する ;============================================================================== ; W の値を 7 セグメント LED 用の値に変換します。 ; ; 使い方: ; (W に 0～9 の値が入っている時に) ; CALL TO_7SEG ;============================================================================== TO_7SEG ADDWF PCL, F ; プログラムカウンタに W の値を加える RETLW B&amp;#39;01111110&amp;#39; ; 0 の表示用 RETLW B&amp;#39;00001100&amp;#39; ; 1 の表示用 RETLW B&amp;#39;10110110&amp;#39; ; 2 の表示用 RETLW B&amp;#39;10011110&amp;#39; ; 3 の表示用 RETLW B&amp;#39;11001100&amp;#39; ; 4 の表示用 RETLW B&amp;#39;11011010&amp;#39; ; 5 の表示用 RETLW B&amp;#39;11111010&amp;#39; ; 6 の表示用 RETLW B&amp;#39;00001110&amp;#39; ; 7 の表示用 RETLW B&amp;#39;11111110&amp;#39; ; 8 の表示用 RETLW B&amp;#39;11001110&amp;#39; ; 9 の表示用</description></item><item><title>遅延時間 ─ PIC めもめも</title><link>https://maku77.github.io/p/yzbkxhz/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/yzbkxhz/</guid><description>1 サイクル (1 命令) にかかる時間 1 つの命令を実行するためにかかる時間（1 サイクル）は、クロックの周期(sec) * 4、あるいは、4 / クロックの周波数(Hz) となります。 具体的な値は次のようになります。
-10MHzの場合の1命令にかかる時間 ･･･ 0.1 (μsec) * 4 = 0.4 (μsec) 20MHzの場合の1命令にかかる時間 ･･･ 0.05 (μsec) * 4 = 0.2 (μsec) プログラムカウンタの値を変更する命令の場合は、2 サイクルの時間がかかります。 このような命令には CALL, GOTO, RETFIE, RETLW, RETURN があります。 また、DECFSZ, INCFSZ, BTFSC, BTFSS でスキップした場合も 2 サイクルかかります。
-遅延時間を作るサブルーチン 遅延を発生させるサブルーチンを作る場合は、次のような手順で作成します。
-1. 必要なサイクル数を求める サブルーチンに必要なサイクル数は、遅延時間 / 1 サイクルにかかる時間で求めることができます。 例えば、10MHz (0.4μsec) で 100μsec の遅延を作りたい場合は、100 / 0.4 = 250 サイクルが必要になります。
-2. ループ回数を決める ループ回数は、(1 で求めたサイクル数 - 6) / 3 で求められます（余りは NOP で調整します）。 -6 の部分は、MOVLW, MOVWF, DECFSZ(2), RETURN のサイクルで、/3 の部分は、DECFSZ(1), GOTO の部分の実行回数を求めています。 以下にいくつかの遅延時間発生ルーチンの例を示します。</description></item><item><title>部品メモ: 3端子レギュレータ ─ PIC めもめも</title><link>https://maku77.github.io/p/hzva4rn/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hzva4rn/</guid><description>可変3端子レギュレータ LM317 大きめの四角いレギュレータ 7805 (DC, +5V 1A) は、出力電流が 1A あり、7～20V を 5±0.25V に変換できます。 ちっちゃい３端子レギュレータ 78L05 (DC, +5V 100mA) は、ひらぺったい方から見て、右の端子から IN, GND, OUT になっています。 この順番はレギュレータごとに異なる ので、必ずデータシートで確認する必要があります。7～25V を 5±0.25V に変換できます。 3端子レギュレータの配線方法 3端子レギュレータの入力、出力側に共通のグランドが必要です。 出力側のコンデンサは不要ですが、あると過渡応答を改善できます。</description></item><item><title>部品メモ: LED（Light Emitting Diode: 発光ダイオード） ─ PIC めもめも</title><link>https://maku77.github.io/p/spggmm3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/spggmm3/</guid><description>LED の極性 LED には２つの端子があり、それぞれ下記のような名前が付けられています。
-アノード (A) ･･･ 端子の長い方 (+ 電源へ) カソード (K) ･･･ 端子の短い方 (GND へ) LED の電気的特性として、順方向 (アノード → カソード) にしか電流を流さないという特徴を持っています。 順方向でも一定の電圧降下があります（1.7V 程度）。
-LED へ流す電流の決め方 LED の明るさは流す電流の大きさによって変わります。 ただし、あまり大きな電流を流すと LED が壊れてしまうので、電源との間に抵抗を入れて流れる電流を調整する必要があります。 何Ωの抵抗を接続すればいいかを計算する時は、LED による電圧降下を考えて求める必要があります。
-計算式: R = (V - VLED) / I
-例えば、電源 (V) を 5V、適正電流 (I) を 5mA とすると、
-R = (5.0 - 1.7) / 0.005 = 660 (Ω) と求められます。</description></item><item><title>部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも</title><link>https://maku77.github.io/p/dppsjeu/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dppsjeu/</guid><description>はじめに（用語とか） スペース状態 ･･･ 信号 0。入力 +3V 以上。出力 +5V ～ +15V。 マーク状態 ･･･ 信号 1。入力 -3V 以下。出力 -5V ～ -15V。 短絡時最大出力電流 ･･･ 500mA。 ハードウェアフローコントロール ･･･ RTS と CTS の信号線を使ったフロー制御。RTS／CTS とも記述されます。 ソフトウェアフローコントロール ･･･ ソフトウェアによるフロー制御。アプリケーションで決められた特殊な記号を送信することでフロー制御を行います。RTS と CTS ワイヤは使用しません。Xon／Xoff とも記述されます。 DTE デバイス ･･･ 通常は PC を示します。オスコネクタを持ちます。 DCE デバイス ･･･ 通常は シリアルデバイスを示します。メスコネクタを持ちます。DTE デバイスと DCE デバイスをつなぐ時は通常ストレートケーブルを用います。 ヌルモデムケーブル／ヌルアダプタ ･･･ 送信と受信の信号線をクロスさせたものです。TxD ⇔ RxD、DTR ⇔ DSR、RTS ⇔ CTS のようにクロスされます。 DSub 9 ピン （DTE デバイス（PC 側）オス）
-9 ピンミニ DSUB コネクタ (PC 側オス) ピン番号表記I/O意味説明 1 DCD In Data Carrier Detect（キャリア検出） 外部端末の送受信準備ができたことを知る 2 RxD In Receive Data（受信データ） &amp;nbsp; 3 TxD Out Transmit Data（送信データ） &amp;nbsp; 4 DTR Out Data Terminal Ready（データ端末準備） PC が繋がっていることを認識させる（PC → 外部） 5 GND --- Ground（信号用グラウンド） &amp;nbsp; 6 DSR In Data Set Ready（データセット準備） 端末が繋がっていることを認識する（PC ← 外部） 7 RTS Out Request To Send (DTE の送信要求) PC の送信開始信号（フロー制御用）（PC → 外部） 8 CTS In Clear To Send（DCE の送信要求） PC への受信開始要求（フロー制御用）（PC ← 外部） 9 RI In Ring Indication（被呼表示） 電話がかかってきたことを伝える／PC の電源を制御する PC からデータを送信するのに最低限必要なのは、TxD(3) と GND(5) です。 データを受信する時は RxD(2) が必要です。 出力の信号線は、デフォルトでマーク状態(-)かスペース状態(+)のどちらかを出力してます。</description></item><item><title>部品メモ: 水晶振動子（クリスタル振動子、オシレーター） ─ PIC めもめも</title><link>https://maku77.github.io/p/yzdxf7i/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/yzdxf7i/</guid><description>水晶振動子（クリスタル振動子）20MHz</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PIC めもめも（PIC アセンブラ） on 天才まくまくノート</title><link>https://maku77.github.io/p/48ipjkq/</link><description>Recent content in PIC めもめも（PIC アセンブラ） on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Thu, 01 Aug 2002 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/p/48ipjkq/index.xml" rel="self" type="application/rss+xml"/><item><title>３軸加速度センサの入力を 200Hz でサンプリング＆シリアル通信するサンプルプログラム ─ PIC めもめも</title><link>https://maku77.github.io/p/w6pogd4/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w6pogd4/</guid><description>&lt;p>３軸加速度センサの入力を 200Hz で A/D 変換し、シリアルポートから 9600bps で 1byte ずつ送信（5msec ごとに 0x00, Ax, Ay, Az の計 4 byte を送信）するサンプルコードです。
+最初にデリミタのための 0x00 を送信するようにしているので、0x00, Ax, Ay, Az の 4 byte が 5msec ごとにまとめて送信されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; File : ad_200hz.asm
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Author: Masatoshi OHTA
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Update: 2002/11/18
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; デバイス : PIC16F873
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 通信スピード : 9600bps
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; データ長 : 8bit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; ストップビット: 1bit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; フロー制御 : なし
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">LIST&lt;/span> &lt;span class="no">P&lt;/span>&lt;span class="err">=&lt;/span>&lt;span class="no">PIC16F873&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">INCLUDE&lt;/span> &lt;span class="err">&amp;#34;&lt;/span>&lt;span class="no">P16F873.INC&lt;/span>&lt;span class="err">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">__CONFIG&lt;/span> &lt;span class="no">_HS_OSC&lt;/span> &lt;span class="err">&amp;amp;&lt;/span> &lt;span class="no">_WDT_OFF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;ウォッチドッグ・タイマ OFF
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 変数定義
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">CBLOCK&lt;/span> &lt;span class="no">H&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">w_temp&lt;/span> &lt;span class="c1">; variable used for context saving
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">status_temp&lt;/span> &lt;span class="c1">; variable used for context saving
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">temp&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">wait_count&lt;/span> &lt;span class="c1">; 遅延サブルーチン用の変数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">ENDC&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; エントリ・ポイント
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">ORG&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">Start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ORG&lt;/span> &lt;span class="mi">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">Interrupt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; メインルーチン
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">Start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">; Bank1 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[TRISA] 入出力ポートの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00000111&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; RA0, RA1, RA2 は入力(センサから)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">TRISA&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[ADCON1] アナログ入力にするポート、左詰右詰を決定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00000010&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 左詰、AN0～AN4 全部アナログ入力
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">ADCON1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[TRISC] USART 用入出力ポートの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">TRISC&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="c1">; PortC&amp;lt;6&amp;gt; (TX) is an output
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; bsf TRISC, 7 ; PortC&amp;lt;7&amp;gt; (RX) is an input
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[TXSTA] USART 送信ステータスの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00100000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; Async mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">TXSTA&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[SPBRG]USART ボーレートの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="no">FH&lt;/span> &lt;span class="c1">;9600bps 10MHz BRGH=0(低速)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">SPBRG&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">; Bank0 に戻す
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[RCSTA] USART 受信ステータスの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">10010000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">RCSTA&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;[ADCON0] AD 変換クロックを指定。AD 変換を有効に
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">10000001&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; Fosc/32, CH0, ADON=1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">ADCON0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;CCP1 のコンペアモード（SpecialEventTrigger）による割り込みの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;SetupTimer1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00000001&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">T1CON&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;SetupCCP1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00001011&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">CCP1CON&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;SetCCP1Counter
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">H&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">30&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 0x61A8 = 25000 Count (10msec - 100Hz)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">CCPR1H&lt;/span> &lt;span class="c1">; 0x30D4 = 12500 Count ( 5msec - 200Hz)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">H&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="no">D4&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">CCPR1L&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;割り込み許可
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">;Go to Bank1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">PIE1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">CCP1IE&lt;/span> &lt;span class="c1">;CCP1 割り込みイネーブル
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">;Back to Bank0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">INTCON&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">PEIE&lt;/span> &lt;span class="c1">;周辺機能割り込みイネーブル (CCP1は周辺機能)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">INTCON&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">GIE&lt;/span> &lt;span class="c1">;全体の割り込みイネーブル
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Idle Loop
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">MainLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">;Nothing to do.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">goto&lt;/span> &lt;span class="no">MainLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 割り込み時の処理
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; フラグクリア
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 0 を送信
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; (アナログ入力ポート選択 → シリアル送信) x 3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">InterruptProcedure&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;CCP1 割り込みフラグをクリア
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">PIR1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">CCP1IF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;デリミタとして 0x00 を送信する
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">call&lt;/span> &lt;span class="no">SendZero&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;アナログ入力を RA0 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movf&lt;/span> &lt;span class="no">ADCON0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">andlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11000111&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">iorlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00000000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">ADCON0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">call&lt;/span> &lt;span class="no">AdConvertAndSend&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;アナログ入力を RA1 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movf&lt;/span> &lt;span class="no">ADCON0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">andlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11000111&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">iorlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00001000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">ADCON0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">call&lt;/span> &lt;span class="no">AdConvertAndSend&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;アナログ入力を RA2 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movf&lt;/span> &lt;span class="no">ADCON0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;ADCON0 -&amp;gt; W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">andlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11000111&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">;W &amp;amp; 11000111 -&amp;gt; W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">iorlw&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00010000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">;W | 00010000 -&amp;gt; W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">ADCON0&lt;/span> &lt;span class="c1">;W -&amp;gt; ADCON0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">call&lt;/span> &lt;span class="no">AdConvertAndSend&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; セレクトしたポートに対して A/D 変換を実行
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; チャンネルをセレクトしてからCholdに電圧を蓄積するまで待機する必要がある
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 8bit 変換の時 … 12μsec
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 10bit 変換の時 … 20μsec
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">AdConvertAndSend&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">call&lt;/span> &lt;span class="no">Wait20_10MHz&lt;/span> &lt;span class="c1">;コンデンサの充電まち (20μsec, 10MHz)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">ADCON0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">GO&lt;/span> &lt;span class="c1">;A/D 変換スタート
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">WaitAdFinish&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">btfsc&lt;/span> &lt;span class="no">ADCON0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">GO&lt;/span> &lt;span class="c1">;GO ビットがクリアされたら A/D 変換終了
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">goto&lt;/span> &lt;span class="no">WaitAdFinish&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movf&lt;/span> &lt;span class="no">ADRESH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;A/D 変換の結果を取得 (上位8bit)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;A/D 変換結果をシリアルで送信
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">call&lt;/span> &lt;span class="no">SendUsart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; シリアル送信サブルーチン
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; TXSTA&amp;lt;TRMT(1)&amp;gt; を監視し、W レジスタのデータ (8 bit) をシリアルで送信します。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; （TEMP を Bank0 の汎用レジスタに指定してあることを前提とします。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 　このルーチンを呼び出す時は Bank0 に切り替えてから呼び出すこと）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">SendUsart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">temp&lt;/span> &lt;span class="c1">;W レジスタを保存
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">;Bank1 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">SendUsartLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">btfss&lt;/span> &lt;span class="no">TXSTA&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">TRMT&lt;/span> &lt;span class="c1">;TXSTA&amp;lt;TRMT(1)&amp;gt; が 1 になるまで待機
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">goto&lt;/span> &lt;span class="no">SendUsartLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">;Bank0 に戻す
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movf&lt;/span> &lt;span class="no">temp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;W レジスタの復旧
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">TXREG&lt;/span> &lt;span class="c1">;TXREG レジスタにセット (実際の送信開始)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Send 0x00 By RS232C
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">SendZero&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">clrw&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">call&lt;/span> &lt;span class="no">SendUsart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 20μsec の遅延発生ルーチン (クロック = 10MHz)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">Wait20_10MHz&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movlw&lt;/span> &lt;span class="no">D&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">14&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">wait_count&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">Wait20_10MHz_Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">decfsz&lt;/span> &lt;span class="no">wait_count&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">Wait20_10MHz_Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">nop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">nop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">return&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 割り込みルーチン
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">Interrupt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">w_temp&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">w&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">status_temp&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">call&lt;/span> &lt;span class="no">InterruptProcedure&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movf&lt;/span> &lt;span class="no">status_temp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">w&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">movwf&lt;/span> &lt;span class="no">STATUS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">swapf&lt;/span> &lt;span class="no">w_temp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">f&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">swapf&lt;/span> &lt;span class="no">w_temp&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">w&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">retfie&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Directive &amp;#39;End of Program&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">END&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>A/D 変換を実行する ─ PIC めもめも</title><link>https://maku77.github.io/p/izgbusm/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/izgbusm/</guid><description>&lt;h2 id="ad-変換モジュール">A/D 変換モジュール&lt;/h2>
+&lt;p>PIC16F873/876 (28ピン)、PIC16F874/877 (40ピン) などには A/D 変換モジュールが付いています。
+28 ピンモジュールには 5 入力、40 ピンモジュールには 8 入力あります。
+5 入力全部使えば、3 軸加速度センサと 2 軸ジャイロセンサの出力を 1 つの PIC で A/D 変換することができます（入力が多いほど A/D 変換に時間はかかります）。&lt;/p>
+&lt;p>A/D 変換モジュールには次の 4 つのレジスタがあります。&lt;/p>
+&lt;ul>
+&lt;li>A/D 変換制御レジスタ 0 ･･･ &lt;strong>ADCON0&lt;/strong>&lt;/li>
+&lt;li>A/D 変換制御レジスタ 1 ･･･ &lt;strong>ADCON1&lt;/strong>&lt;/li>
+&lt;li>A/D 変換結果 High レジスタ ･･･ &lt;strong>ADRESH&lt;/strong>&lt;/li>
+&lt;li>A/D 変換結果 Low レジスタ ･･･ &lt;strong>ADRESL&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ad-変換制御用レジスタ--adcon0-レジスタの構成">A/D 変換制御用レジスタ ─ ADCON0 レジスタの構成&lt;/h2>
+&lt;p>ADCON0 レジスタ (1Fh : Bank0) は、クロック、チャンネルの指定、A/D 変換開始などに使用します。&lt;/p>
+&lt;table>
+ &lt;tr style="text-align:center">
+ &lt;td width="12.5%">ADCS1&lt;BR>(7)&lt;/td>
+ &lt;td width="12.5%">ADCS0&lt;BR>(6)&lt;/td>
+ &lt;td width="12.5%">CHS2&lt;BR>(5)&lt;/td>
+ &lt;td width="12.5%">CHS1&lt;BR>(4)&lt;/td>
+ &lt;td width="12.5%">CHS0&lt;BR>(3)&lt;/td>
+ &lt;td width="12.5%">GO/&lt;SPAN style="text-decoration: overline;">DONE&lt;/SPAN>&lt;BR>(2)&lt;/td>
+ &lt;td width="12.5%">─&lt;BR>(1)&lt;/td>
+ &lt;td width="12.5%">ADON&lt;BR>(0)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;h4 id="adcs17--adcs06-ad-変換クロックセレクトビット">ADCS1(7) ～ ADCS0(6): AD 変換クロックセレクトビット&lt;/h4>
+&lt;ul>
+&lt;li>00 ･･･ Fosc/2&lt;/li>
+&lt;li>01 ･･･ Fosc/8&lt;/li>
+&lt;li>10 ･･･ Fosc/32&lt;/li>
+&lt;li>11 ･･･ F&lt;SMALL>RC&lt;/SMALL> (RC 発振)&lt;/li>
+&lt;/ul>
+&lt;h4 id="chs25--chs03-アナログチャネルセレクトビット">CHS2(5) ～ CHS0(3): アナログチャネルセレクトビット&lt;/h4>
+&lt;ul>
+&lt;li>000 ･･･ channel 0, (RA0/AN0)&lt;/li>
+&lt;li>001 ･･･ channel 1, (RA1/AN1)&lt;/li>
+&lt;li>010 ･･･ channel 2, (RA2/AN2)&lt;/li>
+&lt;li>011 ･･･ channel 3, (RA3/AN3)&lt;/li>
+&lt;li>100 ･･･ channel 4, (RA5/AN4)&lt;/li>
+&lt;li>101 ･･･ channel 5, (RE0/AN5) (※ 28pin デバイスにはありません)&lt;/li>
+&lt;li>110 ･･･ channel 6, (RE1/AN6) (※ 28pin デバイスにはありません)&lt;/li>
+&lt;li>111 ･･･ channel 7, (RE2/AN7) (※ 28pin デバイスにはありません)&lt;/li>
+&lt;/ul>
+&lt;p>A/D 変換は 1 度に 1 つのポートからの入力に対してしか行なえないので、この 3 bit でどのポートからの入力を変換するか切り替えます。&lt;/p></description></item><item><title>C 言語 → アセンブラ言語 ─ PIC めもめも</title><link>https://maku77.github.io/p/pzazwmj/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pzazwmj/</guid><description>&lt;p>様々な C 言語のコードを PIC アセンブラ言語に変換するためのメモです。&lt;/p>
+&lt;h2 id="代入">代入&lt;/h2>
+&lt;h4 id="var--100">VAR = 100&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="no">D&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">VAR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="var1--var2">VAR1 = VAR2&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">VAR2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVWF&lt;/span> &lt;span class="no">VAR1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="var">VAR++&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">INCF&lt;/span> &lt;span class="no">VAR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="var--100-1">VAR += 100&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="no">D&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">VAR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="var1--var2-1">VAR1 += VAR2&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">VAR2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">VAR1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ループ">ループ&lt;/h2>
+&lt;h4 class=".." id="for-i--100-i--0-i--">for (i = 100; i &amp;gt; 0; i&amp;ndash;)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="no">D&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">;100 回ループ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">MOVWF&lt;/span> &lt;span class="no">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">LOOP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECFSZ&lt;/span> &lt;span class="no">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">LOOP&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="if-分岐">IF 分岐&lt;/h2>
+&lt;h4 class=".." id="if-w--100">if (w == 100)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">SUBLW&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="c1">; 100 - w -&amp;gt; w
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span> &lt;span class="c1">; w == 100 でなかったらスキップ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">W_IS_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">W_IS_NOT_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">W_IS_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">W_IS_NOT_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 class=".." id="if-var--100">if (VAR == 100)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="c1">;VAR - 100 → W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">SUBWF&lt;/span> &lt;span class="no">VAR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span> &lt;span class="c1">;VAR == 100 でなかったらスキップ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">VAR_IS_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">VAR_IS_NOT_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">VAR_IS_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">VAR_IS_NOT_100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 class=".." id="if-a--b">if (A &amp;gt;= B)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">; B → W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">SUBWF&lt;/span> &lt;span class="no">A&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">; A - W → W
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">C&lt;/span> &lt;span class="c1">; A &amp;gt;= B なら負でない
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">A_LARGER_EQUAL&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">B_LARGER&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-分岐">SWITCH 分岐&lt;/h2>
+&lt;h4 id="case-1-2-3-への分岐1-からの連番の場合">CASE 1, 2, 3 への分岐（1 からの連番の場合）&lt;/h4>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">C&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="k">switch&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">FLAG&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">ASSEMBLER&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">DEFAULT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;;; FLAG の値を壊さないようにする場合は次のように TEMP_FLAG を用意する
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVWF&lt;/span> &lt;span class="no">TEMP_FLAG&lt;/span> &lt;span class="c1">; FLAG の値を代入
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">TEMP_FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">TEMP_FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">DECF&lt;/span> &lt;span class="no">TEMP_FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">DEFAULT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h4 id="case-2-4-6-への分岐とびとびの値の場合">CASE 2, 4, 6 への分岐（とびとびの値の場合）&lt;/h4>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">C&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="k">switch&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">FLAG&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">case&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">default&lt;/span>&lt;span class="o">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">break&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">ASSEMBLER&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="c1">; 2 の場合の分岐処理
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">SUBWF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_2&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="mi">4&lt;/span> &lt;span class="c1">; 4 の場合の分岐処理
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">SUBWF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_4&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="c1">; 6 の場合の分岐処理
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">SUBWF&lt;/span> &lt;span class="no">FLAG&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">CASE_6&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">DEFAULT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">CASE_6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="演算">演算&lt;/h2>
+&lt;h4 id="2-バイトデータの足し算-a--b">2 バイトデータの足し算 (A += B)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">A_LOW&lt;/span> &lt;span class="no">EQU&lt;/span> &lt;span class="no">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">B_LOW&lt;/span> &lt;span class="no">EQU&lt;/span> &lt;span class="no">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">A_HIGH&lt;/span> &lt;span class="no">EQU&lt;/span> &lt;span class="no">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">B_HIGH&lt;/span> &lt;span class="no">EQU&lt;/span> &lt;span class="no">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">B_LOW&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">A_LOW&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span> &lt;span class="c1">; 下位が A_LOW へ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">C&lt;/span> &lt;span class="c1">; あふれたら上位へ +1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">INCF&lt;/span> &lt;span class="no">B_HIGH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">B_HIGH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">A_HIGH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span> &lt;span class="c1">; 上位が A_HEGH へ
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-倍-var--2">2 倍 (VAR *= 2)&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BCF&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">C&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">RLF&lt;/span> &lt;span class="no">VAR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>キャリーフラグをクリアしてからシフトするのがポイントです。&lt;/p></description></item><item><title>CCP (Compare/Capture/PWM) モジュール ─ PIC めもめも</title><link>https://maku77.github.io/p/gx3mib3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gx3mib3/</guid><description>&lt;h2 id="ccp-モジュールのモード">CCP モジュールのモード&lt;/h2>
+&lt;p>CCP モジュールには 3 つのモードがあり、それぞれの用途によって使い分けて使用することができます。&lt;/p>
+&lt;dl>
+&lt;dt>コンペア・モード&lt;/dt>
+&lt;dd>タイマ 1 のカウントがある値になったときに、何らかのアクションを行います。タイマ 1 の設定をクロック同期モードにしておく必要があります。タイマ 1 を正確なインターバルタイマとして利用できるようになります。&lt;/dd>
+&lt;dt>キャプチャー・モード&lt;/dt>
+&lt;dd>CCP1 (あるいは CCP2) ピンからの入力を元にして、タイマ 1 のカウントを CCPR1H、CCPR1L レジスタ（あるいは CCPR2H、CCPR2L レジスタ）にコピーします。&lt;/dd>
+&lt;dt>パルス幅変調モード (PWM: Pulse Width Modulation)&lt;/dt>
+&lt;dd>周期的なパルスを発生させ外部機器を操作します。Duty の指定によりパルス幅を調整できます。&lt;/dd>
+&lt;/dl>
+&lt;h2 id="コンペアモードの-4-つのアクション">コンペア・モードの 4 つのアクション&lt;/h2>
+&lt;p>CCP モジュールをコンペア・モードで動作させると、タイマ 1 のカウンタ TMR1L、TMR1H が レジスタ CCPRxL、CCPRxH で指定した値と等しくなったときに、何らかのアクションを行います（CCP モジュールが 2 つある場合、x に 1 または 2 が入ります）。&lt;/p>
+&lt;pre tabindex="0">&lt;code>TMR1L, TMR1H (タイマ 1 のカウンタ)
+ ↓
+ 常に比較 → 一致したならアクション発生（アクションは 4 パターンから選択）
+ ↑
+CCPRxL, CCPRxH (ユーザが自由に設定する)
+&lt;/code>&lt;/pre>&lt;p>どんなアクションを行なうかは、&lt;strong>CCPxCON&amp;lt;CCPxM0&amp;gt; ～ &amp;lt;CCPxM3&amp;gt;&lt;/strong> で指定します。&lt;/p></description></item><item><title>MPLAB によるプロジェクト作成 ─ PIC めもめも</title><link>https://maku77.github.io/p/fyzm2ts/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fyzm2ts/</guid><description>&lt;h2 id="mplab-の設定デベロップメントモードの設定">MPLAB の設定（デベロップメント・モードの設定）&lt;/h2>
+&lt;p>MPLAB を起動し、次のように設定します。&lt;/p>
+&lt;ol>
+&lt;li>「Options」 → 「Development Mode」 → 「Tools」タブ&lt;/li>
+&lt;li>&amp;ldquo;Development Mode&amp;rdquo; で MPLAB-SIM Simulator にチェック&lt;/li>
+&lt;li>&amp;ldquo;Processor&amp;rdquo; を使用するデバイスに変更&lt;/li>
+&lt;/ol>
+&lt;h2 id="新規プロジェクトの作成">新規プロジェクトの作成&lt;/h2>
+&lt;ol>
+&lt;li>「Project」 → 「New Project」&lt;/li>
+&lt;li>&amp;ldquo;File Name&amp;rdquo; にプロジェクト名 (例えば &lt;code>test.prj&lt;/code>) を入力&lt;/li>
+&lt;li>&amp;ldquo;Directories&amp;rdquo; には空白を含まないパス (例えば &lt;code>D:\PIC_ASM\test&lt;/code>) を選択して「OK」&lt;/li>
+&lt;/ol>
+&lt;p>「OK」 ボタンを押すと、Edit Project ダイアログが開きます。&lt;/p>
+&lt;h2 id="新規ソースの追加edit-project-ダイアログ">新規ソースの追加（Edit Project ダイアログ）&lt;/h2>
+&lt;ol>
+&lt;li>&amp;ldquo;Development Mode&amp;rdquo; が MPLAB-SIM、正しいデバイス名になっているか確認&lt;/li>
+&lt;li>&amp;ldquo;Project Files&amp;rdquo; の 「Add Node」 ボタンをクリック&lt;/li>
+&lt;li>ASM ファイル名 (例えば &lt;code>test.asm&lt;/code>) を入力して 「OK」&lt;/li>
+&lt;li>&amp;ldquo;Project Files&amp;rdquo; の &lt;code>test [.hex]&lt;/code> を選択して 「Node Properties&amp;hellip;」 ボタンをクリック
+&lt;ol>
+&lt;li>Hex Format ･･･ INHX8M&lt;/li>
+&lt;li>Warning level ･･･ all&lt;/li>
+&lt;li>Case sensitivity … OFF (大文字と小文字を区別しない)&lt;/li>
+&lt;li>Tab size ･･･ 4（タブ使わないかもしれないけどいちおう）&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>「OK」&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>この作業では、実際に &lt;code>test.asm&lt;/code> は作成されない&lt;/strong> ので、エクプローラで新規作成するか、「File」 → 「New」 で新規作成して、Ctrl-S で &lt;code>test.asm&lt;/code> として保存してください。&lt;/p></description></item><item><title>MPLAB のインストール ─ PIC めもめも</title><link>https://maku77.github.io/p/iwkdah6/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/iwkdah6/</guid><description>&lt;h2 id="mplab-のダウンロード">MPLAB のダウンロード&lt;/h2>
+&lt;ul>
+&lt;li>Microchip Technology
+&lt;ul>
+&lt;li>&lt;a href="https://www.microchip.com/">https://www.microchip.com/ (English)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.microchip.co.jp/">https://www.microchip.co.jp/ (Japanese)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>MPLAB ダウンロード
+&lt;ul>
+&lt;li>&lt;a href="https://www.microchip.co.jp/tool.htm">https://www.microchip.co.jp/tool.htm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="mplab-のインストール">MPLAB のインストール&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>Mp57full.exe&lt;/code> などを実行します。&lt;/li>
+&lt;li>ほとんどデフォルトのまま Next ボタンで進んでいけば OK です（「Linker script Location」では Install files to MPLAB\Lkr sub directory を選択した方がよいかも）。&lt;/li>
+&lt;li>Windows を再起動してインストール完了！&lt;/li>
+&lt;/ol>
+&lt;h2 id="関連ドキュメントへのリンク">関連ドキュメントへのリンク&lt;/h2>
+&lt;ul>
+&lt;li>MPLAB チュートリアル
+&lt;ul>
+&lt;li>&lt;a href="https://www.microchip.co.jp/Mpltutj.pdf">MPLAB チュートリアル (29 Pages)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.microchip.co.jp/Tut340j.pdf">MPLAB プロジェクト・チュートリアル (33 Pages)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>PIC データシート
+&lt;ul>
+&lt;li>&lt;a href="https://www.microchip.co.jp/30430c-j2.pdf">PIC16F83/4 データシート (912KB)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.microchip.co.jp/30292a-j.pdf">PIC16F873/4/6/7 データシート (1.75MB)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>その他
+&lt;ul>
+&lt;li>&lt;a href="https://www.microchip.co.jp/2000f84_07.pdf%22%3Ehttps://www.microchip.co.jp/2000f84_07.pdf%3C/A%3E%3CBR">MPLAB、MPASM、PICStart Plus を使ったセミナー実習テキスト (1,839KB)&lt;/a> （&lt;a href="https://www.microchip.co.jp/84asm.zip">ソースコード&lt;/a>）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>MPLAB-SIM Software Simulator によるデバッグ ─ PIC めもめも</title><link>https://maku77.github.io/p/5n5vokj/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5n5vokj/</guid><description>&lt;p>MPLAB-SIM Software Simulator を使うと、ブレークポイントやトレース機能などを用いてプログラムのデバッグを行なうことができます。&lt;/p>
+&lt;h2 id="absolute-list">Absolute List&lt;/h2>
+&lt;p>Absolute List 表示では、記述したアセンブラソースとアセンブル後の機械語を照らし合わせて表示することができます。&lt;/p>
+&lt;ol>
+&lt;li>「Window」 → 「Absolute Listing」&lt;/li>
+&lt;/ol>
+&lt;p>このコードは、デバッグを進めていくうちに次のように色が付いて作業の目安になるので、デバッグ中はずっと表示しておくとよいです。&lt;/p>
+&lt;ul>
+&lt;li>ブレークポイント &amp;hellip; 赤色&lt;/li>
+&lt;li>トレース範囲 &amp;hellip; 緑色&lt;/li>
+&lt;li>ブレークポイント ＆ トレース範囲 &amp;hellip; マゼンタ&lt;/li>
+&lt;/ul>
+&lt;h2 id="file-register-window">File Register Window&lt;/h2>
+&lt;h3 id="file-register-window-の表示">File Register Window の表示&lt;/h3>
+&lt;ol>
+&lt;li>「Window」 → 「File Registers」&lt;/li>
+&lt;/ol>
+&lt;p>File Register Window では、SFC (Special Function Register) やユーザ定義の変数の現在の値を確認したり変更したりすることができます。&lt;/p>
+&lt;h3 id="レジスタ内容の変更">レジスタ内容の変更&lt;/h3>
+&lt;ol>
+&lt;li>File Register Window で変更したい範囲を選択&lt;/li>
+&lt;li>「右クリック」 → 「Fill Register(s)」&lt;/li>
+&lt;/ol>
+&lt;h3 id="ブレークポイントの設定">ブレークポイントの設定&lt;/h3>
+&lt;ol>
+&lt;li>Absolute List を表示&lt;/li>
+&lt;li>ブレークポイントを設定したい行で右クリック → 「Break Point(s)」&lt;/li>
+&lt;/ol>
+&lt;p>（あるいは、「Debug」 → 「Break Settings&amp;hellip;」）&lt;/p>
+&lt;h3 id="トレースポイントの設定">トレースポイントの設定&lt;/h3>
+&lt;ol>
+&lt;li>Absolute List を表示&lt;/li>
+&lt;li>トレースポイントを設定したい行で右クリック → 「Trace Point(s)」&lt;/li>
+&lt;/ol>
+&lt;p>（あるいは、「Debug」 → 「Trace Settings&amp;hellip;」）&lt;/p></description></item><item><title>PIC アセンブラ (PIC16Fxxx) 命令セット ─ PIC めもめも</title><link>https://maku77.github.io/p/no9voj9/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/no9voj9/</guid><description>&lt;style>
+ table.code td {
+ font-family: monospace;
+ }
+ table.code span.strong {
+ color: black;
+ font-weight: bolder;
+ }
+ td.c { text-align: center; }
+ td { background: white; }
+ th { background: #ddd; }
+ span.lit { color: blue; font-weight: bolder; }
+ span.dest { color: red; font-weight: bolder; }
+ span.bit { color: green; font-weight: bolder; }
+&lt;/style>
+&lt;h2>PIC16Fxxx 命令セット (14bit)&lt;/h2>
+&lt;table class="code" align="center">
+	&lt;tr>
+		&lt;th>カテゴリ&lt;/th>&lt;th>ニモニック&lt;/th>&lt;th colspan="2">意味&lt;/th>&lt;th>コード&lt;/th>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="4">加算・減算&lt;/td>
+		&lt;td>&lt;span class="strong">ADDWF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>W + f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Add W and f&lt;/td>
+		&lt;td>00 0111 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">SUBWF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f - W → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Subtract W from f&lt;/td>
+		&lt;td>00 0010 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">ADDLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>W + &lt;span class="lit">k&lt;span> → W&lt;/td>
+		&lt;td>Add literal and W&lt;/td>
+		&lt;td>11 111x &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">SUBLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>&lt;td>&lt;span class="lit">k&lt;span> - W → W&lt;/td>
+		&lt;td>Subtract W from literal&lt;/td>
+		&lt;td>11 110x &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="7">論理演算&lt;/td>
+		&lt;td>&lt;span class="strong">ANDWF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>W AND f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>AND W with f&lt;/td>
+		&lt;td>00 0101 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">IORWF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>W OR f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Inclusive OR W with f&lt;/td>
+		&lt;td>00 0100 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">XORWF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>W XOR f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Exclusive OR W with f&lt;/td>
+		&lt;td>00 0110 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">ANDLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>W AND &lt;span class="lit">k&lt;span> → W&lt;/td>
+		&lt;td>And literal with W&lt;/td>
+		&lt;td>11 1001 &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">IORLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>W OR &lt;span class="lit">k&lt;span> → W&lt;/td>
+		&lt;td>Inclusive OR literal with W&lt;/td>
+		&lt;td>11 1000 &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">XORLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>W XOR &lt;span class="lit">k&lt;span> → W&lt;/td>
+		&lt;td>Exclusive OR literal with W&lt;/td>
+		&lt;td>11 1010 &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">COMF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Complement f&lt;/td>
+		&lt;td>00 1001 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="3">移動&lt;/td>
+		&lt;td>&lt;span class="strong">MOVF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Move f&lt;/td>
+		&lt;td>00 1000 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">MOVWF&lt;span> f&lt;/td>
+		&lt;td>W → f&lt;/td>
+		&lt;td>Move W to f&lt;/td>
+		&lt;td>00 0000 1fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">MOVLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>&lt;span class="lit">k&lt;span> → W&lt;/td>
+		&lt;td>Move litaral to W&lt;/td>
+		&lt;td>11 00xx &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="2">クリア&lt;/td>
+		&lt;td>&lt;span class="strong">CLRF&lt;span> f&lt;/td>
+		&lt;td>0 → f&lt;/td>
+		&lt;td>Clear f&lt;/td>
+		&lt;td>00 0001 1fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">CLRW&lt;span> W&lt;/td>
+		&lt;td>0 → W&lt;/td>
+		&lt;td>Clear W&lt;/td>
+		&lt;td>00 0001 0xxx xxxx&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="4">インクリメント&lt;BR>デクリメント&lt;/td>
+		&lt;td>&lt;span class="strong">DECF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f - 1 → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Decrement f&lt;/td>
+		&lt;td>00 0011 &lt;span class="dest">d&lt;span>fff ffff
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">INCF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f + 1 → &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>Increment f&lt;/td>
+		&lt;td>00 1010 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">DECFSZ&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f - 1 → &lt;span class="dest">d&lt;span>&lt;BR>Skip if result = 0&lt;/td>
+		&lt;td>Decrement f, Skip if 0&lt;/td>
+		&lt;td>00 1011 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">INCFSZ&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>f + 1 → &lt;span class="dest">d&lt;span>&lt;BR>Skip if result = 0&lt;/td>
+		&lt;td>Increment f, Skip if 0&lt;/td>
+		&lt;td>00 1111 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="2">ビット操作&lt;/td>
+		&lt;td>&lt;span class="strong">BCF&lt;span> f, &lt;span class="bit">b&lt;span>&lt;/td>
+		&lt;td>0 → f[&lt;span class="bit">b&lt;span>]&lt;/td>
+		&lt;td>Bit Clear f&lt;/td>
+		&lt;td>01 00&lt;span class="bit">bb b&lt;span>fff ffff&lt;span>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">BSF&lt;span> f, &lt;span class="bit">b&lt;span>&lt;/td>
+		&lt;td>1 → f[&lt;span class="bit">b&lt;span>]&lt;/td>
+		&lt;td>Bit set f&lt;/td>
+		&lt;td>01 01&lt;span class="bit">bb b&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="2">スキップ&lt;/td>
+		&lt;td>&lt;span class="strong">BTFSC&lt;span> f, &lt;span class="bit">b&lt;span>&lt;/td>
+		&lt;td>Skip if f[&lt;span class="bit">b&lt;span>] = 0&lt;/td>
+		&lt;td>Bit Test f, Skip if Clear&lt;/td>
+		&lt;td>01 10&lt;span class="bit">bb b&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">BTFSS&lt;span> f, &lt;span class="bit">b&lt;span>&lt;/td>
+		&lt;td>Skip if f[&lt;span class="bit">b&lt;span>] = 1&lt;/td>
+		&lt;td>Bit Test f, Skip if Set&lt;/td>
+		&lt;td>01 11&lt;span class="bit">bb b&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="3">シフト&lt;/td>
+		&lt;td>&lt;span class="strong">RLF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>
+			f[n] → &lt;span class="dest">d&lt;span>[n+1]&lt;BR>
+			f[7] → C → &lt;span class="dest">d&lt;span>[0]
+		&lt;/td>
+		&lt;td>Rotate Left f through Carry&lt;BR>(左巡回シフト)&lt;/td>
+		&lt;td>00 1101 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">RRF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>
+			f[n] → &lt;span class="dest">d&lt;span>[n-1]&lt;BR>
+			f[0] → c → &lt;span class="dest">d&lt;span>[7]
+		&lt;/td>
+		&lt;td>Rotate Right f through Carry&lt;BR>(右巡回シフト)&lt;/td>
+		&lt;td>00 1100 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">SWAPF&lt;span> f, &lt;span class="dest">d&lt;span>&lt;/td>
+		&lt;td>
+			f[0:3] → &lt;span class="dest">d&lt;span>[4:7]&lt;BR>
+			f[4:7] → &lt;span class="dest">d&lt;span>[0:3]
+		&lt;/td>
+		&lt;td>Swap nibbles in f&lt;BR>(上位ビット ⇔ 下位ビット)&lt;/td>
+		&lt;td>00 1110 &lt;span class="dest">d&lt;span>fff ffff&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="5">ジャンプ&lt;/td>
+		&lt;td>&lt;span class="strong">GOTO&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Go to address&lt;/td>
+		&lt;td>10 1&lt;span class="lit">kkk kkkk kkkk&lt;span>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">CALL&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Call subroutine&lt;/td>
+		&lt;td>10 0&lt;span class="lit">kkk kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">RETFIE&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Return from interrupt&lt;/td>
+		&lt;td>00 0000 0000 1001&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">RETLW&lt;span> &lt;span class="lit">k&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Return with literal in W&lt;/td>
+		&lt;td>11 01xx &lt;span class="lit">kkkk kkkk&lt;span>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">RETURN&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Return from Subroutine&lt;/td>
+		&lt;td>00 0000 0000 1000&lt;/td>
+	&lt;/tr>
+	&lt;tr class="line">&lt;/tr>
+	&lt;tr>
+		&lt;td class="namec" rowspan="3">その他&lt;/td>
+		&lt;td>&lt;span class="strong">CLRWDT&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Clear Watchdog Timer&lt;/td>
+		&lt;td>00 0000 0110 0100&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">NOP&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>No Operation&lt;/td>
+		&lt;td>00 0000 0xx0 0000&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;span class="strong">SLEEP&lt;span>&lt;/td>
+		&lt;td>&lt;/td>
+		&lt;td>Go into standby mode&lt;/td>
+		&lt;td>00 0000 0110 0011&lt;/td>
+	&lt;/tr>
+&lt;/table>
+&lt;table align="center">
+ &lt;caption>OPCODE フィールドの説明&lt;/caption>
+	&lt;tr>
+		&lt;TH>Field&lt;/TH>&lt;TH>Size&lt;/TH>&lt;TH>Description&lt;/TH>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">f&lt;/td>&lt;td class="c">7&lt;/td>
+		&lt;td>ワーキングレジスタのアドレス (0x00 ～ 0x7F)&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">W&lt;/td>&lt;td class="c">─&lt;/td>
+		&lt;td>ワーキングレジスタ（アキュムレータ）&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">&lt;span class="bit">b&lt;span>&lt;/td>&lt;td class="c">3&lt;/td>
+		&lt;td>8 ビットファイルレジスタ内のビットアドレス&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">&lt;span class="lit">k&lt;span>&lt;/td>&lt;td class="c">8/11&lt;/td>
+		&lt;td>
+			リテラル、定数またはラベル&lt;BR>
+			(0 ～ 255) or (-128 ～ 127) or (アスキーコード 'A' とか)
+		&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">x&lt;/td>&lt;td class="c">─&lt;/td>
+		&lt;td>
+			無効 (0 or 1)&lt;BR>
+ アセンブラは x=0 としてコードを生成します。&lt;br>
+			すべてのソフトウェアツールとの互換性を確保するために x=0 を推奨します。
+		&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">&lt;span class="dest">d&lt;span>&lt;/td>&lt;td class="c">1&lt;/td>
+		&lt;td>
+			結果格納先指名子 (0 or 1)&lt;BR>
+			0: W に格納&lt;BR>
+			1: ファイルレジスタ f に格納 (Default)
+		&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">PC&lt;/td>&lt;td class="c">─&lt;/td>
+		&lt;td>プログラムカウンタ&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">&lt;span style="text-decoration: overline;">TO&lt;span>&lt;/td>&lt;td class="c">─&lt;/td>
+		&lt;td>タイムアウトビット&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td class="c">&lt;span style="text-decoration: overline;">PD&lt;span>&lt;/td>&lt;td class="c">─&lt;/td>
+		&lt;td>パワーダウンビット&lt;/td>
+	&lt;/tr>
+&lt;/table></description></item><item><title>RA0 の出力を ON/OFF するサンプルプログラム ─ PIC めもめも</title><link>https://maku77.github.io/p/hjocz3n/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hjocz3n/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; File : ra0_test.asm
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Author: Masatoshi OHTA
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Update: 2000-08-20
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">LIST&lt;/span> &lt;span class="no">P&lt;/span>&lt;span class="err">=&lt;/span>&lt;span class="no">PIC16F84&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">INCLUDE&lt;/span> &lt;span class="err">&amp;#34;&lt;/span>&lt;span class="no">P16F84.INC&lt;/span>&lt;span class="err">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">__CONFIG&lt;/span> &lt;span class="no">_WDT_OFF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">; ウォッチドッグ・タイマ OFF
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Entry Point
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">ORG&lt;/span> &lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">clrf&lt;/span> &lt;span class="no">PCLATH&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">Start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Main Routine
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">Start&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;**** Set I/O Mode
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">SetIoMode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">; Bank1 に切り替え
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">clrf&lt;/span> &lt;span class="no">TRISA&lt;/span> &lt;span class="c1">; PORTA をすべて出力モードに
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">; Bank0 に戻す
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;**** RA0 を ON/OFF
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">MainLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bsf&lt;/span> &lt;span class="no">PORTA&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="c1">; RA0 を High に
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">nop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">bcf&lt;/span> &lt;span class="no">PORTA&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="c1">; RA0 を Low に
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">nop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">goto&lt;/span> &lt;span class="no">MainLoop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; Directive &amp;#39;End of Program&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;******************************************************************************
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">END&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>USART によるシリアル通信 ─ PIC めもめも</title><link>https://maku77.github.io/p/fewejde/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fewejde/</guid><description>&lt;h2 id="usart-用の送受信ピン-trisclt6-7gt-の設定">USART 用の送受信ピン TRISC&amp;lt;6, 7&amp;gt; の設定&lt;/h2>
+&lt;p>USART (Universal Synchronous Asynchronous Receiver Transmitter) は次のモードで構成できます。&lt;/p>
+&lt;ul>
+&lt;li>非同期（全二重）&lt;/li>
+&lt;li>同期 ─ マスター（半二重）&lt;/li>
+&lt;li>同期 ─ スレーブ（半二重）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>USART による通信は TX (送信)、RX (受信) ピンを使用します&lt;/strong>（TX を出力ピン、 RX を受信ピンに設定します）。
+TRISC&amp;lt;6&amp;gt; が RC6/TX/CK、TRISC&amp;lt;7&amp;gt; が RC7/RX/DT の入出力設定ビットなので、これらの値を次のようにセットします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">TX, RX の入出力モードの設定 (TX=出力, RX=入力)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">INIT_TX_TR&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">	&lt;span class="nf">BSF&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="c1">; set bank1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>	&lt;span class="nf">BCF&lt;/span> &lt;span class="no">TRISC&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span> &lt;span class="c1">; PortC&amp;amp;lt;6&amp;amp;gt; (TX) is an output
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>	&lt;span class="nf">BSF&lt;/span> &lt;span class="no">TRISC&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">7&lt;/span> &lt;span class="c1">; PortC&amp;amp;lt;7&amp;amp;gt; (RX) is an input
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>	&lt;span class="nf">BCF&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">RP0&lt;/span> &lt;span class="err">;&lt;/span> &lt;span class="no">set&lt;/span> &lt;span class="no">bank0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>TRISC&amp;lt;6&amp;gt; をクリアして、 TRISC&amp;lt;7&amp;gt; をセットするだけですね。&lt;/p>
+&lt;h2 id="txsta-送信ステータスおよびコントロールレジスタ-の設定">TXSTA (送信ステータスおよびコントロールレジスタ) の設定&lt;/h2>
+&lt;p>TXSTA (98h(Bank1)) レジスタは、送信ステータスおよびコントロールを設定するためのレジスタです。
+このレジスタの構造は次のようになっています。&lt;/p>
+&lt;table align="center">
+ &lt;caption>TXSTA レジスタ&lt;/caption>
+ &lt;tr style="text-align: center">
+ &lt;td width="12.5%">CSRC&lt;br>(7)&lt;/td>
+ &lt;td width="12.5%">TX9&lt;br>(6)&lt;/td>
+ &lt;td width="12.5%">TXEN&lt;br>(5)&lt;/td>
+ &lt;td width="12.5%">SYNC&lt;br>(4)&lt;/td>
+ &lt;td class="namec" width="12.5%">─&lt;br>(3)&lt;/td>
+ &lt;td width="12.5%">BRGH&lt;br>(2)&lt;/td>
+ &lt;td width="12.5%">TRMT&lt;br>(1)&lt;/td>
+ &lt;td width="12.5%">TX9D&lt;br>(0)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;ul>
+&lt;li>&lt;strong>CSRC (7)&lt;/strong>: クロックソースセレクトビット
+&lt;ul>
+&lt;li>非同期モード
+&lt;ul>
+&lt;li>Don’t care&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同期モード
+&lt;ul>
+&lt;li>1 = マスターモード（内部でBRG から発生するクロック）&lt;/li>
+&lt;li>0 = スレーブモード（外部ソースからのクロック）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TX9 (6)&lt;/strong>: 9 ビット送信イネーブルビット
+&lt;br>このビットをセットすると、TXSTA&amp;lt;TX9D(0)&amp;gt; にセットしたビットも同時に送信されるようになります。
+&lt;ul>
+&lt;li>1 = 9 ビット送信を選択&lt;/li>
+&lt;li>0 = 8 ビット送信を選択&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TXEN (5)&lt;/strong>: 送信イネーブルビット
+&lt;br>注意： 同期モードではSREN/CREN はTXEN をオーバーライドします。
+&lt;ul>
+&lt;li>1 = 送信はイネーブル&lt;/li>
+&lt;li>0 = 送信はディセーブル&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>SYNC (4)&lt;/strong>: USART モードセレクトビット
+&lt;ul>
+&lt;li>1 = 同期モード&lt;/li>
+&lt;li>0 = 非同期モード&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>なし (3)&lt;/strong>: 未使用
+&lt;br>このビットを読み出すと、常に「0」とリードされます。&lt;/li>
+&lt;li>&lt;strong>BRGH (2)&lt;/strong>: 高速ボーレートセレクトビット
+&lt;ul>
+&lt;li>非同期モード
+&lt;ul>
+&lt;li>1 = 高速&lt;/li>
+&lt;li>0 = 低速&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同期モード（使用しません）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TRMT (1)&lt;/strong>: 送信シフトレジスタステータスビット
+&lt;ul>
+&lt;li>1 = TSR が空&lt;/li>
+&lt;li>0 = TSR がフル&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TX9D (0)&lt;/strong>: 送信データの第 9ビット。パリティビットとして使用可能&lt;/li>
+&lt;/ul>
+&lt;p>TXSTA レジスタは Bank1 にあるので注意してください（普通は Bank1 にある TRISC の設定といっしょにやってしまいます）。
+例えば、送信イネーブル、非同期モードにするなら次のようにします。&lt;/p></description></item><item><title>その他、用語メモ、未分類メモ ─ PIC めもめも</title><link>https://maku77.github.io/p/52s4tfc/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/52s4tfc/</guid><description>&lt;h2 id="発振モード">発振モード&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">MODE&lt;/th>
+ &lt;th style="text-align: center">BIT&lt;/th>
+ &lt;th>DESCRIPTION&lt;/th>
+ &lt;th>FREQ RANGE&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">LP&lt;/td>
+ &lt;td style="text-align: center">00&lt;/td>
+ &lt;td>低電力／水晶発振&lt;BR>(Low Power Crystal)&lt;/td>
+ &lt;td>200kHz 以下&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">XT&lt;/td>
+ &lt;td style="text-align: center">01&lt;/td>
+ &lt;td>水晶／セラミック発振&lt;BR>(Crystal／Resonator)&lt;/td>
+ &lt;td>4MHz 以下&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">HS&lt;/td>
+ &lt;td style="text-align: center">10&lt;/td>
+ &lt;td>高周波水晶／セラミック発振&lt;BR>(High Speed Crystal／Resonator)&lt;/td>
+ &lt;td>4MHz ～ 20MHz&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">RC&lt;/td>
+ &lt;td style="text-align: center">11&lt;/td>
+ &lt;td>RC 発振&lt;BR>(Resister／Capacitor)&lt;/td>
+ &lt;td>1MHz 以下&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="リセット回路">リセット回路&lt;/h2>
+&lt;p>&lt;strong>MCLR&lt;/strong> に電源をつないでおけば、とりあえずは動作しますが、周辺回路の電源が安定するまで遅延して 4.5V の入力があるべきです。
+リセット用の IC にはミツミの PST600C などがあります。&lt;/p>
+&lt;h2 id="max232">MAX232&lt;/h2>
+&lt;ul>
+&lt;li>MAX232 ･･･ 1μF のコンデンサを使う&lt;/li>
+&lt;li>MAX232A ･･･ 0.1μF&lt;/li>
+&lt;li>ADM232AAN ･･･ 0.1μF&lt;/li>
+&lt;/ul>
+&lt;h2 id="命令長の違う-3-シリーズ">命令長の違う 3 シリーズ&lt;/h2>
+&lt;ul>
+&lt;li>ベースライン・シリーズ ･･･ 12ビット命令 (12C5xx, 16C5xx)&lt;/li>
+&lt;li>ミッドレンジ・シリーズ ･･･ 14ビット命令&lt;/li>
+&lt;li>ハイエンド・シリーズ ･･･ 16ビット命令 (17Cxxx, 18Cxxx)&lt;/li>
+&lt;/ul>
+&lt;p>一番使われている PIC16Fxxx などはミッドレンジ・シリーズにあたります。&lt;/p></description></item><item><title>タイマ 0 を使用する ─ PIC めもめも</title><link>https://maku77.github.io/p/cnutuna/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cnutuna/</guid><description>&lt;h2 id="タイマ-0-による割り込みの仕組み">タイマ 0 による割り込みの仕組み&lt;/h2>
+&lt;p>タイマ 0 では、8bit の &lt;strong>TMR0&lt;/strong> レジスタをタイマ 0 用のクロック (後述) でインクリメントしていき、オーバフローを意図的に起こすことによって割り込みを実現しています。
+TMR0 レジスタにあらかじめ値をセットしておくことによって、割り込み時間を調整することができます。
+ただし、TMR0 レジスタは 8bit しかないので、それだけでは最大 256 カウントしかすることができません。
+そこで、&lt;strong>プリスケーラ&lt;/strong>という 8bit のカウンタを別に用意し、このカウンタが指定した値（2, 4, 8, 16, 32, 64, 128, 256 のいずれか）になった時にはじめて TMR0 レジスタをインクリメントすることにより、65536 (8bit + 8bit) までのカウントを実現しています。
+プリスケーラカウンタを使うには、&lt;strong>OPTION_REG&amp;lt;PSA(3)&amp;gt;&lt;/strong> ビットを 0 に設定します。
+プリスケーラのスケール値を設定するには、&lt;strong>OPTION_REG&amp;lt;PS0(0)&amp;gt; ～ &amp;lt;PS2(2)&amp;gt;&lt;/strong> で次のように指定します。&lt;/p>
+&lt;table align="center">
+ &lt;caption>タイマ 0 のプリスケーラのスケール設定&lt;/caption>
+ &lt;tr>
+ &lt;th>OPTION_REG&lt;br>&amp;lt;PS2(2)&amp;gt;&lt;/TH>&lt;TH>OPTION_REG&lt;br>&amp;lt;PS1(1)&amp;gt;&lt;/TH>&lt;TH>OPTION_REG&lt;br>&amp;lt;PS0(0)&amp;gt;&lt;/th>
+ &lt;th>スケール&lt;/th>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">0&lt;/td>&lt;td class="namec">0&lt;/td>&lt;td class="namec">0&lt;/td>
+ &lt;td>1:2 (256 * 2 = 512カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">0&lt;/td>&lt;td class="namec">0&lt;/td>&lt;td class="namec">1&lt;/td>
+ &lt;td>1:4 (256 * 4 = 1024カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">0&lt;/td>&lt;td class="namec">1&lt;/td>&lt;td class="namec">0&lt;/td>
+ &lt;td>1:8 (256 * 8 = 2048カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">0&lt;/td>&lt;td class="namec">1&lt;/td>&lt;td class="namec">1&lt;/td>
+ &lt;td>1:16 (256 * 16 = 4096カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">1&lt;/td>&lt;td class="namec">0&lt;/td>&lt;td class="namec">0&lt;/td>
+ &lt;td>1:32 (256 * 32 = 8192カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">1&lt;/td>&lt;td class="namec">0&lt;/td>&lt;td class="namec">1&lt;/td>
+ &lt;td>1:64 (256 * 64 = 16384カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">1&lt;/td>&lt;td class="namec">1&lt;/td>&lt;td class="namec">0&lt;/td>
+ &lt;td>1:128 (256 * 128 = 32768カウントまで)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">1&lt;/td>&lt;td class="namec">1&lt;/td>&lt;td class="namec">1&lt;/td>
+ &lt;td>1:256 (256 * 256 = 65536カウントまで)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>※ タイマ 0 ではプリスケーラカウンタをプログラムから参照することはできません。
+参照可能なのは TMR0 レジスタ (256 段階) のみになります。&lt;/p></description></item><item><title>タイマ 1 を使用する ─ PIC めもめも</title><link>https://maku77.github.io/p/ecozpj9/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ecozpj9/</guid><description>&lt;p>タイマ 1 はミッドレンジシリーズの PIC16F84 などで使用することができます。
+タイマ 1 を使用することにより、より正確なインターバルタイマとして機能させることができます。&lt;/p>
+&lt;h2 id="t1con-レジスタの構成">T1CON レジスタの構成&lt;/h2>
+&lt;table align="center">
+ &lt;caption>T1CON レジスタ (10h : Bank0)&lt;/caption>
+ &lt;tr style="text-align:center">
+ &lt;td class="namec" width="12.5%">─&lt;br>(7)&lt;/td>
+ &lt;td class="namec" width="12.5%">─&lt;br>(6)&lt;/td>
+ &lt;td width="12.5%">T1CKPS1&lt;br>(5)&lt;/td>
+ &lt;td width="12.5%">T1CKPS0&lt;br>(4)&lt;/td>
+ &lt;td width="12.5%">T1OSCEN&lt;br>(3)&lt;/td>
+ &lt;td width="12.5%">&lt;span style="text-decoration: overline;">T1SYNC&lt;/span>&lt;br>(2)&lt;/td>
+ &lt;td width="12.5%">TMR1CS&lt;br>(1)&lt;/td>
+ &lt;td width="12.5%">TMR1ON&lt;br>(0)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;ul>
+&lt;li>&lt;strong>T1CKPS1 (5) ～ T1CKPS0 (4)&lt;/strong>: タイマ 1 入力クロックプリスケール選択ビット
+&lt;ul>
+&lt;li>00 ･･･ 1:1 プリスケール値&lt;/li>
+&lt;li>01 ･･･ 1:2 プリスケール値&lt;/li>
+&lt;li>10 ･･･ 1:4 プリスケール値&lt;/li>
+&lt;li>11 ･･･ 1:8 プリスケール値&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>T1OSCEN (3)&lt;/strong>: タイマ 1 オシレータイネーブルコントロールビット
+&lt;ul>
+&lt;li>0 ･･･ オシレータを停止させる。オシレータインバータと帰還抵抗をオフにして消費電流を抑えます。&lt;/li>
+&lt;li>1 ･･･ オシレータを動作させる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>&lt;span style="text-decoration: overline;">T1SYNC&lt;/span> (2)&lt;/strong>: タイマ 1 外部クロック入力同期コントロールビット
+&lt;ul>
+&lt;li>If TMR1CS = 1
+&lt;ul>
+&lt;li>0 ･･･ 外部クロック入力を同期させる&lt;/li>
+&lt;li>1 ･･･ 外部クロック入力を同期させない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>If TMR1CS = 0
+&lt;ul>
+&lt;li>このビットは無視されます。TMR1CS = 0 のとき、タイマ 1 は内部クロックを使用します。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TMR1CS (1)&lt;/strong>: タイマ 1 クロックソース選択ビット
+&lt;ul>
+&lt;li>0 ･･･ 内部クロック (Fosc/4)&lt;/li>
+&lt;li>1 ･･･ RC0/T1OSO/T1CKI（立ち上がりエッジ）ピンからの外部クロック&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>TMR1ON (0)&lt;/strong>: タイマ 1 オン・ビット
+&lt;ul>
+&lt;li>0 ･･･ タイマ 1 を停止する&lt;/li>
+&lt;li>1 ･･･ タイマ 1 を動作させる&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="タイマ-1-による割り込みの仕組み">タイマ 1 による割り込みの仕組み&lt;/h2>
+&lt;p>タイマ 1 の仕組みは、ほぼタイマ 0 と同じ仕組みになっていますが、タイマ 1 のカウンタは TMR1L (8bit) と TMR1H (8bit) の計 16 bit を使うため、&lt;strong>プリスケーラを入れないでも、65,536 までのカウントが可能&lt;/strong>です。
+ただし、プリスケーラはタイマ 0 の時と違い、少なめの 3 bit になっており、スケールは 1:8 までです。
+といっても、合計 19bit のカウンタとして働くので、&lt;strong>プリスケーラを入れて、524,288 までのカウントが可能&lt;/strong>となり、システムクロックが 10MHz の場合は約 210 msec までのインターバルを実現することができます（20MHz の場合は約 105 msec まで）。&lt;/p></description></item><item><title>バンクとページの切り替え ─ PIC めもめも</title><link>https://maku77.github.io/p/dtabczb/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dtabczb/</guid><description>&lt;h2 id="バンク--汎用レジスタ-ram-の区分け">バンク ･･･ 汎用レジスタ (RAM) の区分け&lt;/h2>
+&lt;p>MOVWF 命令などのデスティネーションアドレスは下のように 7 ビットとなっているので、このままでは 128 バイト分の汎用レジスタにしかアクセスすることができません。&lt;/p>
+&lt;ul>
+&lt;li>MOVWF 命令の構造 → 0000001&lt;strong>fffffff&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>これを解決するために、SFR (Special Function Register) である &lt;strong>STATUS レジスタ&lt;/strong> の 5, 6 ビット目 (&lt;strong>RP0&lt;/strong>, &lt;strong>RP1&lt;/strong>) をアドレスの拡張に使用します。
+これにより 7 + 2 = 9 ビット、つまり 512 バイト分の汎用レジスタにアクセスできるようになります（ただしデバイスごとに使用できるサイズは異なります）。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">バンク&lt;/th>
+ &lt;th style="text-align: center">STATUS&amp;lt;RP0&amp;gt;&lt;/th>
+ &lt;th style="text-align: center">STATUS&amp;lt;RP1&amp;gt;&lt;/th>
+ &lt;th style="text-align: center">アクセスできるアドレス範囲&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;strong>Bank0&lt;/strong>&lt;/td>
+ &lt;td style="text-align: center">0&lt;/td>
+ &lt;td style="text-align: center">0&lt;/td>
+ &lt;td style="text-align: center">0x0000 ～ 0x007F (128 bytes)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;strong>Bank1&lt;/strong>&lt;/td>
+ &lt;td style="text-align: center">1&lt;/td>
+ &lt;td style="text-align: center">0&lt;/td>
+ &lt;td style="text-align: center">0x0080 ～ 0x00FF (128 bytes)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;strong>Bank2&lt;/strong>&lt;/td>
+ &lt;td style="text-align: center">0&lt;/td>
+ &lt;td style="text-align: center">1&lt;/td>
+ &lt;td style="text-align: center">0x0100 ～ 0x017F (128 bytes)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">&lt;strong>Bank3&lt;/strong>&lt;/td>
+ &lt;td style="text-align: center">1&lt;/td>
+ &lt;td style="text-align: center">1&lt;/td>
+ &lt;td style="text-align: center">0x0180 ～ 0x01FF (128 bytes)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>PORTA を出力か入力かどちらに使うかの設定をするための &lt;strong>TRISA レジスタは Bank1&lt;/strong> にあるので、バンクを切り替えて値を設定する必要があります（PORTA は Bank0 にあります）。
+バンクを切り替えて TRISA にアクセスする例を示します。&lt;/p></description></item><item><title>ラベル ─ PIC めもめも</title><link>https://maku77.github.io/p/zm6rg3v/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zm6rg3v/</guid><description>&lt;h2 id="ラベル定義の構文">ラベル定義の構文&lt;/h2>
+&lt;pre tabindex="0">&lt;code>&amp;lt;ラベル名&amp;gt; EQU &amp;lt;リテラル値&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>EQU 命令を使うことによってラベルを定義することができます。
+指定したラベルは、リテラル (k) として使用することができます。
+変数領域が割り当てられるわけではないので、定義する時にアドレスを気にしたりする必要はありません。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: MAX_VAL を 0xFF として定義&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">MAX_VAL EQU 0xFF ; MAX_VAL=0xFF&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>これは、C 言語のプリプロセッサの &lt;code>#define&lt;/code> のようなものです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define MAX_VAL 0xFF
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>変数の割り当て ─ PIC めもめも</title><link>https://maku77.github.io/p/hoytbx6/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hoytbx6/</guid><description>&lt;h2 id="領域として自由に使用できる汎用レジスタの範囲">領域として自由に使用できる汎用レジスタの範囲&lt;/h2>
+&lt;p>ユーザが変数領域として自由に使用できる汎用レジスタ (データ RAM) の範囲の一例です。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: center">Device&lt;/th>
+ &lt;th style="text-align: center">Bank0&lt;/th>
+ &lt;th style="text-align: center">Bank1&lt;/th>
+ &lt;th style="text-align: center">Bank2&lt;/th>
+ &lt;th style="text-align: center">Bank3&lt;/th>
+ &lt;th style="text-align: center">データ RAM サイズ&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: center">PIC16F83&lt;BR>PIC16CR83&lt;/td>
+ &lt;td style="text-align: center">0Ch ～ 2Fh&lt;BR>(36 bytes)&lt;/td>
+ &lt;td style="text-align: center">8Ch ～ AFh&lt;BR>(Bank0 へのマップ)&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td style="text-align: center">36 bytes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">PIC16F84&lt;BR>PIC16CR84&lt;/td>
+ &lt;td style="text-align: center">0Ch ～ 4Fh&lt;BR>(68 bytes)&lt;/td>
+ &lt;td style="text-align: center">8Ch ～ CFh&lt;BR>(Bank0 へのマップ)&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td style="text-align: center">68 bytes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">PIC16F873&lt;BR>PIC16F874&lt;/td>
+ &lt;td style="text-align: center">20h ～ 7Fh&lt;BR>(96 bytes)&lt;/td>
+ &lt;td style="text-align: center">A0h ～ FFh&lt;BR>(96 bytes)&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td style="text-align: center">─&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: center">PIC16F876&lt;BR>PIC16F877&lt;/td>
+ &lt;td style="text-align: center">20h ～ 7Fh&lt;BR>(96 bytes)&lt;/td>
+ &lt;td style="text-align: center">A0h ～ EFh&lt;BR>(80 bytes)&lt;/td>
+ &lt;td style="text-align: center">110h ～ 16Fh&lt;BR>(96 bytes)&lt;/td>
+ &lt;td style="text-align: center">190h ～ 1EFh&lt;BR>(96 bytes)&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>PIC16F87x の Bank1 ～ 3 の最後の部分には、Bank0 へのマッピングアドレスとして使えるものがあります。
+うまく使えば効率的なプログラムが作れるかもしれません。
+詳しくは各デバイスのデータシートを参照してください。&lt;/p></description></item><item><title>汎用テクニック ─ PIC めもめも</title><link>https://maku77.github.io/p/p83uim3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/p83uim3/</guid><description>&lt;h2 id="どの-page-にあるか分からないサブルーチンにジャンプする">どの Page にあるか分からないサブルーチンにジャンプする&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; どのページにあるか分からないサブルーチンにジャンプする
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="no">HIGH&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="no">SUB&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">; SUB の上位アドレス
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">MOVWF&lt;/span> &lt;span class="no">PCLATH&lt;/span> &lt;span class="c1">; を PCLATH にセット
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">CALL&lt;/span> &lt;span class="no">SUB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">SUB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">RETURN&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="特定のマスクで-2-つの値を比較">特定のマスクで 2 つの値を比較&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 特定のマスクで比較 (A と B を 01110000 のビットマスクで比較)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">A&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">XORWF&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ANDLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">01110000&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">BTFSC&lt;/span> &lt;span class="no">STATUS&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">Z&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">AB_IS_SAME&lt;/span> &lt;span class="c1">; 同じだった (→ AB_IS_SAME へ)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">AB_IS_NOT_SAME&lt;/span> &lt;span class="c1">; 違った (→ AB_IS_NOT_SAME へ)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">AB_IS_SAME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">AB_IS_NOT_SAME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">GOTO&lt;/span> &lt;span class="no">xxx&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="w-レジスタの値-0f-を-7-セグメント-led-用の値に変換する">W レジスタの値 (0～F) を 7 セグメント LED 用の値に変換する&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; W の値を 7 セグメント LED 用の値に変換します。
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; 使い方:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; (W に 0～9 の値が入っている時に)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">; CALL TO_7SEG
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">;==============================================================================
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">TO_7SEG&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">PCL&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span> &lt;span class="c1">; プログラムカウンタに W の値を加える
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">01111110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 0 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00001100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 1 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">10110110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 2 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">10011110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 3 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11001100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 4 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11011010&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 5 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11111010&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 6 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">00001110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 7 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11111110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 8 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">RETLW&lt;/span> &lt;span class="no">B&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">11001110&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">; 9 の表示用
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>遅延時間 ─ PIC めもめも</title><link>https://maku77.github.io/p/yzbkxhz/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/yzbkxhz/</guid><description>&lt;h2 id="1-サイクル-1-命令-にかかる時間">1 サイクル (1 命令) にかかる時間&lt;/h2>
+&lt;p>1 つの命令を実行するためにかかる時間（1 サイクル）は、&lt;strong>クロックの周期(sec) * 4&lt;/strong>、あるいは、&lt;strong>4 / クロックの周波数(Hz)&lt;/strong> となります。
+具体的な値は次のようになります。&lt;/p>
+&lt;ul>
+&lt;li>10MHzの場合の1命令にかかる時間 ･･･ 0.1 (μsec) * 4 = &lt;strong>0.4 (μsec)&lt;/strong>&lt;/li>
+&lt;li>20MHzの場合の1命令にかかる時間 ･･･ 0.05 (μsec) * 4 = &lt;strong>0.2 (μsec)&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>プログラムカウンタの値を変更する命令の場合は、2 サイクルの時間がかかります。
+このような命令には &lt;strong>CALL, GOTO, RETFIE, RETLW, RETURN&lt;/strong> があります。
+また、&lt;strong>DECFSZ, INCFSZ, BTFSC, BTFSS でスキップした場合&lt;/strong>も 2 サイクルかかります。&lt;/p>
+&lt;h2 id="遅延時間を作るサブルーチン">遅延時間を作るサブルーチン&lt;/h2>
+&lt;p>遅延を発生させるサブルーチンを作る場合は、次のような手順で作成します。&lt;/p>
+&lt;h3 id="1-必要なサイクル数を求める">1. 必要なサイクル数を求める&lt;/h3>
+&lt;p>サブルーチンに必要なサイクル数は、&lt;strong>遅延時間 / 1 サイクルにかかる時間&lt;/strong>で求めることができます。
+例えば、10MHz (0.4μsec) で 100μsec の遅延を作りたい場合は、100 / 0.4 = 250 サイクルが必要になります。&lt;/p>
+&lt;h3 id="2-ループ回数を決める">2. ループ回数を決める&lt;/h3>
+&lt;p>ループ回数は、&lt;strong>(1 で求めたサイクル数 - 6) / 3&lt;/strong> で求められます（余りは NOP で調整します）。
+&lt;strong>-6&lt;/strong> の部分は、MOVLW, MOVWF, DECFSZ(2), RETURN のサイクルで、&lt;strong>/3&lt;/strong> の部分は、DECFSZ(1), GOTO の部分の実行回数を求めています。
+以下にいくつかの遅延時間発生ルーチンの例を示します。&lt;/p></description></item><item><title>部品メモ: 3端子レギュレータ ─ PIC めもめも</title><link>https://maku77.github.io/p/hzva4rn/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hzva4rn/</guid><description>&lt;h2 id="可変3端子レギュレータ-lm317">可変3端子レギュレータ LM317&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="200" height="315" src="../../p/hzva4rn/img-002.jpg" alt="/p/hzva4rn/img-002.jpg" />
+&lt;/figure>
+
+&lt;ul>
+&lt;li>大きめの四角いレギュレータ &lt;strong>7805 (DC, +5V 1A)&lt;/strong> は、出力電流が 1A あり、7～20V を 5±0.25V に変換できます。&lt;/li>
+&lt;li>ちっちゃい３端子レギュレータ &lt;strong>78L05 (DC, +5V 100mA)&lt;/strong> は、ひらぺったい方から見て、右の端子から IN, GND, OUT になっています。
+&lt;strong>この順番はレギュレータごとに異なる&lt;/strong> ので、必ずデータシートで確認する必要があります。7～25V を 5±0.25V に変換できます。&lt;/li>
+&lt;/ul>
+&lt;h2 id="3端子レギュレータの配線方法">3端子レギュレータの配線方法&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="431" height="159" src="../../p/hzva4rn/img-001.png" alt="/p/hzva4rn/img-001.png" />
+&lt;/figure>
+
+&lt;p>3端子レギュレータの入力、出力側に共通のグランドが必要です。
+出力側のコンデンサは不要ですが、あると過渡応答を改善できます。&lt;/p></description></item><item><title>部品メモ: LED（Light Emitting Diode: 発光ダイオード） ─ PIC めもめも</title><link>https://maku77.github.io/p/spggmm3/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/spggmm3/</guid><description>&lt;h2 id="led-の極性">LED の極性&lt;/h2>
+&lt;p>LED には２つの端子があり、それぞれ下記のような名前が付けられています。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>アノード (A)&lt;/strong> ･･･ 端子の長い方 (+ 電源へ)&lt;/li>
+&lt;li>&lt;strong>カソード (K)&lt;/strong> ･･･ 端子の短い方 (GND へ)&lt;/li>
+&lt;/ul>
+&lt;p>LED の電気的特性として、順方向 (アノード → カソード) にしか電流を流さないという特徴を持っています。
+順方向でも一定の電圧降下があります（1.7V 程度）。&lt;/p>
+&lt;h2 id="led-へ流す電流の決め方">LED へ流す電流の決め方&lt;/h2>
+&lt;p>LED の明るさは流す電流の大きさによって変わります。
+ただし、あまり大きな電流を流すと LED が壊れてしまうので、電源との間に抵抗を入れて流れる電流を調整する必要があります。
+何Ωの抵抗を接続すればいいかを計算する時は、LED による電圧降下を考えて求める必要があります。&lt;/p>
+&lt;p>計算式: &lt;strong>R = (V - V&lt;SUB>LED&lt;/SUB>) / I&lt;/strong>&lt;/p>
+&lt;p>例えば、電源 (V) を 5V、適正電流 (I) を 5mA とすると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>R = (5.0 - 1.7) / 0.005 = 660 (Ω)
+&lt;/code>&lt;/pre>&lt;p>と求められます。&lt;/p></description></item><item><title>部品メモ: RS-232C (Recommend Standard number 232) ─ PIC めもめも</title><link>https://maku77.github.io/p/dppsjeu/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dppsjeu/</guid><description>&lt;h2 id="はじめに用語とか">はじめに（用語とか）&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>スペース状態&lt;/strong> ･･･ 信号 0。入力 +3V 以上。出力 +5V ～ +15V。&lt;/li>
+&lt;li>&lt;strong>マーク状態&lt;/strong> ･･･ 信号 1。入力 -3V 以下。出力 -5V ～ -15V。&lt;/li>
+&lt;li>&lt;strong>短絡時最大出力電流&lt;/strong> ･･･ 500mA。&lt;/li>
+&lt;li>&lt;strong>ハードウェアフローコントロール&lt;/strong> ･･･ RTS と CTS の信号線を使ったフロー制御。RTS／CTS とも記述されます。&lt;/li>
+&lt;li>&lt;strong>ソフトウェアフローコントロール&lt;/strong> ･･･ ソフトウェアによるフロー制御。アプリケーションで決められた特殊な記号を送信することでフロー制御を行います。RTS と CTS ワイヤは使用しません。Xon／Xoff とも記述されます。&lt;/li>
+&lt;li>&lt;strong>DTE デバイス&lt;/strong> ･･･ 通常は PC を示します。オスコネクタを持ちます。&lt;/li>
+&lt;li>&lt;strong>DCE デバイス&lt;/strong> ･･･ 通常は シリアルデバイスを示します。メスコネクタを持ちます。DTE デバイスと DCE デバイスをつなぐ時は通常ストレートケーブルを用います。&lt;/li>
+&lt;li>&lt;strong>ヌルモデムケーブル／ヌルアダプタ&lt;/strong> ･･･ 送信と受信の信号線をクロスさせたものです。TxD ⇔ RxD、DTR ⇔ DSR、RTS ⇔ CTS のようにクロスされます。&lt;/li>
+&lt;/ul>
+&lt;h2 id="dsub-9-ピン">DSub 9 ピン&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="457" height="233" src="../../p/dppsjeu/img-001.png" alt="/p/dppsjeu/img-001.png" />
+&lt;/figure>
+
+&lt;p>（DTE デバイス（PC 側）オス）&lt;/p>
+&lt;table align="center">
+ &lt;caption>9 ピンミニ DSUB コネクタ (PC 側オス)&lt;/caption>
+ &lt;tr>
+ &lt;th>ピン番号&lt;/th>&lt;th>表記&lt;/th>&lt;th>I/O&lt;/th>&lt;th>意味&lt;/th>&lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">1&lt;/td>
+ &lt;td class="namec2">DCD&lt;/td>
+ &lt;td class="c">In&lt;/td>
+ &lt;td>Data Carrier Detect（キャリア検出）&lt;/td>
+ &lt;td>外部端末の送受信準備ができたことを知る&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">2&lt;/td>
+ &lt;td class="namec2">RxD&lt;/td>
+ &lt;td class="c">In&lt;/td>
+ &lt;td>Receive Data（受信データ）&lt;/td>
+ &lt;td>&amp;nbsp;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">3&lt;/td>
+ &lt;td class="namec2">TxD&lt;/td>
+ &lt;td class="c">Out&lt;/td>
+ &lt;td>Transmit Data（送信データ）&lt;/td>
+ &lt;td>&amp;nbsp;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">4&lt;/td>
+ &lt;td class="namec2">DTR&lt;/td>
+ &lt;td class="c">Out&lt;/td>
+ &lt;td>Data Terminal Ready（データ端末準備）&lt;/td>
+ &lt;td>PC が繋がっていることを認識させる（PC → 外部）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">5&lt;/td>
+ &lt;td class="namec2">GND&lt;/td>
+ &lt;td class="c">---&lt;/td>
+ &lt;td>Ground（信号用グラウンド）&lt;/td>
+ &lt;td>&amp;nbsp;&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">6&lt;/td>
+ &lt;td class="namec2">DSR&lt;/td>
+ &lt;td class="c">In&lt;/td>
+ &lt;td>Data Set Ready（データセット準備）&lt;/td>
+ &lt;td>端末が繋がっていることを認識する（PC ← 外部）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">7&lt;/td>
+ &lt;td class="namec2">RTS&lt;/td>
+ &lt;td class="c">Out&lt;/td>
+ &lt;td>Request To Send (DTE の送信要求)&lt;/td>
+ &lt;td>PC の送信開始信号（フロー制御用）（PC → 外部）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">8&lt;/td>
+ &lt;td class="namec2">CTS&lt;/td>
+ &lt;td class="c">In&lt;/td>
+ &lt;td>Clear To Send（DCE の送信要求）&lt;/td>
+ &lt;td>PC への受信開始要求（フロー制御用）（PC ← 外部）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td class="namec">9&lt;/td>
+ &lt;td class="namec2">RI&lt;/td>
+ &lt;td class="c">In&lt;/td>
+ &lt;td>Ring Indication（被呼表示）&lt;/td>
+ &lt;td>電話がかかってきたことを伝える／PC の電源を制御する&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>PC からデータを送信するのに最低限必要なのは、TxD(3) と GND(5) です。
+データを受信する時は RxD(2) が必要です。
+出力の信号線は、デフォルトでマーク状態(-)かスペース状態(+)のどちらかを出力してます。&lt;/p></description></item><item><title>部品メモ: 水晶振動子（クリスタル振動子、オシレーター） ─ PIC めもめも</title><link>https://maku77.github.io/p/yzdxf7i/</link><pubDate>Thu, 01 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/yzdxf7i/</guid><description>&lt;h2 id="水晶振動子クリスタル振動子20mhz">水晶振動子（クリスタル振動子）20MHz&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="200" height="281" src="../../p/yzdxf7i/img-001.gif" alt="/p/yzdxf7i/img-001.gif" />
+&lt;/figure></description></item></channel></rss>
