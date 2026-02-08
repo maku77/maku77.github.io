@@ -16,7 +16,7 @@ aliases: /web/layout/remove-margin-of-image.html
 
 <center>
   <iframe width="98" height="280" src="./demo.html"></iframe>
-  <div>図: 画像の下に隙間ができてしまう例（<a target="_blank" href="./demo.html">別ページで開く</a>）</div>
+  <div>図: 画像の下に隙間ができてしまう例（{{< file src="demo.html" caption="別ページで開く" >}}）</div>
 </center>
 
 これは、`img` 要素はテキストと同様にベースラインを意識した配置が行われるからです。
@@ -30,7 +30,7 @@ img {
 
 <center>
   <iframe width="98" height="267" src="./demo2.html"></iframe>
-  <div>図: 画像の下の隙間をなくした例（<a target="_blank" href="./demo2.html">別ページで開く</a>）</div>
+  <div>図: 画像の下の隙間をなくした例（{{< file src="demo2.html" caption="別ページで開く" >}}）</div>
 </center>
 
 この問題が発生しない場合は、プロジェクトで使用しているリセット系の CSS に、すでに上記のような定義が含まれている可能性が高いです。

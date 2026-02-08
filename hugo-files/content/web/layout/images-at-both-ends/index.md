@@ -14,8 +14,8 @@ Flex レイアウトを使って子要素を左右に配置する方法
 ----
 
 <center>
-  <iframe width="400" height="150" src="./demo2.html"></iframe>
-  <div>（<a target="_blank" href="./demo2.html">別ページで開く</a>）</div>
+  <iframe width="400" height="150" src="demo2.html"></iframe>
+  <div>（{{< file src="demo2.html" caption="別ページで開く" >}}）</div>
 </center>
 
 Flex レイアウトの配置方法として __`justify-content: space-between`__ を指定すると、「子要素を均等に配置し、最初のアイテムは先頭に寄せ、最後のアイテムは末尾に寄せる」という意味になります。
@@ -39,8 +39,8 @@ position: abosolute 指定で子要素を左右に配置する方法
 ----
 
 <center>
-  <iframe width="400" height="150" src="./demo1.html"></iframe>
-  <div>（<a target="_blank" href="./demo1.html">別ページで開く</a>）</div>
+  <iframe width="400" height="150" src="demo1.html"></iframe>
+  <div>（{{< file src="demo1.html" caption="別ページで開く" >}}）</div>
 </center>
 
 スタイルに __`position: absolute`__ 指定を行うと、親要素の原点を基準に要素を配置することができます。
@@ -75,8 +75,8 @@ position: abosolute 指定で子要素を左右に配置する方法
 ----
 
 <center>
-  <iframe width="550" height="220" src="./demo3.html"></iframe>
-  <div>（<a target="_blank" href="./demo3.html">別ページで開く</a>）</div>
+  <iframe width="550" height="220" src="demo3.html"></iframe>
+  <div>（{{< file src="demo3.html" caption="別ページで開く" >}}）</div>
 </center>
 
 ここでは、両端に配置した画像の間にテキストを追加しています。

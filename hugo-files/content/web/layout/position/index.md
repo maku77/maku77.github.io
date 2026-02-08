@@ -37,8 +37,8 @@ position: fixed
 __`position: fixed;`__ を指定すると、ブラウザの表示領域内で位置を固定して表示することができます。
 
 <center>
-  <iframe width="470" height="200" src="./demo-fixed.html"></iframe>
-  <div>図: position: fixed; のデモ（<a target="_blank" href="./demo-fixed.html">別ページで開く</a>）</div>
+  <iframe width="470" height="200" src="demo-fixed.html"></iframe>
+  <div>図: position: fixed; のデモ（{{< file src="demo-fixed.html" caption="別ページで開く" >}}）</div>
 </center>
 
 具体的な表示位置は、`top`、`bottom`、`left`、`right` プロパティで指定します。
@@ -54,8 +54,8 @@ position: relative
 __`position: relative;`__ を指定すると、本来その要素が表示されるはずだった位置からのオフセットを指定して、表示位置をずらすことができます。
 
 <center>
-  <iframe width="470" height="280" src="./demo-relative.html"></iframe>
-  <div>図: position: relative; のデモ（<a target="_blank" href="./demo-relative.html">別ページで開く</a>）</div>
+  <iframe width="470" height="280" src="demo-relative.html"></iframe>
+  <div>図: position: relative; のデモ（{{< file src="demo-relative.html" caption="別ページで開く" >}}）</div>
 </center>
 
 要素の表示位置をずらしたとしても、__後続の要素は、その位置ずらしがなかったものとして配置される__ ことに注意してください。
@@ -85,8 +85,8 @@ position: absolute
 __`position: absolute;`__ を使用すると、その親要素を基準とした絶対位置で表示位置を指定することができます（感覚的には絶対位置というよりは相対位置ですが）。
 
 <center>
-  <iframe width="375" height="190" src="./demo-absolute.html"></iframe>
-  <div>図: position: absolute; のデモ（<a target="_blank" href="./demo-absolute.html">別ページで開く</a>）</div>
+  <iframe width="375" height="190" src="demo-absolute.html"></iframe>
+  <div>図: position: absolute; のデモ（{{< file src="demo-absolute.html" caption="別ページで開く" >}}）</div>
 </center>
 
 注意しなければいけないのは、親要素の `position` プロパティとして、`fixed`、`relative`、`absolute` のいずれかを指定しておく必要があるというところです（つまり、デフォルトの `static` のままだと有効になりません）。

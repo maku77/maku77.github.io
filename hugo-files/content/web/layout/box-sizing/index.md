@@ -43,7 +43,7 @@ content-box 指定と border-box 指定
 
 <center>
   <iframe width="363" height="273" src="./demo.html"></iframe>
-  <div>図: box-sizing のデモ（<a target="_blank" href="./demo.html">別ページで開く</a>）</div>
+  <div>図: box-sizing のデモ（{{< file src="demo.html" caption="別ページで開く" >}}）</div>
 </center>
 
 どちらも、`width` は `300px` としていますが、`box-sizing: border-box;` と指定した場合は、ボーダー領域まで `width` に含めて計算するようになるため、実際の表示も若干小さくなります。
@@ -90,8 +90,8 @@ div.border-box {
 このような場合、横に並べるボックス要素に、`box-sizing: border-box;` の指定を行っておくと、直感的な `width` 指定を行うことができます。
 
 <center>
-  <iframe width="380" height="120" src="./demo2.html"></iframe>
-  <div>図: box-sizing のデモ 2（<a target="_blank" href="./demo2.html">別ページで開く</a>）</div>
+  <iframe width="380" height="120" src="demo2.html"></iframe>
+  <div>図: box-sizing のデモ 2（{{< file src="demo2.html" caption="別ページで開く" >}}）</div>
 </center>
 
 {{< code lang="css" title="CSS" >}}

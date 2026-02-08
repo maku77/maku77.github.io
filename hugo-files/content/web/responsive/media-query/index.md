@@ -60,8 +60,8 @@ body { background: pink; }
 {{< /code >}}
 
 <center>
-  <iframe width="100%" height="130" src="./demo.html" style="resize: both; overflow: auto;"></iframe>
-  <div>（<a target="_blank" href="./demo.html">別ページで開く</a>）</div>
+  <iframe width="100%" height="130" src="demo.html" style="resize: both; overflow: auto;"></iframe>
+  <div>（{{< file src="demo.html" caption="別ページで開く" >}}）</div>
 </center>
 
 上記の例では、画面の幅が 300px 以上になったとき、600px 以上になったときに背景色を変更しています。

@@ -36,7 +36,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 <center>
   <iframe width="550" height="370" src="./demo1.html"></iframe>
-  <div>（<a target="_blank" href="./demo1.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo1.html" caption="別ページで開く" >}}）</div>
 </center>
 
 表示デモの中の外側の矩形は、`ul` 要素を配置する親要素の描画領域を示しています。
@@ -51,7 +51,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 <center>
   <iframe width="550" height="370" src="./demo2.html"></iframe>
-  <div>（<a target="_blank" href="./demo2.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo2.html" caption="別ページで開く" >}}）</div>
 </center>
 
 `ul` 要素の `padding-left` を 0 にしてしまうと、上記のように入れ子要素のインデントがなくなり、さらに、リストマーカーを表示する余裕もないので、親要素をはみ出してリストマーカーが表示されてしまいます。
@@ -61,7 +61,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 <center>
   <iframe width="550" height="370" src="./demo3.html"></iframe>
-  <div>（<a target="_blank" href="./demo3.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo3.html" caption="別ページで開く" >}}）</div>
 </center>
 
 上記は、`padding-left` の代わりに `margin-left` を設定した場合の表示デモですが、この方法でもうまくインデントされているかのように見えます。
@@ -74,7 +74,7 @@ ul のインデント設定は padding-left で行うのが基本
 
 <center>
   <iframe width="550" height="370" src="./demo4.html"></iframe>
-  <div>（<a target="_blank" href="./demo4.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo4.html" caption="別ページで開く" >}}）</div>
 </center>
 
 
@@ -88,7 +88,7 @@ __`li` 要素の `padding-left`__ プロパティでは、リストマーカー�
 
 <center>
   <iframe width="550" height="190" src="./demo5.html"></iframe>
-  <div>（<a target="_blank" href="./demo5.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo5.html" caption="別ページで開く" >}}）</div>
 </center>
 
 入れ子になった `ul` 要素は `li` 要素の子要素として配置されるため、`li` 要素の `padding-left` を大きくすると、その下の `ul` 要素自体のインデント幅が大きくなったかのように見えます。
@@ -97,7 +97,7 @@ __`li` 要素の `padding-left`__ プロパティでは、リストマーカー�
 
 <center>
   <iframe width="550" height="335" src="./demo6.html"></iframe>
-  <div>（<a target="_blank" href="./demo6.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo6.html" caption="別ページで開く" >}}）</div>
 </center>
 
 {{% note %}}
@@ -128,7 +128,7 @@ li > ul, li > ol {
 
 <center>
   <iframe width="550" height="335" src="./demo7.html"></iframe>
-  <div>（<a target="_blank" href="./demo7.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo7.html" caption="別ページで開く" >}}）</div>
 </center>
 
 
@@ -165,7 +165,7 @@ li > ul, li > ol {
 
 <center>
   <iframe width="100%" height="300" src="./demo8.html" style="resize: both; overflow: auto;"></iframe>
-  <div>（<a target="_blank" href="./demo8.html">別ページで開く</a>）</div>
+  <div>（{{< file src="demo8.html" caption="別ページで開く" >}}）</div>
 </center>
 
 

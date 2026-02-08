@@ -19,8 +19,8 @@ img, embed, iframe, object {
 ```
 
 <center>
-  <iframe width="470" height="180" src="./demo1.html" style="resize: both; overflow: auto;"></iframe>
-  <div>デモ（<a target="_blank" href="./demo1.html">別ページで開く</a>）</div>
+  <iframe width="470" height="180" src="demo1.html" style="resize: both; overflow: auto;"></iframe>
+  <div>デモ（{{< file src="demo1.html" caption="別ページで開く" >}}）</div>
 </center>
 
 上記のフレームをブラウザだと思ってサイズを縮めてみてください。
@@ -55,7 +55,7 @@ img {
 ```
 
 <center>
-  <iframe width="470" height="180" src="./demo2.html" style="resize: both; overflow: auto;"></iframe>
-  <div>デモ（<a target="_blank" href="./demo2.html">別ページで開く</a>）</div>
+  <iframe width="470" height="180" src="demo2.html" style="resize: both; overflow: auto;"></iframe>
+  <div>デモ（{{< file src="demo2.html" caption="別ページで開く" >}}）</div>
 </center>
 

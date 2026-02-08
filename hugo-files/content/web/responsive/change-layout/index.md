@@ -22,8 +22,8 @@ CSS3 のメディアクエリをうまく使うと、Web ブラウザのウィ�
 画面幅に応じてレイアウトが自動的に変更されるはずです。
 
 <center>
-  <iframe width="100%" height="400" src="./demo.html" style="resize: both; overflow: auto;"></iframe>
-  <div><a target="_blank" href="./demo.html">（別ページで表示）</a></div>
+  <iframe width="100%" height="400" src="demo.html" style="resize: both; overflow: auto;"></iframe>
+  <div>{{< file src="demo.html" caption="別ページで表示" >}}</div>
 </center>
 
 HTML 要素は下記のようにヘッダー、コンテンツ、サイドバー、フッターと、4 つの部分に分かれています。

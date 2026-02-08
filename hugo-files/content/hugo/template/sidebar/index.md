@@ -90,9 +90,9 @@ __`$p1.IsDescendant $p2`__
 
 次の表は、各ページの Page オブジェクト (`$p1`) の `.InSection`、`.IsAncestor`、`.IsDescendant` メソッドに、別ページの Page オブジェクト (`$p2`) を渡したときにどう判定されるかの一覧です（Hugo 0.110.0 で確認）。
 
-<iframe style="width: 100%; height: 50vh;" src="./demo.html"></iframe>
+<iframe style="width: 100%; height: 50vh;" src="demo.html"></iframe>
 <div style="text-align: right; margin-top: 0;">
-    <a target="_blank" href="./demo.html">→ 別ウィンドウで開く</a>
+  {{< file src="demo.html" caption="→ 別ウィンドウで開く" >}}
 </div>
 
 `$p1` がセクションの場合と通常ページの場合で振る舞いが変わったりするので若干ややこしいですが、__これらのメソッドは、セクションページのみで使用する__ ようにすれば比較的わかりやすいコードを記述できると思います。
