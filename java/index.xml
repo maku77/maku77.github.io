@@ -3,4 +3,6 @@
 com.example.util パッケージへの依存のみを表示 $ jdeps -e com.example.util.* app.jar ☝️ ワンポイント 特定のパッケージへの依存は、-p オプションでも検索することができますが、 こちらの場合は、完全にパッケージ名が一致するもののみを抽出します。 あるパッケージより下位のパッケージも含めて検索するには、上記のように -e オプションで正規表現の形でパッケージ名を指定する必要があります。 クラスレベルの依存関係を調べる $ jdeps -verbose:class app.jar メソッドレベルの依存関係を調べる (cfa) YaSuenag さんの作成している cfa (Class File Analyzer) というツールを使用すると、.class ファイルを解析して、メソッドレベルの依存関係を調べることができます。
 https://github.com/YaSuenag/cfa/（fork しておく）
 実行ファイルは cfa.jar です。 Windows であれば、下記のようなバッチファイルを JAR と同じディレクトリにおいて PATH を通しておくと、どのディレクトリからでも cfa と入力するだけで実行できて便利です。
-cfa.cmd @echo off setlocal set jar=&amp;#34;%~dp0%cfa.</description></item></channel></rss>
+cfa.cmd @echo off setlocal set jar=&amp;#34;%~dp0%cfa.</description></item><item><title>Javaメモ: 全角文字と半角文字を含んだ文字列を正規化して表記ゆれを吸収する</title><link>https://maku77.github.io/p/j3jbsey/</link><pubDate>Thu, 20 Nov 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/j3jbsey/</guid><description>java.text.Normalizer クラスを使うと、全角文字や半角文字の混在した文字列を一定の規則に基いて正規化することができます。 微妙に表記の異なる文字列同士を比較するような際に使用できます。
+使用例 String s = Normalizer.normalize(&amp;#34;aａAＡｲイﾊﾟパ1１2２＋+-－．.～~）)}｝&amp;#34;, Normalizer.Form.NFKC); 変換結果 AAAAイイパパ1122++--..~~))}} 大まかには、アルファベットや数字、記号は半角に統一され、半角カタカナは全角に統一されるという動きをします。
+2 文字で構成される半角カタカナの「ﾊﾟ」をうまく全角のカタカナ「パ」に変換するには、第2引数 (form) に Normalizer.Form.NFKC を指定する必要があります。</description></item></channel></rss>
