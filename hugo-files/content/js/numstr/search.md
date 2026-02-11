@@ -47,8 +47,8 @@ const index = text.search(/javascript/i);
 `String#search()` メソッドは、最初に見つかった文字列のインデックスを返すため、次のように正規表現属性の `g`（グローバル検索）を指定しても無視されます（意味がありません）。
 
 {{< code lang="js" title="検索時は正規表現の g 属性は無視される" >}}
-var text = "Pen pineapple apple pen";
-var index = text.search(/apple/g);
+const text = "Pen pineapple apple pen";
+const index = text.search(/apple/g);
 console.log(index);  //=> 8
 {{< /code >}}
 
@@ -79,7 +79,7 @@ console.log(re.test('Ruby is fantastic'));       //=> false
 // ユーザの入力したテキストが input 変数に格納されていると仮定
 // const input = "Java";
 
-var re = new RegExp(input, "i");
+const re = new RegExp(input, "i");
 if (re.test("Javascript is not Java")) {
   console.log("見つけたっ");
 }

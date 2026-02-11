@@ -20,7 +20,7 @@ __`document.getElementsByTagName()`__ 関数を使用すると、指定したタ
 <p>おやすみ</p>
 
 <script>
-window.onload = function() {
+window.onload = () => {
   const elems = document.getElementsByTagName("p");
   for (const e of elems) {
     console.log(e.innerText);
@@ -47,7 +47,7 @@ __`document.getElementsByClassName()`__ 関数を使用すると、指定した�
 <div class="foo bar baz">CCC</div>
 
 <script>
-window.onload = function() {
+window.onload = () => {
   const elems = document.getElementsByClassName("foo");
   for (const e of elems) {
     console.log(e.innerText);
@@ -73,7 +73,7 @@ __`document.getElementById()`__ 関数を使用すると、指定した ID を `
 <span id="message">ばよえーん</span>
 
 <script>
-window.onload = function() {
+window.onload = () => {
   const elem = document.getElementById("message");
   if (elem) {
     console.log(elem.innerText);  //=> ばよえーん
@@ -99,7 +99,7 @@ window.onload = function() {
 </ul>
 
 <script>
-window.onload = function() {
+window.onload = () => {
   const data = document.getElementById("my-data");
   const elems = data.getElementsByTagName("li");
   for (const e of elems) {
@@ -123,28 +123,28 @@ CSS のセレクタ形式（`#foo` や `.bar` など）で要素を指定して�
 前者は最初に見つかった要素、後者は見つかった全ての要素を返します。
 
 {{< code lang="js" title="例: id 属性が sample の要素を取得" hl_lines="2" >}}
-window.onload = function() {
+window.onload = () => {
   const elem = document.querySelector("#sample");
   console.log(elem);
 };
 {{< /code >}}
 
 {{< code lang="js" title="例: class 属性に sample を持つ要素をすべて取得" hl_lines="2" >}}
-window.onload = function() {
+window.onload = () => {
   const elems = document.querySelectorAll(".sample");
   console.log(elems);
 };
 {{< /code >}}
 
 {{< code lang="js" title="例: div 要素で、かつ、class 属性に note を持つ要素をすべて取得" hl_lines="2" >}}
-window.onload = function() {
+window.onload = () => {
   const elems = document.querySelectorAll("div.note");
   console.log(elems);
 };
 {{< /code >}}
 
 {{< code lang="js" title="例: li 要素で、偶数番目のものをすべて取得" hl_lines="2" >}}
-window.onload = function() {
+window.onload = () => {
   const elems = document.querySelectorAll("li:nth-child(even)");
   console.log(elems);
 };

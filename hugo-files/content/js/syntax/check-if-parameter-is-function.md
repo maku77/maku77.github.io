@@ -23,7 +23,7 @@ function myfunc(opt) {
 }
 
 // 引数に関数を渡した場合の動作を確認
-myfunc(function(a, b) {
+myfunc((a, b) => {
   console.log(a + b);
 });
 

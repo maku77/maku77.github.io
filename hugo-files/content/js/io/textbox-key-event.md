@@ -17,7 +17,7 @@ aliases: [/js/io/textbox-key-event.html]
 
 <script>
 window.onload = function() {
-  var output = document.getElementById('output');
+  const output = document.getElementById('output');
   document.getElementById('txt1').onkeyup = handleKeyUp;
 
   function handleKeyUp() {

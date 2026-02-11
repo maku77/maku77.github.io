@@ -21,7 +21,7 @@ aliases: [/js/array/push.html]
 `push` メソッドは、要素を追加した後の配列のサイズ（＝`length` プロパティの値）を返します。
 
 ```javascript
-var arr = [1, 2, 3];
+const arr = [1, 2, 3];
 console.log(arr.push(4));     //=> 4
 console.log(arr.push(5, 6));  //=> 6
 console.log(arr);             //=> [ 1, 2, 3, 4, 5, 6 ]
@@ -31,7 +31,7 @@ console.log(arr);             //=> [ 1, 2, 3, 4, 5, 6 ]
 `push` や `pop` を使用することにより、配列を先入れ後出しの**スタックとして使用することができます**。
 
 ```javascript
-var arr = [];
+const arr = [];
 arr.push(1);
 arr.push(2);
 arr.push(3);
@@ -49,7 +49,7 @@ console.log(arr.pop());  //=> undefined
 使用方法は末尾に要素を追加するメソッド `push` と同様ですが、複数の要素を同時に追加する場合は、その追加される順番に注意してください。
 
 ```javascript
-var arr = [1, 2, 3];
+const arr = [1, 2, 3];
 console.log(arr.unshift(4));     //=> 4
 console.log(arr.unshift(5, 6));  //=> 6
 console.log(arr);                //=> [ 5, 6, 4, 1, 2, 3 ]
@@ -59,7 +59,7 @@ console.log(arr);                //=> [ 5, 6, 4, 1, 2, 3 ]
 `push` や `shift` を使用することにより、配列を先入れ先出しの**キュー (FIFO) として使用することができます**。
 
 ```javascript
-var arr = [];
+const arr = [];
 arr.push(1);
 arr.push(2);
 arr.push(3);
@@ -79,7 +79,7 @@ console.log(arr.shift());  //=> undefined
 3番目以降のパラメータで実際に挿入したい値を指定します。
 
 ```javascript
-var arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5];
 arr.splice(2, 0, 'AAA', 'BBB', 'CCC');
 console.log(arr);  //=> [ 1, 2, 'AAA', 'BBB', 'CCC', 3, 4, 5 ]
 ```
@@ -88,7 +88,7 @@ console.log(arr);  //=> [ 1, 2, 'AAA', 'BBB', 'CCC', 3, 4, 5 ]
 例えば、-1 を指定すると、末尾の要素の前に要素を追加できます。
 
 ```javascript
-var arr = [1, 2, 3];
+const arr = [1, 2, 3];
 arr.splice(-1, 0, 'AAA');
 console.log(arr);  //=> [ 1, 2, 'AAA', 3 ]
 ```

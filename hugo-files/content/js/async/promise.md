@@ -22,7 +22,7 @@ function asyncAdd(val1, val2, callback) {
   callback(val1 + val2);
 }
 
-asyncAdd(100, 200, function(result) {
+asyncAdd(100, 200, (result) => {
   console.log(result);  //=> 300
 });
 ```
@@ -30,10 +30,10 @@ asyncAdd(100, 200, function(result) {
 これくらいであれば、簡潔に記述できますが、非同期処理で受け取った結果を使って次の処理を行う、ということを繰り返そうとすると、下記のように入れ子構造がどんどん深くなるという**コールバック地獄**にハマります。
 
 ```javascript
-asyncAdd(100, 200, function(result) {
-  asyncAdd(result, 300, function(result) {
-    asyncAdd(result, 400, function(result) {
-      asyncAdd(result, 500, function(result) {
+asyncAdd(100, 200, (result) => {
+  asyncAdd(result, 300, (result) => {
+    asyncAdd(result, 400, (result) => {
+      asyncAdd(result, 500, (result) => {
         console.log(result);  //=> 1500
       });
     });
@@ -125,11 +125,11 @@ function myFailureCallback(err) {
   console.error(err);
 }
 
-fetchFile('file1.png', function(result) {
+fetchFile('file1.png', (result) => {
   console.log(result);
-  fetchFile('file2.png', function(result) {
+  fetchFile('file2.png', (result) => {
     console.log(result);
-    fetchFile('file3.jpg', function(result) {
+    fetchFile('file3.jpg', (result) => {
       console.log(result);
     }, myFailureCallback);
   }, myFailureCallback)

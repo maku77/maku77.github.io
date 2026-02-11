@@ -19,7 +19,7 @@ aliases: [/js/time/other-country-time.html]
 下記の例では、ユーザ環境、ロンドン、米国ニューヨークのローカルタイムを出力しています。
 
 {{< code lang="js" title="ユーザ環境、ロンドン、ニューヨークの現地時刻を出力する" >}}
-var date = new Date();
+const date = new Date();
 console.log(date.toLocaleString());
 console.log(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
 console.log(date.toLocaleString('en-GB', { timeZone: 'Europe/London' }));
@@ -60,7 +60,7 @@ console.log(date.toLocaleString('en-GB', { timeZone: 'Europe/London' }));
 下記は、いろんな国（タイムゾーン）の現地時間を `Date#toLocaleString` で表示するサンプルです。
 
 ```javascript
-var timeZones = [
+const timeZones = [
   'Pacific/Auckland',  // オークランド（ニュージーランド）
   'Asia/Tokyo',  // 東京（日本）
   'Asia/Singapore',  // シンガポール
@@ -76,10 +76,10 @@ var timeZones = [
   'America/Toronto',  // トロント（カナダ）
 ];
 
-var date = new Date();
-for (var i = 0; i < timeZones.length; ++i) {
-  var tz = timeZones[i];
-  var options = { timeZone: tz, hour12: false };
+const date = new Date();
+for (let i = 0; i < timeZones.length; ++i) {
+  const tz = timeZones[i];
+  const options = { timeZone: tz, hour12: false };
   console.log(date.toLocaleString('en-US', options) + ' ' + tz);
 }
 ```

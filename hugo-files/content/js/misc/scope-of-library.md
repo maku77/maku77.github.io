@@ -10,10 +10,10 @@ aliases: [/js/misc/scope-of-library.html]
 
 ```javascript
 (function(window, undefined) {
-  var foo = ...;
-  var bar = ...;
-  var PublicClass = {};
-  PublicClass.prototype.hoge = function() {
+  const foo = ...;
+  const bar = ...;
+  let PublicClass = {};
+  PublicClass.prototype.hoge = () => {
   };
   ...
   window.PublicClass = PublicClass;

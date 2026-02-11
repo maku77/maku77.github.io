@@ -9,7 +9,7 @@ aliases: [/js/array/delete.html]
 JavaScript の連想配列から、指定したキーの要素を削除するには、`delete` 演算子を使用します。
 
 ```javascript
-var obj = {a:100, b:200, c:300};
+const obj = {a:100, b:200, c:300};
 delete obj['b'];   // あるいは delete obj.b でも OK
 console.log(obj);  //=> { a: 100, c: 300 }
 ```

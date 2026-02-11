@@ -10,15 +10,15 @@ aliases: [/js/misc/check-if-undefined.html]
 変数 `a` が初期化されていない場合は、変数 `b` にデフォルト値として `100` を設定しています。
 
 ```javascript
-var b = (typeof a !== 'undefined') ? a : 100;
+const b = (typeof a !== 'undefined') ? a : 100;
 console.log(b);  //=> 100
 ```
 
 先に変数 `a` を初期化しておくと、変数 `b` には `a` の値が代入されます。
 
 ```javascript
-var a = 0;
-var b = (typeof a !== 'undefined') ? a : 100;
+const a = 0;
+const b = (typeof a !== 'undefined') ? a : 100;
 console.log(b);  //=> 0
 ```
 
@@ -27,7 +27,7 @@ console.log(b);  //=> 0
 以下の例は、変数 `a` の「定義」は行っていますが、「初期化」は行っていないので、結果として `b` の値は `100` になります。
 
 ```javascript
-var a;  // これも未初期化
-var b = (typeof a !== 'undefined') ? a : 100;
+const a;  // これも未初期化
+const b = (typeof a !== 'undefined') ? a : 100;
 console.log(b);  //=> 100
 ```

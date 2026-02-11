@@ -33,9 +33,9 @@ console.log(performance.now())  //=> 12.499999997089617
 典型的な使用例としては、下記のようなパフォーマンス計測があります。
 
 ```javascript
-var t0 = performance.now();
+const t0 = performance.now();
 doSomething();
-var t1 = performance.now();
+const t1 = performance.now();
 console.log('doSomething took %f ms', (t1 - t0));
 ```
 

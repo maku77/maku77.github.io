@@ -15,7 +15,7 @@ aliases: /js/string/ng-word.html
 
 ```js
 // ユーザー入力が input 変数に含まれていると仮定
-// var input = 'あんたバカ？';
+// const input = 'あんたバカ？';
 
 const NG_WORDS = /アホ|まぬけ|バカ/;
 

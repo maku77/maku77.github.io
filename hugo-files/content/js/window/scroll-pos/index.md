@@ -14,7 +14,7 @@ Web ブラウザで今表示されている部分（ビューポート）の位�
 ### プレーンな JavaScript の例 (Vanilla JavaScript)
 
 ```javascript
-window.addEventListener('scroll', function(event) {
+window.addEventListener('scroll', (event) => {
   console.log(window.pageYOffset);  // 縦方向のスクロール量
   console.log(window.pageXOffset);  // 横方向のスクロール量
 });
@@ -40,9 +40,9 @@ window.addEventListener('scroll', function(event) {
 jQuery を使った場合も、ほぼ同じように記述できますが、プレーンな JavaScript でももともと簡単なので、jQuery を使用する意味はほとんどありません（パフォーマンスが悪くなるだけ）。
 
 ```javascript
-$(function () {
-  var $wnd = $(window);
-  $wnd.scroll(function() {
+$(() => {
+  const $wnd = $(window);
+  $wnd.scroll(() => {
     console.log($wnd.scrollTop());   // 縦方向のスクロール量
     console.log($wnd.scrollLeft());  // 横方向のスクロール量
   });
@@ -56,9 +56,9 @@ $(function () {
 `window.pageYOffset` (`scrollY`) や `window.pageXOffset` (`scrollX`) は、表示領域左上の座標しか取得できませんが、`window.innerHeight` や `window.innerWidth` を使ってウィンドウサイズを取得すれば、表示領域右下の座標を計算することができます。
 
 ```javascript
-window.addEventListener('scroll', function(event) {
-  var right = window.pageXOffset + window.innerWidth;
-  var bottom = window.pageYOffset + window.innerHeight;
+window.addEventListener('scroll', (event) => {
+  const right = window.pageXOffset + window.innerWidth;
+  const bottom = window.pageYOffset + window.innerHeight;
   console.log(right + ', ' + bottom);
 });
 ```

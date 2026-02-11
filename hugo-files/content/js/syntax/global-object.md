@@ -28,7 +28,7 @@ this.print(this.add(100, 200));
 これは、関数じゃなくて変数の場合も同様です。
 
 ```javascript
-var obj = {x:100, y:200};
+const obj = {x:100, y:200};
 print(obj.x);
 print(this.obj.x);  // 同上
 ```

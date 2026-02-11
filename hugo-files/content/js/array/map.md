@@ -9,8 +9,8 @@ aliases: [/js/array/map.html]
 [Array.prototype.map()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map) を使用すると、配列の各要素に対して、渡した関数を適用した新しい配列を作成することができます。
 
 {{< code lang="javascript" title="例: 配列の各要素を2倍にした配列を作成する" >}}
-var arr = [1, 2, 3];
-var arr2 = arr.map(function(x) { return x*2; });
+const arr = [1, 2, 3];
+const arr2 = arr.map((x) => { return x*2; });
 console.log(arr2);  //=> [2, 4, 6]
 {{< /code >}}
 
@@ -19,8 +19,8 @@ console.log(arr2);  //=> [2, 4, 6]
 最新の JavaScript では、**アロー関数式**を使用して、次のようにシンプルに記述することができます。
 
 ```javascript
-var arr = [1, 2, 3];
-var arr2 = arr.map(x => x*2);  //=> [2, 4, 6]
+const arr = [1, 2, 3];
+const arr2 = arr.map(x => x*2);  //=> [2, 4, 6]
 ```
 
 
@@ -28,7 +28,7 @@ var arr2 = arr.map(x => x*2);  //=> [2, 4, 6]
 次の例では、これを利用して、要素に連番を振っています（あまり意味のない使い方ですが）。
 
 {{< code lang="javascript" title="例: インデックス番号も利用する" >}}
-var arr = ['AAA', 'BBB', 'CCC'];
-var arr2 = arr.map((x, i) => i + ':' + x);  //=> ['0:AAA', '1:BBB', '2:CCC']
+const arr = ['AAA', 'BBB', 'CCC'];
+const arr2 = arr.map((x, i) => i + ':' + x);  //=> ['0:AAA', '1:BBB', '2:CCC']
 {{< /code >}}
 

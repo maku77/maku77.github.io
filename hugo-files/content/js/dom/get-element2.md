@@ -44,9 +44,9 @@ div
 div 要素に対して、従来からある `childNodes` プロパティを使用すると、上記のようなテキストノードを含む子要素の配列を取得することができます。
 
 ```javascript
-window.onload = function() {
-  var main = document.querySelector('#main')
-  var elems = main.childNodes;
+window.onload = () => {
+  const main = document.querySelector('#main')
+  const elems = main.childNodes;
   console.log(elems);  // [text, h2, text, h2, text, h2, text]
 };
 ```
@@ -54,9 +54,9 @@ window.onload = function() {
 新しい API である `children` プロパティを使用すると、テキストノードを除いた子要素の配列を取得することができます。
 
 ```javascript
-window.onload = function() {
-  var main = document.querySelector('#main')
-  var elems = main.children;
+window.onload = () => {
+  const main = document.querySelector('#main')
+  const elems = main.children;
   console.log(elems);  // [h2, h2, h2]
 };
 ```

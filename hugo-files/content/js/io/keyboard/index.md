@@ -16,9 +16,9 @@ aliases: [/js/io/keyboard.html]
 <DOCTYPE! html>
 <html>
 <script>
-  window.onload = function() {
+  window.onload = () => {
     'use strict';
-    var resultElem = document.getElementById('result');
+    const resultElem = document.getElementById('result');
 
     /**
      * Handles a key down/up event.
@@ -110,10 +110,10 @@ e.preventDefault();
 今回は、`keydown` イベントのみをハンドルしています。
 
 ```javascript
-window.onload = function() {
+window.onload = () => {
   'use strict';
-  var MOVE_BY = 5;  // 移動量
-  var puppetElem = document.getElementById('puppet');
+  const MOVE_BY = 5;  // 移動量
+  const puppetElem = document.getElementById('puppet');
 
   /** Handles a key down/up event. */
   function onKeyDown(e) {
@@ -142,7 +142,7 @@ window.onload = function() {
 
   /** Moves a specified HTML element. */
   function moveElem(elem, offsetX, offsetY) {
-    var rect = elem.getBoundingClientRect();
+    const rect = elem.getBoundingClientRect();
     elem.style.left = rect.left + offsetX + 'px';
     elem.style.top = rect.top + offsetY + 'px';
   }
@@ -165,7 +165,7 @@ jQuery でキーハンドル処理を行う
 jQuery を使用すると、イベントハンドラの登録部分を若干シンプルに記述することができます。
 
 ```javascript
-$(function() {
+$(() => {
   function onKeyDownOrUp(event) {
     console.log('code=' + event.code);
     event.preventDefault();

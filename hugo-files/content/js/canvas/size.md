@@ -28,7 +28,7 @@ JavaScript から Canvas API を使用するときに見えるキャンバスサ
 このキャンバスサイズは、JavaScript の中から次のように設定することもできます。
 
 ```javascript
-var canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 canvas.width = 400;
 canvas.height = 300;
 ```

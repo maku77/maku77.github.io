@@ -19,9 +19,9 @@ date.setDate(date.getDate() - 1);  // 1日戻る
 下記の例では、2000年12月25日を表す Date オブジェクトの日付を1日ずつ進めながら、どのようにその値が変化するかを調べています。
 
 ```javascript
-var date = new Date(2000, 11, 25); // 2000年12月25日
+const date = new Date(2000, 11, 25); // 2000年12月25日
 
-for (var i = 0; i < 10; ++i) {
+for (let i = 0; i < 10; ++i) {
   date.setDate(date.getDate() + 1);
   console.log(date.toDateString());
 }

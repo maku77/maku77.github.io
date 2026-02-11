@@ -12,7 +12,7 @@ aliases: [/js/jquery/hello-world.html]
 jQuery を使ったコードは、以下のような構成で組み立てていきます。
 
 ```javascript
-$(セレクタ).イベント(function() {
+$(セレクタ).イベント(() => {
     $(セレクタ).命令().命令().命令();  // 命令はチェーンできる
 }
 ```
@@ -24,7 +24,7 @@ Hello World
 HTML が読み込み終わった時に自動的に実行される処理は、以下のように記述します。
 
 {{< code lang="javascript" title="方法(1)" >}}
-$(document).ready(function() {
+$(document).ready(() => {
     // jQuery を使った処理
 });
 {{< /code >}}
@@ -32,7 +32,7 @@ $(document).ready(function() {
 以下のような省略記法も用意されています。
 
 {{< code lang="javascript" title="方法(2)" >}}
-$(function() {
+$(() => {
     // jQuery を使った処理
 });
 {{< /code >}}
@@ -48,7 +48,7 @@ $(function() {
 
 <script src="./jquery-1.8.3.min.js"></script>
 <script>
-$(function() {
+$(() => {
     $('div#message').append('<b>World</b>');
 });
 </script>

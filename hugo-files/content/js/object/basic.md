@@ -19,9 +19,9 @@ JavaScript のオブジェクトは、プロパティ名とプロパティ値の
 以下の 3 つの変数は、プロパティ数の異なるオブジェクトの参照を保持しています。
 
 ```javascript
-var obj1 = {};
-var obj2 = {"x":100};
-var obj3 = {"x":100, "y":200};
+const obj1 = {};
+const obj2 = {"x":100};
+const obj3 = {"x":100, "y":200};
 
 print(typeof obj1);  //=> "object"
 print(typeof obj2);  //=> "object"
@@ -56,7 +56,7 @@ JSON を意識したコーディングを行うのであれば、上記のよう
 プロパティ値には任意の値、オブジェクトを格納できます。
 
 ```javascript
-var obj = {
+const obj = {
     "num": 123,
     "string": "hello",
     "array": [10, 20, 30],
@@ -72,7 +72,7 @@ print(obj.object.x);  //=> 1
 JavaScript には、クラスやメソッドの概念はありませんが、プロパティとして関数を持たせることで、そのオブジェクトのメソッドのように呼び出すことができます。
 
 ```javascript
-var obj = {
+const obj = {
     "name": "Joe",
     "greet": function() { print("Hello " + this.name); }
 }
@@ -100,7 +100,7 @@ obj["xyz"]
 プロパティの追加は、代入するだけで行えます。
 
 ```javascript
-var point = {}
+const point = {}
 point.x = 100;  // 新規プロパティ x の追加
 point.y = 200;  // 新規プロパティ y の追加
 print(point.x);  //=> 100

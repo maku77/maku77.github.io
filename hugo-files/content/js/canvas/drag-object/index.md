@@ -58,7 +58,7 @@ Screen.prototype.addSprite = function (sprite) {
 
 Screen.prototype.redraw = function() {
   this.clearScreen();
-  for (var i = 0; i < this.sprites.length; ++i) {
+  for (let i = 0; i < this.sprites.length; ++i) {
     this.sprites[i].draw(this.ctx);
   }
 };
@@ -119,8 +119,8 @@ CanvasDragger.prototype._handleMouseMove = function (e) {
   if (!this.isDragging) {
     return;
   }
-  var diffX = e.offsetX - this.prevX;
-  var diffY = e.offsetY - this.prevY;
+  const diffX = e.offsetX - this.prevX;
+  const diffY = e.offsetY - this.prevY;
   this.prevX = e.offsetX;
   this.prevY = e.offsetY;
   if (this.moveHandler) {
@@ -134,17 +134,17 @@ CanvasDragger.prototype._handleMouseMove = function (e) {
 
 ```js
 function main() {
-  var canvas = document.getElementById('my-canvas');
-  var screen = new Screen(canvas);
-  var sp1 = new Sprite(30, 10);
-  var sp2 = new Sprite(50, 15);
-  var sp3 = new Sprite(70, 20);
+  const canvas = document.getElementById('my-canvas');
+  const screen = new Screen(canvas);
+  const sp1 = new Sprite(30, 10);
+  const sp2 = new Sprite(50, 15);
+  const sp3 = new Sprite(70, 20);
   screen.addSprite(sp1);
   screen.addSprite(sp2);
   screen.addSprite(sp3);
   screen.redraw();
 
-  new CanvasDragger(canvas).setMoveHandler(function (dx, dy) {
+  new CanvasDragger(canvas).setMoveHandler((dx, dy) => {
     sp1.x += dx;
     sp1.y += dy;
     sp2.x += dx;

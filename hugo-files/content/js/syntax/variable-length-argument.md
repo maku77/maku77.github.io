@@ -12,7 +12,7 @@ aliases: [/js/syntax/variable-length-argument.html]
 
 ```javascript
 function hoge() {
-  for (var i = 0, len = arguments.length; i < len; ++i) {
+  for (let i = 0, len = arguments.length; i < len; ++i) {
     console.log(arguments[i]);
   }
 }

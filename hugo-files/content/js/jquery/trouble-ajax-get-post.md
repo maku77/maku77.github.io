@@ -22,8 +22,7 @@ $.ajax({
 });
 
 // 下記も同様
-$.post('/memos/create', {body: 'Memo1'},
-        function() { alert('Created!'); }, 'text');
+$.post('/memos/create', {body: 'Memo1'}, () => { alert('Created!'); }, 'text');
 ```
 
 
@@ -34,7 +33,7 @@ click イベントのデフォルト動作と重なってしまうケース
 これを解決するには、デフォルトのイベントをキャンセルして Ajax 通信を行います。
 
 ```javascript
-$('#btn').click(function(e) {
+$('#btn').click((e) => {
     e.preventDefault();    // デフォルトの挙動をキャンセル
     $.ajax(...);
 });

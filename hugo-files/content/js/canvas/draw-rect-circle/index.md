@@ -32,10 +32,10 @@ Canvas 要素に対して描画を行うためには、`HTMLCanvasElement` の `
 {{< /code >}}
 
 {{< code lang="js" title="draw-rect-circle-demo.js" >}}
-window.onload = function() {
+window.onload = () => {
     // Get a canvas context.
-    var canvas = document.getElementById('my_canvas');  // HTMLCanvasElement
-    var context = canvas.getContext('2d');  // CanvasRenderingContext2D
+    const canvas = document.getElementById('my_canvas');  // HTMLCanvasElement
+    const context = canvas.getContext('2d');  // CanvasRenderingContext2D
 
     // 赤色の矩形（外枠のみ）
     context.lineWidth = 5;         // 線の太さ

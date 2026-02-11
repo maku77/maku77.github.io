@@ -10,8 +10,8 @@ aliases: [/js/array/copy.html]
 ----
 
 ```javascript
-var a = [1, 2, 3];
-var b = a;
+const a = [1, 2, 3];
+const b = a;
 ```
 
 JavaScript では、上記のような代入は、単なるリファレンスの代入になってしまいます。
@@ -24,8 +24,8 @@ function copyArray(arr) {
 ```
 
 {{< code lang="javascript" title="使い方" >}}
-var a = [1, 2, 3];
-var b = copyArray(b);
+const a = [1, 2, 3];
+const b = copyArray(b);
 {{< /code >}}
 
 
@@ -35,12 +35,12 @@ Array クラスを拡張して clone() メソッドを追加する
 `Array` クラスの `prototype` を拡張して `clone()` メソッドのようなものを追加すれば、配列がもともとコピー機能を持っているかのように記述できるようになります。
 
 ```javascript
-Array.prototype.clone = function() {
+Array.prototype.clone = () => {
   return Array.apply(null, this);
 }
 
-var a = [1, 2, 3];
-var b = a.clone();
+const a = [1, 2, 3];
+const b = a.clone();
 ```
 
 多次元配列でもコピーできるようにするには、再帰的にコピーを行う必要があります。
@@ -48,9 +48,9 @@ var b = a.clone();
 ```javascript
 Array.prototype.clone = function() {
   if (this[0].constructor == Array) {
-    var len = this.length;
-    var arr = new Array(len);
-    for (var i = 0; i < len; ++i) {
+    const len = this.length;
+    const arr = new Array(len);
+    for (let i = 0; i < len; ++i) {
       arr[i] = this[i].clone();
     }
     return arr;

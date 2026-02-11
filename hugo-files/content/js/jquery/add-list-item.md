@@ -13,7 +13,7 @@ aliases: [/js/jquery/add-list-item.html]
 {{< /code >}}
 
 {{< code lang="javascript" title="JavaScript（抜粋）" >}}
-var $myList = $('#myList');
+const $myList = $('#myList');
 $myList.append('<li>Item 1</li>');
 $myList.append('<li>Item 2</li>');
 $myList.append('<li>Item 3</li>');
@@ -22,7 +22,7 @@ $myList.append('<li>Item 3</li>');
 次のようにして、`li` 要素の jQuery オブジェクトを作ってから `append` する方法もあります。
 
 ```javascript
-var $myList = $('#myList');
+const $myList = $('#myList');
 $myList.append($('<li/>').text('Item 1'));
 $myList.append($('<li/>').text('Item 2'));
 $myList.append($('<li/>').text('Item 3'));

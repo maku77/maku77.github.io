@@ -94,10 +94,10 @@ console.log(a);  //=> {'A':1, 'B':2, 'C':3}
 
 ```javascript
 // Extend a given object with all the properties in passed-in object(s).
-_.extend = function(obj) {
+_.extend = (obj) => {
   if (!_.isObject(obj)) return obj;
-  var source, prop;
-  for (var i = 1, length = arguments.length; i < length; i++) {
+  let source, prop;
+  for (let i = 1, length = arguments.length; i < length; i++) {
     source = arguments[i];
     for (prop in source) {
       if (hasOwnProperty.call(source, prop)) {

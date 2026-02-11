@@ -56,9 +56,9 @@ fillText メソッドでテキストを描画するときは、**fillStyle** プ
 <canvas id="canvas" width="250" height="100" style="border:solid gray 1px;"></canvas>
 
 <script>
-window.onload = function() {
-  var canvas = document.getElementById('canvas');  // HTMLCanvasElement
-  var ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
+window.onload = () => {
+  const canvas = document.getElementById('canvas');  // HTMLCanvasElement
+  const ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
   ctx.font = '50pt Arial';
   ctx.fillStyle = 'rgba(0, 0, 255)';
   ctx.fillText('Hello', 20, 70);  // 座標 (20, 50) にテキスト描画
@@ -79,9 +79,9 @@ strokeText メソッドでテキストを描画すると、テキストの輪郭
 <canvas id="canvas" width="250" height="100" style="border:solid gray 1px;"></canvas>
 
 <script>
-window.onload = function() {
-  var canvas = document.getElementById('canvas');  // HTMLCanvasElement
-  var ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
+window.onload = () => {
+  const canvas = document.getElementById('canvas');  // HTMLCanvasElement
+  const ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
   ctx.font = 'bold 60pt sans-serif';
   ctx.strokeStyle = '#f00';
   ctx.lineWidth = 3;
@@ -158,7 +158,7 @@ HTML5 Canvas に描画したテキストのサイズは、[CanvasRenderingContex
 取得した `TextMetrics` オブジェクトの `width` プロパティを参照することで、実際の描画幅 (px) を調べることができます。
 
 ```javascript
-var width = ctx.measureText('text').width;
+const width = ctx.measureText('text').width;
 ```
 
 下記の例では、テキスト「あいうえお」を実際に描画した時の横幅を調べて、その幅で矩形を表示しています。
@@ -171,14 +171,14 @@ var width = ctx.measureText('text').width;
 <canvas id="canvas" width="200" height="100"></canvas>
 
 <script>
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');  // CanvasRenderingContext2D
 
 // フォントの設定
 ctx.font = '20pt Arial';
 
 // 描画サイズ (TextMetrics) の取得
-var metrics = ctx.measureText('あいうえお');
+const metrics = ctx.measureText('あいうえお');
 
 // 取得した横幅で Rectangle と Text を描画
 ctx.fillStyle = 'rgba(255, 0, 0, 0.25)';

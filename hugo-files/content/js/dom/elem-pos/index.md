@@ -13,15 +13,15 @@ aliases: [/js/dom/elem-pos.html]
 ページの左上からの絶対座標や、親要素からの相対座標で取得することができます。
 
 {{< code lang="javascript" title="jQuery の例" >}}
-var $e = $('#box');
+const $e = $('#box');
 
 // document（ページ左上）からの絶対座標
-var x1 = $e.offset().top;
-var y1 = $e.offset().left;
+const x1 = $e.offset().top;
+const y1 = $e.offset().left;
 
 // 親要素の左上を (0,0) とした相対座標
-var x2 = $e.position().top;
-var y2 = $e.position().left;
+const x2 = $e.position().top;
+const y2 = $e.position().left;
 {{< /code >}}
 
 {{< image src="img-001.svg" >}}
@@ -41,12 +41,12 @@ var y2 = $e.position().left;
 <iframe class="xHtmlDemo" src="elem-pos-demo.html"></iframe>
 
 {{< code lang="javascript" title="プレーンな JavaScript (Vanilla JavaScript) の例" >}}
-var e = document.getElementById('box');
-var rect = e.getBoundingClientRect();  // 画面左上を基準とする位置
+const e = document.getElementById('box');
+const rect = e.getBoundingClientRect();  // 画面左上を基準とする位置
 
 // document（ページ左上）からの絶対座標
-var x1 = rect.top + window.pageYOffset;
-var y1 = rect.left + window.pageXOffset;
+const x1 = rect.top + window.pageYOffset;
+const y1 = rect.left + window.pageXOffset;
 
 // 親要素の左上を (0,0) とした相対座標は、計算が複雑なので省略。。。
 {{< /code >}}
@@ -60,19 +60,19 @@ jQuery を使わずに `offset()` 相当の座標値を取得するには、上�
 ウィンドウ（表示領域）の左上を原点 (0, 0) とみなした相対座標で要素の位置を取得するには次のようにします。
 
 {{< code lang="javascript" title="プレーンな JavaScript (Vanilla JavaScript) の例" >}}
-var e = document.getElementById('box');
+const e = document.getElementById('box');
 
 // スクリーン左上を (0, 0) とした相対座標
-var rect = e.getBoundingClientRect();
+const rect = e.getBoundingClientRect();
 console.log(rect.top);
 console.log(rect.left);
 {{< /code >}}
 
 {{< code lang="javascript" title="jQuery を使った例（jQuery 用の独自の関数はない）" >}}
-var $e = $('#box');
+const $e = $('#box');
 
 // スクリーン左上を (0, 0) とした相対座標
-var rect = $e.get(0).getBoundingClientRect();
+const rect = $e.get(0).getBoundingClientRect();
 console.log(rect.top);
 console.log(rect.left);
 {{< /code >}}

@@ -49,7 +49,7 @@ toXxxString() 系のメソッド
 下記は上記の結果を調べるためのサンプルコードです。
 
 ```javascript
-var d = new Date(2018, 3, 3, 21, 30, 55);
+const d = new Date(2018, 3, 3, 21, 30, 55);
 
 // 日付＋時刻
 console.log(d.toString());  // Tue Apr 03 2018 21:30:55 GMT+0900 (日本標準時)
@@ -84,8 +84,8 @@ YYYY-MM-DD の文字列で取得する
 上記の文字列を、`T` の文字で分割すれば、日付 (`YYYY-MM-DD`) 部分だけを簡単に取得できます。
 
 ```javascript
-var now = new Date();
-var text = now.toISOString().split('T')[0];
+const now = new Date();
+const text = now.toISOString().split('T')[0];
 alert(text);  //=> "2012-10-04"
 ```
 
@@ -97,13 +97,13 @@ alert(text);  //=> "2012-10-04"
 
 ```javascript
 function getTimeStr() {
-    var d = new Date();
-    var yyyy = d.getUTCFullYear();
-    var MM = ('0' + (d.getUTCMonth() + 1)).slice(-2);
-    var dd = ('0' + d.getUTCDate()).slice(-2);
-    var hh = ('0' + d.getUTCHours()).slice(-2);
-    var mm = ('0' + d.getUTCMinutes()).slice(-2);
-    var ss = ('0' + d.getUTCSeconds()).slice(-2);
+    const d = new Date();
+    const yyyy = d.getUTCFullYear();
+    const MM = ('0' + (d.getUTCMonth() + 1)).slice(-2);
+    const dd = ('0' + d.getUTCDate()).slice(-2);
+    const hh = ('0' + d.getUTCHours()).slice(-2);
+    const mm = ('0' + d.getUTCMinutes()).slice(-2);
+    const ss = ('0' + d.getUTCSeconds()).slice(-2);
     return yyyy + '-' + MM + '-' + dd + 'T' + hh + ':' + mm + ':' + ss + 'Z';
 }
 ```

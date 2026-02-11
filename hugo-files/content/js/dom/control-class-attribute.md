@@ -13,8 +13,8 @@ aliases: [/js/dom/control-class-attribute.html]
  * Add a class to the specified element.
  */
 function addClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       // Specified class is already included in the element.
       return;
@@ -29,8 +29,8 @@ function addClass(elem, clazz) {
  * Remove a class from the specified element.
  */
 function removeClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       classes.splice(i, 1);
       elem.className = classes.join(' ');
@@ -45,8 +45,8 @@ function removeClass(elem, clazz) {
  * Toggle a class of the specified element.
  */
 function toggleClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       // If specified class is found, remove it.
       classes.splice(i, 1);
@@ -61,7 +61,7 @@ function toggleClass(elem, clazz) {
 
 {{< code lang="js" title="使用例" >}}
 // 初期状態で 2 つのクラスを持つ要素を取得
-var elem = document.getElementById('elem');
+const elem = document.getElementById('elem');
 console.log(elem.className); //=> 'class1 class2'
 
 // class3 を追加

@@ -10,11 +10,11 @@ aliases: [/js/array/random.html]
 
 ```javascript
 function randomGet(arr) {
-  var index = Math.floor(Math.random() * arr.length)
+  const index = Math.floor(Math.random() * arr.length)
   return arr[index];
 }
 
-var arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5];
 console.log(randomGet(arr));
 ```
 
@@ -22,11 +22,11 @@ console.log(randomGet(arr));
 
 ```javascript
 Array.prototype.randomGet = function() {
-  var index = Math.floor(Math.random() * this.length)
+  const index = Math.floor(Math.random() * this.length)
   return this[index];
 };
 
-var arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5];
 console.log(arr.randomGet());
 ```
 

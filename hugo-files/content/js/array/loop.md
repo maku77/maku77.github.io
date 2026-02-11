@@ -11,7 +11,7 @@ for-of を使う方法 (ECMAScript 2015)
 ----
 
 ```javascript
-var arr = ['AAA', 'BBB', 'CCC'];
+const arr = ['AAA', 'BBB', 'CCC'];
 
 for (const elem of arr) {
   console.log(elem);
@@ -30,7 +30,7 @@ forEach を使う方法 (ECMAScript 2015)
 
 ```javascript
 const arr = ['AAA', 'BBB', 'CCC'];
-arr.forEach(function(elem, index) {
+arr.forEach((elem, index) => {
   console.log(index + ': ' + elem);
 });
 ```
@@ -81,7 +81,7 @@ jQuery の $.each を使う方法（おまけ）
 
 ```javascript
 const arr = ['AAA', 'BBB', 'CCC'];
-$.each(arr, function(index, elem) {
+$.each(arr, (index, elem) => {
   console.log(index + ': ' + elem);
 });
 ```
@@ -97,7 +97,7 @@ Underscore.js の _.each を使う方法
 
 ```javascript
 const arr = ['AAA', 'BBB', 'CCC'];
-_.each(arr, function(elem, index) {
+_.each(arr, (elem, index) => {
   console.log(index + ': ' + elem);
 });
 ```

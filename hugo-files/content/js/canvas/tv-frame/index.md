@@ -105,15 +105,15 @@ window.onload = function () {
 ちなみに、canvas に描画を行う JavaScript コードは次のようになっています。
 
 ```javascript
-window.onload = function () {
-  var INTERVAL = 30; // ms
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
+window.onload = () => {
+  const INTERVAL = 30; // ms
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
 
   function drawFrame() {
     // 半径 20px の円を中央に描く
-    var x = Math.random() * canvas.width;
-    var y = Math.random() * canvas.height;
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height;
     ctx.fillStyle = randomColor();  // 塗りつぶしの色
     ctx.fillRect(x, y, 50, 50);
   }
@@ -123,7 +123,7 @@ window.onload = function () {
   }
 
   function start() {
-    setTimeout(function() {
+    setTimeout(() => {
       drawFrame();
       start();
     }, INTERVAL);

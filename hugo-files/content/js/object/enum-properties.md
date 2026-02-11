@@ -15,8 +15,8 @@ aliases: [/js/object/enum-properties.html]
 前者の構文を使用するのがよいでしょう。
 
 {{< code lang="javascript" title="サンプルコード" >}}
-var obj = {x:1, y:2, z:3};
-for (var k in obj) { console.log(k); }
+const obj = {x:1, y:2, z:3};
+for (let k in obj) { console.log(k); }
 {{< /code >}}
 
 {{< code title="実行結果" >}}

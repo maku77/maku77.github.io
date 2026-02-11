@@ -17,7 +17,7 @@ HTML5 では、`data-*` という形式の名前で、カスタム属性を指�
 この属性値は、JavaScript から次のように取得することができます。
 
 ```js
-var elem = document.getElementById('sample');
+const elem = document.getElementById('sample');
 alert(elem.dataset.message);
 ```
 
@@ -27,7 +27,7 @@ HTML5 以前も `getAttribute()` を使用すれば、同様のことを実現�
 jQuery を使用すれば、よりシンプルに `data()` メソッドを使って取得することができます。
 
 ```js
-var $elem = $('#sample');
+const $elem = $('#sample');
 alert($elem.data('message'));
 ```
 
@@ -42,13 +42,13 @@ jQuery の `attr()` メソッドが属性値を一律に文字列データとし
 {{< /code >}}
 
 {{< code lang="js" title="JavaScript" >}}
-var $elem = $('#sample');
+const $elem = $('#sample');
 
 // カスタム属性値を配列として取得
-var arr = $elem.data('myArray');
+const arr = $elem.data('myArray');
 alert(arr[0]);  //=> 10
 
 // カスタム属性値をオブジェクトとして取得
-var obj = $elem.data('myObject');
+const obj = $elem.data('myObject');
 alert(obj.aaa);  //=> 100
 {{< /code >}}

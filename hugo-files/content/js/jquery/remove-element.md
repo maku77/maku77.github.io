@@ -36,7 +36,7 @@ $('.secret').empty();  // secret クラスの要素の中身を空にする
 ある要素を保持する jQuery オブジェクトに対し、**detach()** メソッドを使用すると、一時的に DOM ツリーから取り除くことができます。必要になり次第、再び DOM ツリーに挿入することができます。**detach()** で一時的に取り除いた要素のイベントハンドラも復帰します。
 
 ```javascript
-var $el = $('#elem');
+const $el = $('#elem');
 $el.detach();  // 一時的に削除
 $el.insertAfter('#target');  // 復活させる
 ```

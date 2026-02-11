@@ -39,7 +39,7 @@ target 前記型のメソッドでは、content として function を渡すこ�
 
 ```javascript
 // すべての h2 を h3 に置き換える
-$('h2').replaceWith(function() {
+$('h2').replaceWith(() => {
   return '<h3>' + $(this).html() + '</h3>';
 });
 ```
@@ -49,12 +49,12 @@ HTML テキストから任意の要素を動的に作成することができま
 下記の例では、動的に `<img>` 要素を作成し、各 `h1` 要素の後ろに挿入しています。
 
 ```javascript
-var attrs = {
+const attrs = {
     src: 'http://example.com/button.png',
     css: { border: '3px solid red' },
     click: function() { alert(this.src); }
 };
-var $img = $('<img />', attrs);
+const $img = $('<img />', attrs);
 
 $img.insertAfter('h1');    # 各 h1 要素の後ろに <img> を挿入
 ```

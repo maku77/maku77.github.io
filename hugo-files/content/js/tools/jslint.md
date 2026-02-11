@@ -41,7 +41,7 @@ jQuery の `$` や、`console`、`document` などのグローバル変数（別
 ```js
 /*global $: false, jQuery: false, console: false */
 
-$(function () {
+$(() => {
   'use strict';
   console.log('hello');
 });

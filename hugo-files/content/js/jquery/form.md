@@ -28,10 +28,10 @@ aliases: [/js/jquery/form.html]
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-$(function() {
-  $('#button1').click(function(e) {
+$(() => {
+  $('#button1').click((e) => {
     e.preventDefault();  // ボタン押下時のサブミット動作を抑制
-    var val = $('#text1').val();
+    const val = $('#text1').val();
     console.log(val);
   });
 });
@@ -48,9 +48,9 @@ $(function() {
 フォーム上のテキストフィールドなどで入力中に Enter キーを押したときと、Submit ボタンを押したときのイベントを同じように処理したいのであれば、以下のようにフォーム要素の `submit` イベントをハンドルします。
 
 ```javascript
-$('#form1').submit(function(e) {
+$('#form1').submit((e) => {
   e.preventDefault();  // サブミット動作をキャンセル
-  var val = $('#text1').val();
+  const val = $('#text1').val();
   console.log(val);
 });
 ```
@@ -72,8 +72,8 @@ $('#form1').submit(function(e) {
 ```
 
 ```javascript
-var $text1 = $('#form1 [name=text1]');
-var value = $text1.val();
+const $text1 = $('#form1 [name=text1]');
+const value = $text1.val();
 ```
 
 
@@ -87,8 +87,8 @@ var value = $text1.val();
 ```
 
 ```javascript
-$('#text1').on('input', function(e) {
-  var val = $(this).val();  // #('#text1').val() と同じ
+$('#text1').on('input', (e) => {
+  const val = $(this).val();  // #('#text1').val() と同じ
   console.log(val);
 });
 ```
@@ -103,9 +103,9 @@ $('#text1').on('input', function(e) {
 ```
 
 ```javascript
-$('#form1').on('input', function(e) {
-  var val1 = $('#text1').val();
-  var val2 = $('#text2').val();
+$('#form1').on('input', (e) => {
+  const val1 = $('#text1').val();
+  const val2 = $('#text2').val();
   console.log(val1, val2);
 });
 ```

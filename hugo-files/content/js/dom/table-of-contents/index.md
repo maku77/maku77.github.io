@@ -40,7 +40,7 @@ HTML 内に配置したヘッダー要素（`h2` 要素）の表示テキスト�
 メニューを構成する `ul` 要素は、もともとの HTML にプレースホルダとして配置しておいた `<div id="menuStub">` に挿入するようにしています（記述を簡単にするため jQuery を使用しています）。
 
 ```js
-$(function() {
+$(() => {
   /*
    * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
    * メニュー要素 (ul) を生成する。
@@ -49,13 +49,13 @@ $(function() {
    * - headerTagNames: 抽出するヘッダ要素名（例: 'h2'）
    */
   function createMenu(searchParent, headerTagNames) {
-    var $ul = $('<ul />');  // メニュー項目の親要素
-    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+    const $ul = $('<ul />');  // メニュー項目の親要素
+    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
 
-    $(searchParent).find(headerTagNames).each(function (index, elem) {
-      var $e = $(elem);
+    $(searchParent).find(headerTagNames).each((index, elem) => {
+      const $e = $(elem);
       // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      var name = 'section' + (sectionNumber++);
+      let name = 'section' + (sectionNumber++);
       $e.prepend('<a name="' + name + '"></a>');
 
       // メニュー項目となる li 要素を追加する
@@ -67,7 +67,7 @@ $(function() {
 
   // main 要素以下の h2 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
   // その ul 要素を #menuStub へと挿入する。
-  var menuElem = createMenu('main', 'h2');
+  const menuElem = createMenu('main', 'h2');
   $('#menuStub').append(menuElem);
 });
 ```
@@ -126,7 +126,7 @@ JavaScript のコードの方はあまり変更する必要はなく、基本的
 ここでは、jQuery を用いていますが、Vanilla JS（プレーンな JS）でも、`document.querySelectorAll('h2, h3')` のように複数のタグ名で検索できます。
 
 ```js
-$(function() {
+$(() => {
   /*
    * 指定されたヘッダ要素（例: 'h2, h3, h4'）のタイトル名をもとに
    * メニュー要素 (ul) を生成する。
@@ -135,17 +135,17 @@ $(function() {
    * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
    */
   function createMenu(searchParent, headerTagNames) {
-    var $ul = $('<ul />');  // メニュー項目の親要素
-    var sectionNumber = 1;  // ジャンプ先名称のサフィックス
+    const $ul = $('<ul />');  // メニュー項目の親要素
+    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
 
-    $(searchParent).find(headerTagNames).each(function (index, elem) {
-      var $e = $(elem);
+    $(searchParent).find(headerTagNames).each((index, elem) => {
+      const $e = $(elem);
       // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      var name = 'section' + (sectionNumber++);
+      let name = 'section' + (sectionNumber++);
       $e.prepend('<a name="' + name + '"></a>');
 
       // メニュー項目となる li 要素を追加する
-      var level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
+      const level = $e.get(0).tagName.charAt(1);  // 'h2' などの後ろの数値部分
       $ul.append('<li class="level-' + level + '"><a href="#' + name + '">' + $e.text() + '</a>');
     });
 
@@ -154,7 +154,7 @@ $(function() {
 
   // main 要素以下の h2, h3 ヘッダを抽出して、メニュー (ul 要素) を自動生成し、
   // その ul 要素を #menu へと挿入する。
-  var menuElem = createMenu('main', 'h2, h3');
+  const menuElem = createMenu('main', 'h2, h3');
   $('#menuStub').append(menuElem);
 });
 ```

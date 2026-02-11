@@ -12,7 +12,7 @@ aliases: [/js/array/cut.html]
 `length` プロパティに、現在の配列サイズよりも小さい値を代入すると、配列のサイズが切り詰められます。
 
 ```javascript
-var a = [1, 2, 3, 4, 5];
+const a = [1, 2, 3, 4, 5];
 a.length = 3;
 console.log(a.length);  //=> 3
 console.log(a);         //=> [ 1, 2, 3 ]
@@ -22,7 +22,7 @@ console.log(a);         //=> [ 1, 2, 3 ]
 その位置の値が `undefined` になるだけです。
 
 ```javascript
-var a = [1, 2, 3];
+const a = [1, 2, 3];
 delete a[2];
 console.log(a.length);  //=> 3
 console.log(a);         //=> [ 1, 2, ]
@@ -31,7 +31,7 @@ console.log(a);         //=> [ 1, 2, ]
 現在の配列サイズよりも大きい値を `length` プロパティに代入すると、配列サイズは拡張されますが、拡張された部分の値は `undefined` になります。
 
 ```javascript
-var a = [1, 2, 3];
+const a = [1, 2, 3];
 a.length = 10;
 console.log(a.length);  //=> 10
 console.log(a);         //=> [ 1, 2, 3, , , , , , ,  ]
@@ -44,7 +44,7 @@ console.log(a);         //=> [ 1, 2, 3, , , , , , ,  ]
 配列の `splice()` メソッドは、指定したインデックスから指定した数だけの要素を抽出した配列を返します。
 
 ```javascript
-var a = [1, 2, 3, 4, 5, 6, 7];
+const a = [1, 2, 3, 4, 5, 6, 7];
 console.log(a.splice(2, 3));  // [ 3, 4, 5 ]
 ```
 
@@ -52,7 +52,7 @@ console.log(a.splice(2, 3));  // [ 3, 4, 5 ]
 つまり、配列の中間要素を削除する形で配列を切り詰めることができます。
 
 ```javascript
-var a = [1, 2, 3, 4, 5, 6, 7];
+const a = [1, 2, 3, 4, 5, 6, 7];
 a.splice(2, 3);
 console.log(a);  //=> [ 1, 2, 6, 7 ]
 ```

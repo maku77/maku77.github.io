@@ -31,7 +31,7 @@ Book.prototype.toString = function() {
 ```
 
 {{< code lang="js" title="使用例" >}}
-var b = new Book('Yes we can', 'Maku');
+const b = new Book('Yes we can', 'Maku');
 alert(b);  //=> title=Yes we can, author=Maku
 {{< /code >}}
 
@@ -39,6 +39,6 @@ alert(b);  //=> title=Yes we can, author=Maku
 例えば、Node.js のコンソール環境では、`console.log()` は、次のようにオブジェクトのプロパティをすべて出力するようになっています。
 
 ```js
-var obj = {a:100, b:200};
+const obj = {a:100, b:200};
 console.log(obj);  //=> { a: 100, b: 200 }
 ```

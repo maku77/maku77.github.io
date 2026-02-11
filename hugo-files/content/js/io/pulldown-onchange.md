@@ -20,7 +20,7 @@ aliases: [/js/io/pulldown-onchange.html]
 function handleChange() {
   document.getElementById('message').innerHTML = this.value;
 }
-var sel = document.getElementById('sel1');
+const sel = document.getElementById('sel1');
 sel.onchange = handleChange;
 sel.onkeyup = handleChange;  // for Firefox
 </script>

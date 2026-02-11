@@ -17,7 +17,7 @@ IE の場合、ユーザーエージェント名は **`MSIE `** あるいは **`
 ```js
 // 使用中のブラウザが IE であるかどうかを判別します。
 function isIe() {
-  var ua = navigator.userAgent;
+  const ua = navigator.userAgent;
   return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
 }
 ```
@@ -42,8 +42,8 @@ if (isIe()) {
 
 ```js
 if (isIe()) {
-  var div = document.createElement('div');
-  var text = document.createTextNode('IE には対応していません。最新のブラウザを使用してください。');
+  const div = document.createElement('div');
+  const text = document.createTextNode('IE には対応していません。最新のブラウザを使用してください。');
   div.appendChild(text);
   document.getElementsByTagName('body')[0].appendChild(div);
 }

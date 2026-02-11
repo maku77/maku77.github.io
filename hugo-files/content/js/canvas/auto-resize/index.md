@@ -25,9 +25,9 @@ Canvas のサイズをクライアントサイズほぼいっぱいに表示さ�
 <body>
   <canvas id="my_canvas" />
   <script>
-  window.onload = function() {
-    var canvas = document.getElementById("my_canvas");
-    var ctx = canvas.getContext("2d");
+  window.onload = () => {
+    const canvas = document.getElementById("my_canvas");
+    const ctx = canvas.getContext("2d");
 
     function fitCanvasSize() {
       // Canvas のサイズをクライアントサイズに合わせる
@@ -39,8 +39,8 @@ Canvas のサイズをクライアントサイズほぼいっぱいに表示さ�
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Canvas サイズに合わせて矩形を描画
-      var w = canvas.width / 2;
-      var h = canvas.height / 2;
+      const w = canvas.width / 2;
+      const h = canvas.height / 2;
       ctx.fillStyle = "cyan";
       ctx.fillRect(10, 10, w, h);
     }

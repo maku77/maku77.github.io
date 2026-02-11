@@ -11,7 +11,7 @@ JavaScript には関数スコープという概念があるので、入れ子の
 
 ```javascript
 function convert(num) {
-  for (var i = 0; i < 3; ++i) {
+  for (let i = 0; i < 3; ++i) {
     num = square(num);
   }
   return num;

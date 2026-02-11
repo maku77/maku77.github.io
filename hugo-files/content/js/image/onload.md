@@ -9,8 +9,8 @@ aliases: [/js/image/onload.html]
 **Image** オブジェクトの **onload** コールバックは、ファイルロードが完了したときに呼び出されます。
 
 ```javascript
-var img = new Image();
-img.onload(function() {
+const img = new Image();
+img.onload(() => {
     // ファイルロードが終了した時の処理
 });
 
@@ -24,9 +24,9 @@ img.src = './sample.png';
 
 ```javascript
 function setLoadAllCallback(elems, callback) {
-    var count = 0;
-    for (var i = 0; i < elems.length; ++i) {
-        elems[i].onload = function() {
+    let count = 0;
+    for (let i = 0; i < elems.length; ++i) {
+        elems[i].onload = () => {
             ++count;
             if (count == elems.length) {
                 // All elements have been loaded.
@@ -38,11 +38,11 @@ function setLoadAllCallback(elems, callback) {
 ```
 
 {{< code lang="javascript" title="使用例" >}}
-var img1 = new Image();
-var img2 = new Image();
-var img3 = new Image();
+const img1 = new Image();
+const img2 = new Image();
+const img3 = new Image();
 
-setLoadAllCallback([img1, img2, img3], function(elems) {
+setLoadAllCallback([img1, img2, img3], (elems) => {
     // すべての要素の読み込みが終わったときに呼び出される
 });
 

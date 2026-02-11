@@ -11,7 +11,7 @@ JavaScript の `typeof` 演算子は、オブジェクト、配列、null に対
 あるインスタンスが、特定のクラスのインスタンスであることを調べるには、`instanceof` 演算子を使用して判別する方法があります。
 
 ```js
-var d = new Date();
+const d = new Date();
 if (d instanceof Date) {
     // d は Date インスタンスである
 }
@@ -24,7 +24,7 @@ if (d instanceof Object) {
 `constructor` プロパティは、そのオブジェクトの生成に使われたコンストラクタ関数を返します。
 
 ```js
-var d = new Date();
+const d = new Date();
 if ((d != null) && (d.constructor === Date)) {
     // d は Date インスタンスである
 }

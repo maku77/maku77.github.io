@@ -9,9 +9,9 @@ aliases: [/js/object/property-shorthand.html]
 従来の JavaScript では、下記のように 2 つのスカラー値（`a`、`b`）をひとつのオブジェクトにまとめるには、プロパティ名を明示的に記述する必要がありました。
 
 ```js
-var a = 100;
-var b = 'Hello';
-var obj = { a: a, b: b };
+const a = 100;
+const b = 'Hello';
+const obj = { a: a, b: b };
 ```
 
 変数名とプロパティ名が同じなので、この記述方法は冗長です。

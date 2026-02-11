@@ -29,7 +29,7 @@ console.log(nums);  //=> [1, 11, 12, 13, 2, 3]
 
 ```js
 const nums = [1, 2, 3, 11, 12, 13];
-nums.sort(function(a, b) {
+nums.sort((a, b) => {
   return a - b;
 });
 console.log(nums);  //=> [1, 2, 3, 11, 12, 13]

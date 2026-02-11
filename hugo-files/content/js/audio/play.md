@@ -14,7 +14,7 @@ Audio クラスを使用して、mp3 などの音声ファイルを再生する�
 
 <script>
 function playSound() {
-  var audio = new Audio('./audio/001.mp3');
+  const audio = new Audio('./audio/001.mp3');
   audio.play();
 }
 </script>

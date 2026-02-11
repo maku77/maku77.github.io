@@ -17,13 +17,13 @@ aliases: [/js/time/measure-performance.html]
 {{< code lang="js" title="concat 関数の処理速度を計測する" >}}
 // 処理速度を計測したい関数
 function concat() {
-  var s = '';
-  for (var i = 0; i < 1000 * 1000; ++i) {
+  let s = '';
+  for (let i = 0; i < 1000 * 1000; ++i) {
     s += i;
   }
 }
 
-var start = performance.now();
+const start = performance.now();
 concat();
 console.log(performance.now() - start);
 {{< /code >}}
@@ -56,26 +56,26 @@ const { PerformanceObserver, performance } = require('perf_hooks');
 
 {{< code lang="js" title="任意の関数の処理速度を計測する関数" >}}
 function measurePerf(func) {
-  var start = performance.now();
+  const start = performance.now();
   func();
   console.log(performance.now() - start);
 }
 {{< /code >}}
 
 {{< code lang="js" title="使用例（concat1 と concat2 の処理速度を計測する）" >}}
-var COUNT = 10000000;
+const COUNT = 10000000;
 
 function concat1() {
-  var s = '';
-  for (var i = 0; i < COUNT; ++i) {
+  let s = '';
+  for (let i = 0; i < COUNT; ++i) {
     s += i;
   }
   return s;
 }
 
 function concat2() {
-  var arr = [];
-  for (var i = 0; i < COUNT; ++i) {
+  const arr = [];
+  for (let i = 0; i < COUNT; ++i) {
     arr.push(String(i));
   }
   return arr.join();
@@ -105,7 +105,7 @@ function fibonacci(n) {
   return fibonacci(n - 2) + fibonacci(n - 1);
 }
 
-measurePerf(function () {
+measurePerf(() => {
   fibonacci(40)
 });
 ```

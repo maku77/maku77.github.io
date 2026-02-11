@@ -16,7 +16,7 @@ Element インタフェースの innerHTML プロパティを使う場合
 <div id="parent"></div>
 
 <script>
-var parent = document.getElementById('parent');
+const parent = document.getElementById('parent');
 parent.innerHTML = '<p>Hello</p>';
 </script>
 ```
@@ -31,8 +31,8 @@ DOM インタフェースを使用してテキストノードを追加するに�
 <div id="parent"></div>
 
 <script>
-var parent = document.getElementById('parent');
-var text = document.createTextNode('Hello');
+const parent = document.getElementById('parent');
+const text = document.createTextNode('Hello');
 parent.appendChild(text);
 </script>
 ```
@@ -44,8 +44,8 @@ parent.appendChild(text);
 <div id="parent"></div>
 
 <script>
-var parent = document.getElementById('parent');
-var p = document.createElement('p');
+const parent = document.getElementById('parent');
+const p = document.createElement('p');
 p.appendChild(document.createTextNode('Hello'));
 parent.appendChild(p);
 </script>

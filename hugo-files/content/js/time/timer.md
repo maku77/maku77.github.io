@@ -16,7 +16,7 @@ function puts(text) {
   document.write(text);
 }
 
-setTimeout(function() {
+setTimeout(() => {
   puts('*');
 }, 1000);  // Call foo() after 1 second.
 ```
@@ -30,7 +30,7 @@ function puts(text) {
   document.write(text);
 }
 
-setInterval(function() {
+setInterval(() => {
   puts('*');
 }, 100);
 ```
@@ -57,11 +57,11 @@ function puts(text) {
 - `window.clearInterval()`: `window.setInterval()` のタイマーをキャンセルする
 
 {{< code lang="js" title="setTimeout のキャンセル" >}}
-var id = setTimeout(function() { ... }, 5000);
+const id = setTimeout(() => { ... }, 5000);
 clearTimeout(id);    // タイマーのキャンセル
 {{< /code >}}
 
 {{< code lang="js" title="setInterval のキャンセル" >}}
-var id = setInterval(function() { ... }, 5000);
+const id = setInterval(() => { ... }, 5000);
 clearInterval(id);    // タイマーのキャンセル
 {{< /code >}}

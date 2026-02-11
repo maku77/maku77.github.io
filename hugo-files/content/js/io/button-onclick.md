@@ -12,7 +12,7 @@ aliases: [/js/io/button-onclick.html]
 <button id="btn1">Click me</button>
 
 <script>
-window.onload = function() {
+window.onload = () => {
   document.getElementById('btn1').onclick = handleClick;
   function handleClick(message) {
     alert(message);

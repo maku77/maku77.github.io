@@ -24,7 +24,7 @@ function MyClass(name) {
 }
 
 // クラスメソッド
-MyClass.classMethod = function() {
+MyClass.classMethod = () => {
   // クラス定数を参照
   console.log(MyClass.CONST_VALUE);
 }
@@ -46,6 +46,6 @@ console.log(MyClass.CONST_VALUE);  //=> 100
 MyClass.classMethod();  //=> 100
 
 // インスタンスメソッドの呼び出し
-var obj = new MyClass('maku');
+const obj = new MyClass('maku');
 obj.method();  //=> maku 100
 ```
