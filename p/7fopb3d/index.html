@@ -15,9 +15,9 @@ interface Performance : EventTarget {
 </span></span></span></code></pre></div><p><strong>整数部分がミリ秒、小数点以下がマイクロ秒</strong>を表しています。
 上記の例では、ブラウザでページ表示を行った時点から、約 12.4999 ミリ秒経過していることを示しています。
 ユーザエージェント（ブラウザ環境など）が対応していれば、最大 5 マイクロ秒の精度で情報を得られるとされています。
-戻り値の型は、正確には <code>DOMHighResTimeStamp</code> 型として定義されていますが、<code>double</code> の <code>typedef</code> であり、一般的な浮動小数点数型として使用すれば問題ありません。</p><p>典型的な使用例としては、下記のようなパフォーマンス計測があります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>t0</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+戻り値の型は、正確には <code>DOMHighResTimeStamp</code> 型として定義されていますが、<code>double</code> の <code>typedef</code> であり、一般的な浮動小数点数型として使用すれば問題ありません。</p><p>典型的な使用例としては、下記のようなパフォーマンス計測があります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>t0</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=nx>doSomething</span><span class=p>();</span>
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>t1</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>t1</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;doSomething took %f ms&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>t1</span> <span class=o>-</span> <span class=nx>t0</span><span class=p>));</span>
 </span></span></code></pre></div><p>逆に、このような用途で <code>Date.now()</code> を使用すると、精度が悪いだけでなく、思わぬ結果を招くことがあります。
 <code>Date.now()</code> は OS のシステムクロックに基づいたタイムスタンプを返すため、数値が遡る（あとから呼び出した方の値が小さくなる）ことがあるためです。

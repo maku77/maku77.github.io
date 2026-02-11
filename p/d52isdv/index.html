@@ -5,7 +5,7 @@ navigator.userAgent プロパティを参照して、ブラウザのユーザー
 IE の場合、ユーザーエージェント名は MSIE  あるいは Trident/ で始まります。
 // 使用中のブラウザが IE であるかどうかを判別します。
 function isIe() {
-  var ua = navigator.userAgent;
+  const ua = navigator.userAgent;
   return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
 }
 ただし、navigator.userAgent プロパティの値はブラウザの設定により書き換えられる可能性があることに注意してください。
@@ -19,8 +19,8 @@ if (isIe()) {
 使用例 (2) body 要素の末尾に警告表示
 body 要素の末尾にテキストノードを動的に追加し、IE 以外の最新ブラウザを使うことをユーザーに促す方法です。
 if (isIe()) {
-  var div = document.createElement('div');
-  var text = document.createTextNode('IE には対応していません。最新のブラウザを使用してください。');
+  const div = document.createElement('div');
+  const text = document.createTextNode('IE には対応していません。最新のブラウザを使用してください。');
   div.appendChild(text);
   document.getElementsByTagName('body')[0].appendChild(div);
 }
@@ -50,7 +50,7 @@ IE 11 より前のバージョンの IE では、Conditional comments（条件�
 </span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fd52isdv%2f&title=JavaScript%e3%83%a1%e3%83%a2:%20%e4%bd%bf%e7%94%a8%e3%81%97%e3%81%a6%e3%81%84%e3%82%8b%20Web%20%e3%83%96%e3%83%a9%e3%82%a6%e3%82%b6%e3%81%8c%20IE%20%28Internet%20Explorer%29%20%e3%81%8b%e3%81%a9%e3%81%86%e3%81%8b%e5%88%a4%e5%88%a5%e3%81%99%e3%82%8b%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2020-02-20</time></div></div><div class=article__body><h2 id=javascript-で-ie-かどうかを判別する>JavaScript で IE かどうかを判別する</h2><h3 id=ie-判別関数-isie>IE 判別関数 (isIe)</h3><p><a href=https://developer.mozilla.org/ja/docs/Web/API/NavigatorID/userAgent>navigator.userAgent</a> プロパティを参照して、ブラウザのユーザーエージェントを調べることで、使用しているブラウザが IE (Internet Explorer) であるかを判別することができます。
 IE の場合、ユーザーエージェント名は <strong><code>MSIE </code></strong>あるいは <strong><code>Trident/</code></strong> で始まります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 使用中のブラウザが IE であるかどうかを判別します。
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>isIe</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>ua</span> <span class=o>=</span> <span class=nx>navigator</span><span class=p>.</span><span class=nx>userAgent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>ua</span> <span class=o>=</span> <span class=nx>navigator</span><span class=p>.</span><span class=nx>userAgent</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>ua</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;MSIE &#39;</span><span class=p>)</span> <span class=o>&gt;</span> <span class=o>-</span><span class=mi>1</span> <span class=o>||</span> <span class=nx>ua</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;Trident/&#39;</span><span class=p>)</span> <span class=o>&gt;</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><p>ただし、<code>navigator.userAgent</code> プロパティの値はブラウザの設定により書き換えられる可能性があることに注意してください。
@@ -60,8 +60,8 @@ IE の場合、ユーザーエージェント名は <strong><code>MSIE </code></
 </span></span><span class=line><span class=cl>  <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;It is NOT IE&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><h3 id=使用例-2-body-要素の末尾に警告表示>使用例 (2) body 要素の末尾に警告表示</h3><p><code>body</code> 要素の末尾にテキストノードを動的に追加し、IE 以外の最新ブラウザを使うことをユーザーに促す方法です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>isIe</span><span class=p>())</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>div</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;div&#39;</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>text</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createTextNode</span><span class=p>(</span><span class=s1>&#39;IE には対応していません。最新のブラウザを使用してください。&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>div</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createElement</span><span class=p>(</span><span class=s1>&#39;div&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>text</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>createTextNode</span><span class=p>(</span><span class=s1>&#39;IE には対応していません。最新のブラウザを使用してください。&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>  <span class=nx>div</span><span class=p>.</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>text</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>  <span class=nb>document</span><span class=p>.</span><span class=nx>getElementsByTagName</span><span class=p>(</span><span class=s1>&#39;body&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>].</span><span class=nx>appendChild</span><span class=p>(</span><span class=nx>div</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>

@@ -9,7 +9,7 @@ sort() 関数は、自分自身の配列の内容を書き換えることに注�
 数値順ソート
 アルファベット順ではなく、数値順にソートするには、下記のように sort() 関数に数値用の比較関数を渡してやります。
 const nums = [1, 2, 3, 11, 12, 13];
-nums.sort(function(a, b) {
+nums.sort((a, b) => {
   return a - b;
 });
 console.log(nums);  //=> [1, 2, 3, 11, 12, 13]
@@ -44,7 +44,7 @@ reverse() 関数も、sort() 関数と同様に、自分自身が指し示す配
 </span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>nums</span><span class=p>);</span>  <span class=c1>//=&gt; [1, 11, 12, 13, 2, 3]
 </span></span></span></code></pre></div><p>上記の例では、数値を要素に含む配列をソートしていますが、ソート結果は数値の昇順ではなく、アルファベット順になるため、<code>2</code> よりも前に <code>11</code> が来ています。
 <code>sort()</code> 関数は、自分自身の配列の内容を書き換えることに注意してください。</p><h2 id=数値順ソート>数値順ソート</h2><p>アルファベット順ではなく、数値順にソートするには、下記のように <code>sort()</code> 関数に数値用の比較関数を渡してやります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>nums</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=mi>12</span><span class=p>,</span> <span class=mi>13</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=nx>nums</span><span class=p>.</span><span class=nx>sort</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=nx>nums</span><span class=p>.</span><span class=nx>sort</span><span class=p>((</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>a</span> <span class=o>-</span> <span class=nx>b</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>nums</span><span class=p>);</span>  <span class=c1>//=&gt; [1, 2, 3, 11, 12, 13]

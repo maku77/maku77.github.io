@@ -7,8 +7,8 @@
  * Add a class to the specified element.
  */
 function addClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       // Specified class is already included in the element.
       return;
@@ -25,8 +25,8 @@ function addClass(elem, clazz) {
  * Remove a class from the specified element.
  */
 function removeClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       classes.splice(i, 1);
       elem.className = classes.join(' ');
@@ -43,8 +43,8 @@ function removeClass(elem, clazz) {
  * Toggle a class of the specified element.
  */
 function toggleClass(elem, clazz) {
-  var classes = elem.className.split(/\s+/);
-  for (var i = 0, len = classes.length; i < len; ++i) {
+  const classes = elem.className.split(/\s+/);
+  for (let i = 0, len = classes.length; i < len; ++i) {
     if (classes[i] === clazz) {
       // If specified class is found, remove it.
       classes.splice(i, 1);
@@ -61,7 +61,7 @@ function toggleClass(elem, clazz) {
 
 使用例
 // 初期状態で 2 つのクラスを持つ要素を取得
-var elem = document.getElementById('elem');
+const elem = document.getElementById('elem');
 console.log(elem.className); //=> 'class1 class2'
 
 // class3 を追加
@@ -89,8 +89,8 @@ console.log(elem.className); //=> 'class1 class3'
 </span></span></span><span class=line><span class=cl><span class=cm> * Add a class to the specified element.
 </span></span></span><span class=line><span class=cl><span class=cm> */</span>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>addClass</span><span class=p>(</span><span class=nx>elem</span><span class=p>,</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>classes</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>===</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>      <span class=c1>// Specified class is already included in the element.
 </span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>return</span><span class=p>;</span>
@@ -101,8 +101,8 @@ console.log(elem.className); //=> 'class1 class3'
 </span></span></span><span class=line><span class=cl><span class=cm> * Remove a class from the specified element.
 </span></span></span><span class=line><span class=cl><span class=cm> */</span>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>removeClass</span><span class=p>(</span><span class=nx>elem</span><span class=p>,</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>classes</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>===</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>      <span class=nx>classes</span><span class=p>.</span><span class=nx>splice</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>      <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=p>);</span>
@@ -113,8 +113,8 @@ console.log(elem.className); //=> 'class1 class3'
 </span></span></span><span class=line><span class=cl><span class=cm> * Toggle a class of the specified element.
 </span></span></span><span class=line><span class=cl><span class=cm> */</span>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>toggleClass</span><span class=p>(</span><span class=nx>elem</span><span class=p>,</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>classes</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>.</span><span class=nx>split</span><span class=p>(</span><span class=sr>/\s+/</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>classes</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>classes</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>===</span> <span class=nx>clazz</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>      <span class=c1>// If specified class is found, remove it.
 </span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nx>classes</span><span class=p>.</span><span class=nx>splice</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
@@ -125,7 +125,7 @@ console.log(elem.className); //=> 'class1 class3'
 </span></span><span class=line><span class=cl>  <span class=c1>// If the specified class is not found, add it to the end.
 </span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>className</span> <span class=o>+</span> <span class=s1>&#39; &#39;</span> <span class=o>+</span> <span class=nx>clazz</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>使用例</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 初期状態で 2 つのクラスを持つ要素を取得
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>elem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;elem&#39;</span><span class=p>);</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>elem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;elem&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>elem</span><span class=p>.</span><span class=nx>className</span><span class=p>);</span> <span class=c1>//=&gt; &#39;class1 class2&#39;
 </span></span></span><span class=line><span class=cl><span class=c1></span>
 </span></span><span class=line><span class=cl><span class=c1>// class3 を追加

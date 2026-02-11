@@ -17,14 +17,14 @@ Context オブジェクトの drawImage() メソッドは、画像ファイル�
 
 
 main.js
-window.onload = function() {
+window.onload = () => {
     // Get a canvas context.
-    var canvas = document.getElementById(&#39;myCanvas&#39;);  // HTMLCanvasElement
-    var ctx = canvas.getContext(&#39;2d&#39;);  // CanvasRenderingContext2D
+    const canvas = document.getElementById(&#39;myCanvas&#39;);  // HTMLCanvasElement
+    const ctx = canvas.getContext(&#39;2d&#39;);  // CanvasRenderingContext2D
 
     // Draw a image.
-    var img = new Image();
-    img.onload = function() {
+    const img = new Image();
+    img.onload = () => {
         ctx.drawImage(img, 20, 10);  // Draw the image at (20, 10).
         ctx.drawImage(img, 40, 15);  // Draw the image at (40, 15).
         ctx.drawImage(img, 60, 20);  // Draw the image at (60, 20).
@@ -40,14 +40,14 @@ window.onload = function() {
 </span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>canvas</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;myCanvas&#34;</span> <span class=na>width</span><span class=o>=</span><span class=s>&#34;150&#34;</span> <span class=na>height</span><span class=o>=</span><span class=s>&#34;100&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>canvas</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;main.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span></span></span></code></pre></div></div></figure><p>このサンプルでは、画像ファイル <code>white_knight.png</code> を <code>canvas</code> 要素の上に描画しています。
-Context オブジェクトの <code>drawImage()</code> メソッドは、画像ファイルをロードし終わった後に呼び出す必要があるため、Image オブジェクトの <code>onload</code> イベントハンドラで描画を行っています。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>main.js</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+Context オブジェクトの <code>drawImage()</code> メソッドは、画像ファイルをロードし終わった後に呼び出す必要があるため、Image オブジェクトの <code>onload</code> イベントハンドラで描画を行っています。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>main.js</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=c1>// Get a canvas context.
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>var</span> <span class=nx>canvas</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;myCanvas&#39;</span><span class=p>);</span>  <span class=c1>// HTMLCanvasElement
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>var</span> <span class=nx>ctx</span> <span class=o>=</span> <span class=nx>canvas</span><span class=p>.</span><span class=nx>getContext</span><span class=p>(</span><span class=s1>&#39;2d&#39;</span><span class=p>);</span>  <span class=c1>// CanvasRenderingContext2D
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kr>const</span> <span class=nx>canvas</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;myCanvas&#39;</span><span class=p>);</span>  <span class=c1>// HTMLCanvasElement
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kr>const</span> <span class=nx>ctx</span> <span class=o>=</span> <span class=nx>canvas</span><span class=p>.</span><span class=nx>getContext</span><span class=p>(</span><span class=s1>&#39;2d&#39;</span><span class=p>);</span>  <span class=c1>// CanvasRenderingContext2D
 </span></span></span><span class=line><span class=cl><span class=c1></span>
 </span></span><span class=line><span class=cl>    <span class=c1>// Draw a image.
-</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>var</span> <span class=nx>img</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Image</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>    <span class=nx>img</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kr>const</span> <span class=nx>img</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Image</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=nx>img</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=nx>ctx</span><span class=p>.</span><span class=nx>drawImage</span><span class=p>(</span><span class=nx>img</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mi>10</span><span class=p>);</span>  <span class=c1>// Draw the image at (20, 10).
 </span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nx>ctx</span><span class=p>.</span><span class=nx>drawImage</span><span class=p>(</span><span class=nx>img</span><span class=p>,</span> <span class=mi>40</span><span class=p>,</span> <span class=mi>15</span><span class=p>);</span>  <span class=c1>// Draw the image at (40, 15).
 </span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nx>ctx</span><span class=p>.</span><span class=nx>drawImage</span><span class=p>(</span><span class=nx>img</span><span class=p>,</span> <span class=mi>60</span><span class=p>,</span> <span class=mi>20</span><span class=p>);</span>  <span class=c1>// Draw the image at (60, 20).

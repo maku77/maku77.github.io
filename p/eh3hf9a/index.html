@@ -4,9 +4,9 @@ JavaScript のオブジェクトは、プロパティ名とプロパティ値の
 オブジェクトは、以下のようなリテラルで生成できます。
 {プロパティ名:プロパティ値, プロパティ名:プロパティ値, ...}
 以下の 3 つの変数は、プロパティ数の異なるオブジェクトの参照を保持しています。
-var obj1 = {};
-var obj2 = {"x":100};
-var obj3 = {"x":100, "y":200};
+const obj1 = {};
+const obj2 = {"x":100};
+const obj3 = {"x":100, "y":200};
 
 print(typeof obj1);  //=> "object"
 print(typeof obj2);  //=> "object"
@@ -22,7 +22,7 @@ print(typeof obj3);  //=> "object"
 JSON を意識したコーディングを行うのであれば、上記のように、ダブルクォートで囲んだ文字列だけをプロパティ名として使うのがよいでしょう。
 プロパティ値として使えるもの
 プロパティ値には任意の値、オブジェクトを格納できます。
-var obj = {
+const obj = {
     "num": 123,
     "string": "hello",
     "array": [10, 20, 30],
@@ -34,7 +34,7 @@ print(obj.array[0]);  //=> 10
 print(obj.object.x);  //=> 1
 プロパティ値には、関数オブジェクトを持たせることもできます。
 JavaScript には、クラスやメソッドの概念はありませんが、プロパティとして関数を持たせることで、そのオブジェクトのメソッドのように呼び出すことができます。
-var obj = {
+const obj = {
     "name": "Joe",
     "greet": function() { print("Hello " + this.name); }
 }
@@ -53,9 +53,9 @@ obj["xyz"]
 </span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fp%2feh3hf9a%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg>
 </span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2feh3hf9a%2f&title=JavaScript%e3%83%a1%e3%83%a2:%20%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e5%9f%ba%e6%9c%ac%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2012-10-27</time></div></div><div class=article__body><h2 id=オブジェクトの生成>オブジェクトの生成</h2><p>JavaScript のオブジェクトは、プロパティ名とプロパティ値のペアの集合です。
 オブジェクトは、以下のようなリテラルで生成できます。</p><pre tabindex=0><code>{プロパティ名:プロパティ値, プロパティ名:プロパティ値, ...}
-</code></pre><p>以下の 3 つの変数は、プロパティ数の異なるオブジェクトの参照を保持しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>obj1</span> <span class=o>=</span> <span class=p>{};</span>
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>obj2</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;x&#34;</span><span class=o>:</span><span class=mi>100</span><span class=p>};</span>
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>obj3</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;x&#34;</span><span class=o>:</span><span class=mi>100</span><span class=p>,</span> <span class=s2>&#34;y&#34;</span><span class=o>:</span><span class=mi>200</span><span class=p>};</span>
+</code></pre><p>以下の 3 つの変数は、プロパティ数の異なるオブジェクトの参照を保持しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>obj1</span> <span class=o>=</span> <span class=p>{};</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>obj2</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;x&#34;</span><span class=o>:</span><span class=mi>100</span><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>obj3</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;x&#34;</span><span class=o>:</span><span class=mi>100</span><span class=p>,</span> <span class=s2>&#34;y&#34;</span><span class=o>:</span><span class=mi>200</span><span class=p>};</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>print</span><span class=p>(</span><span class=k>typeof</span> <span class=nx>obj1</span><span class=p>);</span>  <span class=c1>//=&gt; &#34;object&#34;
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>print</span><span class=p>(</span><span class=k>typeof</span> <span class=nx>obj2</span><span class=p>);</span>  <span class=c1>//=&gt; &#34;object&#34;
@@ -65,7 +65,7 @@ obj["xyz"]
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span><span class=nx>abc</span><span class=o>:</span> <span class=mi>200</span><span class=p>}</span>    <span class=c1>// 識別子
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span><span class=mi>100</span><span class=o>:</span> <span class=mi>300</span><span class=p>}</span>    <span class=c1>// 数値
 </span></span></span></code></pre></div><p>ただし、JSON の仕様としては、ダブルクォートで囲んだ文字列しかプロパティ名に使えないことになっています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=p>{</span><span class=s2>&#34;abc&#34;</span><span class=o>:</span> <span class=mi>100</span><span class=p>}</span>  <span class=c1>// ダブルクォート囲いの文字列
-</span></span></span></code></pre></div><p>JSON を意識したコーディングを行うのであれば、上記のように、ダブルクォートで囲んだ文字列だけをプロパティ名として使うのがよいでしょう。</p><h2 id=プロパティ値として使えるもの>プロパティ値として使えるもの</h2><p>プロパティ値には任意の値、オブジェクトを格納できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>obj</span> <span class=o>=</span> <span class=p>{</span>
+</span></span></span></code></pre></div><p>JSON を意識したコーディングを行うのであれば、上記のように、ダブルクォートで囲んだ文字列だけをプロパティ名として使うのがよいでしょう。</p><h2 id=プロパティ値として使えるもの>プロパティ値として使えるもの</h2><p>プロパティ値には任意の値、オブジェクトを格納できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>obj</span> <span class=o>=</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;num&#34;</span><span class=o>:</span> <span class=mi>123</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;string&#34;</span><span class=o>:</span> <span class=s2>&#34;hello&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;array&#34;</span><span class=o>:</span> <span class=p>[</span><span class=mi>10</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mi>30</span><span class=p>],</span>
@@ -76,7 +76,7 @@ obj["xyz"]
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>print</span><span class=p>(</span><span class=nx>obj</span><span class=p>.</span><span class=nx>array</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>  <span class=c1>//=&gt; 10
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>print</span><span class=p>(</span><span class=nx>obj</span><span class=p>.</span><span class=nx>object</span><span class=p>.</span><span class=nx>x</span><span class=p>);</span>  <span class=c1>//=&gt; 1
 </span></span></span></code></pre></div><p>プロパティ値には、関数オブジェクトを持たせることもできます。
-JavaScript には、クラスやメソッドの概念はありませんが、プロパティとして関数を持たせることで、そのオブジェクトのメソッドのように呼び出すことができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>obj</span> <span class=o>=</span> <span class=p>{</span>
+JavaScript には、クラスやメソッドの概念はありませんが、プロパティとして関数を持たせることで、そのオブジェクトのメソッドのように呼び出すことができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>obj</span> <span class=o>=</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;name&#34;</span><span class=o>:</span> <span class=s2>&#34;Joe&#34;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;greet&#34;</span><span class=o>:</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span> <span class=nx>print</span><span class=p>(</span><span class=s2>&#34;Hello &#34;</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>name</span><span class=p>);</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
@@ -84,7 +84,7 @@ JavaScript には、クラスやメソッドの概念はありませんが、プ
 </span></span></span></code></pre></div><h2 id=プロパティ値の参照>プロパティ値の参照</h2><p>プロパティ値を参照するには、以下のいずれかの形式を使用します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>obj</span><span class=p>.</span><span class=nx>xyz</span>
 </span></span><span class=line><span class=cl><span class=nx>obj</span><span class=p>[</span><span class=s2>&#34;xyz&#34;</span><span class=p>]</span>
 </span></span></code></pre></div><p>前者の形式の方が、短くすっきり書けますが、プロパティ名には識別子として使える文字しか使用できません。可能であれば、前者の形式で記述できるように、プロパティ名を付けるのがよいでしょう。</p><h2 id=プロパティは自由に追加できる>プロパティは自由に追加できる</h2><p>オブジェクトリテラルによってオブジェクトを生成した後でも、オブジェクトには自由にプロパティを追加できます。
-プロパティの追加は、代入するだけで行えます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>point</span> <span class=o>=</span> <span class=p>{}</span>
+プロパティの追加は、代入するだけで行えます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>point</span> <span class=o>=</span> <span class=p>{}</span>
 </span></span><span class=line><span class=cl><span class=nx>point</span><span class=p>.</span><span class=nx>x</span> <span class=o>=</span> <span class=mi>100</span><span class=p>;</span>  <span class=c1>// 新規プロパティ x の追加
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>point</span><span class=p>.</span><span class=nx>y</span> <span class=o>=</span> <span class=mi>200</span><span class=p>;</span>  <span class=c1>// 新規プロパティ y の追加
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>print</span><span class=p>(</span><span class=nx>point</span><span class=p>.</span><span class=nx>x</span><span class=p>);</span>  <span class=c1>//=&gt; 100

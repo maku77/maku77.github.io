@@ -16,7 +16,7 @@ function myfunc(opt) {
 }
 
 // 引数に関数を渡した場合の動作を確認
-myfunc(function(a, b) {
+myfunc((a, b) => {
   console.log(a + b);
 });
 
@@ -53,7 +53,7 @@ $ node sample
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// 引数に関数を渡した場合の動作を確認
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myfunc</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>{</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>myfunc</span><span class=p>((</span><span class=nx>a</span><span class=p>,</span> <span class=nx>b</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>a</span> <span class=o>+</span> <span class=nx>b</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span><span class=line><span class=cl>

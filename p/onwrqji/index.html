@@ -8,13 +8,13 @@
 concat 関数の処理速度を計測する
 // 処理速度を計測したい関数
 function concat() {
-  var s = '';
-  for (var i = 0; i < 1000 * 1000; ++i) {
+  let s = '';
+  for (let i = 0; i < 1000 * 1000; ++i) {
     s += i;
   }
 }
 
-var start = performance.now();
+const start = performance.now();
 concat();
 console.log(performance.now() - start);
 
@@ -42,7 +42,7 @@ const { PerformanceObserver, performance } = require('perf_hooks');
 
 任意の関数の処理速度を計測する関数
 function measurePerf(func) {
-  var start = performance.now();
+  const start = performance.now();
   func();
   console.log(performance.now() - start);
 }
@@ -51,19 +51,19 @@ function measurePerf(func) {
 
 
 使用例（concat1 と concat2 の処理速度を計測する）
-var COUNT = 10000000;
+const COUNT = 10000000;
 
 function concat1() {
-  var s = '';
-  for (var i = 0; i < COUNT; ++i) {
+  let s = '';
+  for (let i = 0; i < COUNT; ++i) {
     s += i;
   }
   return s;
 }
 
 function concat2() {
-  var arr = [];
-  for (var i = 0; i < COUNT; ++i) {
+  const arr = [];
+  for (let i = 0; i < COUNT; ++i) {
     arr.push(String(i));
   }
   return arr.join();
@@ -91,33 +91,33 @@ measurePerf(concat2);
 </span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fp%2fonwrqji%2f&title=JavaScript%e3%83%a1%e3%83%a2:%20%e5%87%a6%e7%90%86%e9%80%9f%e5%ba%a6%e3%82%92%e8%a8%88%e6%b8%ac%e3%81%99%e3%82%8b%20%28performance%29%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=article__date><time class=pageDate>2018-09-14</time></div></div><div class=article__body><h2 id=処理速度計測の基本>処理速度計測の基本</h2><p>下記は、典型的なパフォーマンス計測のプログラムです。
 計測したい処理の前後で <code>performance.now()</code> を呼び出して、その差分を求めることで処理にかかった時間を計測しています。</p><p>ここでは、文字列を <code>+</code> 演算子によって何度も結合する関数 <code>concat</code> の処理時間を計測しています。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>concat 関数の処理速度を計測する</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 処理速度を計測したい関数
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>function</span> <span class=nx>concat</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>s</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>1000</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>s</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>1000</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>s</span> <span class=o>+=</span> <span class=nx>i</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>start</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>start</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=nx>concat</span><span class=p>();</span>
 </span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>start</span><span class=p>);</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>実行結果</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>175.96613097190857</span></span></code></pre></div></div></figure><p><code>performance.now()</code> の戻り値の整数部分はミリ秒を示しているので、上記の結果は、約 176ms の処理時間がかかっていることを示しています。
 パフォーマンス計測は、このように <code>Date.now()</code> ではなく <code>performance.now()</code> を使用してください。</p><ul><li>参考: <a href=../../p/7fopb3d/>精度の高いタイムスタンプを取得する (performance.now())</a></li></ul><h3 id=nodejs-で実行する場合>Node.js で実行する場合</h3><p><code>performance.now()</code> は、Web ブラウザ上の JavaScript ではそのまま呼び出すことができますが、Node.js の環境で呼び出すには、下記のように <code>require</code> を実行しておく必要があります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>PerformanceObserver</span><span class=p>,</span> <span class=nx>performance</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;perf_hooks&#39;</span><span class=p>);</span>
 </span></span></code></pre></div><ul><li>参考: <a href=https://nodejs.org/api/perf_hooks.html>Performance Timing API｜Node.js Documentation</a></li></ul><h2 id=処理速度計測用のユーティリティ関数を作成する>処理速度計測用のユーティリティ関数を作成する</h2><p>例えば、下記のようなユーティリティ関数 (<code>measurePerf</code>) を作成しておけば、任意の関数の処理速度を簡単に計測できるようになります。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>任意の関数の処理速度を計測する関数</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>measurePerf</span><span class=p>(</span><span class=nx>func</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>start</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>start</span> <span class=o>=</span> <span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>  <span class=nx>func</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>performance</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>start</span><span class=p>);</span>
-</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>使用例（concat1 と concat2 の処理速度を計測する）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>var</span> <span class=nx>COUNT</span> <span class=o>=</span> <span class=mi>10000000</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></div></div></figure><figure class=xCodeBlock><figcaption class=xCodeBlock_title>使用例（concat1 と concat2 の処理速度を計測する）</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>COUNT</span> <span class=o>=</span> <span class=mi>10000000</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>concat1</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>s</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>COUNT</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>s</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>COUNT</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>s</span> <span class=o>+=</span> <span class=nx>i</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>s</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>concat2</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[];</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>var</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>COUNT</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>COUNT</span><span class=p>;</span> <span class=o>++</span><span class=nx>i</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nb>String</span><span class=p>(</span><span class=nx>i</span><span class=p>));</span>
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>join</span><span class=p>();</span>
@@ -134,7 +134,7 @@ measurePerf(concat2);
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>)</span> <span class=o>+</span> <span class=nx>fibonacci</span><span class=p>(</span><span class=nx>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>measurePerf</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=nx>measurePerf</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=nx>fibonacci</span><span class=p>(</span><span class=mi>40</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span></code></pre></div></div><div class=article__footer><div class=article__date><time class=pageDate>2018-09-14</time></div><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fp%2fonwrqji%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg>

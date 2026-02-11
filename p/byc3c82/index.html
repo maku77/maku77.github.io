@@ -5,9 +5,9 @@ window.addEventListener 関数を使用して、keydown や keyup イベント�
 <DOCTYPE! html>
 <html>
 <script>
-  window.onload = function() {
+  window.onload = () => {
     'use strict';
-    var resultElem = document.getElementById('result');
+    const resultElem = document.getElementById('result');
 
     /**
      * Handles a key down/up event.
@@ -45,9 +45,9 @@ keydown と keyup の 2 つのイベントを捕捉しているため、キー�
 下記の例では、入力されたキー情報をページ内に表示しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>DOCTYPE</span><span class=err>!</span> <span class=na>html</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
 </span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
-</span></span><span class=line><span class=cl>  <span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>resultElem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;result&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>resultElem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;result&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=cm>/**
 </span></span></span><span class=line><span class=cl><span class=cm>     * Handles a key down/up event.
@@ -91,10 +91,10 @@ code=KeyC, key=c, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
 これを入れておかないと、例えば TAB キーを入力したときに、最後にフォーカス位置が移動してしまいます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=c1>// Prevent the keyboard events from bubbling up to the broser itself
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>
 </span></span></code></pre></div><h2 id=押されたキーによって振る舞いを変える>押されたキーによって振る舞いを変える</h2><p>押されたキーによって処理方法を変えるには、例えば下記のように <code>KeyboardEvent.code</code> の値を見て switch で分岐するようにします。
-今回は、<code>keydown</code> イベントのみをハンドルしています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+今回は、<code>keydown</code> イベントのみをハンドルしています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=kd>var</span> <span class=nx>MOVE_BY</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>  <span class=c1>// 移動量
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>var</span> <span class=nx>puppetElem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;puppet&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>MOVE_BY</span> <span class=o>=</span> <span class=mi>5</span><span class=p>;</span>  <span class=c1>// 移動量
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=nx>puppetElem</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>getElementById</span><span class=p>(</span><span class=s1>&#39;puppet&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=cm>/** Handles a key down/up event. */</span>
 </span></span><span class=line><span class=cl>  <span class=kd>function</span> <span class=nx>onKeyDown</span><span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>{</span>
@@ -123,7 +123,7 @@ code=KeyC, key=c, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  <span class=cm>/** Moves a specified HTML element. */</span>
 </span></span><span class=line><span class=cl>  <span class=kd>function</span> <span class=nx>moveElem</span><span class=p>(</span><span class=nx>elem</span><span class=p>,</span> <span class=nx>offsetX</span><span class=p>,</span> <span class=nx>offsetY</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kd>var</span> <span class=nx>rect</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>rect</span> <span class=o>=</span> <span class=nx>elem</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>    <span class=nx>elem</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>left</span> <span class=o>=</span> <span class=nx>rect</span><span class=p>.</span><span class=nx>left</span> <span class=o>+</span> <span class=nx>offsetX</span> <span class=o>+</span> <span class=s1>&#39;px&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>    <span class=nx>elem</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>top</span> <span class=o>=</span> <span class=nx>rect</span><span class=p>.</span><span class=nx>top</span> <span class=o>+</span> <span class=nx>offsetY</span> <span class=o>+</span> <span class=s1>&#39;px&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
@@ -132,7 +132,7 @@ code=KeyC, key=c, shiftKey=false, ctrlKey=false, type=keyup, repeat=false
 </span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nb>window</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;keydown&#39;</span><span class=p>,</span> <span class=nx>onKeyDown</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>};</span>
 </span></span></code></pre></div><p>次のデモウィンドウをマウスでクリックしてから、カーソルキーや、<kbd>A</kbd>、<kbd>S</kbd>、<kbd>D</kbd>、<kbd>W</kbd> を入力すると、画面内の要素を動かすことができます。</p><h3 id=デモ-1>デモ</h3><iframe class=xHtmlDemo src=keyboard-demo2.html></iframe>
-<a href=../../p/byc3c82/keyboard-demo2.html>デモページを開く (keyboard-demo2.html)</a><h2 id=jquery-でキーハンドル処理を行う>jQuery でキーハンドル処理を行う</h2><p>jQuery を使用すると、イベントハンドラの登録部分を若干シンプルに記述することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+<a href=../../p/byc3c82/keyboard-demo2.html>デモページを開く (keyboard-demo2.html)</a><h2 id=jquery-でキーハンドル処理を行う>jQuery でキーハンドル処理を行う</h2><p>jQuery を使用すると、イベントハンドラの登録部分を若干シンプルに記述することができます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=kd>function</span> <span class=nx>onKeyDownOrUp</span><span class=p>(</span><span class=nx>event</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;code=&#39;</span> <span class=o>+</span> <span class=nx>event</span><span class=p>.</span><span class=nx>code</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>    <span class=nx>event</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>

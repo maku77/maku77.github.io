@@ -51,18 +51,18 @@ $('h2').before('<hr/>');   # すべての h1 要素の直後（外側）に追�
 $('hr').replaceWith('<br/>');   # すべての hr 要素を置換
 target 前記型のメソッドでは、content として function を渡すことで、現在の要素の内容を参照しながら置換する内容を構築できます。
 // すべての h2 を h3 に置き換える
-$('h2').replaceWith(function() {
+$('h2').replaceWith(() => {
   return '<h3>' + $(this).html() + '</h3>';
 });
 target 後記型のメソッドでは、先に追加したい要素を作成して、パラメータで追加先を指定します。
 HTML テキストから任意の要素を動的に作成することができます。
 下記の例では、動的に <img> 要素を作成し、各 h1 要素の後ろに挿入しています。
-var attrs = {
+const attrs = {
     src: 'http://example.com/button.png',
     css: { border: '3px solid red' },
     click: function() { alert(this.src); }
 };
-var $img = $('<img />', attrs);
+const $img = $('<img />', attrs);
 
 $img.insertAfter('h1');    # 各 h1 要素の後ろに <img> を挿入
 要素の移動とコピー
@@ -79,17 +79,17 @@ $img.insertAfter('h1');    # 各 h1 要素の後ろに <img> を挿入
 </span></span><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;h2&#39;</span><span class=p>).</span><span class=nx>before</span><span class=p>(</span><span class=s1>&#39;&lt;hr/&gt;&#39;</span><span class=p>);</span>   <span class=err>#</span> <span class=nx>すべての</span> <span class=nx>h1</span> <span class=nx>要素の直後</span><span class=err>（</span><span class=nx>外側</span><span class=err>）</span><span class=nx>に追加</span>
 </span></span><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;hr&#39;</span><span class=p>).</span><span class=nx>replaceWith</span><span class=p>(</span><span class=s1>&#39;&lt;br/&gt;&#39;</span><span class=p>);</span>   <span class=err>#</span> <span class=nx>すべての</span> <span class=nx>hr</span> <span class=nx>要素を置換</span>
 </span></span></code></pre></div><p>target 前記型のメソッドでは、content として function を渡すことで、現在の要素の内容を参照しながら置換する内容を構築できます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=c1>// すべての h2 を h3 に置き換える
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;h2&#39;</span><span class=p>).</span><span class=nx>replaceWith</span><span class=p>(</span><span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;h2&#39;</span><span class=p>).</span><span class=nx>replaceWith</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=s1>&#39;&lt;h3&gt;&#39;</span> <span class=o>+</span> <span class=nx>$</span><span class=p>(</span><span class=k>this</span><span class=p>).</span><span class=nx>html</span><span class=p>()</span> <span class=o>+</span> <span class=s1>&#39;&lt;/h3&gt;&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span></code></pre></div><p>target 後記型のメソッドでは、先に追加したい要素を作成して、パラメータで追加先を指定します。
 HTML テキストから任意の要素を動的に作成することができます。
-下記の例では、動的に <code>&lt;img></code> 要素を作成し、各 <code>h1</code> 要素の後ろに挿入しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kd>var</span> <span class=nx>attrs</span> <span class=o>=</span> <span class=p>{</span>
+下記の例では、動的に <code>&lt;img></code> 要素を作成し、各 <code>h1</code> 要素の後ろに挿入しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=kr>const</span> <span class=nx>attrs</span> <span class=o>=</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>src</span><span class=o>:</span> <span class=s1>&#39;http://example.com/button.png&#39;</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>    <span class=nx>css</span><span class=o>:</span> <span class=p>{</span> <span class=nx>border</span><span class=o>:</span> <span class=s1>&#39;3px solid red&#39;</span> <span class=p>},</span>
 </span></span><span class=line><span class=cl>    <span class=nx>click</span><span class=o>:</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span> <span class=nx>alert</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>src</span><span class=p>);</span> <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>};</span>
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>$img</span> <span class=o>=</span> <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;&lt;img /&gt;&#39;</span><span class=p>,</span> <span class=nx>attrs</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>$img</span> <span class=o>=</span> <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;&lt;img /&gt;&#39;</span><span class=p>,</span> <span class=nx>attrs</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>$img</span><span class=p>.</span><span class=nx>insertAfter</span><span class=p>(</span><span class=s1>&#39;h1&#39;</span><span class=p>);</span>    <span class=err>#</span> <span class=nx>各</span> <span class=nx>h1</span> <span class=nx>要素の後ろに</span> <span class=o>&lt;</span><span class=nx>img</span><span class=o>&gt;</span> <span class=nx>を挿入</span>
 </span></span></code></pre></div><h2 id=要素の移動とコピー>要素の移動とコピー</h2><p>既存の要素を移動させたい場合は、target 後記型のメソッドで、content として既存の要素を選択するセレクタを指定します。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;#elem1&#39;</span><span class=p>).</span><span class=nx>insertAfter</span><span class=p>(</span><span class=s1>&#39;#elem2&#39;</span><span class=p>);</span>    <span class=err>#</span> <span class=nx>要素</span> <span class=nx>elem1</span> <span class=nx>を</span> <span class=nx>elem2</span> <span class=nx>の後ろへ移動</span>

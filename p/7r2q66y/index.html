@@ -11,12 +11,11 @@ $.ajax({
 });
 
 // 下記も同様
-$.post('/memos/create', {body: 'Memo1'},
-        function() { alert('Created!'); }, 'text');
+$.post('/memos/create', {body: 'Memo1'}, () => { alert('Created!'); }, 'text');
 click イベントのデフォルト動作と重なってしまうケース
 ボタンの click イベントをトリガーにして Ajax 通信を発生させる場合、デフォルトの click イベント処理と重複してうまく動かないことがあります。
 これを解決するには、デフォルトのイベントをキャンセルして Ajax 通信を行います。
-$('#btn').click(function(e) {
+$('#btn').click((e) => {
     e.preventDefault();    // デフォルトの挙動をキャンセル
     $.ajax(...);
 });
@@ -46,10 +45,9 @@ POST の際に間違いがちですが、<code>dataType</code> に指定する�
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>});</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1>// 下記も同様
-</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=s1>&#39;/memos/create&#39;</span><span class=p>,</span> <span class=p>{</span><span class=nx>body</span><span class=o>:</span> <span class=s1>&#39;Memo1&#39;</span><span class=p>},</span>
-</span></span><span class=line><span class=cl>        <span class=kd>function</span><span class=p>()</span> <span class=p>{</span> <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;Created!&#39;</span><span class=p>);</span> <span class=p>},</span> <span class=s1>&#39;text&#39;</span><span class=p>);</span>
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>$</span><span class=p>.</span><span class=nx>post</span><span class=p>(</span><span class=s1>&#39;/memos/create&#39;</span><span class=p>,</span> <span class=p>{</span><span class=nx>body</span><span class=o>:</span> <span class=s1>&#39;Memo1&#39;</span><span class=p>},</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span> <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;Created!&#39;</span><span class=p>);</span> <span class=p>},</span> <span class=s1>&#39;text&#39;</span><span class=p>);</span>
 </span></span></code></pre></div><h2 id=click-イベントのデフォルト動作と重なってしまうケース>click イベントのデフォルト動作と重なってしまうケース</h2><p>ボタンの click イベントをトリガーにして Ajax 通信を発生させる場合、デフォルトの click イベント処理と重複してうまく動かないことがあります。
-これを解決するには、デフォルトのイベントをキャンセルして Ajax 通信を行います。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;#btn&#39;</span><span class=p>).</span><span class=nx>click</span><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>e</span><span class=p>)</span> <span class=p>{</span>
+これを解決するには、デフォルトのイベントをキャンセルして Ajax 通信を行います。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=s1>&#39;#btn&#39;</span><span class=p>).</span><span class=nx>click</span><span class=p>((</span><span class=nx>e</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>e</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>();</span>    <span class=c1>// デフォルトの挙動をキャンセル
 </span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>$</span><span class=p>.</span><span class=nx>ajax</span><span class=p>(...);</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>

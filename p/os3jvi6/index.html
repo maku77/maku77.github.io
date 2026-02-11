@@ -21,7 +21,7 @@ jQuery の $ や、console、document などのグローバル変数（別のフ
 下記の例では、$ と console を参照できるようにしています。
 /*global $: false, jQuery: false, console: false */
 
-$(function () {
+$(() => {
   'use strict';
   console.log('hello');
 });
@@ -42,7 +42,7 @@ global というキーワードの前に、スペースを入れてはいけな�
 グローバル変数を参照してもエラーにならないようにするには、<strong><code>global</code></strong> ディレクティブを使用します。
 下記の例では、<code>$</code> と <code>console</code> を参照できるようにしています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=cm>/*global $: false, jQuery: false, console: false */</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nx>$</span><span class=p>(</span><span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=nx>$</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;hello&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>});</span>
