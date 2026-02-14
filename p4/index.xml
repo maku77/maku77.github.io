@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Perforce on 天才まくまくノート</title><link>https://maku77.github.io/p4/</link><description>Recent content in Perforce on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Thu, 15 Oct 2015 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/p4/index.xml" rel="self" type="application/rss+xml"/><item><title>Perforceメモ: p4 コマンドの引数で接続先や使用するクライアント名を指定する</title><link>https://maku77.github.io/p/ekdqn9h/</link><pubDate>Thu, 15 Oct 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ekdqn9h/</guid><description>&lt;h2 id="p4-のオプションにより接続情報を指定する">p4 のオプションにより接続情報を指定する&lt;/h2>
+&lt;p>&lt;code>p4&lt;/code> コマンドによる接続先のサーバは &lt;code>P4PORT&lt;/code> 変数、使用するクライアントは &lt;code>P4CLIENT&lt;/code> 変数で指定しておくのが一般的な使い方ですが、&lt;code>p4&lt;/code> コマンド実行時のオプションで指定することも可能です。
+一時的に接続先を変えたい場合や、スクリプト内で &lt;code>p4&lt;/code> コマンドを実行したい場合などに便利です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">書式&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ p4 -p &amp;lt;port&amp;gt; -u &amp;lt;user&amp;gt; -P &amp;lt;pass&amp;gt; &amp;lt;command&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">具体例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ p4 -p p4.example.com:2666 -u maku -P pass files //...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ p4 -p 192.168.0.1:1666 print //depot/dir/filename&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="ヘルプ">ヘルプ&lt;/h2>
+&lt;p>ちなみにこのようなパラメータ (options) として、他にどのようなものを指定できるかは、&lt;code>p4 help usage&lt;/code> で確認することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 &lt;span class="nb">help&lt;/span> usage
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> Perforce client usage:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> p4 [options] command [arg ...]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> p4 -V
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> options:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -b batchsize -c client -C charset -d dir -H host -G -L language
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -p port -P pass -s -Q charset -u user -x file -z tag
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -b batchsize specifies a batch size (number of arguments) to
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> use when processing a command from a file &amp;#39;-x&amp;#39; (default 128).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -c flag specifies the client name, overriding the value of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> $P4CLIENT in the environment and the default (the hostname).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -C flag specifies the client&amp;#39;s character set, overriding the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> value of $P4CHARSET in the environment. See &amp;#39;p4 help charset&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> for more information.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -d flag specifies the current directory, overriding the value of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> $PWD in the environment and the default (the current directory).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -G flag formats all output (and batch input for form commands
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> with -i) as marshalled Python dictionary objects.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -H flag specifies the host name, overriding the value of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> $P4HOST in the environment and the default (the hostname).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -L flag specifies the language for text messages from the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> server, overriding the value of $P4LANGUAGE in the environment.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> Setting this option only works if the administrator has loaded
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> support for non-English messages into the server database.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -p flag specifies the server&amp;#39;s listen address, overriding the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> value of $P4PORT in the environment and the default (perforce:1666).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -P flag specifies the password, overriding the value of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> $P4PASSWD in the environment.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -Q flag specifies the client&amp;#39;s command character set,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> overriding the value of $P4COMMANDCHARSET in the environment.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> See &amp;#39;p4 help charset&amp;#39; for more information.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -s flag causes the p4 command line client program to prefix
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> each line of output with a tag (error, warning, info, text, exit)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> to make it easier to use for scripting.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -u flag specifies the user name, overriding the value of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> $P4USER, $USER, and $USERNAME in the environment.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -x flag instructs p4 to read arguments, one per line, from the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> specified file. If you specify &amp;#39;-&amp;#39;, standard input is read.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -V flag displays the version of the p4 client command and exits.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> The -z tag option returns output of reporting commands in the
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> format returned by &amp;#39;p4 fstat&amp;#39;.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: p4admin で Perforce サーバを設定する</title><link>https://maku77.github.io/p/ca7r99j/</link><pubDate>Wed, 30 Jul 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ca7r99j/</guid><description>&lt;h2 id="p4admin-を起動する">p4admin を起動する&lt;/h2>
+&lt;p>Perforce サーバの設定を行うには、&lt;strong>p4admin&lt;/strong> を使って、サーバに接続します。
+最初に接続したユーザが、管理ユーザとして登録されます。&lt;/p>
+&lt;p>例えば、ローカルホストで動いているサーバに対して、ユーザ ohta で接続するのであれば、以下のように実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4admin -p localhost:1666 -u ohta
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1128" height="435" src="../p/ca7r99j/img-001.png" alt="/p/ca7r99j/img-001.png" />
+&lt;/figure>
+
+&lt;h2 id="perforce-サーバにユーザアカウントを追加する">Perforce サーバにユーザアカウントを追加する&lt;/h2>
+&lt;p>最初に p4admin に接続したユーザは、既に作成された状態になっていますが、さらに Perforce サーバに接続可能なユーザを追加するには、Home タブの &lt;code>Create new user&lt;/code> を選択するか、メニューから &lt;code>File =&amp;gt; New =&amp;gt; User...&lt;/code> と辿ります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="519" height="524" src="../p/ca7r99j/img-002.png" alt="/p/ca7r99j/img-002.png" />
+&lt;/figure>
+
+&lt;p>ここでは初期パスワードを設定できますが、ユーザ作成後のパスワード変更は、各ユーザが &lt;code>p4 passwd&lt;/code> コマンドを使用して行います（p4admin ツールの中ではパスワード変更できません）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 -p localhost:1666 -u maku passwd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: サーバ上のディポ (depot) の一覧を表示する (p4 depots)</title><link>https://maku77.github.io/p/6bcg3fw/</link><pubDate>Mon, 04 Mar 2013 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6bcg3fw/</guid><description>&lt;p>Perforce サーバ上に存在するすべてのディポを一覧表示するには以下のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 depots
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: p4-patch：変更されたファイルの diff からパッチファイルを作る／パッチファイルを適用する</title><link>https://maku77.github.io/p/wbdr5m4/</link><pubDate>Fri, 28 Sep 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wbdr5m4/</guid><description>&lt;h2 id="使い方">使い方&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">(1) パッチファイルを作成する（独自形式）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ./p4-patch-create.py &amp;gt; test.p4patch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>※注: このスクリプトでは、&lt;code>p4 diff&lt;/code> コマンドの出力を使用しています。&lt;code>p4 diff&lt;/code> で出力されない、新規ファイルなどの内容は出力されないことに注意してください。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">(2) パッチファイルを適用する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ./p4-patch-apply.py &amp;lt; test.p4patch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ここでは、手順 (1) で作成したパッチファイルを適用しています。
+&lt;code>p4 edit&lt;/code> コマンドも自動的に実行します。&lt;/p>
+&lt;h2 id="スクリプト">スクリプト&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">p4-patch-create.py&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#######################################################&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Perforce tool&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Create p4patch file using p4 diff command.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Usage:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># $ ./p4-patch-create.py &amp;gt; test.p4patch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#######################################################&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">subprocess&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">do_command&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">command&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">subprocess&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">check_output&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">command&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">shell&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">get_p4path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">do_command&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;p4 where &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">()[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### First value of returned tuple means that it should be written.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">convert_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;--- &amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;+++ &amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">line&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;## &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">get_p4path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">()[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;__main__&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">do_command&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;p4 diff -du&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">convert_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">p4-patch-apply.py&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#######################################################&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Perforce tool&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Apply p4patch file to your local files.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Usage:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># $ ./p4-patch-apply.py &amp;lt; test.p4patch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#######################################################&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">subprocess&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">sys&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">do_p4edit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">subprocess&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">call&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;p4 edit &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">shell&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">get_local_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">output&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">subprocess&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">check_output&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;p4 where &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">shell&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">output&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">()[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">apply_patch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">patch_text&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">subprocess&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Popen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;patch -p0 -N&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">shell&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">stdin&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">subprocess&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">PIPE&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">patch_text&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">p&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">close&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### If the first value of returned value is True,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### it means that the second value is a local file path.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Otherwise, the second value is the same as the passed parameter.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">convert_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;## &amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">local_path&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">get_local_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">()[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">local_path&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;__main__&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">patch_text&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">sys&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">stdin&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">line&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rstrip&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\r\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">convert_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">patch_text&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="s1">&amp;#39;--- &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">patch_text&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="s1">&amp;#39;+++ &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">do_p4edit&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">patch_text&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="n">ret&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">apply_patch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">patch_text&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="解説">解説&lt;/h2>
+&lt;p>結論から言うと、&lt;strong>p4 diff&lt;/strong> コマンドでは、&lt;strong>GNU patch&lt;/strong> コマンドが扱える形式のパッチファイルを作ることはできません。
+仮に近いものが作れたとしても、次のような理由により、他のユーザーはそのパッチファイルを適用することができません。&lt;/p></description></item><item><title>Perforceメモ: あるユーザがどのファイルを submit せずにペンディングしているかを調べる (p4 changes)</title><link>https://maku77.github.io/p/hpgj6ka/</link><pubDate>Mon, 09 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hpgj6ka/</guid><description>&lt;p>下記のようにすると、ユーザ john が修正しているファイルのうち、submit せずにペンディングしているファイルの一覧を確認することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 changes -u john -s pending
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: カレントディレクトリの位置によって P4 設定を切り替える (P4CONFIG)</title><link>https://maku77.github.io/p/rfysht4/</link><pubDate>Fri, 06 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rfysht4/</guid><description>&lt;p>環境変数 &lt;code>P4CONFIG&lt;/code> にファイル名を設定しておくと、そのファイルが置いてあるディレクトリ以下で実行した &lt;code>p4&lt;/code> コマンドでは、そのファイルに記述されている &lt;code>P4&lt;/code> 設定が使われるようになります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">環境変数の設定例 (.bashrc)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4CONFIG&lt;/span>&lt;span class="o">=&lt;/span>.p4config&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>例えば、&lt;code>Depot1&lt;/code> ディレクトリと、&lt;code>Depot2&lt;/code> ディレクトリで、別の Perforce サーバへ接続したい場合は、下記のように設定ファイルを配置します。ここでは、&lt;code>P4CONFIG&lt;/code> 環境変数に &lt;code>.p4config&lt;/code> と設定しているため、その名前で設定ファイルを作成しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Depot1/.p4config&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">P4PORT=depot1.example.com:1666
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">P4CLIENT=maku.linux.depot1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Depot2/.p4config&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">P4PORT=depot2.example.com:1666
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">P4CLIENT=maku.linux.depot2&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>これらの設定ファイルで設定していない設定項目に関しては、従来通り、環境変数などで設定した値が使用されます（&lt;code>.p4config&lt;/code> ファイルで部分的に設定を上書きできるということ）。&lt;/p>
+&lt;p>&lt;code>.p4config&lt;/code> ファイルを入れ子構造で配置することもできます。
+その場合は、&lt;code>p4&lt;/code> コマンドを実行したディレクトリから上位にディレクトリを探していき、最初に見つかった設定ファイルが使用されます。
+例えば、&lt;code>Depot1/.p4config&lt;/code> と &lt;code>Depot1/Depot2/.p4config&lt;/code> が存在する場合、&lt;code>Depot1/Depot2&lt;/code> ディレクトリ以下のディレクトリで &lt;code>p4&lt;/code> コマンドを実行すると、&lt;code>Depot1/Depot2/.p4config&lt;/code> の方に記載された設定が使用されます。&lt;/p></description></item><item><title>Perforceメモ: ディレクトリ内のすべてのファイルを別のディレクトリへ移動する (p4 move)</title><link>https://maku77.github.io/p/wkb4pzm/</link><pubDate>Mon, 11 Jun 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wkb4pzm/</guid><description>&lt;p>下記のように実行すると、&lt;code>foo&lt;/code> ディレクトリ以下のすべてのファイルを &lt;code>bar&lt;/code> ディレクトリに移動させることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 edit foo/...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 move foo/... bar/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>先に、&lt;code>p4 edit&lt;/code> しておかないと以下のようなエラーが出るので注意してください。&lt;/p>
+&lt;pre tabindex="0">&lt;code>foo/... file(s) not opened on this client.
+&lt;/code>&lt;/pre></description></item><item><title>Perforceメモ: p4 client -d でクライアントを削除できない</title><link>https://maku77.github.io/p/693qet3/</link><pubDate>Mon, 02 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/693qet3/</guid><description>&lt;p>あるクライアントで作成したチェンジリストが残っている (pending) 場合や、default のチェンジリストでファイルが open 状態になっている場合は、そのクライアントを削除しようとすると、以下のようなエラーが出て削除できない場合があります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 client -d hemu.temp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client &amp;#39;hemu.temp&amp;#39; has pending changes; use -f to force delete.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 client -d hemu.temp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Client &amp;#39;hemu.temp&amp;#39; has files opened; use -f to force delete.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>has pending changes と出る場合は、まず &lt;code>changelists&lt;/code> コマンドでそのクライアントで pending になっているチェンジリストを確認し、削除します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 changelists -c hemu.temp -s pending
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Change 234859 on 2009/06/05 by hemu@hemu.temp *pending* &amp;#39;Temporary changes.&amp;#39;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">$&lt;/span> p4 -c hemu.temp changelist -d &lt;span class="m">234859&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Change 234859 deleted.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>has files opened と出る場合は、デフォルトチェンジリストでの変更を破棄します（変更が削除されてしまうので要注意）。&lt;/p></description></item><item><title>Perforceメモ: 特定のサーバに接続するための p4v のショートカットを作成する</title><link>https://maku77.github.io/p/er2iynx/</link><pubDate>Wed, 03 Mar 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/er2iynx/</guid><description>&lt;p>複数の Perforce サーバを使用している場合、それぞれのサーバ接続用に、p4v.exe のショートカットアイコンを作成しておくと便利です。&lt;/p>
+&lt;p>p4v.exe のショートカットアイコンを右クリックしてプロパティを開き、Shortcut タブの Target の部分の p4v のパスにオプションを追加することで、接続先の Perforce サーバなどを設定できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">C:\app\Perforce\p4v.exe -p p4.example.com:1666 -u joe -P password -c joe.client1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>起動パラメータの一覧は、以下のようにすると確認できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="go">C:\&amp;gt; p4v -help
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Usage: p4v [OPTION]...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -p port set p4port
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -u user set p4user
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -c client set p4client
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -log log p4 user actions to stdout
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -logall ...include all p4 operations
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> -V print client version
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> -h -help this message
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> (Optional)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> [-C &amp;lt;charset&amp;gt;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> [-P &amp;lt;password&amp;gt;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> [-cmd &amp;#34;&amp;lt;command&amp;gt; &amp;lt;file&amp;gt;&amp;#34;]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Port, client and user are mandatory (in that order), everything else is optional.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">If a command is given, quotes have to be placed around the command and the file
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">name so that both are passed as a single parameter.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: 指定したチェンジリストを削除する (p4 change)</title><link>https://maku77.github.io/p/edz3kuo/</link><pubDate>Tue, 19 Jan 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/edz3kuo/</guid><description>&lt;p>チェンジリスト番号 12345 のチェンジリストを削除したいときは、下記のように実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 change -d &lt;span class="m">12345&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: ファイルを p4 add したときにデフォルトで設定される filetype を調べる (p4 typemap)</title><link>https://maku77.github.io/p/awws7h4/</link><pubDate>Fri, 22 May 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/awws7h4/</guid><description>&lt;p>あるファイルを &lt;code>p4 add&lt;/code> で Perforce に追加しようとしたときに、そのファイルがテキストファイルとして追加されるのか、それともバイナリファイルとして追加されるのかは、Type Mapping の設定によって、拡張子を基に決定されます。
+このマッピング情報は下記のようにして調べることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 typemap -o
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> Perforce File Type Mapping Specifications.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># TypeMap: a list of filetype mappings; one per line.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> Each line has two elements:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Filetype: The filetype to use on &amp;#39;p4 add&amp;#39;.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Path: File pattern which will use this filetype.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># See &amp;#39;p4 help typemap&amp;#39; for more information.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">TypeMap:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....h
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....hpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....hxx
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....c
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....cc
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....cxx
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....txt
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....html
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> text+k //....htm
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> binary //....png
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> binary //....PNG
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このデフォルトのマッピングでは都合が悪い場合には、&lt;code>p4 add&lt;/code> を実行するときに &lt;code>-t&lt;/code> オプションでファイルタイプを明示的に指定することができます。&lt;/p></description></item><item><title>Perforceメモ: ユーザの各 depot へのアクセス権限を確認する</title><link>https://maku77.github.io/p/rubossh/</link><pubDate>Wed, 08 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rubossh/</guid><description>&lt;h2 id="ユーザーがどのグループに属しているかを確認する">ユーザーがどのグループに属しているかを確認する&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 groups -i &amp;lt;username&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>p4 groups&lt;/code> コマンドに &lt;code>-i&lt;/code> オプションを付けることで、サブグループを含めた表示が可能です。
+ちなみに、自分のユーザー名を調べるには &lt;code>p4 user -o&lt;/code> が使えます。&lt;/p>
+&lt;h2 id="カレントユーザーの各-depot-へのアクセス権限を確認する">カレントユーザーの各 depot へのアクセス権限を確認する&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 protects
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>一般ユーザは、自分自身のアクセス権限のみを確認できます。
+ユーザーやグループを指定してアクセス権限を確認するには、管理者権限が必要です。&lt;/p></description></item><item><title>Perforceメモ: あるユーザが行った submit のログを調べる</title><link>https://maku77.github.io/p/ek3c2ex/</link><pubDate>Tue, 07 Oct 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ek3c2ex/</guid><description>&lt;p>下記の例では、ユーザ &lt;code>joe&lt;/code> が、カレントディレクトリ以下で submit したチェンジリストのログを表示しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 changes -u joe ... &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;{ system(&amp;#34;p4 describe -s &amp;#34; $2) }&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>最初に &lt;code>p4 changes&lt;/code> コマンドで、チェンジリスト番号の一覧を取得し、&lt;code>p4 describe&lt;/code> コマンドの引数としてそのチェンジリスト番号を渡しています。&lt;/p></description></item><item><title>Perforceメモ: チェンジリスト番号を指定して p4 sync する</title><link>https://maku77.github.io/p/iusp9p7/</link><pubDate>Fri, 29 Aug 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/iusp9p7/</guid><description>&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: Change 179939 にすべてのファイルを sync&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ p4 sync //...@179939
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ p4 sync @179939&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>リビジョン番号ではなく、ChangeList の番号であることに注意してください。
+上記の記法は、ラベル名を使って &lt;code>p4 sync&lt;/code> する場合にも利用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync @LABEL_NAME
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: クライアントの have list を表示する (p4 have)</title><link>https://maku77.github.io/p/x2auai4/</link><pubDate>Fri, 06 Jun 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/x2auai4/</guid><description>&lt;p>Perforce では、各クライアントがどのようなファイルをワークスペースに sync して持っているかをサーバ側で管理しています。
+このファイルリストのことを &lt;strong>have list&lt;/strong> と呼びます。&lt;/p>
+&lt;p>現在の have list の情報を確認するには、以下のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 have
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: p4-backup：オープンされているファイルをバックアップする</title><link>https://maku77.github.io/p/e6wxjws/</link><pubDate>Fri, 09 May 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/e6wxjws/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
+&lt;p>末尾の &lt;code>p4-backup&lt;/code> スクリプトは、Perforce クライアントで編集中の（オープンしている）ファイルをバックアップするスクリプトです。&lt;/p>
+&lt;h2 id="使い方">使い方&lt;/h2>
+&lt;p>p4-backup コマンドは、バックアップしたい Perforce ディレクトリのパスと、保存先のディレクトリをパラメータとして受け取ります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">//dir/name 以下のファイルを backup ディレクトリ以下にバックアップ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4-backup //dir/name... backup
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>p4-backup&lt;/code> のパラメータを省略すると、下記のように実行したのと同様に処理されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">全てのオープン中のファイルを backup ディレクトリにバックアップ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4-backup //... backup
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>カレントディレクトリ以下のファイルを backup ディレクトリにバックアップしたいのであれば、下記のように実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4-backup ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="スクリプト">スクリプト&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">p4-backup (Perl スクリプト)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-perl" data-lang="perl">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/perl&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Perforce backup utility.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># p4-backup copies files opened by a p4 client&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># into a backup directory.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Usage:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ./p4-backup &amp;lt;P4Path&amp;gt; &amp;lt;BackupDirectory&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ChangeLog:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2008-05-09 Created.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">use&lt;/span> &lt;span class="nn">strict&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">use&lt;/span> &lt;span class="nn">File::Copy&lt;/span> &lt;span class="sx">qw/ copy /&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">my&lt;/span> &lt;span class="nv">$path&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nv">$ARGV&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="s">&amp;#39;//...&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">my&lt;/span> &lt;span class="nv">$backup_dir&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nv">$ARGV&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="s">&amp;#39;backup&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">print&lt;/span> &lt;span class="s">&amp;#34;P4Path = $path\n&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">print&lt;/span> &lt;span class="s">&amp;#34;BackupDir = $backup_dir\n\n&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">!-&lt;/span>&lt;span class="n">e&lt;/span> &lt;span class="nv">$backup_dir&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">mkdir&lt;/span> &lt;span class="nv">$backup_dir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mo">0755&lt;/span> &lt;span class="ow">or&lt;/span> &lt;span class="nb">die&lt;/span> &lt;span class="s">&amp;#34;Cannot create &amp;#39;$backup_dir&amp;#39;: $!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">print&lt;/span> &lt;span class="s">&amp;#34;Copying files...\n&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="sb">`p4 fstat -Ro $path`&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">next&lt;/span> &lt;span class="k">unless&lt;/span> &lt;span class="sr">/^... clientFile /&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="sr">s/^... clientFile //&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">chomp&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">print&lt;/span> &lt;span class="s">&amp;#34;$_\n&amp;#34;&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">copy&lt;/span> &lt;span class="nv">$_&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nv">$backup_dir&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Perforceメモ: Perforce ユーザ ID から本名やメールアドレスを調べる (p4 users)</title><link>https://maku77.github.io/p/pgrvsmf/</link><pubDate>Fri, 04 Apr 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pgrvsmf/</guid><description>&lt;p>&lt;code>p4 users&lt;/code> コマンドを使用すると、Perforce に登録されているすべてのユーザの情報を確認することができます。
+パラメータでユーザ名を指定すれば、そのユーザの情報だけを表示できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 users yamada
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">yamada &amp;lt;Taro.Yamada@example.com&amp;gt; (Taro YAMADA) accessed 2008/04/04
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ワイルドカードでユーザ名を絞り込んで表示することもできます。
+例えば、次のようにすると、ユーザ名が y で始まるユーザの一覧が表示されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 users &lt;span class="s2">&amp;#34;y*&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: オープンされていて、かつ変更されているファイルの一覧をローカルパスで表示する</title><link>https://maku77.github.io/p/3cuyz8w/</link><pubDate>Tue, 25 Mar 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3cuyz8w/</guid><description>&lt;p>次のようにすると、編集状態（オープン状態）にあるファイルのうち、実際に変更されているファイルの一覧を、ローカルパスで表示することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 diff -sa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">/home/maku/MyApp/Sample.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">/home/maku/MyApp/Sample.h
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、&lt;code>p4 add&lt;/code> で新規に追加されたファイルは表示されないので注意してください。&lt;/p></description></item><item><title>Perforceメモ: 日時指定で p4 sync する</title><link>https://maku77.github.io/p/nytgqgb/</link><pubDate>Wed, 01 Aug 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nytgqgb/</guid><description>&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 2007-01-01 09:00:00 の時点でのファイルを取得&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync //depot/foo/bar/...@&lt;span class="s1">&amp;#39;2007/01/01 09:00:00&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Perforceメモ: バイナリファイルとしてファイルを追加する (p4 add)</title><link>https://maku77.github.io/p/c5cbycb/</link><pubDate>Mon, 11 Sep 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/c5cbycb/</guid><description>&lt;p>新しくファイルを Perforce で管理しようとするときに &lt;code>p4 add&lt;/code> でファイルを追加すると、デフォルトでは拡張子に関連付けられたファイルタイプ（バイナリ or テキスト）のファイルとして登録されます。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/awws7h4/">ファイルを &lt;code>p4 add&lt;/code> したときにデフォルトで設定される filetype を調べる (&lt;code>p4 typemap&lt;/code>)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>テキストとして登録されたファイルに関しては、ファイル同期の際に改行コードが自動的に変換されるといった振る舞いをするようになります（設定により変わりますが）。
+こういった振る舞いをされると都合が悪い場合には、ファイルタイプを明示的に指定して &lt;code>p4 add&lt;/code> を実行することができます。
+例えば、CSV ファイルはデフォルトではテキストファイルとして登録されますが、下記のようにすれば強制的にバイナリファイルとして登録することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: バイナリファイルとして CSV ファイルを追加する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 add -t binary sample.csv
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Perforceメモ: チェンジリストの内容を確認する (p4 describe)</title><link>https://maku77.github.io/p/ee5sdww/</link><pubDate>Tue, 22 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ee5sdww/</guid><description>&lt;h2 id="指定したチェンジリストで変更された内容-diff-の一覧を表示する">指定したチェンジリストで変更された内容 (diff) の一覧を表示する&lt;/h2>
+&lt;p>Perforce では、一連のファイルの変更を、チェンジリストという編集中ファイルのリストとして管理しています。
+あるチェンジリストで管理しているファイルの修正内容を確認するには以下のようにします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: チェンジリスト #12345 で変更された内容 (diff) をまとめて表示する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 describe &lt;span class="m">12345&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>出力する diff の形式をカスタマイズするには、&lt;code>p4 describe&lt;/code> コマンドに以下のオプションを指定します。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>-dc&lt;/code>: context 形式&lt;/li>
+&lt;li>&lt;code>-du&lt;/code>: unified 形式&lt;/li>
+&lt;li>&lt;code>-dn&lt;/code>: RCS 形式&lt;/li>
+&lt;/ul>
+&lt;h2 id="指定したチェンジリストで変更したファイルの一覧を表示する">指定したチェンジリストで変更したファイルの一覧を表示する&lt;/h2>
+&lt;p>特定のチェンジリスト内で修正されているファイルの一覧情報だけを確認したいときは、&lt;code>p4 describe&lt;/code> コマンドに &lt;code>-s&lt;/code> を付けて実行します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: チェンジリスト #12345 で変更したファイルの一覧を表示する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 describe -s &lt;span class="m">12345&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Change 12345 by maku@maku.projectx on 2007/02/23 14:12:24
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go"> Modified hogehoge.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">Affected files ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">... //ProjectX/src/Hoge.cpp#8 edit
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">... //ProjectX/src/Hoge.h#5 edit
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="チェンジリストの内容を標準出力へ出力する">チェンジリストの内容を標準出力へ出力する&lt;/h2>
+&lt;p>&lt;code>p4 change&lt;/code> コマンドに &lt;code>-o&lt;/code> オプションを指定すると、チェンジリストの内容を標準出力に出力することができます。&lt;/p></description></item><item><title>Perforceメモ: 指定したチェンジリストでファイルをオープンする (p4 edit)</title><link>https://maku77.github.io/p/dfywfu4/</link><pubDate>Tue, 22 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dfywfu4/</guid><description>&lt;p>&lt;code>p4 edit&lt;/code> コマンドなどで編集状態にするファイルを、指定したチェンジリストに追加するには、&lt;code>-c&lt;/code> オプションでチェンジリスト番号を指定します（この指定がない場合は、デフォルトのチェンジリストに追加されます）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 edit -c &amp;lt;ChangeListNumber&amp;gt; &amp;lt;FileName&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここで指定するチェンジリスト番号には、実際に存在するチェンジリストの番号を指定する必要があります。
+新しいチェンジリストは &lt;code>p4 change&lt;/code> コマンドで作成することができます（→ &lt;a href="../p/oqp4zgv/">新しいチェンジリストを作成する&lt;/a>）。
+&lt;code>p4 change&lt;/code> コマンドを実行したときに、Change: の後ろに表示されている番号がチェンジリスト番号です。&lt;/p>
+&lt;p>すでにオープンされているファイルを別のチェンジリストに移して管理するには、&lt;code>p4 reopen&lt;/code> コマンドを使用します → &lt;a href="../p/ewf4dkt/">編集中のファイルを別のチェンジリストに移動する&lt;/a>。&lt;/p></description></item><item><title>Perforceメモ: 新しいチェンジリストを作成する（デフォルトのチェンジリストにチェンジリスト番号を付ける）</title><link>https://maku77.github.io/p/oqp4zgv/</link><pubDate>Tue, 22 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oqp4zgv/</guid><description>&lt;p>チェンジリスト番号を指定せずに &lt;code>p4 edit&lt;/code> コマンドなどを実行すると、そのファイルはデフォルトのチェンジリストに入ります。
+デフォルトのチェンジリストの内容は &lt;code>p4 change&lt;/code> コマンドで確認・編集できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 change
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>と実行すると、&lt;code>P4EDITOR&lt;/code> 環境変数に指定されているエディタでチェンジリストの内容が表示されます。
+その中に、&lt;/p>
+&lt;pre tabindex="0">&lt;code>Change: new
+&lt;/code>&lt;/pre>&lt;p>という行があれば、それがデフォルトのチェンジリストであることを示しています。
+ここで、Description の項目にその変更の説明を加えてエディタを閉じると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>Change 42332 created with 4 open file(s).
+&lt;/code>&lt;/pre>&lt;p>のように表示され、デフォルトのチェンジリストに追加されていたファイルが、チェンジリスト番号 42332 のチェンジリストに移動されます。
+つまり、Description に説明を記述することで、初めてチェンジリスト番号が振られることになります。
+例えば、最初の状態が、&lt;/p>
+&lt;pre tabindex="0">&lt;code>デフォルトのチェンジリスト:
+ hoge1.txt
+ hoge2.txt
+ hoge3.txt
+&lt;/code>&lt;/pre>&lt;p>だとして、&lt;code>p4 change&lt;/code> コマンドで Description を入力すると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>デフォルトのチェンジリスト:
+ ＜空＞
+
+チェンジリスト 42332:
+ hoge1.txt
+ hoge2.txt
+ hoge3.txt
+&lt;/code>&lt;/pre>&lt;p>のようになります。
+その後 &lt;code>p4 edit&lt;/code> などで編集の印を付けたファイルは、デフォルトのチェンジリストの方に追加されていきます。
+このようにして、複数ファイルの修正を、チェンジリストという形でグルーピングして管理できるようになっています。&lt;/p></description></item><item><title>Perforceメモ: 編集中のファイルがどのチェンジリストに入っているか調べる</title><link>https://maku77.github.io/p/9s4njfm/</link><pubDate>Tue, 22 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/9s4njfm/</guid><description>&lt;h2 id="編集中のファイルがどのチェンジリストで管理されているか調べる">編集中のファイルがどのチェンジリストで管理されているか調べる&lt;/h2>
+&lt;p>編集中のファイルを調べる &lt;code>p4 opened&lt;/code> コマンドの出力を見ると、それらのファイルがどのチェンジリストで管理されているかを知ることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/hoge/sample1.txt#1 - edit default change (ktext)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/hoge/sample2.txt#1 - edit change 12345 (ktext)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記の例では、sample1.txt はデフォルトのチェンジリスト、sample2.txt はチェンジリスト 12345 番に入っていることが分かります。&lt;/p>
+&lt;h2 id="指定したチェンジリストに入っているファイルを調べる">指定したチェンジリストに入っているファイルを調べる&lt;/h2>
+&lt;p>チェンジリスト番号を指定して &lt;code>p4 opened&lt;/code> コマンドを実行すれば、そのチェンジリスト内で編集状態になっているファイルの一覧だけを表示できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened -c &lt;span class="m">12345&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>デフォルトのチェンジリストに入っているファイルを調べるには、チェンジリスト番号として &lt;strong>default&lt;/strong> を指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened -c default
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: 編集中のファイルを別のチェンジリストに移動する (p4 reopen)</title><link>https://maku77.github.io/p/ewf4dkt/</link><pubDate>Tue, 22 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ewf4dkt/</guid><description>&lt;p>すでに編集状態になっている（オープンされている）ファイルを、別のチェンジリストに移動して管理したいときは、&lt;code>p4 reopen&lt;/code> コマンドで下記のように移動先のチェンジリストを指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 reopen -c &amp;lt;ChangeListNumber&amp;gt; &amp;lt;FileName&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>新しくファイルを編集状態にするときに、指定したチェンジリストで管理するようにするには、&lt;code>p4 edit&lt;/code> コマンドを使用します → &lt;a href="../p/dfywfu4/">指定したチェンジリストでファイルをオープンする&lt;/a>。&lt;/p></description></item><item><title>Perforceメモ: オープンされているファイルを一覧表示する (p4 opened)</title><link>https://maku77.github.io/p/pmi544x/</link><pubDate>Mon, 21 Aug 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pmi544x/</guid><description>&lt;p>p4 edit コマンドなどにより、オープンされているファイルを一覧表示するには次のコマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>他のユーザが編集中のファイルを調べるには -a オプションを付けて p4 opened コマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>カレントディレクトリ以下のファイルに対して、他のユーザが編集中のファイルを調べるには次のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 opened -a ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: p4 sync しようとすると opened for edit and can't be deleted というエラーになる</title><link>https://maku77.github.io/p/bbefxko/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bbefxko/</guid><description>&lt;p>&lt;code>p4 sync&lt;/code> を実行したときに下記のように失敗することがあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/hoge.txt#1 - is opened for edit and can&amp;#39;t be deleted
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>p4 コマンドリファレンスによると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>p4 sync copies a particular depot file only if
+it meets all of the following criteria:
+
+ - The file must be visible through the client view;
+ - It must not already be opened by p4 edit, p4 delete,
+ p4 add, or p4 integrate;
+ - It must not already exist in the client workspace at
+ its latest revision (the head revision).
+&lt;/code>&lt;/pre>&lt;p>という仕様になっており、オープン状態になっているファイルは &lt;code>p4 sync&lt;/code> をしてもディポからファイルがコピーされないようになっています。
+このようになっているおかげで、編集中のファイルを誤ってディポ上のファイルで上書きしてしまう心配がなくなり、自分が編集中でないファイルだけを &lt;code>p4 sync&lt;/code> により常に最新に保つことができます。&lt;/p></description></item><item><title>Perforceメモ: p4 sync 時に空のディレクトリを削除する (rmdir, normdir)</title><link>https://maku77.github.io/p/sre5kts/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/sre5kts/</guid><description>&lt;p>&lt;code>p4 sync&lt;/code> したときにワークスペース上から空のフォルダを削除するには、クライアントに下記のオプションを設定します（&lt;code>p4 client&lt;/code> で設定画面を起動）。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Options: rmdir
+&lt;/code>&lt;/pre>&lt;p>逆に、空のディレクトリをそのままにしておく場合は以下のように設定します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Options: normdir
+&lt;/code>&lt;/pre></description></item><item><title>Perforceメモ: p4 sync 時のファイル上書き設定 (noclobber/clobber)</title><link>https://maku77.github.io/p/7kazgbv/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7kazgbv/</guid><description>&lt;p>&lt;code>p4 edit&lt;/code> でファイルを writable 状態にしているときは、&lt;code>p4 sync&lt;/code> してもそのファイルは上書きされませんが、&lt;strong>OS の機能で直接ファイルを writable 状態に変更してしまった場合&lt;/strong>（ファイルの書き込みフラグを ON にした場合）は、&lt;strong>クライアントの clobber 設定によって sync 時の振る舞いが変わります&lt;/strong>。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>設定&lt;/th>
+ &lt;th>振る舞い&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>Options: noclobber&lt;/code>&lt;/td>
+ &lt;td>&lt;code>p4 sync&lt;/code> でそのファイルは上書きされない。&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Options: clobber&lt;/code>&lt;/td>
+ &lt;td>&lt;code>p4 sync&lt;/code> でそのファイルは上書きされる。&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Perforceメモ: Perforce クライアントのインストールと初期設定</title><link>https://maku77.github.io/p/vrgwxff/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/vrgwxff/</guid><description>&lt;h2 id="perforce-クライアント-p4p4v-のインストール">Perforce クライアント p4、p4v のインストール&lt;/h2>
+&lt;p>Linux での Perforce クライアントのインストールは、p4（CUI 版クライアント）、p4v（GUI 版クライアント）をダウンロードし、パスの通った場所に置くだけです。
+Windows の場合はインストーラが用意されています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> su
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> chmod +x p4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> cp p4 /usr/local/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="perforce-クライアントの初期設定">Perforce クライアントの初期設定&lt;/h2>
+&lt;p>&lt;code>~/.bash_profile&lt;/code> にいろいろ設定しておきます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">.bash_profile&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4PORT&lt;/span>&lt;span class="o">=&lt;/span>192.168.100.1:1666 &lt;span class="c1"># 接続先&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4USER&lt;/span>&lt;span class="o">=&lt;/span>joe &lt;span class="c1"># 接続用アカウント&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4PASSWD&lt;/span>&lt;span class="o">=&lt;/span>xxxxxx &lt;span class="c1"># 接続用パスワード&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4CLIENT&lt;/span>&lt;span class="o">=&lt;/span>joe.test &lt;span class="c1"># 接続時にデフォルトで使用するクライアント設定名（新規のものでも可）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4CHARSET&lt;/span>&lt;span class="o">=&lt;/span>utf8 &lt;span class="c1"># 文字セット&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">P4EDITOR&lt;/span>&lt;span class="o">=&lt;/span>gvim &lt;span class="c1"># 設定で使用するエディタ&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Windows の場合は、&lt;code>p4 set&lt;/code> コマンドを使用して、上記の設定をレジストリに保存します（パスワードは暗号化されて保存されます）。
+以下のように実行して Perforce サーバの情報が表示されれば接続はできるようになっています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> . ~/.bash_profile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次に、&lt;code>p4 client&lt;/code> コマンドを使用して、クライアント情報を設定します。
+ここでクライアント名を省略すると、&lt;code>P4CLIENT&lt;/code> 変数に設定したクライアントを設定することになります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 client
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>最低限、ローカルのワーキングディレクトリのルートパスを示す &lt;em>Root:&lt;/em> の情報だけは設定しておきましょう。
+&lt;code>p4 client&lt;/code> コマンドによって開かれたエディタを閉じると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>Client &amp;lt;ClientName&amp;gt; saved.
+&lt;/code>&lt;/pre>&lt;p>と表示され、サーバにクライアント情報が登録されます。
+あとは、次のようにしてディポ上のファイルをローカルに取得できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync //depot/project1/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: ディポ上のファイルを検索する (p4 files)</title><link>https://maku77.github.io/p/kovqi9e/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kovqi9e/</guid><description>&lt;h2 id="ディポ上のファイルをすべて表示">ディポ上のファイルをすべて表示&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 files //depot/dir/...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file1.cpp#1 - add change 22657 (ktext)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file2.cpp#1 - add change 22657 (ktext)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file3.cpp#2 - edit change 22658 (text)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイル名だけを表示したい場合は、例えば &lt;code>sed&lt;/code> でフィルタします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 files //depot/dir/... &lt;span class="p">|&lt;/span> sed &lt;span class="s2">&amp;#34;s/\(.*\)#.*/\1/&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file1.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file2.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">//depot/dir/file3.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="拡張子で絞り込み">拡張子で絞り込み&lt;/h2>
+&lt;p>サーバ上のファイルを検索しようとした場合に、検索結果が大量になると、&lt;/p>
+&lt;pre tabindex="0">&lt;code>Request too large (over 40000); see &amp;#39;p4 help maxresults&amp;#39;.
+&lt;/code>&lt;/pre>&lt;p>と表示されて検索結果が表示されないことがあります。
+このような場合は、例えば次のように検索を絞り込みます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: ディポ上の `.h` ファイルを表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ p4 files //depot/dir/...*.h&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>特定のファイルがどこにあるかは次のように grep すれば簡単に探せます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 files //depot/dir/...*.h &lt;span class="p">|&lt;/span> grep Hello.h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: ディレクトリ内のファイルを再帰的に p4 add する</title><link>https://maku77.github.io/p/o3bxq8u/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/o3bxq8u/</guid><description>&lt;p>（Linux の）&lt;code>find&lt;/code> コマンドと &lt;code>p4 add&lt;/code> を組み合わせて実行することで、ディレクトリ内のファイルをまとめて Perforce 管理下に置くことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> find . -type f -print &lt;span class="p">|&lt;/span> p4 -x - add
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">応用例: Subversion 用のファイル (.svn) を除いたものを `p4 add` でまとめて追加&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ find . -type f | grep -v &amp;#39;.svn&amp;#39; | p4 -x - add&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Perforceメモ: ローカルのワークスペース上でのファイル編集情報をサーバへ通知する（have list の更新）</title><link>https://maku77.github.io/p/kw8v6d7/</link><pubDate>Fri, 16 Jun 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kw8v6d7/</guid><description>&lt;p>クライアントがローカルのワークスペースに持っているファイル情報 (Have List) はサーバ上で保持されているので、ワークスペース内のファイルをローカルでいじくりまわした場合は、その変更をサーバに伝えなければ次回からの sync に影響が出てしまいます。
+ローカルで持っているファイル情報をサーバに伝えるには、&lt;code>p4 sync&lt;/code> コマンドを &lt;code>-k&lt;/code> オプションを付けて実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync -k
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>あるいは、上記のエイリアスである &lt;code>flush&lt;/code> を使います。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 flush
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以下 p4 コマンドリファレンスから、&lt;code>-k&lt;/code> オプションについての抜粋です。&lt;/p>
+&lt;pre tabindex="0">&lt;code>-k Option
+
+ Keep existing workspace files; update the have list without updating
+ the client workspace. Use p4 sync -k only when you need to update
+ the have list to match the actual state of the client workspace.
+&lt;/code>&lt;/pre></description></item><item><title>Perforceメモ: ディポ上のファイルを標準出力に出力する／ローカルファイルに保存する (p4 print)</title><link>https://maku77.github.io/p/ff88cfs/</link><pubDate>Fri, 24 Mar 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ff88cfs/</guid><description>&lt;p>&lt;code>p4 print&lt;/code> コマンドでサーバ上のファイル内容を出力できます。
+&lt;code>p4 print&lt;/code> コマンドに &lt;code>-q&lt;/code> オプションを付けると、出力の先頭行にファイルのパスが表示されるのを抑制できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 print -q //depot/dir/filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ディポ上のファイルをローカルファイルとして保存したい場合は、
+&lt;code>p4 print&lt;/code> コマンドに &lt;code>-o&lt;/code> オプションを指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 print -o localfile.txt //depot/dir/filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: クライアントの have list をサーバから削除する</title><link>https://maku77.github.io/p/y4jx8oi/</link><pubDate>Wed, 22 Mar 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y4jx8oi/</guid><description>&lt;p>ローカルで、シェルコマンド &lt;code>rm -fR *&lt;/code> などを実行してファイルをすべて削除しても、Perforce サーバ上ではそのクライアントはまだファイルを持っているという情報を保持しています（have list）。
+この have list から、ファイルの保持情報を削除するには次のように &lt;code>p4 sync&lt;/code> コマンドを実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync //depot/...#0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync //depot/...#none
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>オープン状態にあるファイルがある場合は、次のようなエラーが出ます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>//depot/hoge.txt#67 - is opened for edit and can&amp;#39;t be deleted.
+&lt;/code>&lt;/pre>&lt;p>このような場合は、&lt;code>p4 revert&lt;/code> コマンドで対象ファイルの編集を破棄してから &lt;code>p4 sync&lt;/code> を実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 revert -a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 sync //depot/...#none
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: オープンされているファイルを編集前の状態に戻す (p4 revert)</title><link>https://maku77.github.io/p/n5xqujv/</link><pubDate>Tue, 21 Mar 2006 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/n5xqujv/</guid><description>&lt;h2 id="すべてのファイルの編集状態を破棄する">すべてのファイルの編集状態を破棄する&lt;/h2>
+&lt;p>&lt;code>p4 opened&lt;/code> コマンドで表示される編集内容を全て破棄するには &lt;code>p4 revert&lt;/code> コマンドを次のように実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 revert //...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次のように &lt;code>-n&lt;/code> オプションを付けて実行すると、どのファイルが revert されるのかを確認することができます（実際の &lt;code>revert&lt;/code> 処理は実行されません）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 revert -n //...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="カレントディレクトリ以下のファイルをすべて元に戻す">カレントディレクトリ以下のファイルをすべて元に戻す&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 revert ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="edit-用に開いているファイルをすべて元に戻す">edit 用に開いているファイルをすべて元に戻す&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 revert -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="チェンジリストから編集リストを削除する方法">チェンジリストから編集リストを削除する方法&lt;/h2>
+&lt;p>&lt;code>p4 change&lt;/code> コマンドでサーバ上のチェンジリストを開いて、&lt;code>Files:&lt;/code> というセクションに列挙されているファイルリストを編集しても、オープン状態の変更ができます。&lt;/p></description></item><item><title>Perforceメモ: ディポ上にディレクトリを追加する</title><link>https://maku77.github.io/p/77ke2oe/</link><pubDate>Tue, 27 Sep 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/77ke2oe/</guid><description>&lt;p>Perforce では、空のディレクトリだけを作成することはできません。
+ディポ上に存在しないディレクトリを追加したい場合は、ディレクトリを追加するコマンドを発行するのではなく、そのディレクトリの下にあるファイルを追加することによって、自動的にその親ディレクトリも追加されたかのように見えるようになります。&lt;/p>
+&lt;ol>
+&lt;li>追加したいディレクトリをクライアントワークスペースにコピーする。&lt;/li>
+&lt;li>その中のファイルをすべて add する。&lt;/li>
+&lt;/ol></description></item><item><title>Perforceメモ: オーバーレイマッピングによる差分開発を行う</title><link>https://maku77.github.io/p/98dnm2o/</link><pubDate>Sat, 16 Jul 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/98dnm2o/</guid><description>&lt;h2 id="差分開発のとあるシチュエーション">差分開発のとあるシチュエーション&lt;/h2>
+&lt;p>既存のディポ &lt;code>//depot/proj/...&lt;/code> があり、このプロジェクトを派生する形で新しいプロジェクトを立ち上げるとします。
+この場合、既存のディポのファイル群をベースにしてその中の一部のファイルを編集していくことになりますが、&lt;code>//depot/proj/...&lt;/code> は元のプロジェクトの本線なのでここに新規プロジェクトの変更をサブミットしたくありません。
+そこで、&lt;code>//depot/proj_new/...&lt;/code> という新しいディポを作成し、編集する必要のあるファイル （既存のディポからの差分となるファイル）のみを登録するようにします。
+このような状況では、全体としては &lt;code>//depot/proj/...&lt;/code> のファイルを使い、差分ファイルだけは &lt;code>//depot/proj_new/...&lt;/code> にあるファイルを使用する、といったことができると便利です。&lt;/p>
+&lt;h2 id="差分ファイルによる上書きを行うマッピング定義">差分ファイルによる上書きを行うマッピング定義&lt;/h2>
+&lt;p>クライアントビューの設定で &lt;code>+&lt;/code> を付けてマッピング指定を行うと、そのマッピング定義が他のマッピング定義よりも優先的に使用されるようになります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>View:
+	//depot/proj/... //client/proj/...
+	+//depot/proj_new/... //client/proj/...
+&lt;/code>&lt;/pre>&lt;p>上記のようにすると、&lt;code>//depot/proj/...&lt;/code> と &lt;code>//depot/proj_new/...&lt;/code> の両方に同じファイルがある場合、&lt;code>p4 sync&lt;/code> を実行したときに、&lt;code>//depot/proj_new/...&lt;/code> 以下にあるファイルが優先的に取得されるようになります。
+これにより、新規実装だけを &lt;code>//depot/proj_new/...&lt;/code> の下で管理するといった差分開発を行えます。&lt;/p>
+&lt;h2 id="ディレクトリ単位で参照先を入れ替えるマッピング定義">ディレクトリ単位で参照先を入れ替えるマッピング定義&lt;/h2>
+&lt;p>特定のディレクトリパス以下のファイル群を、（ディポ上の）別ディレクトリから取得するようにファイルマッピングを行うこともできます。
+マッピング定義のプレフィックスに &lt;code>-&lt;/code> を付けると、そのディレクトリ以下のファイルがマッピング定義から除外されるので、代わりに別のディレクトリへのファイルマッピングを追加してやることで、ディレクトリ単位のファイル入れ替えを実現できます。&lt;/p>
+&lt;p>下記の例では、&lt;code>//client/proj/aaa&lt;/code> ディレクトリ以下のファイルだけ、ディポ上の &lt;code>//depot/proj_new/aaa&lt;/code> から取得するようにマッピング定義を行っています。&lt;/p>
+&lt;pre tabindex="0">&lt;code>View:
+	//depot/proj/... //client/proj/
+	-//depot/proj/aaa/... //client/proj/aaa/...
+	//depot/proj_new/aaa/... //client/proj/aaa/...
+&lt;/code>&lt;/pre>&lt;h2 id="まとめ">まとめ&lt;/h2>
+&lt;p>クライアントビュー設定で、&lt;code>+&lt;/code> プレフィックスを付けてディレクトリを指定すると、ファイルマッピングの上書き（優先度を付けたマッピング）を行うことができます。
+一方で、&lt;code>-&lt;/code> プレフィックスを付けてディレクトリを指定すると、そのディレクトリ以下にあるファイルがマッピング定義から除外されるため、ディレクトリ単位でのマッピング入れ替えが可能になります。&lt;/p>
+&lt;p>差分開発を行うときに、差分ファイルがたくさんのディレクトリに散らばっているようなケースでは &lt;code>+&lt;/code> による上書きマッピングを使用し、ディレクトリ単位で差分ファイルを管理できるようなケースでは &lt;code>-&lt;/code> によるディレクトリ単位の入れ替えを行うとよいでしょう。&lt;/p></description></item><item><title>Perforceメモ: ブランチ仕様でブランチビューを定義して integrate 作業を簡単にする</title><link>https://maku77.github.io/p/peju2fi/</link><pubDate>Fri, 15 Jul 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/peju2fi/</guid><description>&lt;p>ブランチ仕様は次のコマンドで作成できます（ブランチを作るコマンドではないところが分かりにくい・・・）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 branch &amp;lt;BranchSpecName&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ブランチ仕様のビューに、&lt;/p>
+&lt;pre tabindex="0">&lt;code>View:
+ //depot/A/... //depot/B/...
+&lt;/code>&lt;/pre>&lt;p>と書いておくと、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate //depot/A/... //depot/B/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>というコマンドを次のように実行できるようになります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate -b &amp;lt;BranchSpecName&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>逆方向の反映、つまり、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate //depot/B/... //depot/A/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>というコマンドは &lt;code>-r&lt;/code> オプションを付けて次のように実行できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate -r -b &amp;lt;BranchSpecName&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perforceメモ: p4 update と p4 integrate の違いを理解する</title><link>https://maku77.github.io/p/9ztg7c3/</link><pubDate>Thu, 14 Jul 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/9ztg7c3/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 update //depot/A/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>とすると、ディポ上の &lt;code>//depot/A/...&lt;/code> が、 クライアント仕様の &lt;code>//depot/A/...&lt;/code> ビューを通してローカルにマッピングされます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate //depot/A/... //depot/B/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>とすると、ディポ上の &lt;code>//depot/A/...&lt;/code> が、クライアント仕様の &lt;code>//depot/B/...&lt;/code> ビューを通してローカルにマッピングされます。&lt;/p></description></item><item><title>Perforceメモ: ブランチを作成する</title><link>https://maku77.github.io/p/toj2q3b/</link><pubDate>Tue, 12 Jul 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/toj2q3b/</guid><description>&lt;p>現在ディポ上に「ブランチ元」の &lt;code>//depot/A/...&lt;/code> が存在しているとして、これを元に &lt;code>//depot/B/...&lt;/code> という&lt;strong>ブランチを作成する&lt;/strong>には以下のようにします。&lt;/p>
+&lt;h3 id="step-1-ブランチ用クライアントビューの作成">Step 1. ブランチ用クライアントビューの作成&lt;/h3>
+&lt;p>まずは準備としてクライアント仕様に、ブランチ用のビューを追加しておきます。
+これは、&lt;code>p4&lt;/code> コマンドで &lt;code>//depot/B/...&lt;/code> というパスを指定したときに、ローカルディレクトリにマッピングできるようにするためです。&lt;/p>
+&lt;p>もし、クライアントビューとして、&lt;code>//depot/...&lt;/code> のように親ディレクトリからのビューが指定されている場合は、この作業は必要ありません。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 client
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">View:
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> //depot/A/... //$CLIENT/A/... ← 「本線」用のクライアント・ビュー
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> //depot/B/... //$CLIENT/B/... ← 「ブランチ」用のクライアント・ビュー
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>まだこの時点では、サーバ上に &lt;code>//depot/B/&lt;/code> は存在しないし、クライアント上にも対応するファイル群は作成されていません。&lt;/p>
+&lt;h3 id="step-2-ディポにブランチを作成する">Step 2. ディポにブランチを作成する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 integrate //depot/A/... //depot/B/...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコマンドにより、クライアントの &lt;code>//$CLIENT/B/...&lt;/code> に作業コピーが作成されます。
+コピーの元になっているファイルは &lt;code>//depot/A/...&lt;/code> にあるファイルです。
+作業コピーで作成されたファイルは &lt;code>//depot/B/...&lt;/code> というブランチを作成するための作業状態として作業リストに追加されます。&lt;/p>
+&lt;p>この時点ではディポ上には &lt;code>//depot/B/...&lt;/code> で参照できるファイルはまだ存在しないということがポイントです。
+&lt;code>integrate&lt;/code> コマンドは作業コピーとしてディポ上のファイルを持ってくるだけです。
+&lt;code>integrate&lt;/code> コマンドは &lt;code>sync&lt;/code> コマンドのブランチ用と考えると分かりやすいです。
+上記の例は、「本線」での作業を「ブランチ」側へ反映するためのコマンドともいえます（今回は「ブランチ」側の作業ディレクトリが空なのですべてのファイルがコピーされます）。&lt;/p>
+&lt;p>この作業を実際にディポ上に反映するには &lt;code>submit&lt;/code> を実行します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> p4 submit
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>submit&lt;/code> コマンドを実行する時点で &lt;code>//$CLIENT/B/...&lt;/code> のファイルが新規作成の作業状態になっているので、&lt;code>//$CLIENT/B/...&lt;/code> のファイルがすべて &lt;code>//depot/B/...&lt;/code> へサブミットされることになります。
+これで、他のユーザも &lt;code>//depot/B/...&lt;/code> を参照してブランチの作業コピーを取得できるようになります。&lt;/p></description></item></channel></rss>

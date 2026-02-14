@@ -912,7 +912,7 @@ jQuery の &lt;code>$(window).width()&lt;/code> を使用すると、スクロ�
 &lt;code>$e.position()&lt;/code> でうまく値が取れない場合は、親要素にこの指定を忘れていることが多いので注意してください（デフォルトの &lt;code>position: static&lt;/code> のままになっている）。&lt;/p>
 &lt;p>次のデモでは、div 要素 (&lt;code>#box&lt;/code>) の座標をリアルタイムに取得して表示しています。
 これらの座標値は、&lt;strong>ページをスクロールしても変化しない&lt;/strong>ところがポイントです（ただし、ズームを行ってレイアウトが崩れた場合などは、座標値が変化することがあります）。&lt;/p>
-&lt;h4 id="デモhahahugoshortcode447s3hbhb">デモ（&lt;a href="../p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモhahahugoshortcode450s3hbhb">デモ（&lt;a href="../p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="elem-pos-demo.html">&lt;/iframe>
 
 &lt;figure class="xCodeBlock">
