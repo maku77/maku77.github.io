@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on 天才まくまくノート</title><link>https://maku77.github.io/android/</link><description>Recent content in Android on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Fri, 10 Oct 2025 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Androidトラブルシューティング: JDK のバージョンが原因でビルドが失敗する場合</title><link>https://maku77.github.io/p/jhsiowu/</link><pubDate>Fri, 10 Oct 2025 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/jhsiowu/</guid><description>&lt;p>Android プロジェクト内で特定の JDK バージョンによるビルドが要求されている場合、Android Studio 内の JBR (JetBrains Runtime) ではバージョンが合わず、ビルドが失敗することがあります。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on 天才まくまくノート</title><link>https://maku77.github.io/android/</link><description>Recent content in Android on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Androidトラブルシューティング: JDK のバージョンが原因でビルドが失敗する場合</title><link>https://maku77.github.io/p/jhsiowu/</link><pubDate>Fri, 10 Oct 2025 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/jhsiowu/</guid><description>&lt;p>Android プロジェクト内で特定の JDK バージョンによるビルドが要求されている場合、Android Studio 内の JBR (JetBrains Runtime) ではバージョンが合わず、ビルドが失敗することがあります。
 そのような場合は、次のように JDK を追加することで解決できます。&lt;/p>
 &lt;ol>
 &lt;li>&lt;strong>&lt;code>Ctrl + Shift + A&lt;/code>&lt;/strong> で &amp;ldquo;Find Action&amp;rdquo; を開く&lt;/li>
@@ -1822,12 +1822,50 @@ group:android.permission-group.WALLPAPER
  permission:android.permission.SET_WALLPAPER
  permission:android.permission.SET_WALLPAPER_HINTS
  ...
-&lt;/code>&lt;/pre></description></item><item><title>Androidメモ: ADB 経由でスクリーンキャプチャを取得する (screencap)</title><link>https://maku77.github.io/p/kp3ubcu/</link><pubDate>Wed, 01 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kp3ubcu/</guid><description>&lt;p>Android デバイス上で &lt;strong>&lt;code>screencap&lt;/code>&lt;/strong> コマンドを使うと、スクリーンキャプチャを取得できます。
-ADB 接続ができている状態であれば、下記のように実行することで PC 側のカレントディレクトリに &lt;code>capture.png&lt;/code> ファイルを取得できます。&lt;/p>
+&lt;/code>&lt;/pre></description></item><item><title>Androidメモ: ADB 経由でスクリーンキャプチャを取得する (screencap)</title><link>https://maku77.github.io/p/kp3ubcu/</link><pubDate>Wed, 01 Apr 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kp3ubcu/</guid><description>&lt;h2 id="android-デバイスの-screencap-コマンド">Android デバイスの screencap コマンド&lt;/h2>
+&lt;p>Android デバイス上で &lt;strong>&lt;code>screencap&lt;/code>&lt;/strong> コマンドを使うと、スクリーンキャプチャを取得できます。
+PC から ADB 接続ができている状態であれば、下記のように実行することで PC 側のカレントディレクトリに &lt;code>capture.png&lt;/code> ファイルを取得できます。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> adb shell screencap -p /sdcard/capture.png
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> adb pull /sdcard/capture.png
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> adb shell rm /sdcard/capture.png
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>APK ファイルに署名する (keytool, jarsigner)</title><link>https://maku77.github.io/p/3yk3j2i/</link><pubDate>Thu, 19 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3yk3j2i/</guid><description>&lt;p>APK に署名する方法は、従来の Java で行われていた JAR ファイルへの署名方法と同様です。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Android デバイス内の &lt;code>/sdcard&lt;/code> ディレクトリを指定しているのは、通常のユーザ権限で書き込みが可能な場所だからです。&lt;/p>
+&lt;h2 id="バッチファイル化しておく">バッチファイル化しておく&lt;/h2>
+&lt;p>Windows 環境であれば、以下のようにバッチファイルを作成してパスの通ったディレクトリに置いておけば、1 コマンドでスクリーンキャプチャを取得できるようになります。
+作成される PNG ファイル名には、自動的に日時を付与するようにしています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">m-adb-screencap.cmd&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">echo&lt;/span> off
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">setlocal&lt;/span> enabledelayedexpansion
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">%~1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="k">/f&lt;/span> &lt;span class="s2">&amp;#34;tokens=1-6 delims=/-:. &amp;#34;&lt;/span> &lt;span class="se">%%&lt;/span>a &lt;span class="k">in&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">%date%&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="nv">%time%&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">YYYY&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">MM&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>b
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">DD&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">hh&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>d
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">mm&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">ss&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="se">%%&lt;/span>f
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">FILENAME&lt;/span>&lt;span class="p">=&lt;/span>capture-!YYYY!!MM!!DD!T!hh!!mm!!ss!.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">set&lt;/span> &lt;span class="nv">FILENAME&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="nv">%~1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">adb shell screencap -p &lt;span class="s2">&amp;#34;/sdcard/&lt;/span>&lt;span class="nv">%FILENAME%&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">adb pull &lt;span class="s2">&amp;#34;/sdcard/&lt;/span>&lt;span class="nv">%FILENAME%&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">%FILENAME%&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">adb shell rm &lt;span class="s2">&amp;#34;/sdcard/&lt;/span>&lt;span class="nv">%FILENAME%&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">使用例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">▼ パラメータ指定せずに実行するとファイル名を自動生成
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C:\&amp;gt; m-adb-screencap
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/sdcard/capture-20264719T144706.png: 1 file pulled, 0 skipped. 41.2 MB/s (2486963 bytes in 0.058s)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">▼ ファイル名を指定する場合
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C:\&amp;gt; m-adb-screencap mycapture.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/sdcard/capture.png: 1 file pulled, 0 skipped. 41.2 MB/s (2486963 bytes in 0.058s)&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>APK ファイルに署名する (keytool, jarsigner)</title><link>https://maku77.github.io/p/3yk3j2i/</link><pubDate>Thu, 19 Mar 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3yk3j2i/</guid><description>&lt;p>APK に署名する方法は、従来の Java で行われていた JAR ファイルへの署名方法と同様です。
 下記の JAR ファイルへの署名方法を参考にしてください。&lt;/p>
 &lt;ul>
 &lt;li>参考: &lt;a href="../p/fht5eox/">JAR ファイルの署名について - まくまく Java ノート&lt;/a>&lt;/li>
