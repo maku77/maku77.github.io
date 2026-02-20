@@ -1,8 +1,10 @@
 ---
-title: "Resource (3) ページのツリー構造を取得する"
+title: "Middlemanメモ: Resource (3) ページのツリー構造を取得する"
+url: "p/5cdywqw/"
 date: "2016-01-17"
+tags: ["middleman"]
+aliases: /middleman/resource3.html
 ---
-
 
 Resource オブジェクトの `children` 属性を参照すると、子ページの Resource 情報を取得できるため、これを利用してページのツリー構成を調べることができます。
 下記の `dump_tree` メソッドは、指定したページの Resource オブジェクト以下のページ構成を出力します。
@@ -14,20 +16,22 @@ def dump_page(res, indent)
 end
 
 # 'index.html' を示す Resource か判別する
-def is_index(res)
+def index_page?(res)
   res.url.end_with?('/')
 end
 
 # 指定したページから再帰的にツリー構造を表示
-def dump_tree(res, indent=0)
+def dump_tree(res, indent = 0)
   dump_page(res, indent)
 
   res.children.each do |child|
-    # 同じ階層の HTML
-    dump_page(child, indent) unless is_index(child)
-
-    # 下位ディレクトリの HTML
-    dump_tree(child, indent+1) if is_index(child)
+    if index_page?(child)
+      # 下位ディレクトリの index.html は再帰的に展開
+      dump_tree(child, indent + 1)
+    else
+      # 同じ階層の HTML はそのまま表示
+      dump_page(child, indent)
+    end
   end
 end
 ```
@@ -42,9 +46,7 @@ res = sitemap.find_resource_by_path('/index.html')
 dump_tree(res)
 ```
 
-#### 出力例
-
-```
+{{< code title="出力例" >}}
 index.html
 a.html
 b.html
@@ -60,5 +62,4 @@ b.html
     sub2/sub2-1/index.html
     sub2/sub2-1/a.html
     sub2/sub2-1/b.html
-```
-
+{{< /code >}}

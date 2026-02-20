@@ -1,6 +1,9 @@
 ---
-title: "Resource オブジェクト (2) ページの親子関係を取得する"
+title: "Middlemanメモ: Resource オブジェクト (2) ページの親子関係を取得する"
+url: "p/25v7sun/"
 date: "2016-01-17"
+tags: ["middleman"]
+aliases: /middleman/resource2.html
 ---
 
 `Resource` オブジェクトには、`parent`、`children`、`siblings` という属性があり、親、子、兄弟のページをそれぞれ取得できるのですが、具体的にどのようなページが取得されるのかをまとめておきます。
@@ -125,4 +128,3 @@ parent = sub1/index.html
 siblings[0] = sub1/b.html
 siblings[1] = sub1/c.html
 ```
-

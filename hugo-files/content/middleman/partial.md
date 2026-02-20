@@ -1,6 +1,9 @@
 ---
-title: "パーシャルでページを分割して管理する"
+title: "Middlemanメモ: パーシャルでページを分割して管理する"
+url: "p/9nr276n/"
 date: "2015-12-07"
+tags: ["middleman"]
+aliases: /middleman/partial.html
 ---
 
 パーシャル機能を使用することで、複数のレイアウトで共通する部分をファイルに分離して使い回すことができます（C/C++ 言語の include のようなものです）。
@@ -9,34 +12,28 @@ date: "2015-12-07"
 
 ここでは、下記のように、`includes` ディレクトリ内に、`_header.erb` と `_footer.erb` を作成することにします。
 
-#### source/includes/_header.erb
+{{< code lang="html" title="source/includes/_header.erb" >}}
+<header>これはヘッダーです</header>
+{{< /code >}}
 
-```html
-<header>これはヘッダーだよ</header>
-```
-
-#### source/includes/_footer.erb
-
-```html
-<footer>これはフッターだよ</footer>
-```
+{{< code lang="html" title="source/includes/_footer.erb" >}}
+<footer>これはフッターです</footer>
+{{< /code >}}
 
 これらのパーシャルファイルをレイアウトから読み込むには、任意の場所に `<%= partial 'パーシャル名' %>` と記述します。
 `パーシャル名` には、アンダースコアを含めないことに注意してください。
 
-#### source/layouts/layout.erb
-
-```html
+{{< code lang="html" title="source/layouts/layout.erb" >}}
 <!DOCTYPE html>
 <html lang="ja">
   ...
   <body>
-    <%= partial 'includes/_header' %>
+    <%= partial 'includes/header' %>
     <%= yield %>
-    <%= partial 'includes/_footer' %>
+    <%= partial 'includes/footer' %>
   </body>
 </html>
-```
+{{< /code >}}
 
 上記は、最終的に下記のような感じで出力されます。
 
@@ -45,10 +42,9 @@ date: "2015-12-07"
 <html lang="ja">
   ...
   <body>
-    <header>これはヘッダーだよ</header>
+    <header>これはヘッダーです</header>
     <p>Hello World</p>
-    <footer>これはフッターだよ</footer>
+    <footer>これはフッターです</footer>
   </body>
 </html>
 ```
-

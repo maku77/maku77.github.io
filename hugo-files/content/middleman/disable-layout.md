@@ -1,14 +1,15 @@
 ---
-title: "レイアウト機能を無効にする"
+title: "Middlemanメモ: レイアウト機能を無効にする"
+url: "p/nmhgo6k/"
 date: "2015-12-07"
+tags: ["middleman"]
+aliases: /middleman/disable-layout.html
 ---
 
 ERB 形式などのテンプレートファイルから HTML が生成されるとき、YAML Frontmatter などでレイアウトの指定がない場合は、デフォルトで `source/layouts/layout.erb` というレイアウトファイルが使用されるようになっています。
 どのレイアウトも適用したくない場合（つまり、HTML 文書全体を ERB ファイルで構築したい場合）は、下記のようにレイアウト指定で `false` を指定します。
 
-#### source/index.html.erb
-
-```erb
+{{< code lang="erb" title="source/index.html.erb" >}}
 ---
 layout: false
 ---
@@ -23,5 +24,4 @@ layout: false
     <h1>Hello</h1>
   </body>
 </html>
-```
-
+{{< /code >}}

@@ -1,6 +1,9 @@
 ---
-title: "パンくずリストを表示する"
+title: "Middlemanメモ: パンくずリストを表示する"
+url: "p/9ddw6xs/"
 date: "2016-01-17"
+tags: ["middleman"]
+aliases: /middleman/breadcrumbs.html
 ---
 
 パンくずリストとは
@@ -41,9 +44,7 @@ Middleman ではカレントページの情報を `current_page` というキー
 
 下記の `get_breadcrumbs` ヘルパーメソッドは、現在のページに対するパンくずリスト情報を、Resource オブジェクトの配列の形で取得します。
 
-#### config.rb に追加
-
-```ruby
+{{< code lang="ruby" title="config.rb に追加" >}}
 helpers do
   # カレントページに対するパンくずリストを取得する。
   # 戻り値は Resources オブジェクトの配列。最上位の index ページで
@@ -58,29 +59,27 @@ helpers do
     return result
   end
 end
-```
+{{< /code >}}
 
 あとは、任意のテンプレート内で下記のようにパンくずリストを表示できます。
 
-```html
-<div class="breadcrambs">
+```erb
+<div class="breadcrumbs">
   <% get_breadcrumbs.each_with_index do |res, index| %>
-    <% if index > 0 %>
-      &gt;
-    <% end %>
-    <% link_to res.url do %>
-      <span class="breadcrambs_item"><%= res.data.title %></span>
+    <% if index > 0 %>&gt;<% end %>
+    <%= link_to res.url do %>
+      <span class="breadcrumbs_item"><%= res.data.title %></span>
     <% end %>
   <% end %>
 </div>
 ```
 
 上記では、各 index ページの Frontmatter に記述されている `title` 情報を表示するようにしています（`res.data.title` の部分）。
-パンくずリストに表示するラベルはもう少しシンプルにしたいという場合は、パンくずリストのラベルを Frontmatter で新しく定義することで実現できます。
+パンくずリストに表示するラベルをもう少しシンプルにしたい場合は、パンくずリストのラベルを Frontmatter で新しく定義することで実現できます。
 
-ちなみに、前述の `get_breadcrumbs` は、自分自身のページの `Resource` を含まないリストを返しますが、自分自身のページも含めてしまいたい場合は、下記の様に変更すれば OK です（１行変わっただけ）。
+ちなみに、前述の `get_breadcrumbs` は自分自身のページの `Resource` を含まないリストを返しますが、自分自身のページも含めたい場合は、下記のように変更すれば OK です（1 行だけ変わります）。
 
-~~~ ruby
+```ruby
 def get_breadcrumbs
   result = []
   r = current_page
@@ -90,5 +89,4 @@ def get_breadcrumbs
   end
   return result
 end
-~~~
-
+```

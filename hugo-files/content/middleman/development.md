@@ -1,16 +1,16 @@
 ---
-title: "ローカル環境での開発中だけアフィリエイト広告を非表示にする"
+title: "Middlemanメモ: ローカル環境での開発中だけアフィリエイト広告を非表示にする"
+url: "p/gyfkf3p/"
 date: "2017-08-21"
+tags: ["middleman"]
+aliases: /middleman/development.html
 ---
 
 ローカル環境で Middleman サーバを立ち上げている場合（開発環境での作業中の場合）は、`development?` 変数の値が `true` に設定されます。
 これを利用して、ローカルでの作業中だけアフィリエイト広告の表示を行わないようにすることができます。
 
-#### 例: 開発中は includes/_adsense.erb の内容を出力しない
-
-~~~ erb
-<% if not development? %>
+{{< code lang="erb" title="例: 開発中は includes/_adsense.erb の内容を出力しない" >}}
+<% unless development? %>
   <%= partial 'includes/adsense' %>
 <% end %>
-~~~
-
+{{< /code >}}

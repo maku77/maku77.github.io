@@ -1,6 +1,9 @@
 ---
-title: "Middleman とは／Middleman のインストール"
+title: "Middlemanメモ: Middleman とは／Middleman のインストール"
+url: "p/zecbwpi/"
 date: "2015-11-03"
+tags: ["middleman"]
+aliases: /middleman/install.html
 ---
 
 Middleman とは
@@ -24,7 +27,6 @@ Middleman のインストール
 ====
 Middleman は、Ruby の gem コマンド (RubyGems) で簡単にインストールすることができます。
 
-```
+```console
 $ sudo gem install middleman
 ```
-

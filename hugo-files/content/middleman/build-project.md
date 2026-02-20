@@ -1,13 +1,16 @@
 ---
-title: "デプロイ用に Web サイトをビルドする"
+title: "Middlemanメモ: デプロイ用に Web サイトをビルドする"
+url: "p/u49zjwf/"
 date: "2015-11-04"
+tags: ["middleman"]
+aliases: /middleman/build-project.html
 ---
 
 Middleman で Web サイトをビルドするには、`build` コマンドを使用します。
-下記のように実行すると、`source` ディレクトリ内のファイルを元にして、`build` ディレクトリにアップロード用のファイル群が生成されます。
+下記のように実行すると、`source` ディレクトリ内のファイルをもとにして、`build` ディレクトリにアップロード用のファイル群が生成されます。
 
-```
-my_site$ bundle exec middleman build
+```console
+$ bundle exec middleman build
       create  build/stylesheets/all.css
       create  build/stylesheets/normalize.css
       create  build/images/middleman.png
@@ -16,4 +19,3 @@ my_site$ bundle exec middleman build
       create  build/index.html
       create  build/hello.html
 ```
-

@@ -1,20 +1,23 @@
 ---
-title: "Middleman サーバを立ち上げて Web サイトを開発する"
+title: "Middlemanメモ: Middleman サーバを立ち上げて Web サイトを開発する"
+url: "p/ua2k6n6/"
 date: "2015-11-03"
+tags: ["middleman"]
+aliases: /middleman/middleman-server.html
 ---
 
 開発用 Web サーバを起動する
 ====
 Middleman は簡易 Web サーバ機能 (Middleman サーバ) を備えており、Web サイトの開発中はこのサーバを立ち上げた状態で Web ブラウザでの表示を確認します。
-Middleman サーバを立ち上げておくと、Sass ファイルや、Markdown ファイルを更新したときに、自動的に内部で CSS ファイルや HTML ファイルを生成してくれます。
+Middleman サーバを立ち上げておくと、Sass ファイルや Markdown ファイルを更新したときに、自動的に内部で CSS ファイルや HTML ファイルを生成してくれます。
 
 Middleman サーバは、下記のようにして起動することができます。
 
-```
+```console
 $ bundle exec middleman
 ```
 
-デフォルトでは、ポート番号 4567 番で起動するので、ウェブブラウザから下記のアドレスでアクセスしてみてください。
+デフォルトでは、ポート番号 4567 番で起動するので、Web ブラウザから下記のアドレスでアクセスしてみてください。
 
 ```
 http://localhost:4567/
@@ -27,10 +30,9 @@ http://localhost:4567/
 
 Web サイトを生成するためのファイルは、`source` ディレクトリに格納します。
 Markdown フォーマットで記事を作成するときは、拡張子を `.md` や `.markdown` にしてファイルを作成します。
-ファイルの先頭には、Yaml フロントマターと呼ばれる `---` で区切られたセクションに、ページのメタ情報を記述しておきます。
+ファイルの先頭には、YAML Frontmatter と呼ばれる `---` で区切られたセクションに、ページのメタ情報を記述しておきます。
 
-#### source/hello.md
-```
+{{< code title="source/hello.md" >}}
 ---
 title: "Hello"
 ---
@@ -38,7 +40,7 @@ title: "Hello"
 Hello
 ----
 はじめて Middleman で Web サイトを作ったよ！
-```
+{{< /code >}}
 
 上記のようなファイルを作成して保存したら、下記のアドレスで Web ページを表示できます。
 
@@ -47,7 +49,6 @@ http://localhost:4567/hello.html
 ```
 
 このことからも分かるように、Middleman サーバが Markdown ファイルの変更を検出して、自動的に HTML ファイルを生成してくれます。
-ただし、この HTML ファイルは、Middleman サーバが内部的に使用する一時ファイルなので、実際にインターネット上の Web サーバにデプロイするときは、Web サイトのビルド作業を行ってデプロイ用のファイル群を生成する必要があります。
+ただし、この HTML ファイルは Middleman サーバが内部的に使用する一時ファイルなので、実際にインターネット上の Web サーバにデプロイするときは、Web サイトのビルド作業を行ってデプロイ用のファイル群を生成する必要があります。
 
-* [デプロイ用に Web サイトをビルドする](build-project.html)
-
+* [デプロイ用に Web サイトをビルドする](/p/u49zjwf/)

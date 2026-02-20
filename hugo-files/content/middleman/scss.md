@@ -1,6 +1,9 @@
 ---
-title: "Middleman で Sassy CSS (SCSS) を使用する"
+title: "Middlemanメモ: Middleman で Sassy CSS (SCSS) を使用する"
+url: "p/uroyec9/"
 date: "2015-11-04"
+tags: ["middleman"]
+aliases: /middleman/scss.html
 ---
 
 SCSS ファイルから CSS ファイルを生成する
@@ -8,18 +11,17 @@ SCSS ファイルから CSS ファイルを生成する
 Middleman ではデフォルトで Sassy CSS (SCSS) を使ってスタイルシートを記述できるようになっています。
 例えば、下記のように `sample.scss` を作成します。
 
-#### source/stylesheets/sample.scss
-```scss
+{{< code lang="scss" title="source/stylesheets/sample.scss" >}}
 $font_size_normal: 18pt;
 
 body {
   font-size: $font_size_normal;
 }
-```
+{{< /code >}}
 
 あとは、`middleman build` コマンドで Web サイトをビルドすれば、`sample.scss` ファイルから `sample.css` ファイルが生成されます（Middleman サーバを立ち上げて開発している最中はこの作業を行う必要はありません。ビルドが必要なのは、あくまでデプロイ前だけです）。
 
-```
+```console
 $ bundle exec middleman build
    identical  build/stylesheets/all.css
    identical  build/stylesheets/normalize.css
@@ -30,7 +32,7 @@ $ bundle exec middleman build
 レイアウトファイルに CSS のリンクを追加する
 ====
 HTML ファイルの中で、`sample.css` を読み込む link 要素を追加するのを忘れないようにしましょう。
-レイアウトファイルを ERB テンプレートとして作成する場合は、下記のようなヘルパメソッドで link 要素を追加できます。
+レイアウトファイルを ERB テンプレートとして作成する場合は、下記のようなヘルパーメソッドで link 要素を追加できます。
 
 ```erb
 <%= stylesheet_link_tag "sample" %>
@@ -38,8 +40,7 @@ HTML ファイルの中で、`sample.css` を読み込む link 要素を追加�
 
 下記は、デフォルトで用意されているレイアウトファイル `layout.erb` を編集して、`sample.css` を追加で読み込むようにした例です。
 
-#### sourse/layouts/layout.erb
-```erb
+{{< code lang="erb" title="source/layouts/layout.erb" >}}
 <!DOCTYPE html>
 <html>
   <head>
@@ -53,4 +54,4 @@ HTML ファイルの中で、`sample.css` を読み込む link 要素を追加�
     <%= yield %>
   </body>
 </html>
-```
+{{< /code >}}
