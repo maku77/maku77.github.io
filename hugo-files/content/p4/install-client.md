@@ -19,7 +19,7 @@ $ su
 
 ## Perforce クライアントの初期設定
 
-`~/.bash_profile` にいろいろ設定しておきます。
+`~/.bash_profile` に環境変数を設定しておきます。
 
 {{< code lang="bash" title=".bash_profile" >}}
 export P4PORT=192.168.100.1:1666  # 接続先
@@ -39,7 +39,7 @@ $ p4 info
 ```
 
 次に、`p4 client` コマンドを使用して、クライアント情報を設定します。
-ここでクライアント名を省略すると、`P4CLIENT` 変数に設定したクライアントを設定することになります。
+ここでクライアント名を省略すると、`P4CLIENT` 変数に設定したクライアント名が使用されます。
 
 ```console
 $ p4 client

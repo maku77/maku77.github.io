@@ -42,8 +42,8 @@ Have List
 * [編集中のファイルがどのチェンジリストで管理されているか調べる (p4 opened)](/p/9s4njfm/)
 * [指定したチェンジリストでファイルをオープンする (p4 edit)](/p/dfywfu4/)
 * [編集中のファイルを別のチェンジリストに移動する (p4 reopen)](/p/ewf4dkt/)
-* [あるユーザがどのファイルを submit せずに pending しているかを調べる (p4 changes)](/p/hpgj6ka/)
-* [あるユーザが行った submit のログを調べる](/p/ek3c2ex/)
+* [あるユーザーがどのファイルを submit せずにペンディングしているかを調べる (p4 changes)](/p/hpgj6ka/)
+* [あるユーザーが行った submit のログを調べる](/p/ek3c2ex/)
 
 ブランチ
 ----
@@ -53,12 +53,12 @@ Have List
 管理／設定
 ----
 * [Perforce クライアントのインストールと初期設定](/p/vrgwxff/)
-* [ユーザの各 depot へのアクセス権限を確認する](/p/rubossh/)
-* [Perforce ユーザ ID から本名やメールアドレスを調べる (p4 users)](/p/pgrvsmf/)
+* [ユーザーの各 depot へのアクセス権限を確認する](/p/rubossh/)
+* [Perforce ユーザー ID から本名やメールアドレスを調べる (p4 users)](/p/pgrvsmf/)
 * [p4 sync 時に空のディレクトリを削除する ([no]rmdir)](/p/sre5kts/)
 * [p4 sync 時のファイル上書き設定 ([no]clobber)](/p/7kazgbv/)
 * [p4admin で Perforce サーバを設定する](/p/ca7r99j/)
-* [オーバーレイ・マッピングによる差分開発を行う](/p/98dnm2o/)
+* [オーバーレイマッピングによる差分開発を行う](/p/98dnm2o/)
 * [カレントディレクトリの位置によって P4 設定を切り替える (P4CONFIG)](/p/rfysht4/)
 * [ファイルを p4 add したときにデフォルトで設定される filetype を調べる (p4 typemap)](/p/awws7h4/)
 

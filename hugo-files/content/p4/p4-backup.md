@@ -21,7 +21,7 @@ $ p4-backup //dir/name... backup
 
 `p4-backup` のパラメータを省略すると、下記のように実行したのと同様に処理されます。
 
-{{< code lang="console" title="全てのオープン中のファイルを backup ディレクトリにバックアップ" >}}
+{{< code lang="console" title="すべてのオープン中のファイルを backup ディレクトリにバックアップ" >}}
 $ p4-backup //... backup
 {{< /code >}}
 

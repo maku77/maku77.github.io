@@ -261,8 +261,8 @@ defaults:
     values:
       category_title: "Perforce"
       category_id: "p4"
-      category_logo: "logo-p4.jpg"
-      category_og_image: "logo-p4.jpg"
+      category_logo: "p4/_index.jpg"
+      category_og_image: "p4/_index.jpg"
       category_desc: "天才星人まくのPerforceノート"
       category_long_desc: "p4 コマンドや p4v についていろいろ。"
   -

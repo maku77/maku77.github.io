@@ -10,7 +10,7 @@ aliases: ["/p4/update-and-integrate.html"]
 $ p4 update //depot/A/...
 ```
 
-とすると、ディポ上の `//depot/A/...` が、 クライアント仕様の `//depot/A/...` ビューを通してローカルにマッピングされます。
+とすると、ディポ上の `//depot/A/...` が、クライアント仕様の `//depot/A/...` ビューを通してローカルにマッピングされます。
 
 ```console
 $ p4 integrate //depot/A/... //depot/B/...

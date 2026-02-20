@@ -6,7 +6,7 @@ tags: ["perforce"]
 aliases: ["/p4/rmdir-after-sync.html"]
 ---
 
-`p4 sync` したときにワークスペース上から空のフォルダを削除するには、クライアントに下記のオプションを設定します（`p4 client` で設定画面を起動）。
+`p4 sync` したときにワークスペース上の空ディレクトリを削除するには、クライアントに下記のオプションを設定します（`p4 client` で設定画面を起動）。
 
 ```
 Options: rmdir

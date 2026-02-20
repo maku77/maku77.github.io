@@ -6,7 +6,7 @@ tags: ["perforce"]
 aliases: ["/p4/branch-view.html"]
 ---
 
-ブランチ仕様は次のコマンドで作成できます（ブランチを作るコマンドではないところが分かりにくい・・・）。
+ブランチ仕様は次のコマンドで作成できます（ブランチを作るコマンドではないところが分かりにくい...）。
 
 ```console
 $ p4 branch <BranchSpecName>

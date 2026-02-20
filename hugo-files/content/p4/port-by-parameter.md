@@ -23,7 +23,7 @@ $ p4 -p 192.168.0.1:1666 print //depot/dir/filename
 
 ## ヘルプ
 
-ちなみにこのようなパラメータ (options) として、他にどのようなものを指定できるかは、`p4 help usage` で確認することができます。
+このようなパラメータ (options) として他にどのようなものを指定できるかは、`p4 help usage` で確認できます。
 
 ```console
 $ p4 help usage
