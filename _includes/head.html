@@ -1,6 +1,10 @@
 <meta charset="UTF-8">
 
-{% capture og_image %}{{ site.url }}{{ site.img_dir }}/{{ page.category_og_image }}{% endcapture %}
+{% if page.category_og_image_abs %}
+  {% capture og_image %}{{ site.url }}{{ page.category_og_image_abs }}{% endcapture %}
+{% else %}
+  {% capture og_image %}{{ site.url }}{{ site.img_dir }}/{{ page.category_og_image }}{% endcapture %}
+{% endif %}
 
 <!-- Google Search Console -->
 <meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />

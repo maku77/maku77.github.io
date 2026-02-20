@@ -135,7 +135,11 @@
       {% endif %}
       <div class="col-xs-12 col-sm-6 col-md-4">
         <a class="local-categoryBox" href="/{{ values.category_id }}/">
+          {% if values.category_logo_abs %}
+          <img class="local-categoryBox_image" src="{{ values.category_logo_abs }}">
+          {% else %}
           <img class="local-categoryBox_image" src="{{ site.img_dir }}/{{ values.category_logo }}">
+          {% endif %}
           <div class="local-categoryBox_title">{{ values.category_title }}</div>
           <div class="local-categoryBox_desc">{{ values.category_long_desc }}</div>
         </a>
