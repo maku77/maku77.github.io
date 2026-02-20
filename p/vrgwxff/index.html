@@ -6,7 +6,7 @@ $ su
 # chmod +x p4
 # cp p4 /usr/local/bin
 Perforce クライアントの初期設定
-~/.bash_profile にいろいろ設定しておきます。
+~/.bash_profile に環境変数を設定しておきます。
 
 
 .bash_profile
@@ -23,7 +23,7 @@ Windows の場合は、p4 set コマンドを使用して、上記の設定を�
 $ . ~/.bash_profile
 $ p4 info
 次に、p4 client コマンドを使用して、クライアント情報を設定します。
-ここでクライアント名を省略すると、P4CLIENT 変数に設定したクライアントを設定することになります。
+ここでクライアント名を省略すると、P4CLIENT 変数に設定したクライアント名が使用されます。
 $ p4 client
 最低限、ローカルのワーキングディレクトリのルートパスを示す Root: の情報だけは設定しておきましょう。
 p4 client コマンドによって開かれたエディタを閉じると、
@@ -40,7 +40,7 @@ $ p4 sync //depot/project1/...
 Windows の場合はインストーラが用意されています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> su
 </span></span><span class=line><span class=cl><span class=gp>#</span> chmod +x p4
 </span></span><span class=line><span class=cl><span class=gp>#</span> cp p4 /usr/local/bin
-</span></span></code></pre></div><h2 id=perforce-クライアントの初期設定>Perforce クライアントの初期設定</h2><p><code>~/.bash_profile</code> にいろいろ設定しておきます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>.bash_profile</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>P4PORT</span><span class=o>=</span>192.168.100.1:1666  <span class=c1># 接続先</span>
+</span></span></code></pre></div><h2 id=perforce-クライアントの初期設定>Perforce クライアントの初期設定</h2><p><code>~/.bash_profile</code> に環境変数を設定しておきます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>.bash_profile</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>P4PORT</span><span class=o>=</span>192.168.100.1:1666  <span class=c1># 接続先</span>
 </span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>P4USER</span><span class=o>=</span>joe                 <span class=c1># 接続用アカウント</span>
 </span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>P4PASSWD</span><span class=o>=</span>xxxxxx            <span class=c1># 接続用パスワード</span>
 </span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>P4CLIENT</span><span class=o>=</span>joe.test          <span class=c1># 接続時にデフォルトで使用するクライアント設定名（新規のものでも可）</span>
@@ -49,7 +49,7 @@ Windows の場合はインストーラが用意されています。</p><div cla
 以下のように実行して Perforce サーバの情報が表示されれば接続はできるようになっています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> . ~/.bash_profile
 </span></span><span class=line><span class=cl><span class=gp>$</span> p4 info
 </span></span></code></pre></div><p>次に、<code>p4 client</code> コマンドを使用して、クライアント情報を設定します。
-ここでクライアント名を省略すると、<code>P4CLIENT</code> 変数に設定したクライアントを設定することになります。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> p4 client
+ここでクライアント名を省略すると、<code>P4CLIENT</code> 変数に設定したクライアント名が使用されます。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> p4 client
 </span></span></code></pre></div><p>最低限、ローカルのワーキングディレクトリのルートパスを示す <em>Root:</em> の情報だけは設定しておきましょう。
 <code>p4 client</code> コマンドによって開かれたエディタを閉じると、</p><pre tabindex=0><code>Client &lt;ClientName&gt; saved.
 </code></pre><p>と表示され、サーバにクライアント情報が登録されます。
