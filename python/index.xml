@@ -164,8 +164,8 @@ Visual Studio Code 上で型チェックを有効にするには、&lt;a href="h
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-263415879" type="checkbox">
- &lt;label class="xAccordion_title" for="id-263415879">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-597184236" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-597184236">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -1484,8 +1484,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-743521689" type="checkbox">
- &lt;label class="xAccordion_title" for="id-743521689">上記画像のコード&lt;/label>
+ &lt;input id="id-273195648" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-273195648">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -3058,8 +3058,8 @@ Python のみで行列を表現しようとすると、配列の配列（要素�
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-325174698" type="checkbox">
- &lt;label class="xAccordion_title" for="id-325174698">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-283651749" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-283651749">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 
