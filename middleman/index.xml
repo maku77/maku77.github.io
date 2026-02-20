@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Middleman on 天才まくまくノート</title><link>https://maku77.github.io/middleman/</link><description>Recent content in Middleman on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Mon, 21 Aug 2017 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/middleman/index.xml" rel="self" type="application/rss+xml"/><item><title>Middlemanメモ: ローカル環境での開発中だけアフィリエイト広告を非表示にする</title><link>https://maku77.github.io/p/gyfkf3p/</link><pubDate>Mon, 21 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gyfkf3p/</guid><description>&lt;p>ローカル環境で Middleman サーバを立ち上げている場合（開発環境での作業中の場合）は、&lt;code>development?&lt;/code> 変数の値が &lt;code>true&lt;/code> に設定されます。
+これを利用して、ローカルでの作業中だけアフィリエイト広告の表示を行わないようにすることができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 開発中は includes/_adsense.erb の内容を出力しない&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;% unless development? %&amp;gt;
+ &amp;lt;%= partial &amp;#39;includes/adsense&amp;#39; %&amp;gt;
+&amp;lt;% end %&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: 同じ階層にある index.html ページの Resource オブジェクトを取得する</title><link>https://maku77.github.io/p/773wwm5/</link><pubDate>Sun, 20 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/773wwm5/</guid><description>&lt;p>下記の &lt;code>get_index_resource&lt;/code> メソッドを任意のページの ERB ファイル内で実行すると、そのページと同じ階層にある &lt;code>index.html&lt;/code> ページの &lt;code>Resource&lt;/code> オブジェクトを取得できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;%
+# 同じ階層の index.html の Resource オブジェクトを取得します。
+# カレントページが index.html である場合、自分自身の Resource を返します。
+# 同じ階層に index.html ページが存在しない場合は nil を返します。
+def get_index_resource
+ return current_page if current_page.url.end_with?(&amp;#39;/&amp;#39;)
+ current_page.parent
+end
+%&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>例えば、テンプレートファイル内で、下記のように記述しておけば、このメソッドの動作を確認することができます。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">インデックスページの URL は &amp;lt;%= get_index_resource.url %&amp;gt; です。
+&lt;/code>&lt;/pre>&lt;p>下記のようなサイト構成になっている場合、&lt;/p>
+&lt;pre tabindex="0">&lt;code>(root)/
+ +-- index.html
+ +-- page1.html
+ +-- page2.html
+ +-- dir/
+ +-- index.html
+ +-- page1.html
+ +-- page2.html
+&lt;/code>&lt;/pre>&lt;p>それぞれのページにアクセスしたときの結果は下記のようになります。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>アクセスしたページ&lt;/th>
+ &lt;th>get_index_resource.url&lt;/th>
+ &lt;th>get_index_resource.path&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>/index.html&lt;/td>
+ &lt;td>/&lt;/td>
+ &lt;td>index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/page1.html&lt;/td>
+ &lt;td>/&lt;/td>
+ &lt;td>index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/page2.html&lt;/td>
+ &lt;td>/&lt;/td>
+ &lt;td>index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/dir/index.html&lt;/td>
+ &lt;td>/dir/&lt;/td>
+ &lt;td>dir/index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/dir/page1.html&lt;/td>
+ &lt;td>/dir/&lt;/td>
+ &lt;td>dir/index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/dir/page2.html&lt;/td>
+ &lt;td>/dir/&lt;/td>
+ &lt;td>dir/index.html&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Middlemanメモ: 現在のページがディレクトリインデックスであるか調べる</title><link>https://maku77.github.io/p/7398heb/</link><pubDate>Sun, 20 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7398heb/</guid><description>&lt;p>現在のページが、ディレクトリインデックスであるかどうかを調べるには、&lt;code>Resource&lt;/code> オブジェクトの &lt;code>directory_index?&lt;/code> メソッドを使用します。
+現在のページの &lt;code>Resource&lt;/code> オブジェクトは、あらかじめ定義されている &lt;code>current_page&lt;/code> という変数で参照できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">カレントページがディレクトリインデックスかどうか調べて出力する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;% is_index = current_page.directory_index? %&amp;gt;
+
+is_index = &amp;lt;%= is_index %&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;p>ディレクトリインデックスというのは、&lt;code>index.html&lt;/code> や、ディレクトリ名と同じ名前のページ（例えば、&lt;code>aaa&lt;/code> ディレクトリが存在するのであれば、同じ階層にある &lt;code>aaa.html&lt;/code>）のことを言います。&lt;/p>
+&lt;p>単純に現在のページが &lt;code>index.html&lt;/code> かどうかを調べたいのであれば、下記のようにしたほうがよいでしょう。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">index.html であることの確認方法 (1) url の末尾が &amp;#39;/&amp;#39; であることをチェック&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">current_page&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">end_with?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">index.html であることの確認方法 (2) ファイル名でチェック&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="no">File&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">current_page&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;index.html&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: Resource (3) ページのツリー構造を取得する</title><link>https://maku77.github.io/p/5cdywqw/</link><pubDate>Sun, 17 Jan 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5cdywqw/</guid><description>&lt;p>Resource オブジェクトの &lt;code>children&lt;/code> 属性を参照すると、子ページの Resource 情報を取得できるため、これを利用してページのツリー構成を調べることができます。
+下記の &lt;code>dump_tree&lt;/code> メソッドは、指定したページの Resource オブジェクト以下のページ構成を出力します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># インデント付きでページのパスとタイトルを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">dump_page&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">indent&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">puts&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">indent&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2"> : &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># &amp;#39;index.html&amp;#39; を示す Resource か判別する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">index_page?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">end_with?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 指定したページから再帰的にツリー構造を表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">dump_tree&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">indent&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">dump_page&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">indent&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">children&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">each&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="o">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">index_page?&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 下位ディレクトリの index.html は再帰的に展開&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">dump_tree&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">indent&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 同じ階層の HTML はそのまま表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">dump_page&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">indent&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>index.html&lt;/code> という名前のページは、親ページとして判別されるため、&lt;code>index.html&lt;/code> を示す Resource オブジェクトに対しては例外的な処理が必要なことに注意してください。
+上記では、&lt;code>Resource#url&lt;/code> が &lt;code>/&lt;/code> で終わっていることを確認して &lt;code>index.html&lt;/code> であるかどうかを判断しています。&lt;/p>
+&lt;p>下記のようにして、最上位の &lt;code>index.html&lt;/code> からのツリー構造を出力できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">res&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sitemap&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">find_resource_by_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/index.html&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">dump_tree&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">a.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">b.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/a.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/b.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/sub1-1/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/sub1-1/a.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub1/sub1-1/b.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/a.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/b.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/sub2-1/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/sub2-1/a.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sub2/sub2-1/b.html&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: Resource オブジェクト (2) ページの親子関係を取得する</title><link>https://maku77.github.io/p/25v7sun/</link><pubDate>Sun, 17 Jan 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/25v7sun/</guid><description>&lt;p>&lt;code>Resource&lt;/code> オブジェクトには、&lt;code>parent&lt;/code>、&lt;code>children&lt;/code>、&lt;code>siblings&lt;/code> という属性があり、親、子、兄弟のページをそれぞれ取得できるのですが、具体的にどのようなページが取得されるのかをまとめておきます。
+これをちゃんと理解すると、サイトマップや、ナビゲーション、パンくずリストなどの作成に役立ちます。&lt;/p>
+&lt;p>下記は、渡された &lt;code>Resource&lt;/code> オブジェクトの親、子、兄弟を調べるためのユーティリティメソッドです。
+ここでは、このメソッドを使用して調査を進めます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 渡された Resource オブジェクトの親、子、兄弟のパスを表示する&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">dump_relationship&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">puts&lt;/span> &lt;span class="s2">&amp;#34;path = &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 親のパスを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">puts&lt;/span> &lt;span class="s2">&amp;#34;parent = &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># すべての子のパスを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">children&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">each_with_index&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">puts&lt;/span> &lt;span class="s2">&amp;#34;children[&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">] = &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">child&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># すべての兄弟のパスを表示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">res&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">siblings&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">each_with_index&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">sib&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="o">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">puts&lt;/span> &lt;span class="s2">&amp;#34;siblings[&lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">] = &lt;/span>&lt;span class="si">#{&lt;/span>&lt;span class="n">sib&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>サイトのディレクトリ構成は、下記のようになっているとします。&lt;/p>
+&lt;pre tabindex="0">&lt;code>+-- source/
+ +-- index.html.erb
+ +-- a.html.erb
+ +-- b.html.erb
+ +-- c.html.erb
+ +-- sub1/
+ +-- index.html.erb
+ +-- a.html.erb
+ +-- b.html.erb
+ +-- c.html.erb
+ +-- sub2/
+ +-- index.html.erb
+ +-- a.html.erb
+ +-- b.html.erb
+ +-- c.html.erb
+&lt;/code>&lt;/pre>&lt;p>まず、最上位の &lt;code>index.html&lt;/code> に対する、親、子、兄弟の情報を出力してみます。&lt;/p></description></item><item><title>Middlemanメモ: パンくずリストを表示する</title><link>https://maku77.github.io/p/9ddw6xs/</link><pubDate>Sun, 17 Jan 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/9ddw6xs/</guid><description>&lt;h2 id="パンくずリストとは">パンくずリストとは&lt;/h2>
+&lt;p>パンくずリストというのは、トップページから現在のページにたどり着くまでの一連のリンクです。
+例えば下記のような構造のサイトを考えてみます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>source/
+ +-- index.html
+ +-- foo/
+ +-- index.html
+ +-- bar/
+ +-- index.html
+ +-- a.html
+ +-- b.html
+&lt;/code>&lt;/pre>&lt;p>&lt;code>foo/bar/a.html&lt;/code> というページにたどり着くには、トップページから次のように辿ってくることが想定されます。&lt;/p>
+&lt;ul>
+&lt;li>index.html&lt;/li>
+&lt;li>foo/index.html&lt;/li>
+&lt;li>foo/bar/index.html&lt;/li>
+&lt;li>foo/bar/a.html&lt;/li>
+&lt;/ul>
+&lt;p>表示上のリンクは、おそらく下記のような感じになります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Home &amp;gt; Foo &amp;gt; Bar
+&lt;/code>&lt;/pre>&lt;h2 id="middleman-でパンくずリスト情報を取得する">Middleman でパンくずリスト情報を取得する&lt;/h2>
+&lt;p>Middleman ではカレントページの情報を &lt;code>current_page&lt;/code> というキーワードで参照できます。
+実際にはカレントページの Resource オブジェクトであり、このオブジェクトの &lt;code>parent&lt;/code> 属性を使って上位のページを辿っていくことができます。&lt;/p>
+&lt;p>下記の &lt;code>get_breadcrumbs&lt;/code> ヘルパーメソッドは、現在のページに対するパンくずリスト情報を、Resource オブジェクトの配列の形で取得します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb に追加&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">helpers&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># カレントページに対するパンくずリストを取得する。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 戻り値は Resources オブジェクトの配列。最上位の index ページで&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 呼び出した場合や、親ページが存在しない場合は空の配列を返す。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">get_breadcrumbs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">current_page&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="n">r&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">result&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">unshift&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">r&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parent&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>あとは、任意のテンプレート内で下記のようにパンくずリストを表示できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;div class=&amp;#34;breadcrumbs&amp;#34;&amp;gt;
+ &amp;lt;% get_breadcrumbs.each_with_index do |res, index| %&amp;gt;
+ &amp;lt;% if index &amp;gt; 0 %&amp;gt;&amp;amp;gt;&amp;lt;% end %&amp;gt;
+ &amp;lt;%= link_to res.url do %&amp;gt;
+ &amp;lt;span class=&amp;#34;breadcrumbs_item&amp;#34;&amp;gt;&amp;lt;%= res.data.title %&amp;gt;&amp;lt;/span&amp;gt;
+ &amp;lt;% end %&amp;gt;
+ &amp;lt;% end %&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>上記では、各 index ページの Frontmatter に記述されている &lt;code>title&lt;/code> 情報を表示するようにしています（&lt;code>res.data.title&lt;/code> の部分）。
+パンくずリストに表示するラベルをもう少しシンプルにしたい場合は、パンくずリストのラベルを Frontmatter で新しく定義することで実現できます。&lt;/p></description></item><item><title>Middlemanメモ: Resource オブジェクト (1) ページ情報を取得する</title><link>https://maku77.github.io/p/c84qq73/</link><pubDate>Sat, 16 Jan 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/c84qq73/</guid><description>&lt;p>Middleman の内部では、各ページやリソースの情報を、&lt;code>Resource&lt;/code> オブジェクトで管理しています。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://www.rubydoc.info/gems/middleman-core/Middleman/Sitemap/Resource">Middleman::Sitemap::Resource クラス&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="resource-オブジェクトの取得">Resource オブジェクトの取得&lt;/h2>
+&lt;p>&lt;code>Resource&lt;/code> オブジェクトは下記のようにして取得することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 現在のページの Resource オブジェクトを取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">current_page&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 指定したパスが示すファイルに対する Resource オブジェクトを取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sitemap&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">find_resource_by_path&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/foo/bar/index.html&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># サイト全体のファイルに対する Resource オブジェクトをリストで取得&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">sitemap&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">resources&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="resource-オブジェクトの内容">Resource オブジェクトの内容&lt;/h2>
+&lt;p>&lt;code>Resource&lt;/code> オブジェクトの属性を参照することで、該当リソースに関して下記のような情報を取得することができます。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>属性&lt;/th>
+ &lt;th>値&lt;/th>
+ &lt;th>例&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>url&lt;/td>
+ &lt;td>ドメイン名を除く URL 部分&lt;/td>
+ &lt;td>/foo/bar/&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>path&lt;/td>
+ &lt;td>ファイルのパス&lt;/td>
+ &lt;td>foo/bar/index.html&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>data&lt;/td>
+ &lt;td>Frontmatter で指定したデータ&lt;/td>
+ &lt;td>{ title: &amp;lsquo;About this site&amp;rsquo; }&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>parent&lt;/td>
+ &lt;td>親ディレクトリの Resource&lt;/td>
+ &lt;td>Resource オブジェクト&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>children&lt;/td>
+ &lt;td>子ディレクトリの Resource&lt;/td>
+ &lt;td>Resource オブジェクトのリスト&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>siblings&lt;/td>
+ &lt;td>同じディレクトリの Resource&lt;/td>
+ &lt;td>Resource オブジェクトのリスト&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="使用例">使用例&lt;/h2>
+&lt;h3 id="現在のページの情報を取得する">現在のページの情報を取得する&lt;/h3>
+&lt;p>下記の例では、&lt;code>current_page&lt;/code> オブジェクトを参照することで、現在のページの情報を取得しています。
+ここでは、URL やパスの情報、Frontmatter で定義されている情報を表示しています。&lt;/p></description></item><item><title>Middlemanメモ: カスタムヘルパーを作成する</title><link>https://maku77.github.io/p/8q9efxn/</link><pubDate>Sat, 16 Jan 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8q9efxn/</guid><description>&lt;p>ヘルパーメソッドを作成しておくと、テンプレートの中から自由に呼び出せるようになります。
+ヘルパーメソッドを定義するには、&lt;code>config.rb&lt;/code> ファイルの中の &lt;code>helpers&lt;/code> ブロックの中で任意のメソッドを定義します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">helpers&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">greet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">name&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;Hello, &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>すると、テンプレート（erb ファイルなど）の中から、下記のように呼び出せるようになります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">sample.html.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;lt;&lt;/span>%= greet &amp;#39;Maku&amp;#39; %&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>下記のように展開されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Hello, Maku
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ヘルパーメソッドのモジュール化">ヘルパーメソッドのモジュール化&lt;/h2>
+&lt;p>複雑なヘルパーメソッドを定義する場合や、他の人と共有したい場合は、ヘルパーメソッドの定義をモジュール化しておくことができます。
+ここでは、下記のようなディレクトリ構成で、&lt;code>lib/my_helpers.rb&lt;/code> としてモジュール化することにします。&lt;/p>
+&lt;pre tabindex="0">&lt;code>+-- config.rb
++-- lib/
+ +-- my_helpers.rb
+&lt;/code>&lt;/pre>&lt;p>MyHelpers モジュールは下記のように、1 つのメソッドだけを含んでいます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">lib/my_helpers.rb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">module&lt;/span> &lt;span class="nn">MyHelpers&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">greet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">name&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;Hello, &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nb">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>config.rb&lt;/code> の中から上記のモジュールをロードして、&lt;code>helpers&lt;/code> メソッドに渡すことで、テンプレートの中からヘルパーメソッドを呼び出せるようになります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">require_relative&lt;/span> &lt;span class="s1">&amp;#39;lib/my_helpers&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">helpers&lt;/span> &lt;span class="no">MyHelpers&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: ディレクトリ単位でデフォルトレイアウトを設定する</title><link>https://maku77.github.io/p/y8kr7kv/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y8kr7kv/</guid><description>&lt;p>各ページの YAML Frontmatter でレイアウトファイルの指定を行うことができますが、ページ数が増えてくると、毎回 &lt;code>layout&lt;/code> パラメータを記述するのが面倒になってきます。
+そのような場合は、プロジェクトのルートにある &lt;code>config.rb&lt;/code> の中で、使用するレイアウトファイルをまとめて指定することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb（一部抜粋）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">page&lt;/span> &lt;span class="s2">&amp;#34;/sample/*&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ss">:layout&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s2">&amp;#34;sample&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記のように設定しておくと、&lt;code>source/sample&lt;/code> ディレクトリ以下のコンテンツに対して、&lt;code>sample&lt;/code> レイアウトが適用されるようになります。
+下記のように個別のページに対するレイアウト指定も行えます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb（一部抜粋）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">page&lt;/span> &lt;span class="s2">&amp;#34;/sample/index.html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="ss">:layout&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="s2">&amp;#34;index&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>第一パラメータは、生成された後のファイル名で指定することに注意してください。&lt;/p></description></item><item><title>Middlemanメモ: パーシャルでページを分割して管理する</title><link>https://maku77.github.io/p/9nr276n/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/9nr276n/</guid><description>&lt;p>パーシャル機能を使用することで、複数のレイアウトで共通する部分をファイルに分離して使い回すことができます（C/C++ 言語の include のようなものです）。
+パーシャルファイルのファイル名には、プレフィックスとしてアンダースコア (&lt;code>_&lt;/code>) を付ける必要があります。
+また、パーシャルファイルは、ERB フォーマットで作成する必要があります（拡張子も &lt;code>.erb&lt;/code> にする必要があります）。&lt;/p>
+&lt;p>ここでは、下記のように、&lt;code>includes&lt;/code> ディレクトリ内に、&lt;code>_header.erb&lt;/code> と &lt;code>_footer.erb&lt;/code> を作成することにします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/includes/_header.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>これはヘッダーです&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/includes/_footer.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">footer&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>これはフッターです&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">footer&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>これらのパーシャルファイルをレイアウトから読み込むには、任意の場所に &lt;code>&amp;lt;%= partial 'パーシャル名' %&amp;gt;&lt;/code> と記述します。
+&lt;code>パーシャル名&lt;/code> には、アンダースコアを含めないことに注意してください。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/layouts/layout.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;lt;&lt;/span>%= partial &amp;#39;includes/header&amp;#39; %&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;lt;&lt;/span>%= yield %&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;lt;&lt;/span>%= partial &amp;#39;includes/footer&amp;#39; %&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記は、最終的に下記のような感じで出力されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>これはヘッダーです&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">header&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Hello World&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">footer&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>これはフッターです&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">footer&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Middlemanメモ: パーシャルにパラメータを設定する</title><link>https://maku77.github.io/p/evdn5z3/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/evdn5z3/</guid><description>&lt;p>パーシャル機能を使って別ファイルの内容を取り込む場合に、パーシャルに対して任意のデータを渡すことができます。
+この機能を使うことで、パーシャル内の一部だけ異なるコンテンツを生成することができます。&lt;/p>
+&lt;p>パーシャルに対してデータを渡したい場合は、下記のように、&lt;code>:locals&lt;/code> パラメータで渡したいデータを指定します。
+このケースでは、&lt;code>key1&lt;/code> という名前の、&lt;code>value1&lt;/code> という値が入ったデータを渡しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/hello.html.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;%= partial &amp;#39;includes/my_partial&amp;#39;, :locals =&amp;gt; { :key1 =&amp;gt; &amp;#39;value1&amp;#39; } %&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;p>パーシャルファイル内では、渡されたデータを下記のように参照できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/includes/_my_partial.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">渡された値は &amp;lt;%= key1 %&amp;gt; です。&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="使用例">使用例&lt;/h2>
+&lt;p>例えば、下記のような &lt;code>amazon&lt;/code> パーシャルを作成しておくと、指定した ASIN（Amazon 商品の ID）に対する Amazon のリンクを簡単に埋め込めるようになります。
+パーシャルは、レイアウトファイル内だけでなく、任意のテンプレートファイル内（コンテンツ用ファイル）から使用できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/includes/_amazon.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;a href=&amp;#34;http://www.amazon.co.jp/dp/&amp;lt;%= asin %&amp;gt;/&amp;#34;&amp;gt;Link to Amazon&amp;lt;/a&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;p>任意のコンテンツから、下記のように Amazon へのリンクを張れるようになります。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;%= partial &amp;#39;includes/amazon&amp;#39;, :locals =&amp;gt; { :asin =&amp;gt; &amp;#39;B00XL0BD7U&amp;#39;} %&amp;gt;
+&lt;/code>&lt;/pre></description></item><item><title>Middlemanメモ: ヘルパーメソッドを使って HTML を作成する</title><link>https://maku77.github.io/p/ke5gn2c/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ke5gn2c/</guid><description>&lt;h1 id="middleman-で使用できるヘルパーメソッド">Middleman で使用できるヘルパーメソッド&lt;/h1>
+&lt;p>ERB ファイルの中で HTML タグを直接記述していく代わりに、&lt;strong>ヘルパーメソッド&lt;/strong>を使用して HTML タグを出力することもできます。
+下記に、代表的な使用方法を載せますが、より詳細な使用方法を調べる必要がある場合は&lt;a href="http://www.padrinorb.com/guides/application-helpers">こちらのサイト&lt;/a>を参照してください。&lt;/p>
+&lt;h2 id="リンクa-要素">リンク（a 要素）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">説明&lt;/th>
+ &lt;th style="text-align: left">ヘルパーメソッドを使った記述方法&lt;/th>
+ &lt;th style="text-align: left">出力結果&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">外部リンク&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= link_to 'Example', 'http://example.com' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;a href=&amp;quot;http://example.com&amp;quot;&amp;gt;Example&amp;lt;/a&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">内部リンク&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= link_to 'About', '/about.html' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;a href=&amp;quot;/about.html&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">相対リンク&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= link_to 'About', '/about.html', :relative =&amp;gt; true %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;a href=&amp;quot;../about.html&amp;quot;&amp;gt;About&amp;lt;/a&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">画像リンク&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;% link_to 'http://example.com' do %&amp;gt;&lt;/code>&lt;br>&lt;code>　&amp;lt;%= image_tag 'logo.png' %&amp;gt;&lt;/code>&lt;br>&lt;code>&amp;lt;% end %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;a href=&amp;quot;http://example.com&amp;quot;&amp;gt;&lt;/code>&lt;br>&lt;code>　&amp;lt;img src=&amp;quot;/images/logo.png&amp;quot; /&amp;gt;&lt;/code>&lt;br>&lt;code>&amp;lt;/a&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">クエリ付き&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= link_to '私のフォーム', '/form.html', :query =&amp;gt; { :foo =&amp;gt; 'bar' }, :fragment =&amp;gt; 'deep' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;a href='../form.html?foo=bar#deep'&amp;gt;私のフォーム&amp;lt;/a&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="画像-img-要素">画像 (img 要素）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">説明&lt;/th>
+ &lt;th style="text-align: left">ヘルパーメソッドを使った記述方法&lt;/th>
+ &lt;th style="text-align: left">出力結果&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">基本&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= image_tag 'logo.png' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;img src=&amp;quot;logo.png&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">クラス付き&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= image_tag 'logo.png', :class =&amp;gt; 'demo' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;img class=&amp;quot;demo&amp;quot; src=&amp;quot;/images/logo.png&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="スタイルシートfavicon-link-要素">スタイルシート、favicon (link 要素）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">説明&lt;/th>
+ &lt;th style="text-align: left">ヘルパーメソッドを使った記述方法&lt;/th>
+ &lt;th style="text-align: left">出力結果&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">単一CSS&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= stylesheet_link_tag 'index' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;link href=&amp;quot;/stylesheets/index.css&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">複数CSS&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= stylesheet_link_tag 'index', 'custom' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;link href=&amp;quot;/stylesheets/index.css&amp;quot; /&amp;gt;&lt;/code>&lt;br>&lt;code>&amp;lt;link href=&amp;quot;/stylesheets/custom.css&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="text-align: left">favicon&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= favicon_tag 'favicon.png' %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;link href=&amp;quot;/images/favicon.png&amp;quot; rel=&amp;quot;icon&amp;quot; type=&amp;quot;image/png&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="javascriptscript-タグ">JavaScript（script タグ）&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th style="text-align: left">説明&lt;/th>
+ &lt;th style="text-align: left">ヘルパーメソッドを使った記述方法&lt;/th>
+ &lt;th style="text-align: left">出力結果&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td style="text-align: left">JavaScript&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;%= javascript_include_tag &amp;quot;all&amp;quot; %&amp;gt;&lt;/code>&lt;/td>
+ &lt;td style="text-align: left">&lt;code>&amp;lt;script src=&amp;quot;/js/all.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h1 id="ヘルパーメソッドを使うべき理由">ヘルパーメソッドを使うべき理由&lt;/h1>
+&lt;p>ヘルパーメソッドなんて使わずに、HTML 要素をそのまま記述した方が簡単だと思うかもしれませんが、ヘルパーメソッドを使うことによる利点はちゃんとあります。&lt;/p></description></item><item><title>Middlemanメモ: レイアウト機能でページのレイアウトを統一する</title><link>https://maku77.github.io/p/j9fwthb/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/j9fwthb/</guid><description>&lt;p>Middleman のレイアウト機能を使用すると、ページ全体の構成を統一することができます。
+各ページで適用するレイアウトは自由に指定することができるので、コンテンツの種類ごとに適切なレイアウトを割り当てることができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="" height="auto" src="../p/j9fwthb/img-001.svg" alt="/p/j9fwthb/img-001.svg" />
+&lt;/figure>
+
+&lt;p>レイアウトファイルは、ERB フォーマットで記述し、&lt;code>source/layouts&lt;/code> フォルダに格納しておきます。例えば、下記では &lt;code>sample&lt;/code> というレイアウトを作成しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/layouts/sample.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">&amp;lt;&lt;/span>%= current_page.data.title %&amp;gt;&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">&amp;lt;&lt;/span>%= current_page.data.title %&amp;gt;&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;lt;&lt;/span>%= yield %&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>このレイアウトファイルを使用するページを作りたいときは、各ページの YAML Frontmatter（&lt;code>---&lt;/code> で囲まれた部分）の &lt;code>layout&lt;/code> パラメータで &lt;code>sample&lt;/code> と指定します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/hello.html.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">---
+title: &amp;#34;Hello World&amp;#34;
+layout: sample
+---
+
+&amp;lt;p&amp;gt;Middleman で Hello World してみたよ！&amp;lt;/p&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;p>こうすると、上記ファイルのコンテンツが、レイアウトファイル内の &lt;code>&amp;lt;%= yield %&amp;gt;&lt;/code> という部分に展開されます。
+また、Frontmatter 内の任意のデータは、レイアウトファイル内から &lt;code>&amp;lt;%= current_page.data.{パラメータ名} %&amp;gt;&lt;/code> という形で参照することができます。
+結果的に上記のページは下記のように出力されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">build/hello.html&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;ja&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Hello World&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Hello World&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Middleman で Hello World してみたよ！&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>レイアウトファイルの指定を行わなかった場合は、デフォルトで &lt;code>source/layouts/layout.erb&lt;/code> というテンプレートファイルが使用されるようになっています。&lt;/p></description></item><item><title>Middlemanメモ: レイアウト機能を無効にする</title><link>https://maku77.github.io/p/nmhgo6k/</link><pubDate>Mon, 07 Dec 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nmhgo6k/</guid><description>&lt;p>ERB 形式などのテンプレートファイルから HTML が生成されるとき、YAML Frontmatter などでレイアウトの指定がない場合は、デフォルトで &lt;code>source/layouts/layout.erb&lt;/code> というレイアウトファイルが使用されるようになっています。
+どのレイアウトも適用したくない場合（つまり、HTML 文書全体を ERB ファイルで構築したい場合）は、下記のようにレイアウト指定で &lt;code>false&lt;/code> を指定します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/index.html.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">---
+layout: false
+---
+
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;ja&amp;#34;&amp;gt;
+ &amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;Hello&amp;lt;/title&amp;gt;
+ &amp;lt;/head&amp;gt;
+ &amp;lt;body&amp;gt;
+ &amp;lt;h1&amp;gt;Hello&amp;lt;/h1&amp;gt;
+ &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: LiveReload 機能を使って Web ブラウザを自動でリロードする</title><link>https://maku77.github.io/p/mfdefqn/</link><pubDate>Wed, 04 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/mfdefqn/</guid><description>&lt;h1 id="livereload-機能とは">LiveReload 機能とは&lt;/h1>
+&lt;p>Middleman サーバの &lt;strong>LiveReload&lt;/strong> 機能を有効にしておくと、サイトの記事ファイル（&lt;code>source&lt;/code> ディレクトリ以下のファイル）を修正して保存したタイミングで、自動的に Web ブラウザをリロードしてくれます。
+PC のディスプレイ上に、テキストエディタと Web ブラウザを同時に表示しておけば、効率的に Web サイトを構築していくことができます。&lt;/p>
+&lt;h1 id="livereload-機能を有効にする">LiveReload 機能を有効にする&lt;/h1>
+&lt;p>Middleman サーバの LiveReload 機能を有効にするには、&lt;code>config.rb&lt;/code> に下記の行を追加します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">activate&lt;/span> &lt;span class="ss">:livereload&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>config.rb&lt;/code> を修正したら、Middleman サーバを起動（あるいは再起動）します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> bundle &lt;span class="nb">exec&lt;/span> middleman
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="トラブルシューティング-middleman-livereload-がインストールされていない場合">トラブルシューティング: middleman-livereload がインストールされていない場合&lt;/h2>
+&lt;p>LiveReload 機能は &lt;strong>middleman-livereload&lt;/strong> という gem モジュールにより提供されています。
+このモジュールがシステムにインストールされているかどうかは、&lt;code>gem list&lt;/code> コマンドを使用して、下記のように確認できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> gem list middleman-livereload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">*** LOCAL GEMS ***
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="go">middleman-livereload (3.1.1)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>この例では、middleman-livereload のバージョン 3.1.1 がインストールされていることが分かります。
+インストールされていない場合は、プロジェクトのルートにある &lt;code>Gemfile&lt;/code> に下記のように追加して、Middleman サーバを再起動すれば、自動的にインストールされます（最新の Middleman 3.4 であれば、最初から記述されているはずです）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">Gemfile&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">gem &amp;#34;middleman-livereload&amp;#34;, &amp;#34;~&amp;gt; 3.1.0&amp;#34;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: Middleman で Sassy CSS (SCSS) を使用する</title><link>https://maku77.github.io/p/uroyec9/</link><pubDate>Wed, 04 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/uroyec9/</guid><description>&lt;h1 id="scss-ファイルから-css-ファイルを生成する">SCSS ファイルから CSS ファイルを生成する&lt;/h1>
+&lt;p>Middleman ではデフォルトで Sassy CSS (SCSS) を使ってスタイルシートを記述できるようになっています。
+例えば、下記のように &lt;code>sample.scss&lt;/code> を作成します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/stylesheets/sample.scss&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-scss" data-lang="scss">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$font_size_normal&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">18&lt;/span>&lt;span class="kt">pt&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">body&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="na">font-size&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nv">$font_size_normal&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>あとは、&lt;code>middleman build&lt;/code> コマンドで Web サイトをビルドすれば、&lt;code>sample.scss&lt;/code> ファイルから &lt;code>sample.css&lt;/code> ファイルが生成されます（Middleman サーバを立ち上げて開発している最中はこの作業を行う必要はありません。ビルドが必要なのは、あくまでデプロイ前だけです）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> bundle &lt;span class="nb">exec&lt;/span> middleman build
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> identical build/stylesheets/all.css
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> identical build/stylesheets/normalize.css
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/stylesheets/sample.css
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> ...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="レイアウトファイルに-css-のリンクを追加する">レイアウトファイルに CSS のリンクを追加する&lt;/h1>
+&lt;p>HTML ファイルの中で、&lt;code>sample.css&lt;/code> を読み込む link 要素を追加するのを忘れないようにしましょう。
+レイアウトファイルを ERB テンプレートとして作成する場合は、下記のようなヘルパーメソッドで link 要素を追加できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;%= stylesheet_link_tag &amp;#34;sample&amp;#34; %&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>下記は、デフォルトで用意されているレイアウトファイル &lt;code>layout.erb&lt;/code> を編集して、&lt;code>sample.css&lt;/code> を追加で読み込むようにした例です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/layouts/layout.erb&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-erb" data-lang="erb">&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+ &amp;lt;head&amp;gt;
+ &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt;
+ &amp;lt;meta content=&amp;#34;IE=edge,chrome=1&amp;#34; http-equiv=&amp;#34;X-UA-Compatible&amp;#34;&amp;gt;
+ &amp;lt;title&amp;gt;&amp;lt;%= current_page.data.title || &amp;#34;まくメモ&amp;#34; %&amp;gt;&amp;lt;/title&amp;gt;
+ &amp;lt;%= stylesheet_link_tag &amp;#34;normalize&amp;#34;, &amp;#34;all&amp;#34;, &amp;#34;sample&amp;#34; %&amp;gt;
+ &amp;lt;%= javascript_include_tag &amp;#34;all&amp;#34; %&amp;gt;
+ &amp;lt;/head&amp;gt;
+ &amp;lt;body class=&amp;#34;&amp;lt;%= page_classes %&amp;gt;&amp;#34;&amp;gt;
+ &amp;lt;%= yield %&amp;gt;
+ &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure></description></item><item><title>Middlemanメモ: デプロイ用に Web サイトをビルドする</title><link>https://maku77.github.io/p/u49zjwf/</link><pubDate>Wed, 04 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/u49zjwf/</guid><description>&lt;p>Middleman で Web サイトをビルドするには、&lt;code>build&lt;/code> コマンドを使用します。
+下記のように実行すると、&lt;code>source&lt;/code> ディレクトリ内のファイルをもとにして、&lt;code>build&lt;/code> ディレクトリにアップロード用のファイル群が生成されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> bundle &lt;span class="nb">exec&lt;/span> middleman build
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/stylesheets/all.css
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/stylesheets/normalize.css
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/images/middleman.png
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/images/background.png
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/javascripts/all.js
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/index.html
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> create build/hello.html
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Middlemanメモ: Middleman サーバを立ち上げて Web サイトを開発する</title><link>https://maku77.github.io/p/ua2k6n6/</link><pubDate>Tue, 03 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ua2k6n6/</guid><description>&lt;h1 id="開発用-web-サーバを起動する">開発用 Web サーバを起動する&lt;/h1>
+&lt;p>Middleman は簡易 Web サーバ機能 (Middleman サーバ) を備えており、Web サイトの開発中はこのサーバを立ち上げた状態で Web ブラウザでの表示を確認します。
+Middleman サーバを立ち上げておくと、Sass ファイルや Markdown ファイルを更新したときに、自動的に内部で CSS ファイルや HTML ファイルを生成してくれます。&lt;/p>
+&lt;p>Middleman サーバは、下記のようにして起動することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> bundle &lt;span class="nb">exec&lt;/span> middleman
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>デフォルトでは、ポート番号 4567 番で起動するので、Web ブラウザから下記のアドレスでアクセスしてみてください。&lt;/p>
+&lt;pre tabindex="0">&lt;code>http://localhost:4567/
+&lt;/code>&lt;/pre>&lt;h1 id="サイトに記事を追加する">サイトに記事を追加する&lt;/h1>
+&lt;p>ここでは Markdown フォーマットで記事を追加してみます。&lt;/p>
+&lt;p>Web サイトを生成するためのファイルは、&lt;code>source&lt;/code> ディレクトリに格納します。
+Markdown フォーマットで記事を作成するときは、拡張子を &lt;code>.md&lt;/code> や &lt;code>.markdown&lt;/code> にしてファイルを作成します。
+ファイルの先頭には、YAML Frontmatter と呼ばれる &lt;code>---&lt;/code> で区切られたセクションに、ページのメタ情報を記述しておきます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">source/hello.md&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title: &amp;#34;Hello&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">はじめて Middleman で Web サイトを作ったよ！&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記のようなファイルを作成して保存したら、下記のアドレスで Web ページを表示できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>http://localhost:4567/hello.html
+&lt;/code>&lt;/pre>&lt;p>このことからも分かるように、Middleman サーバが Markdown ファイルの変更を検出して、自動的に HTML ファイルを生成してくれます。
+ただし、この HTML ファイルは Middleman サーバが内部的に使用する一時ファイルなので、実際にインターネット上の Web サーバにデプロイするときは、Web サイトのビルド作業を行ってデプロイ用のファイル群を生成する必要があります。&lt;/p></description></item><item><title>Middlemanメモ: Middleman とは／Middleman のインストール</title><link>https://maku77.github.io/p/zecbwpi/</link><pubDate>Tue, 03 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zecbwpi/</guid><description>&lt;h1 id="middleman-とは">Middleman とは&lt;/h1>
+&lt;p>Middleman は静的なサイトを作成するための統合ツールです。
+例えば、下記のような Web サイト作成に必要な機能をひととおり備えています。&lt;/p>
+&lt;ul>
+&lt;li>Web サイトの雛形の生成&lt;/li>
+&lt;li>Sassy CSS (SCSS) による CSS の生成&lt;/li>
+&lt;li>CSS の結合 (minify)&lt;/li>
+&lt;li>ERB 言語で Ruby のループ構文などを使用した HTML ファイルの生成&lt;/li>
+&lt;li>Markdown や Stylus を使用した記事から HTML ファイルの生成&lt;/li>
+&lt;li>JavaScript のインポート機能（Asset Pipeline による require）&lt;/li>
+&lt;li>JavaScript の結合 (minify)&lt;/li>
+&lt;li>簡易 Web サーバ機能 (Middleman Server) による開発中の自動コンパイル、Live Reload&lt;/li>
+&lt;li>gzip 圧縮によるパフォーマンスの最適化&lt;/li>
+&lt;li>デプロイ作業の自動化&lt;/li>
+&lt;/ul>
+&lt;h1 id="middleman-のインストール">Middleman のインストール&lt;/h1>
+&lt;p>Middleman は、Ruby の gem コマンド (RubyGems) で簡単にインストールすることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo gem install middleman
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Middlemanメモ: Middleman による Web サイトの雛形の作成</title><link>https://maku77.github.io/p/xbqygep/</link><pubDate>Tue, 03 Nov 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xbqygep/</guid><description>&lt;p>Middleman で Web サイトを新しく作成するには、&lt;code>init&lt;/code> コマンドを実行します。
+パラメータで指定した名前のディレクトリが新しく作成され、そこに雛形のファイルが作成されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">新しい Web サイト my_site の作成&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$ middleman init my_site
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/.gitignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/config.rb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/index.html.erb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/layouts/layout.erb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/stylesheets
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/stylesheets/all.css
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/stylesheets/normalize.css
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/javascripts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/javascripts/all.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/images/background.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create my_site/source/images/middleman.png&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>デフォルトでは上記のように、&lt;code>stylesheets&lt;/code> ディレクトリ、&lt;code>javascripts&lt;/code> ディレクトリ、&lt;code>images&lt;/code> ディレクトリなどが生成されますが、これらのディレクトリ構成は、下記のように設定ファイル &lt;code>config.rb&lt;/code> で定義されているので、自由に変更することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">config.rb（抜粋）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="n">set&lt;/span> &lt;span class="ss">:css_dir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;stylesheets&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">set&lt;/span> &lt;span class="ss">:js_dir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;javascripts&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">set&lt;/span> &lt;span class="ss">:images_dir&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;images&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item></channel></rss>
