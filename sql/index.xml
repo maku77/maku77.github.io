@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SQL on 天才まくまくノート</title><link>https://maku77.github.io/sql/</link><description>Recent content in SQL on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Wed, 06 May 2015 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/sql/index.xml" rel="self" type="application/rss+xml"/><item><title>SQLメモ: (FAQ) SQLite で書き込みエラーが出た場合の対処</title><link>https://maku77.github.io/p/49nwche/</link><pubDate>Wed, 06 May 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/49nwche/</guid><description>&lt;p>SQLite でデータベースファイルへの書き込みを行おうとしたときに、以下のようなエラーが発生することがあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">Error: attempt to write a readonly database （DB ファイルに書き込み権限がない？）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Error: unable to open database file （DB ファイルのあるディレクトリに書き込み権限がない？）
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このような場合は、データベースファイル自体のパーミッションや、データベースファイルのあるディレクトリのパーミッションを確認します。
+もし、以下のように実行してアクセスできれば、パーミッションが問題である可能性が高いです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> chmod &lt;span class="m">777&lt;/span> /your/db/dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> chmod &lt;span class="m">777&lt;/span> /your/db/dir/sample.db
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>実際には、パーミッションを全開にしてしまうのはセキュリティ上望ましくないので、&lt;code>chgrp&lt;/code> を使ってデータベースにアクセスできるグループを適切に設定します。
+例えば、Web アプリケーションから SQLite データベースにアクセスしているのであれば、Apache などの HTTP デーモンがどのグループ ID で実行されているのかを調べます（通常は &lt;code>httpd.conf&lt;/code> ファイルで設定されています）。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">httpd.conf&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;IfModule&lt;/span> &lt;span class="err">unixd_module&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">User daemon
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Group daemon
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/IfModule&amp;gt;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記の例では実効グループ ID が &lt;code>daemon&lt;/code> となるので、データベースファイルのグループを &lt;code>daemon&lt;/code> に設定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> chmod &lt;span class="m">775&lt;/span> /your/db/dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> chmod &lt;span class="m">775&lt;/span> /your/db/dir/sample.db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo chgrp daemon /your/db/dir
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sudo chgrp daemon /your/db/dir/sample.db
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SQLメモ: テーブルからランダムでレコードを取得する</title><link>https://maku77.github.io/p/atujwft/</link><pubDate>Sat, 04 Jan 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/atujwft/</guid><description>&lt;h2 id="sqlite-の場合">SQLite の場合&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ORDER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RANDOM&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">LIMIT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mysql-の場合">MySQL の場合&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ORDER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RAND&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">LIMIT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SQLメモ: SQL によるカラム操作の基本（カラム名の変更、カラムの追加・削除）</title><link>https://maku77.github.io/p/e577znu/</link><pubDate>Sun, 06 Jan 2013 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/e577znu/</guid><description>&lt;h2 id="テーブル内のカラム名を変更する-alter-table--rename-column">テーブル内のカラム名を変更する (&lt;code>ALTER TABLE&lt;/code> ～ &lt;code>RENAME COLUMN&lt;/code>)&lt;/h2>
+&lt;p>テーブル内の特定のカラムの名前を変更するには以下のようにします。&lt;/p>
+&lt;h3 id="sqlite-の場合">SQLite の場合&lt;/h3>
+&lt;p>SQLite の &lt;strong>&lt;code>ALTER TABLE&lt;/code>&lt;/strong> はカラム名の変更に対応していません。
+SQLite でカラム名を変更するには、テーブルを作り直す必要があります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: カラム名を col2 から col2_new に変更する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">BEGIN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TRANSACTION&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 既存のテーブルをリネーム
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">RENAME&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_temp&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 新しいテーブルを作成（元のテーブル名と同じ名前で）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">col1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col2_new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- レコードをすべて移す
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">col1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col2_new&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col1&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_temp&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 元のテーブルを削除
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">DROP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_temp&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">COMMIT&lt;/span>&lt;span class="p">;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="oracle-の場合">Oracle の場合&lt;/h3>
+&lt;p>Oracle データベースでは &lt;strong>&lt;code>ALTER TABLE ~ RENAME COLUMN&lt;/code>&lt;/strong> コマンドを使用してカラム名を変更することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">RENAME&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLUMN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col_old&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">col_new&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="テーブルにカラムを追加する-alter-table--add-column">テーブルにカラムを追加する (&lt;code>ALTER TABLE&lt;/code> ～ &lt;code>ADD COLUMN&lt;/code>)&lt;/h2>
+&lt;h3 id="カラムを末尾に追加する">カラムを（末尾に）追加する&lt;/h3>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 末尾にカラム new_col を追加する（MySQL、SQLite の場合）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">tbl_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ADD&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLUMN&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">new_col&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="任意の位置にカラムを追加する">任意の位置にカラムを追加する&lt;/h3>
+&lt;h4 id="mysql-の場合">MySQL の場合&lt;/h4>
+&lt;p>MySQL の場合は、&lt;code>FIRST&lt;/code> キーワードあるいは &lt;code>AFTER&lt;/code> キーワードを使用することで、任意の位置にカラムを追加することができます。&lt;/p></description></item><item><title>SQLメモ: SQL によるテーブル操作の基本（作成、削除、変更、構成の確認）</title><link>https://maku77.github.io/p/x3ym9a4/</link><pubDate>Sat, 04 Aug 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/x3ym9a4/</guid><description>&lt;h2 id="テーブルを作成する-create-table">テーブルを作成する (&lt;code>CREATE TABLE&lt;/code>)&lt;/h2>
+&lt;p>SQL の &lt;strong>&lt;code>CREATE TABLE&lt;/code>&lt;/strong> コマンドを使用して、データベース内に新しいテーブルを作成することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">MySQL で bookmarks テーブルを作成する例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">bookmarks&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">INT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NULL&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">AUTO_INCREMENT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">uri&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">PRIMARY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">KEY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">bookmarks&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">uri&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Google&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;http://google.com/&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Yahoo&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;http://yahoo.com/&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;CodeIgniter&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;http://codeigniter.com/&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>CREATE TABLE&lt;/code> コマンドを実行するときに、追加で &lt;strong>&lt;code>IF NOT EXISTS&lt;/code>&lt;/strong> を指定すると、テーブルが存在しない場合だけ &lt;code>CREATE TABLE&lt;/code> コマンドを実行してくれるようになります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">bookmarks テーブルが存在しない場合だけ作成する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">IF&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">EXISTS&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">bookmarks&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">INT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NULL&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">AUTO_INCREMENT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">uri&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">PRIMARY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">KEY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="テーブルを削除する-drop-table">テーブルを削除する (&lt;code>DROP TABLE&lt;/code>)&lt;/h2>
+&lt;p>&lt;strong>&lt;code>DROP TABLE&lt;/code>&lt;/strong> コマンドを使用して、データベース内のテーブルを削除することができます。&lt;/p></description></item><item><title>SQLメモ: MySQL の TIMESTAMP NOT NULL な時刻データの振る舞い</title><link>https://maku77.github.io/p/z2c99tj/</link><pubDate>Wed, 18 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/z2c99tj/</guid><description>&lt;p>&lt;strong>&lt;code>TIMESTAMP&lt;/code>&lt;/strong> 型のカラムを定義するときに &lt;strong>&lt;code>NOT NULL&lt;/code>&lt;/strong> 修飾子を付けると、そこには必ず何らかの時刻データが格納されることが保証されます。
+例えば、以下のようにテーブルを定義したとします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">date_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">TIMESTAMP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="no">NULL&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このような &lt;code>NOT NULL&lt;/code> な &lt;code>TIMESTAMP&lt;/code> フィールドに対して、曖昧な日時指定でレコードを追加しようとすると、どのような値として格納されるのでしょうか？
+以下はそのまとめです。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">日付だけ指定すると深夜 0 時になる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">date_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;2012-01-01&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">date_tbl&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">2012&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">01&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">01&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">時刻だけ指定すると 0000-00-00 00:00:00 になる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">date_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;15:30:00&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">date_tbl&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0000&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">NULL を入れようとすると現在時刻が入る&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">date_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="no">NULL&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">date_tbl&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">2012&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">07&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">18&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">27&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">16&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">不正なフォーマットで入力すると 0000-00-00 00:00:00 になる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">date_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;hogehoge&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">date_tbl&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">created_date&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0000&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">00&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="o">+---------------------+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>SQLメモ: MySQL でデータベースの一覧を表示する (SHOW DATABASES)</title><link>https://maku77.github.io/p/e377edc/</link><pubDate>Sat, 14 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/e377edc/</guid><description>&lt;p>MySQL の &lt;strong>&lt;code>SHOW DATABASES&lt;/code>&lt;/strong> コマンドを実行することで、使用可能なデータベースの一覧を確認することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; SHOW DATABASES;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+--------------------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| Database |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+--------------------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| information_schema |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| cdcol |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| mysql |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| sample_db |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| test |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+--------------------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">5 rows in set (0.00 sec)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SQLメモ: MySQL で各種 SQL コマンドのヘルプを表示する (help)</title><link>https://maku77.github.io/p/fdvnytk/</link><pubDate>Sat, 14 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fdvnytk/</guid><description>&lt;p>MySQL に接続後、&lt;strong>&lt;code>help&lt;/code>&lt;/strong> コマンドに続けて SQL 文を入力すると、その SQL 文の説明を表示することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: CREATE DATABASE のヘルプを表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">help&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">create&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;CREATE DATABASE&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Description&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">Syntax&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">{&lt;/span>&lt;span class="k">DATABASE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">SCHEMA&lt;/span>&lt;span class="err">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="k">IF&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">EXISTS&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">db_name&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">...&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>help&lt;/code> コマンドで調べられる項目は、&lt;strong>&lt;code>help contents&lt;/code>&lt;/strong> で確認することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="n">mysql&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">help&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">contents&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">You&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">asked&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">help&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">about&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">help&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">category&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;Contents&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">For&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">more&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">information&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">type&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;help &amp;lt;item&amp;gt;&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">where&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">item&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">is&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">one&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">of&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">the&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">following&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">categories&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Account&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Management&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Administration&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Compound&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Statements&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Data&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Definition&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Data&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Manipulation&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Data&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Types&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Functions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Functions&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">and&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Modifiers&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">for&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">Use&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">with&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">GROUP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Geographic&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Features&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Language&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Structure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Plugins&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">Table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Maintenance&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Transactions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">User&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">Defined&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Functions&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Utility&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記の結果から、Account Management カテゴリに関するヘルプも用意されていることがわかるので、さらに以下のようにしてそのヘルプを表示することができます。&lt;/p></description></item><item><title>SQLメモ: MySQL で新しいデータベースを作成する (CREATE DATABASE)</title><link>https://maku77.github.io/p/dwzbc8b/</link><pubDate>Sat, 14 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dwzbc8b/</guid><description>&lt;h2 id="ユーザ-testuser-から操作可能なデータベース-testdb-を作成する">ユーザ testuser から操作可能なデータベース testdb を作成する&lt;/h2>
+&lt;p>まずは、ユーザ &lt;code>testuser&lt;/code> にデータベース &lt;code>testdb&lt;/code> を操作できる権限を与えます。
+この権限には、&lt;code>testdb&lt;/code> というデータベース自体を作成する権限も含まれています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; GRANT ALL PRIVILEGES ON testdb.* TO testuser@localhost IDENTIFIED BY &amp;#39;testpass&amp;#39;;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次に、&lt;code>testuser&lt;/code> で MySQL に接続し直して、データベース &lt;code>testdb&lt;/code> を実際に作成します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u testuser -p
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Enter password: testpass
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; CREATE DATABASE testdb;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで、次回からは &lt;code>mysql&lt;/code> コマンドで &lt;code>testdb&lt;/code> データベースに直接接続できるようになります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u testuser -p testdb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Enter password: ********
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記の例では &lt;code>Enter password:&lt;/code> プロンプトからパスワードを入力していますが、&lt;code>mysql&lt;/code> コマンドのパラメータで直接パスワードを指定するには、以下のように &lt;code>-p&lt;/code> オプションの直後に空白を入れずに指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u testuser -ptestpass testdb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以下のように &lt;code>alias&lt;/code> 設定を行っておくと、簡単にデータベースに接続できるようになります。&lt;/p></description></item><item><title>SQLメモ: MySQL で登録されているユーザの一覧を表示する</title><link>https://maku77.github.io/p/dgiscz7/</link><pubDate>Sat, 14 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dgiscz7/</guid><description>&lt;p>MySQL のユーザは、&lt;code>mysql&lt;/code> データベースの &lt;code>user&lt;/code> テーブルで管理されています。
+以下のようにすると、登録されているユーザの一覧を確認することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; SELECT user,host FROM mysql.user;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+------+-----------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| user | host |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+------+-----------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| root | 127.0.0.1 |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| | devmac |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| root | devmac |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| | localhost |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| maku | localhost |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">| root | localhost |
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">+------+-----------+
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">6 rows in set (0.00 sec)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SQLメモ: SQL ファイルを読み込んで実行する</title><link>https://maku77.github.io/p/tc6gaon/</link><pubDate>Sat, 07 Jul 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/tc6gaon/</guid><description>&lt;p>SQL 文を記述したテキストファイルを読み込んで実行するには以下のようにします。&lt;/p>
+&lt;h2 id="sqlite-の場合">SQLite の場合&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sqlite3 sample.db &amp;lt; input.sql
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>あるいは、sqlite コマンドの &lt;code>.read&lt;/code> を使っても同じことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sqlite3 sample.db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">sqlite&amp;gt; .read input.sql
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.sql&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">INTEGER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">PRIMARY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">KEY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">AUTOINCREMENT&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Title1&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Title2&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">books&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">title&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Title3&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>以下のように、実際にデータベースファイルが生成されていることを確認できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sqlite3 sample.db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">sqlite&amp;gt; SELECT * FROM books;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1|Title1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">2|Title2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">3|Title3
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>SQLメモ: SQLite で瞬断などによるロールバック処理に備える (journaling)</title><link>https://maku77.github.io/p/f74ukn9/</link><pubDate>Mon, 16 Jan 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/f74ukn9/</guid><description>&lt;p>SQLite DB 書き込み中にデバイスの電源を落としたりすると、&lt;strong>hot journal&lt;/strong> という状態になり、次回のデータベース読み込み時に SQLite3 のロールバック処理が走ります。&lt;/p>
+&lt;p>ロールバック処理は、journal ファイルをもとにして DB ファイルの修復をしようとするので、データベースが WRITE モードでオープンされている必要があります。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="http://www.sqlite.org/draft/wal.html#readonly">Write-Ahead Logging - Read-Only Databases&lt;/a>&lt;/li>
+&lt;li>参考: &lt;a href="http://www.sqlite.org/lockingv3.html#rollback">File Locking And Concurrency In SQLite Version 3 - The Rollback Journal&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>ロールバック処理が走るときにデータベースが Read only でオープンされていると、&lt;code>sqlite_prepare()&lt;/code> などを呼び出したときにエラー（&lt;code>SQLITE_IOERR_LOCK&lt;/code>）で失敗します。
+SQLite ライブラリ内部の実装を追っていくと、システムコールの &lt;code>fcntl()&lt;/code> によるファイルの排他ロックをかけようとしてエラー（&lt;code>EBADF: Bad file descriptor&lt;/code>）になっています。
+どうやら、ファイルを read only でオープンしているときに排他ロックをかけようとすると &lt;code>fcntl()&lt;/code> はエラー（&lt;code>EBADF&lt;/code>）になるようです。&lt;/p>
+&lt;p>これに備えるためには、データベースをオープンするときに WRITE 権限をつけるしかなさそうです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="nf">sqlite3_open_v2&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">DB_PATH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">SQLITE_OPEN_READONLY&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">↓&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">sqlite3_open_v2&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">DB_PATH&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">SQLITE_OPEN_READWRITE&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>（内部でうまいことロールバック処理してくれればいいのに…）&lt;/p>
+&lt;p>SQLite 3.7.0 から導入された WAL (Write-Ahead Logging) を有効にすれば、このようなロックエラーに悩まされないようになるみたいです。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="http://www.sqlite.org/draft/wal.html">Write-Ahead Logging&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>SQLメモ: SQLite のロックによる SQLITE_BUSY に備える</title><link>https://maku77.github.io/p/4xszx7k/</link><pubDate>Sun, 15 Jan 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4xszx7k/</guid><description>&lt;p>SQLite のデータベースに対して、複数のプロセス、スレッドから同時にアクセスする可能性があるとします。&lt;/p>
+&lt;p>他のプロセスがトランザクション処理中で排他ロック (EXCLUSIVE LOCK) がかかっていると、SELECT や UPDATE の実行に失敗します。
+具体的には &lt;strong>SQLITE_BUSY&lt;/strong> というコードが返ってきます。&lt;/p>
+&lt;p>このコードが返ってきた場合は、適切な時間だけ wait してリトライするようにします。
+あるいは、以下のようなユーティリティ関数を使うこともできます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>sqlite3_busy_timeout()&lt;/code> &amp;ndash; 対象となる API 呼び出しが BUSY だった場合に、指定したミリ秒だけ内部的に粘るようにする。それでもダメなら &lt;code>SQLITE_BUSY&lt;/code> を返すようにする。 → &lt;a href="http://www.sqlite.org/c3ref/busy_timeout.html">API ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;code>sqlite3_busy_handler()&lt;/code> &amp;ndash; 対象となる API 呼び出しが BUSY だった場合に、指定したコールバックハンドラを呼び出すようにする。 → &lt;a href="http://www.sqlite.org/c3ref/busy_handler.html">API ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>簡単なのは、&lt;code>sqlite3_busy_timeout()&lt;/code> でタイムアウト時間を 3 秒くらいに設定する方法でしょうか。
+これで、複数プロセスからの書き込みがあるデータベースに対しても、&lt;code>SQLITE_BUSY&lt;/code> で問題が出ることはほとんどなくなるはずです。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">設定例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Set the default busy handler to retry for 1000ms so that we can omit retry code.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nf">sqlite3_busy_timeout&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">db&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3000&lt;/span> &lt;span class="cm">/* ms */&lt;/span>&lt;span class="p">);&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ちなみに、1 つのデータベースに対して複数プロセスからの同時アクセスがある場合でも、読み込みアクセスだけであれば排他ロックではなく共有ロック（SHARED LOCK）がかけられるため、BUSY 状態にはなりません。&lt;/p></description></item><item><title>SQLメモ: SQLite でワンライナー実行する</title><link>https://maku77.github.io/p/v48e2fn/</link><pubDate>Wed, 17 Aug 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/v48e2fn/</guid><description>&lt;p>&lt;code>sqlite3&lt;/code> コマンドを実行するときに、データベースファイル名に続けて実行したい SQLite コマンドを指定することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: データベース内のテーブル一覧を表示する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sqlite3 settings.db &lt;span class="s1">&amp;#39;.tables&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">android_metadata bookmarks system
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">bluetooth_devices secure
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>SQL 文もワンライナーで実行できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: データベース内の secure テーブルの情報を表示する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sqlite3 settings.db &lt;span class="s1">&amp;#39;SELECT * FROM secure&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>SQLメモ: SQLite でテーブルの内容をダンプする (.dump)</title><link>https://maku77.github.io/p/k4qjm3p/</link><pubDate>Mon, 25 Oct 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/k4qjm3p/</guid><description>&lt;p>SQLite の &lt;strong>&lt;code>.dump&lt;/code>&lt;/strong> コマンドを使うと、定義済みのテーブルの内容をダンプできます。
+出力結果には、&lt;code>CREATE TABLE&lt;/code> や &lt;code>INSERT&lt;/code> コマンドなどが含まれます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">すべてのテーブルの内容をダンプする&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; .dump&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">テーブル名を指定してダンプする（複数指定可能）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; .dump tbl_aaa
+sqlite&amp;gt; .dump tbl_aaa tbl_bbb&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">tbl_ で始まる名前のテーブルの内容をダンプ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; .dump tbl_%&lt;/code>&lt;/pre>&lt;/div>
+&lt;/figure>
+
+&lt;p>ダンプ結果をファイルに出力したい場合は、&lt;strong>&lt;code>.output&lt;/code>&lt;/strong> コマンドで出力先を &lt;code>stdout&lt;/code> からファイルに切り替えてから &lt;code>.dump&lt;/code> コマンドを実行します。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; .output sample.sql
+sqlite&amp;gt; .dump
+&lt;/code>&lt;/pre></description></item><item><title>SQLメモ: SQLite の対話型プロンプトでテーブルのカラム名を表示する (.header)</title><link>https://maku77.github.io/p/kt4fedc/</link><pubDate>Sun, 05 Sep 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kt4fedc/</guid><description>&lt;p>SQLite の対話型プロンプトで &lt;strong>&lt;code>.header ON&lt;/code>&lt;/strong> と入力すると、&lt;code>SELECT&lt;/code> クエリの実行結果にヘッダ（カラム名）が表示されるようになります。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; .header ON
+sqlite&amp;gt; .mode column
+sqlite&amp;gt; SELECT id, title FROM tbl;
+id title
+---------- ----------
+1 title 1
+2 title 2
+3 title 3
+&lt;/code>&lt;/pre>&lt;p>さらに、以下のように &lt;code>SELECT&lt;/code> クエリを実行すると、任意のカラム名に置き換えて表示することができます。
+ここでは、&lt;code>id&lt;/code> カラムを「識別子」、&lt;code>title&lt;/code> カラムを「タイトル」というラベルで表示しています。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-sqlite" data-lang="sqlite">sqlite&amp;gt; SELECT id &amp;#34;識別子&amp;#34;, title &amp;#34;タイトル&amp;#34; FROM tbl;
+識別子 タイトル
+---------- ----------
+1 title 1
+2 title 2
+3 title 3
+&lt;/code>&lt;/pre></description></item><item><title>SQLメモ: リレーショナルデータベース (RDB) でツリー構造や階層構造を表現する</title><link>https://maku77.github.io/p/qh6zz7x/</link><pubDate>Mon, 02 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qh6zz7x/</guid><description>&lt;p>フラットなレコードを格納する RDB でも、自分自身のノードの ID と親ノードの ID を格納すれば、擬似的に階層構造を表現することができます。
+ツリー構造を作りたい場合は、自分自身の親が唯一でなければならないので、自分自身のノードを表す &lt;code>id&lt;/code> フィールドには &lt;code>UNIQUE&lt;/code> 制約を付けます。&lt;/p>
+&lt;p>ルートノードを表現するには、例えば親ノードを表す &lt;code>parent_id&lt;/code> に &lt;code>NULL&lt;/code> を格納するというルールにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">UNIQUE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NOT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NULL&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">TEXT&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のテーブルで、例えば以下のようなツリー構造を表現したい場合は、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">root_node
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +- node1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> | +- node1-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> | +- node1-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +- node2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +- node2-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> +- node2-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以下のようにデータを追加します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;root_node&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NULL&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node1&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;root_node&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node2&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;root_node&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node1-1&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;node1&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node1-2&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;node1&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node2-1&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;node2&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">hierarchy_tbl&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">parent_id&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;node2-2&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;node2&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ツリー構造では各ノードに親が 1 つ存在するので、レコードの数はノードの数に等しくなります。&lt;/p></description></item><item><title>SQLメモ: MySQL でデータベースのユーザを作成／削除する (CREATE USER, DROP USER)</title><link>https://maku77.github.io/p/cooiiou/</link><pubDate>Sun, 03 Apr 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cooiiou/</guid><description>&lt;h2 id="mysql-のユーザを作成する-create-user">MySQL のユーザを作成する (CREATE USER)&lt;/h2>
+&lt;p>MySQL をインストールした直後は、パスワードなしの &lt;code>root&lt;/code> ユーザしか登録されていません。
+通常は、アプリケーション用に作成されたデータベースには、そのデータベース専用のユーザを使ってアクセスすることになります。
+あるデータベースを扱うためのユーザを作成するには、&lt;strong>&lt;code>CREATE USER&lt;/code>&lt;/strong> コマンドでユーザを作成し、&lt;strong>&lt;code>GRANT&lt;/code>&lt;/strong> コマンドでそのデータベースへのアクセス権限を与えます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u root -p
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; CREATE USER &amp;#39;myname&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;mypass&amp;#39;;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; GRANT ALL ON mydb.* TO &amp;#39;myname&amp;#39;@&amp;#39;localhost&amp;#39;;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のようにすると、次のようなユーザが作成されます。&lt;/p>
+&lt;ul>
+&lt;li>ユーザ名: &lt;code>myname&lt;/code>（ホスト &lt;code>localhost&lt;/code> からのアクセス）&lt;/li>
+&lt;li>パスワード: &lt;code>mypass&lt;/code>&lt;/li>
+&lt;li>接続可能なデータベース: &lt;code>mydb&lt;/code>&lt;/li>
+&lt;li>操作可能なテーブル: すべて (&lt;code>*&lt;/code>)&lt;/li>
+&lt;li>権限: すべて (&lt;code>ALL&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>上記の例では &lt;code>CREATE USER&lt;/code> と &lt;code>GRANT&lt;/code> を別々に実行していますが、次のようにしてユーザ作成とアクセス権限の付与を同時に行うこともできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; GRANT ALL ON mydb.* TO &amp;#39;myname&amp;#39;@&amp;#39;localhost&amp;#39; IDENTIFIED BY &amp;#39;mypass&amp;#39;;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mysql-のユーザを削除する-drop-user">MySQL のユーザを削除する (DROP USER)&lt;/h2>
+&lt;p>MySQL のユーザを削除するには、&lt;strong>&lt;code>DROP USER&lt;/code>&lt;/strong> コマンドを使用します。&lt;/p></description></item><item><title>SQLメモ: MySQL でデータベースをバックアップ／リストアする (mysqldump)</title><link>https://maku77.github.io/p/ws9oyhc/</link><pubDate>Sun, 03 Apr 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ws9oyhc/</guid><description>&lt;h2 id="mysql-データベースをバックアップする">MySQL データベースをバックアップする&lt;/h2>
+&lt;p>MySQL データベースの内容をファイルにバックアップするには、MySQL に付属している &lt;strong>&lt;code>mysqldump&lt;/code>&lt;/strong> コマンドを使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: mydb データベース内のテーブルをバックアップ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysqldump -u myuser -p mydb &amp;gt; mydb_backup.sql
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Enter password: ********
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="mysql-データベースをリストアする">MySQL データベースをリストアする&lt;/h2>
+&lt;p>&lt;code>mysqldump&lt;/code> で作成したファイルがあれば、データベースをリストアすることができます。
+データベースの作成（&lt;code>CREATE DATABASE&lt;/code>）は自動では行われないので、リストア先のデータベースを手動で作成してからリストアを実行する必要があります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: mydb データベース内のテーブルをリストア&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysqladmin create mydb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> mysql -u myuser -p mydb &amp;lt; mydb_backup.sql
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Enter password: ********
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>データベースの作成は以下のようにして行う方法もあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="go">C:\&amp;gt; mysql -u root -p
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">mysql&amp;gt; CREATE DATABASE newdb;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="応用-バックアップスクリプトを作る">応用: バックアップスクリプトを作る&lt;/h2>
+&lt;p>Linux や macOS で MySQL を使っている場合は、以下のような DB バックアップ用のスクリプトを作っておくと便利です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">mydb_backup.sh&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>mysqldump -u myuser -pmypass mydb &amp;gt; mydb-&lt;span class="sb">`&lt;/span>date +%Y%m%d&lt;span class="sb">`&lt;/span>.sql&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記を実行すれば、&lt;code>mydb-20120919.sql&lt;/code> のような日付入りのバックアップファイルが作成されます。&lt;/p></description></item></channel></rss>

@@ -164,8 +164,8 @@ Visual Studio Code 上で型チェックを有効にするには、&lt;a href="h
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-597184236" type="checkbox">
- &lt;label class="xAccordion_title" for="id-597184236">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-352798461" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-352798461">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -1484,8 +1484,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-273195648" type="checkbox">
- &lt;label class="xAccordion_title" for="id-273195648">上記画像のコード&lt;/label>
+ &lt;input id="id-527364198" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-527364198">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -2478,7 +2478,7 @@ Python プログラムを実行するために、何も考えずに &lt;code>pip
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">html&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ヘッダ情報は &lt;strong>&lt;code>OpenerDirector#addheaders&lt;/code>&lt;/strong> プロパティにセットするのですが、&lt;code>add&lt;/code> という名前なのにプロパティになっていたり、ディクショナリではなくリストで値を設定しなければいけなかったりと、謎仕様なところには注意してください。&lt;/p>
 &lt;p>作成した &lt;code>OpenerDirector&lt;/code> オブジェクトを、&lt;strong>&lt;code>urllib.request.install_opener&lt;/code>&lt;/strong> 関数で設定してやることで、それ以降の &lt;code>urlopen&lt;/code> はその &lt;code>OpenerDirector&lt;/code> の設定に基づいて動作するようになります。
-アプリケーション全体でアクセス方法を統一したいのであれば、こちらの方法を使うとシンプルかもしれません。&lt;/p></description></item><item><title>Python の型の一覧、ある値の型を調べる (type)</title><link>https://maku77.github.io/p/a8cta8q/</link><pubDate>Wed, 29 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/a8cta8q/</guid><description>&lt;h2 id="python-の組み込み型">Python の組み込み型&lt;/h2>
+アプリケーション全体でアクセス方法を統一したいのであれば、こちらの方法を使うとシンプルかもしれません。&lt;/p></description></item><item><title>Python の型一覧／変数の型を調べる (type)</title><link>https://maku77.github.io/p/a8cta8q/</link><pubDate>Wed, 29 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/a8cta8q/</guid><description>&lt;h2 id="python-の組み込み型">Python の組み込み型&lt;/h2>
 &lt;p>Python の主な組み込み型は、数値、シーケンス、マッピング、クラス、インスタンス、および例外です。&lt;/p>
 &lt;h3 id="数値型">数値型&lt;/h3>
 &lt;dl>
@@ -2584,16 +2584,7 @@ Python プログラムを実行するために、何も考えずに &lt;code>pip
 &lt;li>仮想環境を抜ける (&lt;code>deactivate&lt;/code>)&lt;/li>
 &lt;/ol>
 &lt;h2 id="virtualenv-コマンドのインストール">virtualenv コマンドのインストール&lt;/h2>
-&lt;p>&lt;code>virtualenv&lt;/code> コマンドは、&lt;code>pip&lt;/code> コマンドで簡単にインストールすることができます。&lt;/p></description></item><item><title>Python で定数を定義する (typing.Final)</title><link>https://maku77.github.io/p/37hwzxi/</link><pubDate>Mon, 08 Jan 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/37hwzxi/</guid><description>&lt;p>Python 3.8 以降では、&lt;strong>&lt;code>typing.Final&lt;/code>&lt;/strong> による型アノテーションを使って、再代入できない変数（定数）であることを表現できます（参考: &lt;a href="https://peps.python.org/pep-0591/">PEP 591&lt;/a>）。
-定数名は &lt;strong>すべて大文字（+ アンダースコア）&lt;/strong> で構成するのが慣例となっています。
-このあたりの標準的な命名規則は PEP8 に記載されています。&lt;/p>
-&lt;ul>
-&lt;li>参考: &lt;a href="https://www.python.org/dev/peps/pep-0008/#constants">PEP 8 &amp;ndash; Style Guide for Python Code｜Python.org&lt;/a>
-&lt;blockquote>
-&lt;p>Constants are usually defined on a module level and written in &lt;strong>all capital letters with underscores&lt;/strong> separating words. Examples include MAX_OVERFLOW and TOTAL.&lt;/p>
-&lt;/blockquote>
-&lt;/li>
-&lt;/ul>
+&lt;p>&lt;code>virtualenv&lt;/code> コマンドは、&lt;code>pip&lt;/code> コマンドで簡単にインストールすることができます。&lt;/p></description></item><item><title>Python で定数を定義する (typing.Final)</title><link>https://maku77.github.io/p/37hwzxi/</link><pubDate>Mon, 08 Jan 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/37hwzxi/</guid><description>&lt;p>Python 3.8 以降では、&lt;strong>&lt;code>typing.Final&lt;/code>&lt;/strong> による型アノテーションを使って、再代入できない変数（定数）であることを表現できます（参考: &lt;a href="https://peps.python.org/pep-0591/">PEP 591 – Adding a final qualifier to typing&lt;/a>）。&lt;/p>
 
 &lt;figure class="xCodeBlock">
 &lt;figcaption class="xCodeBlock_title">例: ファイル内（モジュールレベル）の定数&lt;/figcaption>
@@ -2604,6 +2595,15 @@ Python プログラムを実行するために、何も考えずに &lt;code>pip
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">DEFAULT_NAME&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">Final&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Player&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
 &lt;/figure>
 
+&lt;div class="xNote">
+ &lt;span class="xNote_title">☝️ 定数名は大文字&lt;/span>
+ &lt;span class="xNote_body">&lt;p>定数名は &lt;strong>すべて大文字（+ アンダースコア）&lt;/strong> で構成するのが慣例となっています。
+このあたりの標準的な命名規則は PEP8 に記載されています（参考: &lt;a href="https://www.python.org/dev/peps/pep-0008/#constants">PEP 8 &amp;ndash; Style Guide for Python Code｜Python.org&lt;/a>）。&lt;/p>
+&lt;blockquote>
+&lt;p>Constants are usually defined on a module level and written in &lt;strong>all capital letters with underscores&lt;/strong> separating words. Examples include MAX_OVERFLOW and TOTAL.&lt;/p>
+&lt;/blockquote>
+&lt;/span>
+&lt;/div>
 &lt;p>クラス定数も下記のようにして同様に定義することができます。&lt;/p>
 
 &lt;figure class="xCodeBlock">
@@ -2861,7 +2861,7 @@ NumPy の &lt;code>ndarray&lt;/code> は同じデータタイプの値しか持�
 &lt;div class="xNote">
  &lt;span class="xNote_title">☝️ Node.js も同じ名前&lt;/span>
  &lt;span class="xNote_body">モジュールやパッケージといった名称は、言語によって使われ方が様々ですが、&lt;a href="../nodejs/">Node.js&lt;/a> に関してはほぼ同じ意味で使われています。
-Node.js では、&lt;code>.js&lt;/code> ファイルのことをモジュール、それらをまとめたものをパッケージと読んでいます。&lt;/span>
+Node.js では、&lt;code>.js&lt;/code> ファイルのことをモジュール、それらをまとめたものをパッケージと呼んでいます。&lt;/span>
 &lt;/div>
 &lt;h2 id="モジュールを作成する">モジュールを作成する&lt;/h2>
 &lt;p>下記は、簡単な関数（&lt;code>add&lt;/code> と &lt;code>sub&lt;/code>）を提供する &lt;code>mymath&lt;/code> モジュールを定義する例です。
@@ -3058,8 +3058,8 @@ Python のみで行列を表現しようとすると、配列の配列（要素�
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-283651749" type="checkbox">
- &lt;label class="xAccordion_title" for="id-283651749">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-862714539" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-862714539">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -3800,7 +3800,42 @@ XML のパースは、ほとんどの場合 Python 標準の &lt;code>ElementTre
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="各種引数の組み合わせ">各種引数の組み合わせ&lt;/h3>
 &lt;p>次のように、各種引数を組み合わせて定義することもできます。
 ただし、可変長引数の後ろにある引数は、キーワード引数の形で指定して呼び出す必要があります。
-これは、位置引数の終わり（下記例では &lt;code>&amp;quot;Alias-2&amp;quot;&lt;/code>）が可変長引数に渡す引数の終わりと判断されるからです。&lt;/p></description></item><item><title>Python コードの実行時間を計測する (datetime.now)</title><link>https://maku77.github.io/p/ubtbs9p/</link><pubDate>Thu, 01 May 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ubtbs9p/</guid><description>&lt;p>下記は &lt;code>datetime&lt;/code> モジュールを使って、Python コードの一部の実行時間を計測する例です。&lt;/p>
+これは、位置引数の終わり（下記例では &lt;code>&amp;quot;Alias-2&amp;quot;&lt;/code>）が可変長引数に渡す引数の終わりと判断されるからです。&lt;/p></description></item><item><title>Pythonメモ: 全てが真 (all)、少なくとも一つが真 (any) かどうか調べる</title><link>https://maku77.github.io/p/z6xo3xs/</link><pubDate>Fri, 02 May 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/z6xo3xs/</guid><description>&lt;h2 id="python-の-all-関数と-any-関数">Python の all 関数と any 関数&lt;/h2>
+&lt;p>組み込み関数の &lt;code>all(iterable)&lt;/code>、&lt;code>any(iterable)&lt;/code> を使うと、指定した（イテレート可能な）要素がすべて真であること、あるいは、少なくとも１つ以上が真であることを調べることができます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.python.jp/3/library/functions.html#all">all — Python 3 ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://docs.python.jp/3/library/functions.html#any">any — Python 3 ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>単純なリストを渡してみると振る舞いが分かります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">all&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">all&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">all&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; False&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">any&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">True&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">any&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; True&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">any&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">False&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1"># =&amp;gt; False&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="all-関数と-any-関数の使用例">all 関数と any 関数の使用例&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: すべて偶数かどうか調べる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">arr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">all&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">#=&amp;gt; False&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 少なくとも1つが偶数か調べる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">arr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">any&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">arr&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">#=&amp;gt; True&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 文字列がいずれかのプレフィックスで始まっているか調べる&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">PREFIXES&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;http://&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;https://&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;ftp://&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;ftp://example.com/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">any&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">startswith&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">PREFIXES&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">#=&amp;gt; True&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Python コードの実行時間を計測する (datetime.now)</title><link>https://maku77.github.io/p/ubtbs9p/</link><pubDate>Thu, 01 May 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ubtbs9p/</guid><description>&lt;p>下記は &lt;code>datetime&lt;/code> モジュールを使って、Python コードの一部の実行時間を計測する例です。&lt;/p>
 
 &lt;figure class="xCodeBlock">
 &lt;figcaption class="xCodeBlock_title">main.py&lt;/figcaption>
@@ -4309,7 +4344,7 @@ XML のパースは、ほとんどの場合 Python 標準の &lt;code>ElementTre
 
 &lt;h2 id="クラスメソッド-class-method">クラスメソッド (class method)&lt;/h2>
 &lt;p>&lt;strong>クラスメソッド&lt;/strong> は、インスタンスを生成せずに呼び出せるメソッドで、&lt;strong>&lt;code>@classmethod&lt;/code>&lt;/strong> デコレーターを使って定義します。
-クラスメソッドの第 1 引数には、自身のクラスメソッドを示す &lt;strong>&lt;code>cls&lt;/code>&lt;/strong> を配置します（この名前も、&lt;a href="https://pep8.org/#function-and-method-arguments">PEP 8&lt;/a> で推奨されています）。
+クラスメソッドの第 1 引数には、自身のクラスを示す &lt;strong>&lt;code>cls&lt;/code>&lt;/strong> を配置します（この名前も、&lt;a href="https://pep8.org/#function-and-method-arguments">PEP 8&lt;/a> で推奨されています）。
 クラスメソッドの中からは、&lt;strong>&lt;code>cls.クラス属性名&lt;/code>&lt;/strong> という形で、クラス属性にアクセスできます。&lt;/p></description></item><item><title>Python で XML をパースする (minidom)</title><link>https://maku77.github.io/p/guducs9/</link><pubDate>Mon, 04 Jun 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/guducs9/</guid><description>&lt;p>Python 2.0 以降では、Document Object Model インタフェース (DOM API) の最小の実装として、&lt;a href="https://docs.python.org/3/library/xml.dom.minidom.html">xml.dom.minidom&lt;/a> が搭載されています。
 DOM 標準の API を使って操作する必要のない場合は、よりシンプルなインターフェースを提供している &lt;a href="../p/cp9q7n5/">ElementTree モジュールを使用する&lt;/a> のがよいでしょう。&lt;/p>
 &lt;h2 id="document-オブジェクトを取得する">Document オブジェクトを取得する&lt;/h2>
@@ -4335,7 +4370,23 @@ DOM 標準の API を使って操作する必要のない場合は、よりシ�
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">doc&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">minidom&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">parseString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">xml&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">doc&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">toxml&lt;/span>&lt;span class="p">())&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="web-上の-xml-リソースを扱う場合">Web 上の XML リソースを扱う場合&lt;/h3>
-&lt;p>&lt;strong>&lt;code>urllib&lt;/code>&lt;/strong> モジュールを組み合わせて使えば、Web 上の XML も簡単にパースできます。&lt;/p></description></item><item><title>python コマンドでワンライナーを実行する (python -c)</title><link>https://maku77.github.io/p/oi67p5c/</link><pubDate>Fri, 13 May 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oi67p5c/</guid><description>&lt;p>&lt;code>python&lt;/code> コマンドを実行するときに &lt;strong>&lt;code>-c&lt;/code>&lt;/strong> オプションを指定すると、コマンドラインで指定した Python コードを直接実行することができます。
+&lt;p>&lt;strong>&lt;code>urllib&lt;/code>&lt;/strong> モジュールを組み合わせて使えば、Web 上の XML も簡単にパースできます。&lt;/p></description></item><item><title>Pythonメモ: Python でヒアドキュメント</title><link>https://maku77.github.io/p/xet38jy/</link><pubDate>Sat, 14 Jan 2012 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xet38jy/</guid><description>&lt;p>Python では &lt;code>'''&lt;/code> で囲んだ複数行のテキストを文字列リテラルとして定義することができます。
+次の例では、ヒアドキュメントで HTML テキストを作成し、その内容を一行ずつ処理しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">HTML&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;&amp;#39;&amp;#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;lt;h1&amp;gt;Title&amp;lt;/h1&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;lt;p&amp;gt;Hello, I&amp;#39;m John.&amp;lt;/p&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="n">line&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">HTML&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s1">&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;*** &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">*** &amp;lt;html&amp;gt;&amp;lt;body&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;h1&amp;gt;Title&amp;lt;/h1&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;p&amp;gt;Hello, I&amp;#39;m John.&amp;lt;/p&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>python コマンドでワンライナーを実行する (python -c)</title><link>https://maku77.github.io/p/oi67p5c/</link><pubDate>Fri, 13 May 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oi67p5c/</guid><description>&lt;p>&lt;code>python&lt;/code> コマンドを実行するときに &lt;strong>&lt;code>-c&lt;/code>&lt;/strong> オプションを指定すると、コマンドラインで指定した Python コードを直接実行することができます。
 このように 1 行で記述したコードは、ワンライナーと呼ばれています。&lt;/p>
 
 &lt;figure class="xCodeBlock">
@@ -4487,7 +4538,38 @@ Python のモジュールとパッケージの基本については下記の記�
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Password:（password1 と入力）
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Access granted
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/figure></description></item><item><title>Python のオブジェクトを print 関数で出力できるようにする (__str__)</title><link>https://maku77.github.io/p/uatcsaq/</link><pubDate>Sat, 06 Jun 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/uatcsaq/</guid><description>&lt;p>クラスを定義するときに特殊メソッド &lt;strong>&lt;code>__str__&lt;/code>&lt;/strong> を実装しておくと、&lt;code>print()&lt;/code> や &lt;code>str()&lt;/code> にそのオブジェクトを渡したときの出力をカスタマイズすることができます。&lt;/p>
+&lt;/figure></description></item><item><title>Pythonメモ: 条件分岐いろいろ（if, switch, 三項演算子）</title><link>https://maku77.github.io/p/se5cwgm/</link><pubDate>Wed, 18 Nov 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/se5cwgm/</guid><description>&lt;h2 id="if-分岐">if 分岐&lt;/h2>
+&lt;h3 id="下限上限をまとめて指定">下限／上限をまとめて指定&lt;/h3>
+&lt;p>Python では、以下のように 2 つの不等号をまとめて記述できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="mi">0&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Gotcha&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="一行野郎">一行野郎&lt;/h3>
+&lt;p>&lt;code>if&lt;/code> による分岐後の処理が短い場合は、下記のように記述すれば一行で済ませることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Hello&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="switch-構文">switch 構文&lt;/h2>
+&lt;p>Python には &lt;strong>&lt;code>switch-case&lt;/code> 構文はありません&lt;/strong>。
+次のように、&lt;code>if-elif-else&lt;/code> を組み合わせて記述します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s1">&amp;#39;BBB&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">s&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;AAA&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s1">&amp;#39;BBB&amp;#39;&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">elif&lt;/span> &lt;span class="n">s&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s1">&amp;#39;CCC&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="三項演算子条件演算子">三項演算子（条件演算子）&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">condition&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">X&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">A&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">X&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">B&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>のような条件分岐は、Python 2.5 以降では以下のように記述できます。
+&lt;strong>条件演算 (Conditional Expressions)&lt;/strong> と呼ばれている記述方法です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">X&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">A&lt;/span> &lt;span class="k">if&lt;/span> &lt;span class="n">condition&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="n">B&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>評価結果が先頭と末尾に分かれるため、慣れるまでは読みにくいかもしれません。
+ちなみに、下記のように &lt;code>if-else&lt;/code> の改行を減らす記述方法もあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="n">condition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">X&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">A&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">X&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">B&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Python のオブジェクトを print 関数で出力できるようにする (__str__)</title><link>https://maku77.github.io/p/uatcsaq/</link><pubDate>Sat, 06 Jun 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/uatcsaq/</guid><description>&lt;p>クラスを定義するときに特殊メソッド &lt;strong>&lt;code>__str__&lt;/code>&lt;/strong> を実装しておくと、&lt;code>print()&lt;/code> や &lt;code>str()&lt;/code> にそのオブジェクトを渡したときの出力をカスタマイズすることができます。&lt;/p>
 
 &lt;figure class="xCodeBlock">
 &lt;figcaption class="xCodeBlock_title">sample.py&lt;/figcaption>
@@ -4584,7 +4666,61 @@ Python のモジュールとパッケージの基本については下記の記�
 &lt;code>os.renames&lt;/code> ではなく、&lt;code>os.rename&lt;/code> を使用した場合は、&lt;code>aaa/bbb/ccc&lt;/code> というディレクトリが存在しないときにエラーになります。&lt;/p>
 &lt;h2 id="例-ファイル名のプレフィックスに日付--yyyymmdd-を付加する">例: ファイル名のプレフィックスに日付 (&amp;rsquo;-YYYYMMDD&amp;rsquo;) を付加する&lt;/h2>
 &lt;p>下記のサンプルスクリプトは、ディレクトリ内のすべての &lt;code>.png&lt;/code> ファイルのファイル名を変更し、拡張子の前に &lt;code>-20071109&lt;/code> のような日付を表す文字列を挿入します。
-例えば、&lt;code>sample.png&lt;/code> というファイル名は &lt;code>sample-20071109.png&lt;/code> というファイル名に置換されます。&lt;/p></description></item><item><title>Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)</title><link>https://maku77.github.io/p/kyj2izf/</link><pubDate>Tue, 10 Apr 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kyj2izf/</guid><description>&lt;p>&lt;a href="http://www.py2exe.org/">py2exe&lt;/a> を使用すると、Python のスクリプトから Windows 上で実行可能な &lt;code>.exe&lt;/code> ファイルを作成することができます。&lt;/p>
+例えば、&lt;code>sample.png&lt;/code> というファイル名は &lt;code>sample-20071109.png&lt;/code> というファイル名に置換されます。&lt;/p></description></item><item><title>Pythonメモ: for ~ in range による数値のループ処理いろいろ</title><link>https://maku77.github.io/p/eg6sr6t/</link><pubDate>Tue, 23 Oct 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/eg6sr6t/</guid><description>&lt;h2 id="指定した回数だけループ">指定した回数だけループ&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">指定した回数だけループ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">4&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="範囲を指定してループ">範囲を指定してループ&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">範囲を指定してループ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">15&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">11&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">13&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">14&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="範囲とステップを指定してループ">範囲とステップを指定してループ&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">範囲とステップを指定してループ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">20&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">14&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">16&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">18&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ステップを負の値にすれば、数値を減らしていくループもできます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">ステップに負の値を指定してループ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="o">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mi">6&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>Python スクリプトを Windows の実行ファイル (.exe) に変換する (py2exe)</title><link>https://maku77.github.io/p/kyj2izf/</link><pubDate>Tue, 10 Apr 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kyj2izf/</guid><description>&lt;p>&lt;a href="http://www.py2exe.org/">py2exe&lt;/a> を使用すると、Python のスクリプトから Windows 上で実行可能な &lt;code>.exe&lt;/code> ファイルを作成することができます。&lt;/p>
 &lt;h2 id="基本的な使い方">基本的な使い方&lt;/h2>
 &lt;p>変換対象のスクリプト &lt;code>hello.py&lt;/code> と、変換設定ファイル &lt;code>setup.py&lt;/code> を用意します。&lt;/p>
 
