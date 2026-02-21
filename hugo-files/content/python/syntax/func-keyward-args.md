@@ -149,12 +149,10 @@ show_book("The Hobbit", "J.R.R. Tolkien")  # Error!
 （おまけ）デフォルト引数は一度しか初期化されない
 ----
 
-引数のデフォルト値としてイミュータブル（可変）なオブジェクトを設定している場合は、関数呼び出し時にそのオブジェクトが使いまわされることに注意してください。
+引数のデフォルト値としてミュータブル（可変）なオブジェクトを設定している場合は、関数呼び出し時にそのオブジェクトが使いまわされることに注意してください。
 下記の関数の `buffer` 引数に設定しているデフォルト値 (`[]`) に値を追加すると、2 度目以降の関数呼び出し時にもその値が残っています。
 
 ```python
-from typing import List
-
 def append_and_dump(val: int, buffer: List[int] = []) -> None:
     buffer.append(val)  # 次の関数呼び出しにも影響する
     print(buffer)
@@ -167,9 +165,7 @@ append_and_dump(3)  # => [1, 2, 3]
 このような振る舞いを防ぐには、引数が省略されたときに明示的に新しいオブジェクトを作成するようにします。
 
 ```python
-from typing import List
-
-def append_and_dump(val: int, buffer: List[int] = None) -> None:
+def append_and_dump(val: int, buffer: list[int] | None = None) -> None:
     if buffer is None:
         buffer = []
     buffer.append(val)

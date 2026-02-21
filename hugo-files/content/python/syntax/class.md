@@ -84,7 +84,7 @@ print(Author.AGE)   # => 14
 ----
 
 __クラスメソッド__ は、インスタンスを生成せずに呼び出せるメソッドで、__`@classmethod`__ デコレーターを使って定義します。
-クラスメソッドの第 1 引数には、自身のクラスメソッドを示す __`cls`__ を配置します（この名前も、[PEP 8](https://pep8.org/#function-and-method-arguments) で推奨されています）。
+クラスメソッドの第 1 引数には、自身のクラスを示す __`cls`__ を配置します（この名前も、[PEP 8](https://pep8.org/#function-and-method-arguments) で推奨されています）。
 クラスメソッドの中からは、__`cls.クラス属性名`__ という形で、クラス属性にアクセスできます。
 
 {{< code lang="python" title="クラスメソッドを定義する" >}}
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 {{< /code >}}
 
 クラスメソッドは、ファクトリーメソッドの実装に使われることがあります。
-次の `mysterios_person` メソッドは、特殊な `Person` インスタンスを生成するためのファクトリーメソッドです。
+次の `mysterious_person` メソッドは、特殊な `Person` インスタンスを生成するためのファクトリーメソッドです。
 
 ```python
 class Person:

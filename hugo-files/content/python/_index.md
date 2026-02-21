@@ -60,14 +60,12 @@ categoryIcon: _index.svg
   - [import 時のモジュールの検索パスを調べる (`sys.path`)](/p/o4m4jyg/)
 - 型 / 変数
   - [Python の型アノテーションのまとめ](/p/rx77njz/)
-  - [Python の型の一覧、ある値の型を調べる (`type`)](/p/a8cta8q/)
+  - [Python の型一覧／変数の型を調べる (`type`)](/p/a8cta8q/)
   - [Python で定数を定義する (`typing.Final`)](/p/37hwzxi/)
 - 制御構文
-  - [Python の if 構文](syntax/if.html)
-  - [Python の switch 構文](syntax/switch.html)
-  - [range による数値のループ処理いろいろ](loop-with-range.html)
-  - [三項演算子（条件演算子）を扱う](syntax/conditional-expressions.html)
-  - [全てが真 (all)、少なくとも一つが真 (any) かどうか調べる](syntax/all-any.html)
+  - [Python の条件分岐いろいろ（if, switch, 三項演算子）](/p/se5cwgm/)
+  - [全てが真 (`all`)、少なくとも一つが真 (`any`) かどうか調べる](/p/z6xo3xs/)
+  - [`for ~ in range` による数値のループ処理いろいろ](/p/eg6sr6t/)
 - メソッド / 関数
   - [Python の関数をキーワード引数を使って呼び出す](/p/jf6kyao/)
   - [Python の関数で可変長引数を扱う (`*args, **kwargs`)](/p/rcaip63/)

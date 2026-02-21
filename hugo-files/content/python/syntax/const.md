@@ -6,12 +6,7 @@ tags: ["Python"]
 aliases: /python/syntax/const.html
 ---
 
-Python 3.8 以降では、**`typing.Final`** による型アノテーションを使って、再代入できない変数（定数）であることを表現できます（参考: [PEP 591](https://peps.python.org/pep-0591/)）。
-定数名は **すべて大文字（+ アンダースコア）** で構成するのが慣例となっています。
-このあたりの標準的な命名規則は PEP8 に記載されています。
-
-- 参考: [PEP 8 -- Style Guide for Python Code｜Python.org](https://www.python.org/dev/peps/pep-0008/#constants)
-  > Constants are usually defined on a module level and written in **all capital letters with underscores** separating words. Examples include MAX_OVERFLOW and TOTAL.
+Python 3.8 以降では、**`typing.Final`** による型アノテーションを使って、再代入できない変数（定数）であることを表現できます（参考: [PEP 591 – Adding a final qualifier to typing](https://peps.python.org/pep-0591/)）。
 
 {{< code lang="python" title="例: ファイル内（モジュールレベル）の定数" >}}
 from typing import Final
@@ -20,6 +15,13 @@ MAX_FILE_NUM: Final = 10
 ORIGIN_COORD: Final = (0, 0)
 DEFAULT_NAME: Final = "Player"
 {{< /code >}}
+
+{{% note title="定数名は大文字" %}}
+定数名は **すべて大文字（+ アンダースコア）** で構成するのが慣例となっています。
+このあたりの標準的な命名規則は PEP8 に記載されています（参考: [PEP 8 -- Style Guide for Python Code｜Python.org](https://www.python.org/dev/peps/pep-0008/#constants)）。
+
+> Constants are usually defined on a module level and written in **all capital letters with underscores** separating words. Examples include MAX_OVERFLOW and TOTAL.
+{{% /note %}}
 
 クラス定数も下記のようにして同様に定義することができます。
 

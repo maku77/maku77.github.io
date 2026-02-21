@@ -1,5 +1,5 @@
 ---
-title: "Python の型の一覧、ある値の型を調べる (type)"
+title: "Python の型一覧／変数の型を調べる (type)"
 url: "p/a8cta8q/"
 date: "2019-05-29"
 tags: ["Python"]
