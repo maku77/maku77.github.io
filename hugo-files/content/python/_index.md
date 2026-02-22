@@ -370,39 +370,39 @@ wxPython
 
 ### 基本ウィンドウとレイアウト
 
-* [wxPython によるウィンドウ表示の基本](wxpython/basic.html)
-* [wxPython - Dialog（ダイアログ）](wxpython/dialog.html)
-* [wxPython - Frame（フレーム）](wxpython/frame.html)
-* [wxPython - Layout（レイアウト）](wxpython/layout.html)
-* [wxPython - SplitterWindow（スプリッターウィンドウ）](wxpython/splitterwindow.html)
+* [wxPython によるウィンドウ表示の基本](/p/tvwz23r/)
+* [wxPython - Dialog（ダイアログ）](/p/mop9i6p/)
+* [wxPython - Frame（フレーム）](/p/4zpyvdy/)
+* [wxPython - Layout（レイアウト）](/p/e4c6ef2/)
+* [wxPython - SplitterWindow（スプリッターウィンドウ）](/p/vorgsyf/)
 
 ### 各種コンポーネント
 
-* [wxPython - Button（ボタン）](wxpython/button.html)
-* [wxPython - CheckBox（チェックボックス）](wxpython/checkbox.html)
-* [wxPython - CheckListBox（チェック付きリストボックス）](wxpython/checklistbox.html)
-* [wxPython - Choice（プルダウンボックス）](wxpython/choice.html)
-* [wxPython - ComboBox（コンボボックス）](wxpython/combobox.html)
-* [wxPython - Gauge（プログレスバー）](wxpython/gauge.html)
-* [wxPython - Grid（グリッド）](wxpython/grid.html)
-* [wxPython - HtmlWindow（HTML ウィンドウ）](wxpython/htmlwindow.html)
-* [wxPython - ListBox（リストボックス）](wxpython/listbox.html)
-* [wxPython - Menu（メニュー）](wxpython/menu.html)
-* [wxPython - RadioButton（ラジオボタン）](wxpython/radiobutton.html)
-* [wxPython - Slider（スライダー）](wxpython/slider.html)
-* [wxPython - SpinCtrl（スピンコントロール）](wxpython/spinctrl.html)
-* [wxPython - StaticText（変更不可のラベル）](wxpython/statictext.html)
-* [wxPytnon - StatusBar（ステータスバー）](wxpython/statusbar.html)
-* [wxPython - TextCtrl（テキスト入力用）](wxpython/textctrl.html)
+* [wxPython - Button（ボタン）](/p/h48tfez/)
+* [wxPython - CheckBox（チェックボックス）](/p/nr3yh3z/)
+* [wxPython - CheckListBox（チェック付きリストボックス）](/p/h7yciir/)
+* [wxPython - Choice（プルダウンボックス）](/p/n7ri6ni/)
+* [wxPython - ComboBox（コンボボックス）](/p/kcgbgcy/)
+* [wxPython - Gauge（プログレスバー）](/p/6pt9isa/)
+* [wxPython - Grid（グリッド）](/p/68p4zmq/)
+* [wxPython - HtmlWindow（HTML ウィンドウ）](/p/rktuz7x/)
+* [wxPython - ListBox（リストボックス）](/p/pc4be59/)
+* [wxPython - Menu（メニュー）](/p/vn9evh6/)
+* [wxPython - RadioButton（ラジオボタン）](/p/rknynxq/)
+* [wxPython - Slider（スライダー）](/p/powg2k5/)
+* [wxPython - SpinCtrl（スピンコントロール）](/p/nfe35fm/)
+* [wxPython - StaticText（変更不可のラベル）](/p/m5kkuhu/)
+* [wxPython - StatusBar（ステータスバー）](/p/3ox8ah2/)
+* [wxPython - TextCtrl（テキスト入力用）](/p/3z7rz6i/)
 
 ### その他の wxPython メモ
 
-* [wxPython のイベントハンドラを理解する](wxpython/event-handler.html)
-* [wxPython アプリケーションのエラー出力方法を理解する](wxpython/error-output.html)
-* [wxPython によるグラフィックス処理を理解する](wxpython/graphics.html)
-* [wxPython でマウスカーソル関連のイベントを処理する](wxpython/mouse-event.html)
-* [wxPython のコンポーネントをドラッグで動かせるようにする](wxpython/drag-component.html)
-* [wxPython 関連コラム](wxpython/column.html)
+* [wxPython のイベントハンドラを理解する](/p/jdcp2xr/)
+* [wxPython アプリケーションのエラー出力方法を理解する](/p/tv6y4pv/)
+* [wxPython によるグラフィックス処理を理解する](/p/bbta2ho/)
+* [wxPython でマウスカーソル関連のイベントを処理する](/p/igqzo97/)
+* [wxPython のコンポーネントをドラッグで動かせるようにする](/p/tkxvf77/)
+* [wxPython 関連コラム](/p/y3bknpi/)
 
 
 コラム
