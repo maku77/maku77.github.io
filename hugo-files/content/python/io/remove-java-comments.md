@@ -1,10 +1,13 @@
 ---
-title: "Java や C/C++ のコード中のコメントを削除する"
+title: "Pythonメモ: Java や C/C++ のコード中のコメントを削除する"
+url: "p/cwgffj8/"
 date: "2016-12-09"
+tags: ["python"]
+aliases: /python/io/remove-java-comments.html
 ---
 
 下記の `filter_java_comment` 関数は、受け取った Java や C/C++ のコードからコメントを削除して返します。
-C 言語の `/* ... */` というスタイルのコメントと、C++ 言語の `// ...` というスタイルのコメント両方を削除します。
+C 言語の `/* ... */` というスタイルのコメントと、C++ 言語の `// ...` というスタイルのコメントの両方を削除します。
 
 ```python
 from enum import Enum
@@ -64,7 +67,8 @@ def filter_java_comment(text):
             continue
 
         # Comment has not started yet
-        if prev: result.append(prev)
+        if prev:
+            result.append(prev)
 
         # Starts string literal?
         if ch == '"':
@@ -72,22 +76,19 @@ def filter_java_comment(text):
         prevprev, prev = prev, ch
 
     # Returns filtered text
-    if prev: result.append(prev)
+    if prev:
+        result.append(prev)
     return ''.join(result)
 ```
 
-#### 使用例
-
-```python
+{{< code lang="python" title="使用例" >}}
 if __name__ == '__main__':
     with open('Sample.java', encoding='utf-8') as f:
         content = f.read()  # テキストファイルを一括読み込み
         print(filter_java_comment(content))
-```
+{{< /code >}}
 
-#### 入力ファイル (Sample.java)
-
-```java
+{{< code lang="java" title="入力ファイル (Sample.java)" >}}
 public class Sample {
     /**
      * Greets someone.
@@ -99,11 +100,9 @@ public class Sample {
         /* Dummy *//* Dummy */
     }
 }
-```
+{{< /code >}}
 
-#### 出力結果
-
-```java
+{{< code lang="java" title="出力結果" >}}
 public class Sample {
 
 
@@ -115,7 +114,6 @@ public class Sample {
 
     }
 }
-```
+{{< /code >}}
 
-改行はバッチリ残しているので、フィルタ後のコード行数は変化しません。
-
+改行はそのまま残しているので、フィルタ後のコード行数は変化しません。

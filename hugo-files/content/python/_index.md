@@ -103,7 +103,7 @@ categoryIcon: _index.svg
 - [文字列内の部分文字列を検索する／抽出する（正規表現）](numstr/search-string.html)
 - [文字列を置換する (`str.replace`, `re.sub`, `re.subn`)](/p/wnpquuy/)
 - 分割
-  - [文字列をデリミタで分割する (`split`)](numstr/split-string.html)
+  - [文字列をデリミタで分割する (`split`)](/p/hhyq5vh/)
   - [文字列を改行で分割して 1 行ずつのリストにする (`splitlines`)](numstr/split-lines.html)
   - [文字列を 1 文字ずつに分割してリストにする](numstr/split-into-char.html)
 - [リスト内の要素を結合して文字列にする (`join`)](numstr/concat-into-string.html)
@@ -169,17 +169,17 @@ categoryIcon: _index.svg
   - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
 - [キーボードからのユーザ入力を取得する (`input`, `getpass`)](/p/bfev6xf/)
 - print
-  - [print 関数の改行を抑制する](print-without-line-break.html)
-  - [print 関数に複数のパラメータを渡した時の接続文字を変更する](io/print-sep.html)
-  - [標準入力から読み込む (`sys.stdin`, `fileinput`)](io/stdin.html)
+  - [`print` 関数の改行を抑制する](print-without-line-break.html)
+  - [`print` 関数に複数のパラメータを渡した時の接続文字列を変更する (`sep`)](/p/29vbxrz/)
+  - [標準入力から読み込む、標準入力とファイル入力に両対応する (`sys.stdin`, `fileinput`)](/p/3966z2v/)
   - [標準エラー出力へ出力する (`sys.stderr`)](/p/m3si4w6/)
-  - [任意のオブジェクトを見やすく整形して出力する (`pprint`)](io/pprint.html)
+  - [任意のオブジェクトを見やすく整形して出力する (`pprint`, `pformat`, `PrettyPrinter`)](/p/ctm63oi/)
 
 ### パス
 
-- [実行中のスクリプトのファイル名やパスを取得する](io/script-path.html)
-- [パスからファイル名だけを取り出す (basename)](io/basename.html)
-- [パスを結合する (join)](io/join-path.html)
+- [実行中のスクリプトのファイル名やパスを取得する (`__file__`)](/p/28q9cob/)
+- [パスからファイル名だけを取り出す (`basename`)](/p/9ysxj57/)
+- [パスを結合する (`join`)](/p/qogtc4k/)
 - [パスを指定したディレクトリからの相対パスに変換する (`os.path.relpath`)](/p/o4a37zc/)
 
 ### ファイル／ディレクトリ
@@ -203,12 +203,12 @@ categoryIcon: _index.svg
   - [テキストファイルを読み込む (`open`, `read`, `readline`, `readlines`)](/p/f4ckt29/)
   - [テキストファイルを書き込む (`open`, `write`, `writelines`)](/p/nmv4cjr/)
 - CSV/TSV
-  - [CSV ファイルや TSV ファイルを読み込む (`csv.reader`)](io/csv.html)
+  - [CSV ファイルや TSV ファイルを読み込む (`csv.reader`)](/p/cfqer8d/)
 - JSON ファイル
   - [JSON 形式のテキストファイルを読み書きする (`json.load`, `json.dump`)](/p/xhyhzfv/)
   - [Python のワンライナーコマンドで JSON ファイルを整形する (`json.tool`)](/p/an8o6m4/)
 - YAML ファイル
-  - [YAML ファイルを扱う](io/yaml.html)
+  - [YAML ファイルを扱う](/p/fy8j9h2/)
 - HTML ファイル
   - [HTML をパースする (`HTMLParser`)](/p/nqz8fnu/)
   - [HTML をパースする (`BeautifulSoup`)](/p/r4m4k2i/)
@@ -219,15 +219,15 @@ categoryIcon: _index.svg
   - [XPath を使って XML 要素を参照する (`ElementTree`)](/p/fufwevc/)
   - [XML を構築する (`minidom`)](/p/m2k3jyg/)
 - Excel ファイル
-  - [Excel ファイルを読み込む (`xlrd`)](io/read-excel-file.html)
+  - [Excel ファイルを読み込む (`xlrd`)](/p/enq2iz4/)
 - ZIP/JAR ファイル
   - [ZIP/JAR ファイルの内容を読み込む (`zipfile`)](/p/gxajt4d/)
   - [ZIP ファイルを作成・展開する (`shutil.make_archive`, `shutil.unpack_archive`)](/p/euevcsa/)
 - その他のファイル、応用サンプル
   - [HTML ファイルや Markdown ファイルやプレーンテキストに変換する (`unstructured`)](/p/uivwecs/)
-  - [Java や C/C++ のコード中のコメントを削除する](io/remove-java-comments.html)
+  - [Java や C/C++ のコード中のコメントを削除する](/p/cwgffj8/)
   - [複数ファイルの文字列をまとめて置換する (`glob`, `re`)](/p/xwog7ip/)
-  - [複数ファイルをまとめて grep する](io/grep-files.html)
+  - [複数ファイルをまとめて grep する (`re.search`, `glob.iglob`)](/p/vcozyix/)
 
 
 Web / HTTP <!-- web -->

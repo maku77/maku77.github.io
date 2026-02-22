@@ -1,9 +1,12 @@
 ---
-title: "任意のオブジェクトを見やすく整形して出力する (pprint)"
+title: "Pythonメモ: 任意のオブジェクトを見やすく整形して出力する (pprint, pformat, PrettyPrinter)"
+url: "p/ctm63oi/"
 date: "2020-01-09"
+tags: ["python"]
+aliases: /python/io/pprint.html
 ---
 
-pprint モジュールの基本（pprint.pprint 関数）
+`pprint` モジュールの基本（`pprint.pprint` 関数）
 ----
 
 Python 標準の [pprint モジュール](https://docs.python.org/ja/3/library/pprint.html) を使用すると、任意の Python オブジェクトを見やすく整形して出力することができます（整形結果を文字列として取得することもできます）。
@@ -50,7 +53,7 @@ pprint.pprint(object, stream=None, indent=1, width=80, depth=None, *, compact=Fa
 `indent` オプションでは改行時のインデント幅、`sort_dicts` オプションではディクショナリをソートして出力するかを制御することができます。
 
 
-オブジェクトの整形結果を文字列として取得する（pprint.pformat 関数）
+pprint の結果を文字列として取得する（`pprint.pformat` 関数）
 ----
 
 `pprint.pprint()` 関数は、オブジェクトの内容を整形してストリーム（デフォルトでは `sys.stdout`）に出力しますが、代わりに **`pprint.pformat()`** 関数を使用すると、整形結果を文字列として取得することができます。
@@ -62,13 +65,13 @@ print(s)
 ```
 
 
-同じ出力オプションで繰り返し整形出力する（PrettyPrinter クラス）
+`PrettyPrinter` で同じ出力オプションを使い回す
 ----
 
 `pprint.pprint()` 関数や `pprint.pformat()` 関数の出力オプションでは、インデント幅 (`indent`) や折り返し文字数 (`width`)、ディクショナリをソートするかどうか (`sort_dicts`) といった指定を行うことができます。
 これらの関数を何度も呼び出す場合は、毎回同じ出力パラメータを指定するのが煩わしいかもしれません。
 
-そのような場合は、**`PrettyPrinter`** オブジェクトを生成し、その `pprint()` メソッドを呼び出すようにすると、同じ出力オプションを使いまわすことができます。
+そのような場合は、**`PrettyPrinter`** オブジェクトを生成し、その `pprint()` メソッドや `pformat()` メソッドを呼び出すようにします。
 `PrettyPrinter` クラスのコンストラクタでは、次のように `pprint.pprint()` 関数と同様の出力オプションを指定することができます。
 
 ```python
@@ -87,4 +90,3 @@ pp.pprint(obj1)
 pp.pprint(obj2)
 pp.pprint(obj3)
 ```
-

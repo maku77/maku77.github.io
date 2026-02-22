@@ -1,6 +1,9 @@
 ---
-title: "パスからファイル名だけを取り出す (basename)"
+title: "Pythonメモ: パスからファイル名だけを取り出す (basename)"
+url: "p/9ysxj57/"
 date: "2012-06-04"
+tags: ["python"]
+aliases: /python/io/basename.html
 ---
 
 `os.path.basename` を使用して、パスからベースネーム（ファイル名の部分）を抜き出すことができます。
@@ -13,21 +16,28 @@ path = os.path.basename('/foo/bar/file.txt')    #=> 'file.txt'
 最後のスラッシュ（あるいはバックスラッシュ）より後ろの文字列を取得していると考えればよいです。
 Windows のドライブ名などもちゃんと削除してくれます。
 
-```
+```python
 >>> os.path.basename('C:\\')
 ''
+
 >>> os.path.basename('C:\\file.txt')
 'file.txt'
+
 >>> os.path.basename('C:\\dir\\file.txt')
 'file.txt'
+
 >>> os.path.basename('file.txt')
 'file.txt'
+
 >>> os.path.basename('aaa/file.txt')
 'file.txt'
+
 >>> os.path.basename('/aaa/file.txt')
 'file.txt'
+
 >>> os.path.basename('/aaa/bbb ccc ddd')
 'bbb ccc ddd'
+
 >>> os.path.basename('/aaa/bbb/ccc/')
 ''
 ```
@@ -38,4 +48,3 @@ Windows のドライブ名などもちゃんと削除してくれます。
 import os.path
 myfile = os.path.basename(__file__)    #=> 'sample.py'
 ```
-

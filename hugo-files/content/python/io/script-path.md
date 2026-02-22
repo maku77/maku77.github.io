@@ -1,19 +1,21 @@
 ---
-title: "実行中のスクリプトのファイル名やパスを取得する"
+title: "Pythonメモ: 実行中のスクリプトのファイル名やパスを取得する"
+url: "p/28q9cob/"
 date: "2016-12-05"
+tags: ["python"]
+aliases: /python/io/script-path.html
 ---
 
-実行中の Python スクリプトのファイル名は、`__file__` で取得することができます。
+実行中の Python スクリプトのファイル名は、**`__file__`** で取得することができます。
 
-#### sample.py
-```python
+{{< code lang="python" title="sample.py" >}}
 print(__file__)  #=> 'sample.py'
-```
+{{< /code >}}
 
-`__file__` で取得できるファイル名は、python コマンドのパラメータで指定したファイル名そのものです。
+`__file__` で取得できるファイル名は、`python` コマンドのパラメータで指定したファイル名そのものです。
 つまり、どのようにスクリプト名を指定するかによって、`__file__` で取得できる値は変わってきます。
 
-```
+```console
 $ python sample.py
 sample.py
 
@@ -35,12 +37,9 @@ print(os.path.dirname(os.path.abspath(__file__)))  # 確実にディレクトリ
 print(os.path.splitext(__file__)[1])  # 拡張子だけを取得
 ```
 
-#### 実行結果
-
-```
+{{< code title="実行結果" >}}
 sample.py
 /Users/maku/sandbox/sample.py
 /Users/maku/sandbox
 .py
-```
-
+{{< /code >}}
