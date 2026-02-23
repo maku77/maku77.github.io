@@ -42,10 +42,10 @@ categoryIcon: _index.svg
 ### python コマンド／実行環境 <!-- env -->
 
 - [python コマンドでワンライナーを実行する](/p/oi67p5c/)
-- [Python スクリプトの中で Python のバージョンを確認する (`sys.version`)](env/version.html)
-- [拡張子に関連付けられたアプリケーションでファイルを開く (`os.system`)](env/system-open.html)
-- [Python の最大再帰数を調べる／変更する](env/recursion-limit.html)
-- [Python から外部プログラムを起動する (`subprocess.run`)](env/call-external-program.html)
+- [Python スクリプトの中で Python のバージョンを確認する (`sys.version`)](/p/6b2qqny/)
+- [拡張子に関連付けられたアプリケーションでファイルを開く (`os.system`)](/p/okhfyfx/)
+- [Python の最大再帰数を調べる／変更する](/p/swuiipr/)
+- [Python から外部プログラムを起動する (`subprocess.run`)](/p/gfpprmw/)
 - 環境変数
   - [環境変数を参照する (`os.getenv`, `os.environ`)](/p/y8hs5w6/)
   - [`.env` ファイルで環境変数を設定する (`python-dotenv`)](/p/gzo8d7y/)
@@ -68,7 +68,7 @@ categoryIcon: _index.svg
   - [`for ~ in range` による数値のループ処理いろいろ](/p/eg6sr6t/)
 - メソッド / 関数
   - [Python の関数をキーワード引数を使って呼び出す](/p/jf6kyao/)
-  - [Python の関数で可変長引数を扱う (`*args, **kwargs`)](/p/rcaip63/)
+  - [Python の関数で可変長引数を扱う (`*args`, `**kwargs`)](/p/rcaip63/)
 - クラス
   - [クラス定義の基本 (`class`)](/p/ru9mxam/)
   - [オブジェクトを `print` 関数で出力できるようにする (`__str__`)](/p/uatcsaq/)
@@ -81,57 +81,56 @@ categoryIcon: _index.svg
 
 ### 数値 <!-- numstr -->
 
-* [2進数、8進数、16進数の数値リテラル](numstr/num-literal.html)
-* [数値と文字（文字列）を変換する (chr, ord, int, hex, oct, bin)](numstr/convert-number-and-string.html)
-* [整数の割り算の結果を整数 or 少数点数で取得する](numstr/num-division.html)
-* [小数点以下を四捨五入する／切り捨てる／切り上げる](numstr/round-number.html)
-* [独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)](numstr/object-min-max.html)
-* [リスト要素の合計値を求める (sum)](numstr/sum.html)
-* [ランダムな数値（乱数）を生成する (randrange, randint, random, uniform)](numstr/random.html)
-* [階乗を求める (math.factorial)](numstr/factorial.html)
-* [順列の数 (nPr) を求める](numstr/number-of-permutation.html)
-* [組み合わせの数 (nCr) を求める](numstr/number-of-combination.html)
+* [2進数、8進数、16進数の数値リテラル](/p/3bkr3ka/)
+* [数値と文字（文字列）を変換する (`chr`, `ord`, `int`, `hex`, `oct`, `bin`)](/p/35h86i9/)
+* [整数の割り算の結果を整数 or 小数点数で取得する](/p/ac5cz6u/)
+* [小数点以下を四捨五入する/切り捨てる/切り上げる (`round`, `math.floor`, `math.ceil`)](/p/73g4beh/)
+* [独自オブジェクトの配列から最小値、最大値を求める (`min_by`/`max_by`)](/p/b22gfoi/)
+* [リスト要素の合計値を求める (`sum`)](/p/6ta64b8/)
+* [ランダムな数値（乱数）を生成する (`randrange`, `randint`, `random`, `uniform`)](/p/nx5xama/)
+* [階乗を求める (`math.factorial`)](/p/jebrm6n/)
+* [順列の数 (nPr) を求める／組み合わせの数 (nCr) を求める](/p/vbrsmed/)
 
 ### 文字列 <!-- numstr -->
 
-- [Python の文字列リテラルいろいろ](numstr/string-literal.html)
-- [文字列の中で変数を展開する（書式文字列によるフォーマット） (`str#format`, `%` 演算子)](numstr/str-format.html)
-- [同じ文字列を繰り返した文字列を作成する](numstr/repetitive-string.html)
-- [文字列の長さを調べる (`len`)](numstr/string-length.html)
-- [文字列がある文字列で始まっている／終わっているかを調べる](startswith-endswith.html)
-- [文字列が正規表現に完全一致するか調べる (`re.fullmatch`)](numstr/re-fullmatch.html)
-- [文字列内の部分文字列を検索する／抽出する（正規表現）](numstr/search-string.html)
+- [Python の文字列リテラルいろいろ](/p/syyiqcm/)
+- [文字列の中で変数を展開する（書式文字列によるフォーマット） (`str#format`, `%` 演算子)](/p/nmz89p9/)
+- [同じ文字列を繰り返した文字列を作成する (`str * N`)](/p/6zogi6n/)
+- [文字列の長さを調べる (`len`)](/p/f4fafpt/)
+- [文字列がある文字列で始まっている/終わっているかを調べる (`startswith`, `endswith`)](/p/bu3u94c/)
+- [文字列が正規表現に完全一致するか調べる (`re.fullmatch`)](/p/dbzfge7/)
+- [文字列内の部分文字列を検索する/抽出する（正規表現）](/p/k4b46pw/)
 - [文字列を置換する (`str.replace`, `re.sub`, `re.subn`)](/p/wnpquuy/)
 - 分割
   - [文字列をデリミタで分割する (`split`)](/p/hhyq5vh/)
-  - [文字列を改行で分割して 1 行ずつのリストにする (`splitlines`)](numstr/split-lines.html)
-  - [文字列を 1 文字ずつに分割してリストにする](numstr/split-into-char.html)
-- [リスト内の要素を結合して文字列にする (`join`)](numstr/concat-into-string.html)
-- [文字列を逆順にする（反転させる）](numstr/reverse-string.html)
-- [ランダムな文字列を生成する (`random.choice`)](numstr/random-string.html)
-- [Python で UUID を生成する (`uuid.uuid4`)](numstr/uuid.html)
+  - [文字列を改行で分割して 1 行ずつのリストにする (`splitlines`)](/p/q76q3wm/)
+  - [文字列を 1 文字ずつに分割してリストにする](/p/pjv9mw5/)
+- [リスト内の要素を結合して文字列にする (`join`)](/p/wqtsp93/)
+- [文字列を逆順にする（反転させる）](/p/x4zi6b4/)
+- [ランダムな文字列を生成する (`random.choice`)](/p/vfp5zx9/)
+- [Python で UUID を生成する (`uuid.uuid4`)](/p/fje63fe/)
 - JSON
   - [JSON テキスト ⇔ Python オブジェクトの相互変換 (`json.loads`, `json.dumps`)](/p/gwfweub/)
 
 ### シーケンス (Lists and Tuples) <!-- list -->
 
-* [リストとタプルの違い](list/list-and-tuple.html)
+* [リストとタプルの違い](/p/wc2h2a7/)
 * リストとタプルの生成
-  * [リストやタプルをサイズを指定して作成する (［］＊ N)](list/create-with-size.html)
-  * [連番からなるリストを生成する (range)](list/create-by-range.html)
-* [リストに要素を追加する／リストを結合する (append, extend, +)](list/append.html)
-* [リスト／タプルをループで処理する](list/loop-list.html)
-* [リスト／タプルのサイズを取得する (len)](list/len.html)
-* [リスト／タプル内の要素をランダムで取得する (random.choice, random.choices, random.sample)](list/random-choice.html)
+  * [リストやタプルをサイズを指定して作成する (`[] * N`)](/p/5vv2dfx/)
+  * [連番からなるリストを生成する (`range`)](/p/pf6tfks/)
+* [リストに要素を追加する／リストを結合する (`append`, `extend`, `+`)](/p/hz9uhyh/)
+* [リスト／タプルをループで処理する](/p/76d29hw/)
+* [リスト／タプルのサイズを取得する (`len`)](/p/7o7z4kg/)
+* [リスト／タプル内の要素をランダムで取得する (`random.choice`, `random.choices`, `random.sample`)](/p/nwo79zc/)
 * [リストを昇順ソート／降順ソートする (`list.sort`/`sorted`)](/p/cqtwqgx/)
-* [リストをシャッフルする (random.shuffle)](list/random-shuffle.html)
-* [リストから特定の値を持つ要素を削除する (list.remove)](list/remove.html)
-* [リストをフィルタして条件に一致する要素を抽出する (filter)](list/filter.html)
-* [リスト内の特定の値を持つ要素の数を数える (list.count)](list/count.html)
-* [リスト内の条件に一致する要素の数を数える](list/count-if.html)
-* [リスト内の要素をまとめて変更する (map)](list/map.html)
-* [二次元配列を作成する](list/multidimensional-array.html)
-* [二次元配列をソートする](list/sort-multidimensional-array.html)
+* [リストをシャッフルする (`random.shuffle`)](/p/svic2nf/)
+* [リストから特定の値を持つ要素を削除する (`list.remove`)](/p/m69amk4/)
+* [リストをフィルタして条件に一致する要素を抽出する (`filter`)](/p/3ytbivi/)
+* [リスト内の特定の値を持つ要素の数を数える (`list.count`)](/p/rx847s5/)
+* [リスト内の条件に一致する要素の数を数える](/p/znmhxsw/)
+* [リスト内の要素をまとめて変更する (`map`)](/p/qnkb4re/)
+* [二次元配列を作成する](/p/tb3g9jx/)
+* [二次元配列をソートする](/p/uoyq69m/)
 * [2 つのリストに重複する要素を抽出する（`set` と `&`）](/p/58ctg7k/)
 
 ### 辞書・ディクショナリ (Dictionary) <!-- dictionary -->
@@ -155,7 +154,7 @@ categoryIcon: _index.svg
 
 ### セット (Set) <!-- set -->
 
-- [set オブジェクトの基本](set/basic.html)
+- [set オブジェクトの基本](/p/m8k282q/)
 - [set オブジェクトで集合演算を行う](/p/h3jqpp9/)
 
 
@@ -169,7 +168,7 @@ categoryIcon: _index.svg
   - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
 - [キーボードからのユーザ入力を取得する (`input`, `getpass`)](/p/bfev6xf/)
 - print
-  - [`print` 関数の改行を抑制する](print-without-line-break.html)
+  - [`print` 関数の改行を抑制する](/p/ergteiz/)
   - [`print` 関数に複数のパラメータを渡した時の接続文字列を変更する (`sep`)](/p/29vbxrz/)
   - [標準入力から読み込む、標準入力とファイル入力に両対応する (`sys.stdin`, `fileinput`)](/p/3966z2v/)
   - [標準エラー出力へ出力する (`sys.stderr`)](/p/m3si4w6/)
@@ -191,10 +190,10 @@ categoryIcon: _index.svg
   - [ファイル／ディレクトリの名前を変更する (`os.rename`, `os.renames`)](/p/9aqzppe/)
   - [ファイル／ディレクトリをコピー、移動する (`shutil.copyfile`, `shutil.copy`, `shutil.copytree`, `shutil.move`)](/p/wyxzbdw/)
 - 作成／削除
-  - [ディレクトリを作成する (`os.mkdir`, `os.makedirs`)](create-directory.html)
-  - [ディレクトリを削除する (os.rmdir)](remove-directory.html)
+  - [ディレクトリを作成する (`os.mkdir`, `os.makedirs`)](/p/3bp92ih/)
+  - [ディレクトリを削除する (`os.rmdir`)](/p/tn9x45h/)
 - [ファイル／ディレクトリの存在を確認する (`os.path.exists`, `os.path.isfile`, `os.path.isdir`)](/p/tr3cmu5/)
-- [Python スクリプトが格納されているディレクトリのパスを取得する](script-dir.html)
+- [Python スクリプトが格納されているディレクトリのパスを取得する](/p/aveia2i/)
 - [テンポラリファイル／ディレクトリを作成する (`tempfile`)](/p/co7o5k2/)
 
 ### ファイルの読み書き
@@ -270,8 +269,8 @@ Web / HTTP <!-- web -->
 日時（日付／時刻）
 ----
 
-* [Python で日時（日付／時刻）の情報を扱う (datetime, date, time, timedelta)](datetime/basic.html)
-* [現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)](datetime/date-string.html)
+* [Python で日時（日付／時刻）の情報を扱う (`datetime`, `date`, `time`, `timedelta`)](/p/spfor2m/)
+* [現在時刻から YYYY-MM-DD のような日付文字列を生成する (`strftime`)](/p/sh36h2z/)
 
 
 画像処理
@@ -408,7 +407,7 @@ wxPython
 コラム
 ----
 
-* [Python 開発の歴史](column/history.html)
-* [Python のインデントによる構造化に慣れる](column/indent.html)
-* [Python のリスト内包表記に慣れる](column/list-comprehension.html)
+* [Python 開発の歴史](/p/i6k5xtf/)
+* [Python のインデントによる構造化に慣れる](/p/cmeia2b/)
+* [Python のリスト内包表記に慣れる](/p/6ppwdhi/)
 

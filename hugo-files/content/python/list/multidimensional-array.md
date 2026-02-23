@@ -1,0 +1,60 @@
+---
+title: "Pythonメモ: 二次元配列を作成する"
+url: "p/tb3g9jx/"
+date: "2009-11-25"
+tags: ["python"]
+aliases: ["/python/list/multidimensional-array.html"]
+---
+
+## Python における二次元配列の正しい初期化方法
+
+Python でハマりやすいのは、二次元配列（正確にはリスト）の初期化方法です。
+
+{{< code lang="python" title="OK（正しい初期化方法）" >}}
+>>> arr = [['A'] * 3 for i in range(2)]
+>>> arr
+[['A', 'A', 'B'], ['A', 'A', 'A']]
+
+>>> arr[0][2] = 'B'
+>>> arr
+[['A', 'A', 'B'], ['A', 'A', 'A']]
+{{< /code >}}
+
+{{< code lang="python" title="NG（おそらく間違った初期化方法）" >}}
+>>> arr = [['A'] * 3] * 2
+>>> arr
+[['A', 'A', 'A'], ['A', 'A', 'A']]
+
+>>> arr[0][2] = 'B'
+>>> arr
+[['A', 'A', 'B'], ['A', 'A', 'B']]   # 二カ所に影響が出てる！
+{{< /code >}}
+
+2 番目のように記述すると、1 つの `['A','A','A']` への参照を 2 つ持ったリストになってしまいます。
+リストの実体としては 1 つの `['A','A','A']` しか作られないため、一カ所の要素を変更したつもりが、二カ所に影響してしまっていることが分かります。
+
+
+## 多次元配列を作成するユーティリティメソッドを作成する
+
+多次元配列（リスト）を作るための以下のようなユーティリティメソッドを作っておくのもよいかもしれません。
+
+```python
+# Creates an arr[y][x]
+def array2d(x, y, init=0):
+    return [[init] * x for _ in range(y)]
+
+# Creates an arr[z][y][x]
+def array3d(x, y, z, init=0):
+    return [[[init] * x for _ in range(y)] for _ in range(z)]
+```
+
+{{< code lang="python" title="使用例" >}}
+>>> arr = array2d(4, 2)  #=> arr[2][4] が生成される
+>>> arr
+[[0, 0, 0, 0], [0, 0, 0, 0]]
+
+>>> arr[0][2] = 5
+>>> arr[1][2] = 10
+>>> arr
+[[0, 0, 5, 0], [0, 0, 10, 0]]
+{{< /code >}}
