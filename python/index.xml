@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 天才まくまくノート</title><link>https://maku77.github.io/python/</link><description>Recent content in Python on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Sun, 24 Aug 2025 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Python の型アノテーションのまとめ</title><link>https://maku77.github.io/p/rx77njz/</link><pubDate>Sat, 19 Apr 2025 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rx77njz/</guid><description>&lt;p>Python で変数や関数の戻り値に型アノテーションを付ける方法のまとめです。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on 天才まくまくノート</title><link>https://maku77.github.io/python/</link><description>Recent content in Python on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/python/index.xml" rel="self" type="application/rss+xml"/><item><title>Pythonメモ: デコレーター (decorator) で関数やクラスを拡張する (`@wrap`)</title><link>https://maku77.github.io/p/ma54wkb/</link><pubDate>Mon, 23 Feb 2026 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ma54wkb/</guid><description>&lt;h2 id="デコレーターとは">デコレーターとは&lt;/h2>
+&lt;p>Python のデコレーター (decorator) は、もとの関数やクラスの定義を変更せずにそれらの機能を拡張するための関数です。
+デコレーターは、関数やクラスの前に &lt;strong>&lt;code>@&lt;/code>&lt;/strong> 記号を使用して指定されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">関数にデコレーターを適用する例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@my_func_decorator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">クラスにデコレーターを適用する例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@my_class_decorator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">MyClass&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>Python は標準でいくつかの便利なデコレーターを提供しています。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>デコレーター&lt;/th>
+ &lt;th>用途&lt;/th>
+ &lt;th>モジュール&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>@property&lt;/code>&lt;/td>
+ &lt;td>メソッドをプロパティ化 (getter/setter)&lt;/td>
+ &lt;td>ビルトイン&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>@classmethod&lt;/code>&lt;/td>
+ &lt;td>クラス内でクラスメソッドを定義（&lt;code>cls&lt;/code>引数あり）&lt;/td>
+ &lt;td>ビルトイン&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>@staticmethod&lt;/code>&lt;/td>
+ &lt;td>クラス内で静的メソッドを定義（&lt;code>cls&lt;/code>引数なし）&lt;/td>
+ &lt;td>ビルトイン&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>@abstractmethod&lt;/code>&lt;/td>
+ &lt;td>クラス内で抽象メソッドを定義&lt;/td>
+ &lt;td>&lt;code>abc&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>@functools.lru_cache&lt;/code>&lt;/td>
+ &lt;td>関数結果をメモ化（キャッシュ）&lt;/td>
+ &lt;td>&lt;code>functools&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>@dataclasses.dataclass&lt;/code>&lt;/td>
+ &lt;td>データクラスを定義（Python 3.7+）&lt;/td>
+ &lt;td>&lt;code>dataclasses&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="デコレーターを定義する">デコレーターを定義する&lt;/h2>
+&lt;p>デコレーターの正体は、関数やクラスを引数として受け取り、拡張されたバージョンを返す関数です。
+つまり、以下のようなデコレーターの設定は、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@my_decorator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>実際には、以下のようにデコレーター関数を呼び出すことと同じです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello&lt;/span>&lt;span class="p">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">pass&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">hello&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">my_decorator&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">hello&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>下記の関数デコレーター (&lt;code>my_decorator&lt;/code>) は、関数の呼び出し前後にメッセージを表示するデコレーターの実装例です。
+ポイントは、ラッパー関数である &lt;code>wrapper&lt;/code> を戻り値として返しているところです。
+ラッパー関数の中では、元の関数 &lt;code>func&lt;/code> を呼び出さなければいけません（ラッパーなので当然ですが）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">datetime&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">datetime&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">functools&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">wraps&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 関数デコレーターは、関数を受け取り、拡張されたラッパー関数を返すように実装します&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">my_decorator&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">func&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@wraps&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">func&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">wrapper&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">kwargs&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;呼び出し時の時刻: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">datetime&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">now&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="n">args&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">**&lt;/span>&lt;span class="n">kwargs&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;呼び出し終了&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">wrapper&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@my_decorator&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">hello&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;Hello, &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">hello&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Alice&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">呼び出し時の時刻: 2026-02-23 17:27:27.661955
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello, Alice!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">呼び出し終了&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ラッパー関数に付けている &lt;strong>&lt;code>@wraps&lt;/code>&lt;/strong> デコレーターに関しては次のセクションで説明します。
+ラッパー関数のパラメーターの &lt;code>*args, **kwargs&lt;/code> は、任意の引数を受け取るためのイディオムだと理解しておけばよいでしょう。&lt;/p></description></item><item><title>Pythonメモ: 関数実行結果をファイル（不揮発）にキャッシュする (`diskcache`)</title><link>https://maku77.github.io/p/msu6xd9/</link><pubDate>Mon, 23 Feb 2026 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/msu6xd9/</guid><description>&lt;h2 id="diskcache-ライブラリ">diskcache ライブラリ&lt;/h2>
+&lt;p>Python の関数の実行結果をキャッシュ（メモ化）したいときは、Python に標準搭載されている &lt;a href="../p/ma54wkb/#lru_cache">&lt;code>functools.lru_cache&lt;/code> デコレーターを使う&lt;/a> のが簡単ですが、これはメモリ上にキャッシュを保存するため、プロセスが終了するとキャッシュも消えてしまいます。&lt;/p>
+&lt;p>関数の実行結果をファイルなどの不揮発なストレージに保存するためには、OSS ライブラリを使う必要があります。
+ここでは、&lt;a href="https://pypi.org/project/diskcache/">&lt;code>diskcache&lt;/code>&lt;/a> というライブラリを紹介します。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://grantjenks.com/docs/diskcache/api.html">DiskCache API Reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>最初に &lt;code>pip&lt;/code> か &lt;code>uv add&lt;/code> で &lt;code>diskcache&lt;/code> をインストールしておきます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">diskcache のインストール&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">#&lt;/span> pip の場合
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> pip install diskcache
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">#&lt;/span> uv の場合
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> uv add diskcache
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="diskcache-の使用例">diskcache の使用例&lt;/h2>
+&lt;p>&lt;code>diskcache&lt;/code> ライブラリを使って関数をメモ化するには、&lt;strong>&lt;code>Cache&lt;/code>&lt;/strong> クラスのインスタンスを作成し、その &lt;strong>&lt;code>memoize&lt;/code>&lt;/strong> メソッドをデコレーターとして使用します。
+次の例では、&lt;code>fetch_todo&lt;/code> 関数の実行結果を 1 日（= 24 * 60 * 60 秒）キャッシュするように設定しています。
+キャッシュ内容は、&lt;code>directory&lt;/code> 引数で指定したディレクトリ以下（下記例では &lt;code>.cache&lt;/code>）に、SQLite データベースのファイルとして保存されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">diskcache を使った関数実行結果のキャッシュ例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">json&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">typing&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">Any&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">urllib.request&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">urlopen&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">diskcache&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">CACHE_DIR&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;.cache&amp;#34;&lt;/span> &lt;span class="c1"># キャッシュディレクトリ&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">CACHE_EXPIRE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">60&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="mi">24&lt;/span> &lt;span class="c1"># キャッシュ有効期限（秒）。デフォルトは None で無制限&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">cache&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">diskcache&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">Cache&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">directory&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">CACHE_DIR&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@cache.memoize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">expire&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">CACHE_EXPIRE&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">fetch_todo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">id&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nb">int&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">dict&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">str&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Any&lt;/span>&lt;span class="p">]:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;指定された ID の TODO を Web API で取得する関数&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">sleep&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1"># キャッシュ効果を見るために意図的に 1 秒スリープ&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;https://jsonplaceholder.typicode.com/todos/&lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="nb">id&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">with&lt;/span> &lt;span class="n">urlopen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">response&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">load&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;__main__&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">todo1&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fetch_todo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">todo2&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">fetch_todo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">todo1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">todo2&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">{&amp;#39;userId&amp;#39;: 1, &amp;#39;id&amp;#39;: 1, &amp;#39;title&amp;#39;: &amp;#39;delectus aut autem&amp;#39;, &amp;#39;completed&amp;#39;: False}
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">{&amp;#39;userId&amp;#39;: 1, &amp;#39;id&amp;#39;: 2, &amp;#39;title&amp;#39;: &amp;#39;quis ut nam facilis et officia qui&amp;#39;, &amp;#39;completed&amp;#39;: False}&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>directory&lt;/code> パラメーターを指定しない場合は、一時的なキャッシュディレクトリが自動作成されるようですが、毎回ランダムな名前で作成されるため、次回起動時にキャッシュを再利用できなくなってしまうので要注意です（キャッシュディレクトリのパスは &lt;code>cache.directory&lt;/code> で確認できます）。&lt;/p></description></item><item><title>Python の型アノテーションのまとめ</title><link>https://maku77.github.io/p/rx77njz/</link><pubDate>Sat, 19 Apr 2025 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rx77njz/</guid><description>&lt;p>Python で変数や関数の戻り値に型アノテーションを付ける方法のまとめです。
 Visual Studio Code 上で型チェックを有効にするには、&lt;a href="https://marketplace.visualstudio.com/items?itemName=ms-python.mypy-type-checker">Mypy 拡張&lt;/a> などの type checker をインストールしておく必要があります。&lt;/p>
 &lt;h2 id="組み込み型-built-in-types">組み込み型 (Built-in types)&lt;/h2>
 &lt;h3 id="基本型">基本型&lt;/h3>
@@ -164,8 +326,8 @@ Visual Studio Code 上で型チェックを有効にするには、&lt;a href="h
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-564137892" type="checkbox">
- &lt;label class="xAccordion_title" for="id-564137892">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-839716245" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-839716245">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -1484,8 +1646,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-217453689" type="checkbox">
- &lt;label class="xAccordion_title" for="id-217453689">上記画像のコード&lt;/label>
+ &lt;input id="id-371682459" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-371682459">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -3704,8 +3866,8 @@ C 言語の &lt;code>/* ... */&lt;/code> というスタイルのコメントと
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-863479512" type="checkbox">
- &lt;label class="xAccordion_title" for="id-863479512">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-964781325" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-964781325">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 
