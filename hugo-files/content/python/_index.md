@@ -75,6 +75,9 @@ categoryIcon: _index.svg
   - [オブジェクトの属性に名前でアクセスする (`getattr`, `setattr`)](/p/r3m4k2h/)
   - [`dataclass` デコレーターで簡単にデータクラスを定義する](/p/xqkgvb6/)
 
+- 応用
+  - [デコレーター (decorator) で関数やクラスを拡張する (`@wrap`)](/p/ma54wkb/)
+  - [関数実行結果をファイル（不揮発）にキャッシュする (`diskcache`)](/p/msu6xd9/)
 
 型
 ----
@@ -165,7 +168,7 @@ categoryIcon: _index.svg
 
 - コマンドライン引数
   - [コマンドライン引数を扱う (`sys.argv`)](/p/ybxfwev/)
-  - [`argparse` モジュールでコマンライン引数を扱う](/p/o6q8p6m/)
+  - [`argparse` モジュールでコマンドライン引数を扱う](/p/o6q8p6m/)
 - [キーボードからのユーザ入力を取得する (`input`, `getpass`)](/p/bfev6xf/)
 - print
   - [`print` 関数の改行を抑制する](/p/ergteiz/)
