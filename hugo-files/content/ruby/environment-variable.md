@@ -1,0 +1,38 @@
+---
+title: "Rubyメモ: 環境変数を扱う"
+url: "p/jijhyxm/"
+date: "2015-10-16"
+tags: ["ruby"]
+aliases: ["/ruby/environment-variable.html"]
+---
+
+環境変数を参照する
+====
+
+Ruby で環境変数を参照するには、組み込みで用意されている `ENV` をハッシュとしてアクセスします。
+下記の例では、環境変数 `HOME` の内容を取得しています。
+
+```ruby
+puts ENV['HOME']
+```
+
+環境変数の列挙
+====
+すべての環境変数は、例えば下記のように列挙できます。
+
+```ruby
+ENV.each do |key, value|
+  puts "#{key} : #{value}"
+end
+```
+
+環境変数が設定されているか調べる
+====
+`ENV` はハッシュのようにアクセスできるので、下記のようにして特定の環境変数が設定されているかを調べることができます。
+
+```ruby
+if ENV.has_key?('HOME')
+  puts 'OK'
+end
+```
+

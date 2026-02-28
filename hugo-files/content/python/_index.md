@@ -19,7 +19,7 @@ categoryIcon: _index.svg
 - ドキュメンテーション
   - [ドキュメンテーションコメント (docstring) を記述する](/p/y2biqz7/)
   - [Windows で pydoc コマンドを使用できるようにする](/p/6h2izfh/)
-  - [関数やクラスのソースコードを確認する (`insepct`)](/p/xbucsaq/)
+  - [関数やクラスのソースコードを確認する (`inspect`)](/p/xbucsaq/)
 
 ### 開発ツール／デバッグ／ユニットテスト <!-- env -->
 
@@ -88,7 +88,6 @@ categoryIcon: _index.svg
 * [数値と文字（文字列）を変換する (`chr`, `ord`, `int`, `hex`, `oct`, `bin`)](/p/35h86i9/)
 * [整数の割り算の結果を整数 or 小数点数で取得する](/p/ac5cz6u/)
 * [小数点以下を四捨五入する/切り捨てる/切り上げる (`round`, `math.floor`, `math.ceil`)](/p/73g4beh/)
-* [独自オブジェクトの配列から最小値、最大値を求める (`min_by`/`max_by`)](/p/b22gfoi/)
 * [リスト要素の合計値を求める (`sum`)](/p/6ta64b8/)
 * [ランダムな数値（乱数）を生成する (`randrange`, `randint`, `random`, `uniform`)](/p/nx5xama/)
 * [階乗を求める (`math.factorial`)](/p/jebrm6n/)

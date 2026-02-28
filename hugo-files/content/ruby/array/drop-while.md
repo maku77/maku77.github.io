@@ -1,0 +1,20 @@
+---
+title: "Rubyメモ: 先頭から条件を満たす間だけ要素を削除する"
+url: "p/jqimc9v/"
+date: "2011-11-04"
+tags: ["ruby"]
+aliases: ["/ruby/array/drop-while.html"]
+---
+
+{{< code lang="ruby" title="例: 先頭から見て、0 以下の要素が続く限り削除する" >}}
+arr = [-3, -2, -1, 0, 1, 2, 3, -1, -2, -3]
+new_arr = arr.drop_while {|x| x <= 0}  # => [1, 2, 3, -1, -2, -3]
+{{< /code >}}
+
+元の配列の内容は保持されます。
+
+
+関連
+----
+
+- [先頭から条件を満たす範囲の配列を取得する](/p/kmuzhww/)

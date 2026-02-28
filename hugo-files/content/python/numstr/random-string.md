@@ -33,5 +33,5 @@ __`random.choice()`__ を使用すると、指定した文字列シーケンス�
 
 ## 参考
 
-- [Ruby で n 文字のランダム文字列を生成する](/ruby/string/rand-str.html)
+- [Ruby で n 文字のランダム文字列を生成する](/p/vt7ws7t/)
 - [ランダムな文字列を生成する Web サイト](https://maku.blog/p/3nx9is3/)
