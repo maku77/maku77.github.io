@@ -1,696 +1,239 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="天才星人まくのRubyノート">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/ruby/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-ruby.jpg" />
-
-  <meta property="og:description" content="天才星人まくのRubyノート">
-
-<meta property="fb:app_id"  content="447708168769292" />
-<meta name="twitter:card" content="summary" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>まくまく Ruby ノート - 天才まくまくノート</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-X5962TDYXS")</script><link rel=icon sizes="16x16 32x32 48x48 64x64" href=../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../assets/img/favicon/180x180.png><meta name=twitter:card content="summary"><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="Ruby"><meta property="og:type" content="article"><meta property="og:url" content="https://maku77.github.io/ruby/"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://maku77.github.io/img/site-logo.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:description" content="はじめに
 
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X5962TDYXS');
-</script>
-
-
-
-  <meta property="og:title" content="まくまく Ruby ノート | 天才まくまくノート" />
-  <title>まくまく Ruby ノート - 天才まくまくノート</title>
-</head>
-<body>
-<div class="xPageHeader">
-  <img src="/assets/img/logo-ruby.jpg" class="xPageHeader_logo">
-  <h1 class="xPageHeader_titleLarge">まくまくRubyノート</h1>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      
-
-      <!-- カテゴリ説明文 -->
-      <div class="xCategoryDesc">
-        日本で生まれたオブジェクト指向言語 Ruby の使い方。
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby&url=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      <div class="xCategoryContent">
-        <div class="xCategoryContent_toc">
-          <div class="xCategoryContent_toc_sticky" id="tocStub">
-          </div>
-        </div>
-        <div class="xCategoryContent_index"><h1 id="はじめに">はじめに</h1>
-<ul>
-  <li><a href="basic/coding-style.html">Ruby のコーディングスタイル</a></li>
-  <li><a href="basic/ruby-tools.html">知っておくべき Ruby 関連ツール (bundler, rake, rvm, rdoc, yard, rspec, test-unit)</a></li>
-  <li><a href="basic/interactive-ruby.html">Ruby の対話型プログラムを起動する (irb, pry)</a></li>
-  <li><a href="basic/require.html">require で他のライブラリを読み込む</a></li>
-  <li><a href="basic/global-main.html">グローバルスコープな実行コードを記述しない</a></li>
-  <li><a href="basic/hello.html">Ruby の HelloWorld テンプレート</a></li>
-</ul>
-
-<h1 id="ruby-の構文">Ruby の構文</h1>
-
-<h2 id="制御構文">制御構文</h2>
-<ul>
-  <li><a href="syntax/true-and-false.html">Ruby の真偽値</a></li>
-  <li><a href="syntax/if.html">if と unless による分岐</a></li>
-  <li><a href="syntax/case.html">case による分岐</a></li>
-  <li><a href="syntax/loop.html">繰り返し処理（ループ） (while, until, times, for, each, step)</a></li>
-  <li><a href="syntax/multiple-assignment.html">複数の値を同時に代入する（多重代入）</a></li>
-  <li><a href="swap-values.html">2 つの変数の値をスワップする</a></li>
-</ul>
-
-<h2 id="クラス">クラス</h2>
-<ul>
-  <li><a href="define-class.html">クラスとメソッドを定義する</a></li>
-  <li><a href="constructor.html">コンストラクタを定義する</a></li>
-  <li><a href="pseudo-constructor.html">擬似コンストラクタを定義する</a></li>
-  <li><a href="attribute.html">属性を定義する（アクセサメソッド）</a></li>
-  <li><a href="class-method.html">クラスメソッドを定義する</a></li>
-  <li><a href="class-const.html">クラス定数を定義する</a></li>
-  <li><a href="method-visibility.html">メソッドの可視性を設定する（メソッドのアクセス制御）</a></li>
-  <li><a href="inherit-class.html">クラスを継承する</a></li>
-</ul>
-
-<h2 id="関数メソッド">関数／メソッド</h2>
-<ul>
-  <li><a href="method.html">関数定義の基本</a></li>
-  <li><a href="expand-array-parameter.html">配列を展開して関数に渡す</a></li>
-  <li><a href="variable-parameters.html">可変長引数を扱う関数を定義する</a></li>
-  <li><a href="multiple-value-function.html">複数の戻り値を返す関数を定義する</a></li>
-  <li><a href="yield.html">関数にコードブロックを渡す（yield による呼び出し）</a></li>
-  <li><a href="oneline-method.html">関数を一行で定義する</a></li>
-</ul>
-
-<h1 id="コレクション">コレクション</h1>
-
-<h2 id="配列">配列</h2>
-<ul>
-  <li><a href="array/create-array.html">配列を作成する</a></li>
-  <li><a href="array/add-element.html">配列要素の追加/配列に要素を追加する</a></li>
-  <li><a href="array/combine-arrays.html">配列要素の追加/配列を結合する</a></li>
-  <li><a href="array/copy-array.html">配列をコピーする</a></li>
-  <li><a href="array/loop-array.html">配列をループで処理する</a></li>
-  <li><a href="array/sort-array.html">配列をソートする（昇順ソート／降順ソート）(sort)</a></li>
-  <li><a href="array/sort-randomly.html">配列をランダムに並び替える (sort_by)</a></li>
-  <li><a href="array/collect-array.html">配列の各要素の値を変更する (collect)</a></li>
-</ul>
-
-<h3 id="要素の参照">要素の参照</h3>
-<ul>
-  <li><a href="array/slice.html">部分配列を取得する（配列スライシング）</a></li>
-  <li><a href="array/random.html">配列の要素をランダムに取得する</a></li>
-</ul>
-
-<h3 id="要素の削除">要素の削除</h3>
-<ul>
-  <li><a href="array/delete-at.html">指定した位置の要素を削除する</a></li>
-  <li><a href="array/delete-same-elements.html">指定した値と同じ値を持つ要素を削除する</a></li>
-  <li><a href="array/delete-if.html">条件を満たす要素を削除する</a></li>
-  <li><a href="array/drop.html">先頭から n 個の要素を削除する</a></li>
-  <li><a href="array/drop-while.html">先頭から条件を満たす間だけ要素を削除する</a></li>
-  <li><a href="array/uniq.html">重複する要素を削除する (uniq)</a></li>
-</ul>
-
-<h3 id="要素の検索">要素の検索</h3>
-<ul>
-  <li><a href="array/find.html">条件に一致する要素を検索する (find/find_all)</a></li>
-  <li><a href="array/partition.html">条件を満たす要素と満たさない要素の配列に分割する (partition)</a></li>
-  <li><a href="array/grep.html">文字列配列から正規表現に一致する要素を検索する (grep)</a></li>
-  <li><a href="array/take-while.html">先頭から条件を満たす範囲の配列を取得する (take_while)</a></li>
-</ul>
-
-<h2 id="ハッシュ-hash">ハッシュ (Hash)</h2>
-<ul>
-  <li><a href="hash/basic.html">ハッシュの基本</a></li>
-  <li><a href="hash/default-hash-value.html">ハッシュのデフォルト値を設定する</a></li>
-  <li><a href="hash/loop-hash.html">ハッシュをループで処理する</a></li>
-  <li><a href="hash/keys-values.html">ハッシュのキー、値のリストを取得する (keys, values)</a></li>
-</ul>
-
-<h2 id="セット">セット</h2>
-<ul>
-  <li><a href="set/basic.html">セットを使用する（Set クラス）</a></li>
-</ul>
-
-<h1 id="文字列数値">文字列／数値</h1>
-
-<h2 id="文字列">文字列</h2>
-<h3 id="生成">生成</h3>
-<ul>
-  <li><a href="string/dup.html">文字列をコピーする (dup)</a></li>
-  <li><a href="string/create-indent.html">インデント用の文字列を作成する</a></li>
-  <li><a href="string/rand-str.html">n 文字のランダム文字列を生成する</a></li>
-</ul>
-
-<h3 id="分割結合">分割／結合</h3>
-<ul>
-  <li><a href="string/concat.html">文字列を結合する</a></li>
-  <li><a href="string/split.html">文字列をデリミタで分割する</a></li>
-  <li><a href="string/each-char.html">文字列を１文字ずつに分割する</a></li>
-</ul>
-
-<h3 id="チェック">チェック</h3>
-<ul>
-  <li><a href="string/include.html">文字列内にある文字列が含まれているか調べる (String#include, =~)</a></li>
-</ul>
-
-<h3 id="抽出">抽出</h3>
-<ul>
-  <li><a href="string/extract.html">文字列から正規表現にマッチする部分を取り出す (String#slice, Regexp#match, String#scan)</a></li>
-</ul>
-
-<h3 id="置換削除変更">置換／削除／変更</h3>
-<ul>
-  <li><a href="string/replace.html">文字列を置換する (sub/gsub)</a></li>
-  <li><a href="string/template.html">テンプレート機能（プレースホルダ）で文字列の一部を置換する (%)</a></li>
-  <li><a href="string/tr.html">文字列内のある文字を指定した文字に置換する (tr)</a></li>
-  <li><a href="string/delete.html">文字列からある文字を取り除く (delete/gsub)</a></li>
-  <li><a href="string/reverse.html">文字列を逆順にする (reverse)</a></li>
-  <li><a href="string/succ.html">文字列をインクリメントする (succ/next)</a></li>
-</ul>
-
-<h3 id="変換文字列数値">変換（文字列⇔数値）</h3>
-<ul>
-  <li><a href="number/num-string.html">数値と文字列を変換する (to_i, to_f, to_s)</a></li>
-  <li><a href="number/ascii-char.html">ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)</a></li>
-</ul>
-
-<h2 id="数値">数値</h2>
-<ul>
-  <li><a href="number/max-and-min.html">最大値／最小値を求める (min/max/minmax)</a></li>
-  <li><a href="number/max-value-index.html">配列内で最大値を持つ要素のインデックスを取得する</a></li>
-  <li><a href="number/random.html">乱数（ランダムな数値）を生成する</a></li>
-  <li><a href="number/increment.html">数値のインクリメントとデクリメント</a></li>
-</ul>
-
-<h2 id="組み合わせ">組み合わせ</h2>
-<ul>
-  <li><a href="number/permutation.html">順列 (permutation) を作成する</a></li>
-</ul>
-
-<h2 id="日時time-オブジェクト">日時（Time オブジェクト）</h2>
-<ul>
-  <li><a href="time/parse.html">文字列から時刻オブジェクト (Time) に変換する</a></li>
-</ul>
-
-<h1 id="入出力-io">入出力 (I/O)</h1>
-<ul>
-  <li><a href="command-line-params.html">コマンドライン引数を扱う</a></li>
-  <li><a href="io/optparse.html">コマンドライン引数によるオプションに対応する (optparse)</a></li>
-  <li><a href="io/print-to-stdout.html">標準出力へ出力する (puts/print/printf)</a></li>
-  <li><a href="io/print-to-stderr.html">標準エラー出力へ出力する (STDERR)</a></li>
-  <li><a href="io/input-from-keyboard.html">キーボードからの入力を取得する (STDIN.gets/readline)</a></li>
-  <li><a href="io/input-from-stdin.html">標準入力から読み込む (gets)</a></li>
-  <li><a href="input-password-from-keyboard.html">キーボードからのパスワードの入力を取得する</a></li>
-  <li><a href="io/execute-external-command.html">外部プログラムを呼び出してその出力を取得する</a></li>
-  <li><a href="io/is_executable.html">外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する</a></li>
-  <li><a href="embed-data.html">ソースコード内にテキストデータを埋め込む</a></li>
-  <li><a href="io/oneliner.html">Ruby でワンライナープログラミング</a></li>
-</ul>
-
-<h2 id="ファイルディレクトリ">ファイル／ディレクトリ</h2>
-<ul>
-  <li><a href="read-text-file.html">テキストファイルを読み込む</a></li>
-  <li><a href="array/grep.html">テキストファイルを grep する</a></li>
-  <li><a href="get-dir-path.html">様々なディレクトリのパスを取得する／パスを加工する</a></li>
-  <li><a href="io/get-parent-directory.html">親ディレクトリのパスを取得する</a></li>
-  <li><a href="enum-files.html">ディレクトリ内のファイルを列挙する</a></li>
-  <li><a href="find-files.html">ディレクトリ内のファイルを検索する</a></li>
-  <li><a href="create-dir.html">ディレクトリを作成／削除する</a></li>
-  <li><a href="temporary-file.html">一時ディレクトリ／一時ファイルを使用する</a></li>
-  <li><a href="io/file-exist.html">ファイルやディレクトリが存在するか調べる (File.exist?, Dir.exist?)</a></li>
-</ul>
-
-<h2 id="xml">XML</h2>
-<ul>
-  <li><a href="rexml.html">REXML とは</a></li>
-  <li><a href="rexml-create-xml.html">REXML で XML ファイルを作成する</a></li>
-  <li><a href="rexml-read-xml.html">REXML で XML ファイルを読み込む</a></li>
-</ul>
-
-<h2 id="yaml">YAML</h2>
-<ul>
-  <li><a href="file/yaml.html">Ruby で YAML ファイルを扱う</a></li>
-</ul>
-
-<h2 id="mp3">mp3</h2>
-<ul>
-  <li><a href="ruby-mp3info.html">ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する</a></li>
-</ul>
-
-<h1 id="その他">その他</h1>
-<ul>
-  <li><a href="rvm.html">複数バージョンの Ruby をインストールする (RVM)</a></li>
-  <li><a href="load-path.html">ユーザライブラリの検索パスを調べる</a></li>
-  <li><a href="environment-variable.html">環境変数を扱う</a></li>
-  <li><a href="other/profiler.html">プロファイラを使用してボトルネックを探る</a></li>
-</ul>
-
-<h2 id="rubygems">RubyGems</h2>
-<ul>
-  <li><a href="gem/what-is-rubygems.html">RubyGems とは</a></li>
-  <li><a href="gem/gem-with-proxy.html">プロキシ経由で gem コマンドを使用する</a></li>
-  <li><a href="gem/gem-environment-gemdir.html">Gem パッケージのインストール先を調べる</a></li>
-  <li><a href="gem/create-gem.html">Gem パッケージを作成する (1) 基本</a></li>
-  <li><a href="gem/create-gem2.html">Gem パッケージを作成する (2) 実行可能コマンドを追加する</a></li>
-  <li><a href="gem/publish-gem.html">Gem パッケージを作成する (3) パッケージを公開する</a></li>
-  <li><a href="gem/fetch-gem.html">勉強用に Gem パッケージをダウンロードする</a></li>
-  <li><a href="gem/add-files-to-gemspec.html">Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ</a></li>
-</ul>
-
-<h2 id="ユニットテスト">ユニットテスト</h2>
-<ul>
-  <li><a href="test-unit.html">test-unit によるユニットテスト</a></li>
-</ul>
-
-<h2 id="トラブルシューティング">トラブルシューティング</h2>
-<ul>
-  <li><a href="trouble/invalid-byte-sequence.html">invalid byte sequence in Windows-31J というエラーが出る場合</a></li>
-</ul>
-
-</div>
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくRubyノート： Ruby&url=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/ruby/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-    </div>
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li><a href="/r/">R</a>
-        <li class="xNav-focused"><a href="/ruby/">Ruby</a>
-        <li><a href="/rust/">Rust</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelectorAll('.xContent');
-
-  content.forEach(function(item) {
-    // 外部リンクを必ず新しいタブで開く
-    const externalLinks = item.querySelectorAll('a[href^="http"]');
-    externalLinks.forEach(function(link) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener');
-    });
-
-    // 外部リンクにクラス属性を付加する
-    const nonImageExternalLinks = item.querySelectorAll('a[href^="http"]:not(:has(img))');
-    nonImageExternalLinks.forEach(function(link) {
-      link.classList.add('xExternalLinkIcon');
-    });
-  });
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  /*
-   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
-   * メニュー要素 (ul) を生成する。
-   *
-   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
-   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
-   */
-  function createMenu(searchParent, headerTagNames) {
-    const ul = document.createElement('ul');  // メニュー項目の親要素
-    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
-
-    document.querySelectorAll(`${searchParent} ${headerTagNames}`).forEach((header) => {
-      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      const name = `section${sectionNumber++}`;
-      const anchor = document.createElement('a');
-      anchor.setAttribute('name', name);
-      header.prepend(anchor);
-
-      // メニュー項目となる li 要素を追加する
-      const level = header.tagName.charAt(1);  // 'h2' などの後ろの数値部分
-      const li = document.createElement('li');
-      li.classList.add(`level-${level}`);
-
-      const link = document.createElement('a');
-      link.setAttribute('href', `#${name}`);
-      link.textContent = header.textContent.trim();
-
-      li.appendChild(link);
-      ul.appendChild(li);
-    });
-
-    return ul;
-  }
-
-  // main 要素以下の見出し要素を抽出して、メニュー (ul 要素) を自動生成し、
-  // その ul 要素を #tocStub へと挿入する。
-  const menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
-  document.getElementById('tocStub').appendChild(menuElem);
-});
-</script>
-
-</body>
-</html>
+Ruby のコーディングスタイル
+知っておくべき Ruby 関連ツール (bundler, rake, rvm, rdoc, yard, rspec, test-unit)
+Ruby の対話型プログラムを起動する (irb, pry)
+require で他のライブラリを読み込む
+グローバルスコープな実行コードを記述しない
+Ruby の HelloWorld テンプレート
 
+Ruby の構文
+
+制御構文
+
+Ruby の真偽値
+if と unless による分岐
+case による分岐
+繰り返し処理（ループ） (while, until, times, for, each, step)
+複数の値を同時に代入する（多重代入）
+2 つの変数の値をスワップする
+
+
+クラス
+
+クラスとメソッドを定義する
+コンストラクタを定義する
+擬似コンストラクタを定義する
+属性を定義する（アクセサメソッド）
+クラスメソッドを定義する
+クラス定数を定義する
+メソッドの可視性を設定する（メソッドのアクセス制御）
+クラスを継承する
+
+
+関数／メソッド
+
+関数定義の基本
+配列を展開して関数に渡す
+可変長引数を扱う関数を定義する
+複数の戻り値を返す関数を定義する
+関数にコードブロックを渡す（yield による呼び出し）
+関数を一行で定義する
+
+
+
+コレクション
+配列
+
+配列を作成する
+配列要素の追加/配列に要素を追加する
+配列要素の追加/配列を結合する
+配列をコピーする
+配列をループで処理する
+配列をソートする（昇順ソート／降順ソート）(sort)
+配列をランダムに並び替える (sort_by)
+配列の各要素の値を変更する (collect)
+要素の参照
+
+部分配列を取得する（配列スライシング）
+配列の要素をランダムに取得する
+
+
+要素の削除
+
+指定した位置の要素を削除する
+指定した値と同じ値を持つ要素を削除する
+条件を満たす要素を削除する
+先頭から n 個の要素を削除する
+先頭から条件を満たす間だけ要素を削除する
+重複する要素を削除する (uniq)
+
+
+要素の検索
+
+条件に一致する要素を検索する (find/find_all)
+条件を満たす要素と満たさない要素の配列に分割する (partition)
+文字列配列から正規表現に一致する要素を検索する (grep)
+先頭から条件を満たす範囲の配列を取得する (take_while)
+
+
+
+ハッシュ (Hash)
+
+ハッシュの基本
+ハッシュのデフォルト値を設定する
+ハッシュをループで処理する
+ハッシュのキー、値のリストを取得する (keys, values)
+
+セット
+
+セットを使用する（Set クラス）
+
+文字列／数値
+文字列
+
+生成
+
+文字列をコピーする (dup)
+インデント用の文字列を作成する
+n 文字のランダム文字列を生成する
+
+
+分割／結合
+
+文字列を結合する
+文字列をデリミタで分割する
+文字列を１文字ずつに分割する
+
+
+チェック
+
+文字列内にある文字列が含まれているか調べる (String#include, =~)
+
+
+抽出
+
+文字列から正規表現にマッチする部分を取り出す (String#slice, Regexp#match, String#scan)
+
+
+置換／削除／変更
+
+文字列を置換する (sub/gsub)
+テンプレート機能（プレースホルダ）で文字列の一部を置換する (%)
+文字列内のある文字を指定した文字に置換する (tr)
+文字列からある文字を取り除く (delete/gsub)
+文字列を逆順にする (reverse)
+文字列をインクリメントする (succ/next)
+
+
+変換（文字列⇔数値）
+
+数値と文字列を変換する (to_i, to_f, to_s)
+ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)
+
+
+
+数値
+
+最大値／最小値を求める (min/max/minmax)
+独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)
+配列内で最大値を持つ要素のインデックスを取得する
+乱数（ランダムな数値）を生成する
+数値のインクリメントとデクリメント
+
+組み合わせ
+
+順列 (permutation) を作成する
+
+日時（Time オブジェクト）
+
+文字列から時刻オブジェクト (Time) に変換する
+
+入出力 (I/O)
+
+コマンドライン引数を扱う
+コマンドライン引数によるオプションに対応する (optparse)
+標準出力へ出力する (puts/print/printf)
+標準エラー出力へ出力する (STDERR)
+キーボードからの入力を取得する (STDIN.gets/readline)
+標準入力から読み込む (gets)
+キーボードからのパスワードの入力を取得する
+外部プログラムを呼び出してその出力を取得する
+外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する
+ソースコード内にテキストデータを埋め込む
+Ruby でワンライナープログラミング
+ファイル／ディレクトリ
+
+テキストファイルを読み込む
+テキストファイルを grep する
+様々なディレクトリのパスを取得する／パスを加工する
+親ディレクトリのパスを取得する
+ディレクトリ内のファイルを列挙する
+ディレクトリ内のファイルを検索する
+ディレクトリを作成／削除する
+一時ディレクトリ／一時ファイルを使用する
+ファイルやディレクトリが存在するか調べる (File.exist?, Dir.exist?)
+
+
+XML
+
+REXML とは
+REXML で XML ファイルを作成する
+REXML で XML ファイルを読み込む
+
+
+YAML
+
+Ruby で YAML ファイルを扱う
+
+
+mp3
+
+ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する
+
+
+
+その他
+
+環境
+
+複数バージョンの Ruby をインストールする (RVM)
+ユーザライブラリの検索パスを調べる
+環境変数を扱う
+
+
+RubyGems
+
+RubyGems とは
+プロキシ経由で gem コマンドを使用する
+Gem パッケージのインストール先を調べる
+Gem パッケージを作成する (1) 基本
+Gem パッケージを作成する (2) 実行可能コマンドを追加する
+Gem パッケージを作成する (3) パッケージを公開する
+勉強用に Gem パッケージをダウンロードする
+Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ
+
+
+デバッグ／テスト
+
+test-unit によるユニットテスト
+プロファイラを使用してボトルネックを探る
+
+
+トラブルシューティング
+
+invalid byte sequence in Windows-31J というエラーが出る場合
+
+
+"><meta property="fb:app_id" content="447708168769292"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script><link rel=stylesheet href=../css/mm/all.min.03f769de5588c124e5b7baaab243e1f44bc5ccf6139987424d26c43c9491512f.css><link rel=stylesheet href=../css/all.min.a1be5c135c2d519bef49b4b099f4964b99ee878b81b26e9bac24497d0a73c31f.css></head><body><div class=l-pageHeader><header class=header><a href=./><img class=header__icon src=../ruby/_index.svg><div class=header__right><div class=header__categoryTitle><a href=./>まくまく Ruby ノート</a></div></div></a></header></div><div class=l-withSidebar><div class=l-withSidebar__sidebarLeft><style>#tocStub{position:-webkit-sticky;position:sticky;top:2rem;margin-top:2rem;line-height:1.5;max-height:calc(100vh - 4rem);overflow-y:auto;-webkit-overflow-scrolling:touch}#tocStub ul{font-size:.9em;list-style:none;padding:0;border-top:solid 1px #ccc}#tocStub li{border:solid 1px #ccc;border-right:none;margin-top:-1px}#tocStub a{color:#666;padding:.6em .3em .6em .5em;display:block;text-decoration:none;font-weight:400}.level-2{margin-left:.8em}.level-3{padding-left:1.6em}</style><div id=tocStub></div><script>document.addEventListener("DOMContentLoaded",()=>{function e(e){const t=document.createElement("a");return t.setAttribute("id",e),t}function t(t,n){n.parentNode.insertBefore(e(t),n)}function n(e,t,n){const s=document.createElement("li");return s.classList.add("level-"+e),s.innerHTML='<a href="#'+t+'">'+n+"</a>",s}function s(){const e=document.createElement("ul");return document.querySelectorAll("h2, h3").forEach((s,o)=>{const i="section-"+o;t(i,s);const a=s.tagName.charAt(1)-1;e.appendChild(n(a,i,s.textContent))}),e}document.getElementById("tocStub").appendChild(s())})</script></div><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../ruby/>まくまく Ruby ノート</a></div><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fruby%2f&text=Ruby%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fruby%2f&title=Ruby%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div></div><div class="article__body article__body-categoryIndex"><h2 id=はじめに>はじめに</h2><ul><li><a href=../p/7wv9hrf/>Ruby のコーディングスタイル</a></li><li><a href=../p/wj4bj3p/>知っておくべき Ruby 関連ツール (bundler, rake, rvm, rdoc, yard, rspec, test-unit)</a></li><li><a href=../p/scxfak3/>Ruby の対話型プログラムを起動する (irb, pry)</a></li><li><a href=../p/f49nx8n/>require で他のライブラリを読み込む</a></li><li><a href=../p/yum82jz/>グローバルスコープな実行コードを記述しない</a></li><li><a href=../p/ruqnqe4/>Ruby の HelloWorld テンプレート</a></li></ul><h2 id=ruby-の構文>Ruby の構文</h2><ul><li>制御構文<ul><li><a href=../p/fe3ufno/>Ruby の真偽値</a></li><li><a href=../p/39asp6i/>if と unless による分岐</a></li><li><a href=../p/2qpgt7a/>case による分岐</a></li><li><a href=../p/b4ra4pj/>繰り返し処理（ループ） (while, until, times, for, each, step)</a></li><li><a href=../p/ggekbmf/>複数の値を同時に代入する（多重代入）</a></li><li><a href=../p/55yq5h2/>2 つの変数の値をスワップする</a></li></ul></li><li>クラス<ul><li><a href=../p/twb57kz/>クラスとメソッドを定義する</a></li><li><a href=../p/wiegfcm/>コンストラクタを定義する</a></li><li><a href=../p/2kz4x74/>擬似コンストラクタを定義する</a></li><li><a href=../p/trm7osx/>属性を定義する（アクセサメソッド）</a></li><li><a href=../p/p2acsia/>クラスメソッドを定義する</a></li><li><a href=../p/cbiwibv/>クラス定数を定義する</a></li><li><a href=../p/h4ugjqd/>メソッドの可視性を設定する（メソッドのアクセス制御）</a></li><li><a href=../p/9pjsrsu/>クラスを継承する</a></li></ul></li><li>関数／メソッド<ul><li><a href=../p/3sgsrtu/>関数定義の基本</a></li><li><a href=../p/eqa98oa/>配列を展開して関数に渡す</a></li><li><a href=../p/ykhgcoz/>可変長引数を扱う関数を定義する</a></li><li><a href=../p/dx4jebd/>複数の戻り値を返す関数を定義する</a></li><li><a href=../p/qae23vv/>関数にコードブロックを渡す（yield による呼び出し）</a></li><li><a href=../p/r7nk7ap/>関数を一行で定義する</a></li></ul></li></ul><h2 id=コレクション>コレクション</h2><h3 id=配列>配列</h3><ul><li><a href=../p/wwn5oef/>配列を作成する</a></li><li><a href=../p/76ga4od/>配列要素の追加/配列に要素を追加する</a></li><li><a href=../p/satzyck/>配列要素の追加/配列を結合する</a></li><li><a href=../p/exp3jnw/>配列をコピーする</a></li><li><a href=../p/4uubbev/>配列をループで処理する</a></li><li><a href=../p/xt2xzxi/>配列をソートする（昇順ソート／降順ソート）(sort)</a></li><li><a href=../p/rdck2o4/>配列をランダムに並び替える (sort_by)</a></li><li><a href=../p/eoudxxo/>配列の各要素の値を変更する (collect)</a></li><li>要素の参照<ul><li><a href=../p/jrf5596/>部分配列を取得する（配列スライシング）</a></li><li><a href=../p/ggqktqi/>配列の要素をランダムに取得する</a></li></ul></li><li>要素の削除<ul><li><a href=../p/ie33iti/>指定した位置の要素を削除する</a></li><li><a href=../p/kjxrxs6/>指定した値と同じ値を持つ要素を削除する</a></li><li><a href=../p/4k4e4nv/>条件を満たす要素を削除する</a></li><li><a href=../p/fofgyfx/>先頭から n 個の要素を削除する</a></li><li><a href=../p/jqimc9v/>先頭から条件を満たす間だけ要素を削除する</a></li><li><a href=../p/r894npf/>重複する要素を削除する (uniq)</a></li></ul></li><li>要素の検索<ul><li><a href=../p/zph2i79/>条件に一致する要素を検索する (find/find_all)</a></li><li><a href=../p/inqqbua/>条件を満たす要素と満たさない要素の配列に分割する (partition)</a></li><li><a href=../p/ynufrhd/>文字列配列から正規表現に一致する要素を検索する (grep)</a></li><li><a href=../p/kmuzhww/>先頭から条件を満たす範囲の配列を取得する (take_while)</a></li></ul></li></ul><h3 id=ハッシュ-hash>ハッシュ (Hash)</h3><ul><li><a href=../p/k65kjdt/>ハッシュの基本</a></li><li><a href=../p/n3na2tg/>ハッシュのデフォルト値を設定する</a></li><li><a href=../p/bfkqdnw/>ハッシュをループで処理する</a></li><li><a href=../p/899kqkj/>ハッシュのキー、値のリストを取得する (keys, values)</a></li></ul><h3 id=セット>セット</h3><ul><li><a href=../p/3muxcie/>セットを使用する（Set クラス）</a></li></ul><h2 id=文字列数値>文字列／数値</h2><h3 id=文字列>文字列</h3><ul><li>生成<ul><li><a href=../p/wkqctke/>文字列をコピーする (dup)</a></li><li><a href=../p/s84ydu4/>インデント用の文字列を作成する</a></li><li><a href=../p/vt7ws7t/>n 文字のランダム文字列を生成する</a></li></ul></li><li>分割／結合<ul><li><a href=../p/y2qwaqw/>文字列を結合する</a></li><li><a href=../p/hd66e3i/>文字列をデリミタで分割する</a></li><li><a href=../p/iz4nr7v/>文字列を１文字ずつに分割する</a></li></ul></li><li>チェック<ul><li><a href=../p/6835vdj/>文字列内にある文字列が含まれているか調べる (String#include, =~)</a></li></ul></li><li>抽出<ul><li><a href=../p/has6rjr/>文字列から正規表現にマッチする部分を取り出す (String#slice, Regexp#match, String#scan)</a></li></ul></li><li>置換／削除／変更<ul><li><a href=../p/upbbkhw/>文字列を置換する (sub/gsub)</a></li><li><a href=../p/3yvtnt6/>テンプレート機能（プレースホルダ）で文字列の一部を置換する (%)</a></li><li><a href=../p/uuyzqx7/>文字列内のある文字を指定した文字に置換する (tr)</a></li><li><a href=../p/6fpfhwj/>文字列からある文字を取り除く (delete/gsub)</a></li><li><a href=../p/hwuci5s/>文字列を逆順にする (reverse)</a></li><li><a href=../p/z8te97w/>文字列をインクリメントする (succ/next)</a></li></ul></li><li>変換（文字列⇔数値）<ul><li><a href=../p/m9pkr73/>数値と文字列を変換する (to_i, to_f, to_s)</a></li><li><a href=../p/cbif895/>ASCII コードと文字を変換する (ord, chr, bytes, unpack, codepoints)</a></li></ul></li></ul><h3 id=数値>数値</h3><ul><li><a href=../p/dgjggob/>最大値／最小値を求める (min/max/minmax)</a></li><li><a href=../p/b22gfoi/>独自オブジェクトの配列から最小値、最大値を求める (<code>min_by</code>/<code>max_by</code>)</a></li><li><a href=../p/9xi4svg/>配列内で最大値を持つ要素のインデックスを取得する</a></li><li><a href=../p/rbcp4ou/>乱数（ランダムな数値）を生成する</a></li><li><a href=../p/fdx622r/>数値のインクリメントとデクリメント</a></li></ul><h3 id=組み合わせ>組み合わせ</h3><ul><li><a href=../p/wk75ra7/>順列 (permutation) を作成する</a></li></ul><h3 id=日時time-オブジェクト>日時（Time オブジェクト）</h3><ul><li><a href=../p/rtt88eb/>文字列から時刻オブジェクト (Time) に変換する</a></li></ul><h2 id=入出力-io>入出力 (I/O)</h2><ul><li><a href=../p/btwa5fv/>コマンドライン引数を扱う</a></li><li><a href=../p/r2ryc4t/>コマンドライン引数によるオプションに対応する (optparse)</a></li><li><a href=../p/a2zcbyr/>標準出力へ出力する (puts/print/printf)</a></li><li><a href=../p/odauy26/>標準エラー出力へ出力する (STDERR)</a></li><li><a href=../p/yf9e2j2/>キーボードからの入力を取得する (STDIN.gets/readline)</a></li><li><a href=../p/h3uzf9m/>標準入力から読み込む (gets)</a></li><li><a href=../p/xmkp7u4/>キーボードからのパスワードの入力を取得する</a></li><li><a href=../p/85axqoj/>外部プログラムを呼び出してその出力を取得する</a></li><li><a href=../p/stvk9gx/>外部プログラムを実行可能か調べる／外部プログラムの絶対パスを取得する</a></li><li><a href=../p/m6zz7z2/>ソースコード内にテキストデータを埋め込む</a></li><li><a href=../p/f6fj4c7/>Ruby でワンライナープログラミング</a></li><li>ファイル／ディレクトリ<ul><li><a href=../p/wzbqu3e/>テキストファイルを読み込む</a></li><li><a href=../p/ynufrhd/>テキストファイルを grep する</a></li><li><a href=../p/vynqmh5/>様々なディレクトリのパスを取得する／パスを加工する</a></li><li><a href=../p/xqwzqn4/>親ディレクトリのパスを取得する</a></li><li><a href=../p/kzuq3cd/>ディレクトリ内のファイルを列挙する</a></li><li><a href=../p/zpoj5yq/>ディレクトリ内のファイルを検索する</a></li><li><a href=../p/rsiaoio/>ディレクトリを作成／削除する</a></li><li><a href=../p/vrcmada/>一時ディレクトリ／一時ファイルを使用する</a></li><li><a href=../p/dnav4hc/>ファイルやディレクトリが存在するか調べる (File.exist?, Dir.exist?)</a></li></ul></li><li>XML<ul><li><a href=../p/wmrawp3/>REXML とは</a></li><li><a href=../p/sapxuyk/>REXML で XML ファイルを作成する</a></li><li><a href=../p/a3z2tp7/>REXML で XML ファイルを読み込む</a></li></ul></li><li>YAML<ul><li><a href=../p/ai66hxc/>Ruby で YAML ファイルを扱う</a></li></ul></li><li>mp3<ul><li><a href=../p/25f969i/>ruby-mp3info で MP3 ファイルのタグ情報を取得／修正する</a></li></ul></li></ul><h2 id=その他>その他</h2><ul><li>環境<ul><li><a href=../p/q75ofiy/>複数バージョンの Ruby をインストールする (RVM)</a></li><li><a href=../p/pgsu6vb/>ユーザライブラリの検索パスを調べる</a></li><li><a href=../p/jijhyxm/>環境変数を扱う</a></li></ul></li><li>RubyGems<ul><li><a href=../p/ega8g26/>RubyGems とは</a></li><li><a href=../p/gsmh9o2/>プロキシ経由で gem コマンドを使用する</a></li><li><a href=../p/p2ib8fk/>Gem パッケージのインストール先を調べる</a></li><li><a href=../p/k6gcrgj/>Gem パッケージを作成する (1) 基本</a></li><li><a href=../p/sf4zv8i/>Gem パッケージを作成する (2) 実行可能コマンドを追加する</a></li><li><a href=../p/sjzsisu/>Gem パッケージを作成する (3) パッケージを公開する</a></li><li><a href=../p/ovi2oa5/>勉強用に Gem パッケージをダウンロードする</a></li><li><a href=../p/sa4jekt/>Gem パッケージの gemspec へのファイルの追加し忘れを防ぐ</a></li></ul></li><li>デバッグ／テスト<ul><li><a href=../p/wshqogt/>test-unit によるユニットテスト</a></li><li><a href=../p/fydda5r/>プロファイラを使用してボトルネックを探る</a></li></ul></li><li>トラブルシューティング<ul><li><a href=../p/2pn937h/>invalid byte sequence in Windows-31J というエラーが出る場合</a></li></ul></li></ul></div><div class=article__footer><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fruby%2f&text=Ruby%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fruby%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fruby%2f&title=Ruby%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../ruby/>まくまく Ruby ノート</a></div></div></article><script>const SIDEBAR_HIDE_THRESHOLD=800,SIDEBAR_WIDTH=250,OFFSET=10;let w=window.innerWidth;w>=SIDEBAR_HIDE_THRESHOLD&&(w-=SIDEBAR_WIDTH),w-=OFFSET,w>=728?rakuten_size="728x200":w>=600?rakuten_size="600x200":w>=468?rakuten_size="468x160":w>=336?rakuten_size="336x280":w>=300?rakuten_size="300x250":w>=250?rakuten_size="250x250":rakuten_size="200x350",rakuten_design="slide",rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e",rakuten_items="ctsmatch",rakuten_genreId=0,rakuten_target="_blank",rakuten_theme="gray",rakuten_border="off",rakuten_auto_mode="on",rakuten_genre_title="off",rakuten_recommend="on",rakuten_txtColor="333333",rakuten_moverColor="30C030",rakuten_bgColor="FFFFFF",rakuten_captionColor="333333"</script><script src=https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js></script></div><div class=l-withSidebar__sidebarRight><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku.blog/p/8t6hr3d/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class=navigation__item href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku.blog/p/somcgdw/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://toushi.maku.blog/p/etedykx/>MetaTrader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class=navigation__item href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class=navigation__item href=https://maku77.github.io/r/>R</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/rust/>Rust</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav><style>.codoc-support{display:inline-block;margin:0!important;padding:12px!important;width:200px!important;max-width:100%}.codoc-support .codoc-support-title{font-size:smaller!important;white-space:nowrap;margin-bottom:12px!important}.codoc-support .codoc-btn{width:160px!important}</style><script src=https://codoc.jp/js/cms.js data-css=black data-usercode=tp6ZPzTj3w defer></script><div id=codoc-entry-4gYwTntzzw class=codoc-entries data-without-body=1 data-support-button-text="（っ'-')╮シュッ🔴" data-show-like=0 data-show-about-codoc=0 data-show-powered-by=0 data-support-message=まくに投げ銭できます。></div></div></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll("a[href^=http]");for(let n=0;n<e.length;++n){const t=e[n];if(t.href.startsWith("https://maku77.github.io"))continue;const s=t.getElementsByTagName("img");if(s.length>0)continue;const o=t.getElementsByTagName("svg");if(o.length>0)continue;t.classList.add("xExternalLinkIcon"),t.setAttribute("target","_blank"),t.setAttribute("rel","noopener")}})</script></body></html>

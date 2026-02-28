@@ -912,7 +912,7 @@ jQuery の &lt;code>$(window).width()&lt;/code> を使用すると、スクロ�
 &lt;code>$e.position()&lt;/code> でうまく値が取れない場合は、親要素にこの指定を忘れていることが多いので注意してください（デフォルトの &lt;code>position: static&lt;/code> のままになっている）。&lt;/p>
 &lt;p>次のデモでは、div 要素 (&lt;code>#box&lt;/code>) の座標をリアルタイムに取得して表示しています。
 これらの座標値は、&lt;strong>ページをスクロールしても変化しない&lt;/strong>ところがポイントです（ただし、ズームを行ってレイアウトが崩れた場合などは、座標値が変化することがあります）。&lt;/p>
-&lt;h4 id="デモhahahugoshortcode450s3hbhb">デモ（&lt;a href="../p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモhahahugoshortcode449s3hbhb">デモ（&lt;a href="../p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="elem-pos-demo.html">&lt;/iframe>
 
 &lt;figure class="xCodeBlock">
@@ -1743,7 +1743,7 @@ obj.method(); //=&amp;gt; maku 100
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>JavaScriptメモ: ページ内のヘッダ要素 (h2/h3/h4) から自動的にメニュー (TOC) を生成する</title><link>https://maku77.github.io/p/pzkgih9/</link><pubDate>Thu, 24 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pzkgih9/</guid><description>&lt;h2 id="一階層のみのメニュー">一階層のみのメニュー&lt;/h2>
 &lt;p>HTML 内に配置したヘッダー要素（&lt;code>h2&lt;/code> 要素）の表示テキストから、自動的にページ内メニュー (TOC: Table of Contents) を作成するサンプルです。&lt;/p>
-&lt;h4 id="デモ1hahahugoshortcode454s0hbhb">デモ1（&lt;a href="../p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモ1hahahugoshortcode461s0hbhb">デモ1（&lt;a href="../p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="table-of-contents-demo1.html">&lt;/iframe>
 &lt;p>例えば、下記のように 3 つの &lt;code>h2&lt;/code> 要素（タイトル１、タイトル２、タイトル３）を含んだ HTML があるとして、それぞれの位置へジャンプするためのメニューを自動で追加します。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;menuStub&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>メニュー挿入位置&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>

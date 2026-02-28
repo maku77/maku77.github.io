@@ -326,8 +326,8 @@ Visual Studio Code 上で型チェックを有効にするには、&lt;a href="h
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-839716245" type="checkbox">
- &lt;label class="xAccordion_title" for="id-839716245">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-256734189" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-256734189">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -1646,8 +1646,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-371682459" type="checkbox">
- &lt;label class="xAccordion_title" for="id-371682459">上記画像のコード&lt;/label>
+ &lt;input id="id-895217634" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-895217634">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -2776,7 +2776,7 @@ Python プログラムを実行するために、何も考えずに &lt;code>pip
 これを使って 7 つのランダムな文字を生成して 1 つの文字列に結合すれば、長さ 7 文字分のランダム文字列を作成することができます。&lt;/p>
 &lt;h2 id="参考">参考&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="../ruby/string/rand-str.html">Ruby で n 文字のランダム文字列を生成する&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/vt7ws7t/">Ruby で n 文字のランダム文字列を生成する&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://maku.blog/p/3nx9is3/">ランダムな文字列を生成する Web サイト&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Pythonメモ: 現在時刻から YYYY-MM-DD のような日付文字列を生成する (strftime)</title><link>https://maku77.github.io/p/sh36h2z/</link><pubDate>Tue, 22 Oct 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/sh36h2z/</guid><description>&lt;h2 id="strftime-関数">strftime 関数&lt;/h2>
 &lt;p>下記の &lt;code>make_date_str()&lt;/code> は、現在の日時をもとに &lt;code>2019-10-22 21:15:30&lt;/code> という形式の文字列を生成します。&lt;/p>
@@ -3866,8 +3866,8 @@ C 言語の &lt;code>/* ... */&lt;/code> というスタイルのコメントと
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-964781325" type="checkbox">
- &lt;label class="xAccordion_title" for="id-964781325">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-634892571" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-634892571">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -5937,30 +5937,6 @@ Windows のドライブ名などもちゃんと削除してくれます。&lt;/p
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;h1&amp;gt;Title&amp;lt;/h1&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;p&amp;gt;Hello, I&amp;#39;m John.&amp;lt;/p&amp;gt;
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*** &amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/figure></description></item><item><title>Pythonメモ: 独自オブジェクトの配列から最小値、最大値を求める (min_by/max_by)</title><link>https://maku77.github.io/p/b22gfoi/</link><pubDate>Sun, 27 Nov 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/b22gfoi/</guid><description>&lt;p>任意のオブジェクトの配列から最大値/最小値を持つ要素を取り出すには、大小判断をどのフィールドで行うかを指定しなければいけません。
-&lt;code>min_by&lt;/code>/&lt;code>max_by&lt;/code> メソッドには、大小比較に使用する値を指定するためのブロックを渡すことができます。&lt;/p>
-&lt;p>下記の例では、独自クラス &lt;code>Num&lt;/code> の &lt;code>val&lt;/code> フィールドの値を大小の判断基準として、最大値を持つ要素を検索しています。&lt;/p>
-
-&lt;figure class="xCodeBlock">
-&lt;figcaption class="xCodeBlock_title">sample.rb&lt;/figcaption>
-&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="k">class&lt;/span> &lt;span class="nc">Num&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kp">attr_reader&lt;/span> &lt;span class="ss">:val&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">def&lt;/span> &lt;span class="nf">initialize&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">val&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="vi">@val&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">val&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">end&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">arr&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="no">Num&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="no">Num&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="no">Num&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">new&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">max&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">arr&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">max_by&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">val&lt;/span> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">puts&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">val&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/figure>
-
-
-&lt;figure class="xCodeBlock">
-&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
-&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ruby sample.rb
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">3
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
 &lt;/figure></description></item><item><title>python コマンドでワンライナーを実行する (python -c)</title><link>https://maku77.github.io/p/oi67p5c/</link><pubDate>Fri, 13 May 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/oi67p5c/</guid><description>&lt;p>&lt;code>python&lt;/code> コマンドを実行するときに &lt;strong>&lt;code>-c&lt;/code>&lt;/strong> オプションを指定すると、コマンドラインで指定した Python コードを直接実行することができます。
 このように 1 行で記述したコードは、ワンライナーと呼ばれています。&lt;/p>
 
