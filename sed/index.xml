@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sed/awk メモ on 天才まくまくノート</title><link>https://maku77.github.io/sed/</link><description>Recent content in sed/awk メモ on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Tue, 27 Oct 2015 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/sed/index.xml" rel="self" type="application/rss+xml"/><item><title>sed/awkメモ: awk でパターンに一致する行を削除する</title><link>https://maku77.github.io/p/mypf4rw/</link><pubDate>Tue, 27 Oct 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/mypf4rw/</guid><description>&lt;p>awk で「&lt;strong>パターンに一致する行を削除する&lt;/strong>」という処理を行いたいときは、「&lt;strong>パターンに一致しない行だけを出力する&lt;/strong>」と考えます。&lt;/p>
+&lt;p>例えば、下記のようなファイルの &lt;code>#&lt;/code> で始まるコメント行だけを抜き出す、あるいは逆に、コメント行以外を抜き出したいとします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.txt&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl"># This is a comment.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># This is also a comment.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hello. My name is Maku.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Nice to meet you.&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ここで、&lt;code>#&lt;/code> で始まるコメント行だけを抜き出す場合は、下記のように正規表現パターンを指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-awk" data-lang="awk">&lt;span class="line">&lt;span class="cl">&lt;span class="o">$&lt;/span> &lt;span class="nx">awk&lt;/span> &lt;span class="s1">&amp;#39;/^#/&amp;#39;&lt;/span> &lt;span class="nx">input&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This is a comment.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This is also a comment.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>逆に &lt;code>#&lt;/code> で始まらない行を抜き出すには、下記のように、パターンの前に否定を表す &lt;code>!&lt;/code> を付けます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-awk" data-lang="awk">&lt;span class="line">&lt;span class="cl">&lt;span class="o">$&lt;/span> &lt;span class="nx">awk&lt;/span> &lt;span class="s1">&amp;#39;!/^#/&amp;#39;&lt;/span> &lt;span class="nx">input&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">Hello&lt;/span>&lt;span class="p">.&lt;/span> &lt;span class="nx">My&lt;/span> &lt;span class="nx">name&lt;/span> &lt;span class="nx">is&lt;/span> &lt;span class="nx">Maku&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">Nice&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">meet&lt;/span> &lt;span class="nx">you&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これはつまり、指定したパターンに一致する行を削除していることにほかなりません。&lt;/p>
+&lt;h2 id="おまけ">おまけ&lt;/h2>
+&lt;p>コメント行だけを出力するときに、ついでに先頭の &lt;code>#&lt;/code> を削除してから出力するサンプル。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-awk" data-lang="awk">&lt;span class="line">&lt;span class="cl">&lt;span class="o">$&lt;/span> &lt;span class="nx">awk&lt;/span> &lt;span class="s1">&amp;#39;/^#/ { sub(&amp;#34;^[# ]+&amp;#34;, &amp;#34;&amp;#34;); print }&amp;#39;&lt;/span> &lt;span class="nx">input&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">This&lt;/span> &lt;span class="nx">is&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="nx">comment&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">This&lt;/span> &lt;span class="nx">is&lt;/span> &lt;span class="nx">also&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="nx">comment&lt;/span>&lt;span class="p">.&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考sed-の場合">参考（sed の場合）&lt;/h2>
+&lt;p>&lt;code>sed&lt;/code> コマンドでも同様のことを行うことができます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../p/hyizkbq/">sed でパターンに一致する行を削除する&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>sed/awkメモ: awk で指定したフィールドを削除する</title><link>https://maku77.github.io/p/wzdizih/</link><pubDate>Tue, 27 Oct 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wzdizih/</guid><description>&lt;p>例えば、下記のような入力テキストファイルがあったとします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.txt&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">A1 A2 A3 A4 A5
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">B1 B2 B3 B4 B5
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C1 C2 C3 C4 C5&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>この各行から 3 番目のフィールド (A3, B3, C3) をそれぞれ削除したい場合は、次のように &lt;code>$3&lt;/code> に空文字を代入してから全てのフィールド &lt;code>$0&lt;/code> を出力すれば OK です（&lt;code>print $0&lt;/code> の &lt;code>$0&lt;/code> は省略できます）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;{$3 = &amp;#34;&amp;#34;; print}&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">A1 A2 A4 A5
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">B1 B2 B4 B5
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">C1 C2 C4 C5
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>もちろん、次のように出力するフィールドをすべて指定することもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;{print $1, $2, $4, $5}&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">A1 A2 A4 A5
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">B1 B2 B4 B5
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">C1 C2 C4 C5
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ちなみに、&lt;code>print&lt;/code> に対してカンマで複数のフィールドを渡すと、組み込み変数 &lt;code>OFS&lt;/code> の値で区切られて出力されます。&lt;code>OFS&lt;/code> のデフォルトの値は、スペース 1 文字なので、上記のようにスペース区切りで表示されるというわけです。&lt;/p></description></item><item><title>sed/awkメモ: sed でパターンに一致する行を削除する</title><link>https://maku77.github.io/p/hyizkbq/</link><pubDate>Tue, 27 Oct 2015 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hyizkbq/</guid><description>&lt;h2 id="sed-での行削除">sed での行削除&lt;/h2>
+&lt;p>&lt;code>sed&lt;/code> の行削除コマンド &lt;code>d&lt;/code> の直前に &lt;code>/pattern/&lt;/code> を指定すると、そのパターンに一致する文字列を含む行を削除できます。
+例えば、下記のようなファイルの &lt;code>#&lt;/code> で始まるコメント行だけを削除して出力するとします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.txt&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl"># Comment 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Comment 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Body 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Body 2&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>正規表現で &lt;code>#&lt;/code> で始まる行は、&lt;code>^#&lt;/code> と表現できるので、これに一致した行を下記のように &lt;code>d&lt;/code> 命令で削除して出力すれば OK です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;/^#/d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 2
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="参考awk-や-grep-の場合">参考（awk や grep の場合）&lt;/h2>
+&lt;p>実は、&lt;code>awk&lt;/code> コマンドでも同様のことを行うことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;!/^#/&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 2
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただ、&lt;code>sed&lt;/code> コマンドであれば、&lt;code>-i&lt;/code> オプションを使って自分自身のファイルに書き戻すこともできるので、単純な行削除処理をしたいのであれば &lt;code>sed&lt;/code> の方がオススメです。
+&lt;code>awk&lt;/code> コマンドを使った場合の行削除に関して、詳しい説明は下記を参照してください。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../p/mypf4rw/">awk でパターンに一致する行を削除する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>grep&lt;/code> コマンドの &lt;code>-v&lt;/code> オプションを使用しても同様のことを行えます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> grep -v &lt;span class="s1">&amp;#39;^#&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Body 2
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: cut コマンドで行頭の数文字をカットする</title><link>https://maku77.github.io/p/vbz86im/</link><pubDate>Wed, 11 May 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/vbz86im/</guid><description>&lt;p>cut コマンドの &lt;code>-b&lt;/code> オプションを指定すると、文字数を指定してテキストの切り出しを行うことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: ３文字目を取り出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1234567890&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> cut -b &lt;span class="m">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">3
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: ３～８文字目を取り出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1234567890&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> cut -b 3-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">345678
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: ３文字目以降を取り出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1234567890&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> cut -b 3-
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">34567890
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 先頭から３文字目までを取り出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1234567890&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> cut -b -3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">123
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: sed でパターンに一致する文字列を削除する</title><link>https://maku77.github.io/p/zc4wwcy/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zc4wwcy/</guid><description>&lt;p>置換コマンド &lt;code>s&lt;/code> の置換後のパターンを空にしておけば、指定した文字列を削除するという意味になります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;AAA BBB CCC AAA BBB CCC&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/BBB//g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">AAA CCC AAA CCC
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>一行の中にパターンにマッチする文字列が複数存在する場合は、&lt;code>g&lt;/code> オプションを指定することで全て削除することができます（&lt;code>g&lt;/code> オプションを指定しないと、最初に見つかった文字列だけを削除します）。&lt;/p></description></item><item><title>sed/awkメモ: sed でパターンに一致する行が現れるまで削除する</title><link>https://maku77.github.io/p/3ms2jj2/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/3ms2jj2/</guid><description>&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">AAA
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">BBB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CCC
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DDD&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>削除コマンド &lt;code>d&lt;/code> の直前で、削除対象となる行範囲 (&lt;code>&amp;lt;開始行&amp;gt;,&amp;lt;終了行&amp;gt;&lt;/code>) を指定することができます。
+行指定には、行番号や、検索パターンを指定します。
+下記の例では、一行目から、最初に空白行（正規表現で &lt;code>^$&lt;/code>）が現れる行までを削除しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;1,/^$/d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">CCC
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">DDD
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed でパターンに一致する行を抽出する</title><link>https://maku77.github.io/p/gximd9d/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gximd9d/</guid><description>&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">001 This
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">002 is
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">003 a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">004 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">005 World&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>下記のようにすると、上記のファイルから、&lt;code>Hello&lt;/code> という文字列が存在する行だけ抜き出して表示することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -n -e &lt;span class="s1">&amp;#39;/Hello/p&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>これだけでは、&lt;code>grep&lt;/code> コマンドと同じですが、開始パターンと終了パターンを両方指定すれば、あるパターンが含まれる行から、あるパターンが含まれる行までを抜き出すことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: is が含まれる行から、Hello が含まれる行までを出力する。&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -n -e &lt;span class="s1">&amp;#39;/is/,/Hello/p&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 This
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 is
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 a
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: sed で大文字と小文字を区別せずに置換する</title><link>https://maku77.github.io/p/4ck3wwi/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4ck3wwi/</guid><description>&lt;p>sed の置換コマンド &lt;code>s&lt;/code> を使用するときに、末尾に &lt;code>i&lt;/code> オプションを指定すると、大文字と小文字を区別せずにマッチした文字列を置換します。
+次の例では、大文字と小文字の区別をせずに &lt;code>hello&lt;/code> という文字列を見つけ、&lt;code>world&lt;/code> に置換します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;Hello hello hELLO&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/hello/world/gi&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">world world world
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>同一行内の２つ以上の文字列を置換するために &lt;code>g&lt;/code> オプションを同時に指定しています。&lt;/p></description></item><item><title>sed/awkメモ: sed で指定した範囲の行を削除する</title><link>https://maku77.github.io/p/gsxojue/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gsxojue/</guid><description>&lt;p>sed の &lt;code>d&lt;/code> コマンドを使用すると、指定した範囲の行を削除できます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">001 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">002 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">003 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">004 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">005 Hello&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 3 行目だけ削除&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;3d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 2 ～ 4 行目を削除&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;2,4d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 最終行 ($) だけ削除&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;$d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: sed で指定した範囲の行を置換する</title><link>https://maku77.github.io/p/kzcn5ap/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kzcn5ap/</guid><description>&lt;p>置換コマンド &lt;code>s&lt;/code> の直前に、置換対象とする行範囲を指定することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">001 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">002 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">003 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">004 Hello
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">005 Hello&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 3 行目だけ置換&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;3s/Hello/World/&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 2 ～ 4 行目だけ置換&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;2,4s/Hello/World/&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 最終行 ($) だけ置換&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s1">&amp;#39;$s/Hello/World/&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 World
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Hello
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: sed で指定した範囲の行を表示する</title><link>https://maku77.github.io/p/boo82nz/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/boo82nz/</guid><description>&lt;p>sed の &lt;code>-n&lt;/code> オプションと、&lt;code>p&lt;/code> コマンドを組み合わせると、指定した範囲の行だけ表示することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">001 One
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">002 Two
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">003 Three
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">004 Four
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">005 Five&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: １～３行目を表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -n -e &lt;span class="s1">&amp;#39;1,3p&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 One
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Two
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 Three
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>sed コマンドは、基本的には読み込んだ行をそのまま出力しようとします。
+上記の &lt;code>-n&lt;/code> オプションはこの動きを抑制し、１～３行目だけを &lt;code>p&lt;/code> コマンドによって出力するように命令しています。
+&lt;code>-n&lt;/code> オプションを付け忘れて実行すると、すべての行が無条件で一度ずつ出力され、さらに &lt;code>p&lt;/code> コマンドによる出力が行われることになります。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: -n オプションを指定し忘れたとき&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -e &lt;span class="s2">&amp;#34;1,3p&amp;#34;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 One
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">001 One
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Two
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">002 Two
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 Three
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">003 Three
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">004 Four
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">005 Five
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: sed で空白行を削除する</title><link>https://maku77.github.io/p/fnj6z57/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fnj6z57/</guid><description>&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">aaa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bbb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ccc&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>上記の入力ファイルには、3 行の空白行が含まれています。
+これらの空白行をまとめて削除するには、下記のように空白行 (&lt;code>^$&lt;/code>) をパターン指定して &lt;code>d&lt;/code> コマンドで削除します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;/^$/d&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">aaa
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">bbb
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">ccc
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>参考: &lt;a href="../p/kw5aygu/">tr で空白行を削除する&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>sed/awkメモ: sed で行末のスペースを削除する</title><link>https://maku77.github.io/p/2km5fqj/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/2km5fqj/</guid><description>&lt;p>次のようにすると、テキストファイル &lt;code>input.txt&lt;/code> の各行の行末にあるスペースを取り除くことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/\s*$//&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ちなみに、シェルスクリプトの中で、変数に格納したテキストの末尾のスペースを削除するには、例えば下記のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">line&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;aaa bbb ccc &amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">line&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$line&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/\s*$//&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed で行頭や行末に文字列を追加する</title><link>https://maku77.github.io/p/n7waki8/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/n7waki8/</guid><description>&lt;h2 id="行頭に文字列を追加する">行頭に文字列を追加する&lt;/h2>
+&lt;p>正規表現で行頭を表す &lt;code>^&lt;/code> を置換対象とすれば、行頭に任意のテキストを追加することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;Hello World&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/^/&amp;gt; /&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">&amp;gt;&lt;/span> Hello World
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="行末に文字列を追加する">行末に文字列を追加する&lt;/h2>
+&lt;p>正規表現で行末を表す &lt;code>$&lt;/code> を置換対象とすれば、行末に任意のテキストを追加することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;Hello World&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/$/ !!/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">Hello World !!
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed で連続するスペースを１つにする</title><link>https://maku77.github.io/p/eeum42o/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/eeum42o/</guid><description>&lt;p>下記のサンプルでは、連続するスペースを、１つのスペースに置換しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39; AAA BBB CCC&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/ */ /g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> AAA BBB CCC
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>１回以上の繰り返しを表す &lt;code>\+&lt;/code> を使って次のように記述することも可能です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39; AAA BBB CCC&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s1">&amp;#39;s/ \+/ /g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go"> AAA BBB CCC
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>sed では、正規表現の &lt;code>+&lt;/code> は &lt;code>\+&lt;/code> のようにエスケープして入力しなければいけないことに注意してください（&lt;code>*&lt;/code> はエスケープの必要なし）。&lt;/p></description></item><item><title>sed/awkメモ: sed の置換パターンの中でシェルの変数を参照する</title><link>https://maku77.github.io/p/2sbebb7/</link><pubDate>Thu, 26 Aug 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/2sbebb7/</guid><description>&lt;p>sed の置換パターンの中で変数展開するには、シェルに先に変数展開させるために、ダブルクォーテーションで式を囲む必要があります。
+シングルクォーテーションで囲むと、&lt;code>$val&lt;/code> という文字列そのものを置換してしまいます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nv">val&lt;/span>&lt;span class="o">=&lt;/span>AAA
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;AAA BBB CCC&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s2">&amp;#34;s/&lt;/span>&lt;span class="nv">$val&lt;/span>&lt;span class="s2">/hoge/&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">hoge BBB CCC
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;AAA BBB CCC&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed -e &lt;span class="s2">&amp;#34;s/CCC/&lt;/span>&lt;span class="nv">$val&lt;/span>&lt;span class="s2">/&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">AAA BBB AAA
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed でパス文字列からディレクトリ名を抽出する</title><link>https://maku77.github.io/p/zqon5aj/</link><pubDate>Thu, 11 Jun 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zqon5aj/</guid><description>&lt;p>下記の例では、パスを表す文字列から、ディレクトリのパスを抽出しています（単純にスラッシュ (&lt;code>/&lt;/code>) の前を取り出しているだけ）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;/aaa/bbb/ccc&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s:\(.*\)/.*:\1:&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Linux を使用している場合は、素直に &lt;code>dirname&lt;/code> を使ったほうが簡単です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> dirname &lt;span class="s1">&amp;#39;/aaa/bbb/ccc&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">/aaa/bbb
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed でパターンに一致する文字列を抽出する</title><link>https://maku77.github.io/p/bpm5q7e/</link><pubDate>Wed, 08 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bpm5q7e/</guid><description>&lt;p>sed の &lt;code>s&lt;/code>（置換）コマンドの &lt;code>p&lt;/code> フラグを指定して実行すると、実際に変換された後の結果の文字列だけを出力することができます。
+これを利用すれば、テキストファイル中の、あるパターンに一致するテキストの一部だけを抽出することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: HTML ファイル中の見出し（h1 など）のタイトルテキストのみを抜き出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -n &lt;span class="s1">&amp;#39;s:&amp;lt;[Hh][1-6]&amp;gt;\(.\+\)&amp;lt;/[Hh][1-6]&amp;gt;:\1:p&amp;#39;&lt;/span> index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>sed のデフォルトの振る舞いである、すべての行を出力するという動作を抑制するために、&lt;code>-n&lt;/code> オプションを指定しないといけないことに注意してください。&lt;/p></description></item><item><title>sed/awkメモ: cut コマンドでデリミタ区切りの文字列を扱う</title><link>https://maku77.github.io/p/wfbexh4/</link><pubDate>Sun, 05 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wfbexh4/</guid><description>&lt;p>Linux に付属している cut コマンドを使用すると、任意のデリミタ文字で区切られたテキストから、指定した位置のフィールドだけを簡単に抜き出すことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: デリミタ文字をセミコロン (:) とし、２番目以降のフィールドを出力&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> cut -d &lt;span class="s1">&amp;#39;:&amp;#39;&lt;/span> -f 2- input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>cut コマンドは標準入力からの入力を扱うこともできるので、以下のようにすることもできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> cat input.txt &lt;span class="p">|&lt;/span> cut -d &lt;span class="s1">&amp;#39;:&amp;#39;&lt;/span> -f 2-
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>出力フィールドの位置は &lt;code>-f&lt;/code> オプションを使って以下のように指定することができます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>-f 2&lt;/code>&lt;/strong> &amp;hellip; 2 番目のフィールドを表示&lt;/li>
+&lt;li>&lt;strong>&lt;code>-f 2,3,4&lt;/code>&lt;/strong> &amp;hellip; 2、3、4 番目のフィールドを表示&lt;/li>
+&lt;li>&lt;strong>&lt;code>-f 2-&lt;/code>&lt;/strong> &amp;hellip; 2 番目以降のフィールドを表示&lt;/li>
+&lt;li>&lt;strong>&lt;code>-f 2-5&lt;/code>&lt;/strong> &amp;hellip; 2～5番目のフィールドを表示&lt;/li>
+&lt;/ul></description></item><item><title>sed/awkメモ: sed で C 言語のコメントを削除する</title><link>https://maku77.github.io/p/idstams/</link><pubDate>Sun, 05 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/idstams/</guid><description>&lt;p>下記の例では、C 言語のソースコード (sample.c) から、コメント (&lt;code>/* comment */&lt;/code>) を削除しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/\/\*\+\([^*]\|\*[^/]\)*\*\+\///g&amp;#39;&lt;/span> sample.c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>手抜きなので、複数行にまたがるコメントはうまく処理できません。
+正規表現は &lt;code>/\*+([^*]|\*[^/])*\*+/&lt;/code> ですが、sed 用のエスケープ処理が入っているため見にくくなっています。&lt;/p></description></item><item><title>sed/awkメモ: sed で置換するときに後方参照を使用する</title><link>https://maku77.github.io/p/irnh24x/</link><pubDate>Sun, 05 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/irnh24x/</guid><description>&lt;p>sed による文字列置換で&lt;strong>後方参照&lt;/strong>の機能を使用すると、パターンに一致した実際の文字列を、置換後の文字列を構成する際に参照することができます。&lt;/p>
+&lt;p>正規表現に一致した全体の文字列は、&lt;code>&amp;amp;&lt;/code> で参照することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 日付らしき文字列 (YYYY-MM-DD) を [ と ] で囲む&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}/[&amp;amp;]/&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>パターンに一致した文字列を、複数の部分に分けて後方参照したい場合は、次のように正規表現パターンを &lt;code>\(&lt;/code> と &lt;code>\)&lt;/code> で囲んでグルーピングします。
+参照時は、それぞれのグループごとに &lt;code>\1&lt;/code>、&lt;code>\2&lt;/code> のように参照します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: パターンに一致した２つの文字列の前後を入れ替える&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/\(pattern1\) \(pattern2\)/\2\1/g&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>pattern1&lt;/code> と &lt;code>pattern2&lt;/code> には任意の正規表現が記述されていると思ってください。&lt;/p></description></item><item><title>sed/awkメモ: tr コマンドで空白行を削除する</title><link>https://maku77.github.io/p/kw5aygu/</link><pubDate>Sun, 05 Apr 2009 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kw5aygu/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> cat hoge.txt &lt;span class="p">|&lt;/span> tr -s &lt;span class="s2">&amp;#34;\n&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>tr&lt;/code> コマンドの &lt;code>-s&lt;/code> オプションは、指定した文字が連続して現れた場合に、1 度だけ出力することを表します。
+上記の例では、連続する「改行」が出現した場合に 1 つにするため、実際には空行を削除していることと同様になります。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/fnj6z57/">sed で空白行を削除する&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>sed/awkメモ: awk でフィールドセパレータを変更する</title><link>https://maku77.github.io/p/qju45tc/</link><pubDate>Wed, 19 Dec 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qju45tc/</guid><description>&lt;h2 id="デフォルトのセパレータは空白">デフォルトのセパレータは空白&lt;/h2>
+&lt;p>awk は、デフォルトのフィールドセパレータとして空白やタブを使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.txt（空白で区切られたレコード）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">A1 A2 A3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">B1 B2 B3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C1 C2 C3&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">2 番目のフィールドを抜き出す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;{print $2}&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">A2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">B2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">C2
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="セパレータをカンマに変更する">セパレータをカンマに変更する&lt;/h2>
+&lt;p>例えば、CSV ファイルのように、カンマで区切られたテキストファイルを扱いたい場合は、フィールドセパレータを変更しなければいけません。
+フィールドセパレータとして扱う文字を変更するには、&lt;code>-F&lt;/code> オプションを使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">input.csv（カンマで区切られたレコード）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">A1,A2,A3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">B1,B2,B3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">C1,C2,C3&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">2 番目のフィールドを抜き出す（セパレータをカンマに変更）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk -F, &lt;span class="s1">&amp;#39;{print $2}&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">A2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">B2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">C2
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>sed/awkメモ: awk の基本的な使い方</title><link>https://maku77.github.io/p/veswq5r/</link><pubDate>Mon, 17 Dec 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/veswq5r/</guid><description>&lt;h2 id="awk-について">awk について&lt;/h2>
+&lt;h3 id="awk-という名前">awk という名前&lt;/h3>
+&lt;p>&lt;strong>awk&lt;/strong> という名前は、作者の頭文字に由来しています (Aho, Weinberger, Kernighan)。
+特定のフォーマットのテキストファイルを一括して処理するのに適した言語です。
+sed と同じくストリーム指向で、テキストファイルを 1 行ずつ読み、結果を標準出力へ書き出すという動作をします。&lt;/p>
+&lt;h3 id="sed-と-awk-の違い">sed と awk の違い&lt;/h3>
+&lt;p>sed と awk の違いは、sed では &lt;code>s/aaa/bbb/&lt;/code> のように決まった形式で置換処理を記述するのに対し、&lt;strong>awk&lt;/strong> は簡単なプログラミング（手続き）機能を提供しているところです。
+&lt;strong>awk&lt;/strong> では、処理対象となる行を指定するための &lt;strong>/パターン/&lt;/strong> と、処理内容を指定するための &lt;strong>{手続き}&lt;/strong> を分けて指定できるようになっています。
+プログラミング機能を本格的に使用する場合は、長いスクリプトを記述することになるので、awk スクリプトとしてファイルに保存することになります。&lt;/p>
+&lt;h2 id="awk-コマンドの使い方">awk コマンドの使い方&lt;/h2>
+&lt;h3 id="全ての行に対して処理する">全ての行に対して処理する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;{print $1}&amp;#39;&lt;/span> input.txt &lt;span class="c1"># 1 番目のフィールドを出力&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のように、命令部分に &lt;code>print&lt;/code> のような「手続き」だけを指定した場合は、すべての行に対してその手続きが適用されます。
+この例では、&lt;code>input.txt&lt;/code> ファイル内のすべての行から 1 番目のフィールドを抜き出します（デフォルトのセパレータは、スペースやタブです）。
+ちなみに、Linux の &lt;code>cut&lt;/code> コマンドを使った場合も、同様のこと（指定した位置のフィールドを抜き出す）を行えます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> cut -d &lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> -f &lt;span class="m">1&lt;/span> input.txt &lt;span class="c1"># 1 番目のフィールドを出力&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="処理対象の行を絞り込んで処理する">処理対象の行を絞り込んで処理する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk &lt;span class="s1">&amp;#39;/ABC/ {print $3}&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のようにすると、&lt;code>ABC&lt;/code> という文字列を含む行の、3 番目のフィールドをすべて出力します。&lt;/p></description></item><item><title>sed/awkメモ: sed で文字単位の置換を行う</title><link>https://maku77.github.io/p/97n8zt6/</link><pubDate>Mon, 17 Dec 2007 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/97n8zt6/</guid><description>&lt;p>sed の置換コマンド &lt;code>y&lt;/code> を使用すると、一文字ずつどの文字に置き換えるかを指定して置換を実行することができます。&lt;/p>
+&lt;p>例えば、下記のようにすると、a→A、b→B、c→C と置き換えることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ls &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;y/abc/ABC/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このような文字単位の置換に特化した tr コマンドを使用すると、より簡潔に実行することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ls &lt;span class="p">|&lt;/span> tr abc ABC
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: awk で任意のコマンド出力の N 番目のフィールドのみを抜き出す</title><link>https://maku77.github.io/p/zz2cwjo/</link><pubDate>Wed, 20 Jul 2005 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/zz2cwjo/</guid><description>&lt;p>&lt;code>awk&lt;/code> をフィルタコマンドとして利用すると、任意のコマンドの出力の中から、指定したフィールド（列）のみを抽出することができます。
+下記の例では、&lt;code>ps&lt;/code> コマンドの出力の 1 列目だけを表示しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ps a &lt;span class="p">|&lt;/span> awk &lt;span class="s1">&amp;#39;{print $1}&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">PID
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1538
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1546
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1936
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">1937
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>sed/awkメモ: sed で自分自身のファイルを書き換えるときの注意</title><link>https://maku77.github.io/p/kmhxnmh/</link><pubDate>Tue, 20 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kmhxnmh/</guid><description>&lt;p>&lt;code>sed&lt;/code> コマンドによる出力結果を、自分自身のファイルに書き戻そうとしてリダイレクトを使うと、ファイルの中身が消えてしまいます（これは &lt;code>sed&lt;/code> に限ったことではなく、Linux の一般的な振る舞いですが）。&lt;/p>
+&lt;p>例えば、下記のように実行すると、input.txt ファイルの内容は空っぽになってしまいます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">間違ったリダイレクト（ファイルの内容が消えてしまう）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/aaa/bbb/&amp;#39;&lt;/span> input.txt &amp;gt; input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>このようなことを行いたい場合は、&lt;code>sed&lt;/code> コマンドの &lt;code>-i&lt;/code> オプションを指定すると自分自身のファイルに結果を書き戻すことができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">自分自身のファイルに書き戻す&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -i &lt;span class="s1">&amp;#39;s/aaa/bbb&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>元のファイルのバックアップを取っておきたい場合は、&lt;code>-i&lt;/code> オプションに続けて拡張子を指定します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">自分自身のファイルに書き戻す（バックアップ付き）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed -i.bak &lt;span class="s1">&amp;#39;s/aaa/bbb&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">input.txt input.txt.bak
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>拡張子のドットは省略できません。また、&lt;code>-i&lt;/code> の後ろにスペースを入れることもできないので注意してください。&lt;/p></description></item><item><title>sed/awkメモ: sed の基本的な使い方</title><link>https://maku77.github.io/p/rn7kevf/</link><pubDate>Tue, 20 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rn7kevf/</guid><description>&lt;h2 id="sed-について">sed について&lt;/h2>
+&lt;p>&lt;strong>sed&lt;/strong> は &lt;strong>s&lt;/strong>tream &lt;strong>ed&lt;/strong>itor の略です。&lt;/p>
+&lt;p>awk と同じくストリーム指向で、テキストファイルを１行ずつ読み込み、様々な加工を施した結果を標準出力へ書き出します。
+例えば、下記のコマンドは、ファイル内のテキスト &lt;code>AAA&lt;/code> を &lt;code>BBB&lt;/code> に置換して出力します。
+一番よく使用するコマンドである、置換コマンド &lt;code>s&lt;/code> を使用しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/AAA/BBB/g&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>sed は、ファイルからの入力だけでなく、パイプラインで渡された標準入力を処理することもできるので、下記のようにしても同様の結果を得られます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> cat input.txt &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/AAA/BBB/g&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ファイル内のテキストを一括置換するなんてことは、今時のテキストエディタなら簡単にできますが、&lt;code>sed&lt;/code> コマンドはスクリプトから手軽に利用できるので、&lt;strong>定型のテキスト処理を自動化したい場合&lt;/strong>にはまだまだ便利に使えます。
+また、複数の入力ファイルを指定することもできるので、&lt;strong>複数のファイルに対して同様の置換処理を行いたい場合&lt;/strong>も、テキストエディタに付属した機能を呼び出すよりも手早く実行できるでしょう。&lt;/p>
+&lt;p>ちなみに、Vim エディタの中で使う置換コマンドにも、sed で使う命令と同じ構文が採用されています。
+sed でサポートされている正規表現は、基本正規表現を少し拡張した程度のもので、Perl のように、最短一致を表す &lt;code>.*?&lt;/code> といった表現が使えないことに注意してください。&lt;/p>
+&lt;h2 id="基本的な使い方">基本的な使い方&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">入力ファイル (input.txt)&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">aaa, bbb, ccc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">111, 222, 333
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">aaa, bbb, ccc&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>sed で１つの編集コマンドだけを実行する場合は、下記のように、編集コマンド、入力ファイルの順番で指定します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: すべての行の aaa を AAA に置換する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> sed &lt;span class="s1">&amp;#39;s/aaa/AAA/g&amp;#39;&lt;/span> input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">AAA, bbb, ccc
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">111, 222, 333
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">AAA, bbb, ccc
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>標準入力から渡されたテキストを、１つの編集コマンドで処理するには下記のようにします。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: ls コマンドの出力を編集（先頭に -- を付加）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ls &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/^/-- /&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">-- bin/
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">-- boot/
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">-- ...
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="複数の編集コマンドを実行する">複数の編集コマンドを実行する&lt;/h2>
+&lt;p>sed で複数のコマンドを同時に指定するには、各コマンドをセミコロン (&lt;code>;&lt;/code>) で区切るか、各コマンドを &lt;code>-e&lt;/code> オプションの引数として指定します。&lt;/p></description></item><item><title>sed/awkメモ: awk でテキストファイル内の単語数と行数をカウントする</title><link>https://maku77.github.io/p/sf2woo2/</link><pubDate>Sat, 10 Aug 2002 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/sf2woo2/</guid><description>&lt;p>下記の awk スクリプトは、テキスト内の単語数と行数をカウントして表示します。
+Linux の &lt;code>wc&lt;/code> コマンドを使っても同様のことを行えるので、&lt;code>wc.awk&lt;/code> というファイル名にしています。&lt;/p>
+&lt;p>&lt;code>NF&lt;/code> で各行のフィールド数、&lt;code>FNR&lt;/code> で読み込んだ行数を取得できることを利用しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">wc.awk&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-awk" data-lang="awk">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">n&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="nb">NF&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">END&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">print&lt;/span> &lt;span class="nx">n&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;words,&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">FNR&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;lines&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">使用例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-console" data-lang="console">&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> awk -f wc.awk input.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="go">150 words, 80 lines
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item></channel></rss>
