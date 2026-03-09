@@ -1,0 +1,105 @@
+---
+title: "sed/awkメモ: sed の基本的な使い方"
+url: "/p/rn7kevf/"
+date: "2002-08-20"
+tags: ["sed/awk"]
+aliases: [/sed/sed/basic.html]
+---
+
+sed について
+----
+
+**sed** は **s**tream **ed**itor の略です。
+
+awk と同じくストリーム指向で、テキストファイルを１行ずつ読み込み、様々な加工を施した結果を標準出力へ書き出します。
+例えば、下記のコマンドは、ファイル内のテキスト `AAA` を `BBB` に置換して出力します。
+一番よく使用するコマンドである、置換コマンド `s` を使用しています。
+
+```console
+$ sed 's/AAA/BBB/g' input.txt
+```
+
+sed は、ファイルからの入力だけでなく、パイプラインで渡された標準入力を処理することもできるので、下記のようにしても同様の結果を得られます。
+
+```console
+$ cat input.txt | sed 's/AAA/BBB/g'
+```
+
+ファイル内のテキストを一括置換するなんてことは、今時のテキストエディタなら簡単にできますが、`sed` コマンドはスクリプトから手軽に利用できるので、**定型のテキスト処理を自動化したい場合**にはまだまだ便利に使えます。
+また、複数の入力ファイルを指定することもできるので、**複数のファイルに対して同様の置換処理を行いたい場合**も、テキストエディタに付属した機能を呼び出すよりも手早く実行できるでしょう。
+
+ちなみに、Vim エディタの中で使う置換コマンドにも、sed で使う命令と同じ構文が採用されています。
+sed でサポートされている正規表現は、基本正規表現を少し拡張した程度のもので、Perl のように、最短一致を表す `.*?` といった表現が使えないことに注意してください。
+
+
+基本的な使い方
+----
+
+{{< code title="入力ファイル (input.txt)" >}}
+aaa, bbb, ccc
+111, 222, 333
+aaa, bbb, ccc
+{{< /code >}}
+
+sed で１つの編集コマンドだけを実行する場合は、下記のように、編集コマンド、入力ファイルの順番で指定します。
+
+{{< code lang="console" title="例: すべての行の aaa を AAA に置換する" >}}
+$ sed 's/aaa/AAA/g' input.txt
+AAA, bbb, ccc
+111, 222, 333
+AAA, bbb, ccc
+{{< /code >}}
+
+標準入力から渡されたテキストを、１つの編集コマンドで処理するには下記のようにします。
+
+{{< code lang="console" title="例: ls コマンドの出力を編集（先頭に -- を付加）" >}}
+$ ls | sed 's/^/-- /'
+-- bin/
+-- boot/
+-- ...
+{{< /code >}}
+
+
+複数の編集コマンドを実行する
+----
+
+sed で複数のコマンドを同時に指定するには、各コマンドをセミコロン (`;`) で区切るか、各コマンドを `-e` オプションの引数として指定します。
+
+{{< code lang="console" title="複数のコマンドをセミコロンで区切って指定" >}}
+$ sed 's/aaa/AAA/g; s/bbb/BBB/g' input.txt
+AAA, BBB, ccc
+111, 222, 333
+AAA, BBB, ccc
+{{< /code >}}
+
+{{< code lang="console" title="複数のコマンドを -e オプションで別々に指定" >}}
+$ sed -e 's/aaa/AAA/g' -e 's/bbb/BBB/g' input.txt
+AAA, BBB, ccc
+111, 222, 333
+AAA, BBB, ccc
+{{< /code >}}
+
+
+コマンドを記述したスクリプトファイルを実行
+----
+
+sed の置換コマンドを記載したスクリプトファイルを用意しておくこともできます。
+sed スクリプトファイルを使用するには、sed コマンドの `-f` オプションでスクリプトファイルを指定します。
+
+{{< code title="入力ファイル (input.txt)" >}}
+aaa bbb ccc aaa bbb ccc
+ccc bbb aaa ccc bbb aaa
+{{< /code >}}
+
+{{< code title="sed スクリプトファイル (replace.sed)" >}}
+s/aaa/AAA/g
+s/bbb/BBB/g
+s/ccc/CCC/g
+{{< /code >}}
+
+{{< code lang="console" title="sed スクリプトファイルによる置換を実行" >}}
+$ sed -f replace.sed input.txt
+AAA BBB CCC AAA BBB CCC
+CCC BBB AAA CCC BBB AAA
+{{< /code >}}
+
