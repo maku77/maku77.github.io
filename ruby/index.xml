@@ -1125,11 +1125,11 @@ RVM で管理されている Ruby のバージョンは以下のように &lt;co
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">end&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="関連記事">関連記事&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="../cpp/number/permutation.html">順列 (permutation) を作成する (C++)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/wwfigmf/">順列 (permutation) を作成する (C++)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="../p/wk75ra7/">順列 (permutation) を作成する (Ruby)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../java/numstr/permutation.html">順列 (permutation) を作成する (Java)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/ou6ra65/">順列 (permutation) を作成する (Java)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="../p/ef785b3/">組み合わせ (combination) を作成する (Ruby)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../cpp/number/combination.html">組み合わせ (combination) を作成する (C++)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/b4n3h59/">組み合わせ (combination) を作成する (C++)&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Rubyメモ: 組み合わせ (combination) を作成する</title><link>https://maku77.github.io/p/ef785b3/</link><pubDate>Fri, 23 Dec 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ef785b3/</guid><description>&lt;h2 id="arraycombination-を使って組み合わせを作成する">Array#combination() を使って組み合わせを作成する&lt;/h2>
 &lt;p>Ruby の &lt;code>Array#combination&lt;/code> メソッドは、与えられた配列要素の組み合わせ (Combination) を作成します。
 順序は保証されないので、小さい順に組み合わせを取り出したい場合は、生成後にソートする必要があります。&lt;/p>
@@ -1163,10 +1163,10 @@ RVM で管理されている Ruby のバージョンは以下のように &lt;co
 &lt;h2 id="関連記事">関連記事&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="../p/wk75ra7/">順列 (permutation) を作成する (Ruby)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../java/numstr/permutation.html">順列 (permutation) を作成する (Java)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../cpp/number/permutation.html">順列 (permutation) を作成する (C++)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/ou6ra65/">順列 (permutation) を作成する (Java)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/wwfigmf/">順列 (permutation) を作成する (C++)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="../p/dh49opn/">重複順列 (repeated permutation) を作成する (Ruby)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="../cpp/number/combination.html">組み合わせ (combination) を作成する (C++)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="../p/b4n3h59/">組み合わせ (combination) を作成する (C++)&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Rubyメモ: 配列内で最大値を持つ要素のインデックスを取得する</title><link>https://maku77.github.io/p/9xi4svg/</link><pubDate>Sat, 10 Dec 2011 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/9xi4svg/</guid><description>&lt;p>以下は、配列の中の最大値のインデックスを探すいろいろな方法を示しています。&lt;/p>
 &lt;h2 id="最速の方法index-と-max-を組み合わせる">最速の方法（index と max を組み合わせる）&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ruby" data-lang="ruby">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">p&lt;/span> &lt;span class="n">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">index&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">max&lt;/span>&lt;span class="p">)&lt;/span>
