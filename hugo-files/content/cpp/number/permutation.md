@@ -84,7 +84,7 @@ int main() {
 ----
 
 * [順列 (permutation) を作成する (Ruby)](/p/wk75ra7/)
-* [順列 (permutation) を作成する (Java)](/java/numstr/permutation.html)
+* [順列 (permutation) を作成する (Java)](/p/ou6ra65/)
 * [重複順列 (repeated permutation) を作成する (Ruby)](/p/dh49opn/)
 * [組み合わせ (combination) を作成する (C++)](/p/b4n3h59/)
 * [組み合わせ (combination) を作成する (Ruby)](/p/ef785b3/)

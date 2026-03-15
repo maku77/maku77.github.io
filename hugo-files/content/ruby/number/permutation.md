@@ -143,8 +143,8 @@ end
 
 ## 関連記事
 
-* [順列 (permutation) を作成する (Java)](/java/numstr/permutation.html)
-* [順列 (permutation) を作成する (C++)](/cpp/number/permutation.html)
+* [順列 (permutation) を作成する (Java)](/p/ou6ra65/)
+* [順列 (permutation) を作成する (C++)](/p/wwfigmf/)
 * [重複順列 (repeated permutation) を作成する (Ruby)](/p/dh49opn/)
 * [組み合わせ (combination) を作成する (Ruby)](/p/ef785b3/)
-* [組み合わせ (combination) を作成する (C++)](/cpp/number/combination.html)
+* [組み合わせ (combination) を作成する (C++)](/p/b4n3h59/)

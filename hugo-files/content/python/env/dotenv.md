@@ -23,7 +23,7 @@ MYAPP_CONFIG=${HOME}/${MYAPP_USER}/config
 あなたのプログラムが何らかの環境変数を必要としているのであれば、`.env` ファイルによる設定手段も提供しておくと親切です。
 `.env` の仕組みは Python に限ったものではなく、いろいろな言語で採用されています。
 
-- 参考: [Node.js プログラムで .env ファイルを使用する](/nodejs/env/dotenv.html)
+- 参考: [Node.js プログラムで .env ファイルを使用する](/p/6kruhwy/)
 
 
 python-dotenv モジュールのインストール
