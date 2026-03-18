@@ -1,691 +1,224 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb#">
-  
-
-  <meta charset="UTF-8">
-
-
-
-<!-- Google Search Console -->
-<meta name="google-site-verification" content="LhFi5Dhj5KOfXR186QkncucRdBpmVd8B19v-7zcAmlY" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-  <meta name="description" content="天才星人まくのPerlノート">
-
-<meta name="keywords" content="Android,Awk,Best Practice,C/C++,CSS,Docker,Fintech,Git,GitHub,Gradle,HTML5,Java,JavaScript,Middleman,MetaTrader,MT4,MT5,Perforce,Python,Ruby,Sed,Shell Script,Vim">
-
-<!-- You can use open graph tags to customize link previews.
-Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
-<meta property="og:site_name" content="天才まくまくノート" />
-<meta property="og:url"     content="https://maku77.github.io/perl/" />
-<meta property="og:type"    content="website" />
-<meta property="og:image"   content="https://maku77.github.io/assets/img/logo-perl.png" />
-
-  <meta property="og:description" content="天才星人まくのPerlノート">
-
-<meta property="fb:app_id"  content="447708168769292" />
-<meta name="twitter:card" content="summary" />
-
-<link rel="stylesheet" href="/assets/css/default.css">
-<link rel="stylesheet" href="/assets/css/highlight.css">
-
-<!-- Favicons start -->
-  <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="/assets/img/favicon/favicon.ico"/>
-  <!--[if IE]>
-  <link rel="shortcut icon" href="favicon.ico"/>
-  <![endif]-->
-  <!-- Optional: Android & iPhone -->
-  <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon/favicon-152.png"/>
-<!-- Favicons end -->
-
-
-  <!-- Google Ad Manager -->
-  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-<script>
-  window.googletag = window.googletag || {cmd: []};
-  googletag.cmd.push(function() {
-    googletag.defineSlot('/22026661446/maku77-sidebar', [200, 200], 'div-gpt-ad-1590069504630-0').addService(googletag.pubads());
-    googletag.pubads().enableLazyLoad();
-    googletag.enableServices();
-  });
-</script>
-
-
-  <!-- Codoc 投げ銭ライブラリ -->
-  <style>
-/* codoc サポートボタン用スタイル */
-.codoc-support {
-  display: inline-block;
-  margin: 0 !important;
-  padding: 12px !important;
-  width: 400px;
-  max-width: 100%;
-  /* background: gray !important; */
-}
-.codoc-support .codoc-support-title {
-  font-size: smaller !important;
-  white-space: nowrap;
-  margin-bottom: 12px !important;
-}
-.codoc-support .codoc-btn {
-  width: 180px !important;
-}
-</style>
-<script src="https://codoc.jp/js/cms.js" data-css="black" data-usercode="tp6ZPzTj3w" charset="UTF-8" defer></script>
-
-
-  <!-- Google Analytics -->
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-X5962TDYXS');
-</script>
-
-
-
-  <meta property="og:title" content="まくまく Perl ノート | 天才まくまくノート" />
-  <title>まくまく Perl ノート - 天才まくまくノート</title>
-</head>
-<body>
-<div class="xPageHeader">
-  <img src="/assets/img/logo-perl.svg" class="xPageHeader_logo">
-  <h1 class="xPageHeader_titleLarge">まくまくPerlノート</h1>
-</div>
-
-<div id="xBody">
-  
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-
-
-  <div id="xContainer">
-    <div id="xContainer_main">
-      
-
-      <!-- カテゴリ説明文 -->
-      <div class="xCategoryDesc">
-        おそらくもうオワコンな言語、Perl。
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerlノート： Perl&url=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      <div class="xCategoryContent">
-        <div class="xCategoryContent_toc">
-          <div class="xCategoryContent_toc_sticky" id="tocStub">
-          </div>
-        </div>
-        <div class="xCategoryContent_index"><h2 id="perl-ドキュメント">Perl ドキュメント</h2>
-<ul>
-  <li><a href="misc/perldoc.html">Perl のマニュアルページを表示する (perldoc)</a></li>
-  <li><code class="language-plaintext highlighter-rouge">perldoc perl</code> <strong>ドキュメントのリストを表示</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">perldoc XYZ</code>  <strong>XYZ のドキュメント</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">perldoc -f Func</code>  <strong>組み込み関数のドキュメント</strong></li>
-</ul>
-
-<h2 id="構文言語仕様">構文／言語仕様</h2>
-<ul>
-  <li><a href="syntax/logical-operator.html">論理演算子（短絡演算子）を利用したデフォルト値のイディオム</a></li>
-  <li><a href="syntax/integer-literal.html">整数リテラル</a></li>
-  <li><a href="syntax/string-literal.html">文字列リテラル</a></li>
-  <li><a href="syntax/bool.html">ブール値（真偽値）</a></li>
-  <li><a href="syntax/not-and-exclamation.html">not と ! の結合度の違い</a></li>
-  <li><a href="syntax/comparison.html">数値比較と文字列比較</a></li>
-  <li>制御構造
-    <ul>
-      <li><a href="syntax/if.html">if/unless による分岐処理</a></li>
-      <li><a href="syntax/while.html">while/until によるループ処理</a></li>
-      <li><a href="syntax/for.html">for/foreach によるループ処理</a></li>
-    </ul>
-  </li>
-  <li><a href="syntax/error.html">エラー変数 $! について</a></li>
-  <li><a href="syntax/undef-defined.html">undef と defined 演算子</a></li>
-  <li><a href="syntax/require.html">require で別ファイル（ライブラリ）をインクルードする</a></li>
-  <li><a href="syntax/namespace.html">パッケージによる名前空間の設定 (package, our)</a></li>
-  <li><a href="syntax/change-current-package.html">一時的にカレントパッケージを変更する</a></li>
-  <li><a href="syntax/constant.html">定数を定義する（constant プラグマ）</a></li>
-  <li><a href="syntax/reference-lifetime.html">リファレンス先のデータの生存期間</a></li>
-</ul>
-
-<h2 id="配列とリスト">配列とリスト</h2>
-<ul>
-  <li><a href="list/define-array-list.html">配列とリストを定義する</a></li>
-  <li><a href="list/get-array-size.html">配列のサイズを取得する</a></li>
-  <li><a href="list/shorten-array.html">配列のサイズを切り詰める</a></li>
-  <li><a href="list/undef.html">配列の範囲外アクセス</a></li>
-  <li><a href="list/get-last-element.html">配列の末尾の要素を取得する</a></li>
-  <li><a href="list/push-unshift.html">配列に要素を追加する／取り出す</a></li>
-  <li><a href="list/print-array.html">配列の要素を print で出力する</a></li>
-  <li><a href="list/loop-array.html">配列の要素をループで処理する</a></li>
-  <li><a href="list/copy-array.html">配列をコピーする</a></li>
-  <li><a href="list/concat-array.html">配列を連結する</a></li>
-  <li><a href="list/list-substitution.html">リスト代入</a></li>
-  <li><a href="list/grep-list.html">grep 演算子によるリスト要素のフィルタリング</a></li>
-  <li><a href="list/grep-count.html">条件に一致するリスト要素の数を調べる</a></li>
-  <li><a href="list/map-list.html">map 演算子を使ってリストの各要素を加工したリストを取得する</a></li>
-  <li><a href="list/list-slice.html">リストスライス、配列スライス、ハッシュスライス</a></li>
-  <li><a href="list/reference.html">配列へのリファレンスを取得する</a></li>
-  <li><a href="list/two-dimensional-array.html">配列の配列（二次元配列）を作成する</a></li>
-  <li><a href="list/sort-array.html">配列やリストをソートする</a></li>
-  <li><a href="list/misc.html">配列の添え字に小数を指定するとどうなるか？</a></li>
-  <li><a href="list/anonymous-array.html">無名配列コンストラクタ／無名ハッシュコンストラクタ</a></li>
-</ul>
-
-<h2 id="ハッシュ">ハッシュ</h2>
-<ul>
-  <li><a href="hash/define-hash.html">ハッシュを定義する</a></li>
-  <li><a href="hash/create-hash-by-map.html">キーのリストからハッシュを作成する</a></li>
-  <li><a href="hash/hash-key-value-list.html">ハッシュのキーや値のリストを取得する</a></li>
-  <li><a href="hash/check-if-hash-is-empty.html">ハッシュが空かどうか調べる</a></li>
-  <li><a href="hash/get-hash-size.html">ハッシュのサイズを取得する</a></li>
-  <li><a href="hash/copy-hash.html">ハッシュをコピーする</a></li>
-  <li><a href="hash/loop-hash.html">ハッシュの要素をループで処理する</a></li>
-  <li><a href="hash/sort-hash.html">ハッシュをソートする</a></li>
-  <li><a href="hash/check-key.html">ハッシュのキーが存在するか調べる</a></li>
-  <li><a href="hash/remove-key.html">ハッシュからキーを削除する</a></li>
-  <li><a href="hash/clear-hash.html">ハッシュを空にする（ハッシュの要素をすべて削除する）</a></li>
-  <li><a href="hash/expand-hash-to-list.html">ハッシュをリストに展開する</a></li>
-  <li><a href="hash/save-hash-into-file.html">ハッシュをファイルに保存する（DBMハッシュ）</a></li>
-  <li><a href="hash/reference-to-hash.html">ハッシュへのリファレンスを取得する</a></li>
-  <li><a href="hash/merge-hash.html">2 つのハッシュを合成する</a></li>
-  <li><a href="hash/history-of-name.html">（コラム）ハッシュと連想配列</a></li>
-</ul>
-
-<h2 id="サブルーチン">サブルーチン</h2>
-<ul>
-  <li><a href="subroutine/basic.html">サブルーチンの基本</a></li>
-  <li><a href="subroutine/variable-length-arguments.html">サブルーチンを可変長引数に対応させる</a></li>
-  <li><a href="subroutine/want-array.html">サブルーチンがリストコンテキストで呼び出されたか調べる</a></li>
-  <li><a href="subroutine/use-die-instead-of-exit.html">サブルーチン内では exit を使わずに die を使う</a></li>
-  <li><a href="subroutine/call-by-reference.html">サブルーチンの引数をリファレンスで渡す（参照渡し）</a></li>
-  <li><a href="subroutine/reference-to-subroutine.html">サブルーチンへのリファレンスを取得する</a></li>
-  <li><a href="subroutine/anonymous-subroutine.html">無名サブルーチンを定義する</a></li>
-</ul>
-
-<h2 id="モジュール">モジュール</h2>
-<ul>
-  <li><a href="module/import-module.html">use によるモジュールのインポート</a></li>
-  <li><a href="module/use-lib.html">モジュールの検索パスを追加する（use lib プラグマ）</a></li>
-  <li><a href="module/create-module.html">インポート可能なモジュールを作成する</a></li>
-  <li><a href="module/module-template.html">ディストリビューション用のテンプレートファイルを作成する (h2xs)</a></li>
-  <li><a href="module/cpan-readme.html">CPAN に登録されたディストリビューションの README ファイルを表示する</a></li>
-  <li><a href="module/install-directory.html">指定したディレクトリにモジュールをインストールする</a></li>
-  <li><a href="module/pod.html">POD フォーマットについて</a></li>
-</ul>
-
-<h2 id="クラスオブジェクト">クラス／オブジェクト</h2>
-<ul>
-  <li>マニュアルは <code class="language-plaintext highlighter-rouge">perldoc perlobj</code> で</li>
-  <li><a href="class/constructor.html">コンストラクタを定義する</a></li>
-  <li><a href="class/member.html">メンバ変数とメンバメソッドを定義する</a></li>
-  <li><a href="class/inherit.html">クラスを継承する</a></li>
-  <li><a href="class/destructor.html">デストラクタを定義する</a></li>
-  <li><a href="class/undef.html">オブジェクトを明示的に破棄する</a></li>
-  <li><a href="class/hybrid-method.html">クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する</a></li>
-  <li><a href="class/bulk-instantiation.html">複数のオブジェクトを一度に作成する</a></li>
-  <li><a href="class/universal.html">すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する</a></li>
-  <li><a href="class/check-inheritance.html">あるクラスを継承しているかどうか調べる</a></li>
-  <li><a href="class/check-method-existence.html">あるメソッドが存在するか調べる</a></li>
-</ul>
-
-<h2 id="文字列正規表現">文字列／正規表現</h2>
-
-<h3 id="基本的な文字列処理">基本的な文字列処理</h3>
-<ul>
-  <li><a href="string/concat.html">文字列を結合する (.)</a></li>
-  <li><a href="string/repeat.html">ある文字列を繰り返した文字列を作成する (x)</a></li>
-  <li><a href="string/expand-array.html">文字列リテラルの中で配列を展開する</a></li>
-  <li><a href="string/split.html">文字列をデリミタで分割する (split)</a></li>
-  <li><a href="string/split-into-chars.html">文字列を１文字ずつに分割する (split)</a></li>
-  <li><a href="string/join.html">リスト要素を結合して１つの文字列にする (join)</a></li>
-  <li><a href="string/chomp.html">文字列の末尾の改行を取り除く (chomp)</a></li>
-  <li><a href="string/index-rindex.html">部分文字列の位置を検索する (index, rindex)</a></li>
-  <li><a href="string/quote-char.html">文字列リテラルを囲むクォート文字に任意の記号を使用する</a></li>
-</ul>
-
-<h3 id="マッチングと抽出">マッチングと抽出</h3>
-<ul>
-  <li><a href="string/basics-of-regexp.html">正規表現による文字列マッチングの基本</a></li>
-  <li><a href="string/greedy-match.html">欲張りな量指定子と欲張りでない量指定子による文字列マッチング</a></li>
-  <li><a href="string/ignore-case.html">大文字と小文字を区別しない文字列マッチング</a></li>
-  <li><a href="string/multi-line-match.html">行をまたいだ文字列マッチング</a></li>
-  <li><a href="string/extract.html">正規表現パターンにマッチした部分文字列を抜き出す</a></li>
-  <li><a href="string/substr.html">インデックス指定で文字列を抜き出す (substr)</a></li>
-  <li><a href="string/indented-lines.html">サンプル: インデントされた行、インデントされていない行を抜き出す</a></li>
-</ul>
-
-<h3 id="置換">置換</h3>
-<ul>
-  <li><a href="string/replace-string.html">文字列を置換する</a></li>
-  <li><a href="string/replace-char.html">文字単位で置換する</a></li>
-  <li><a href="string/replace-case.html">大文字と小文字を置換する</a></li>
-  <li><a href="string/replace-by-index.html">インデックス指定で文字列を置換する (substr)</a></li>
-  <li><a href="string/number-with-comma.html">サンプル: 数値を３桁ごとにカンマを入れて表示する</a></li>
-  <li><a href="string/remove-comments.html">サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する</a></li>
-</ul>
-
-<h3 id="応用">応用</h3>
-<ul>
-  <li><a href="string/text-wrap.html">テキストの折り返し（改行）処理を自動で行う (Text::Wrap)</a></li>
-</ul>
-
-<h2 id="入出力-io">入出力 (I/O)</h2>
-<ul>
-  <li><a href="io/printf.html">printf のフォーマット出力を使いこなす</a></li>
-  <li><a href="io/read-from-stdio.html">標準入力を読み込む (STDIN)</a></li>
-  <li><a href="io/diamond-operator.html">ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する</a></li>
-  <li><a href="io/store.html">変数の内容をファイルに保存する／復元する</a></li>
-</ul>
-
-<h2 id="ファイルディレクトリ">ファイル・ディレクトリ</h2>
-<ul>
-  <li><a href="file/basic.html">ファイルのオープン・クローズと読み書きの基本</a></li>
-  <li><a href="file/autodie.html">ファイルがオープンできないとき自動で終了する（autodie プラグマ）</a></li>
-  <li><a href="file/glob.html">グロブよってファイル名のリストを取得する (glob)</a></li>
-  <li><a href="file/readdir.html">ディレクトリハンドルによってファイル名のリストを取得する (readdir)</a></li>
-  <li><a href="file/find.html">指定したディレクトリ以下のファイルを列挙する (find)</a></li>
-  <li><a href="file/mkdir.html">ディレクトリを作成する</a></li>
-  <li><a href="file/unlink-rmdir.html">ファイル・ディレクトリを削除する (unlink, rmdir)</a></li>
-  <li><a href="file/rename.html">ファイル名を変更する (rename)</a></li>
-  <li><a href="file/move.html">ファイルを移動する (rename)</a></li>
-  <li><a href="file/copy.html">ファイルをコピーする (copy)</a></li>
-  <li><a href="file/dir-size.html">ディレクトリ内のファイルの合計サイズを調べる</a></li>
-  <li><a href="file/in-place-editing.html">読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）</a></li>
-  <li><a href="file/embed-data.html">スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）</a></li>
-  <li><a href="file/redirect-stdout.html">標準出力 (STDOUT) の出力先をファイルに切り替える</a></li>
-  <li><a href="file/config.html">Config ファイル（key=value という行形式のファイル）を読み込むサンプル</a></li>
-  <li>ファイルテスト
-    <ul>
-      <li><a href="file/exist.html">ファイルが存在するかどうか調べる (if -e)</a></li>
-      <li><a href="file/last-mod.html">ファイルがしばらく更新されていないかどうか調べる (if -M)</a></li>
-      <li><a href="file/size.html">ファイルサイズを調べる (-s)</a></li>
-      <li><a href="file/find-text-files.html">ファイルがテキストファイルかどうか調べる (-T)</a></li>
-    </ul>
-  </li>
-  <li>パス
-    <ul>
-      <li><a href="file/cwd.html">カレントディレクトリのパスを取得する (cwd)</a></li>
-      <li><a href="file/chdir.html">カレントディレクトリを変更する (chdir)</a></li>
-      <li><a href="file/basename.html">フルパス（絶対パス）からファイル名やディレクトリ名を抽出する (basename, dirname)</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="プロセス">プロセス</h2>
-<ul>
-  <li><a href="process/fork.html">fork で子プロセスを作成する</a></li>
-  <li><a href="process/kill.html">あるプロセス ID のプロセスがまだ生きているかを確認する (kill)</a></li>
-  <li><a href="process/sigint.html">SIGINT シグナル (Ctrl-C) をハンドリングする</a></li>
-  <li><a href="process/pipe.html">子プロセス（外部プログラム）への入出力を取り込む（パイプ）</a></li>
-  <li><a href="process/backquote.html">子プロセス（外部プログラム）の出力を取り込む（バッククォート文字列）</a></li>
-</ul>
-
-<h2 id="その他">その他</h2>
-<ul>
-  <li><a href="misc/command-line-params.html">プログラムの起動パラメータ (-t filename) などを処理する</a></li>
-  <li><a href="misc/script-encoding.html">Perl スクリプトのエンコーディングを指定する</a></li>
-  <li><a href="misc/run-on-windows.html">Perl スクリプトが Windows で実行されているか調べる</a></li>
-  <li><a href="misc/var-prefix.html">Perl のスカラ変数と配列に $, @ というプレフィックスを付ける理由</a></li>
-  <li><a href="misc/env.html">環境変数を参照する (%ENV)</a></li>
-  <li><a href="misc/localtime.html">現在の日時を文字列で取得する (localtime, gmtime)</a></li>
-  <li><a href="misc/imgsize.html">画像ファイルの幅、高さを調べる (Image::Size)</a></li>
-  <li><a href="misc/getpwnam.html">ユーザー名、グループ名からユーザ ID、グループ ID を取得する (getpwnam, getgrnam)</a></li>
-  <li><a href="misc/make.html">現在の環境で使用可能な make ユーティリティの名前を確認する</a></li>
-  <li>デバッグ
-    <ul>
-      <li><a href="misc/dumper.html">Data::Dumper で複雑なデータをダンプする</a></li>
-      <li><a href="misc/debugger.html">Perl のデバッガを使用する</a></li>
-      <li><a href="misc/test-module.html">Perl で使用可能なテストモジュール</a></li>
-      <li><a href="misc/diagnostics.html">一時的にエラーメッセージを詳しくする（diagnostics プラグマ）</a></li>
-    </ul>
-  </li>
-</ul>
-
-</div>
-      </div>
-
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-
-
-
-<ul class="xSnsButtons">
-  <!-- Twitter -->
-  <li class="xSnsButtons_twitter">
-    <a rel="nofollow" href="https://twitter.com/share?text=まくまくPerlノート： Perl&url=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'tweet_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-twitter"></i><span class="xSnsButtons_label">ツイート</span>
-    </a>
-  </li>
-
-  <!-- Facebook -->
-  <li class="xSnsButtons_facebook">
-    <a rel="nofollow" href="https://www.facebook.com/share.php?u=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'facebook_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-facebook-square"></i><span class="xSnsButtons_label">シェア</span>
-    </a>
-  </li>
-
-  <!-- Pocket -->
-  <li class="xSnsButtons_pocket">
-    <a rel="nofollow" href="https://getpocket.com/edit?url=https://maku77.github.io/perl/"
-        onclick="window.open(encodeURI(decodeURI(this.href)), 'pocket_window',
-        'width=600, height=470, toolbar=no, scrollbars=yes, resizable=yes'); return false;">
-      <i class="fa fa-get-pocket"></i><span class="xSnsButtons_label">Pocket</span>
-    </a>
-  </li>
-</ul>
-
-
-
-      
-        <div class="xWidget"><!-- Rakuten Widget FROM HERE -->
-<script>
-  /* レスポンシブデザインもどき */
-  var SIDEBAR_HIDE_THRESHOLD = 800;
-  var SIDEBAR_WIDTH = 250;
-  var OFFSET = 10;
-  var w = window.innerWidth;
-  if (w >= SIDEBAR_HIDE_THRESHOLD) {
-    w -= SIDEBAR_WIDTH;
-  }
-  w -= OFFSET;
-
-  if (w >= 728) {
-    rakuten_size="728x200";
-  } else if (w >= 600) {
-    rakuten_size="600x200";
-  } else if (w >= 468) {
-    rakuten_size="468x160";
-  } else if (w >= 336) {
-    rakuten_size="336x280";
-  } else if (w >= 300) {
-    rakuten_size="300x250";
-  } else if (w >= 250) {
-    rakuten_size="250x250";
-  } else {
-    rakuten_size="200x350";
-  }
-
-  rakuten_design="slide";
-  rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e";
-  rakuten_items="ctsmatch";
-  rakuten_genreId=0;
-  rakuten_target="_blank";
-  rakuten_theme="gray";
-  rakuten_border="off";
-  rakuten_auto_mode="on";
-  rakuten_genre_title="off";
-  rakuten_recommend="on";
-  rakuten_txtColor="333333";
-  rakuten_moverColor="30C030";
-  rakuten_bgColor="FFFFFF";
-  rakuten_captionColor="333333";
-</script>
-<script src="https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js"></script>
-<!-- Rakuten Widget TO HERE -->
-
-</div>
-      
-    </div>
-    <div id="xContainer_sidebar"><style>
-.local-logo {
-  position: relative;
-  border: none;
-  background: none;
-}
-.local-logo img {
-  width: 100%;
-  vertical-align: bottom;
-  border: none;
-  border-radius: 15px;
-}
-.local-logo figcaption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12pt;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px 15px 0 0;
-}
-</style>
-
-<div id="xContainer_sidebar_notFixed">
-  <div data-sticky><nav class="xNav">
-  <div class="xNav_header">カテゴリ一覧</div>
-  <ul>
-        <li><a href="/memo/">いろいろ</a>
-        <li><a href="/android/">Android</a>
-        <li><a href="/ansible/">Ansible</a>
-        <li><a href="/blender/">Blender</a>
-        <li><a href="/cpp/">C/C++</a>
-        <li><a href="/docker/">Docker</a>
-        <li><a href="/git/">Git</a>
-        <li><a href="/go/">Go言語</a>
-        <li><a href="/gradle/">Gradle</a>
-        <li><a href="/web/">HTML/CSS</a>
-        <li><a href="/hugo/">Hugo</a>
-        <li><a href="/java/">Java</a>
-        <li><a href="/js/">JavaScript</a>
-        <li><a href="/kotlin/">Kotlin</a>
-        <li><a href="/linux/">Linux/Shell</a>
-        <li><a href="/middleman/">Middleman</a>
-        <li><a href="/nodejs/">Node.js</a>
-        <li><a href="/octave/">Octave</a>
-        <li><a href="/p4/">Perforce</a>
-        <li class="xNav-focused"><a href="/perl/">Perl</a>
-        <li><a href="/php/">PHP</a>
-        <li><a href="/python/">Python</a>
-        <li><a href="/r/">R</a>
-        <li><a href="/ruby/">Ruby</a>
-        <li><a href="/rust/">Rust</a>
-        <li><a href="/sass/">Sass</a>
-        <li><a href="/sed/">sed/awk</a>
-        <li><a href="/sql/">SQL</a>
-        <li><a href="/tradestation/">トレードステーション</a>
-        <li><a href="/vagrant/">Vagrant</a>
-        <li><a href="/vba/">VBA</a>
-        <li><a href="/vim/">Vim</a>
-        <li><a href="/windows/">Windows</a>
-  </ul>
-</nav>
-
-</div>
-
-  
-    <div data-sticky class="xContainer_sidebar_ad">
-      <div style="text-align: right">
-  <div id="codoc-entry-4gYwTntzzw" class="codoc-entries" data-without-body="1" data-support-button-text="（っ&#039;-&#039;)╮シュッ=͟͟͞͞ 💵" data-show-like="0" data-show-about-codoc="0" data-show-powered-by="0" data-support-message="まくに投げ銭できます。"></div>
-</div>
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- まくノート_サイド矩形 (200x200) -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:200px;height:200px"
-     data-ad-client="ca-pub-6317852277883092"
-     data-ad-slot="4284289561"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-
-    </div>
-    <div data-sticky class="xContainer_sidebar_ad">
-      <!-- /22026661446/maku77-sidebar -->
-<div id='div-gpt-ad-1590069504630-0' style='width: 200px; height: 200px;'>
-  <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1590069504630-0'); });
-  </script>
-</div>
-
-    </div>
-  
-
-  <div data-sticky class="xContainer_sidebar_ad">
-    <a href="/">
-      <figure class="local-logo">
-        <img src="/assets/img/kuma_inu.jpg">
-        <figcaption>天才まくまくノート</figcaption>
-      </figure>
-    </a>
-  </div>
-
-  <div data-sticky><form action="https://www.google.co.jp/cse" id="cse-search-box">
-  <div class="xSearchBar">
-    <input type="hidden" name="cx" value="partner-pub-6317852277883092:5930376365" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input class="xSearchBar_text" type="search" name="q" placeholder="ノートを検索できます…" size="55" results="5" autocomplete="off" /><input class="xSearchBar_button" type="submit" name="sa" value="&#128269; 検索 " />
-  </div>
-</form>
-
-</div>
-</div>
-<div id="xContainer_sidebar_fixed"></div>
-
-</div>
-  </div>
-
-  <!-- <div class="xPageFooter"> -->
-    
-
-<div class="xBreadCrumbContainer">
-  <div class="xBreadCrumb"><a href="/">&#x1F3E0;HOME</a></div>
-  <div class="xPageDate"></div>
-</div>
-
-  <!-- </div> -->
-</div>
-
-  <!-- MathJax -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/javascript" src="/assets/js/fix-sidebar.js"></script>
-
-<!-- maku-common.js -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const content = document.querySelectorAll('.xContent');
-
-  content.forEach(function(item) {
-    // 外部リンクを必ず新しいタブで開く
-    const externalLinks = item.querySelectorAll('a[href^="http"]');
-    externalLinks.forEach(function(link) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener');
-    });
-
-    // 外部リンクにクラス属性を付加する
-    const nonImageExternalLinks = item.querySelectorAll('a[href^="http"]:not(:has(img))');
-    nonImageExternalLinks.forEach(function(link) {
-      link.classList.add('xExternalLinkIcon');
-    });
-  });
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  /*
-   * 指定されたヘッダ要素（例: 'h2'）のタイトル名をもとに
-   * メニュー要素 (ul) を生成する。
-   *
-   * - searchParent: この要素以下のヘッダ要素を抽出する（例: '#content'）
-   * - headerTagNames: 抽出するヘッダ要素名（例: 'h2, h3, h4'）
-   */
-  function createMenu(searchParent, headerTagNames) {
-    const ul = document.createElement('ul');  // メニュー項目の親要素
-    let sectionNumber = 1;  // ジャンプ先名称のサフィックス
-
-    document.querySelectorAll(`${searchParent} ${headerTagNames}`).forEach((header) => {
-      // ジャンプ先となる a 要素を追加する（name 属性も自動生成）
-      const name = `section${sectionNumber++}`;
-      const anchor = document.createElement('a');
-      anchor.setAttribute('name', name);
-      header.prepend(anchor);
-
-      // メニュー項目となる li 要素を追加する
-      const level = header.tagName.charAt(1);  // 'h2' などの後ろの数値部分
-      const li = document.createElement('li');
-      li.classList.add(`level-${level}`);
-
-      const link = document.createElement('a');
-      link.setAttribute('href', `#${name}`);
-      link.textContent = header.textContent.trim();
-
-      li.appendChild(link);
-      ul.appendChild(li);
-    });
-
-    return ul;
-  }
-
-  // main 要素以下の見出し要素を抽出して、メニュー (ul 要素) を自動生成し、
-  // その ul 要素を #tocStub へと挿入する。
-  const menuElem = createMenu('.xCategoryContent_index', 'h1, h2, h3');
-  document.getElementById('tocStub').appendChild(menuElem);
-});
-</script>
-
-</body>
-</html>
-
+<!doctype html><html lang=ja-jp><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>まくまく Perl ノート - 天才まくまくノート</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5962TDYXS"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-X5962TDYXS")</script><link rel=icon sizes="16x16 32x32 48x48 64x64" href=../assets/img/favicon/favicon.ico><link rel=icon sizes=192x192 href=../assets/img/favicon/192x192.png><link rel=apple-touch-icon href=../assets/img/favicon/180x180.png><meta name=twitter:card content="summary"><meta property="og:site_name" content="天才まくまくノート"><meta property="og:title" content="Perl"><meta property="og:type" content="article"><meta property="og:url" content="https://maku77.github.io/perl/"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://maku77.github.io/img/site-logo.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:description" content="Perl ドキュメント
+
+Perl のマニュアルページを表示する (perldoc)
+
+perldoc perl ドキュメントのリストを表示
+perldoc XYZ  XYZ のドキュメント
+perldoc -f Func  組み込み関数のドキュメント
+
+
+
+構文／言語仕様
+
+論理演算子（短絡演算子）を利用したデフォルト値のイディオム
+整数リテラル
+文字列リテラル
+ブール値（真偽値）
+not と ! の結合度の違い
+数値比較と文字列比較
+制御構造
+
+if/unless による分岐処理
+while/until によるループ処理
+for/foreach によるループ処理
+
+
+エラー変数 $! について
+undef と defined 演算子
+require で別ファイル（ライブラリ）をインクルードする
+パッケージによる名前空間の設定 (package, our)
+一時的にカレントパッケージを変更する
+定数を定義する（constant プラグマ）
+リファレンス先のデータの生存期間
+
+配列とリスト
+
+配列とリストを定義する
+配列のサイズを取得する
+配列のサイズを切り詰める
+配列の範囲外アクセス
+配列の末尾の要素を取得する
+配列に要素を追加する／取り出す
+配列の要素を print で出力する
+配列の要素をループで処理する
+配列をコピーする
+配列を連結する
+リスト代入
+grep 演算子によるリスト要素のフィルタリング
+条件に一致するリスト要素の数を調べる
+map 演算子を使ってリストの各要素を加工したリストを取得する
+リストスライス、配列スライス、ハッシュスライス
+配列へのリファレンスを取得する
+配列の配列（二次元配列）を作成する
+配列やリストをソートする
+配列の添え字に小数を指定するとどうなるか？
+無名配列コンストラクタ／無名ハッシュコンストラクタ
+
+ハッシュ
+
+ハッシュを定義する
+キーのリストからハッシュを作成する
+ハッシュのキーや値のリストを取得する
+ハッシュが空かどうか調べる
+ハッシュのサイズを取得する
+ハッシュをコピーする
+ハッシュの要素をループで処理する
+ハッシュをソートする
+ハッシュのキーが存在するか調べる
+ハッシュからキーを削除する
+ハッシュを空にする（ハッシュの要素をすべて削除する）
+ハッシュをリストに展開する
+ハッシュをファイルに保存する（DBMハッシュ）
+ハッシュへのリファレンスを取得する
+2 つのハッシュを合成する
+（コラム）ハッシュと連想配列
+
+サブルーチン
+
+サブルーチンの基本
+サブルーチンを可変長引数に対応させる
+サブルーチンがリストコンテキストで呼び出されたか調べる
+サブルーチン内では exit を使わずに die を使う
+サブルーチンの引数をリファレンスで渡す（参照渡し）
+サブルーチンへのリファレンスを取得する
+無名サブルーチンを定義する
+
+モジュール
+
+use によるモジュールのインポート
+モジュールの検索パスを追加する（use lib プラグマ）
+インポート可能なモジュールを作成する
+ディストリビューション用のテンプレートファイルを作成する (h2xs)
+CPAN に登録されたディストリビューションの README ファイルを表示する
+指定したディレクトリにモジュールをインストールする
+POD フォーマットについて
+
+クラス／オブジェクト
+
+マニュアルは perldoc perlobj で
+コンストラクタを定義する
+メンバ変数とメンバメソッドを定義する
+クラスを継承する
+デストラクタを定義する
+オブジェクトを明示的に破棄する
+クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する
+複数のオブジェクトを一度に作成する
+すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する
+あるクラスを継承しているかどうか調べる
+あるメソッドが存在するか調べる
+
+文字列／正規表現
+基本的な文字列処理
+
+文字列を結合する (.)
+ある文字列を繰り返した文字列を作成する (x)
+文字列リテラルの中で配列を展開する
+文字列をデリミタで分割する (split)
+文字列を１文字ずつに分割する (split)
+リスト要素を結合して１つの文字列にする (join)
+文字列の末尾の改行を取り除く (chomp)
+部分文字列の位置を検索する (index, rindex)
+文字列リテラルを囲むクォート文字に任意の記号を使用する
+
+マッチングと抽出
+
+正規表現による文字列マッチングの基本
+欲張りな量指定子と欲張りでない量指定子による文字列マッチング
+大文字と小文字を区別しない文字列マッチング
+行をまたいだ文字列マッチング
+正規表現パターンにマッチした部分文字列を抜き出す
+インデックス指定で文字列を抜き出す (substr)
+サンプル: インデントされた行、インデントされていない行を抜き出す
+
+置換
+
+文字列を置換する
+文字単位で置換する
+大文字と小文字を置換する
+インデックス指定で文字列を置換する (substr)
+サンプル: 数値を３桁ごとにカンマを入れて表示する
+サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する
+
+応用
+
+テキストの折り返し（改行）処理を自動で行う (Text::Wrap)
+
+入出力 (I/O)
+
+printf のフォーマット出力を使いこなす
+標準入力を読み込む (STDIN)
+ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する
+変数の内容をファイルに保存する／復元する
+
+ファイル・ディレクトリ
+
+ファイルのオープン・クローズと読み書きの基本
+ファイルがオープンできないとき自動で終了する（autodie プラグマ）
+グロブよってファイル名のリストを取得する (glob)
+ディレクトリハンドルによってファイル名のリストを取得する (readdir)
+指定したディレクトリ以下のファイルを列挙する (find)
+ディレクトリを作成する
+ファイル・ディレクトリを削除する (unlink, rmdir)
+ファイル名を変更する (rename)
+ファイルを移動する (rename)
+ファイルをコピーする (copy)
+ディレクトリ内のファイルの合計サイズを調べる
+読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）
+スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）
+標準出力 (STDOUT) の出力先をファイルに切り替える
+Config ファイル（key=value という行形式のファイル）を読み込むサンプル
+ファイルテスト
+
+ファイルが存在するかどうか調べる (if -e)
+ファイルがしばらく更新されていないかどうか調べる (if -M)
+ファイルサイズを調べる (-s)
+ファイルがテキストファイルかどうか調べる (-T)
+
+
+パス
+
+カレントディレクトリのパスを取得する (cwd)
+カレントディレクトリを変更する (chdir)
+フルパス（絶対パス）からファイル名やディレクトリ名を抽出する (basename, dirname)
+
+
+
+プロセス
+
+fork で子プロセスを作成する
+あるプロセス ID のプロセスがまだ生きているかを確認する (kill)
+SIGINT シグナル (Ctrl-C) をハンドリングする
+子プロセス（外部プログラム）への入出力を取り込む（パイプ）
+子プロセス（外部プログラム）の出力を取り込む（バッククォート文字列）
+
+その他
+
+プログラムの起動パラメータ (-t filename) などを処理する
+Perl スクリプトのエンコーディングを指定する
+Perl スクリプトが Windows で実行されているか調べる
+Perl のスカラ変数と配列に $, @ というプレフィックスを付ける理由
+環境変数を参照する (%ENV)
+現在の日時を文字列で取得する (localtime, gmtime)
+画像ファイルの幅、高さを調べる (Image::Size)
+ユーザー名、グループ名からユーザ ID、グループ ID を取得する (getpwnam, getgrnam)
+現在の環境で使用可能な make ユーティリティの名前を確認する
+デバッグ
+
+Data::Dumper で複雑なデータをダンプする
+Perl のデバッガを使用する
+Perl で使用可能なテストモジュール
+一時的にエラーメッセージを詳しくする（diagnostics プラグマ）
+
+
+"><meta property="fb:app_id" content="447708168769292"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6317852277883092" crossorigin=anonymous></script><link rel=stylesheet href=../css/mm/all.min.03f769de5588c124e5b7baaab243e1f44bc5ccf6139987424d26c43c9491512f.css><link rel=stylesheet href=../css/all.min.a1be5c135c2d519bef49b4b099f4964b99ee878b81b26e9bac24497d0a73c31f.css></head><body><div class=l-pageHeader><header class=header><a href=./><img class=header__icon src=../perl/_index.svg><div class=header__right><div class=header__categoryTitle><a href=./>まくまく Perl ノート</a></div></div></a></header></div><div class=l-withSidebar><div class=l-withSidebar__sidebarLeft><style>#tocStub{position:-webkit-sticky;position:sticky;top:2rem;margin-top:2rem;line-height:1.5;max-height:calc(100vh - 4rem);overflow-y:auto;-webkit-overflow-scrolling:touch}#tocStub ul{font-size:.9em;list-style:none;padding:0;border-top:solid 1px #ccc}#tocStub li{border:solid 1px #ccc;border-right:none;margin-top:-1px}#tocStub a{color:#666;padding:.6em .3em .6em .5em;display:block;text-decoration:none;font-weight:400}.level-2{margin-left:.8em}.level-3{padding-left:1.6em}</style><div id=tocStub></div><script>document.addEventListener("DOMContentLoaded",()=>{function e(e){const t=document.createElement("a");return t.setAttribute("id",e),t}function t(t,n){n.parentNode.insertBefore(e(t),n)}function n(e,t,n){const s=document.createElement("li");return s.classList.add("level-"+e),s.innerHTML='<a href="#'+t+'">'+n+"</a>",s}function s(){const e=document.createElement("ul");return document.querySelectorAll("h2, h3").forEach((s,o)=>{const i="section-"+o;t(i,s);const a=s.tagName.charAt(1)-1;e.appendChild(n(a,i,s.textContent))}),e}document.getElementById("tocStub").appendChild(s())})</script></div><div class=l-withSidebar__content><article class=article itemscope itemtype=https://schema.org/BlogPosting><div class=article__header><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../perl/>まくまく Perl ノート</a></div><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fperl%2f&text=Perl%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fperl%2f&title=Perl%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div></div><div class="article__body article__body-categoryIndex"><h2 id=perl-ドキュメント>Perl ドキュメント</h2><ul><li><a href=../p/dste2y2/>Perl のマニュアルページを表示する (<code>perldoc</code>)</a><ul><li><code>perldoc perl</code> <strong>ドキュメントのリストを表示</strong></li><li><code>perldoc XYZ</code> <strong>XYZ のドキュメント</strong></li><li><code>perldoc -f Func</code> <strong>組み込み関数のドキュメント</strong></li></ul></li></ul><h2 id=構文言語仕様>構文／言語仕様</h2><ul><li><a href=../p/bxbkr73/>論理演算子（短絡演算子）を利用したデフォルト値のイディオム</a></li><li><a href=../p/odkjcav/>整数リテラル</a></li><li><a href=../p/erb3zxo/>文字列リテラル</a></li><li><a href=../p/cyusiqk/>ブール値（真偽値）</a></li><li><a href=../p/pvwhy8o/>not と ! の結合度の違い</a></li><li><a href=../p/h428fen/>数値比較と文字列比較</a></li><li>制御構造<ul><li><a href=../p/pevn2x9/>if/unless による分岐処理</a></li><li><a href=../p/ewaaw5v/>while/until によるループ処理</a></li><li><a href=../p/8pod578/>for/foreach によるループ処理</a></li></ul></li><li><a href=../p/ajxtxck/>エラー変数 <code>$!</code> について</a></li><li><a href=../p/xejhgi3/><code>undef</code> と <code>defined</code> 演算子</a></li><li><a href=../p/zanj67e/><code>require</code> で別ファイル（ライブラリ）をインクルードする</a></li><li><a href=../p/wehh6tg/>パッケージによる名前空間の設定 (<code>package</code>, <code>our</code>)</a></li><li><a href=../p/8hrsi9o/>一時的にカレントパッケージを変更する</a></li><li><a href=../p/2o7ed5k/>定数を定義する（<code>constant</code> プラグマ）</a></li><li><a href=../p/xpy57p4/>リファレンス先のデータの生存期間</a></li></ul><h2 id=配列とリスト>配列とリスト</h2><ul><li><a href=../p/ismt8db/>配列とリストを定義する</a></li><li><a href=../p/d4kivqx/>配列のサイズを取得する</a></li><li><a href=../p/53ohuhy/>配列のサイズを切り詰める</a></li><li><a href=../p/c8yzupa/>配列の範囲外アクセス</a></li><li><a href=../p/bwyg8ye/>配列の末尾の要素を取得する</a></li><li><a href=../p/oqbsh76/>配列に要素を追加する／取り出す</a></li><li><a href=../p/zjicw9c/>配列の要素を <code>print</code> で出力する</a></li><li><a href=../p/28j4gcz/>配列の要素をループで処理する</a></li><li><a href=../p/vh8muyh/>配列をコピーする</a></li><li><a href=../p/fv38xbv/>配列を連結する</a></li><li><a href=../p/i3ocxdj/>リスト代入</a></li><li><a href=../p/7bseyy9/><code>grep</code> 演算子によるリスト要素のフィルタリング</a></li><li><a href=../p/x6agdrj/>条件に一致するリスト要素の数を調べる</a></li><li><a href=../p/uthzdgv/><code>map</code> 演算子を使ってリストの各要素を加工したリストを取得する</a></li><li><a href=../p/ngbpikx/>リストスライス、配列スライス、ハッシュスライス</a></li><li><a href=../p/2v4bnem/>配列へのリファレンスを取得する</a></li><li><a href=../p/cwgzyx6/>配列の配列（二次元配列）を作成する</a></li><li><a href=../p/q86maip/>配列やリストをソートする</a></li><li><a href=../p/fzmbbm4/>配列の添え字に小数を指定するとどうなるか？</a></li><li><a href=../p/vvipcax/>無名配列コンストラクタ／無名ハッシュコンストラクタ</a></li></ul><h2 id=ハッシュ>ハッシュ</h2><ul><li><a href=../p/gosz7d8/>ハッシュを定義する</a></li><li><a href=../p/oy6m3hx/>キーのリストからハッシュを作成する</a></li><li><a href=../p/as4ihjp/>ハッシュのキーや値のリストを取得する</a></li><li><a href=../p/v5wrm9m/>ハッシュが空かどうか調べる</a></li><li><a href=../p/vjdyacs/>ハッシュのサイズを取得する</a></li><li><a href=../p/843rd2k/>ハッシュをコピーする</a></li><li><a href=../p/nvpoxup/>ハッシュの要素をループで処理する</a></li><li><a href=../p/f3sh6ti/>ハッシュをソートする</a></li><li><a href=../p/bxoqvc3/>ハッシュのキーが存在するか調べる</a></li><li><a href=../p/428omhu/>ハッシュからキーを削除する</a></li><li><a href=../p/9rv7aw4/>ハッシュを空にする（ハッシュの要素をすべて削除する）</a></li><li><a href=../p/y6hzywa/>ハッシュをリストに展開する</a></li><li><a href=../p/k958im5/>ハッシュをファイルに保存する（DBMハッシュ）</a></li><li><a href=../p/eh5xa2a/>ハッシュへのリファレンスを取得する</a></li><li><a href=../p/qz5asy5/>2 つのハッシュを合成する</a></li><li><a href=../p/job8yee/>（コラム）ハッシュと連想配列</a></li></ul><h2 id=サブルーチン>サブルーチン</h2><ul><li><a href=../p/whkb8an/>サブルーチンの基本</a></li><li><a href=../p/yuh8d75/>サブルーチンを可変長引数に対応させる</a></li><li><a href=../p/zaj6axe/>サブルーチンがリストコンテキストで呼び出されたか調べる</a></li><li><a href=../p/muvh9w2/>サブルーチン内では <code>exit</code> を使わずに <code>die</code> を使う</a></li><li><a href=../p/6ghaq6s/>サブルーチンの引数をリファレンスで渡す（参照渡し）</a></li><li><a href=../p/iqydyhm/>サブルーチンへのリファレンスを取得する</a></li><li><a href=../p/qjckxyq/>無名サブルーチンを定義する</a></li></ul><h2 id=モジュール>モジュール</h2><ul><li><a href=../p/7wd6ife/><code>use</code> によるモジュールのインポート</a></li><li><a href=../p/59ds7i5/>モジュールの検索パスを追加する（<code>use lib</code> プラグマ）</a></li><li><a href=../p/3i77yak/>インポート可能なモジュールを作成する</a></li><li><a href=../p/regytwm/>ディストリビューション用のテンプレートファイルを作成する (<code>h2xs</code>)</a></li><li><a href=../p/d6eici9/>CPAN に登録されたディストリビューションの README ファイルを表示する</a></li><li><a href=../p/796h6t8/>指定したディレクトリにモジュールをインストールする</a></li><li><a href=../p/5moba67/>POD フォーマットについて</a></li></ul><h2 id=クラスオブジェクト>クラス／オブジェクト</h2><ul><li>マニュアルは <code>perldoc perlobj</code> で</li><li><a href=../p/h4dcg5v/>コンストラクタを定義する</a></li><li><a href=../p/9t5fzfp/>メンバ変数とメンバメソッドを定義する</a></li><li><a href=../p/jteeeib/>クラスを継承する</a></li><li><a href=../p/tem46co/>デストラクタを定義する</a></li><li><a href=../p/ug7swo4/>オブジェクトを明示的に破棄する</a></li><li><a href=../p/dti98dt/>クラスメソッドとしてもインスタンスメソッドとしても使えるメソッドを定義する</a></li><li><a href=../p/h475j59/>複数のオブジェクトを一度に作成する</a></li><li><a href=../p/5biaure/>すべてのクラスの親クラスとして振舞う UNIVERSAL パッケージを拡張する</a></li><li><a href=../p/5kmt7se/>あるクラスを継承しているかどうか調べる</a></li><li><a href=../p/qetb5ab/>あるメソッドが存在するか調べる</a></li></ul><h2 id=文字列正規表現>文字列／正規表現</h2><h3 id=基本的な文字列処理>基本的な文字列処理</h3><ul><li><a href=../p/haa5dyd/>文字列を結合する (<code>.</code>)</a></li><li><a href=../p/7yqz5fv/>ある文字列を繰り返した文字列を作成する (<code>x</code>)</a></li><li><a href=../p/8xeishs/>文字列リテラルの中で配列を展開する</a></li><li><a href=../p/vjya5mi/>文字列をデリミタで分割する (<code>split</code>)</a></li><li><a href=../p/76ce72k/>文字列を１文字ずつに分割する (<code>split</code>)</a></li><li><a href=../p/z5ocrbx/>リスト要素を結合して１つの文字列にする (<code>join</code>)</a></li><li><a href=../p/o27ucnb/>文字列の末尾の改行を取り除く (<code>chomp</code>)</a></li><li><a href=../p/uc7yg6g/>部分文字列の位置を検索する (<code>index</code>, <code>rindex</code>)</a></li><li><a href=../p/e7x2jde/>文字列リテラルを囲むクォート文字に任意の記号を使用する</a></li></ul><h3 id=マッチングと抽出>マッチングと抽出</h3><ul><li><a href=../p/42qy6va/>正規表現による文字列マッチングの基本</a></li><li><a href=../p/ok9fz5i/>欲張りな量指定子と欲張りでない量指定子による文字列マッチング</a></li><li><a href=../p/jv5fdik/>大文字と小文字を区別しない文字列マッチング</a></li><li><a href=../p/udznos4/>行をまたいだ文字列マッチング</a></li><li><a href=../p/njyvjbb/>正規表現パターンにマッチした部分文字列を抜き出す</a></li><li><a href=../p/7i3rjrv/>インデックス指定で文字列を抜き出す (<code>substr</code>)</a></li><li><a href=../p/ojyrwvg/>サンプル: インデントされた行、インデントされていない行を抜き出す</a></li></ul><h3 id=置換>置換</h3><ul><li><a href=../p/4u63e9a/>文字列を置換する</a></li><li><a href=../p/b5fidjv/>文字単位で置換する</a></li><li><a href=../p/89rafsf/>大文字と小文字を置換する</a></li><li><a href=../p/5322afv/>インデックス指定で文字列を置換する (<code>substr</code>)</a></li><li><a href=../p/662ksxe/>サンプル: 数値を３桁ごとにカンマを入れて表示する</a></li><li><a href=../p/sjpcor9/>サンプル: スクリプトや設定ファイルのコメント（#以降）を削除する</a></li></ul><h3 id=応用>応用</h3><ul><li><a href=../p/ebjochg/>テキストの折り返し（改行）処理を自動で行う (<code>Text::Wrap</code>)</a></li></ul><h2 id=入出力-io>入出力 (I/O)</h2><ul><li><a href=../p/6cv3nie/><code>printf</code> のフォーマット出力を使いこなす</a></li><li><a href=../p/gkwie5v/>標準入力を読み込む (STDIN)</a></li><li><a href=../p/dix6qok/>ダイヤモンド演算子を使って標準入力とファイルからの入力に対応する</a></li><li><a href=../p/rtrn8jp/>変数の内容をファイルに保存する／復元する</a></li></ul><h2 id=ファイルディレクトリ>ファイル・ディレクトリ</h2><ul><li><a href=../p/fhzy25i/>ファイルのオープン・クローズと読み書きの基本</a></li><li><a href=../p/yggjimh/>ファイルがオープンできないとき自動で終了する（<code>autodie</code> プラグマ）</a></li><li><a href=../p/6byuvs7/>グロブよってファイル名のリストを取得する (<code>glob</code>)</a></li><li><a href=../p/heomivd/>ディレクトリハンドルによってファイル名のリストを取得する (<code>readdir</code>)</a></li><li><a href=../p/74b3oq2/>指定したディレクトリ以下のファイルを列挙する (<code>find</code>)</a></li><li><a href=../p/xipywm6/>ディレクトリを作成する</a></li><li><a href=../p/daue5q2/>ファイル・ディレクトリを削除する (<code>unlink</code>, <code>rmdir</code>)</a></li><li><a href=../p/immphre/>ファイル名を変更する (<code>rename</code>)</a></li><li><a href=../p/o6t5j9k/>ファイルを移動する (<code>rename</code>)</a></li><li><a href=../p/kah7dwo/>ファイルをコピーする (<code>copy</code>)</a></li><li><a href=../p/sg2p7d6/>ディレクトリ内のファイルの合計サイズを調べる</a></li><li><a href=../p/ucsqmtq/>読み込んでいるファイルの内容を直接変更する（書き戻し編集: in-place editing）</a></li><li><a href=../p/y7b26su/>スクリプトの末尾にテキストデータを埋め込む（埋め込みドキュメント）</a></li><li><a href=../p/pgucgep/>標準出力 (STDOUT) の出力先をファイルに切り替える</a></li><li><a href=../p/otkf7pj/>Config ファイル（<code>key=value</code> という行形式のファイル）を読み込むサンプル</a></li><li>ファイルテスト<ul><li><a href=../p/odmfzd5/>ファイルが存在するかどうか調べる (<code>if -e</code>)</a></li><li><a href=../p/45dtqeb/>ファイルがしばらく更新されていないかどうか調べる (<code>if -M</code>)</a></li><li><a href=../p/an7xw2r/>ファイルサイズを調べる (<code>-s</code>)</a></li><li><a href=../p/iikadsk/>ファイルがテキストファイルかどうか調べる (<code>-T</code>)</a></li></ul></li><li>パス<ul><li><a href=../p/gs2vqc6/>カレントディレクトリのパスを取得する (<code>cwd</code>)</a></li><li><a href=../p/xc7nysi/>カレントディレクトリを変更する (<code>chdir</code>)</a></li><li><a href=../p/87vuhso/>フルパス（絶対パス）からファイル名やディレクトリ名を抽出する (<code>basename</code>, <code>dirname</code>)</a></li></ul></li></ul><h2 id=プロセス>プロセス</h2><ul><li><a href=../p/m47kc5g/><code>fork</code> で子プロセスを作成する</a></li><li><a href=../p/4jfmd4w/>あるプロセス ID のプロセスがまだ生きているかを確認する (<code>kill</code>)</a></li><li><a href=../p/8po2yyt/>SIGINT シグナル (Ctrl-C) をハンドリングする</a></li><li><a href=../p/ybtv2ni/>子プロセス（外部プログラム）への入出力を取り込む（パイプ）</a></li><li><a href=../p/dq2iejq/>子プロセス（外部プログラム）の出力を取り込む（バッククォート文字列）</a></li></ul><h2 id=その他>その他</h2><ul><li><a href=../p/4gj2ve4/>プログラムの起動パラメータ (<code>-t filename</code>) などを処理する</a></li><li><a href=../p/3qtdvpc/>Perl スクリプトのエンコーディングを指定する</a></li><li><a href=../p/7oap2mx/>Perl スクリプトが Windows で実行されているか調べる</a></li><li><a href=../p/h8f42su/>Perl のスカラ変数と配列に <code>$</code>, <code>@</code> というプレフィックスを付ける理由</a></li><li><a href=../p/4j5sfnp/>環境変数を参照する (<code>%ENV</code>)</a></li><li><a href=../p/8s3smkq/>現在の日時を文字列で取得する (<code>localtime</code>, <code>gmtime</code>)</a></li><li><a href=../p/mr7u9nh/>画像ファイルの幅、高さを調べる (<code>Image::Size</code>)</a></li><li><a href=../p/99x2b2e/>ユーザー名、グループ名からユーザ ID、グループ ID を取得する (<code>getpwnam</code>, <code>getgrnam</code>)</a></li><li><a href=../p/k3c5i3x/>現在の環境で使用可能な make ユーティリティの名前を確認する</a></li><li>デバッグ<ul><li><a href=../p/fqgzsf6/><code>Data::Dumper</code> で複雑なデータをダンプする</a></li><li><a href=../p/89hb8nb/>Perl のデバッガを使用する</a></li><li><a href=../p/s542i7q/>Perl で使用可能なテストモジュール</a></li><li><a href=../p/2ck8jqg/>一時的にエラーメッセージを詳しくする（<code>diagnostics</code> プラグマ）</a></li></ul></li></ul></div><div class=article__footer><div style=text-align:right><div class=mm-snsButtons><a rel="nofollow noopener noreferrer" target=_blank href="https://twitter.com/intent/post?url=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932zM17.61 20.644h2.039L6.486 3.24H4.298z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.threads.net/intent/post?text=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#000" role="img" viewBox="0 0 24 24"><title>Threads</title><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18.0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853.0 013.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844.0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65zm1.003-11.69c-.242.0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5.0 00-2.215-.221z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://www.facebook.com/share.php?u=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#0866ff" role="img" viewBox="0 0 24 24"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401.0.955.042 1.468.103a8.68 8.68.0 011.141.195v3.325a8.623 8.623.0 00-.653-.036 26.805 26.805.0 00-.733-.009c-.707.0-1.259.096-1.675.309a1.686 1.686.0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://timeline.line.me/social-plugin/share?url=https%3a%2f%2fmaku77.github.io%2fperl%2f&text=Perl%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#00c300" role="img" viewBox="0 0 24 24"><title>LINE</title><path d="M19.365 9.863c.349.0.63.285.63.631.0.345-.281.63-.63.63H17.61v1.125h1.755c.349.0.63.283.63.63.0.344-.281.629-.63.629h-2.386c-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346.0.627.285.627.63.0.349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211.0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346.0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195.0.375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345.0.63.285.63.63v4.771zm-5.741.0c0 .344-.282.629-.631.629-.345.0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346.0.628.285.628.63v4.771zm-2.466.629H4.917c-.345.0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348.0.63.285.63.63v4.141h1.756c.348.0.629.283.629.63.0.344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943.0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://b.hatena.ne.jp/entry?url=https%3a%2f%2fmaku77.github.io%2fperl%2f"><span class=mm-snsButtons__icon><svg fill="#00a4de" role="img" viewBox="0 0 24 24"><title>Hatena Bookmark</title><path d="M20.47.0C22.42.0 24 1.58 24 3.53v16.94c0 1.95-1.58 3.53-3.53 3.53H3.53C1.58 24 0 22.42.0 20.47V3.53C0 1.58 1.58.0 3.53.0h16.94zm-3.705 14.47c-.78.0-1.41.63-1.41 1.41s.63 1.414 1.41 1.414 1.41-.645 1.41-1.425-.63-1.41-1.41-1.41zM8.61 17.247c1.2.0 2.056-.042 2.58-.12.526-.084.976-.222 1.32-.412.45-.232.78-.564 1.02-.99s.36-.915.36-1.48c0-.78-.21-1.403-.63-1.87-.42-.48-.99-.734-1.74-.794.66-.18 1.156-.45 1.456-.81.315-.344.465-.824.465-1.424.0-.48-.103-.885-.3-1.26-.21-.36-.493-.645-.883-.87-.345-.195-.735-.315-1.215-.405-.464-.074-1.29-.12-2.474-.12H5.654v10.486H8.61zm.736-4.185c.705.0 1.185.088 1.44.262.27.18.39.495.39.93.0.405-.135.69-.42.855-.27.18-.765.254-1.44.254H8.31v-2.297h1.05zm8.656.706v-7.06h-2.46v7.06H18zM8.925 9.08c.71.0 1.185.08 1.432.24.245.16.367.435.367.83.0.38-.13.646-.39.804-.265.154-.747.232-1.452.232h-.57V9.08h.615z"/></svg>
+</span></a><a rel="nofollow noopener noreferrer" target=_blank href="https://getpocket.com/edit?url=https%3a%2f%2fmaku77.github.io%2fperl%2f&title=Perl%20-%20%e5%a4%a9%e6%89%8d%e3%81%be%e3%81%8f%e3%81%be%e3%81%8f%e3%83%8e%e3%83%bc%e3%83%88"><span class=mm-snsButtons__icon><svg fill="#ef3f56" role="img" viewBox="0 0 24 24"><title>Pocket</title><path d="M18.813 10.259l-5.646 5.419c-.32.305-.73.458-1.141.458-.41.0-.821-.153-1.141-.458l-5.646-5.419c-.657-.628-.677-1.671-.049-2.326.63-.657 1.671-.679 2.325-.05l4.511 4.322 4.517-4.322c.66-.631 1.697-.607 2.326.049.631.645.615 1.695-.045 2.326l-.011.001zm5.083-7.546c-.299-.858-1.125-1.436-2.041-1.436H2.179c-.9.0-1.717.564-2.037 1.405-.094.25-.142.511-.142.774v7.245l.084 1.441c.348 3.277 2.047 6.142 4.682 8.139.045.036.094.07.143.105l.03.023c1.411 1.03 2.989 1.728 4.694 2.072.786.158 1.591.24 2.389.24.739.0 1.481-.067 2.209-.204.088-.029.176-.045.264-.06.023.0.049-.015.074-.029 1.633-.36 3.148-1.036 4.508-2.025l.029-.031.135-.105c2.627-1.995 4.324-4.862 4.686-8.148L24 10.678V3.445c0-.251-.031-.5-.121-.742l.017.01z"/></svg></span></a></div></div><div class=breadcrumb><a href=../>&#x1F3E0;HOME</a> > <a href=../perl/>まくまく Perl ノート</a></div></div></article><script>const SIDEBAR_HIDE_THRESHOLD=800,SIDEBAR_WIDTH=250,OFFSET=10;let w=window.innerWidth;w>=SIDEBAR_HIDE_THRESHOLD&&(w-=SIDEBAR_WIDTH),w-=OFFSET,w>=728?rakuten_size="728x200":w>=600?rakuten_size="600x200":w>=468?rakuten_size="468x160":w>=336?rakuten_size="336x280":w>=300?rakuten_size="300x250":w>=250?rakuten_size="250x250":rakuten_size="200x350",rakuten_design="slide",rakuten_affiliateId="1239b074.74af6526.1239b075.bc72ef6e",rakuten_items="ctsmatch",rakuten_genreId=0,rakuten_target="_blank",rakuten_theme="gray",rakuten_border="off",rakuten_auto_mode="on",rakuten_genre_title="off",rakuten_recommend="on",rakuten_txtColor="333333",rakuten_moverColor="30C030",rakuten_bgColor="FFFFFF",rakuten_captionColor="333333"</script><script src=https://xml.affiliate.rakuten.co.jp/widget/js/rakuten_widget.js></script></div><div class=l-withSidebar__sidebarRight><nav class=navigation><div class=navigation__header>カテゴリ一覧</div><ul><li><a class=navigation__item href=https://maku77.github.io/memo/>いろいろ</a><li><a class=navigation__item href=https://maku77.github.io/android/>Android</a><li><a class=navigation__item href=https://maku.blog/p/8t6hr3d/>Ansible</a><li><a class=navigation__item href=https://maku77.github.io/blender/>Blender</a><li><a class=navigation__item href=https://maku77.github.io/cpp/>C/C++</a><li><a class=navigation__item href=https://maku77.github.io/docker/>Docker</a><li><a class=navigation__item href=https://maku77.github.io/git/>Git</a><li><a class=navigation__item href=https://maku77.github.io/go/>Go言語</a><li><a class=navigation__item href=https://maku77.github.io/gradle/>Gradle</a><li><a class=navigation__item href=https://maku77.github.io/web/>HTML/CSS</a><li><a class=navigation__item href=https://maku77.github.io/hugo/>Hugo</a><li><a class=navigation__item href=https://maku77.github.io/java/>Java</a><li><a class=navigation__item href=https://maku77.github.io/js/>JavaScript</a><li><a class=navigation__item href=https://maku77.github.io/kotlin/>Kotlin</a><li><a class=navigation__item href=https://maku77.github.io/linux/>Linux/Shell</a><li><a class=navigation__item href=https://maku.blog/p/somcgdw/>Mac</a><li><a class=navigation__item href=https://maku77.github.io/middleman/>Middleman</a><li><a class=navigation__item href=https://toushi.maku.blog/p/etedykx/>MetaTrader</a><li><a class=navigation__item href=https://maku77.github.io/nodejs/>Node.js</a><li><a class=navigation__item href=https://maku77.github.io/octave/>Octave</a><li><a class=navigation__item href=https://maku77.github.io/p4/>Perforce</a><li><a class="navigation__item navigation__item--focused" href=https://maku77.github.io/perl/>Perl</a><li><a class=navigation__item href=https://maku77.github.io/php/>PHP</a><li><a class=navigation__item href=https://maku77.github.io/python/>Python</a><li><a class=navigation__item href=https://maku77.github.io/r/>R</a><li><a class=navigation__item href=https://maku77.github.io/ruby/>Ruby</a><li><a class=navigation__item href=https://maku77.github.io/rust/>Rust</a><li><a class=navigation__item href=https://maku77.github.io/sass/>Sass</a><li><a class=navigation__item href=https://maku77.github.io/sed/>sed/awk</a><li><a class=navigation__item href=https://maku77.github.io/sql/>SQL</a><li><a class=navigation__item href=https://maku77.github.io/tradestation/>トレードステーション</a><li><a class=navigation__item href=https://maku77.github.io/vagrant/>Vagrant</a><li><a class=navigation__item href=https://maku77.github.io/vba/>VBA</a><li><a class=navigation__item href=https://maku77.github.io/vim/>Vim</a><li><a class=navigation__item href=https://maku77.github.io/windows/>Windows</a></ul></nav><style>.codoc-support{display:inline-block;margin:0!important;padding:12px!important;width:200px!important;max-width:100%}.codoc-support .codoc-support-title{font-size:smaller!important;white-space:nowrap;margin-bottom:12px!important}.codoc-support .codoc-btn{width:160px!important}</style><script src=https://codoc.jp/js/cms.js data-css=black data-usercode=tp6ZPzTj3w defer></script><div id=codoc-entry-4gYwTntzzw class=codoc-entries data-without-body=1 data-support-button-text="（っ'-')╮シュッ🔴" data-show-like=0 data-show-about-codoc=0 data-show-powered-by=0 data-support-message=まくに投げ銭できます。></div></div></div><script>document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll("a[href^=http]");for(let n=0;n<e.length;++n){const t=e[n];if(t.href.startsWith("https://maku77.github.io"))continue;const s=t.getElementsByTagName("img");if(s.length>0)continue;const o=t.getElementsByTagName("svg");if(o.length>0)continue;t.classList.add("xExternalLinkIcon"),t.setAttribute("target","_blank"),t.setAttribute("rel","noopener")}})</script></body></html>
