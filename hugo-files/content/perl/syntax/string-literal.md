@@ -1,0 +1,39 @@
+---
+title: "Perlメモ: 文字列リテラル"
+url: "p/erb3zxo/"
+date: "2008-02-27"
+tags: ["perl"]
+aliases: ["/perl/syntax/string-literal.html"]
+---
+
+ダブルクォート文字列
+----
+
+ダブルクォートで括られた文字列リテラル（ダブルクォート文字列）では、コントロール文字列（改行文字の `\n` など）を使ったり、8進表現や16進表現で文字を指定することができます。
+さらに、ダブルクォートで括られた文字列リテラル内に変数を含めると、**変数展開 (variable  interpolation)** が行われます。
+
+```perl
+$name = 'John';
+print "Hello, $name\n";
+```
+
+{{< code title="実行結果" >}}
+Hello, John
+{{< /code >}}
+
+
+シングルクォート文字列
+----
+
+シングルクォート文字列では、変数展開などは行われずに記述したテキストがそのまま使用されます。
+改行を表す `\n` なども、単なる `\n` という2文字のテキストとみなされます。
+
+```perl
+$name = 'John';
+print 'Hello, $name\n';
+```
+
+{{< code title="実行結果" >}}
+Hello, $name\n
+{{< /code >}}
+

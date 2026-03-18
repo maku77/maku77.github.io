@@ -1,0 +1,86 @@
+---
+title: "Perlメモ: printf のフォーマット出力を使いこなす"
+url: "p/6cv3nie/"
+date: "2008-03-09"
+tags: ["perl"]
+aliases: ["/perl/io/printf.html"]
+---
+
+printf によるフォーマット出力
+----
+
+Perl でも、C 言語と同様に `printf`、`sprintf` 関数が用意されており、フォーマットを指定した出力を行うことができます。
+
+```perl
+# Format number with up to 8 leading zeroes
+$result = sprintf("%08d", $number);
+
+# Round number to 3 digits after decimal point
+printf("%.3f", $number);
+```
+
+数値を出力するときに `%g` を指定すると、いい具合に定数、浮動小数点数、指数形式を使い分けて表示してくれます
+
+```perl
+printf "%g", 10;        #=> 10
+printf "%g", 10 / 3;    #=> 3.33333
+printf "%g", 10 ** 50;  #=> 1e+050
+```
+
+詳しくは、以下のようにしてマニュアルを参照してください。
+
+- `perldoc -f printf`
+- `perldoc -f sprintf`
+
+
+printf の %f を使って小数点以下を四捨五入して表示する
+----
+
+```perl
+printf "%1.0f", 1.2;  #=> 1
+printf "%1.0f", 1.5;  #=> 2
+printf "%1.0f", 1.8;  #=> 2
+```
+
+
+サイズの分からない配列を printf で出力する
+----
+
+`printf` や `sprintf` のフォーマットには式を指定することができるので、配列のサイズによって動的にフォーマットを作成することが可能です。
+
+```perl
+my @arr = (1, 2, 3);
+my $format = '%3d ' x @arr;    # '%3d %3d %3d' となる
+
+printf "$format\n", @arr;
+```
+
+{{< code title="実行結果" >}}
+  1   2   3
+{{< /code >}}
+
+
+数値が文字列コンテキストで評価されるときに使われる書式
+----
+
+数値が文字列コンテキストで評価されると、自動的に文字列に変換されます。
+このときに使用されるフォーマットは、C 標準ライブラリの `sprintf()` で `"%.15g"` と指定したものになります。
+
+```perl
+print 20 / 3;  #=> 6.66666666666667
+```
+
+このフォーマットは特殊変数の `$#` を使うと変更できます。
+ただし、将来のバージョンではこの方法は使えなくなる可能性があります。
+
+```
+$# = '%.2f';
+print 20 / 3;  #=> 6.67
+```
+
+フォーマットを指定して数値を文字列に変換する場合は、通常は `sprintf` を使用します。
+
+```perl
+my $s = sprintf '%.2f', 20 / 3;
+```
+

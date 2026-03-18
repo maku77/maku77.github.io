@@ -1,0 +1,16 @@
+---
+title: "Perlメモ: リスト要素を結合して１つの文字列にする (join)"
+url: "p/z5ocrbx/"
+date: "2008-03-14"
+tags: ["perl"]
+aliases: ["/perl/string/join.html"]
+---
+
+`join` 関数を使うと、リストの要素を１つの文字列として連結することができます。
+
+```perl
+my @arr = ('Hello', 100, 'Hoge');
+my $line = join ':', @arr;  # 'Hello:100:Hoge'
+```
+
+`join` の第１引数には各要素の間に挿入する文字列を指定しますが、ここには正規表現パターンではなく通常の文字列を指定します。
