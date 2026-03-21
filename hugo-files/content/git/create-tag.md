@@ -1,0 +1,66 @@
+---
+title: "Gitメモ: コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)"
+url: "p/y2cmv5d/"
+date: "2011-08-08"
+tags: ["git"]
+lastmod: "2022-05-08"
+aliases: [/git/create-tag.html]
+---
+
+コミットにタグを付ける
+----
+
+__`git tag`__ コマンドで任意のコミットに対してタグを付けておくと、そのコミットに対して分かりやすい名前でアクセスできるようになります。
+例えば、アプリケーションのリリース時には、`v1.0.0` のような [セマンティックバージョニング](https://semver.org/lang/ja/) に基づいたタグを付けるのが一般的です。
+
+{{< code lang="console" title="例: コミット fd01de57 に対してタグ v1.0.0 をつける" >}}
+$ git tag v1.0.0 fd01de57
+{{< /code >}}
+
+コミット ID を省略すると、現在チェックアウトしているブランチの最新コミット (`HEAD`) に対してタグが付けられます。
+
+```console
+$ git tag v1.0.0
+```
+
+タグの一覧は下記のように参照することができます。
+
+```console
+$ git tag
+v1.0.0
+v1.0.1
+v1.0.2
+```
+
+
+タグを削除する
+----
+
+必要のなくなったタグは __`-d`__ オプションを使って削除できます。
+
+{{< code lang="console" title="例: タグ v1.0.0-draft を削除する" >}}
+$ git tag -d v1.0.0-draft
+{{< /code >}}
+
+
+タグを中央リポジトリに push する
+----
+
+ローカルで作成したタグ情報を GitHub などの中央リポジトリに反映するには、__`git push`__ でタグ情報をプッシュしておく必要があります。
+
+{{< code lang="console" title="例: タグ v1.0.0 を push する" >}}
+$ git push origin refs/tags/v1.0.0
+{{< /code >}}
+
+{{< code lang="console" title="例: すべてのタグを push する" >}}
+$ git push --tags
+$ git push --tags origin
+$ git push --tags origin master
+{{< /code >}}
+
+
+参考
+----
+
+- [タグをリネームする](/p/h4dnw6e/)
+

@@ -132,8 +132,7 @@ git コマンドで使用する GitHub アカウントを切り替える
 ```console
 $ git config --get remote.origin.url
 git@github.com:maku77/private-repo
-```
-
+```console
 この URL 内の `github.com` の部分を、`~/.ssh/config` で定義した接続名に置き換えることで、使用する SSH 秘密鍵（≒ GitHub アカウント）を切り替えることができます。
 
 ### git clone 時に接続名を指定する

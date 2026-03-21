@@ -68,31 +68,31 @@ Git の設定
 コミット／履歴の書き換え
 ---
 
-* [Git やり直し: 直前のコミットのコメントを修正する](git-modify-comment.html)
-* [Git やり直し: 直前のコミットを取り消す](commit/reset-prev-commit.html)
-* [Git やり直し: main ブランチに入れてしまったコミットを別のブランチに移す](commit/move-commit.html)
-* [Git やり直し: 最近のコミットを歴史から抹消する](commit/delete-recent-commits.html)
-* [Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する](git-change-dir-hierarchy.html)
-* [変更の一部だけをコミットする](commit/commit-by-hunk.html)
+* [Git やり直し: 直前のコミットのコメントを修正する (`git commit --amend`)](/p/wyq4tea/)
+* [Git やり直し: 直前のコミットを取り消す (`git reset --soft HEAD~`)](/p/kth4c6j/)
+* [Git やり直し: main ブランチに入れてしまったコミットを別のブランチに移す](/p/8uatxxj/)
+* [Git やり直し: 最近のコミットを歴史から抹消する (`git rebase -i`)](/p/hmcakev/)
+* [Git やり直し: コミット履歴を書き換えてディレクトリ階層を変更する (`git filter-branch`)](/p/iut5h68/)
+* [変更の一部だけをコミットする (`git add -p`)](/p/a6776js/)
 
 
 ログ (git log)
 ----
 
-* [コミットログ表示の基本](log/basic.html)
-* [コミットログの書き方](log/commit-log-rules.html)
-* [コミットログを絞り込んで表示する](log/filter-logs.html)
-* [コミットログにファイル名や変更行数を表示する](log/modified-lines.html)
-* [コミットログの出力形式をカスタマイズする (git log --pretty, --date)](log/log-format.html)
-* [コミットログにある文字列が含まれているコミットを検索する (git log --grep)](log/grep-log.html)
-* [変更内容にある文字列が含まれているコミットを検索する (git log -G/-S)](log/pickaxe.html)
-* [指定したディレクトリ以下の変更に関連するコミットログのみ表示する](log/dir-log.html)
-* [ブランチ間の差分を調べる](log/diff-between-branches.html)
-* [リモートブランチとローカルブランチの差分を調べる](log/diff-remote-and-local.html)
-* [コミットログを標準出力へ出力する](log/output-to-stdout.html)
+* [コミットログ表示の基本](/p/hsavjib/)
+* [コミットログの書き方](/p/svg6x8f/)
+* [コミットログを絞り込んで表示する](/p/xsbjsnr/)
+* [コミットログにファイル名や変更行数を表示する (`git log --name-only, --stat`)](/p/zgr593x/)
+* [コミットログの出力形式をカスタマイズする (`git log --pretty, --date`)](/p/7ehnuk6/)
+* [コミットログにある文字列が含まれているコミットを検索する (`git log --grep`)](/p/hi5iir5/)
+* [変更内容にある文字列が含まれているコミットを検索する (`git log -G/-S`)](/p/hf7bnyi/)
+* [指定したディレクトリ以下の変更に関連するコミットログのみ表示する](/p/kftbcyc/)
+* [ブランチ間の差分を調べる](/p/fmarnds/)
+* [リモートブランチとローカルブランチの差分を調べる](/p/zyitasn/)
+* [コミットログを標準出力へ出力する (`git log --no-pager`)](/p/ntcpmjj/)
 * 統計情報
-  * [ユーザーごとのコミット統計を出力する (git shortlog)](stats/shortlog.html)
-  * [あるバージョン間の変更行数（追加＆削除）を集計する (git diff --stat, git log --numstat)](stats/count-changes.html)
+  * [ユーザーごとのコミット統計を出力する (`git shortlog`)](/p/ocva5fh/)
+  * [あるバージョン間の変更行数（追加＆削除）を集計する (`git diff --stat`, `git log --numstat`)](/p/3cjkt3v/)
 
 
 grep 検索 (git grep)
@@ -120,89 +120,84 @@ grep 検索 (git grep)
 ----
 
 * [ブランチでの変更をマージする（直接マージ、スカッシュマージ、チェリーピック）
-](merge/merge-branch.html)
-* [マージ時のコンフリクトを解決する](merge/resolve-conflict.html)
-* [別ブランチへの複数のコミットを１つのコミットとしてマージする (squash merge)](merge/squash-merge.html)
-* [マージのためのコミットを revert する（取り消す）](merge/revert-merge.html)
-* [マージ作業に失敗したときにやり直す](merge/cancel-merge.html)
-* [マージで競合解決が必要なファイルを調べる](merge/list-conflicted-files.html)
-* [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる）](merge/find-fast-forward.html)
-* [別の Git リポジトリの内容を強引にマージする](merge/merge-repo.html)
+](/p/n3vaeh5/)
+* [マージ時のコンフリクトを解決する](/p/ymfxj2s/)
+* [別ブランチへの複数のコミットを1つのコミットとしてスカッシュマージする (`git merge --squash`)](/p/6naegzu/)
+* [マージのためのコミットを revert する（取り消す） (`git revert -m`)](/p/iz8y69c/)
+* [マージ作業に失敗したときにやり直す (`git reset`)](/p/49yjwoe/)
+* [マージで競合解決が必要なファイルを調べる (`git ls-files -u`)](/p/jok7ggh/)
+* [マージベースとなったコミットを見つける（fast-forward の関係になっているか調べる） (`git merge-base`)](/p/2u3igu6/)
+* [別の Git リポジトリの内容を強引にマージする](/p/odgmdp2/)
 
 
 差分・パッチファイル (git diff / patch)
 ----
 
-* [git diff でファイルの差分を調べる](git-diff.html)
-* [git diff で改行コードの違いを無視する](diff-ignore-linefeed.html)
-* [git diff で単語単位で差分を表示する](diff-words.html)
-* [git diff の出力で相対パスを使うようにする](git-diff-relative-path.html)
-* [git diff で package-lock.json の差分が表示されるのを防ぐ](diff/node-diff.html)
-* [Git でパッチファイルを作成する](git-patch.html)
+* [git diff でファイルの差分を調べる](/p/y9v4isr/)
+* [git diff で改行コードの違いを無視する (`git diff -w`)](/p/zm7ezhx/)
+* [git diff で単語単位で差分を表示する (`git diff --word-diff`)](/p/xav46kn/)
+* [git diff の出力で相対パスを使うようにする (`git diff --relative`)](/p/w266n3s/)
+* [git diff で `package-lock.json` の差分が表示されるのを防ぐ (`:(exclude)`)](/p/4zoiaou/)
+* [Git でパッチファイルを作成する (`git diff/apply/format-patch/am`)](/p/3x2viow/)
 
 
 ファイル操作
 ----
 
-* [git clean で追跡されていないファイルを削除する](git-clean.html)
-* [ファイルを削除せずに Git によるバージョン管理の対象から外す (git rm --cached)](file/preclude-file-from-git.html)
-* [コミットからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-commit.html)
-* [インデックスからファイルをチェックアウトする（ファイルを元に戻す）](file/checkout-from-index.html)
-* [特定のバージョンのファイルの内容を確認する (cat-file)](file/cat-file.html)
+* [git clean で追跡されていないファイルを削除する (`git clean -df`)](/p/scqf3sw/)
+* [ファイルを削除せずに Git によるバージョン管理の対象から外す (`git rm --cached`)](/p/qu3d2f9/)
+* [ファイルの変更を取り消してコミットやインデックスの内容に戻す (`git checkout`, `git checkout HEAD`)](/p/xjixs9v/)
+* [特定バージョンのファイルの内容を確認する (`git show`, `git cat-file -p`)](/p/32b2ttc/)
 
 
 タグ (git tag)
 ----
 
-* [コミットに対してタグをつけて中央リポジトリにプッシュする (git tag)](/p/y2cmv5d/)
-* [タグの名前を変更する](/p/h4dnw6e/)
+* [コミットに対してタグをつけて中央リポジトリにプッシュする (`git tag`)](/p/y2cmv5d/)
+* [タグの名前を変更する (`git tag new old`)](/p/h4dnw6e/)
 
 
 リポジトリ／サーバー／バックアップ
 ----
 
-* [共有リポジトリを作成する](server/create-repository.html)
-* [git-daemon による読み取り専用リポジトリの公開](server/git-daemon.html)
-* [Git リポジトリを移行する](server/transfer-repository.html)
-* [リポジトリ内のディレクトリを別リポジトリに切り出す](move-dir-to-another-repo.html)
-* [ローカルディレクトリをリモートリポジトリとして使用する](server/dir-as-repository.html)
-* [リモートリポジトリに略称を付ける](server/remote-alias.html)
-* [共有リポジトリからの fetch と push](server/fetch-and-push.html)
-* [ソースコードのアーカイブを作成する](create-src-archive.html)
+* [共有リポジトリを作成する (`git init --bare`, `git clone --bare`)](/p/yaocjjs/)
+* [共有リポジトリとやりとりする (`git fetch`, `git push`)](/p/72jawne/)
+* [git-daemon でリポジトリを読み取り専用で公開する](/p/kax48rz/)
+* [Git リポジトリを移行する (`git clone --mirror`, `git push --mirror`)](/p/bfxgbf4/)
+* [リポジトリ内のディレクトリを別リポジトリに切り出す](/p/vaqzwih/)
+* [ローカルディレクトリをリモートリポジトリとして使用する](/p/jkbezsr/)
+* [リモートリポジトリに略称を付ける (`git remote add`)](/p/mhqsei2/)
+* [ソースコードのアーカイブファイル (ZIP/TAR) を作成する (`git archive`)](/p/dmpa5vw/)
 
 
 hook スクリプト
 ----
 
-* [Git の update フックの基本](update-hook.html)
-* [特定のユーザのみ git push できるように制限する](limit-push-users.html)
+* [Git の update フックの基本 (`.git/hooks/update`)](/p/gyotfx7/)
+* [特定のユーザのみ git push できるように制限する](/p/f84ekdq/)
 
 
 その他
 ----
 
 * [Git 用語集](/p/f844tkg/)
-* [Git で N 個前のコミットを表現する](other/represent-commit.html)
-* [Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（chmod +x 相当）](/p/xwxdv6y/)
-* [git pull の引数省略の仕組み](other/remote-complement.html)
-* [二要素認証を設定した後に git コマンドが Authentication failed になる場合](git-two-factor-auth-error.html)
+* [Git で N 個前のコミットを表現する](/p/npo47yj/)
+* [Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（`chmod +x` 相当） (`git update-index`)](/p/xwxdv6y/)
+* [`git pull` の引数省略の仕組み](/p/xonap3b/)
+* [GitHub で git コマンドが Authentication failed になる場合（HTTPS 認証とアクセストークン）](/p/c7ddt8i/)
 * [Git サブモジュールで別リポジトリの内容を組み込む (`git submodule`)](/p/dsctaq7/)
-
-### GitLab（GitHub クローン）
-
-* [GitLab をインストールする](gitlab/install.html)
-* [GitLab 関連サービスを起動／停止する](gitlab/start-service.html)
-* [GitLab のデータをバックアップ／リストアする](gitlab/backup-and-restore.html)
-* [起動中の GitLab 関連サービスを調べる](gitlab/service-list.html)
-* [GitLab からの通知メールを設定する](gitlab/email-settings.html)
-* [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](gitlab/change-hostname.html)
-* [GitLab 用 nginx サーバの設定ファイルの場所](gitlab/nginx-conf-path.html)
-* [GitLab が使用する Unicorn 用のポート番号を変更する](gitlab/unicorn-port.html)
-* [GitLab サーバのアクセスログを調べる](gitlab/access-log.html)
-
-### オワコン情報 (Subversion とか CVS とか）
-
-* [git-svn を使って Git と Subversion を連携する](svn/git-svn.html)
-* [CVS のファイルのパーミッションの扱いについて](svn/cvs-file-permission.html)
-* [.svn ディレクトリをまとめて削除する](svn/delete-all-svn-dirs.html)
+* GitLab（GitHub クローン）
+  * [GitLab をインストールする](/p/4mjwu34/)
+  * [GitLab 関連サービスを起動／停止する](/p/9hybaqx/)
+  * [GitLab のデータをバックアップ／リストアする](/p/df778jg/)
+  * [起動中の GitLab 関連サービスを調べる](/p/5672eis/)
+  * [GitLab からの通知メールを設定する](/p/ycphr93/)
+  * [GitLab リポジトリの Clone URL として表示されるホスト名を変更する](/p/b9fmgxq/)
+  * [GitLab 用 nginx サーバの設定ファイルの場所](/p/bqqhyr2/)
+  * [GitLab が使用する Unicorn 用のポート番号を変更する](/p/fhyfx7p/)
+  * [GitLab サーバのアクセスログを調べる](/p/nzhf2bv/)
+* オワコン情報 (Subversion とか CVS とか）
+  * [git-svn を使って Git と Subversion を連携する](/p/mujnu3f/)
+  * [CVS のファイルのパーミッションの扱いについて](/p/mt89s5z/)
+  * [`.svn` ディレクトリをまとめて削除する](/p/3thorrh/)
 

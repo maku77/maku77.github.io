@@ -1,0 +1,29 @@
+---
+title: "Gitメモ: Git でリモートブランチとローカルブランチの差分を調べる"
+url: "p/zyitasn/"
+date: "2010-08-02"
+tags: ["git"]
+aliases: [/git/log/diff-remote-and-local.html]
+---
+
+例えば、クローン元 (origin) から fetch したリモートトラッキングブランチの master と、ローカルの master ブランチの差分を調べるには以下のようにします。
+
+```console
+$ git fetch                        # まずはサーバ上のデータと同期しておく
+$ git log master..origin/master    # リモートにだけコミットされたものを表示
+$ git log origin/master..master    # ローカルにだけコミットされたものを表示
+```
+
+上記のように、ドット 2 つでブランチ名を指定すると、右側に指定したブランチにのみ含まれているコミットを調べることができます。
+ローカルの `master` ブランチと、リモートの `origin/master` ブランチの双方で異なるコミットが行われている場合に、それらをすべて表示したいときは以下のようにドット 3 つでブランチ名を繋ぎます。
+
+```console
+$ git log master...origin/master   # リモート、あるいはローカルにだけコミットされたものを表示
+```
+
+さらに、`--left-right` オプションを指定すると、ローカルにコミットしたものは `>`、リモートにコミットされたものは `<` という記号がコミット名に付くようになります。
+
+```console
+$ git log --left-right master...origin/master
+```
+

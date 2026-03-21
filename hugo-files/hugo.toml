@@ -10,6 +10,13 @@ theme = "maku77"
 
 [markup.goldmark.renderer]
   unsafe = true
+[markup.goldmark.extensions.typographer]
+  # 下記の文字は Typographer 機能で変換しない
+  enDash = '--'
+  leftDoubleQuote = '"'
+  rightDoubleQuote = '"'
+  leftSingleQuote = "'"
+  rightSingleQuote = "'"
 
 [params]
   image = "img/site-logo.png"

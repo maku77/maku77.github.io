@@ -38,8 +38,7 @@ $ cd myproject
 $ git init
 $ git add .
 $ git commit -m "First commit."
-```
-
+```console
 コミットの履歴は `git log` で確認できます。
 
 

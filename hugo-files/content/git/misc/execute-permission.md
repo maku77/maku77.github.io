@@ -1,5 +1,5 @@
 ---
-title: "Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（chmod +x 相当）"
+title: "Git で管理するシェルスクリプトに実行権限（パーミッション）を付ける（chmod +x 相当） (git update-index)"
 url: "p/xwxdv6y/"
 date: "2015-10-21"
 tags: ["Git"]
