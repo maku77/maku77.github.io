@@ -7,10 +7,10 @@ int pthread_create(
         void *arg)
 各パラメータは下記のような意味を持っています。
 
-thread &ndash; 作成したスレッドのハンドルを格納するバッファを指定する。
-attr &ndash; スレッド属性を指定する。デフォルト属性でよい場合は NULL を指定する。
-start_routine &ndash; 新しいスレッドのエントリポイント。
-arg &ndash; 新しいスレッドに渡す引数。必要ない場合は NULL を渡せばよい。
+thread -- 作成したスレッドのハンドルを格納するバッファを指定する。
+attr -- スレッド属性を指定する。デフォルト属性でよい場合は NULL を指定する。
+start_routine -- 新しいスレッドのエントリポイント。
+arg -- 新しいスレッドに渡す引数。必要ない場合は NULL を渡せばよい。
 
 pthread_create は、呼び出しに成功すると 0 を返します。
 
@@ -49,7 +49,7 @@ int main() {
 </span></span><span class=line><span class=cl>        <span class=k>const</span> <span class=n>pthread_attr_t</span> <span class=o>*</span><span class=n>attr</span><span class=p>,</span>
 </span></span><span class=line><span class=cl>        <span class=kt>void</span> <span class=o>*</span><span class=p>(</span><span class=o>*</span><span class=n>start_routine</span><span class=p>)(</span><span class=kt>void</span> <span class=o>*</span><span class=p>),</span>
 </span></span><span class=line><span class=cl>        <span class=kt>void</span> <span class=o>*</span><span class=n>arg</span><span class=p>)</span>
-</span></span></code></pre></div><p>各パラメータは下記のような意味を持っています。</p><ul><li><code>thread</code> &ndash; 作成したスレッドのハンドルを格納するバッファを指定する。</li><li><code>attr</code> &ndash; スレッド属性を指定する。デフォルト属性でよい場合は NULL を指定する。</li><li><code>start_routine</code> &ndash; 新しいスレッドのエントリポイント。</li><li><code>arg</code> &ndash; 新しいスレッドに渡す引数。必要ない場合は NULL を渡せばよい。</li></ul><p><code>pthread_create</code> は、呼び出しに成功すると 0 を返します。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>サンプルプログラム</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></code></pre></div><p>各パラメータは下記のような意味を持っています。</p><ul><li><code>thread</code> -- 作成したスレッドのハンドルを格納するバッファを指定する。</li><li><code>attr</code> -- スレッド属性を指定する。デフォルト属性でよい場合は NULL を指定する。</li><li><code>start_routine</code> -- 新しいスレッドのエントリポイント。</li><li><code>arg</code> -- 新しいスレッドに渡す引数。必要ない場合は NULL を渡せばよい。</li></ul><p><code>pthread_create</code> は、呼び出しに成功すると 0 を返します。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>サンプルプログラム</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;pthread.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp></span>
 </span></span><span class=line><span class=cl><span class=c1>// 新しいスレッドで実行されるタスク

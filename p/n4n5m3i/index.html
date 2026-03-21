@@ -118,7 +118,7 @@ Python の部分インポート (partial import) の構文 (<strong><code>from m
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>hello</span><span class=p>():</span>
 </span></span><span class=line><span class=cl>    <span class=n>mod2</span><span class=o>.</span><span class=n>hello</span><span class=p>()</span></span></span></code></pre></div></div></figure><h2 id=パッケージの初期化ファイル-__initpy__>パッケージの初期化ファイル (__init.py__)</h2><p>Python 3.3 より前のバージョンでは、パッケージディレクトリに <strong><code>__init__.py</code></strong> というファイルを置かなければ、そのディレクトリをパッケージとして認識させることができませんでした（<code>ImportError: No module named ...</code> というエラーが発生する）。
-Python 3.3 以降では単純にディレクトリ内に .py ファイルを放り込んでおけば、そのディレクトリをパッケージとして扱うことができるようになっています（詳細は <a href=https://www.python.org/dev/peps/pep-0420/>PEP 420 &ndash; Implicit Namespace Packages</a> を参照）。</p><p>パッケージディレクトリに置かれた <code>__init__.py</code> は、そのパッケージ（あるいはその中のモジュール）をインポートしたときに実行されます。
+Python 3.3 以降では単純にディレクトリ内に .py ファイルを放り込んでおけば、そのディレクトリをパッケージとして扱うことができるようになっています（詳細は <a href=https://www.python.org/dev/peps/pep-0420/>PEP 420 -- Implicit Namespace Packages</a> を参照）。</p><p>パッケージディレクトリに置かれた <code>__init__.py</code> は、そのパッケージ（あるいはその中のモジュール）をインポートしたときに実行されます。
 例えば、<code>__init__.py</code> の中で各モジュールをインポートするように記述しておけば、パッケージを利用するときに個々のモジュールを指定してインポートする必要がなくなります（ただし、必要のないモジュールまでデフォルトでインポートしてしまうのは効率が悪いので、オススメはできません）。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>ディレクトリ構成</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-plain data-lang=plain><span class=line><span class=cl>+-- main.py
 </span></span><span class=line><span class=cl>+-- mylib/  （パッケージ）
 </span></span><span class=line><span class=cl>    +-- __init__.py

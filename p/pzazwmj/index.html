@@ -16,7 +16,7 @@ VAR1 += VAR2
     MOVF    VAR2, W
     ADDWF   VAR1, F
 ループ
-for (i = 100; i > 0; i&ndash;)
+for (i = 100; i > 0; i--)
     MOVLW   D'100'    ;100 回ループ
     MOVWF   i
 LOOP
@@ -216,7 +216,7 @@ B_HIGH      EQU ...
 </span></span><span class=line><span class=cl>    <span class=nf>ADDWF</span>   <span class=no>VAR</span><span class=p>,</span> <span class=no>F</span>
 </span></span></code></pre></div><h4 id=var1--var2-1>VAR1 += VAR2</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl>    <span class=nf>MOVF</span>    <span class=no>VAR2</span><span class=p>,</span> <span class=no>W</span>
 </span></span><span class=line><span class=cl>    <span class=nf>ADDWF</span>   <span class=no>VAR1</span><span class=p>,</span> <span class=no>F</span>
-</span></span></code></pre></div><h2 id=ループ>ループ</h2><h4 class=.. id=for-i--100-i--0-i-->for (i = 100; i > 0; i&ndash;)</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl>    <span class=nf>MOVLW</span>   <span class=no>D</span><span class=err>&#39;</span><span class=mi>100</span><span class=err>&#39;</span>    <span class=c1>;100 回ループ
+</span></span></code></pre></div><h2 id=ループ>ループ</h2><h4 class=.. id=for-i--100-i--0-i-->for (i = 100; i > 0; i--)</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-asm data-lang=asm><span class=line><span class=cl>    <span class=nf>MOVLW</span>   <span class=no>D</span><span class=err>&#39;</span><span class=mi>100</span><span class=err>&#39;</span>    <span class=c1>;100 回ループ
 </span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nf>MOVWF</span>   <span class=no>i</span>
 </span></span><span class=line><span class=cl><span class=nf>LOOP</span>
 </span></span><span class=line><span class=cl>    <span class=na>...</span>

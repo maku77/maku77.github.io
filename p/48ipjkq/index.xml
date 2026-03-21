@@ -261,7 +261,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVF&lt;/span> &lt;span class="no">VAR2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">W&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ADDWF&lt;/span> &lt;span class="no">VAR1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="no">F&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="ループ">ループ&lt;/h2>
-&lt;h4 class=".." id="for-i--100-i--0-i--">for (i = 100; i &amp;gt; 0; i&amp;ndash;)&lt;/h4>
+&lt;h4 class=".." id="for-i--100-i--0-i--">for (i = 100; i &amp;gt; 0; i--)&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-asm" data-lang="asm">&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">MOVLW&lt;/span> &lt;span class="no">D&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="c1">;100 回ループ
 &lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nf">MOVWF&lt;/span> &lt;span class="no">i&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nf">LOOP&lt;/span>
@@ -468,22 +468,22 @@ CCPRxL, CCPRxH (ユーザが自由に設定する)
 &lt;p>MPLAB を起動し、次のように設定します。&lt;/p>
 &lt;ol>
 &lt;li>「Options」 → 「Development Mode」 → 「Tools」タブ&lt;/li>
-&lt;li>&amp;ldquo;Development Mode&amp;rdquo; で MPLAB-SIM Simulator にチェック&lt;/li>
-&lt;li>&amp;ldquo;Processor&amp;rdquo; を使用するデバイスに変更&lt;/li>
+&lt;li>"Development Mode" で MPLAB-SIM Simulator にチェック&lt;/li>
+&lt;li>"Processor" を使用するデバイスに変更&lt;/li>
 &lt;/ol>
 &lt;h2 id="新規プロジェクトの作成">新規プロジェクトの作成&lt;/h2>
 &lt;ol>
 &lt;li>「Project」 → 「New Project」&lt;/li>
-&lt;li>&amp;ldquo;File Name&amp;rdquo; にプロジェクト名 (例えば &lt;code>test.prj&lt;/code>) を入力&lt;/li>
-&lt;li>&amp;ldquo;Directories&amp;rdquo; には空白を含まないパス (例えば &lt;code>D:\PIC_ASM\test&lt;/code>) を選択して「OK」&lt;/li>
+&lt;li>"File Name" にプロジェクト名 (例えば &lt;code>test.prj&lt;/code>) を入力&lt;/li>
+&lt;li>"Directories" には空白を含まないパス (例えば &lt;code>D:\PIC_ASM\test&lt;/code>) を選択して「OK」&lt;/li>
 &lt;/ol>
 &lt;p>「OK」 ボタンを押すと、Edit Project ダイアログが開きます。&lt;/p>
 &lt;h2 id="新規ソースの追加edit-project-ダイアログ">新規ソースの追加（Edit Project ダイアログ）&lt;/h2>
 &lt;ol>
-&lt;li>&amp;ldquo;Development Mode&amp;rdquo; が MPLAB-SIM、正しいデバイス名になっているか確認&lt;/li>
-&lt;li>&amp;ldquo;Project Files&amp;rdquo; の 「Add Node」 ボタンをクリック&lt;/li>
+&lt;li>"Development Mode" が MPLAB-SIM、正しいデバイス名になっているか確認&lt;/li>
+&lt;li>"Project Files" の 「Add Node」 ボタンをクリック&lt;/li>
 &lt;li>ASM ファイル名 (例えば &lt;code>test.asm&lt;/code>) を入力して 「OK」&lt;/li>
-&lt;li>&amp;ldquo;Project Files&amp;rdquo; の &lt;code>test [.hex]&lt;/code> を選択して 「Node Properties&amp;hellip;」 ボタンをクリック
+&lt;li>"Project Files" の &lt;code>test [.hex]&lt;/code> を選択して 「Node Properties&amp;hellip;」 ボタンをクリック
 &lt;ol>
 &lt;li>Hex Format ･･･ INHX8M&lt;/li>
 &lt;li>Warning level ･･･ all&lt;/li>

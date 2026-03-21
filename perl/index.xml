@@ -260,15 +260,15 @@ Writing Hoge/MANIFEST
 &lt;pre tabindex="0">&lt;code>$ perl Makefile.PL PREFIX=~/YourDir
 &lt;/code>&lt;/pre>&lt;p>以下のようなパスにモジュールの関連ファイルがインストールされます。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>$PREFIX/bin&lt;/code> &amp;ndash; スクリプト&lt;/li>
-&lt;li>&lt;code>$PREFIX/lib/site_perl&lt;/code> &amp;ndash; ライブラリ&lt;/li>
-&lt;li>&lt;code>$PREFIX/man&lt;/code> &amp;ndash; マニュアルページ&lt;/li>
+&lt;li>&lt;code>$PREFIX/bin&lt;/code> -- スクリプト&lt;/li>
+&lt;li>&lt;code>$PREFIX/lib/site_perl&lt;/code> -- ライブラリ&lt;/li>
+&lt;li>&lt;code>$PREFIX/man&lt;/code> -- マニュアルページ&lt;/li>
 &lt;/ul>
 &lt;p>&lt;code>PREFIX&lt;/code> を指定してモジュールをインストールした場合、モジュールを使用するときに次のような環境変数を設定する必要があります。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>PATH&lt;/code> &amp;ndash; bin ディレクトリのパス&lt;/li>
-&lt;li>&lt;code>MANPAGE&lt;/code> &amp;ndash; man ディレクトリのパス&lt;/li>
-&lt;li>&lt;code>@INC&lt;/code> &amp;ndash; lib/site_perl ディレクトリのパス&lt;/li>
+&lt;li>&lt;code>PATH&lt;/code> -- bin ディレクトリのパス&lt;/li>
+&lt;li>&lt;code>MANPAGE&lt;/code> -- man ディレクトリのパス&lt;/li>
+&lt;li>&lt;code>@INC&lt;/code> -- lib/site_perl ディレクトリのパス&lt;/li>
 &lt;/ul></description></item><item><title>Perlメモ: 現在の環境で使用可能な make ユーティリティの名前を確認する</title><link>https://maku77.github.io/p/k3c5i3x/</link><pubDate>Sun, 06 Jul 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/k3c5i3x/</guid><description>&lt;p>&lt;code>perl&lt;/code> コマンドを &lt;code>-V:make&lt;/code> オプションを付けて実行すると、現在の開発環境で使用可能な make 系コマンドの名前を調べることができます。&lt;/p>
 
 &lt;figure class="xCodeBlock">
@@ -759,9 +759,9 @@ C++ や Java と違い、コンストラクタの名前は &lt;code>new&lt;/code
 &lt;p>デバッガを起動した後は、下記のようなコマンドでステップ実行させながらデバッグを進めることができます。&lt;/p>
 &lt;h4 id="デバッガの操作">デバッガの操作&lt;/h4>
 &lt;ul>
-&lt;li>&lt;code>s&lt;/code> &amp;ndash; ステップ実行&lt;/li>
-&lt;li>&lt;code>x $hoge&lt;/code> &amp;ndash; 変数 &lt;code>$hoge&lt;/code> の内容を表示&lt;/li>
-&lt;li>&lt;code>x \%hash&lt;/code> &amp;ndash; ハッシュ全体をダンプ&lt;/li>
+&lt;li>&lt;code>s&lt;/code> -- ステップ実行&lt;/li>
+&lt;li>&lt;code>x $hoge&lt;/code> -- 変数 &lt;code>$hoge&lt;/code> の内容を表示&lt;/li>
+&lt;li>&lt;code>x \%hash&lt;/code> -- ハッシュ全体をダンプ&lt;/li>
 &lt;/ul>
 &lt;p>詳しい情報は、&lt;code>perldoc perldebug&lt;/code> で参照することができます。&lt;/p></description></item><item><title>Perlメモ: Data::Dumper で複雑なデータをダンプする</title><link>https://maku77.github.io/p/fqgzsf6/</link><pubDate>Sun, 18 May 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fqgzsf6/</guid><description>&lt;p>&lt;code>Data::Dumper&lt;/code> モジュールを使うと、ハッシュなどの複雑なデータの内容をダンプできます。
 &lt;code>Dumper&lt;/code> にはリファレンスでデータを渡します。&lt;/p>
@@ -1194,7 +1194,7 @@ C/C++ のポインタとほぼ同様の概念です。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-perl" data-lang="perl">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># コロン以降を抜き出す&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">my&lt;/span> &lt;span class="nv">$sub&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">substr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#39;AAA:BBB&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">index&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#39;:&amp;#39;&lt;/span>&lt;span class="p">));&lt;/span> &lt;span class="c1"># $sub は &amp;#39;:BBB&amp;#39; になる&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Perlメモ: インデックス指定で文字列を置換する (substr)</title><link>https://maku77.github.io/p/5322afv/</link><pubDate>Sun, 13 Apr 2008 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5322afv/</guid><description>&lt;p>&lt;code>substr&lt;/code> を左辺値 (lvalue) として使用すると、数値で位置指定した部分を変更することができます。
-次の例では、文字列の先頭（インデックス = 0）から 3 文字分を &amp;lsquo;Hoge&amp;rsquo; で置換します。&lt;/p>
+次の例では、文字列の先頭（インデックス = 0）から 3 文字分を 'Hoge' で置換します。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-perl" data-lang="perl">&lt;span class="line">&lt;span class="cl">&lt;span class="k">my&lt;/span> &lt;span class="nv">$s&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#39;ABCDE&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">substr&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nv">$s&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#39;Hoge&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>index&lt;/code> と組み合わせて使用すると、ある文字を置換範囲の目印にして置換できます。
@@ -1619,11 +1619,11 @@ Ruby と同じですね。&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="sr">s/(\S+)/\u\L$1/g&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># &amp;#39;Aaaaaa Bbbbbb Cccccc&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>大文字、小文字を操作するためのエスケープ文字には以下のようなものがあります。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>/U&lt;/code> &amp;ndash; その後の文字をすべて大文字にする&lt;/li>
-&lt;li>&lt;code>/L&lt;/code> &amp;ndash; その後の文字をすべて小文字にする&lt;/li>
-&lt;li>&lt;code>/E&lt;/code> &amp;ndash; 上記の変換をここまでで止める&lt;/li>
-&lt;li>&lt;code>/u&lt;/code> &amp;ndash; 次の 1 文字だけ大文字にする&lt;/li>
-&lt;li>&lt;code>/l&lt;/code> &amp;ndash; 次の 1 文字だけ小文字にする&lt;/li>
+&lt;li>&lt;code>/U&lt;/code> -- その後の文字をすべて大文字にする&lt;/li>
+&lt;li>&lt;code>/L&lt;/code> -- その後の文字をすべて小文字にする&lt;/li>
+&lt;li>&lt;code>/E&lt;/code> -- 上記の変換をここまでで止める&lt;/li>
+&lt;li>&lt;code>/u&lt;/code> -- 次の 1 文字だけ大文字にする&lt;/li>
+&lt;li>&lt;code>/l&lt;/code> -- 次の 1 文字だけ小文字にする&lt;/li>
 &lt;/ul>
 &lt;p>実はこれらのエスケープ文字は、ダブルクォート文字列の中ならいつでも使用できます。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-perl" data-lang="perl">&lt;span class="line">&lt;span class="cl">&lt;span class="k">my&lt;/span> &lt;span class="nv">$name&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#39;michael&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
@@ -1720,9 +1720,9 @@ f → C
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="マッチした部分の前後のテキストを抽出する">マッチした部分の前後のテキストを抽出する&lt;/h2>
 &lt;p>正規表現によるテキストマッチングを行うと、次のような特殊変数でマッチしたテキストや、その前後のテキストを取得できます。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>$&amp;amp;&lt;/code> &amp;ndash; パターンにマッチした部分のテキスト&lt;/li>
-&lt;li>&lt;code>$`&lt;/code> &amp;ndash; マッチした部分より前のテキスト&lt;/li>
-&lt;li>&lt;code>$&amp;rsquo;&lt;/code> &amp;ndash; マッチした部分より後ろのテキスト&lt;/li>
+&lt;li>&lt;code>$&amp;amp;&lt;/code> -- パターンにマッチした部分のテキスト&lt;/li>
+&lt;li>&lt;code>$`&lt;/code> -- マッチした部分より前のテキスト&lt;/li>
+&lt;li>&lt;code>$'&lt;/code> -- マッチした部分より後ろのテキスト&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-perl" data-lang="perl">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">$_&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#39;You can do it.&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="sr">/can/&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>

@@ -863,9 +863,9 @@ lib/
  +-- libfreeglut_static.a
 &lt;/code>&lt;/pre>&lt;p>それぞれ、以下のような位置にコピーすれば、インストール終了です。&lt;/p>
 &lt;ul>
-&lt;li>DLL ファイル &amp;ndash; パス (%PATH%) の通ったどこか&lt;/li>
-&lt;li>ヘッダファイル &amp;ndash; &lt;code>C:\MinGW\include\GL&lt;/code> ディレクトリ&lt;/li>
-&lt;li>lib ファイル &amp;ndash; &lt;code>C:\MinGW\lib&lt;/code> ディレクトリ&lt;/li>
+&lt;li>DLL ファイル -- パス (%PATH%) の通ったどこか&lt;/li>
+&lt;li>ヘッダファイル -- &lt;code>C:\MinGW\include\GL&lt;/code> ディレクトリ&lt;/li>
+&lt;li>lib ファイル -- &lt;code>C:\MinGW\lib&lt;/code> ディレクトリ&lt;/li>
 &lt;/ul>
 &lt;h2 id="glut-freeglut-で-helloworld">GLUT (freeglut) で HelloWorld&lt;/h2>
 &lt;p>&lt;code>GL/glut.h&lt;/code> を使用したプログラムは、以下のようにビルドできます。&lt;/p>
@@ -920,8 +920,8 @@ lib/
 &lt;p>青色の丸と、緑色の丸は、システム内の構成要素を捉えるときの粒度の違いを示しています。
 例えば、&lt;/p>
 &lt;ul>
-&lt;li>青丸 &amp;ndash; クラス&lt;/li>
-&lt;li>緑丸 &amp;ndash; 複数のクラスから構成されたコンポーネント&lt;/li>
+&lt;li>青丸 -- クラス&lt;/li>
+&lt;li>緑丸 -- 複数のクラスから構成されたコンポーネント&lt;/li>
 &lt;/ul>
 &lt;p>だと思ってください。
 青丸の粒度の世界での「単体テスト」「結合テスト」もあるし、緑丸の粒度の世界での「単体テスト」「結合テスト」もあります。
@@ -940,8 +940,8 @@ lib/
 「単体テスト」は、あくまで単一の要素の動作を検証しなければならないので、他の要素の実装の進捗によってテスト結果が変わるようなことがあってはいけません。
 そんなときに、以下のようなダミーモジュールを作成し、他の要素の動作を切り離します。&lt;/p>
 &lt;ul>
-&lt;li>ドライバ &amp;ndash; テスト対象を起動、操作するためのモジュール&lt;/li>
-&lt;li>スタブ &amp;ndash; テスト対象内部で呼び出している下位のモジュール&lt;/li>
+&lt;li>ドライバ -- テスト対象を起動、操作するためのモジュール&lt;/li>
+&lt;li>スタブ -- テスト対象内部で呼び出している下位のモジュール&lt;/li>
 &lt;/ul>
 &lt;p>ドライバ、スタブモジュールの作成自体が困難だと思った場合は、そのモジュールに責務を詰め込みすぎていないか、設計を見直すべき合図でもあります。&lt;/p>
 &lt;p>システムの実装は、下位モジュールからボトムアップで完成していくものなので、テストが成功していく順番も、「単体テスト」→「結合テスト」の順になります。
@@ -999,26 +999,26 @@ lib/
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>各種ノードに、以下のような HTML テキストを返すための共通のインタフェースを用意すれば、&lt;code>instanceof&lt;/code> やキャストを行わずにポリモーフィックに &lt;code>Node&lt;/code> を処理できると考えるかもしれません。&lt;/p></description></item><item><title>共通鍵暗号化方式と公開鍵暗号化方式</title><link>https://maku77.github.io/p/xkoyxnh/</link><pubDate>Sun, 28 Nov 2010 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xkoyxnh/</guid><description>&lt;h2 id="共通鍵暗号化方式">共通鍵暗号化方式&lt;/h2>
 &lt;h3 id="用途">用途&lt;/h3>
 &lt;ul>
-&lt;li>暗号化／複合化 &amp;ndash; 暗号化と複合化を同じ共通鍵（秘密鍵 Secret Key）で行う。&lt;/li>
+&lt;li>暗号化／複合化 -- 暗号化と複合化を同じ共通鍵（秘密鍵 Secret Key）で行う。&lt;/li>
 &lt;/ul>
 &lt;h3 id="実装">実装&lt;/h3>
 &lt;ul>
-&lt;li>DES (Data Encryption Standard) &amp;ndash; 1960年代。IBM。FIPS 46。暗号強度が低すぎる。鍵が 56 ビットなので、ブルートフォースアタックですぐに解読されてしまう。&lt;/li>
-&lt;li>3-DES (Triple DES) &amp;ndash; 1999年。IBM。AES までの繋ぎ。&lt;/li>
-&lt;li>AES (Advanced Encryption Standard) &amp;ndash; 2001年3月。米国商務省標準技術局(NIST)。FIPS 197 として公表。&lt;/li>
+&lt;li>DES (Data Encryption Standard) -- 1960年代。IBM。FIPS 46。暗号強度が低すぎる。鍵が 56 ビットなので、ブルートフォースアタックですぐに解読されてしまう。&lt;/li>
+&lt;li>3-DES (Triple DES) -- 1999年。IBM。AES までの繋ぎ。&lt;/li>
+&lt;li>AES (Advanced Encryption Standard) -- 2001年3月。米国商務省標準技術局(NIST)。FIPS 197 として公表。&lt;/li>
 &lt;/ul>
 &lt;h2 id="公開鍵暗号化方式">公開鍵暗号化方式&lt;/h2>
 &lt;h3 id="用途-1">用途&lt;/h3>
 &lt;ul>
-&lt;li>暗号化／複合化 &amp;ndash; 送信者が受信者の公開鍵 (Public Key) で暗号化し、受信者は自分の非公開鍵 (Private Key) で複合化する。&lt;/li>
-&lt;li>署名 &amp;ndash; 送信者が自分の非公開鍵で電子署名し、受信者が送信者の公開鍵で改変されていないことを確認する。公開鍵がそもそも偽造だと意味がないので、公開鍵を正しいものだと証明するための機関として、認証局 (CA) というものがある。&lt;/li>
+&lt;li>暗号化／複合化 -- 送信者が受信者の公開鍵 (Public Key) で暗号化し、受信者は自分の非公開鍵 (Private Key) で複合化する。&lt;/li>
+&lt;li>署名 -- 送信者が自分の非公開鍵で電子署名し、受信者が送信者の公開鍵で改変されていないことを確認する。公開鍵がそもそも偽造だと意味がないので、公開鍵を正しいものだと証明するための機関として、認証局 (CA) というものがある。&lt;/li>
 &lt;/ul>
 &lt;h3 id="実装-1">実装&lt;/h3>
 &lt;ul>
-&lt;li>RSA（Ronald Rivest, Adi Shamir, Leonard Adleman）&amp;ndash; 1977年。&lt;/li>
-&lt;li>DSA (Digital Signature Algorithm) &amp;ndash; 1991年8月。米国商務省標準技術局(NIST)。FIPS 186 として公表。1024 bits が一般的。&lt;/li>
-&lt;li>ECDSA (Elliptic Curve Digital Signature Algorithm) &amp;ndash; 楕円曲線暗号版の DSA。RSA や DSA よりも短い鍵長で、強い強度を持つという特徴がある。&lt;/li>
-&lt;li>Ed25519 (Edwards-curve Digital Signature Algorithm) &amp;ndash; エドワーズ曲線暗号。ECDSA よりも高速に処理できるという特徴がある。&lt;/li>
+&lt;li>RSA（Ronald Rivest, Adi Shamir, Leonard Adleman）-- 1977年。&lt;/li>
+&lt;li>DSA (Digital Signature Algorithm) -- 1991年8月。米国商務省標準技術局(NIST)。FIPS 186 として公表。1024 bits が一般的。&lt;/li>
+&lt;li>ECDSA (Elliptic Curve Digital Signature Algorithm) -- 楕円曲線暗号版の DSA。RSA や DSA よりも短い鍵長で、強い強度を持つという特徴がある。&lt;/li>
+&lt;li>Ed25519 (Edwards-curve Digital Signature Algorithm) -- エドワーズ曲線暗号。ECDSA よりも高速に処理できるという特徴がある。&lt;/li>
 &lt;/ul>
 &lt;p>「&lt;strong>認証局 (CA)&lt;/strong>」は、鍵の所有者の情報と、その公開鍵を管理しており、公開鍵が偽造されていないことを「&lt;strong>証明書 (Certificate)&lt;/strong>」を発行することで証明します。
 「証明書」とは、ある公開鍵とその所有者情報を「&lt;strong>認証局の非公開鍵で署名&lt;/strong>」したものです。

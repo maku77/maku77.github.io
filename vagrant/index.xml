@@ -42,14 +42,14 @@ hashicorp/precise64 (virtualbox, 1.1.0)
  &lt;td style="text-align: center">OK&lt;/td>
  &lt;td style="text-align: center">OK&lt;/td>
  &lt;td style="text-align: center">OK&lt;/td>
- &lt;td style="text-align: center">&amp;ndash;&lt;/td>
+ &lt;td style="text-align: center">--&lt;/td>
  &lt;td>Low（仮想マシンは外から見えない）&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>ポートフォワード&lt;br>(forwarded port)&lt;/td>
  &lt;td style="text-align: center">OK&lt;/td>
- &lt;td style="text-align: center">&amp;ndash;&lt;/td>
- &lt;td style="text-align: center">&amp;ndash;&lt;/td>
+ &lt;td style="text-align: center">--&lt;/td>
+ &lt;td style="text-align: center">--&lt;/td>
  &lt;td style="text-align: center">OK&lt;/td>
  &lt;td>Medium（仮想マシンの特定のポートだけアクセス可能）&lt;/td>
  &lt;/tr>

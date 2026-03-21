@@ -1107,7 +1107,7 @@ http://localhost/memos/xyz // Cannot GET /memos/xyz
 &lt;p>と理解しておけばよいでしょう。&lt;/p>
 &lt;h2 id="require-がどのようにモジュールを検索するか">require がどのようにモジュールを検索するか？&lt;/h2>
 &lt;p>&lt;code>require&lt;/code> によってどのパスに置かれたファイルがロードされるかは、下記のようなアルゴリズムで決められます。&lt;/p>
-&lt;h3 id="requirename-としたとき">require(&amp;rsquo;name&amp;rsquo;) としたとき&lt;/h3>
+&lt;h3 id="requirename-としたとき">require(&amp;rsquo;name') としたとき&lt;/h3>
 &lt;p>&lt;code>require&lt;/code> のパラメータでモジュール名そのもの（&lt;code>express&lt;/code> など）を指定した場合は、下記のようなアルゴリズムでロードするモジュールが決められます。&lt;/p>
 &lt;ol>
 &lt;li>&lt;code>name&lt;/code> というコアモジュールを探す。&lt;/li>
@@ -1359,8 +1359,8 @@ http://localhost/memos/xyz // Cannot GET /memos/xyz
 &lt;code>X-Forwarded-For&lt;/code> ヘッダーは、プロキシやロードバランサを経由したときに「元のクライアントの IP アドレス」をサーバ側に伝えるための事実上の標準ヘッダーです。&lt;/p></description></item><item><title>Node.jsメモ: Node.js で WebSocket サーバを作る（簡単な chat サーバ）</title><link>https://maku77.github.io/p/hfrkkyx/</link><pubDate>Wed, 05 Mar 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hfrkkyx/</guid><description>&lt;p>WebSocket サーバは、接続中のすべてのクライアントに対して処理を行うことができます。
 例えば、以下のようなプロパティがあります。&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>server.clientsCount&lt;/code> &amp;ndash; 接続中のクライアント数&lt;/li>
-&lt;li>&lt;code>server.clients&lt;/code> &amp;ndash; 接続中のクライアントのリスト&lt;/li>
+&lt;li>&lt;code>server.clientsCount&lt;/code> -- 接続中のクライアント数&lt;/li>
+&lt;li>&lt;code>server.clients&lt;/code> -- 接続中のクライアントのリスト&lt;/li>
 &lt;/ul>
 &lt;p>すべてのクライアントに対してメッセージを送信すれば、簡単なチャットサーバになります。&lt;/p>
 
@@ -1819,7 +1819,7 @@ Listening on port 5000
 &lt;p>エラーの種類 (&lt;code>err.name&lt;/code>) ごとにハンドル処理を切り替えるには、例外を &lt;code>catch&lt;/code> したときに取得するオブジェクトの種類を &lt;code>instanceof&lt;/code> で調べます。&lt;/p></description></item><item><title>Node.js での例外処理: Uncaught Exception（未捕捉例外）をハンドルする</title><link>https://maku77.github.io/p/4zwjrzz/</link><pubDate>Sat, 25 Jan 2014 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4zwjrzz/</guid><description>&lt;h2 id="uncaught-exception-を処理する">Uncaught Exception を処理する&lt;/h2>
 &lt;p>ハンドルされていない例外を最上位でまとめてハンドルするには、以下のように &lt;strong>&lt;code>process&lt;/code> グローバルオブジェクトで &lt;code>uncaughtException&lt;/code> イベントをハンドル&lt;/strong> するよう設定します。&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://nodejs.org/api/process.html#process_event_uncaughtexception">参考: Node.js - Process Event: &amp;lsquo;uncaughtException&amp;rsquo;&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nodejs.org/api/process.html#process_event_uncaughtexception">参考: Node.js - Process Event: 'uncaughtException'&lt;/a>&lt;/li>
 &lt;/ul>
 
 &lt;figure class="xCodeBlock">

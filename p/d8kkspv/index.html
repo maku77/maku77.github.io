@@ -13,9 +13,9 @@ enum 型は各インスタンスがシングルトンとしてのみ存在可能
 ここでは、アプリケーションの「画面状態」を示す Screen クラスを考えてみます。
 画面状態には下記の種類があります。
 
-Screen.Main &ndash; メイン画面
-Screen.ProductList &ndash; 全商品のリスト画面
-Screen.ProductDetail &ndash; ある商品の詳細画面（商品 ID プロパティを含む）
+Screen.Main -- メイン画面
+Screen.ProductList -- 全商品のリスト画面
+Screen.ProductDetail -- ある商品の詳細画面（商品 ID プロパティを含む）
 
 これらが 3 つの画面状態だけを示せればよいのであれば、従来の列挙クラスで 3 つの要素を定義してやれば解決です。
 問題は、3 つ目の Screen.ProductDetail が、表示対象となる商品の ID をプロパティとして保持するという点です。
@@ -41,7 +41,7 @@ enum 型は各インスタンスがシングルトンとしてのみ存在可能
 デフォルトで継承可能 (<code>open</code>) なクラスとして定義され、<code>abstract</code> なメソッド、プロパティを含むことができます。
 インスタンスを生成するときは、必ずサブクラスのインスタンスとして生成しなければいけません。</p><h2 id=シールクラスの利用例>シールクラスの利用例</h2><p>シールクラスは利用例を見たほうが理解しやすいと思います。
 例えば、列挙型クラスのようなものを作りたいのだけれど、場合によってはパラメータを渡して亜種となるオブジェクトを作らなければいけない、といったケースで利用できます。</p><p>ここでは、アプリケーションの「画面状態」を示す <code>Screen</code> クラスを考えてみます。
-画面状態には下記の種類があります。</p><ol><li><code>Screen.Main</code> &ndash; メイン画面</li><li><code>Screen.ProductList</code> &ndash; 全商品のリスト画面</li><li><code>Screen.ProductDetail</code> &ndash; ある商品の詳細画面（<strong>商品 ID プロパティを含む</strong>）</li></ol><p>これらが 3 つの画面状態だけを示せればよいのであれば、従来の列挙クラスで 3 つの要素を定義してやれば解決です。
+画面状態には下記の種類があります。</p><ol><li><code>Screen.Main</code> -- メイン画面</li><li><code>Screen.ProductList</code> -- 全商品のリスト画面</li><li><code>Screen.ProductDetail</code> -- ある商品の詳細画面（<strong>商品 ID プロパティを含む</strong>）</li></ol><p>これらが 3 つの画面状態だけを示せればよいのであれば、従来の列挙クラスで 3 つの要素を定義してやれば解決です。
 問題は、3 つ目の <code>Screen.ProductDetail</code> が、表示対象となる商品の ID をプロパティとして保持するという点です。
 つまり、<code>Screen.ProductDetail</code> という 1 つの画面状態だけを示せばよいのではなく、<code>Screen.ProductDetail(1)</code> とか、<code>Screen.ProductDetail(2)</code> といった異なる画面状態を表現したいということです。</p><p>このように、列挙型の個々のオブジェクトに異なるプロパティを持たせたいという場面に出くわしたら、シールクラスの出番です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-kotlin data-lang=kotlin><span class=line><span class=cl><span class=k>sealed</span> <span class=k>class</span> <span class=nc>Screen</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=k>object</span> <span class=nc>Main</span> <span class=p>:</span> <span class=n>Screen</span><span class=p>()</span>

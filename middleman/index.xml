@@ -271,7 +271,7 @@ is_index = &amp;lt;%= is_index %&amp;gt;&lt;/code>&lt;/pre>&lt;/div>
  &lt;tr>
  &lt;td>data&lt;/td>
  &lt;td>Frontmatter で指定したデータ&lt;/td>
- &lt;td>{ title: &amp;lsquo;About this site&amp;rsquo; }&lt;/td>
+ &lt;td>{ title: 'About this site' }&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>parent&lt;/td>

@@ -94,7 +94,7 @@ Add 100
 
 $ ruby sample.rb --add
 Add something
-</code></pre><h2 id=ヘルプオプション--h---help-の説明を表示する>ヘルプオプション (&rsquo;-h&rsquo;, &lsquo;&ndash;help&rsquo;) の説明を表示する</h2><p><code>OptionParser</code> を使用すると、自動的に <code>-h</code> と <code>--help</code> オプションが定義されるのですが、それによるヘルプメッセージには <code>-h</code> と <code>--help</code> オプションの説明が表示されません。</p><pre tabindex=0><code>$ ruby sample.rb --help
+</code></pre><h2 id=ヘルプオプション--h---help-の説明を表示する>ヘルプオプション ('-h', '--help') の説明を表示する</h2><p><code>OptionParser</code> を使用すると、自動的に <code>-h</code> と <code>--help</code> オプションが定義されるのですが、それによるヘルプメッセージには <code>-h</code> と <code>--help</code> オプションの説明が表示されません。</p><pre tabindex=0><code>$ ruby sample.rb --help
 Usage: sample [options]
     -a, --add                        add an item
 </code></pre><p>ヘルプメッセージに <code>-h</code> と <code>--help</code> の説明も表示するには、他のオプションと同じように <code>on</code> メソッドでオプションを定義します。

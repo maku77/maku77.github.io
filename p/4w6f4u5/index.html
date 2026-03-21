@@ -193,7 +193,7 @@ int main() {
 </span></span><span class=line><span class=cl>        <span class=p>}</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><h2 id=例-gvariant-に連想配列の配列を入れる-aass>例: GVariant に連想配列の配列を入れる (&ldquo;aa{ss}&rdquo;)</h2><p><code>a{ss}</code> という type string は、連想配列を表しています。
+</span></span></code></pre></div><h2 id=例-gvariant-に連想配列の配列を入れる-aass>例: GVariant に連想配列の配列を入れる ("aa{ss}")</h2><p><code>a{ss}</code> という type string は、連想配列を表しています。
 なので、<code>aa{ss}</code> は連想配列の配列ということになります。
 以下のコードは <code>aa{ss}</code> のデータを含む <code>GVariant</code> オブジェクトを処理しています。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=n>gsize</span> <span class=n>num</span> <span class=o>=</span> <span class=n>g_variant_n_children</span><span class=p>(</span><span class=n>variant</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>num</span><span class=p>;</span> <span class=o>++</span><span class=n>i</span><span class=p>)</span> <span class=p>{</span>

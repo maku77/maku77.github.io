@@ -419,7 +419,7 @@ display: -moz-box;
 -moz-box-flex: 1;
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>参考: &lt;a href="http://caniuse.com/#search=flex">Can I use &amp;hellip; Support tables for HTML5, CSS3, etc&lt;/a>&lt;/li>
-&lt;li>参考: &lt;a href="https://msdn.microsoft.com/library/dn265027.aspx">可変ボックス (&amp;ldquo;Flexbox&amp;rdquo;) レイアウトの更新 (Windows)&lt;/a>&lt;/li>
+&lt;li>参考: &lt;a href="https://msdn.microsoft.com/library/dn265027.aspx">可変ボックス ("Flexbox") レイアウトの更新 (Windows)&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>モバイルファーストな CSS を作成するコツ（max-width ではなく min-width を使うべし）</title><link>https://maku77.github.io/p/7vwoyht/</link><pubDate>Sun, 31 Jul 2016 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7vwoyht/</guid><description>&lt;p>モバイルファーストで Web サイトを作成するには、メディアクエリで &lt;code>max-width&lt;/code> は使用せずに、&lt;strong>&lt;code>min-width&lt;/code>&lt;/strong> を使用するようにしましょう。
 そうすると、デフォルトのスタイルが小さい画面用のスタイルとして適用されるため、モバイル画面でどのように表示されるかを先に考えることができます。&lt;/p>
 &lt;h2 id="画面が広いときと狭い時のレイアウトを切り替える">画面が広いときと狭い時のレイアウトを切り替える&lt;/h2>

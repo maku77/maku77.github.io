@@ -27,7 +27,7 @@
 </span></span><span class=line><span class=cl><span class=gp>$</span> <span class=nb>echo</span> <span class=nv>$y</span>
 </span></span><span class=line><span class=cl><span class=go>/aaa/bbb
 </span></span></span></code></pre></div><p>ちなみに、ディレクトリ部分を取得したいのであれば、通常は <code>dirname</code> コマンドを使用して以下のようにした方が簡単です。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> dirname <span class=nv>$x</span>
-</span></span></code></pre></div><h3 id=例--以降のコメントを削除する>例: &lsquo;#&rsquo; 以降のコメントを削除する</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> <span class=nv>line</span><span class=o>=</span><span class=s2>&#34;aaa bbb # This is a comment&#34;</span>
+</span></span></code></pre></div><h3 id=例--以降のコメントを削除する>例: '#' 以降のコメントを削除する</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-console data-lang=console><span class=line><span class=cl><span class=gp>$</span> <span class=nv>line</span><span class=o>=</span><span class=s2>&#34;aaa bbb # This is a comment&#34;</span>
 </span></span><span class=line><span class=cl><span class=gp>$</span> <span class=nv>line</span><span class=o>=</span><span class=si>${</span><span class=nv>line</span><span class=p>%%#*</span><span class=si>}</span>
 </span></span><span class=line><span class=cl><span class=gp>$</span> <span class=nb>echo</span> <span class=nv>$line</span>
 </span></span><span class=line><span class=cl><span class=go>aaa bbb

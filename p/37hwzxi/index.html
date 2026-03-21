@@ -13,7 +13,7 @@ DEFAULT_NAME: Final = "Player"
 
   ☝️ 定数名は大文字
   定数名は すべて大文字（+ アンダースコア） で構成するのが慣例となっています。
-このあたりの標準的な命名規則は PEP8 に記載されています（参考: PEP 8 &ndash; Style Guide for Python Code｜Python.org）。
+このあたりの標準的な命名規則は PEP8 に記載されています（参考: PEP 8 -- Style Guide for Python Code｜Python.org）。
 
 Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include MAX_OVERFLOW and TOTAL.
 
@@ -47,7 +47,7 @@ Final アノテーションは、Mypy などの型チェッカーが再代入を
 </span></span><span class=line><span class=cl><span class=n>ORIGIN_COORD</span><span class=p>:</span> <span class=n>Final</span> <span class=o>=</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=n>DEFAULT_NAME</span><span class=p>:</span> <span class=n>Final</span> <span class=o>=</span> <span class=s2>&#34;Player&#34;</span></span></span></code></pre></div></div></figure><div class=xNote><span class=xNote_title>☝️ 定数名は大文字</span>
 <span class=xNote_body><p>定数名は <strong>すべて大文字（+ アンダースコア）</strong> で構成するのが慣例となっています。
-このあたりの標準的な命名規則は PEP8 に記載されています（参考: <a href=https://www.python.org/dev/peps/pep-0008/#constants>PEP 8 &ndash; Style Guide for Python Code｜Python.org</a>）。</p><blockquote><p>Constants are usually defined on a module level and written in <strong>all capital letters with underscores</strong> separating words. Examples include MAX_OVERFLOW and TOTAL.</p></blockquote></span></div><p>クラス定数も下記のようにして同様に定義することができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>例: クラス定数</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Final</span>
+このあたりの標準的な命名規則は PEP8 に記載されています（参考: <a href=https://www.python.org/dev/peps/pep-0008/#constants>PEP 8 -- Style Guide for Python Code｜Python.org</a>）。</p><blockquote><p>Constants are usually defined on a module level and written in <strong>all capital letters with underscores</strong> separating words. Examples include MAX_OVERFLOW and TOTAL.</p></blockquote></span></div><p>クラス定数も下記のようにして同様に定義することができます。</p><figure class=xCodeBlock><figcaption class=xCodeBlock_title>例: クラス定数</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Final</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Player</span><span class=p>:</span>
 </span></span><span class="line hl"><span class=cl>    <span class=n>DEFAULT_NAME</span><span class=p>:</span> <span class=n>Final</span> <span class=o>=</span> <span class=s2>&#34;Player&#34;</span>

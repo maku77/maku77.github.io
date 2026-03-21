@@ -17,9 +17,9 @@ lib/
   +-- libfreeglut_static.a
 それぞれ、以下のような位置にコピーすれば、インストール終了です。
 
-DLL ファイル &ndash; パス (%PATH%) の通ったどこか
-ヘッダファイル &ndash; C:\MinGW\include\GL ディレクトリ
-lib ファイル &ndash; C:\MinGW\lib ディレクトリ
+DLL ファイル -- パス (%PATH%) の通ったどこか
+ヘッダファイル -- C:\MinGW\include\GL ディレクトリ
+lib ファイル -- C:\MinGW\lib ディレクトリ
 
 GLUT (freeglut) で HelloWorld
 GL/glut.h を使用したプログラムは、以下のようにビルドできます。
@@ -67,7 +67,7 @@ include/GL/
 lib/
   +-- libfreeglut.a
   +-- libfreeglut_static.a
-</code></pre><p>それぞれ、以下のような位置にコピーすれば、インストール終了です。</p><ul><li>DLL ファイル &ndash; パス (%PATH%) の通ったどこか</li><li>ヘッダファイル &ndash; <code>C:\MinGW\include\GL</code> ディレクトリ</li><li>lib ファイル &ndash; <code>C:\MinGW\lib</code> ディレクトリ</li></ul><h2 id=glut-freeglut-で-helloworld>GLUT (freeglut) で HelloWorld</h2><p><code>GL/glut.h</code> を使用したプログラムは、以下のようにビルドできます。</p><pre tabindex=0><code>C:\&gt; g++ main.cpp -lfreeglut -lopengl32
+</code></pre><p>それぞれ、以下のような位置にコピーすれば、インストール終了です。</p><ul><li>DLL ファイル -- パス (%PATH%) の通ったどこか</li><li>ヘッダファイル -- <code>C:\MinGW\include\GL</code> ディレクトリ</li><li>lib ファイル -- <code>C:\MinGW\lib</code> ディレクトリ</li></ul><h2 id=glut-freeglut-で-helloworld>GLUT (freeglut) で HelloWorld</h2><p><code>GL/glut.h</code> を使用したプログラムは、以下のようにビルドできます。</p><pre tabindex=0><code>C:\&gt; g++ main.cpp -lfreeglut -lopengl32
 </code></pre><figure class=xCodeBlock><figcaption class=xCodeBlock_title>main.cpp</figcaption><div class=xCodeBlock_code><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;GL/glut.h&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp></span>
 </span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>display</span><span class=p>()</span> <span class=p>{</span>
