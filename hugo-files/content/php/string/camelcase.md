@@ -1,0 +1,16 @@
+---
+title: "PHPメモ: 各単語の先頭１文字を大文字に変換する"
+url: "/p/hvo93cp/"
+date: "2012-01-15"
+tags: ["php"]
+aliases: [/php/string/camelcase.html]
+---
+
+各単語の先頭文字を大文字にする関数として、`ucwords()` が用意されています。
+ただし、`ucwords()` は先頭文字以外を小文字に変換するということはしないので、各単語の先頭文字だけを大文字にした文字列を作成するには、以下のように `strtolower()` と組み合わせて使用する必要があります。
+
+```php
+$s = 'aaa bBb CcC dDD';
+$uc = ucwords(strtolower($s));  // 'Aaa Bbb Ccc Ddd'
+```
+
