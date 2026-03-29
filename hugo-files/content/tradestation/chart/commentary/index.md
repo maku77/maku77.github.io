@@ -1,0 +1,69 @@
+---
+title: "TradeStationメモ: 各バーに注釈を付ける (Commentary, CommentaryCL)"
+url: "p/r5gv7ip/"
+date: "2017-09-17"
+tags: ["tradestation"]
+description: "Commentary 機能を使用すると、各バー（足）に注釈テキスト（分析コメント）を設定することができます。"
+aliases: /tradestation/chart/commentary.html
+---
+
+{{< image src="img-001.png" >}}
+
+`Commentary` 関数によって各バーに設定した注釈テキストは、下記のようにして**分析コメントウィンドウ (AnalysisCommentary Window)** に表示できます。
+
+1. メニューから「表示(V)」→「分析コメント(Y)」を選択
+2. チャート上の任意のバーをクリック
+
+分析コメントウィンドウを開いたら、左右キーを使って隣のバーの注釈コメントを見ていくことができます。
+
+`Commentary` 関数は、1 つのバーを処理中に何度も呼び出すことができます。その場合、渡したテキストが結合されて分析コメントウィンドウに表示されます。
+改行を入れるには、下記のように `NewLine` キーワードを組み合わせます。
+
+```
+if AtCommentaryBar then begin
+    Commentary("始値=", Open:0:0, NewLine);
+    Commentary("高値=", High:0:0, NewLine);
+    Commentary("安値=", Low:0:0, NewLine);
+    Commentary("終値=", Close:0:0, NewLine);
+    Commentary("移動平均(25)=", Average(Close, 25), NewLine);
+end;
+```
+
+`Commentary` 関数は、**`AtCommentaryBar` 属性が `true` を返す場合にだけ呼び出す**ようにしてください。
+こうすることで、ユーザーがチャート上のバーをクリックしたときに、そのバーに対してのみ処理が実行されます。
+`AtCommentaryBar` のチェックを省略すると、インジケーターをチャートに適用した際にすべてのバーに対して `Commentary` 関数の呼び出しが走ってしまい、非効率なプログラムになります。
+似たような属性に `CommentaryEnabled` がありますが、こちらは分析コメントウィンドウが開いている間は常に `true` となるため、あまり使い道がありません。
+
+`Commentary` の派生関数である `CommentaryCL` を使用すると、末尾に自動的に改行が挿入されます。そのため、上記のコードは下記のように書き換えることができます。
+
+```
+if AtCommentaryBar then begin
+    CommentaryCL("始値=", Open:0:0);
+    CommentaryCL("高値=", High:0:0);
+    CommentaryCL("安値=", Low:0:0);
+    CommentaryCL("終値=", Close:0:0);
+    CommentaryCL("移動平均(25)=", Average(Close, 25));
+end;
+```
+
+分析コメントウィンドウは HTML ページとして構成されているため、下記のように HTML タグでテキストを装飾することができます。
+
+```
+if AtCommentaryBar then begin
+    CommentaryCL("<b>四本値</b>");
+    CommentaryCL("<font color='blue'>始値</font>=", Open:0:0);
+    CommentaryCL("<font color='blue'>高値</font>=", High:0:0);
+    CommentaryCL("<font color='blue'>安値</font>=", Low:0:0);
+    CommentaryCL("<font color='blue'>終値</font>=", Close:0:0);
+end;
+```
+
+
+トラブルシューティング: コメントを作成する分析テクニックは適用されていません
+----
+
+`Commentary` 関数や `CommentaryCL` 関数でバーにコメントを設定したにもかかわらず、「分析コメント」ウィンドウに下記のように表示される場合は、その分析ストラテジーがデバッグモードで実行されている可能性があります（開発環境から <kbd>F5</kbd> などで実行している場合）。
+
+{{< image src="img-002.png" >}}
+
+分析コメントを正しく設定するには、チャート上で「分析テクニックの挿入」を使って分析テクニックをアタッチする必要があります。
