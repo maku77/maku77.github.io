@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>トレードステーション on 天才まくまくノート</title><link>https://maku77.github.io/tradestation/</link><description>Recent content in トレードステーション on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Thu, 21 May 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/tradestation/index.xml" rel="self" type="application/rss+xml"/><item><title>TradeStationメモ: スキップ語の一覧</title><link>https://maku77.github.io/p/iahrqsi/</link><pubDate>Sun, 30 Dec 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/iahrqsi/</guid><description>&lt;p>EasyLanguage では、コードが自然な英語に近くなるように&lt;strong>スキップ語&lt;/strong>というワードをコード内に含めることができます。
+スキップ語は意味を持たないワードとして単純に無視されます。&lt;/p>
+&lt;p>スキップ語として定義されているワードは以下の通りです。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>a&lt;/code>&lt;/li>
+&lt;li>&lt;code>an&lt;/code>&lt;/li>
+&lt;li>&lt;code>at&lt;/code>&lt;/li>
+&lt;li>&lt;code>based&lt;/code>&lt;/li>
+&lt;li>&lt;code>by&lt;/code>&lt;/li>
+&lt;li>&lt;code>does&lt;/code>&lt;/li>
+&lt;li>&lt;code>from&lt;/code>&lt;/li>
+&lt;li>&lt;code>is&lt;/code>&lt;/li>
+&lt;li>&lt;code>of&lt;/code>&lt;/li>
+&lt;li>&lt;code>on&lt;/code>&lt;/li>
+&lt;li>&lt;code>place&lt;/code>&lt;/li>
+&lt;li>&lt;code>than&lt;/code>&lt;/li>
+&lt;li>&lt;code>the&lt;/code>&lt;/li>
+&lt;li>&lt;code>was&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>下記のコードは、スキップ語を使って自然な英語に近づけた例です。&lt;/p>
+&lt;pre>&lt;code>if &lt;strong>the&lt;/strong> Close > &lt;strong>the&lt;/strong> High &lt;strong>of&lt;/strong> 1 bar ago then Buy &lt;strong>on the&lt;/strong> next bar &lt;strong>at the&lt;/strong> market&lt;/code>&lt;/pre>
+&lt;p>これは下記のように短く書いても同じ意味になります。&lt;/p>
+&lt;pre>&lt;code>if Close > High[1] then Buy next bar market&lt;/code>&lt;/pre>
+&lt;p>なお、&lt;code>High[1]&lt;/code> は &lt;code>High of 1 bar ago&lt;/code> を短縮した表現です。&lt;/p></description></item><item><title>TradeStationメモ: if-else による条件分岐</title><link>https://maku77.github.io/p/2dbn8q9/</link><pubDate>Mon, 26 Nov 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/2dbn8q9/</guid><description>&lt;h2 id="分岐後のステートメントが-1-つの場合">分岐後のステートメントが 1 つの場合&lt;/h2>
+&lt;pre tabindex="0">&lt;code>if 条件式 then ステートメント;
+if 条件式 then ステートメント1 else ステートメント2;
+&lt;/code>&lt;/pre>&lt;p>条件分岐は、この if-then-else の構成が基本となります。
+各ステートメントの後ろにセミコロン (&lt;code>;&lt;/code>) は記述せず、if-then-else 全体の最後にのみセミコロンを記述します。
+全体を 1 つの英語文章として捉えると理解しやすく、先頭の &lt;code>if&lt;/code> だけ大文字で記述するのが慣例です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">使用例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">if FastAvg crosses over SlowAvg then Buy 500 shares next bar at market;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ステートメントが長い場合は、下記のように複数行に分けて記述することもできます。
+この場合もセミコロンは最後の 1 つだけです。&lt;/p>
+&lt;pre tabindex="0">&lt;code>if 条件式 then
+ ステートメント;
+
+if 条件式 then
+ ステートメント1
+else
+ ステートメント2;
+&lt;/code>&lt;/pre>&lt;p>複数行で記述する場合は、後述の &lt;code>begin&lt;/code> ～ &lt;code>end&lt;/code> セクションを使う方が書き方を統一できて読みやすくなります。&lt;/p>
+&lt;h2 id="分岐後のステートメントが-2-つ以上の場合">分岐後のステートメントが 2 つ以上の場合&lt;/h2>
+&lt;pre tabindex="0">&lt;code>if 条件式 then begin
+ ステートメント1;
+ ステートメント2;
+end;
+
+if 条件式 then begin
+ ステートメント1;
+ ステートメント2;
+end else begin
+ ステートメント3;
+ ステートメント4;
+end;
+&lt;/code>&lt;/pre>&lt;p>条件分岐後に複数のステートメントを記述する場合は、&lt;code>begin&lt;/code> ～ &lt;code>end&lt;/code> で囲む必要があります。
+一見複雑に見えますが、1 つのステートメントだったときの「ステートメント」の部分を &lt;code>begin&lt;/code> ～ &lt;code>end&lt;/code> セクションに置き換えたと考えると理解しやすいです。
+&lt;code>begin&lt;/code> ～ &lt;code>end&lt;/code> セクション内の各ステートメントの末尾にはセミコロンが必要です。&lt;/p></description></item><item><title>TradeStationメモ: TradeStation 開発環境（EasyLanguage 開発環境）をショートカットキーで開く</title><link>https://maku77.github.io/p/bvkmhzx/</link><pubDate>Sun, 25 Nov 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bvkmhzx/</guid><description>&lt;p>トレードステーションのデスクトップ環境使用中に、EasyLanguage 開発環境を開くショートカットキーはデフォルトでは割り当てられていません。&lt;/p>
+&lt;p>EasyLanguage 開発環境は、メニューから &lt;kbd>&lt;samp>表示(&lt;u>V&lt;/u>)&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>EasyLanguage開発環境(&lt;u>L&lt;/u>)&lt;/samp>&lt;/kbd> と辿れば開けますが、ショートカットキーを割り当てておくと素早く開けて便利です。&lt;/p>
+&lt;p>例えば、開発環境のショートカットキー（公式用語は「ホットキー」）として &lt;kbd>F11&lt;/kbd> キーを割り当てるには以下のようにします。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="605" height="731" src="../p/bvkmhzx/img-001.png" alt="/p/bvkmhzx/img-001.png" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>メニューから &lt;kbd>&lt;samp>表示(&lt;u>V&lt;/u>)&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>ホットキー(&lt;u>H&lt;/u>)&amp;hellip;&lt;/samp>&lt;/kbd> を選択。&lt;/li>
+&lt;li>カテゴリーで &lt;kbd>&lt;samp>表示&lt;/samp>&lt;/kbd>、コマンドで &lt;kbd>&lt;samp>開発環境&lt;/samp>&lt;/kbd> を選択。&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>新しいホットキーを押下&lt;/samp>&lt;/kbd> という部分を選択し、&lt;kbd>F11&lt;/kbd> を押して &lt;kbd>&lt;samp>割り当てる&lt;/samp>&lt;/kbd> ボタンをクリック（あるいは &lt;kbd>Enter&lt;/kbd> キー）。&lt;/li>
+&lt;/ol>
+&lt;p>これで &lt;kbd>F11&lt;/kbd> キーで素早く EasyLanguage のプログラミング環境に移動できるようになります。
+すでに開発環境が開いている場合は、ウィンドウを切り替えるだけです。&lt;/p>
+&lt;p>ショートカットキーとしては任意のキーを割り当てられますが、&lt;kbd>F11&lt;/kbd> キーの割り当てをお勧めします。
+「F11 → イイ → EasyLanguage」と覚えやすいためです。&lt;/p></description></item><item><title>TradeStationメモ: 銘柄のファンダメンタルデータを取得する (GetFundData)</title><link>https://maku77.github.io/p/bw64daa/</link><pubDate>Sun, 25 Nov 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bw64daa/</guid><description>&lt;p>個別銘柄の決算日、営業利益、PER、PBR といったファンダメンタルデータを取得するには、&lt;strong>&lt;code>GetFundData&lt;/code>&lt;/strong> 系の API を使用します。
+取得するデータの型（数値、文字列、真偽値）に応じて、以下の 3 種類の関数を使い分けます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>GetFundData&lt;/code> - &lt;strong>数値&lt;/strong>のファンダメンタルデータを取得する&lt;/li>
+&lt;li>&lt;code>GetFundDataAsString&lt;/code> - &lt;strong>文字列&lt;/strong>のファンダメンタルデータを取得する&lt;/li>
+&lt;li>&lt;code>GetFundDataAsBoolean&lt;/code> - &lt;strong>真偽値&lt;/strong>のファンダメンタルデータを取得する&lt;/li>
+&lt;/ul>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">関数の定義&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">GetFundData(sFieldName, nDataPointsBack) → 数値
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GetFundDataAsString(sFieldName, nDataPointsBack) → 文字列
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GetFundDataAsBoolean(sFieldName, nDataPointsBack) → 真偽値&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>第 1 パラメータ &lt;code>sFieldName&lt;/code> には、取得したいファンダメンタルデータを表す文字列を指定します。
+取得可能なフィールドの一覧は、以下の TradeStation ヘルプページを参照してください。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="http://help.tradestation.com/09_05/Monex/jpn/tradestationhelp/Subsystems/elanalysis/fundamental/fundamental_data_-_jpeq.htm">TradeStation - ファンダメンタルデータ - スナップショットフィールド&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>第 2 パラメータ &lt;code>nDataPointsBack&lt;/code> には、何四半期前の情報を取得するかを指定します。
+1 を指定すると、1 つ前の四半期の情報を取得できます。&lt;/p>
+&lt;p>下記の例では、個別銘柄の売上高や各種利益を取得しています。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実装例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">var:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> double sales(0),
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> double op(0),
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> double rp(0),
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> double np(0);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">once begin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sales = GetFundData(&amp;#34;CR_SALES&amp;#34;, 0); // 売上高
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> op = GetFundData(&amp;#34;CR_OP&amp;#34;, 0); // 営業利益
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rp = GetFundData(&amp;#34;CR_RP&amp;#34;, 0); // 経常利益
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> np = GetFundData(&amp;#34;CR_NP&amp;#34;, 0); // 純利益
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Print(&amp;#34;CR_SALES(売上高)=&amp;#34;, sales:0:0, &amp;#34; (100万円)&amp;#34;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Print(&amp;#34;CR_OP(営業利益)=&amp;#34;, op:0:0, &amp;#34; (100万円)&amp;#34;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Print(&amp;#34;CR_RP(経常利益)=&amp;#34;, rp:0:0, &amp;#34; (100万円)&amp;#34;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Print(&amp;#34;CR_NP(純利益)=&amp;#34;, np:0:0, &amp;#34; (100万円)&amp;#34;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">end;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>実行すると、印刷ログに次のように出力されます。&lt;/p></description></item><item><title>TradeStationメモ: 現在計算中のバーが何本目か調べる (CurrentBar, BarNumber)</title><link>https://maku77.github.io/p/gn4ixod/</link><pubDate>Wed, 07 Nov 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gn4ixod/</guid><description>&lt;h2 id="currentbar">CurrentBar&lt;/h2>
+&lt;p>&lt;strong>&lt;code>CurrentBar&lt;/code>&lt;/strong> は、現在計算中のバーが何本目であるかを示しています。
+より正確には、&lt;code>MaxBarsBack&lt;/code> 番目のバーから計算が始まるため、例えば &lt;code>MaxBarsBack&lt;/code> の値が 15 の場合、チャート上の 16 番目のバーが &lt;code>CurrentBar=1&lt;/code> となります。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/xvbs8ua/">インジケーターの計算が何本目のバーから始められるか (MaxBarsBack)&lt;/a>&lt;/li>
+&lt;/ul>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実装例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Print(&amp;#34;CurrentBar=&amp;#34;, CurrentBar:0:0);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;div class="note">
+&lt;code>CurrentBar:0:0&lt;/code> の後ろの &lt;code>:0:0&lt;/code> は、小数点以下を省略して表示するための桁数設定です。足の番号は整数でしかありえませんが、トレードステーションの仕様上、実数として扱われるためこの指定が必要です。
+&lt;/div>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力結果（印刷ログ）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">CurrentBar=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=83
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=84
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=85&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>MaxBarsBack&lt;/code> が 15 のとき、上記のように表示された場合、チャート上のバーは全部で 100 本 (= 15 + 85) 存在することになります。&lt;/p>
+&lt;h2 id="barnumber">BarNumber&lt;/h2>
+&lt;p>&lt;strong>&lt;code>BarNumber&lt;/code>&lt;/strong> も &lt;code>CurrentBar&lt;/code> と同様に、バーの番号を取得するために用意されています。
+&lt;code>CurrentBar&lt;/code> が現在処理中の足の番号を取得するシンプルな予約ワードであるのに対して、&lt;code>BarNumber&lt;/code> はシリーズ関数として定義されており、n 本前の足の番号を参照できるようになっています。&lt;/p>
+&lt;p>&lt;code>BarNumber&lt;/code> と &lt;code>CurrentBar[0]&lt;/code> はまったく同じ意味で、現在処理中のバーの番号を表します（&lt;code>CurrentBar[0]&lt;/code> は &lt;code>CurrentBar&lt;/code> と省略できます）。
+&lt;code>CurrentBar[1]&lt;/code> は、1 つ前のバーの番号を表します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実装例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Print(&amp;#34;CurrentBar=&amp;#34;, CurrentBar:0:0,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;, BarNumber[0]=&amp;#34;, BarNumber[0]:0:0,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;, BarNumber[1]=&amp;#34;, BarNumber[1]:0:0);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">出力結果（印刷ログ）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=40, BarNumber[0]=40, BarNumber[1]=39
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=41, BarNumber[0]=41, BarNumber[1]=40
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CurrentBar=42, BarNumber[0]=42, BarNumber[1]=41
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">...&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>&lt;code>BarNumber[1]&lt;/code> は 1 本前のバーの番号なので、&lt;code>CurrentBar&lt;/code> や &lt;code>BarNumber[0]&lt;/code> より値が 1 つ小さいことがわかります。
+なお、&lt;code>CurrentBar - 1&lt;/code> としても同じ値が得られます。&lt;/p></description></item><item><title>TradeStationメモ: レーダースクリーンの操作をマスターする</title><link>https://maku77.github.io/p/6bwhw3q/</link><pubDate>Sun, 04 Nov 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6bwhw3q/</guid><description>&lt;h2 id="レーダースクリーンに銘柄を追加する">レーダースクリーンに銘柄を追加する&lt;/h2>
+&lt;h3 id="銘柄コードで追加">銘柄コードで追加&lt;/h3>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="829" height="204" src="../p/6bwhw3q/img-001.gif" alt="/p/6bwhw3q/img-001.gif" />
+&lt;/figure>
+
+&lt;p>レーダースクリーンのセルを選択した状態で銘柄コードを入力して &lt;kbd>Enter&lt;/kbd> を押すだけで、次々と銘柄を追加できます。&lt;/p>
+&lt;p>登録された銘柄を削除するには、対象の銘柄のセルを選択した状態で &lt;kbd>Delete&lt;/kbd> キーを押します。
+&lt;kbd>Ctrl+A&lt;/kbd> で全銘柄を選択した状態で &lt;kbd>Delete&lt;/kbd> キーを押せば、全銘柄を一度に削除できます。&lt;/p>
+&lt;h3 id="銘柄名で検索して追加">銘柄名で検索して追加&lt;/h3>
+&lt;p>銘柄コードがわからない場合は、銘柄名で検索して追加できます。&lt;/p>
+&lt;ol>
+&lt;li>レーダースクリーンを&lt;kbd>右クリック&lt;/kbd> → &lt;kbd>&lt;samp>銘柄コードを挿入&lt;/samp>&lt;/kbd> を選択。あるいは &lt;kbd>Alt+S&lt;/kbd> を入力&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>検索&lt;/samp>&lt;/kbd> ボタンをクリック。あるいは &lt;kbd>Alt+L&lt;/kbd> を入力&lt;/li>
+&lt;li>「株式」タブで銘柄名を入力して &lt;kbd>Enter&lt;/kbd>&lt;/li>
+&lt;li>見つかった銘柄を選択した状態で &lt;kbd>&lt;samp>OK&lt;/samp>&lt;/kbd> ボタンをクリック&lt;/li>
+&lt;/ol>
+&lt;h2 id="レーダースクリーンの銘柄をドラッグドロップで移動する">レーダースクリーンの銘柄をドラッグ＆ドロップで移動する&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="862" height="274" src="../p/6bwhw3q/img-002.gif" alt="/p/6bwhw3q/img-002.gif" />
+&lt;/figure>
+
+&lt;p>登録した銘柄の位置（行）をドラッグ＆ドロップで移動するには、次のようにします。&lt;/p>
+&lt;ol>
+&lt;li>移動する銘柄の行番号をクリックして選択状態にする（ドラッグで複数の銘柄を選択することも可能）&lt;/li>
+&lt;li>選択された状態の行番号をさらにドラッグして、移動させたい場所へドロップ（移動先に赤矢印が表示されます）&lt;/li>
+&lt;/ol>
+&lt;p>未選択の状態からいきなりドラッグ＆ドロップはできません。
+移動させる行をあらかじめ選択しておく必要があります。
+一見面倒ですが、この仕様により複数の行をまとめて選択・移動できるようになっています。&lt;/p>
+&lt;h2 id="レーダースクリーンにラベル行を追加して銘柄をグルーピングする">レーダースクリーンにラベル行を追加して銘柄をグルーピングする&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="862" height="320" src="../p/6bwhw3q/img-003.gif" alt="/p/6bwhw3q/img-003.gif" />
+&lt;/figure>
+
+&lt;p>多くの銘柄を登録する場合は、ラベル行を追加してグルーピングしておくと整理しやすくなります。&lt;/p>
+&lt;ol>
+&lt;li>ラベルを挿入したい行の銘柄コードのセルを&lt;kbd>右クリック&lt;/kbd> → &lt;kbd>&lt;samp>ラベル行を挿入&lt;/samp>&lt;/kbd> を選択&lt;/li>
+&lt;li>「ラベル行」という名前のラベル行が追加されるので、&lt;kbd>ダブルクリック&lt;/kbd> するか &lt;kbd>F2&lt;/kbd> キーを押して任意の名前に変更する&lt;/li>
+&lt;/ol>
+&lt;h2 id="レーダースクリーンにシンボルリスト日経225銘柄などを一度に登録する">レーダースクリーンにシンボルリスト（日経225銘柄など）を一度に登録する&lt;/h2>
+&lt;p>複数の銘柄をリスト化したものを&lt;strong>シンボルリスト&lt;/strong>と言います。
+日経 225 銘柄のシンボルリストを使うと、レーダースクリーンに 225 銘柄を一度に登録できます。&lt;/p>
+&lt;ol>
+&lt;li>銘柄を挿入したい場所の銘柄コードのセルを&lt;kbd>右クリック&lt;/kbd> → &lt;kbd>&lt;samp>シンボルリストを挿入&lt;/samp>&lt;/kbd> を選択。&lt;/li>
+&lt;li>「シンボルリストを挿入」ダイアログから、登録したいシンボルリストを選択する（ここでは &lt;samp>日経平均株価(225)&lt;/samp> を選択）。&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1081" height="588" src="../p/6bwhw3q/img-004.png" alt="/p/6bwhw3q/img-004.png" />
+&lt;/figure>
+
+&lt;ol start="3">
+&lt;li>&lt;samp>日経平均株価 (225)&lt;/samp> というラベル名とともに 225 銘柄のシンボルが登録されます。&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1248" height="372" src="../p/6bwhw3q/img-005.png" alt="/p/6bwhw3q/img-005.png" />
+&lt;/figure>
+
+&lt;p>他にも TOPIX Core 30 などのシンボルリストが組み込みで用意されています。&lt;/p></description></item><item><title>TradeStationメモ: 上昇トレンド・下降トレンドを把握する</title><link>https://maku77.github.io/p/g6e3ytf/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/g6e3ytf/</guid><description>&lt;figure class="xImage">
+ &lt;img style="" width="1058" height="488" src="../p/g6e3ytf/img-001.png" alt="/p/g6e3ytf/img-001.png" />
+&lt;/figure>
+
+&lt;p>上昇トレンドや下降トレンドをどう定義するかは意見が分かれるところですが、ここでは単純に長期の移動平均線の傾きで判断することにします。&lt;/p>
+&lt;p>移動平均の値は &lt;code>Average&lt;/code> 関数で取得できるので、まずはこれを変数に保持します。
+ここでは 50 本分のバーの移動平均値を使用します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Vars: myAvg(0);
+myAvg = Average(Close, 50);
+&lt;/code>&lt;/pre>&lt;p>移動平均線の傾きが右肩上がりかどうかを調べるには、1 つ前の足の移動平均値と比べて上昇しているかを確認すればよいので、下記のような条件判定を行います。&lt;/p>
+&lt;pre tabindex="0">&lt;code>If myAvg &amp;gt; myAvg[1] then begin
+ // 上昇トレンド
+end;
+&lt;/code>&lt;/pre>&lt;div class="note">
+EasyLanguage では、変数にインデックスを付けてアクセスすると、過去の足における変数値を遡って参照できます。&lt;code>myAvg[1]&lt;/code> は、1 つ前の足の &lt;code>myAvg&lt;/code> 変数の値を示しています。
+&lt;/div>
+&lt;p>下記のサンプルコードは、移動平均線を表示するインジケーターです。右肩上がりのときは赤色、右肩下がりのときは青色の線を描画します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Vars: myAvg(0);
+
+myAvg = Average(Close, 50);
+SetPlotWidth(1, 3); // 線を太めに
+If myAvg &amp;gt; myAvg[1] then begin
+ SetPlotColor(1, Red); // 上昇トレンドは赤線
+end
+Else begin
+ SetPlotColor(1, Blue); // 下降トレンドは青線
+end;
+Plot1(myAvg);
+&lt;/code>&lt;/pre>&lt;p>このインジケーターをチャート分析ウィンドウに適用すると、下記のように表示されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1058" height="488" src="../p/g6e3ytf/img-001.png" alt="/p/g6e3ytf/img-001.png" />
+&lt;/figure></description></item><item><title>TradeStationメモ: 変数を定義する (var, variables)</title><link>https://maku77.github.io/p/bdx2n5k/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bdx2n5k/</guid><description>&lt;h2 id="変数を定義する">変数を定義する&lt;/h2>
+&lt;p>EasyLanguage で変数を定義するには、下記のいずれかのキーワードを使用します（すべて同じ意味で、大文字・小文字の区別もありません）。
+迷ったら一番短い &lt;code>var&lt;/code> を使っておけば OK です。&lt;/p>
+&lt;pre tabindex="0">&lt;code>var:
+vars:
+variable:
+variables:
+&lt;/code>&lt;/pre>&lt;p>変数は初期値に応じて、数値型、真偽値型 (true or false)、文字列型のいずれかになります。
+初期値は変数名の直後に指定する必要があり、省略できません。
+下記の例では 3 つの変数（数値、真偽値、文字列）を定義しています。&lt;/p>
+&lt;pre tabindex="0">&lt;code>var: LastHigh(0), NewHigh(false), HighAlert(&amp;#34;&amp;#34;);
+&lt;/code>&lt;/pre>&lt;p>複数行に分けて定義することも可能です。
+各変数にコメントを記述したいときに便利です。&lt;/p>
+&lt;pre tabindex="0">&lt;code>var:
+ LastHigh(0), { Creates a numeric variable }
+ NewHigh(false), { Creates a true/false variable }
+ HighAlert(&amp;#34;&amp;#34;); { Creates a text variable }
+&lt;/code>&lt;/pre>&lt;p>EasyLanguage では 1 文字の予約語（&lt;code>O&lt;/code>、&lt;code>H&lt;/code>、&lt;code>L&lt;/code>、&lt;code>C&lt;/code> など）があるため、変数名に 1 文字は使わないようにしましょう。
+&lt;code>my&lt;/code> などのプレフィックスを付けるか、2 文字以上の名前を付けることをお勧めします。
+なお、変数名の最大文字数は 42 文字で、大文字・小文字は区別されません。&lt;/p>
+&lt;h2 id="変数に代入する">変数に代入する&lt;/h2>
+&lt;p>変数には &lt;code>=&lt;/code> 演算子を使って新しい値を代入できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>var: FastAverage(0), SlowAverage(0);
+
+FastAverage = AverageFC(Close, 9);
+SlowAverage = AverageFC(Close, 18);
+&lt;/code>&lt;/pre>&lt;p>上記の例では、過去 9 本分の移動平均値と過去 18 本分の移動平均値を変数に代入しています。&lt;/p></description></item><item><title>TradeStationメモ: 定義済み変数を使用する (Value0, Condition0)</title><link>https://maku77.github.io/p/ggopk47/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ggopk47/</guid><description>&lt;h2 id="2-種類の定義済み変数">2 種類の定義済み変数&lt;/h2>
+&lt;p>通常の変数は使用前に &lt;code>Variables&lt;/code> や &lt;code>Vars&lt;/code> キーワードで&lt;a href="../p/bdx2n5k/">変数定義が必要&lt;/a>です。
+EasyLanguage には、そのようなユーザー定義変数に加えて、&lt;strong>定義済み変数 (Pre-Declared Variables)&lt;/strong> が用意されています。
+定義済み変数には、数値型と真偽値型 (true or false) のものが 100 個ずつ用意されています。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Value0&lt;/code> ～ &lt;code>Value99&lt;/code>: 数値型の定義済み変数。初期値は 0。&lt;/li>
+&lt;li>&lt;code>Condition0&lt;/code> ～ &lt;code>Condition99&lt;/code>: 真偽値型の定義済み変数。初期値は false。&lt;/li>
+&lt;/ul>
+&lt;p>下記のサンプルコードでは、&lt;code>Value1&lt;/code> と &lt;code>Condition1&lt;/code> を使用しています。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Value1 = Average(Price, Length);
+Condition1 = Close crosses above Value1;
+&lt;/code>&lt;/pre>&lt;p>一般的に &lt;code>Value1&lt;/code> や &lt;code>Condition1&lt;/code> といった名前は意図が伝わりにくいため、定義済み変数の使用は開発段階での一時的な用途に限るのがよいでしょう。
+最終的には &lt;code>Vars:&lt;/code> キーワードを使用して、適切な名前の変数を明示的に定義することをお勧めします。&lt;/p>
+&lt;p>ただし、&lt;code>for&lt;/code> ループのカウンタ変数など、用途が明確な場合は定義済み変数を使っても問題ありません。&lt;/p>
+&lt;pre tabindex="0">&lt;code>for Value1 = 0 to 5 begin
+ //...
+end;
+&lt;/code>&lt;/pre>&lt;h2 id="定義済み変数の値は次のバーへ引き継がれる">定義済み変数の値は次のバーへ引き継がれる&lt;/h2>
+&lt;p>ユーザー定義の変数と同様に、定義済み変数の値も次のバーの計算処理に引き継がれます。
+例えば、下記のように &lt;code>Value1&lt;/code> の値を毎バーの計算で加算していくと、どんどん数値が大きくなっていきます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Value1 += 1;
+Plot1(Value1);
+&lt;/code>&lt;/pre>&lt;p>&lt;code>Value1[1]&lt;/code> とすると 1 本前の足の &lt;code>Value1&lt;/code> の値を参照できるのも、ユーザー定義変数と同様です。&lt;/p></description></item><item><title>TradeStationメモ: 自動売買ストラテジーから注文を出す</title><link>https://maku77.github.io/p/6gxamfn/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/6gxamfn/</guid><description>&lt;p>EasyLanguage での注文は、売買の種類 (Order Verbs)、タイミング (Order Actions)、発注株数を組み合わせて指定します。&lt;/p>
+&lt;h2 id="オーダーの種類-order-verbs">オーダーの種類 (Order Verbs)&lt;/h2>
+&lt;p>Order Verbs は買いで入るのか売りで入るのかを指定します。
+&lt;code>Buy&lt;/code> と &lt;code>SellShort&lt;/code> はロングポジションとショートポジションの生成に使用し、&lt;code>Sell&lt;/code> と &lt;code>BuyToCover&lt;/code> は現在のポジションの決済に使用します。&lt;/p>
+&lt;dl>
+&lt;dt>Buy&lt;/dt>
+&lt;dd>&lt;strong>ロングポジション（買い玉）を追加します。&lt;/strong> すでにショートポジションがある場合は、相殺されるようにそのポジションが先に決済されます（両建てにはなりません）。&lt;/dd>
+&lt;dt>SellShort (Sell Short)&lt;/dt>
+&lt;dd>&lt;strong>ショートポジション（売り玉）を追加します。&lt;/strong> すでにロングポジションがある場合は、相殺されるようにそのポジションが先に決済されます（両建てにはなりません）。&lt;/dd>
+&lt;dt>Sell&lt;/dt>
+&lt;dd>&lt;strong>ロングポジション（買い玉）を決済します。&lt;/strong> ノーポジション (flat) 状態のときはこのオーダーは無視されます（このオーダーでショートポジションを取ることはありません）。&lt;/dd>
+&lt;dt>BuyToCover (Buy To Cover)&lt;/dt>
+&lt;dd>&lt;strong>ショートポジション（売り玉）を決済します。&lt;/strong> ノーポジション (flat) 状態のときはこのオーダーは無視されます（このオーダーでロングポジションを取ることはありません）。&lt;/dd>
+&lt;/dl>
+&lt;h2 id="オーダーのタイミング-order-actions">オーダーのタイミング (Order Actions)&lt;/h2>
+&lt;p>Order Verbs の後ろには、オーダーをどのタイミングで実行するかを示す Order Actions を指定します。
+Order Actions には次のようなものがあります。&lt;/p>
+&lt;dl>
+&lt;dt>next bar at market&lt;/dt>
+&lt;dd>次のバーの開始時に注文を実行します。&lt;/dd>
+&lt;dt>next bar stop&lt;/dt>
+&lt;dd>逆指値 (stop price) に達したとき、次のバーの開始時に注文を実行します。&lt;/dd>
+&lt;dt>next bar limit&lt;/dt>
+&lt;dd>指値 (limit price) に達したとき、次のバーの開始時に注文を実行します。&lt;/dd>
+&lt;dt>this bar on close&lt;/dt>
+&lt;dd>現在のバーが終了するときに注文を実行します。主にバックテストで使用されます。&lt;/dd>
+&lt;/dl>
+&lt;p>&lt;code>at&lt;/code>、&lt;code>on&lt;/code>、&lt;code>of&lt;/code> などの単語は EasyLanguage ではスキップ語として無視されるため、省略して記述することもできます（自然な英語に近くなるように記述するのが慣例です）。&lt;/p></description></item><item><title>TradeStationメモ: 自動売買ストラテジーのバックテストを行う</title><link>https://maku77.github.io/p/ksa62e6/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ksa62e6/</guid><description>&lt;h2 id="ストラテジーを用意する">ストラテジーを用意する&lt;/h2>
+&lt;p>ここでは、下記のサンプルストラテジーを使ってバックテストを行う手順を示します。
+このストラテジーは、上昇トレンドが発生しているときに移動平均線のゴールデンクロスで 100 株の買い（ロング）ポジションを取り、デッドクロスで決済します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Vars: myShortMa(0), myMidMa(0), myLongMa(0);
+
+myShortMa = Average(Close, 5); // 短期移動平均
+myMidMa = Average(Close, 25); // 中期移動平均
+myLongMa = Average(Close, 50); // 長期移動平均
+
+// ロングでのエントリーは長期の上昇トレンド時に限定する
+if myLongMa &amp;gt;= myLongMa[1] then begin
+ // 短期と中期の移動平均線のゴールデンクロスで買い
+ if myShortMa crosses above myMidMa then Buy(&amp;#34;Entry&amp;#34;) next bar 100 shares at market;
+end;
+
+// 短期と中期の移動平均線のデッドクロスで決済
+if myShortMa crosses below myMidMa then Sell(&amp;#34;Exit&amp;#34;) next bar at market;
+&lt;/code>&lt;/pre>&lt;p>トレードステーションの開発環境から &lt;strong>ファイル(&lt;u>F&lt;/u>) → 新規作成(&lt;u>N&lt;/u>) → ストラテジー(&lt;u>S&lt;/u>)&lt;/strong> を選択すると、新しいストラテジーを作成するエディタが開きます。
+上記のコードを入力して &lt;code>F3&lt;/code> キーを押してコンパイルしてください。
+これで自動売買ストラテジーの完成です。&lt;/p></description></item><item><title>TradeStationメモ: インジケーターの計算が何本目のバーから始まるか (MaxBarsBack)</title><link>https://maku77.github.io/p/xvbs8ua/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xvbs8ua/</guid><description>&lt;h2 id="25-本移動平均線の-maxbarsback-の値">25 本移動平均線の MaxBarsBack の値&lt;/h2>
+&lt;p>例えば、終値の 25 本分の移動平均線を引くには、過去 25 本分の情報が必要です。そのため、チャートの最初の 25 本分の終値が確定するまでは計算できません。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="933" height="499" src="../p/xvbs8ua/img-001.png" alt="/p/xvbs8ua/img-001.png" />
+&lt;/figure>
+
+&lt;p>上記のチャートは、25 本の移動平均線インジケーターを適用し、データの最初の部分を表示したものです。
+最初のバーは計算ができないため、25 本目までは移動平均線が表示されないことがわかります。&lt;/p>
+&lt;p>25 本の移動平均線を引くインジケーターのプログラムは、例えば下記のように記述できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>SetPlotColor(1, Green); // 色: グリーン
+SetPlotWidth(1, 3); // 太さ: 3
+Plot1(Average(Close, 25));
+&lt;/code>&lt;/pre>&lt;div class="note">
+ラインを価格チャートに重ねて表示するには、インジケーターのプロパティ設定で、スケール位置を「元データに軸を合わせる」に設定しておく必要があります。
+&lt;/div>
+&lt;p>このようなインジケーターをチャートに適用すると、トレードステーションは内部で自動的に過去何本分のバーが計算に必要かを判断し、&lt;strong>&lt;code>MaxBarsBack&lt;/code>&lt;/strong> というプロパティに格納します。
+この例では、&lt;code>MaxBarsBack&lt;/code> の値は 25 になります。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Print(&amp;#34;MaxBarsBack=&amp;#34;, MaxBarsBack:0:0); // 25 と表示される
+&lt;/code>&lt;/pre>&lt;p>インジケーターの計算処理は基本的にバー 1 本ごとに実行されますが、&lt;code>MaxBarsBack&lt;/code> が 25 であれば、最初の 25 本のバーでは計算できないことが事前にわかっています。
+このような場合、トレードステーションは処理を最適化するために 25 本分のバーの計算をスキップし、26 本目のバーからインジケーターの計算処理を開始します。&lt;/p>
+&lt;p>現在処理中のバーの番号を取得するキーワードとして &lt;code>CurrentBar&lt;/code> や &lt;code>BarNumber&lt;/code> がありますが、これらの値が 1 になるのはチャートの一番最初のバーではなく、&lt;code>MaxBarsBack&lt;/code> の次のバー（すなわち計算処理が始まる最初のバー）を指します。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/gn4ixod/">現在計算中のバーが何本目か調べる (CurrentBar, BarNumber)&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>なお、自動売買ストラテジーを作成するときは、&lt;code>MaxBarsBack&lt;/code> の値を明示的に固定値で指定する必要があります（ストラテジーのプロパティダイアログで設定できます）。
+ストラテジーの &lt;code>MaxBarsBack&lt;/code> のデフォルト値は 50 に設定されています。&lt;/p></description></item><item><title>TradeStationメモ: インジケーター名やストラテジー名のプレフィックス</title><link>https://maku77.github.io/p/nafguor/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nafguor/</guid><description>&lt;p>独自に作成するインジケーター名には、アルファベットだけでなく記号も含めることができます。
+&lt;code>Alt+C&lt;/code> で表示される「分析テクニックを挿入」ウィンドウでは記号で始まるインジケーター名が一番上に表示されるため、記号をプレフィックスとして付けるのが慣例です。
+例えば、下記のような名前を付けます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>!Mov Avg 5 Line
+#my RSI
+$Volume Weighted
+&lt;/code>&lt;/pre>&lt;p>上記のような名前で作成されたインジケーターは、「分析テクニックを挿入」ウィンドウに次のように並びます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="771" height="961" src="../p/nafguor/img-001.png" alt="/p/nafguor/img-001.png" />
+&lt;/figure>
+
+&lt;p>記号ごとにルールを決めておくと、自作のプログラムを分類しやすくなります。例えば次のように使い分けることができます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>$&lt;/code>&lt;/strong> &amp;hellip; ストラテジー用（&lt;code>$&lt;/code> マークがお金の動きを連想させるため）&lt;/li>
+&lt;li>&lt;strong>&lt;code>#&lt;/code>&lt;/strong> &amp;hellip; 分析テクニック用（&lt;code>#&lt;/code> マークがインジケーターのラインを連想させるため）&lt;/li>
+&lt;li>&lt;strong>&lt;code>!&lt;/code>&lt;/strong> &amp;hellip; その他、EasyLanguage 学習時のテストコードなど（一番上に表示されるため見つけやすい）&lt;/li>
+&lt;/ul></description></item><item><title>TradeStationメモ: チャート上にテキストオブジェクトを描画する</title><link>https://maku77.github.io/p/wf4x7jr/</link><pubDate>Mon, 18 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wf4x7jr/</guid><description>&lt;h2 id="テキストオブジェクトを作成する-text_new">テキストオブジェクトを作成する (&lt;code>Text_New&lt;/code>)&lt;/h2>
+&lt;p>テキストオブジェクトを新規作成するには、&lt;code>Text_New&lt;/code> 関数を使用します。
+下記のようにすると、各バーの高値の位置に "Hello" というテキストを表示します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Value1 = Text_New(Date, Time, High, &amp;#34;Hello&amp;#34;);
+&lt;/code>&lt;/pre>&lt;p>第 1 パラメータ（日付）、第 2 パラメータ（時刻）、第 3 パラメータ（価格）でテキストの表示位置を指定し、第 4 パラメータで表示する文字列を指定します。
+テキストオブジェクトの生成に成功すると、&lt;code>Text_New&lt;/code> 関数はオブジェクト ID（1 以上の整数値）を返します。
+このオブジェクト ID は、以降の操作のために変数に保存しておきます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: キーリバーサル（前のバーより安値は低いが、終値は高い）発生時にテキスト表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Variable: ID(-1);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">If Low &amp;lt; Low[1] AND Close &amp;gt; Close[1] Then
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ID = Text_New(Date, Time, Low, &amp;#34;Key&amp;#34;);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 現在のバーの高値が過去 10 本のバーの高値よりも高い場合にテキスト表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">If High &amp;gt; Highest(High, 10)[1] Then
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Value1 = Text_New(Date, Time, High, &amp;#34;10-Bar High&amp;#34;);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>なお、高値の少し上にテキストを表示するには、次のような価格指定 (&lt;code>High + Range * 0.25&lt;/code>) を使う方法があります。&lt;/p></description></item><item><title>TradeStationメモ: Print 関数によるデバッグ</title><link>https://maku77.github.io/p/5jciift/</link><pubDate>Sun, 17 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5jciift/</guid><description>&lt;figure class="xImage">
+ &lt;img style="" width="341" height="146" src="../p/5jciift/img-001.png" alt="/p/5jciift/img-001.png" />
+&lt;/figure>
+
+&lt;h2 id="print-関数と印刷ログ">Print 関数と印刷ログ&lt;/h2>
+&lt;p>&lt;code>Print&lt;/code> 関数（ステートメント）は、インジケーターや自動売買ストラテジーの動作を確認するのに非常に便利です。
+&lt;code>Print&lt;/code> 関数による出力結果は&lt;strong>印刷ログウィンドウ&lt;/strong>に表示されるため、まずこのウィンドウを表示しておく必要があります。&lt;/p>
+&lt;ol>
+&lt;li>メニューから「表示(V)」→「EasyLanguage印刷ログ(E)」を選択&lt;br>（あるいは &lt;strong>Ctrl+Shift+E&lt;/strong>）&lt;/li>
+&lt;/ol>
+&lt;p>下記は、インジケーターの中での使用例です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: 現在処理中のバーのインデックス番号（1 始まり）を表示&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Print(&amp;#34;BarNumber=&amp;#34;, BarNumber:0:0);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>カンマで区切って渡された複数の値は、出力時に連結して表示されます。
+&lt;code>BarNumber:0:0&lt;/code> の &lt;code>0:0&lt;/code> は、整数部の最低桁数と小数点以下の桁数を指定する書式です。これにより &lt;code>BarNumber&lt;/code> が整数値として表示されます。
+インジケーターはバーごとに呼び出されるため、上記をチャートに適用すると下記のように繰り返し出力されます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>BarNumber=1
+BarNumber=2
+BarNumber=3
+...
+BarNumber=2447
+BarNumber=2448
+BarNumber=2449
+&lt;/code>&lt;/pre>&lt;h2 id="一度だけ表示する">一度だけ表示する&lt;/h2>
+&lt;p>デバッグ用に、インジケーター中で一度だけ実行したい処理は &lt;code>Once begin ～ end&lt;/code> で囲みます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>once begin
+ Print(&amp;#34;BarNumber=&amp;#34;, BarNumber:0:0);
+end;
+&lt;/code>&lt;/pre>&lt;p>このブロックで囲まれた部分は、チャートにインジケーターを適用したときの最初のバー処理時にだけ呼び出されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">BarNumber=1&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="出力先をファイルに切り替える">出力先をファイルに切り替える&lt;/h2>
+&lt;p>&lt;code>Print&lt;/code> 関数の最初のパラメータに &lt;code>File&lt;/code> ステートメントを指定すると、出力先を印刷ログウィンドウからテキストファイルに切り替えられます。
+大量のログを出力してじっくり分析する際に便利です。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: テキストファイルに各バーの終値を出力する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Print(File(&amp;#34;c:\data\mydata.txt&amp;#34;), Date, Time, Close:0:0);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ただし、出力先の &lt;code>c:\data&lt;/code> ディレクトリはあらかじめ作成しておく必要があります。
+ディレクトリが存在しない場合は、下記のような例外が発生します。&lt;/p>
+&lt;pre tabindex="0">&lt;code>elsystem.io.WriteFileException: Error creating file: c:\data\mydata.txt
+&lt;/code>&lt;/pre>&lt;p>相対パスでファイル名を指定すると、トレードステーションのインストールディレクトリ内の &lt;code>Program&lt;/code> ディレクトリにファイルが出力されます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">よくない例&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Print(File(&amp;#34;mydata.txt&amp;#34;), Date, Time, Close:0:0);&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>この &lt;code>Program&lt;/code> ディレクトリにはトレードステーション本体用のファイルが多数格納されているため、ここへの出力は避けるべきです。
+&lt;code>Print&lt;/code> 関数の出力先をファイルに切り替えるときは、フルパスで指定するようにしましょう。&lt;/p></description></item><item><title>TradeStationメモ: チャートのバータイプ・足種を取得する (BarType, BarInterval)</title><link>https://maku77.github.io/p/8o8yarq/</link><pubDate>Sun, 17 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/8o8yarq/</guid><description>&lt;h2 id="bartype">BarType&lt;/h2>
+&lt;p>分析テクニック（インジケーターや自動売買ストラテジー）が適用されているチャートが、現在どのようなインターバル（日足や週足）で表示されているかを調べるには、&lt;code>BarType&lt;/code> を参照します。&lt;/p>
+&lt;p>&lt;code>BarType&lt;/code> は、下記のような整数値を返します。&lt;/p>
+&lt;ul>
+&lt;li>0 = ティック足 (Tick bar or volume bar)&lt;/li>
+&lt;li>1 = 分足 (Intraday minute bar)&lt;/li>
+&lt;li>2 = 日足 (Daily bar)&lt;/li>
+&lt;li>3 = 週足 (Weekly bar)&lt;/li>
+&lt;li>4 = 月足 (Monthly bar)&lt;/li>
+&lt;li>5 = ポイントアンドフィギュア (Point &amp;amp; figure)&lt;/li>
+&lt;li>6 = （予約済み）&lt;/li>
+&lt;li>7 = （予約済み）&lt;/li>
+&lt;li>8 = カギ足&lt;/li>
+&lt;li>9 = KASE&lt;/li>
+&lt;li>10 = 新値足&lt;/li>
+&lt;li>11 = モメンタム&lt;/li>
+&lt;li>12 = レンジ&lt;/li>
+&lt;li>13 = 練行足&lt;/li>
+&lt;li>14 = 秒足&lt;/li>
+&lt;/ul>
+&lt;p>例えば、日足チャートのみで動作する自動売買ストラテジーを記述するには、下記のようにします。&lt;/p>
+&lt;pre tabindex="0">&lt;code>If BarType = 2 then begin
+ Sell next bar at market;
+end;
+&lt;/code>&lt;/pre>&lt;h2 id="barinterval">BarInterval&lt;/h2>
+&lt;p>チャートが分足 (&lt;code>BarType == 1&lt;/code>)、秒足 (&lt;code>BarType == 14&lt;/code>)、ティック足 (&lt;code>BarType == 0&lt;/code>) で表示されている場合は、&lt;code>BarInterval&lt;/code> を参照することで、何分足・何秒足・何ティック足の表示かを調べることができます。&lt;/p></description></item><item><title>TradeStationメモ: 各バーに注釈を付ける (Commentary, CommentaryCL)</title><link>https://maku77.github.io/p/r5gv7ip/</link><pubDate>Sun, 17 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/r5gv7ip/</guid><description>&lt;figure class="xImage">
+ &lt;img style="" width="1064" height="587" src="../p/r5gv7ip/img-001.png" alt="/p/r5gv7ip/img-001.png" />
+&lt;/figure>
+
+&lt;p>&lt;code>Commentary&lt;/code> 関数によって各バーに設定した注釈テキストは、下記のようにして&lt;strong>分析コメントウィンドウ (AnalysisCommentary Window)&lt;/strong> に表示できます。&lt;/p>
+&lt;ol>
+&lt;li>メニューから「表示(V)」→「分析コメント(Y)」を選択&lt;/li>
+&lt;li>チャート上の任意のバーをクリック&lt;/li>
+&lt;/ol>
+&lt;p>分析コメントウィンドウを開いたら、左右キーを使って隣のバーの注釈コメントを見ていくことができます。&lt;/p>
+&lt;p>&lt;code>Commentary&lt;/code> 関数は、1 つのバーを処理中に何度も呼び出すことができます。その場合、渡したテキストが結合されて分析コメントウィンドウに表示されます。
+改行を入れるには、下記のように &lt;code>NewLine&lt;/code> キーワードを組み合わせます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>if AtCommentaryBar then begin
+ Commentary(&amp;#34;始値=&amp;#34;, Open:0:0, NewLine);
+ Commentary(&amp;#34;高値=&amp;#34;, High:0:0, NewLine);
+ Commentary(&amp;#34;安値=&amp;#34;, Low:0:0, NewLine);
+ Commentary(&amp;#34;終値=&amp;#34;, Close:0:0, NewLine);
+ Commentary(&amp;#34;移動平均(25)=&amp;#34;, Average(Close, 25), NewLine);
+end;
+&lt;/code>&lt;/pre>&lt;p>&lt;code>Commentary&lt;/code> 関数は、&lt;strong>&lt;code>AtCommentaryBar&lt;/code> 属性が &lt;code>true&lt;/code> を返す場合にだけ呼び出す&lt;/strong>ようにしてください。
+こうすることで、ユーザーがチャート上のバーをクリックしたときに、そのバーに対してのみ処理が実行されます。
+&lt;code>AtCommentaryBar&lt;/code> のチェックを省略すると、インジケーターをチャートに適用した際にすべてのバーに対して &lt;code>Commentary&lt;/code> 関数の呼び出しが走ってしまい、非効率なプログラムになります。
+似たような属性に &lt;code>CommentaryEnabled&lt;/code> がありますが、こちらは分析コメントウィンドウが開いている間は常に &lt;code>true&lt;/code> となるため、あまり使い道がありません。&lt;/p>
+&lt;p>&lt;code>Commentary&lt;/code> の派生関数である &lt;code>CommentaryCL&lt;/code> を使用すると、末尾に自動的に改行が挿入されます。そのため、上記のコードは下記のように書き換えることができます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>if AtCommentaryBar then begin
+ CommentaryCL(&amp;#34;始値=&amp;#34;, Open:0:0);
+ CommentaryCL(&amp;#34;高値=&amp;#34;, High:0:0);
+ CommentaryCL(&amp;#34;安値=&amp;#34;, Low:0:0);
+ CommentaryCL(&amp;#34;終値=&amp;#34;, Close:0:0);
+ CommentaryCL(&amp;#34;移動平均(25)=&amp;#34;, Average(Close, 25));
+end;
+&lt;/code>&lt;/pre>&lt;p>分析コメントウィンドウは HTML ページとして構成されているため、下記のように HTML タグでテキストを装飾することができます。&lt;/p></description></item><item><title>TradeStationメモ: ショートカットキーを使いこなす</title><link>https://maku77.github.io/p/sdsmtir/</link><pubDate>Sat, 16 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/sdsmtir/</guid><description>&lt;h2 id="デスクトップ内の各種バーの表示非表示">デスクトップ内の各種バーの表示・非表示&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>キー&lt;/th>
+ &lt;th>内容&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+O&lt;/td>
+ &lt;td>オーダーバーの表示・非表示を切り替える&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+P&lt;/td>
+ &lt;td>ポジションバーの表示・非表示を切り替える&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+E&lt;/td>
+ &lt;td>印刷ログウィンドウの表示・非表示を切り替える（EasyLanguage コードで &lt;code>Print&lt;/code> によって出力されたテキストが表示される）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+S&lt;/td>
+ &lt;td>トレーディングアプリケーション起動ツールのバーの表示・非表示を切り替える（左端の細いバー）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+M&lt;/td>
+ &lt;td>メッセージセンターを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+Q&lt;/td>
+ &lt;td>クイッククオートを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+T&lt;/td>
+ &lt;td>ティッカーバーを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+B&lt;/td>
+ &lt;td>ブラウザを開く（TradeStation のホームページが開く）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="ワークスペース">ワークスペース&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>キー&lt;/th>
+ &lt;th>内容&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+W&lt;/td>
+ &lt;td>新しいワークスペースを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+PageUp / PageDown&lt;/td>
+ &lt;td>ワークスペースを切り替える&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+W&lt;/td>
+ &lt;td>ワークスペースを閉じる&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="トレーディングアプリ">トレーディングアプリ&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>キー&lt;/th>
+ &lt;th>内容&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Ctrl+N&lt;/td>
+ &lt;td>トレーディングアプリを新規オープンするためのウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Tab / Alt+→&lt;/td>
+ &lt;td>トレーディングアプリのウィンドウを切り替える（次へ）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Shift+Tab / Alt+←&lt;/td>
+ &lt;td>トレーディングアプリのウィンドウを切り替える（前へ）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+F4 / Alt+X&lt;/td>
+ &lt;td>トレーディングアプリのウィンドウを閉じる&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+C&lt;/td>
+ &lt;td>新しいチャート分析ウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+H&lt;/td>
+ &lt;td>新しいホットリストウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+N&lt;/td>
+ &lt;td>新しいニュースウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+Q&lt;/td>
+ &lt;td>新しいレーダースクリーンウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+T&lt;/td>
+ &lt;td>新しいタイム＆セールスウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+Alt+X&lt;/td>
+ &lt;td>新しいマトリックスウィンドウを開く&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="チャート分析で使用できるショートカット">チャート分析で使用できるショートカット&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>キー&lt;/th>
+ &lt;th>内容&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>↑&lt;/td>
+ &lt;td>チャートを拡大（バーを時間軸方向に広げる）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>↓&lt;/td>
+ &lt;td>チャートを縮小（バーを時間軸方向に縮める）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>←&lt;/td>
+ &lt;td>左へスクロール（1 バー分）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>→&lt;/td>
+ &lt;td>右へスクロール（1 バー分）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>PageUp&lt;/td>
+ &lt;td>左へスクロール（1 ページ分）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>PageDown&lt;/td>
+ &lt;td>右へスクロール（1 ページ分）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Home&lt;/td>
+ &lt;td>左端へスクロール&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>End&lt;/td>
+ &lt;td>右端へスクロール（現在のバーを表示）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Ctrl+R&lt;/td>
+ &lt;td>データをリロード&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Alt+S&lt;/td>
+ &lt;td>銘柄コードを挿入する（サブウィンドウに別の銘柄のチャートを同時に表示できます）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Alt+C&lt;/strong>&lt;/td>
+ &lt;td>&lt;strong>分析テクニックを挿入する&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>TradeStationメモ: ポイントアンドフィギュア (P&amp;F) を表示する</title><link>https://maku77.github.io/p/htxkq75/</link><pubDate>Sat, 16 Sep 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/htxkq75/</guid><description>&lt;figure class="xImage">
+ &lt;img style="" width="804" height="575" src="../p/htxkq75/img-001.png" alt="/p/htxkq75/img-001.png" />
+&lt;/figure>
+
+&lt;p>トレードステーションのチャート分析ウィンドウにポイントアンドフィギュア (P&amp;amp;F) を表示するには、下記のようにします。&lt;/p>
+&lt;ol>
+&lt;li>チャート分析ウィンドウを選択状態にする&lt;/li>
+&lt;li>メニューから「設定(O)」→「銘柄コード(S)&amp;hellip;」を選択する&lt;br>（あるいは右クリック →「銘柄コードの設定」を選択する）&lt;/li>
+&lt;li>足種から「ポイント＆フィギュア」を選択する&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="813" height="541" src="../p/htxkq75/img-002.png" alt="/p/htxkq75/img-002.png" />
+&lt;/figure></description></item><item><title>TradeStationメモ: 組み込みインジケーターのコードを読んで勉強する</title><link>https://maku77.github.io/p/h45k9k8/</link><pubDate>Sat, 19 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/h45k9k8/</guid><description>&lt;p>トレードステーションの開発環境では、下記のようにして組み込みのインジケーターや関数のコードを参照することができます。
+EasyLanguage によるコーディングの参考にするとよいでしょう。&lt;/p>
+&lt;ol>
+&lt;li>TradeStation 開発環境のメインメニューから「ファイル(&lt;u>F&lt;/u>)」→「開く(&lt;u>O&lt;/u>)&amp;hellip;」を選択。あるいは &lt;code>Ctrl+O&lt;/code> と入力。&lt;/li>
+&lt;li>下記のダイアログが開くので、分析タイプから「インジケーター」などを選択して、参照したいコードを選択。&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="758" height="640" src="../p/h45k9k8/img-001.png" alt="/p/h45k9k8/img-001.png" />
+&lt;/figure></description></item><item><title>TradeStationメモ: チャートのスクリーンキャプチャを取得する</title><link>https://maku77.github.io/p/kxd9oys/</link><pubDate>Fri, 18 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/kxd9oys/</guid><description>&lt;p>トレードステーションには、アプリケーション全体（デスクトップ）のスクリーンキャプチャや、任意のアクティブなウィンドウのスクリーンキャプチャを撮る機能が搭載されています。
+スクリーンキャプチャを撮るには下記のようにします。&lt;/p>
+&lt;ol>
+&lt;li>メインメニューから「ファイル(&lt;u>F&lt;/u>)」→「画像として保存(&lt;u>I&lt;/u>)&amp;hellip;」を選択する。&lt;/li>
+&lt;li>下記の画面が開くので、アクティブなウィンドウだけのキャプチャを撮るか、アプリ全体のキャプチャを撮るかを選択する。&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="345" src="../p/kxd9oys/img-001_hu8072081203381070703.png" alt="/p/kxd9oys/img-001.png" />
+&lt;/figure>
+
+&lt;p>例えば、次のようなチャートのキャプチャを取得することができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="264" src="../p/kxd9oys/img-002_hu13782118613049891648.png" alt="/p/kxd9oys/img-002.png" />
+&lt;/figure></description></item><item><title>TradeStationメモ: トレードステーションの画面構成を理解する</title><link>https://maku77.github.io/p/pb6tfja/</link><pubDate>Thu, 17 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pb6tfja/</guid><description>&lt;p>トレードステーションの画面は多くの要素から構成されており、最初は複雑に見えるかもしれません。
+まずは各構成要素の名前を理解しましょう。&lt;/p>
+&lt;h2 id="デスクトップ">デスクトップ&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="355" src="../p/pb6tfja/img-001_hu5640069812825122192.png" alt="/p/pb6tfja/img-001.png" />
+&lt;/figure>
+
+&lt;p>TradeStation アプリを起動したときに表示されるウィンドウ全体のことを&lt;strong>デスクトップ&lt;/strong>と呼びます。&lt;/p>
+&lt;h2 id="デスクトップ内の構成">デスクトップ内の構成&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="355" src="../p/pb6tfja/img-002_hu8359859158070826459.png" alt="/p/pb6tfja/img-002.png" />
+&lt;/figure>
+
+&lt;p>デスクトップの中には、&lt;strong>オーダーバー&lt;/strong>、&lt;strong>ポジショングラフバー&lt;/strong>、&lt;strong>ワークスペース&lt;/strong>などが配置されます。
+表示する要素は、メニューの「表示」から選択できます。
+オーダーバーやポジショングラフバーは、不要であれば × アイコンをクリックして閉じることができます。&lt;/p>
+&lt;p>デスクトップの中には複数のワークスペースを作成でき、画面下に表示されるタブで切り替えることができます。&lt;/p>
+&lt;h2 id="ワークスペース内の構成">ワークスペース内の構成&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="355" src="../p/pb6tfja/img-003_hu8929087240194112376.png" alt="/p/pb6tfja/img-003.png" />
+&lt;/figure>
+
+&lt;p>ワークスペースの中には、さまざまな分析用のアプリケーションウィンドウ（&lt;strong>トレーディングアプリ&lt;/strong>）を配置できます。
+トレーディングアプリを追加したいときは、画面左の「トレーディングアプリ」と表示された部分をクリックします（表示されていない場合は、メニューの「表示」から「トレーディングアプリケーション起動ツール」にチェックを入れてください）。&lt;/p></description></item><item><title>TradeStationメモ: 四本値（始値、高値、安値、終値）を取得する (O, H, L, C)</title><link>https://maku77.github.io/p/bi8d8so/</link><pubDate>Sat, 29 Jul 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bi8d8so/</guid><description>&lt;h2 id="現在の足の四本値を取得する">現在の足の四本値を取得する&lt;/h2>
+&lt;p>下記のキーワードを使用して、現在の足の四本値を取得できます（大文字・小文字の区別はありません）。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Open&lt;/code> または &lt;code>O&lt;/code>: 始値&lt;/li>
+&lt;li>&lt;code>High&lt;/code> または &lt;code>H&lt;/code>: 高値&lt;/li>
+&lt;li>&lt;code>Low&lt;/code> または &lt;code>L&lt;/code>: 安値&lt;/li>
+&lt;li>&lt;code>Close&lt;/code> または &lt;code>C&lt;/code>: 終値&lt;/li>
+&lt;/ul>
+&lt;p>例えば、下記のようにインジケーターを実装すると、四本値を結んだ 4 本のラインを描画できます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Plot1(Open, &amp;#34;始値&amp;#34;);
+Plot2(Close, &amp;#34;終値&amp;#34;);
+Plot3(High, &amp;#34;高値&amp;#34;);
+Plot4(Low, &amp;#34;安値&amp;#34;);
+&lt;/code>&lt;/pre>
+
+&lt;figure class="xImage">
+ &lt;img style="" width="910" height="497" src="../p/bi8d8so/img-001.png" alt="/p/bi8d8so/img-001.png" />
+&lt;/figure>
+
+&lt;p>四本値は &lt;code>o&lt;/code>、&lt;code>h&lt;/code>、&lt;code>l&lt;/code>、&lt;code>c&lt;/code> のような 1 文字の省略形でも参照できるため、ユーザー定義の変数名と重複しないよう注意してください。
+ユーザー定義の変数には &lt;code>my&lt;/code> などの固定プレフィックスを付けるか、2 文字以上の名前を使うようにするとよいでしょう。&lt;/p>
+&lt;p>四本値同士を組み合わせてさまざまな値を計算できます。
+例えば、高値から安値を引くと値幅を求めることができます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Plot1(High - Low, &amp;#34;値幅&amp;#34;);
+&lt;/code>&lt;/pre>&lt;p>なお、値幅は &lt;code>Range&lt;/code> キーワードを使って簡単に取得することもできます。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Plot1(Range, &amp;#34;値幅&amp;#34;);
+&lt;/code>&lt;/pre>&lt;h2 id="過去の足の四本値を取得する">過去の足の四本値を取得する&lt;/h2>
+&lt;p>現在の終値は &lt;code>Close&lt;/code> で参照できますが、&lt;code>Close[n]&lt;/code> のようにインデックスを指定すると n 本前の足の終値を参照できます。&lt;/p>
+&lt;ul>
+&lt;li>現在の足の終値: &lt;code>Close&lt;/code> または &lt;code>Close[0]&lt;/code>&lt;/li>
+&lt;li>1 足前の終値: &lt;code>Close[1]&lt;/code>&lt;/li>
+&lt;li>5 足前の終値: &lt;code>Close[5]&lt;/code>&lt;/li>
+&lt;li>5 足前の値幅: &lt;code>High[5] - Low[5]&lt;/code> または &lt;code>(High - Low)[5]&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>TradeStationメモ: トレードステーションをインストールする</title><link>https://maku77.github.io/p/gw98d3u/</link><pubDate>Wed, 26 Jul 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gw98d3u/</guid><description>&lt;p>&lt;strong>追記:&lt;/strong> マネックス証券は 2020 年に TradeStation の提供を終了しました。&lt;/p>
+&lt;p>日本の証券会社でトレードステーションを利用するには、マネックス証券に口座を開設する必要があります。
+マネックス証券にログインすると、「投資情報」のリンクからトレードステーションをダウンロードできます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="290" src="../p/gw98d3u/img-001_hu9065963671184490403.png" alt="/p/gw98d3u/img-001.png" />
+&lt;/figure>
+
+&lt;p>ツール一覧の中の「トレードステーション」の項目からダウンロードできます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="193" src="../p/gw98d3u/img-002_hu3757828375435255930.png" alt="/p/gw98d3u/img-002.png" />
+&lt;/figure>
+
+&lt;p>あとはインストーラーを起動して手順通りにインストールすれば完了です。&lt;/p></description></item></channel></rss>
