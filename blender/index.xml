@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blender on 天才まくまくノート</title><link>https://maku77.github.io/blender/</link><description>Recent content in Blender on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Tue, 25 Jun 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/blender/index.xml" rel="self" type="application/rss+xml"/><item><title>Blenderメモ: オブジェクトの原点 (Object Origin) を移動する</title><link>https://maku77.github.io/p/di5c9tp/</link><pubDate>Tue, 25 Jun 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/di5c9tp/</guid><description>&lt;h2 id="オブジェクトの原点とは">オブジェクトの原点とは&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="428" height="281" src="../p/di5c9tp/img-001.png" alt="/p/di5c9tp/img-001.png" />
+&lt;/figure>
+
+&lt;p>&lt;strong>オブジェクトの原点 (Object Origin)&lt;/strong> は、オブジェクトを選択したときに&lt;strong>オレンジ色のドット&lt;/strong>で表示されます。
+編集モードにおけるメッシュ要素（頂点、辺、面）などの位置は、この原点からの相対座標で管理されます。&lt;/p>
+&lt;p>原点は、オブジェクトを追加したときにオブジェクトの中央に設定されます。
+つまり、&lt;strong>3D カーソルがあったところが新規作成したオブジェクトの原点になります&lt;/strong>。
+オブジェクトモードでオブジェクトを動かした場合、オブジェクトの原点はそれに追従して移動します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/di5c9tp/img-002.gif" alt="/p/di5c9tp/img-002.gif" />
+&lt;/figure>
+
+&lt;p>逆に、編集モードでメッシュの要素（頂点、辺、面）を動かすと、オブジェクトの原点は固定された状態で各要素が移動します。&lt;/p>
+&lt;h2 id="オブジェクトの原点が与える影響">オブジェクトの原点が与える影響&lt;/h2>
+&lt;p>
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/di5c9tp/img-003.gif" alt="/p/di5c9tp/img-003.gif" />
+&lt;/figure>
+
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/di5c9tp/img-004.gif" alt="/p/di5c9tp/img-004.gif" />
+&lt;/figure>
+&lt;/p>
+&lt;p>オブジェクトの原点は、オブジェクトモードでの回転操作 (&lt;kbd>R&lt;/kbd>) や、ミラー・モディファイアによる反転の基準位置として使用されます。
+編集モードでメッシュの位置を大きく動かした後に、オブジェクト全体の回転操作を行うと、回転の仕方が変わってきます。&lt;/p>
+&lt;p>原点は、各種モディファイアの基準点としても使われます。
+ミラー・モディファイアで左右対称のモデルを作成しようとしたときに、うまく反転表示されない場合は、原点の位置を確認してみてください。&lt;/p>
+&lt;h2 id="オブジェクトの原点を移動する">オブジェクトの原点を移動する&lt;/h2>
+&lt;p>オブジェクトの原点位置を移動するには、オブジェクトモードで &lt;kbd>Shift + Ctrl + Alt + C&lt;/kbd> で表示される &lt;strong>原点を設定 (Set Origin)&lt;/strong> のメニューを使用します。&lt;/p>
+&lt;p>
+
+&lt;figure class="xImage">
+ &lt;img style="" width="295" height="144" src="../p/di5c9tp/img-005.png" alt="/p/di5c9tp/img-005.png" />
+&lt;/figure>
+
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="295" height="143" src="../p/di5c9tp/img-006.png" alt="/p/di5c9tp/img-006.png" />
+&lt;/figure>
+&lt;/p>
+&lt;p>使用頻度が高いのは、&lt;samp>原点を 3D カーソルへ移動&lt;/samp> でしょう。
+マウスクリックで 3D カーソルを移動してから実行すれば、その位置へオブジェクトの原点を移動させることができます。&lt;/p>
+&lt;h3 id="グローバル座標の中央へ原点を設定する">グローバル座標の中央へ原点を設定する&lt;/h3>
+&lt;p>オブジェクトの原点をグローバル座標の原点に移動させたいことはよくあります。
+例えば、ミラー・モディファイアで左右対称のモデルを作成するときは、画面中央が原点になっていた方が作業しやすいでしょう。&lt;/p>
+&lt;p>オブジェクトの原点を画面中央へ移動させるには、下記のように、まず 3D カーソルを原点に移動させてから、そこにオブジェクトの原点を移動させます。&lt;/p>
+&lt;ol>
+&lt;li>オブジェクトモードで対象となるオブジェクトを選択&lt;/li>
+&lt;li>&lt;kbd>Shift + S&lt;/kbd> → &lt;samp>カーソル→原点&lt;/samp> を選択&lt;/li>
+&lt;li>&lt;kbd>Shift + Ctrl + Alt + C&lt;/kbd> → &lt;samp>原点を3Dカーソルへ移動&lt;/samp> を選択&lt;/li>
+&lt;/ol></description></item><item><title>Blenderメモ: 細分割曲面モディファイアで角を丸める (Subdivision Surface Modifier)</title><link>https://maku77.github.io/p/r4a2bdr/</link><pubDate>Tue, 25 Jun 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/r4a2bdr/</guid><description>&lt;h2 id="細分割曲面モディファイアとは">細分割曲面モディファイアとは&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1344" height="300" src="../p/r4a2bdr/img-001.png" alt="/p/r4a2bdr/img-001.png" />
+&lt;/figure>
+
+&lt;p>オブジェクトに&lt;strong>細分割曲面モディファイア (Subdivision Surface Modifier)&lt;/strong> を追加すると、各面を等間隔に分割するように丸みを持たせることができます。
+細分化のレベルは 0～6 の間で自由に変更することができ、大きな値ほど滑らかな曲線に近づいていきます。&lt;/p>
+&lt;p>サブサーフをうまく利用すると、&lt;strong>少ないポリゴン数（ローポリ）でも滑らかな曲線を表現することができます&lt;/strong>。
+メッシュをシンプルな構造に保つことで、編集作業を効率的に行うことができます。&lt;/p>
+&lt;p>Subdivision Surface を略して、&lt;strong>サブサーフ (Subsurf)&lt;/strong> と呼ぶこともあります。
+Blender のメニューの中にも Subsurf という表現が出てきたりするので覚えておきましょう。&lt;/p>
+&lt;h2 id="細分割曲面モディファイアを追加する">細分割曲面モディファイアを追加する&lt;/h2>
+&lt;p>オブジェクトに細分割曲面モディファイアを追加するには次のようにします。&lt;/p>
+&lt;ol>
+&lt;li>対象のオブジェクトを選択&lt;/li>
+&lt;li>プロパティエディタのモディファイアタブ（レンチ型のアイコン）を選択&lt;/li>
+&lt;li>追加ボタンを押して、細分割曲面を選択&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="683" height="484" src="../p/r4a2bdr/img-002.png" alt="/p/r4a2bdr/img-002.png" />
+&lt;/figure>
+
+&lt;h2 id="細分化のレベルを調節する">細分化のレベルを調節する&lt;/h2>
+&lt;p>Subsurf モディファイアの設定パネルで、&lt;strong>細分化&lt;/strong> の数値を変更すると、各サーフェスを何回分割するかを変更することができます。
+細分化のレベルを上げていくと、より滑らかな曲面になっていきます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="330" height="286" src="../p/r4a2bdr/img-003.png" alt="/p/r4a2bdr/img-003.png" />
+&lt;/figure>
+
+&lt;p>細分化のレベルは &lt;strong>ビュー&lt;/strong> と &lt;strong>レンダリング&lt;/strong> で別々の値を設定することができ、それぞれ編集時のレベル、レンダリング時のレベルを表しています。
+基本的には、ビューのレベルは小さめにして動作が重くなることを防ぎ、レンダリングのレベルは大きくして最終的なイメージを綺麗に仕上げるようにします。&lt;/p>
+&lt;h2 id="丸くしたくない部分は辺同士を近づける">丸くしたくない部分は辺同士を近づける&lt;/h2>
+&lt;p>立方体に Subsurf モディファイアを追加して、細分化のレベルを上げていくと、どんどん球体に近づいていきます。
+Subsurf モディファイアには、面を構成する辺と辺の距離が離れているほど丸みを帯びるという特徴があります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="804" height="257" src="../p/r4a2bdr/img-004.png" alt="/p/r4a2bdr/img-004.png" />
+&lt;/figure>
+
+&lt;p>角をもっと鋭角にしたいときは、&lt;kbd>Ctrl + R&lt;/kbd> によるループカットで辺を追加し、辺同士が近くなるように配置します。&lt;/p></description></item><item><title>Blenderメモ: ミラー・モディファイアで左右対称のオブジェクトを作成する (Mirror Modifier)</title><link>https://maku77.github.io/p/4qnp4w7/</link><pubDate>Mon, 24 Jun 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4qnp4w7/</guid><description>&lt;h2 id="ミラーモディファイアとは">ミラー・モディファイアとは&lt;/h2>
+&lt;p>オブジェクトにミラー・モディファイアを追加すると、オブジェクトの原点 (Origin) で反転してオブジェクトを表示することができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/4qnp4w7/img-001.gif" alt="/p/4qnp4w7/img-001.gif" />
+&lt;/figure>
+
+&lt;p>左右対称のキャラクターをモデリングするときなど、頻繁に使用するモディファイアなので使いこなせるようになりましょう。&lt;/p>
+&lt;h2 id="ミラーモディファイアを追加する">ミラー・モディファイアを追加する&lt;/h2>
+&lt;p>オブジェクトにミラー・モディファイアを追加するには次のようにします。&lt;/p>
+&lt;ol>
+&lt;li>対象のオブジェクトを選択&lt;/li>
+&lt;li>プロパティエディタのモディファイアタブ（レンチ型のアイコン）を選択&lt;/li>
+&lt;li>追加ボタンを押して、ミラーを選択&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="684" height="483" src="../p/4qnp4w7/img-002.png" alt="/p/4qnp4w7/img-002.png" />
+&lt;/figure>
+
+&lt;h2 id="オブジェクトの原点が基準になる">オブジェクトの原点が基準になる&lt;/h2>
+&lt;p>ミラー・モディファイアによるオブジェクトの反転表示は、オブジェクトの原点（オレンジ色のドット）が反転の基準位置となります。&lt;/p>
+&lt;p>ミラー・モディファイアを使ったモデリングをするときは、オブジェクトの原点は、グローバル座標の中央にあった方がやりやすいでしょう。&lt;/p>
+&lt;ol>
+&lt;li>オブジェクトモードで対象となるオブジェクトを選択&lt;/li>
+&lt;li>&lt;kbd>Shift + S&lt;/kbd> → &lt;samp>カーソル→原点&lt;/samp> を選択&lt;/li>
+&lt;li>&lt;kbd>Shift + Ctrl + Alt + C&lt;/kbd> → &lt;samp>原点を3Dカーソルへ移動&lt;/samp> を選択&lt;/li>
+&lt;/ol>
+&lt;p>オブジェクトの原点に関しての詳細は下記を参照してください。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="../p/di5c9tp/">オブジェクトの原点 (Object Origin) を移動する&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ミラーモディファイアを使ってみる">ミラー・モディファイアを使ってみる&lt;/h2>
+&lt;p>ここでは実際に、立方体をベースにして &lt;strong>X 軸方向にミラーさせたモデリング&lt;/strong> をする手順を示します。&lt;/p>
+&lt;h3 id="オブジェクトの追加">オブジェクトの追加&lt;/h3>
+&lt;p>まず、3D カーソルが原点にある状態で、画面中央に立方体 (Cube) を作成します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="392" height="251" src="../p/4qnp4w7/img-003.png" alt="/p/4qnp4w7/img-003.png" />
+&lt;/figure>
+
+&lt;p>このように画面中央にオブジェクトを作成すると、オブジェクトの原点も画面中央になるので、ミラー・モディファイアによる作業を始めるには都合がよいです。&lt;/p>
+&lt;h3 id="余計な部分を削除">余計な部分を削除&lt;/h3>
+&lt;p>次に、反転表示して重なる部分（左側半分）のメッシュを削除します。
+テンキーの &lt;kbd>1&lt;/kbd> を押してフロント・ビューに切り替えると、どの部分が左側なのかがすぐに分かります。
+編集モードに切り替え、反転の境目になる部分（X=0 の位置）を &lt;kbd>Ctrl + R&lt;/kbd> でループカットします。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="389" height="255" src="../p/4qnp4w7/img-004.png" alt="/p/4qnp4w7/img-004.png" />
+&lt;/figure>
+
+&lt;p>左側の面（あるいは4つの頂点）を選択し、&lt;kbd>X&lt;/kbd> → &lt;samp>頂点&lt;/samp> で削除します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="389" height="255" src="../p/4qnp4w7/img-005.png" alt="/p/4qnp4w7/img-005.png" />
+&lt;/figure>
+
+&lt;p>すると、立方体の右側半分だけが残り、ミラー・モディファイアを適用する準備が整います。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="389" height="255" src="../p/4qnp4w7/img-006.png" alt="/p/4qnp4w7/img-006.png" />
+&lt;/figure>
+
+&lt;h3 id="ミラーモディファイアの追加">ミラー・モディファイアの追加&lt;/h3>
+&lt;p>プロパティエディタのモディファイアタブ（レンチ型のアイコン）を選択し、ミラー・モディファイアを追加します。&lt;/p></description></item><item><title>Blenderメモ: モディファイアとは</title><link>https://maku77.github.io/p/gtdhv76/</link><pubDate>Mon, 24 Jun 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gtdhv76/</guid><description>&lt;h2 id="モディファイアとは">モディファイアとは&lt;/h2>
+&lt;p>モディファイアは、オブジェクトのメッシュ構造に手を入れずに、様々な装飾を施すための機能です。&lt;/p>
+&lt;p>例えば、オブジェクトにミラー・モディファイアを追加すると、オブジェクトの原点で反転させて鏡のように表示することができます。
+オブジェクトからミラー・モディファイアを削除すれば、元の単一の表示に戻すことができます。
+モディファイアを使用すると、元のメッシュ構造を壊さずに装飾することができるため、非破壊的 (non-destructive) な操作と呼ばれたりします。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/gtdhv76/img-001.gif" alt="/p/gtdhv76/img-001.gif" />
+&lt;/figure>
+
+&lt;p>細分割曲面 (Subdivision Surface) （通称: Subsurf）モディファイアを追加すると、メッシュ構造を滑らかにした見た目にすることができます。
+このモディファイアは、少ないポリゴン数（ローポリ）で滑らかな曲面を表現するために必須のモディファイアです。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1344" height="300" src="../p/gtdhv76/img-002.png" alt="/p/gtdhv76/img-002.png" />
+&lt;/figure>
+
+&lt;h2 id="モディファイアの追加">モディファイアの追加&lt;/h2>
+&lt;p>オブジェクトにモディファイアを追加するには、対象のオブジェクトが選択された状態で、&lt;strong>プロパティ・エディタ&lt;/strong> の &lt;strong>モディファイア・タブ（レンチ型のアイコン）&lt;/strong> を選択し、&lt;samp>追加&lt;/samp>ボタンを押します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="662" height="346" src="../p/gtdhv76/img-003.png" alt="/p/gtdhv76/img-003.png" />
+&lt;/figure>
+
+&lt;p>すると、モディファイアの一覧が表示されるので、その中からオブジェクトに追加したいものを選択します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="656" height="381" src="../p/gtdhv76/img-004.png" alt="/p/gtdhv76/img-004.png" />
+&lt;/figure>
+
+&lt;p>よく使用するのは、&lt;/p>
+&lt;ul>
+&lt;li>ミラー (Mirror)&lt;/li>
+&lt;li>細分割曲面 (Subdivision Surface)&lt;/li>
+&lt;li>配列複製 (Array)&lt;/li>
+&lt;/ul>
+&lt;p>などです。&lt;/p>
+&lt;p>モディファイアは複数追加することができ、上に並べられたものから順番に効果が反映されていきます。
+下記の例では、3 つのモディファイアが追加されています（三角アイコンを押してパネルを展開すると、各モディファイアの設定が表示されます）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="337" height="202" src="../p/gtdhv76/img-005.png" alt="/p/gtdhv76/img-005.png" />
+&lt;/figure>
+
+&lt;h2 id="モディファイアの適用">モディファイアの適用&lt;/h2>
+&lt;p>モディファイアによってオブジェクトの見た目が変形していても、元になっているメッシュの形状は変わっていません。
+その形状をメッシュに適用するには、オブジェクトモードに切り替え、モディファイアのパネルに表示された &lt;samp>適用&lt;/samp> ボタンを押します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="330" height="247" src="../p/gtdhv76/img-006.png" alt="/p/gtdhv76/img-006.png" />
+&lt;/figure>
+
+&lt;p>例えば、細分割曲面 (Subsurf) モディファイアをオブジェクトに適用すると、メッシュが細かく分割された形状に変化します（モディファイアによって表示されていた形がメッシュに反映される）。&lt;/p>
+&lt;p>モディファイアを一度適用してしまうと元に戻せないので注意してください。
+&lt;strong>できるだけモディファイアが追加された状態で作業を続け、微調整が必要になった時点で反映する&lt;/strong>、というのが作業を効率的に進めるコツです。&lt;/p></description></item><item><title>Blenderメモ: ぽっかり空いた穴を四角形ポリゴンで素早く埋める</title><link>https://maku77.github.io/p/tfwfw8j/</link><pubDate>Sat, 25 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/tfwfw8j/</guid><description>&lt;p>ポリゴンの一部に複雑な形状の穴が空いている時に、四角形（あるいは三角形）のポリゴンで埋めるテクニックがいくつかあります。&lt;/p>
+&lt;h2 id="一つの辺を基準に面を張っていく方法">一つの辺を基準に面を張っていく方法&lt;/h2>
+&lt;p>オススメの方法。
+ぽっかりと空いた穴のひとつの辺を選択した状態で、&lt;kbd>F&lt;/kbd> キーを連打すると、そこから四角形の面で連続して埋めてくれます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/tfwfw8j/img-001.gif" alt="/p/tfwfw8j/img-001.gif" />
+&lt;/figure>
+
+&lt;h2 id="一つの面を自動分割する方法">一つの面を自動分割する方法&lt;/h2>
+&lt;p>五角形以上の複雑な面がある場合、その面を選択して &lt;strong>&lt;kbd>Ctrl + T&lt;/kbd>&lt;/strong> で三角形だけの面に自動分割できます（面を三角化: Triangulate Faces）。
+さらに、&lt;kbd>Alt + J&lt;/kbd> で、三角形を結合して四角形だけにすることができます（三角面を四角面に: Tris to Quads）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/tfwfw8j/img-002.gif" alt="/p/tfwfw8j/img-002.gif" />
+&lt;/figure>
+
+&lt;p>上記の例では、最初に &lt;kbd>Alt + 右クリック&lt;/kbd> で辺ループ選択し、&lt;kbd>F&lt;/kbd> で面を作成しています。&lt;/p>
+&lt;h2 id="三角形でまとめて面を張る方法">三角形でまとめて面を張る方法&lt;/h2>
+&lt;p>穴の空いたところに面を張るときに、&lt;kbd>F&lt;/kbd> ではなく、&lt;kbd>Alt + F&lt;/kbd> を使用すると、三角形だけで面を張ることができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/tfwfw8j/img-003.gif" alt="/p/tfwfw8j/img-003.gif" />
+&lt;/figure>
+
+&lt;p>その後、&lt;kbd>Alt + J&lt;/kbd> キーで四角面に結合できます。&lt;/p></description></item><item><title>Blenderメモ: 頂点の連打や線の押し出しで面を作成するテクニック</title><link>https://maku77.github.io/p/4hxwio5/</link><pubDate>Sat, 25 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4hxwio5/</guid><description>&lt;p>3D ビューエディタの編集モードで、頂点や線を選択した状態で、&lt;kbd>Ctrl + 左クリック&lt;/kbd> すると、「押し出し」操作をその位置まで行ったような振る舞いをします。
+連続して「押し出し」を行いたい場合は、この操作で代用するとスピーディに作業を行えます。&lt;/p>
+&lt;h2 id="クリック連打で線を繋げていく">クリック連打で線を繋げていく&lt;/h2>
+&lt;p>&lt;strong>頂点を選択した状態&lt;/strong>、あるいは&lt;strong>すべてのメッシュが削除された状態&lt;/strong>で頂点選択モードにし、&lt;kbd>Ctrl + 左クリック&lt;/kbd> を連打すると、次々と頂点を打ちながら線を作成していくことができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/4hxwio5/img-001.gif" alt="/p/4hxwio5/img-001.gif" />
+&lt;/figure>
+
+&lt;p>&lt;kbd>E&lt;/kbd> キーの押し出し (Extrude) で頂点を伸ばしていくこともできますが、上記の方法だとクリックするだけで次々と頂点を作成していくことができるので作業スピードが上がります。
+下絵を使って輪郭をトレースしたりしているときに便利です。&lt;/p>
+&lt;p>一連の線を作成し終わったら、&lt;kbd>F&lt;/kbd> キーなどで面を作成すればよいでしょう。&lt;/p>
+&lt;h2 id="クリック連打で面を繋げていく">クリック連打で面を繋げていく&lt;/h2>
+&lt;p>&lt;strong>線が選択された状態&lt;/strong>で、&lt;kbd>Ctrl + 左クリック&lt;/kbd> すると、そこまで線が伸ばされて面が作成されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/4hxwio5/img-002.gif" alt="/p/4hxwio5/img-002.gif" />
+&lt;/figure>
+
+&lt;p>輪っか状に面を繋げていきたいときや、板が繋がった通路っぽいものを作りたい場合に便利です。
+上記の例では、最後に 2 つの辺を選択して、&lt;kbd>F&lt;/kbd> キーで面を作成しています。&lt;/p></description></item><item><title>Blenderメモ: 頂点・辺・面の削除、融解を理解する</title><link>https://maku77.github.io/p/532cbbd/</link><pubDate>Sat, 18 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/532cbbd/</guid><description>&lt;p>3D ビューエディタの編集モードで、頂点や辺、面を選択した状態で &lt;kbd>X&lt;/kbd> キー、あるいは &lt;kbd>Del&lt;/kbd> キーを押すと、要素を &lt;strong>削除 (Delete)&lt;/strong>、&lt;strong>融解 (Dissolve)&lt;/strong> するためのメニューが表示されます。&lt;/p>
+&lt;p>削除 (Delete) を実行すると選択要素に接する要素を巻き込む形で削除され、融解 (Dissolve) を実行すると選択要素のみが削除されます。
+下記の例でそれぞれの振る舞いの違いを理解してください。&lt;/p>
+&lt;h2 id="削除-delete">削除 (Delete)&lt;/h2>
+&lt;table>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-001.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>面の削除 (Delete Faces)&lt;/samp>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-002.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>辺の削除 (Delete Edges)&lt;/samp>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-003.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>頂点の削除 (Delete Vertices)&lt;/samp>&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>辺を削除すると、その辺に接する面も一緒に削除されます。
+頂点を削除すると、その頂点につながっている辺も一緒に削除され、さらに、その辺に接する面も一緒に削除されます。&lt;/p>
+&lt;p>つまり、頂点を削除したときに一番多くの要素が削除されます。
+削除を実行すると、オブジェクトの表面には穴が開きます。&lt;/p>
+&lt;h2 id="融解-dissolve">融解 (Dissolve)&lt;/h2>
+&lt;table>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-004.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>面の融解 (Dissolve Faces)&lt;/samp>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-005.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>辺の融解 (Dissolve Edges)&lt;/samp>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-006.png">&lt;/td>
+ &lt;td>&lt;kbd>X&lt;/kbd> → &lt;samp>頂点の融解 (Dissolve Vertices)&lt;/samp>&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>融解は削除と異なり、できるだけ選択した要素のみを削除するように振る舞います。
+融解を実行しても、オブジェクトの表面に穴が開くことはありません。&lt;/p>
+&lt;h2 id="おまけ融解した面を三角面四角面だけになるよう整える">（おまけ）融解した面を三角面／四角面だけになるよう整える&lt;/h2>
+&lt;table>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-007.png">&lt;/td>
+ &lt;td>&lt;kbd>Ctrl + T&lt;/kbd>&lt;br>面を三角化 (Triangulate Faces)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td style="width: 200px">&lt;img src="img-008.png">&lt;/td>
+ &lt;td>&lt;kbd>Alt + J&lt;/kbd>&lt;br>三角面を四角面に (Tris to Quads)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>融解を行っていると、面が複雑な形になってしまうことがあります。
+ポリゴンを四角面だけの構成にしたいときは、&lt;kbd>Ctrl + T&lt;/kbd> で三角面に分割し、さらに &lt;kbd>Alt + J&lt;/kbd> で四角面に結合します。&lt;/p></description></item><item><title>Blenderメモ: 押し出しで凹凸を作る (E)</title><link>https://maku77.github.io/p/ehqbxac/</link><pubDate>Tue, 07 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ehqbxac/</guid><description>&lt;h2 id="押し出し-extrude-の基本">押し出し (Extrude) の基本&lt;/h2>
+&lt;p>&lt;kbd>E&lt;/kbd> キーによる押し出し (Extrude) は、オブジェクトに突起やくぼみを作るための機能です。
+ひとつのキーに割り当てられていることからも分かるように、モデリング時に頻繁に使用します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/ehqbxac/img-001.gif" alt="/p/ehqbxac/img-001.gif" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>編集モード (Edit Mode) で面を選択&lt;/li>
+&lt;li>&lt;kbd>E&lt;/kbd> キーで押し出しを開始&lt;/li>
+&lt;li>マウスカーソルを動かしてニュッと押し出して &lt;kbd>左クリック&lt;/kbd> で決定（&lt;kbd>右クリック&lt;/kbd> でキャンセル）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;kbd>E&lt;/kbd> により面を押し出す場合、その方向は面の&lt;strong>法線&lt;/strong>の方向になります。
+法線の方向は、押し出し時に紫色の線で表示されます。&lt;/p>
+&lt;h2 id="複数の面を同時に押し出す">複数の面を同時に押し出す&lt;/h2>
+&lt;p>複数の面を選択した状態で &lt;kbd>E&lt;/kbd> キーを押すと、同時に複数の面の押し出しを行うことができます。
+押し出しの方向は、すべての面の法線の中間方向になります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/ehqbxac/img-002.gif" alt="/p/ehqbxac/img-002.gif" />
+&lt;/figure>
+
+&lt;p>同じ平面上にある面であれば、法線の方向は同じなので、直感的に垂直方向に押し出されることになります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/ehqbxac/img-003.gif" alt="/p/ehqbxac/img-003.gif" />
+&lt;/figure>
+
+&lt;h2 id="面を凹ませる押し込む">面を凹ませる（押し込む）&lt;/h2>
+&lt;p>&lt;kbd>E&lt;/kbd> キーによる押し出しは、面の中にくぼみを作るときにも使用できます。
+下記の例では、まず &lt;kbd>I&lt;/kbd> キーによる面の差し込み (Insert Face) を行ってから、その面を &lt;kbd>E&lt;/kbd> キーで押し込んでいます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/ehqbxac/img-004.gif" alt="/p/ehqbxac/img-004.gif" />
+&lt;/figure></description></item><item><title>Blenderメモ: 3D カーソルを原点（中心）に移動する (Shift + S)</title><link>https://maku77.github.io/p/nimo6zk/</link><pubDate>Mon, 06 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/nimo6zk/</guid><description>&lt;p>&lt;kbd>Shift + A&lt;/kbd> などでオブジェクトを追加する場合、3D カーソルがある位置にオブジェクトが作成されます。
+3D カーソルの位置は、3D ビューエディタ上で左クリックすると移動します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/nimo6zk/img-001.gif" alt="/p/nimo6zk/img-001.gif" />
+&lt;/figure>
+
+&lt;p>3D カーソルの位置を原点座標 (0, 0, 0) に戻したいときは、3D ビューエディタの上にマウスカーソルがある状態で &lt;kbd>Shift + S&lt;/kbd> でスナップメニューを表示し、&lt;samp>カーソル → 原点&lt;/samp> を選択します。
+スナップメニューからは、他にも、アクティブになっているオブジェクトの中央に 3D カーソルを移動したりできます。&lt;/p>
+&lt;figure>
+ &lt;img src="img-002.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>&lt;kbd>Shift + S&lt;/kbd>&lt;/li>
+ &lt;li>&lt;kbd>&lt;samp>カーソル → 原点&lt;/samp>&lt;/kbd> を選択&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>他の方法として、&lt;kbd>Shift + C&lt;/kbd>（あるいは &lt;kbd>Home&lt;/kbd>）キーを使って、表示位置をリセットする方法があります。
+このショートカットキーを使うと、3D カーソルが原点に戻るだけでなく、すべてのオブジェクトがエディタ内にちょうど収まるように視点が調整されます。&lt;/p></description></item><item><title>Blenderメモ: 3D ビューでのキー操作を画面に表示する (Screencast Keys)</title><link>https://maku77.github.io/p/qkwzdq5/</link><pubDate>Mon, 06 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qkwzdq5/</guid><description>&lt;h2 id="screencast-keys-アドオンとは">Screencast Keys アドオンとは？&lt;/h2>
+&lt;p>&lt;strong>Screencast Keys&lt;/strong> というアドオンを使用すると、3D ビュー・エディタでの操作（キーボード＆マウス操作）を画面の左下に表示することができます。
+Blender の操作説明の動画を作成するときなどに便利です。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="400" height="225" src="../p/qkwzdq5/img-001.gif" alt="/p/qkwzdq5/img-001.gif" />
+&lt;/figure>
+
+&lt;h2 id="screencast-keys-アドオンのダウンロード">Screencast Keys アドオンのダウンロード&lt;/h2>
+&lt;p>Screencast Keys アドオンは、Python のスクリプトとして提供されているため、下記からダウンロードしてください。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://svn.blender.org/svnroot/bf-extensions/trunk/py/scripts/addons/space_view3d_screencast_keys.py">space_view3d_screencast_keys.py&lt;/a>（&lt;a href="./files/space_view3d_screencast_keys.py.txt">ミラー&lt;/a>）&lt;/li>
+&lt;/ul>
+&lt;h2 id="screencast-keys-アドオンのインストール">Screencast Keys アドオンのインストール&lt;/h2>
+&lt;ol>
+&lt;li>&lt;kbd>Ctrl + Alt + U&lt;/kbd> (&lt;kbd>Cmd + [,]&lt;/kbd>) でユーザ設定 (User Preference) を開く&lt;/li>
+&lt;li>&lt;samp>アドオン&lt;/samp> タブの &lt;samp>ファイルからアドオンをインストール&amp;hellip;&lt;/samp> ボタンを押して、ダウンロードしたスクリプトを選択&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1600" height="1004" src="../p/qkwzdq5/img-002.png" alt="/p/qkwzdq5/img-002.png" />
+&lt;/figure>
+
+&lt;p>すると、アドオンの一覧に &lt;samp>Screencast Keys&lt;/samp> が表示されるので、&lt;strong>チェックボックスを ON&lt;/strong> にして有効化します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1600" height="1004" src="../p/qkwzdq5/img-003.png" alt="/p/qkwzdq5/img-003.png" />
+&lt;/figure>
+
+&lt;h2 id="screencast-keys-アドオンを使用する">Screencast Keys アドオンを使用する&lt;/h2>
+&lt;p>Screencast Keys による入力の表示を開始するには、下記のようにします。&lt;/p>
+&lt;ol>
+&lt;li>3D ビュー・エディタ上で &lt;kbd>N&lt;/kbd> キーを押してプロパティ・リージョンを開く&lt;/li>
+&lt;li>プロパティ・リージョンの一番下にある &lt;samp>Screencast Keys&lt;/samp> パネルの &lt;kbd>&lt;samp>Start Display&lt;/samp>&lt;/kbd> ボタンを押す&lt;/li>
+&lt;/ol>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1172" height="821" src="../p/qkwzdq5/img-004.png" alt="/p/qkwzdq5/img-004.png" />
+&lt;/figure></description></item><item><title>Blenderメモ: ショートカットキー（ホットキー）の割り当てを確認する</title><link>https://maku77.github.io/p/vfzxraf/</link><pubDate>Mon, 06 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/vfzxraf/</guid><description>&lt;h2 id="すべてのキーバインドを表示する">すべてのキーバインドを表示する&lt;/h2>
+&lt;p>Blender ですべてのキーバインドを確認するには、&lt;kbd>Ctrl + Shift + U&lt;/kbd>（あるいは &lt;kbd>Cmd + ,&lt;/kbd>）でユーザ設定 (User Preference) を開き、&lt;samp>入力 (Input)&lt;/samp> のタブを選択します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1600" height="1004" src="../p/vfzxraf/img-001.png" alt="/p/vfzxraf/img-001.png" />
+&lt;/figure>
+
+&lt;p>UI ごとに分類されてショートカットキーの一覧が表示されます。&lt;/p>
+&lt;h2 id="あるキーに割り当てられた操作を調べる">あるキーに割り当てられた操作を調べる&lt;/h2>
+&lt;p>特定のキーコンビネーションに割り当てられている操作を確認するには、右上のプルダウンから &lt;samp>キーバインド (Key-Binding)&lt;/samp> を選択し、キーの名前を入力します。
+例えば、&lt;kbd>Ctrl + R&lt;/kbd> の組み合わせに割り当てられている操作を調べるには、&lt;strong>&lt;code>Ctrl R&lt;/code>&lt;/strong> と入力します（&lt;code>+&lt;/code> や &lt;code>-&lt;/code> は入力しないことに注意してください）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1600" height="1004" src="../p/vfzxraf/img-002.png" alt="/p/vfzxraf/img-002.png" />
+&lt;/figure>
+
+&lt;p>同一のショートカットキーであっても、エディタごとに異なる操作が割り当てられているため、上記のようにエディタごとの割り当てが表示されます。&lt;/p></description></item><item><title>Blenderメモ: ループカットとスライドで辺を追加する (Ctrl + R)</title><link>https://maku77.github.io/p/bjyn3xw/</link><pubDate>Mon, 06 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/bjyn3xw/</guid><description>&lt;h2 id="ループカットとは">ループカットとは&lt;/h2>
+&lt;p>編集モード (Edit Mode) でループカットの機能を使用すると、オブジェクトをぐるりと囲むように辺を追加することができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1562" height="740" src="../p/bjyn3xw/img-001.png" alt="/p/bjyn3xw/img-001.png" />
+&lt;/figure>
+
+&lt;h2 id="ループカットの基本">ループカットの基本&lt;/h2>
+&lt;p>&lt;kbd>Ctrl + R&lt;/kbd> を押して任意の辺にマウスカーソルを合わせると、紫色のラインが表示されるので、その状態で &lt;kbd>左クリック&lt;/kbd> するとループカットが実行されます。
+キャンセルしたい場合は、この紫色のラインが表示されている段階で &lt;kbd>右クリック&lt;/kbd> か &lt;kbd>Esc&lt;/kbd> キーを押してキャンセルしてください。
+一度 &lt;kbd>左クリック&lt;/kbd> すると、ループカットの実行はキャンセルできません。&lt;/p>
+&lt;p>一度 &lt;kbd>左クリック&lt;/kbd> すると、辺の色がオレンジ色に変わり、マウスで辺の位置を調整できるようになります。
+もう一度 &lt;kbd>左クリック&lt;/kbd> すると、ループカットの位置が確定します。
+代わりに &lt;kbd>右クリック&lt;/kbd> か &lt;kbd>Esc&lt;/kbd> キーで、均等にループカットすることができます。&lt;/p>
+&lt;figure>
+ &lt;img src="img-002.gif" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>&lt;kbd>Ctrl + R&lt;/kbd> を押して起点となる辺にマウスカーソルを合わせる&lt;/li>
+ &lt;li>&lt;kbd>左クリック&lt;/kbd> でループカットを実行&lt;/li>
+ &lt;li>位置を調整して &lt;kbd>左クリック&lt;/kbd> で位置を確定&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="ループカットで複数分割">ループカットで複数分割&lt;/h2>
+&lt;p>&lt;kbd>Ctrl + R&lt;/kbd> を押して紫色のラインが表示されている状態で、マウスホイールを回転させると、ループカットの数を調整することができます。
+下記の例では、4 つのループカットを作成しています。&lt;/p>
+&lt;figure>
+ &lt;img src="img-003.gif" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>&lt;kbd>Ctrl + R&lt;/kbd> を押して起点となる辺にマウスカーソルを合わせる&lt;/li>
+ &lt;li>&lt;kbd>マウスホイール&lt;/kbd> でループカット数を調整&lt;/li>
+ &lt;li>&lt;kbd>左クリック&lt;/kbd> でループカットを実行&lt;/li>
+ &lt;li>位置を調整して &lt;kbd>左クリック&lt;/kbd> で位置を確定（ここでは &lt;kbd>右クリック&lt;/kbd> で均等に分割）&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="応用ループカットの直後に別の編集操作を続ける">（応用）ループカットの直後に別の編集操作を続ける&lt;/h2>
+&lt;p>&lt;kbd>Ctrl + R&lt;/kbd> → &lt;kbd>左クリック&lt;/kbd> でループカットを実行した後は、ループカットの位置を調整するモードになりますが、この段階で &lt;kbd>S&lt;/kbd>（伸縮）、&lt;kbd>G&lt;/kbd>（移動）などの別のコマンドを開始すると、中央でループカットされたものとして編集を続けることができます。&lt;/p></description></item><item><title>Blenderメモ: 面を差し込む (I)</title><link>https://maku77.github.io/p/pg47dfv/</link><pubDate>Mon, 06 May 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pg47dfv/</guid><description>&lt;h2 id="面の差し込みの基本">面の差し込みの基本&lt;/h2>
+&lt;p>3D ビュー・エディタの編集モードで、あるオブジェクトの面を選択した状態で &lt;kbd>I&lt;/kbd> キーを押すと、その面の内部にひとまわり小さい面を追加することができます（&lt;strong>面の差し込み&lt;/strong>）。
+下記の例では、元の直方体（左側）の前面に、ひとまわり小さい面を差し込んでいます（右側）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1026" height="550" src="../p/pg47dfv/img-001.png" alt="/p/pg47dfv/img-001.png" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>編集モード (Edit Mode) で面を選択する&lt;/li>
+&lt;li>&lt;kbd>I&lt;/kbd> キーを押す&lt;/li>
+&lt;li>マウスを動かしてサイズを調整&lt;/li>
+&lt;li>&lt;kbd>左クリック&lt;/kbd> で決定（&lt;kbd>右クリック&lt;/kbd> でキャンセル）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;kbd>I&lt;/kbd> を押すときは、マウスカーソルの位置を面の中心から少し離した位置に配置して押すことをオススメします。
+差し込む面のサイズ調整は、面の中心とカーソル位置の関係で決まるため、カーソル位置があまりにも面の中心に近いと調整がしにくくなってしまいます。&lt;/p>
+&lt;h2 id="面の差し込みの応用">面の差し込みの応用&lt;/h2>
+&lt;p>面の差し込みは、&lt;kbd>E&lt;/kbd> による押し出しを行うための面を作るときによく実行されます。
+下記の例では、面の一部を飛び出すように押し出していますが、逆に凹ませることもできます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1244" height="504" src="../p/pg47dfv/img-002.png" alt="/p/pg47dfv/img-002.png" />
+&lt;/figure>
+
+&lt;p>複数の面を選択した状態で &lt;kbd>I&lt;/kbd> で「面を差し込む」と、それらの面の外周がひとまわり縮む感じで面が挿入されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1010" height="488" src="../p/pg47dfv/img-003.png" alt="/p/pg47dfv/img-003.png" />
+&lt;/figure>
+
+&lt;p>この性質は、選択した面が隣接している限り有効で、下記のように角度のついた面同士でも「面の差し込み」を行うことができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="874" height="496" src="../p/pg47dfv/img-004.png" alt="/p/pg47dfv/img-004.png" />
+&lt;/figure>
+
+&lt;p>逆に、隣接していない複数の面を選択した状態で &lt;kbd>I&lt;/kbd> による「面の差し込み」を行うと、それぞれの面に対して独立して面が差し込まれます。
+オブジェクトの表と裏に、同じサイズで面を差し込みたい場合などに便利です。
+下記の例では、円柱の上面と底面を選択した状態で、「面の差し込み」を実行しています。
+（裏面が見えるように、&lt;kbd>Z&lt;/kbd> キーでワイヤーフレーム表示にしています）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1354" height="600" src="../p/pg47dfv/img-005.png" alt="/p/pg47dfv/img-005.png" />
+&lt;/figure>
+
+&lt;h2 id="差し込まれた面を削除する">差し込まれた面を削除する&lt;/h2>
+&lt;p>&lt;kbd>I&lt;/kbd> キーの「面の差し込み」によって追加された面が必要なくなった場合は、削除したい面（あるいはそれを構成する頂点）を選択した状態で &lt;kbd>X&lt;/kbd> (&lt;kbd>Del&lt;/kbd>) キーを押し、&lt;kbd>&lt;samp>頂点を溶解&lt;/samp>&lt;/kbd> を選択します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="875" height="642" src="../p/pg47dfv/img-006.png" alt="/p/pg47dfv/img-006.png" />
+&lt;/figure>
+
+&lt;p>ただし、次のように、角度の付いた面にまたがって差し込まれた面を削除する場合は、それぞれの面の内部の頂点だけを選択して &lt;kbd>&lt;samp>頂点を溶解&lt;/samp>&lt;/kbd> を順番に実行していく必要があります（一度に溶解しようとすると、同じ平面上にない頂点同士が繋がって、おかしなポリゴンができてしまいます）。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="883" height="624" src="../p/pg47dfv/img-007.png" alt="/p/pg47dfv/img-007.png" />
+&lt;/figure>
+
+&lt;p>あるいは、同じ平面上の面をすべて選択し、&lt;kbd>X&lt;/kbd> → &lt;kbd>&lt;samp>面を溶解&lt;/samp>&lt;/kbd> とする方法もあります。&lt;/p></description></item><item><title>Blenderメモ: 自動バックアップとリストア</title><link>https://maku77.github.io/p/7vyuvvi/</link><pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7vyuvvi/</guid><description>&lt;h2 id="過去バージョンのファイルを保存する">過去バージョンのファイルを保存する&lt;/h2>
+&lt;p>Blender で作成したファイルは、&lt;code>.blend&lt;/code> 拡張子のファイルとして保存されますが、&lt;strong>バージョンを保存&lt;/strong> の設定をしておくと、過去のバージョンを &lt;strong>&lt;code>.blend2&lt;/code>&lt;/strong>、&lt;strong>&lt;code>.blend3&lt;/code>&lt;/strong>、&lt;strong>&lt;code>.blend4&lt;/code>&lt;/strong> というように残しておくことができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="545" src="../p/7vyuvvi/img-004_hu4742097485729927096.png" alt="/p/7vyuvvi/img-004.png" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>メニューから &lt;kbd>&lt;samp>ファイル&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>ユーザ設定&lt;/samp>&lt;/kbd> を選択（あるいは &lt;kbd>Cmd + ,&lt;/kbd>）&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>ファイル&lt;/samp>&lt;/kbd> タブを選択&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>バージョンを保存&lt;/samp>&lt;/kbd> で 1 以上の数値を入力&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>ユーザ設定の保存&lt;/samp>&lt;/kbd> ボタンをクリック&lt;/li>
+&lt;/ol>
+&lt;p>&lt;samp>バージョンを保存&lt;/samp> の設定で &lt;code>0&lt;/code> を指定しておくと、過去バージョンファイルの作成は行われなくなります。
+Git などでバージョン管理を行うのもよいですが、この仕組みであれば手軽にバージョン管理を行うことができます。
+保存数は最大の &lt;code>32&lt;/code> に設定しておくのがよいでしょう。&lt;/p>
+&lt;p>ファイルがたくさん作られることによってストレージ容量が圧迫されることが気になる場合は、&lt;samp>保存時にファイルを圧縮&lt;/samp> のチェックを入れておくとファイルサイズを小さくできるかもしれません。&lt;/p>
+&lt;h2 id="一定時間おきに一時ファイルとして自動保存する">一定時間おきに一時ファイルとして自動保存する&lt;/h2>
+&lt;p>&lt;strong>一時ファイルの自動保存&lt;/strong> を有効にしておくと、タイマーで指定した分ごとに、作業内容が一時ファイルとして自動的に保存されます。
+一時ファイルは、&lt;samp>テンポラリ&lt;/samp> で指定したディレクトリ内に作成されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="545" src="../p/7vyuvvi/img-001_hu12227343377524430281.png" alt="/p/7vyuvvi/img-001.png" />
+&lt;/figure>
+
+&lt;p>Blender が異常終了してしまった場合に、一時ファイルから状態を復帰させるには、メニューから &lt;samp>自動保存の読み込み&lt;/samp> を選択します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="287" src="../p/7vyuvvi/img-002_hu15977678173468742723.png" alt="/p/7vyuvvi/img-002.png" />
+&lt;/figure>
+
+&lt;h2 id="最後のセッションを復元する">最後のセッションを復元する&lt;/h2>
+&lt;p>Blender を終了するときに、内容を保存せずに閉じてしまった場合でも、Blender はその内容を自動保存しています。
+Blender を最後に閉じたときの状態に戻すには、メニューから &lt;samp>最後のセッションを復元&lt;/samp> を選択します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="600" height="275" src="../p/7vyuvvi/img-003_hu17116234954597537615.png" alt="/p/7vyuvvi/img-003.png" />
+&lt;/figure></description></item><item><title>Blenderメモ: 画面の構成要素を理解する</title><link>https://maku77.github.io/p/2kozoid/</link><pubDate>Sat, 26 Jan 2019 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/2kozoid/</guid><description>&lt;p>Blender の画面構成を理解することは、Blender の使い方を効率的に学ぶためのポイントになります。
+1つのウィンドウ内にたくさんの部品が並んでいるため、最初はチンプンカンプンになりますが、下記のようにひとつずつ理解していけばとても体系的に構成されていることがわかると思います。&lt;/p>
+&lt;h2 id="ウィンドウはエディタの組み合わせ">ウィンドウはエディタの組み合わせ&lt;/h2>
+&lt;p>Blender のウィンドウには色々な部品が配置されているように見えますが、大きな単位としては&lt;strong>エディタ&lt;/strong>の組み合わせによって構成されています。
+下記の赤枠で囲まれたものは、すべてエディタです。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="764" height="471" src="../p/2kozoid/img-window-editors.png" alt="/p/2kozoid/img-window-editors.png" />
+&lt;/figure>
+
+&lt;p>ウィンドウ全体が、エディタで敷き詰められていることがわかると思います。
+デフォルトのレイアウトでは、「情報」、「3Dビュー」、「タイムライン」、「アウトライナー」、「プロパティ」のエディタが配置されていますが、これらの配置は自由に入れ替えることができます。&lt;/p>
+&lt;h2 id="各エディタにはヘッダーが付いている">各エディタにはヘッダーが付いている&lt;/h2>
+&lt;p>各エディタの上端、あるいは下端には&lt;strong>ヘッダー&lt;/strong>が配置されています。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="756" height="470" src="../p/2kozoid/img-window-headers.png" alt="/p/2kozoid/img-window-headers.png" />
+&lt;/figure>
+
+&lt;div class="note">
+ヘッダーをエディタの上部と下部のどちらに配置するかは、ヘッダー部分を右クリックして表示されるメニューから切り替えることができます。
+デフォルトでは、「3Dビュー」エディタのヘッダーは下部に、「アウトライナー」エディタのヘッダーは上部に表示されています。
+&lt;/div>
+&lt;p>ヘッダーの左端には、エディタの種類を切り替えるための&lt;strong>タイプ切替ボタン (Editor Type Selector)&lt;/strong> がついており、ここに表示されたアイコンを見れば、何のエディタが表示されているかを判別することができます（図の赤丸のところ）。&lt;/p>
+&lt;p>例えば、「3Dビュー」エディタのタイプ切替ボタンを押すと、下記のようにエディタの種類が一覧表示され、好きなエディタに切り替えることができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="852" height="1000" src="../p/2kozoid/img-window-editor-type.png" alt="/p/2kozoid/img-window-editor-type.png" />
+&lt;/figure>
+
+&lt;h2 id="レイアウトセレクタでエディタ配置を変更する">レイアウトセレクタでエディタ配置を変更する&lt;/h2>
+&lt;p>Blender は、それぞれの作業に適したエディタ配置をあらかじめ色々用意しています。
+このエディタ配置のことを&lt;strong>スクリーン&lt;/strong>と呼び、「情報」エディタのヘッダーに表示されている&lt;strong>スクリーンレイアウトセレクタ&lt;/strong>から切り替えることができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="1169" height="564" src="../p/2kozoid/img-window-layout1.png" alt="/p/2kozoid/img-window-layout1.png" />
+&lt;/figure>
+
+&lt;p>デフォルトでは「Default」というレイアウト（エディタ配置）が選択されています。
+下記はセレクタから「3D View Full」レイアウトに切り替えたときの表示の変化を示しています。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="661" height="388" src="../p/2kozoid/img-window-layout2.png" alt="/p/2kozoid/img-window-layout2.png" />
+&lt;/figure>
+
+&lt;p>レイアウトの切り替えは基本的には「情報」エディタのセレクタから行いますが、&lt;kbd>Ctrl-Left&lt;/kbd> / &lt;kbd>Ctrl-Right&lt;/kbd> というショートカットキーでもレイアウトを切り替えることができます。
+このショートカットキーを使用すれば、「情報」エディタのヘッダーが表示されていなくてもレイアウトを切り替えることが可能です。&lt;/p>
+&lt;h2 id="細かい構成要素の名前">細かい構成要素の名前&lt;/h2>
+&lt;p>各エディタの下には、さらに細かい単位の構成要素が配置されています。
+例えば、「3Dビュー」エディタの左側には&lt;strong>ツールシェルフ&lt;/strong>（&lt;kbd>T&lt;/kbd>キーでOn/Off）、右側には&lt;strong>プロパティリージョン&lt;/strong>（&lt;kbd>N&lt;/kbd>キーでOn/Off）が配置されています。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="637" height="335" src="../p/2kozoid/img-window-toolshelf1.png" alt="/p/2kozoid/img-window-toolshelf1.png" />
+&lt;/figure>
+
+&lt;div class="note">
+この「プロパティ」リージョンは、より大きな UI 構成要素である「プロパティ」エディタとは異なるものなので混同しないようにしましょう。
+プロパティリージョンは、あくまで「3Dビュー」エディタなどのエディタ内の構成要素です。
+&lt;/div>
+&lt;p>エディタごとに構成要素は異なるため、各エディタを使用する際に少しずつ慣れていきましょう。
+構成要素の表示・非表示は、各エディタのヘッダーの「ビュー」メニューや、ショートカットキーなどを使用して切り替えることができます。&lt;/p>
+&lt;p>▼（下矢印）や ▶（右矢印）で開閉できる要素は&lt;strong>パネル&lt;/strong>と呼ばれており、複数の項目をまとめる UI パーツとしては一番細かいものです。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="637" height="335" src="../p/2kozoid/img-window-toolshelf2.png" alt="/p/2kozoid/img-window-toolshelf2.png" />
+&lt;/figure>
+
+&lt;p>ここまでを理解すれば、一見複雑に見える Blender のウィンドウの中で迷子になることはないでしょう（もちろん、各エディタの使い方は個別に学ぶ必要がありますが）。&lt;/p></description></item><item><title>Blenderメモ: 常に選択したオブジェクトを中心に視点を回転する</title><link>https://maku77.github.io/p/krt9jir/</link><pubDate>Sun, 01 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/krt9jir/</guid><description>&lt;p>マウスの中央ボタンなどをドラッグして視点を回転させるとき、デフォルトでは回転の中心は、画面の中央になっています。
+&lt;kbd>Shift&lt;/kbd>+中央ボタンで視点の位置を平行移動していると、この回転の中心がずれてしまいます。
+常に選択したオブジェクトが画面に収まるように回転させるようにするには、以下のように設定します。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="800" height="630" src="../p/krt9jir/img-001_hu18130353206761640874.png" alt="/p/krt9jir/img-001.png" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>メニューから &lt;kbd>&lt;samp>ファイル&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>ユーザ設定&lt;/samp>&lt;/kbd> を選択（あるいは &lt;kbd>Cmd + ,&lt;/kbd>）&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>インターフェイス&lt;/samp>&lt;/kbd> タブを選択&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>選択範囲を中心に回転&lt;/samp>&lt;/kbd> にチェックを入れる&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>ユーザ設定の保存&lt;/samp>&lt;/kbd> ボタンをクリック&lt;/li>
+&lt;/ol></description></item><item><title>Blenderメモ: UV マッピングの基本</title><link>https://maku77.github.io/p/4v6k7yk/</link><pubDate>Sun, 25 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4v6k7yk/</guid><description>&lt;h2 id="uv-展開マッピングとは">UV 展開／マッピングとは&lt;/h2>
+&lt;p>複雑な形状のメッシュに、画像などをテクスチャマッピングするには、まずは三次元表現のオブジェクトを平面に展開してからマッピングします。
+この展開のことを &lt;strong>UV 展開&lt;/strong> と言います。
+三次元表現で xyz 座標系に配置されていたオブジェクトは、UV 展開後は UV 座標系にマッピングされます。&lt;/p>
+&lt;h2 id="シームを付ける-mark-seam">シームを付ける (Mark Seam)&lt;/h2>
+&lt;p>UV 展開を行うには、三次元オブジェクトを、どの辺で切り離して展開するかを指定しなければいけません。
+この辺の指定のことを、&lt;strong>シームを付ける (Mark Seam)&lt;/strong> と言います。&lt;/p>
+&lt;p>シームを付けるには、編集モードで対象となる辺を選択し、&lt;kbd>Ctrl-E&lt;/kbd> で表示される辺メニューから &lt;kbd>&lt;samp>シームを付ける&lt;/samp>&lt;/kbd> を選択します。
+あるいは、3D ビューのツールシェルフから、&lt;kbd>&lt;samp>シェーディング/UV&lt;/samp>&lt;/kbd> タブを選択し、&lt;kbd>&lt;samp>シームを付ける&lt;/samp>&lt;/kbd> ボタンを押します。&lt;/p>
+&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>シーム対象の辺を選択（&lt;kbd>Shift&lt;/kbd>押しながら右クリック）&lt;/li>
+ &lt;li>&lt;kbd>Ctrl-E&lt;/kbd>（Edges メニューを表示）&lt;/li>
+ &lt;li>&lt;kbd>&lt;samp>シームを付ける&lt;/samp>&lt;/kbd> を選択&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>シームの付いた辺は、赤色に変化します。&lt;/p>
+&lt;div class="note">
+&lt;kbd>Z&lt;/kbd> キーを押して、3D ビューの表示モードを &lt;em>ワイヤーフレーム&lt;/em> に切り替えると、辺を選択しやすくなります。
+&lt;/div>
+&lt;h2 id="uv画像エディターを表示する">UV/画像エディターを表示する&lt;/h2>
+&lt;p>UV マッピングを行うには、&lt;strong>UV/画像エディター&lt;/strong> を使用し、三次元オブジェクトと UV 平面の対応付けを行っていきます。
+この作業を行うときは、3D ビューエディターと、UV/画像エディターを同時に表示しておくと対応付けが分かりやすくなります。&lt;/p>
+&lt;p>Blender がデフォルトで用意しているスクリーンレイアウトである、&lt;strong>UV Editing&lt;/strong> レイアウトを使用するとよいでしょう。
+左側に UV/画像エディター、右側に 3D エディターというレイアウトに切り替わります。&lt;/p>
+&lt;figure>
+ &lt;img src="img-002.gif" />
+ &lt;figcaption>インフォエディターから &lt;kbd>&lt;samp>UV Editing&lt;/samp>&lt;/kbd> レイアウトに切り替える方法&lt;/figcaption>
+&lt;/figure>
+&lt;p>現在のエディターを分割して、一方を UV/画像エディターに切り替える方法もあります。&lt;/p>
+&lt;figure>
+ &lt;img src="img-003.gif" />
+ &lt;figcaption>3Dビューエディターを分割し、一方を &lt;kbd>&lt;samp>UV/画像エディター&lt;/samp>&lt;/kbd> に切り替える方法&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="uv-展開を実行する">UV 展開を実行する&lt;/h2>
+&lt;p>辺のシームを付け終わったら、実際に UV 展開を行います。
+展開対象の面をすべて選択し、&lt;kbd>U&lt;/kbd> キーを押して UV マッピングメニューを表示し、&lt;kbd>&lt;samp>展開&lt;/samp>&lt;/kbd> を選択します。
+あるいは、ツールシェルフの&lt;samp>シェーディング&lt;/samp>タブから、&lt;kbd>&lt;samp>展開&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>展開&lt;/samp>&lt;/kbd> と選択します。&lt;/p></description></item><item><title>Blenderメモ: 3D ビューエディタのツールシェルフの位置を変更する</title><link>https://maku77.github.io/p/wwgnb2f/</link><pubDate>Fri, 23 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/wwgnb2f/</guid><description>&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>ツールシェルフの上で &lt;kbd>F5&lt;/kbd>&lt;/figcaption>
+&lt;/figure>
+&lt;p>「3D ビュー」エディタ上の、ツールシェルフの位置や、プロパティリージョンの位置を入れ替えたい場合は、ツールシェルフ（あるいはプロパティリージョン）の上にマウスカーソルがある状態で &lt;kbd>F5&lt;/kbd> キーを押します。&lt;/p></description></item><item><title>Blenderメモ: エディタの表示領域をスワップする</title><link>https://maku77.github.io/p/7fhhab6/</link><pubDate>Fri, 23 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7fhhab6/</guid><description>&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>&lt;kbd>Ctrl&lt;/kbd> キーを押しながら三角アイコンをドラッグ&lt;/figcaption>
+&lt;/figure>
+&lt;p>エディタの左下や左上にある三角のマーク（サイズ変更用のアイコン）を、&lt;kbd>Ctrl&lt;/kbd> キーを押しながら他のエディタ上にドラッグすると、2つのエディタの表示位置を入れ替えることができます。&lt;/p>
+&lt;p>上記の例では、画面右側に表示されている「アウトライナー」と「プロパティ」の2つのエディタ領域を入れ替えています。&lt;/p></description></item><item><title>Blenderメモ: エディタを新規ウィンドウとして複製する</title><link>https://maku77.github.io/p/xa9z3mj/</link><pubDate>Fri, 23 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xa9z3mj/</guid><description>&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>&lt;kbd>Shift&lt;/kbd> キーを押しながら三角アイコンをドラッグ&lt;/figcaption>
+&lt;/figure>
+&lt;p>エディタの左下や左上にある三角のマーク（サイズ変更用のアイコン）を、&lt;kbd>Shift&lt;/kbd> キーを押しながらドラッグすると、エディタを複製して、専用の新規ウィンドウとして作成することができます。
+必要なくなったら、&lt;kbd>[×]&lt;/kbd> を押してウィンドウごと閉じてしまえば OK です。&lt;/p>
+&lt;p>マルチディスプレイ環境などでは、この機能を使って、一つのディスプレイを 3D ビューエディタ専用にしてしまうと、画面を広く使えて便利です。&lt;/p></description></item><item><title>Blenderメモ: 直前の編集操作を繰り返す（リピート実行）(Shift + R)</title><link>https://maku77.github.io/p/qq22jmu/</link><pubDate>Fri, 23 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/qq22jmu/</guid><description>&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>任意の編集操作を実行（ここでは &lt;kbd>Shift + D&lt;/kbd> による複製）&lt;/li>
+ &lt;li>&lt;kbd>Shift + R&lt;/kbd> で繰り返し&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>Blender 上で最後に行った操作は、&lt;kbd>Shift + R&lt;/kbd> でリピート実行することができます。
+上記の例では、オブジェクトのコピー操作を行った後に、リピート実行を繰り返すことで、等間隔にオブジェクトを複製しながら配置しています。&lt;/p>
+&lt;p>別の方法としては、&lt;kbd>F3&lt;/kbd> を押すことで操作履歴を表示し、その中から実行したい操作を選ぶという方法もありますが、こちらの使い勝手はあまりよくありません。&lt;/p></description></item><item><title>Blenderメモ: オブジェクトを回転する (R)</title><link>https://maku77.github.io/p/tdyvsc2/</link><pubDate>Sun, 18 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/tdyvsc2/</guid><description>&lt;h2 id="マニピュレータを使って回転する方法">マニピュレータを使って回転する方法&lt;/h2>
+&lt;figure>
+ &lt;img src="img-001.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+ &lt;li>回転マニピュレータに切り替える（上図のピンク枠のアイコン）&lt;/li>
+ &lt;li>2つの白い円、あるいは、3色（赤緑青）の円をドラッグして回転&lt;br>（回転中に、右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>小さい白い円をドラッグすると、任意の方向にオブジェクトを回転させることができます。
+大きい白い円をドラッグすると、現在の視点に対して垂直な方向にオブジェクトを回転させることができます。
+赤、緑、青の3色の円をドラッグすると、それぞれ、x 軸方向（赤）に垂直に、y 軸方向（緑）に垂直に、z 軸方向（青）に垂直にオブジェクトを回転させることができます。&lt;/p>
+&lt;h2 id="ショートカットキーを使って回転する方法">ショートカットキーを使って回転する方法&lt;/h2>
+&lt;ol>
+&lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+&lt;li>&lt;kbd>R&lt;/kbd> キーを押す（Rotate の略）&lt;/li>
+&lt;li>マウスを動かしてオブジェクトを回転させる&lt;/li>
+&lt;li>クリックで角度を決定&lt;br>（回転中に、右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;kbd>R&lt;/kbd> キーを押した瞬間に、現在の視点に対して垂直な方向に回転できるようになります。
+マウスを動かしてオブジェクトを回転させている最中に、&lt;kbd>X&lt;/kbd> キー、&lt;kbd>Y&lt;/kbd> キー、&lt;kbd>Z&lt;/kbd> キーを押すと、回転の軸を固定することができます（マニピュレータの3色の円をドラッグするのと同様）。&lt;/p>
+&lt;div class="note">
+より具体的には、オブジェクトの回転中に &lt;kbd>X&lt;/kbd> を押すと、グローバルな x 軸上で回転するようになります。
+続けてもう一度 &lt;kbd>X&lt;/kbd> を押すと、ローカルな x 軸上で回転するようになります。
+&lt;/div>
+&lt;h2 id="マウスでの回転量を大きくする小さくする">マウスでの回転量を大きくする／小さくする&lt;/h2>
+&lt;p>オブジェクトをマウスで回転させるとき、デフォルトでは、0.1 度単位で回転します。
+&lt;kbd>Ctrl&lt;/kbd> キーを押しながら回転させると、もう少し大きい 5 度単位での回転になります。
+逆に、&lt;kbd>Shift&lt;/kbd> キーを押しながら回転させると、回転の単位が細かくなり、微調整できるようになります。&lt;/p>
+&lt;p>このあたりの振る舞いの変化は、オブジェクトを移動させるときや (&lt;kbd>G&lt;/kbd>)、拡大／縮小するとき (&lt;kbd>S&lt;/kbd>) も同様です。&lt;/p>
+&lt;h2 id="ショートカットキーで回転量を指定する">ショートカットキーで回転量を指定する&lt;/h2>
+&lt;p>次のようにすると、ショートカットキーだけでオブジェクトを回転させることができます。&lt;/p>
+&lt;ol>
+&lt;li>オブジェクトを選択状態にする&lt;/li>
+&lt;li>&lt;kbd>R&lt;/kbd> キーで回転開始&lt;/li>
+&lt;li>&lt;kbd>X&lt;/kbd> or &lt;kbd>Y&lt;/kbd> or &lt;kbd>Z&lt;/kbd> キーで回転の軸を指定する&lt;/li>
+&lt;li>数字キーで回転角度を入力（90度回転させるなら &lt;kbd>90&lt;/kbd> と入力）&lt;/li>
+&lt;li>&lt;kbd>Enter&lt;/kbd> キーで決定&lt;/li>
+&lt;/ol>
+&lt;p>回転角度は、回転後のオブジェクトの角度ではなく、現在の状態からの回転量を指定することに注意してください。
+回転角度にマイナスの値を入力することもできます。&lt;/p></description></item><item><title>Blenderメモ: オブジェクトを拡大／縮小する (S)</title><link>https://maku77.github.io/p/cmqqmge/</link><pubDate>Sun, 18 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cmqqmge/</guid><description>&lt;h2 id="マニピュレータを使って拡大縮小する方法">マニピュレータを使って拡大／縮小する方法&lt;/h2>
+&lt;figure>
+ &lt;img src="img-001.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+ &lt;li>拡大縮小マニピュレータに切り替える（上図のピンク枠のアイコン）&lt;/li>
+ &lt;li>中央の白い円、あるいは、3色（赤緑青）の線をドラッグして拡大／縮小&lt;br>（拡大／縮小中に、右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>中央の白い円をドラッグすると、オブジェクト全体を拡大／縮小することができます。
+赤、緑、青の3色の線をドラッグすると、それぞれ、x軸方向（赤）、y軸方向（緑）、z軸方向（青）にだけ拡大／縮小することができます。&lt;/p>
+&lt;p>&lt;kbd>Shift&lt;/kbd> キーを押しながら、3色の線をドラッグすると、その軸以外の方向に拡大／縮小することができます。
+例えば、&lt;kbd>Shift&lt;/kbd> キーを押しながら青色の線（z軸）をドラッグすると、オブジェクトは水平方向（x軸とy軸方向）に拡大／縮小されます。&lt;/p>
+&lt;h2 id="ショートカットキーを使って拡大縮小する方法">ショートカットキーを使って拡大／縮小する方法&lt;/h2>
+&lt;ol>
+&lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+&lt;li>&lt;kbd>S&lt;/kbd> キーを押す（Scale の略）&lt;/li>
+&lt;li>マウスを動かしてオブジェクトを拡大／縮小させる&lt;/li>
+&lt;li>クリックで大きさを確定&lt;br>（拡大／縮小中に、右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;kbd>S&lt;/kbd> キーを押した瞬間に、オブジェクト全体のサイズをマウスの動きで調整できるようになります。
+マウスを動かしてオブジェクトを拡大／縮小させている最中に、&lt;kbd>X&lt;/kbd> キー、&lt;kbd>Y&lt;/kbd> キー、&lt;kbd>Z&lt;/kbd> キーを押すと、拡大／縮小の方向（軸）を固定することができます（マニピュレータの3色の線をドラッグするのと同様）。&lt;/p>
+&lt;p>&lt;kbd>Shift&lt;/kbd> を押しながら &lt;kbd>X&lt;/kbd> キー、&lt;kbd>Y&lt;/kbd> キー、&lt;kbd>Z&lt;/kbd> キーを押すと、その軸以外の方向に拡大／縮小することができます（マニピュレータの線を &lt;kbd>Shift&lt;/kbd> キーを押しながらドラッグするのと同様）。&lt;/p>
+&lt;div class="note">
+より具体的には、オブジェクトの拡大／縮小中に &lt;kbd>X&lt;/kbd> を押すと、グローバルなx軸上で拡大／縮小するようになります。続けてもう一度 &lt;kbd>X&lt;/kbd> を押すと、ローカルなx軸上で拡大／縮小するようになります。
+&lt;/div>
+&lt;h2 id="マウスでの拡大縮小の単位を大きくする小さくする">マウスでの拡大／縮小の単位を大きくする／小さくする&lt;/h2>
+&lt;p>オブジェクトをマウスのドラッグで拡大／縮小させているときに、&lt;kbd>Ctrl&lt;/kbd> キーを押しながらドラッグすると、少し大きな単位で拡大／縮小できるようになります。
+逆に、&lt;kbd>Shift&lt;/kbd> キーを押しながらドラッグすると、細かい単位で拡大／縮小されるようになるため、大きさを微調整することができます。&lt;/p>
+&lt;div class="note">
+拡大縮小マニピュレータの3色の線を &lt;kbd>Shift&lt;/kbd> キーを押しながらドラッグし始めた場合（その軸以外の方向への拡大／縮小）は、既に &lt;kbd>Shift&lt;/kbd> キーが押されている状態になっています。このようなケースでは、一度 &lt;kbd>Shift&lt;/kbd> キーを離してから、再び &lt;kbd>Shift&lt;/kbd> を押しながらドラッグを継続することで、細かい単位での拡大／縮小に切り替えることができます。
+&lt;/div>
+&lt;h2 id="ショートカットキーで拡大縮小の倍率を指定する">ショートカットキーで拡大／縮小の倍率を指定する&lt;/h2>
+&lt;p>次のようにすると、ショートカットキーだけでオブジェクトを拡大／縮小することができます。&lt;/p>
+&lt;ol>
+&lt;li>オブジェクトを選択状態にする&lt;/li>
+&lt;li>&lt;kbd>S&lt;/kbd> キーで拡大／縮小開始&lt;/li>
+&lt;li>必要があれば、&lt;kbd>X&lt;/kbd> or &lt;kbd>Y&lt;/kbd> or &lt;kbd>Z&lt;/kbd> キーで拡大／縮小の方向を固定する（何もしなければオブジェクト全体を拡大／縮小）&lt;/li>
+&lt;li>数字キーで倍率を入力（2倍にするなら &lt;kbd>2&lt;/kbd> と入力）&lt;/li>
+&lt;li>&lt;kbd>Enter&lt;/kbd> キーで決定&lt;/li>
+&lt;/ol>
+&lt;p>倍率は、拡大／縮小後のオブジェクトのサイズを指定するのではなく、あくまで現在のサイズを基準にして何倍にするかを指定することに注意してください。
+サイズを 1/2 にしたいのであれば、0.5 と入力します。&lt;/p></description></item><item><title>Blenderメモ: オブジェクトを追加する (Shift + A)</title><link>https://maku77.github.io/p/ido3qb7/</link><pubDate>Sun, 18 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ido3qb7/</guid><description>&lt;h2 id="オブジェクトの追加方法">オブジェクトの追加方法&lt;/h2>
+&lt;h3 id="ツールバーから追加する方法">ツールバーから追加する方法&lt;/h3>
+&lt;figure>
+ &lt;img src="img-001.png" />
+&lt;/figure>
+&lt;p>&lt;strong>ツールバーの「作成」タブ&lt;/strong>から、任意のオブジェクト（メッシュ）を追加することができます。
+3D エディタにツールバーが表示されていない場合は、3D エディタの左上にある [+] アイコンをクリックするか、3D エディタ内にマウスカーソルを置いた状態で &lt;kbd>T&lt;/kbd> を押すと表示されます。&lt;/p>
+&lt;h3 id="ヘッダから追加する方法">ヘッダから追加する方法&lt;/h3>
+&lt;figure>
+ &lt;img src="img-002.png" />
+&lt;/figure>
+&lt;p>3D エディタの下にある、&lt;strong>ヘッダの「追加」メニュー&lt;/strong>から、任意のオブジェクト（メッシュ）を追加することができます。&lt;/p>
+&lt;h3 id="ショートカットキーで追加する方法">ショートカットキーで追加する方法&lt;/h3>
+&lt;figure>
+ &lt;img src="img-003.png" />
+ &lt;figcaption>&lt;kbd>Shift + A&lt;/kbd>&lt;/figcaption>
+&lt;/figure>
+&lt;p>3D エディタ内にマウスカーソルがある状態で、&lt;kbd>Shift + A&lt;/kbd> と入力すると、オブジェクト（メッシュ）を追加するポップアップを表示することができます。&lt;/p>
+&lt;h2 id="オブジェクトを追加する位置を変更する">オブジェクトを追加する位置を変更する&lt;/h2>
+&lt;figure>
+ &lt;img src="img-004.png" />
+ &lt;figcaption>左クリックで 3D カーソルを移動&lt;/figcaption>
+&lt;/figure>
+&lt;p>オブジェクトを追加した時の初期位置は、3D エディタに表示された 3D カーソル（赤白の円と十字線）の位置になります。
+3D カーソルは、マウスの左クリックで任意の位置に移動させることができます。&lt;/p>
+&lt;ul>
+&lt;li>参考: &lt;a href="../p/nimo6zk/">3D カーソルを原点（中心）に移動する&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Blenderメモ: 下絵を表示する</title><link>https://maku77.github.io/p/k25qx2i/</link><pubDate>Sun, 18 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/k25qx2i/</guid><description>&lt;p>モデリングの参考になるイラストや写真がある場合は、それを下絵として表示することができます。
+例えば、ここでは下記のようなイラストを下絵として使ってみます。&lt;/p>
+&lt;figure>
+ &lt;img src="img-001.png" />
+ &lt;figcaption>下絵の PNG 画像&lt;/figcaption>
+&lt;/figure>
+&lt;p>下絵の設定は、3D エディタのプロパティシェルフから行います。
+プロパティシェルフが表示されていない場合は、3D エディタ右上の [+] アイコンをクリックするか、3D エディタ内にマウスカーソルがある状態で &lt;kbd>N&lt;/kbd> キーを押して表示してください。&lt;/p>
+&lt;p>プロパティシェルフの下の方にある、&lt;strong>下絵&lt;/strong>というところで下絵の設定を行います。&lt;/p>
+&lt;figure>
+ &lt;img src="img-002.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>[下絵] のチェックボックスにチェック&lt;/li>
+ &lt;li>[座標軸] の項目で &lt;strong>[前]&lt;/strong> を選択（今回は正面からのイラストを使うため）&lt;/li>
+ &lt;li>[開く] を押して画像ファイルを選択&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>正面用に設定した下絵は、&lt;strong>3D エディタの視点を前（フロント）にし、かつ平行投影にしなければ表示されません&lt;/strong>。
+テンキーの &lt;kbd>1&lt;/kbd> キーで視点を前に切り替え、テンキーの &lt;kbd>5&lt;/kbd> で平行投影に切り替えてください。&lt;/p>
+&lt;figure>
+ &lt;img src="img-003.png">
+&lt;/figure>
+&lt;p>画像ファイルを選択すると、画像の表示方法に関する設定項目が表示されます。
+後／前というボタンは、下絵をオブジェクトの後ろに表示するか、前に表示するかを設定します。
+ここでは、下絵がオブジェクトに隠れて見えなくならないように、&lt;strong>[前]&lt;/strong> を選択します。
+不透明度の設定ができるため、下絵を前に表示しても、オブジェクトが見えなくなってしまうことはありません。&lt;/p>
+&lt;p>以上で、正面から見たときの下絵の設定は終わりです。
+同様に、上から見たときや、右から見たときの下絵を設定したいときは、&lt;strong>[画像を追加]&lt;/strong> ボタンを押して追加していくことができます。&lt;/p>
+&lt;p>あとは、表示された下絵をベースにモデリングを進めていくだけです。&lt;/p></description></item><item><title>Blenderメモ: オブジェクトを移動する (G)</title><link>https://maku77.github.io/p/m6s5i2o/</link><pubDate>Sat, 17 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/m6s5i2o/</guid><description>&lt;h2 id="マニピュレータを使って移動する方法">マニピュレータを使って移動する方法&lt;/h2>
+&lt;figure>
+ &lt;img src="img-001.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+ &lt;li>移動マニピュレータに切り替える（上図のピンク枠のアイコン）&lt;/li>
+ &lt;li>中央の白い円、あるいは、3色（赤緑青）の矢印をドラッグして移動&lt;br>（移動中に、右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>マニピュレータ中央の白い円をドラッグすると、オブジェクトを任意の方向に移動することができます。
+マニピュレータの3色の矢印をドラッグすると、オブジェクトをx軸方向（赤の矢印）、y軸方向（緑の矢印）、z軸方向（青の矢印）に移動することができます。&lt;/p>
+&lt;p>&lt;kbd>Shift&lt;/kbd> キーを押しながら矢印をドラッグすると、その軸以外の方向に（その軸の位置だけ固定して）移動することができます。
+例えば、&lt;kbd>Shift&lt;/kbd> キーを押しながら青の矢印（z軸）をドラッグすると、地面に水平な方向（x軸、y軸）方向にだけオブジェクトを移動することができます。&lt;/p>
+&lt;h2 id="ショートカットキーを使って移動する方法">ショートカットキーを使って移動する方法&lt;/h2>
+&lt;ol>
+&lt;li>オブジェクトを選択（オブジェクトモードで右クリック）&lt;/li>
+&lt;li>&lt;kbd>G&lt;/kbd> キーを押す&lt;/li>
+&lt;li>マウスを動かしてオブジェクトを移動させる&lt;/li>
+&lt;li>クリックで位置を決定&lt;br>（右クリック or &lt;kbd>ESC&lt;/kbd> でキャンセル）&lt;/li>
+&lt;/ol>
+&lt;p>マウスを動かしてオブジェクトを移動させている最中に、&lt;kbd>X&lt;/kbd> キー、&lt;kbd>Y&lt;/kbd> キー、&lt;kbd>Z&lt;/kbd> キーを押すと、移動方向をその軸だけに制限できます（マニピュレータの矢印をドラッグするのと同様）。&lt;/p>
+&lt;p>&lt;kbd>Shift&lt;/kbd> を押しながら &lt;kbd>X&lt;/kbd> キー、&lt;kbd>Y&lt;/kbd> キー、&lt;kbd>Z&lt;/kbd> キーを押すと、その軸以外の方向に移動することができます（マニピュレータの矢印を &lt;kbd>Shift&lt;/kbd> キーを押しながらドラッグするのと同様）。&lt;/p>
+&lt;div class="note">
+より具体的には、オブジェクトの移動中に &lt;kbd>X&lt;/kbd> を押すと、グローバルなx軸上で移動するようになります。続けてもう一度 &lt;kbd>X&lt;/kbd> を押すと、ローカルなx軸上で移動するようになります。
+&lt;/div>
+&lt;h2 id="マウスでの移動量を大きくする小さくする">マウスでの移動量を大きくする／小さくする&lt;/h2>
+&lt;p>オブジェクトを移動しているときに、&lt;kbd>Ctrl&lt;/kbd> キーを押しながらマウス移動すると、移動の単位を大きくすることができます（基本的には、水平面などに表示されたグリッドのサイズ単位で動くようになります）。
+例えば、Blender の初期状態では、中央に 2x2x2 のサイズの立方体が表示されているため、これをz軸方向に1単位だけ動かすと、地面に接地した立方体にすることができます。&lt;/p>
+&lt;figure>
+ &lt;img src="img-002.png" />
+ &lt;figcaption>
+ &lt;ol>
+ &lt;li>右クリックで立方体を選択状態にする&lt;/li>
+ &lt;li>&lt;kbd>G&lt;/kbd> キーで移動開始&lt;/li>
+ &lt;li>&lt;kbd>Z&lt;/kbd> キーで移動方向をz軸に限定&lt;/li>
+ &lt;li>&lt;kbd>Ctrl&lt;/kbd> キーを押しながらマウスを上へ動かす&lt;/li>
+ &lt;li>z軸方向に1単位だけ動いたらクリックして位置決定&lt;/li>
+ &lt;/ol>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>上記は、テンキーの &lt;kbd>1&lt;/kbd> を押して、正面からの視点に切り替えた画面で、z軸方向へ1単位だけオブジェクトを動かしています。
+実際には、このくらいの操作であれば、青色矢印を &lt;kbd>Ctrl&lt;/kbd> キーを押しながらドラッグする操作の方が簡単ですね。&lt;/p>
+&lt;div class="note">
+通常は、&lt;kbd>Ctrl&lt;/kbd> キーを押しながらオブジェクトを移動させると 1 単位の移動になりますが、オブジェクトを大きくズームインした状態では 0.1 単位ずつの移動になったり、逆にズームアウトした状態では 10 単位ずつの移動になったりします。
+ただ、いずれのケースでも、&lt;kbd>Ctrl&lt;/kbd> キーを押しながら移動させることで、通常より大きく移動するようになることは変わりありません。
+&lt;/div>
+&lt;p>逆に、&lt;kbd>Shift&lt;/kbd> キーを押しながら移動すると、通常より細かい単位で動かせるようになります。
+最終的な位置合わせで微調整するときに使用するとよいでしょう。&lt;/p></description></item><item><title>Blenderメモ: 視点を操作する (Navigation)</title><link>https://maku77.github.io/p/fxr9he7/</link><pubDate>Sat, 17 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/fxr9he7/</guid><description>&lt;p>Blender で視点の操作を行うときは、主にマウスの中央ボタン（ホイール）や、テンキーを使用します。&lt;/p>
+&lt;h2 id="ズーム-zoom">ズーム (Zoom)&lt;/h2>
+&lt;figure>
+ &lt;img src="img-001.png" />
+ &lt;figcaption>マウスホイールを回転 or テンキーの &lt;kbd>+&lt;/kbd>/&lt;kbd>-&lt;/kbd>&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>マウスホイールを回転&lt;/strong>させると、3D ビューの中央を基準にしてズームイン、ズームアウトを行えます。
+テンキーの &lt;kbd>+&lt;/kbd>、&lt;kbd>-&lt;/kbd> でもズームイン、ズームアウトを行えます。&lt;/p>
+&lt;h2 id="視点の回転-orbit">視点の回転 (Orbit)&lt;/h2>
+&lt;figure>
+ &lt;img src="img-002.png" />
+ &lt;figcaption>マウスの中央ボタンをドラッグ&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>マウスの中央ボタン（通常はホイール）をドラッグ&lt;/strong>すると、3D ビューの中央を基準にして視点を回転させることができます。
+画面中央をいろんな方向から眺めるような動きをします。
+視点を固定させて、3D 空間を回転させていると捉えることもできますね。&lt;/p>
+&lt;figure>
+ &lt;img src="img-003.png" />
+&lt;/figure>
+&lt;p>テンキーの &lt;kbd>2&lt;/kbd>、&lt;kbd>4&lt;/kbd>、&lt;kbd>6&lt;/kbd>、&lt;kbd>8&lt;/kbd> を押すことでも、視点を回転させることができます（1度押すごとに15度回転します）。&lt;/p>
+&lt;p>さらに、&lt;kbd>Shift&lt;/kbd> キーを押しながらテンキーの &lt;kbd>4&lt;/kbd>、&lt;kbd>6&lt;/kbd> を押すと、水平面に対して視点を傾ける（ロールする）ことができます（この操作はマウスでは行えません）。&lt;/p>
+&lt;h2 id="視点の平行移動-pan">視点の平行移動 (Pan)&lt;/h2>
+&lt;figure>
+ &lt;img src="img-004.png" />
+ &lt;figcaption>&lt;kbd>Shift&lt;/kbd> キーを押しながら、マウスの中央ボタンをドラッグ。&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>&lt;kbd>Shift&lt;/kbd> キーを押しながらマウスの中央ボタンをドラッグ&lt;/strong>すると、視点を平行移動（パン）することができます。
+視点をパンすると、ズーム (Zoom) や回転 (Orbit) の基準となる点もずれるため注意してください。&lt;/p>
+&lt;figure>
+ &lt;img src="img-005.png" />
+&lt;/figure>
+&lt;p>&lt;kbd>Ctrl&lt;/kbd> キーを押しながらテンキーの &lt;kbd>2&lt;/kbd>、&lt;kbd>4&lt;/kbd>、&lt;kbd>6&lt;/kbd>、&lt;kbd>8&lt;/kbd> を押すことでも、視点のパンを行うことができます。
+&lt;kbd>Shift&lt;/kbd> キーを押しながらマウスホイールを回すことでも、上下方向に視点をパンすることができます（&lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>2&lt;/kbd> や &lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>8&lt;/kbd> と同じ）。&lt;/p>
+&lt;h2 id="前後上下左右からの視点に切り替える">前／後／上／下／左／右からの視点に切り替える&lt;/h2>
+&lt;h3 id="真正面右上からの視点">真正面、右、上からの視点&lt;/h3>
+&lt;figure>
+ &lt;img src="img-006.png" />
+&lt;/figure>
+&lt;p>テンキーの &lt;kbd>1&lt;/kbd>、&lt;kbd>3&lt;/kbd>、&lt;kbd>7&lt;/kbd> を押すと、視点を、正面（前）、右、上からの方向に切り替えることができます。
+&lt;kbd>Ctrl&lt;/kbd> キーを押しながら、同様の操作を行うと、後ろ、左、下からの方向に切り替えることができます。&lt;/p>
+&lt;h3 id="反対側からの視点に切り替える">反対側からの視点に切り替える&lt;/h3>
+&lt;figure>
+ &lt;img src="img-007.png" />
+&lt;/figure>
+&lt;p>テンキーの &lt;kbd>9&lt;/kbd> を押すと、今見ている視点の反対側からの視点に切り替えることができます。
+3D ビューの中心を基準にして、グルッと回り込んで見る感じです。&lt;/p>
+&lt;h2 id="四分割表示に切り替える">四分割表示に切り替える&lt;/h2>
+&lt;figure>
+ &lt;img src="img-008.png">
+ &lt;figcaption>
+ &lt;li>&lt;kbd>Ctrl-Alt-Q&lt;/kbd>&lt;/li>
+ &lt;li>3D ビューヘッダの &lt;kbd>&lt;kbd>&lt;samp>ビュー&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>四分割表示&lt;/samp>&lt;/kbd>&lt;/kbd>&lt;/li>
+ &lt;/figcaption>
+&lt;/figure>
+&lt;p>上記のいずれかの操作で、3D ビューを**四分割表示（正面、右、上、ユーザ視点）**に切り替えることができます。
+もう一度同じ操作を行うと、元の分割なしのユーザービューに戻すことができます。&lt;/p></description></item><item><title>Blenderメモ: テンキーなしキーボードでテンキーをエミュレートする</title><link>https://maku77.github.io/p/o5dhprj/</link><pubDate>Tue, 13 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/o5dhprj/</guid><description>&lt;p>テンキーの数字キーは、視点切り替えのためのショートカットキーとして割り当てられており、とても便利に使用することができます。
+一方で、キーボード上方の数字キーは、レイヤーの切り替えのためのショートカットキーに割り当てられていますが、どちらかというと視点切り替え操作の方が頻繁に行う操作です。&lt;/p>
+&lt;p>下記のように設定しておくと、キーボード上方の数字キーを、テンキーの代わり（視点切り替えショートカット）として使用できるようになります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="966" height="551" src="../p/o5dhprj/img-001.png" alt="/p/o5dhprj/img-001.png" />
+ &lt;figcaption>図: テンキーエミュレートの設定&lt;/figcaption>
+&lt;/figure>
+
+&lt;ol>
+&lt;li>メニューから &lt;kbd>&lt;samp>ファイル&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>ユーザ設定&lt;/samp>&lt;/kbd> を選択（あるいは &lt;kbd>Cmd + ,&lt;/kbd>）&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>入力&lt;/samp>&lt;/kbd> タブを選択&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>テンキーを模倣&lt;/samp>&lt;/kbd> にチェックを入れる&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>ユーザ設定の保存&lt;/samp>&lt;/kbd> ボタンをクリック&lt;/li>
+&lt;/ol></description></item><item><title>Blenderメモ: メニューなどを日本語表示にする</title><link>https://maku77.github.io/p/47yzsk9/</link><pubDate>Tue, 13 Mar 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/47yzsk9/</guid><description>&lt;p>Blender アプリケーション内の表示は、デフォルトではすべて英語表示になっています。
+次のように設定することで、日本語表示に切り替えることができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="500" height="196" src="../p/47yzsk9/img-001_hu8128963078743353780.png" alt="/p/47yzsk9/img-001.png" />
+ &lt;figcaption>図: 日本語表示の設定&lt;/figcaption>
+&lt;/figure>
+
+&lt;ol>
+&lt;li>メニューから &lt;kbd>&lt;samp>File&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>User Preferences&amp;hellip;&lt;/samp>&lt;/kbd> を選択（あるいは &lt;kbd>Cmd + ,&lt;/kbd>）&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>System&lt;/samp>&lt;/kbd> タブを選択&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>International Fonts&lt;/samp>&lt;/kbd> にチェック&lt;/li>
+&lt;li>&lt;samp>Language&lt;/samp> の項目で &lt;kbd>&lt;samp>Japanese（日本語）&lt;/samp>&lt;/kbd> を選択&lt;/li>
+&lt;li>&lt;samp>Translate&lt;/samp> の項目で翻訳したい項目 (&lt;kbd>&lt;samp>Interface&lt;/samp>&lt;/kbd> / &lt;kbd>&lt;samp>Tooltip&lt;/samp>&lt;/kbd> / &lt;kbd>&lt;samp>New Data&lt;/samp>&lt;/kbd>) を ON&lt;/li>
+&lt;/ol>
+&lt;p>最後のステップで &lt;kbd>&lt;samp>Interface&lt;/samp>&lt;/kbd> のボタンを押した瞬間に、ダイアログ上のテキスト表示が日本語に変わります。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="border: solid #ccc 2px;" width="500" height="193" src="../p/47yzsk9/img-002_hu17246174887383868706.png" alt="/p/47yzsk9/img-002.png" />
+&lt;/figure>
+
+&lt;p>&lt;kbd>&lt;samp>Tooltip&lt;/samp>&lt;/kbd> を ON にしておくと、ボタンなどにマウスカーソルを合わせたときに表示されるツールチップが日本語になります。&lt;/p>
+&lt;div class="xNote">
+ &lt;span class="xNote_title">☝️ ワンポイント&lt;/span>
+ &lt;span class="xNote_body">&lt;kbd>&lt;samp>New Data&lt;/samp>&lt;/kbd> を ON にすると、新規作成するオブジェクトの名前が日本語になってしまい、不都合が生じる可能性があるので、ここは OFF のままにしておくのがオススメです（オブジェクト名は英語で扱う）。&lt;/span>
+&lt;/div></description></item><item><title>Blenderメモ: Blender の基本操作まとめ</title><link>https://maku77.github.io/p/pq6h8q7/</link><pubDate>Mon, 26 Feb 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pq6h8q7/</guid><description>&lt;style>
+ .local-example {
+ min-width: 80%;
+ }
+ .local-example img {
+ height: 50px;
+ }
+ .local-example th {
+ background: #333;
+ color: white;
+ }
+&lt;/style>
+&lt;h2 id="blender-全般">Blender 全般&lt;/h2>
+&lt;table class="local-example">
+ &lt;tr>
+ &lt;td>&lt;kbd>Ctrl + Up&lt;/kbd> / &lt;kbd>Ctrl + Down&lt;/kbd> / &lt;kbd>Shift + Space&lt;/kbd>&lt;/td>
+ &lt;td>カーソル下のエディタを最大化&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>Alt + F10&lt;/kbd>&lt;/td>
+ &lt;td>エディタのメイン領域をフルスクリーン表示&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>Ctrl + Alt + U&lt;/kbd> / &lt;kbd>Cmd + [,]&lt;/kbd>&lt;/td>
+ &lt;td>User Preference（ユーザ設定）を開く&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;h2 id="3dビューエディタのショートカットキー">「3Dビュー」エディタのショートカットキー&lt;/h2>
+&lt;h3 id="選択">選択&lt;/h3>
+&lt;p>選択のショートカットキーは、&lt;kbd>A&lt;/kbd> / &lt;kbd>B&lt;/kbd> / &lt;kbd>C&lt;/kbd> を覚えるとよいです。&lt;/p>
+&lt;table class="local-example">
+ &lt;tr>
+ &lt;td>&lt;img src="img-select-mode.png">&lt;/td>
+ &lt;td>&lt;kbd>Ctrl + Tab&lt;/kbd>（編集モードのみ）&lt;/td>
+ &lt;td>メッシュ選択モードの切り替え（頂点／辺／面）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td rowspan="2">&lt;img src="img-select-click.svg">&lt;/td>
+ &lt;td>&lt;kbd>右クリック&lt;/kbd>&lt;/td>
+ &lt;td>カーソル下の要素を選択&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>Shift + 右クリック&lt;/kbd>&lt;/td>
+ &lt;td>連続選択&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;img src="img-select-all.svg">&lt;/td>
+ &lt;td>&lt;kbd>A&lt;/kbd>&lt;/td>
+ &lt;td>全てを選択／解除 ((De)select All)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td rowspan="2">&lt;img src="img-select-border.svg">&lt;/td>
+ &lt;td>&lt;kbd>B&lt;/kbd> → &lt;kbd>ドラッグ&lt;/kbd>&lt;/td>
+ &lt;td>矩形で囲んで選択 (Border Select)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>B&lt;/kbd> → &lt;kbd>Shift + ドラッグ&lt;/kbd>&lt;/td>
+ &lt;td>〃解除（中央ボタンのドラッグでも可）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td rowspan="2">&lt;img src="img-select-circle.svg">&lt;/td>
+ &lt;td>&lt;kbd>C&lt;/kbd> → &lt;kbd>左クリック&lt;/kbd>&lt;/td>
+ &lt;td>円内の要素を選択 (Circle Select)&lt;br>（ホイールで円サイズ変更）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>C&lt;/kbd> → &lt;kbd>Shift + 左クリック&lt;/kbd>&lt;/td>
+ &lt;td>〃解除（中央ボタンのドラッグでも可）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td rowspan="2">&lt;img src="img-select-region.svg">&lt;/td>
+ &lt;td>&lt;kbd>Ctrl + ドラッグ&lt;/kbd>&lt;/td>
+ &lt;td>自由領域で囲んで選択&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;kbd>Ctrl + Shift + ドラッグ&lt;/kbd>&lt;/td>
+ &lt;td>〃解除&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;img src="img-select-inverse.svg">&lt;/td>
+ &lt;td>&lt;kbd>Ctrl + I&lt;/kbd>&lt;/td>
+ &lt;td>選択の反転 (Inverse)&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;h3 id="視点ビューの切り替え">視点（ビュー）の切り替え&lt;/h3>
+&lt;p>ここでの数字キー &lt;kbd>0&lt;/kbd>〜&lt;kbd>9&lt;/kbd> や &lt;kbd>+&lt;/kbd>/&lt;kbd>-&lt;/kbd>/&lt;kbd>.&lt;/kbd> キーは、テンキー上のキーを表しています。&lt;/p></description></item><item><title>Blenderメモ: エディタを最大化する</title><link>https://maku77.github.io/p/j3e3frm/</link><pubDate>Mon, 01 Jan 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/j3e3frm/</guid><description>&lt;h2 id="エディタを最大化する">エディタを最大化する&lt;/h2>
+&lt;figure>
+ &lt;img src="img-001.gif" />
+ &lt;figcaption>&lt;kbd>Shift-Space&lt;/kbd> or &lt;kbd>Ctrl-Up&lt;/kbd> or &lt;kbd>Ctrl-Down&lt;/kbd>&lt;/figcaption>
+&lt;/figure>
+&lt;p>任意のエディタ（上記の例では 3D ビュー）の上にマウスカーソルがある状態で、&lt;kbd>Shift-Space&lt;/kbd> を押すと、そのエディタをウィンドウいっぱいに表示することができます（インフォエディタ以外の他のエディタが非表示になります）。
+もう一度同じ操作を行うと、元の表示に戻ります。&lt;/p>
+&lt;h2 id="エディタのメイン領域を最大化する">エディタのメイン領域を最大化する&lt;/h2>
+&lt;figure>
+ &lt;img src="img-002.gif" />
+ &lt;figcaption>&lt;kbd>Alt-F10&lt;/kbd>&lt;/figcaption>
+&lt;/figure>
+&lt;p>任意のエディタ（上記の例では 3D ビュー）の上にマウスカーソルがある状態で、&lt;kbd>Alt-F10&lt;/kbd> でエディタのメイン領域をウィンドウいっぱいに表示することができます。
+元に戻すときは、マウスカーソルを右上に持っていったときに表示されるアイコンをクリックするか、もう一度 &lt;kbd>Alt-F10&lt;/kbd> を押します。&lt;/p></description></item></channel></rss>
