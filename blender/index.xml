@@ -608,7 +608,7 @@ Blender を最後に閉じたときの状態に戻すには、メニューから
 
 
 &lt;figure class="xImage">
- &lt;img style="" width="764" height="471" src="../p/2kozoid/img-window-editors.png" alt="/p/2kozoid/img-window-editors.png" />
+ &lt;img style="border: solid #ccc 2px;" width="764" height="471" src="../p/2kozoid/img-window-editors.png" alt="/p/2kozoid/img-window-editors.png" />
 &lt;/figure>
 
 &lt;p>ウィンドウ全体が、エディタで敷き詰められていることがわかると思います。
@@ -618,19 +618,21 @@ Blender を最後に閉じたときの状態に戻すには、メニューから
 
 
 &lt;figure class="xImage">
- &lt;img style="" width="756" height="470" src="../p/2kozoid/img-window-headers.png" alt="/p/2kozoid/img-window-headers.png" />
+ &lt;img style="border: solid #ccc 2px;" width="756" height="470" src="../p/2kozoid/img-window-headers.png" alt="/p/2kozoid/img-window-headers.png" />
 &lt;/figure>
 
-&lt;div class="note">
-ヘッダーをエディタの上部と下部のどちらに配置するかは、ヘッダー部分を右クリックして表示されるメニューから切り替えることができます。
-デフォルトでは、「3Dビュー」エディタのヘッダーは下部に、「アウトライナー」エディタのヘッダーは上部に表示されています。
+&lt;div class="xNote">
+ &lt;span class="xNote_title">☝️ ワンポイント&lt;/span>
+ &lt;span class="xNote_body">ヘッダーをエディタの上部と下部のどちらに配置するかは、ヘッダー部分を右クリックして表示されるメニューから切り替えることができます。
+デフォルトでは、「3Dビュー」エディタのヘッダーは下部に、「アウトライナー」エディタのヘッダーは上部に表示されています。&lt;/span>
 &lt;/div>
 &lt;p>ヘッダーの左端には、エディタの種類を切り替えるための&lt;strong>タイプ切替ボタン (Editor Type Selector)&lt;/strong> がついており、ここに表示されたアイコンを見れば、何のエディタが表示されているかを判別することができます（図の赤丸のところ）。&lt;/p>
 &lt;p>例えば、「3Dビュー」エディタのタイプ切替ボタンを押すと、下記のようにエディタの種類が一覧表示され、好きなエディタに切り替えることができます。&lt;/p>
 
 
 &lt;figure class="xImage">
- &lt;img style="" width="852" height="1000" src="../p/2kozoid/img-window-editor-type.png" alt="/p/2kozoid/img-window-editor-type.png" />
+ &lt;img style="border: solid #ccc 2px;" width="500" height="587" src="../p/2kozoid/img-window-editor-type_hu6664429776463511092.png" alt="/p/2kozoid/img-window-editor-type.png" />
+ &lt;figcaption>図: エディタータイプ一覧&lt;/figcaption>
 &lt;/figure>
 
 &lt;h2 id="レイアウトセレクタでエディタ配置を変更する">レイアウトセレクタでエディタ配置を変更する&lt;/h2>
@@ -639,7 +641,8 @@ Blender を最後に閉じたときの状態に戻すには、メニューから
 
 
 &lt;figure class="xImage">
- &lt;img style="" width="1169" height="564" src="../p/2kozoid/img-window-layout1.png" alt="/p/2kozoid/img-window-layout1.png" />
+ &lt;img style="border: solid #ccc 2px;" width="600" height="289" src="../p/2kozoid/img-window-layout1_hu16120402519423053402.png" alt="/p/2kozoid/img-window-layout1.png" />
+ &lt;figcaption>図: スクリーンレイアウトの切り替え&lt;/figcaption>
 &lt;/figure>
 
 &lt;p>デフォルトでは「Default」というレイアウト（エディタ配置）が選択されています。
@@ -658,7 +661,7 @@ Blender を最後に閉じたときの状態に戻すには、メニューから
 
 
 &lt;figure class="xImage">
- &lt;img style="" width="637" height="335" src="../p/2kozoid/img-window-toolshelf1.png" alt="/p/2kozoid/img-window-toolshelf1.png" />
+ &lt;img style="border: solid #ccc 2px;" width="600" height="316" src="../p/2kozoid/img-window-toolshelf1_hu12332465409071801354.png" alt="/p/2kozoid/img-window-toolshelf1.png" />
 &lt;/figure>
 
 &lt;div class="note">
@@ -667,14 +670,7 @@ Blender を最後に閉じたときの状態に戻すには、メニューから
 &lt;/div>
 &lt;p>エディタごとに構成要素は異なるため、各エディタを使用する際に少しずつ慣れていきましょう。
 構成要素の表示・非表示は、各エディタのヘッダーの「ビュー」メニューや、ショートカットキーなどを使用して切り替えることができます。&lt;/p>
-&lt;p>▼（下矢印）や ▶（右矢印）で開閉できる要素は&lt;strong>パネル&lt;/strong>と呼ばれており、複数の項目をまとめる UI パーツとしては一番細かいものです。&lt;/p>
-
-
-&lt;figure class="xImage">
- &lt;img style="" width="637" height="335" src="../p/2kozoid/img-window-toolshelf2.png" alt="/p/2kozoid/img-window-toolshelf2.png" />
-&lt;/figure>
-
-&lt;p>ここまでを理解すれば、一見複雑に見える Blender のウィンドウの中で迷子になることはないでしょう（もちろん、各エディタの使い方は個別に学ぶ必要がありますが）。&lt;/p></description></item><item><title>Blenderメモ: 常に選択したオブジェクトを中心に視点を回転する</title><link>https://maku77.github.io/p/krt9jir/</link><pubDate>Sun, 01 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/krt9jir/</guid><description>&lt;p>マウスの中央ボタンなどをドラッグして視点を回転させるとき、デフォルトでは回転の中心は、画面の中央になっています。
+&lt;p>▼（下矢印）や ▶（右矢印）で開閉できる要素は&lt;strong>パネル&lt;/strong>と呼ばれており、複数の項目をまとめる UI パーツとしては一番細かいものです。&lt;/p></description></item><item><title>Blenderメモ: 常に選択したオブジェクトを中心に視点を回転する</title><link>https://maku77.github.io/p/krt9jir/</link><pubDate>Sun, 01 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/krt9jir/</guid><description>&lt;p>マウスの中央ボタンなどをドラッグして視点を回転させるとき、デフォルトでは回転の中心は、画面の中央になっています。
 &lt;kbd>Shift&lt;/kbd>+中央ボタンで視点の位置を平行移動していると、この回転の中心がずれてしまいます。
 常に選択したオブジェクトが画面に収まるように回転させるようにするには、以下のように設定します。&lt;/p>
 
