@@ -23,7 +23,7 @@ echo BBB
 
 例えば、上記の `sample.cmd` を実行すると、`echo BBB` は実行せずに終了します。
 
-{{< code lang="console" title="実行結果" >}}
+{{< code title="実行結果" >}}
 C:\> sample
 AAA
 {{< /code >}}
