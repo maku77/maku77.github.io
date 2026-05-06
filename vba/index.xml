@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VBA on 天才まくまくノート</title><link>https://maku77.github.io/vba/</link><description>Recent content in VBA on 天才まくまくノート</description><generator>Hugo</generator><language>ja-jp</language><lastBuildDate>Fri, 27 Apr 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://maku77.github.io/vba/index.xml" rel="self" type="application/rss+xml"/><item><title>VBAメモ: Excel のオートシェイプ（図形）をすべて削除する</title><link>https://maku77.github.io/p/gt44km2/</link><pubDate>Fri, 27 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gt44km2/</guid><description>&lt;p>アクティブなシート内のオートシェイプ（図形）をすべて削除するには下記のようなマクロを使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">DeleteAllShapes&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">sp&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Shape&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="k">Each&lt;/span> &lt;span class="n">sp&lt;/span> &lt;span class="ow">In&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">sp&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Type&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msoAutoShape&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">sp&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Delete&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>ActiveSheet.Shapes&lt;/code> で返される Shape オブジェクト群には、フォームオブジェクト (&lt;code>msoFormControl&lt;/code>) も含まれているようなので、&lt;code>Type&lt;/code> プロパティを見てオートシェイプ (&lt;code>msoAutoShape&lt;/code>) であるかを確認してから削除を実行しています。&lt;/p></description></item><item><title>VBAメモ: Excel のオートシェイプ（図形）を操作する</title><link>https://maku77.github.io/p/5oepsfx/</link><pubDate>Fri, 27 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/5oepsfx/</guid><description>&lt;h2 id="オートシェイプ図形を追加する">オートシェイプ（図形）を追加する&lt;/h2>
+&lt;h3 id="オートシェイプの種類位置サイズを指定して追加">オートシェイプの種類、位置、サイズを指定して追加&lt;/h3>
+&lt;p>下記の例では、矩形を座標 (100, 50) に、サイズ 200x50 で追加しています。
+座標やサイズの単位は「ポイント」で指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddShape&lt;/span> &lt;span class="n">msoShapeRectangle&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">50&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">200&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">50&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>オートシェイプの種類は下記に一覧があります。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://msdn.microsoft.com/ja-jp/VBA/Office-Shared-VBA/articles/msoautoshapetype-enumeration-office">MsoAutoShapeType 列挙&lt;/a>&lt;/li>
+&lt;/ul>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">セルと同じサイズで矩形を追加する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39; A1 セルに収まるサイズで矩形のオートシェイプを追加
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39; （見た目としては、セルの背景を塗りつぶしたような感じになる）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">With&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddShape&lt;/span> &lt;span class="n">msoShapeRectangle&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Left&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Top&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Width&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Height&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">With&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39; A1:B2 の範囲のセルに収まるサイズでひし形のオートシェイプを追加
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">With&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:B2&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddShape&lt;/span> &lt;span class="n">msoShapeDiamond&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Left&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Top&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Width&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Height&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">With&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">セルと同じ高さで横幅だけ指定して矩形を追加する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39; B2 のセルに横幅 100 ポイントの矩形を左寄せで追加
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">With&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;B2&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddShape&lt;/span> &lt;span class="n">msoShapeRectangle&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Left&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Top&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Height&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">With&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h3 id="作成したオートシェイプshape-オブジェクトの参照を取得する">作成したオートシェイプ（&lt;code>Shape&lt;/code> オブジェクト）の参照を取得する&lt;/h3>
+&lt;p>&lt;code>AddShape&lt;/code> 関数を Function として呼び出せば、作成された &lt;code>Shape&lt;/code> オブジェクトの参照を戻り値として受け取ることができます。
+&lt;code>Shape&lt;/code> オブジェクトの参照を使って、オートシェイプの書式設定などを行うことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">SetShapeStyle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ByRef&lt;/span> &lt;span class="n">sp&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Shape&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;枠線の設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">sp&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Line&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Visible&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msoFalse&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;塗りつぶしの設定
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="k">With&lt;/span> &lt;span class="n">sp&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Fill&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="n">Visible&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msoTrue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="n">ForeColor&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">RGB&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">RGB&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">255&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">225&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">139&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="n">Transparency&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="n">Solid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">With&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Main&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">sp&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Shape&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">With&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Set&lt;/span> &lt;span class="n">sp&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">ActiveSheet&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Shapes&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">AddShape&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">msoShapeRectangle&lt;/span>&lt;span class="p">,&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="n">Left&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Top&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Width&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="n">Height&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">With&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SetShapeStyle&lt;/span> &lt;span class="n">sp&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="枠線を設定する">枠線を設定する&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">枠あり／なしを切り替える&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Line&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Visible&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msoFalse&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Line&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Visible&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">msoTrue&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">枠線の色、透過度を指定する&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Line&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ForeColor&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">RGB&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">RGB&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">255&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Line&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Transparency&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="図形の位置を変更する">図形の位置を変更する&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">絶対位置で指定（左上を 0, 0 として 100, 30 へ移動）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Left&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Top&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">30&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">移動量で指定（左へ50ポイント、下へ30ポイントだけ移動）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">IncrementLeft&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">50&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">IncrementTop&lt;/span> &lt;span class="n">30&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="図形のサイズを変更する">図形のサイズを変更する&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">ポイントでサイズ指定&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Width&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Height&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">50&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">現在サイズからの倍率で指定（横方向、縦方向にそれぞれ1.5倍）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ScaleWidth&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">msoFalse&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">msoScaleFromTopLeft&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Selection&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ShapeRange&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ScaleHeight&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">msoFalse&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">msoScaleFromTopLeft&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>VBAメモ: VBA マクロの実行を強制終了する</title><link>https://maku77.github.io/p/mzjpnug/</link><pubDate>Fri, 27 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/mzjpnug/</guid><description>&lt;p>次のようなマクロを実行してしまうと、無限ループで延々とメッセージボックスが表示されてしまいます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;こんにちは&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このような場合は、&lt;code>Ctrl+Break&lt;/code> を押すことで、マクロの実行を強制的に停止することができます。&lt;/p></description></item><item><title>VBAメモ: VBA マクロ全体の実行を終了する (End)</title><link>https://maku77.github.io/p/y5j87hc/</link><pubDate>Fri, 27 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/y5j87hc/</guid><description>&lt;p>マクロ全体の実行を中断するには、&lt;code>End&lt;/code> を単独で呼び出します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">MsgBox&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;マクロの実行を終了しますか？&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">vbYesNo&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">vbYes&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;終了します&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;マクロを最後まで実行しました&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ちなみに、プロシージャを抜けるときは &lt;code>Exit Sub&lt;/code> です。&lt;/p></description></item><item><title>VBAメモ: 名前のついたセルを起点にして空のセルまでループ処理する</title><link>https://maku77.github.io/p/7b5votb/</link><pubDate>Fri, 27 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/7b5votb/</guid><description>&lt;h2 id="offset-プロパティによるセルの参照">Offset プロパティによるセルの参照&lt;/h2>
+&lt;p>Range オブジェクトの Offset プロパティを使用すると、その Range オブジェクトが示すセルからのオフセット値を指定してセルを参照することができます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: A1 セルから下に１、右に３移動したセルを参照（= D2）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Offset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">3&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>縦横どちらかのオフセットだけを指定する場合は、下記のように名前付きパラメータを使用するとわかりやすいです。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">例: A1 セルの１つ下のセルを参照&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Offset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">RowOffset&lt;/span> &lt;span class="p">:&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="名前付きセルを起点にしたループ処理">名前付きセルを起点にしたループ処理&lt;/h2>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="255" height="136" src="../p/7b5votb/img-001.png" alt="/p/7b5votb/img-001.png" />
+&lt;/figure>
+
+&lt;p>ここでは、上記のように、"StartCell" という名前のついた B2 セルから、下方向にデータのある限りループ処理を行う例を示します。
+Range オブジェクトの Offset プロパティを利用して、1 つずつ参照するセルをずらしていくという方法を使用します。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">StartCell という名前のセルから空のセルに到達するまで下方向へ１セルずつ処理&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">startCell&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Set&lt;/span> &lt;span class="n">startCell&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartCell&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Set&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">startCell&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Offset&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">RowOffset&lt;/span> &lt;span class="p">:&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Exit&lt;/span> &lt;span class="k">Do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Debug&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Print&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Address&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34; = &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">r&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果（イミディエイトウィンドウ）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">$B$2 = あああああ
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$B$3 = いいいいい
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$B$4 = うううううう&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure></description></item><item><title>VBAメモ: 指定した範囲のセルから最大／最小の日付を探す</title><link>https://maku77.github.io/p/gx3wzmb/</link><pubDate>Sat, 21 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/gx3wzmb/</guid><description>&lt;p>下記のサンプルマクロは、A1:C3 の範囲のセルから、最大の日付、最小の日付を抽出します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">minDate&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">maxDate&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">minDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Application&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WorksheetFunction&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:C3&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">maxDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Application&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WorksheetFunction&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:C3&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">minDate&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;, &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">maxDate&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>数値データが見つからない場合、&lt;code>Min&lt;/code> 関数や &lt;code>Max&lt;/code> 関数は 0 を返すので、次のようにエラー処理を記述することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">minDate&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">minDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Application&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">WorksheetFunction&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Min&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;B2:C4&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">minDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">0&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;日付情報が見つかりません。&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">minDate&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: Case 文による分岐処理</title><link>https://maku77.github.io/p/k3kx9xm/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/k3kx9xm/</guid><description>&lt;p>VB/VBA の Case 文は、C 言語や Java 言語の switch-case 処理のような条件分岐に使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Select&lt;/span> &lt;span class="k">Case&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="n">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;Zero!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;One!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;Two, Three, Four, or Five!&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="k">Else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;What&amp;#39;s this?&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Select&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>VB/VBA の Case 文では次のような柔軟な条件指定を行うことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Select&lt;/span> &lt;span class="k">Case&lt;/span> &lt;span class="n">a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="ow">Is&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="c">&amp;#39;a &amp;lt; 10 のとき
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;xxx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="k">To&lt;/span> &lt;span class="n">20&lt;/span> &lt;span class="c">&amp;#39;10 &amp;lt;= a &amp;lt;= 20 のとき
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;yyy&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Case&lt;/span> &lt;span class="n">30&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">40&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">50&lt;/span> &lt;span class="c">&amp;#39;a = 30 or 40 or 50 のとき
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;zzz&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Select&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: Excel のセルのサイズを変更する</title><link>https://maku77.github.io/p/4ukkf8j/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/4ukkf8j/</guid><description>&lt;p>Excel VBA マクロで、セルの幅や高さを変更するには、Range オブジェクトの &lt;code>ColumnWidth&lt;/code> プロパティ、&lt;code>RowHeight&lt;/code> プロパティを使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:F1&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">ColumnWidth&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="c">&amp;#39;セルの幅の変更
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:A6&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">RowHeight&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">30&lt;/span> &lt;span class="c">&amp;#39;セルの高さの変更
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: Excel のセルの参照方法いろいろ</title><link>https://maku77.github.io/p/r29xkne/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/r29xkne/</guid><description>&lt;p>Excel VBA マクロの中では、下記のようにいろいろな方法でセルを参照することができます。&lt;/p>
+&lt;h2 id="インデックス指定でセルを参照する">インデックス指定でセルを参照する&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;単一のセルの内容を変更
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;B2&amp;#34;&lt;/span> &lt;span class="c">&amp;#39;Cells.Item(2, 2) の省略形
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">C3&lt;/span>&lt;span class="o">]&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;C3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;D4:E5&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;D4&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;複数のセルの内容を変更
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A5:D5&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;AAAAA&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このマクロを実行すると、各セルの内容が次のように変更されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="396" height="128" src="../p/r29xkne/img-001.png" alt="/p/r29xkne/img-001.png" />
+&lt;/figure>
+
+&lt;p>&lt;code>.Value&lt;/code> の部分は既定のプロパティとなっており、省略することが可能ですが、明示的に記述しておいた方がよいでしょう。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Hello&amp;#34;&lt;/span> &lt;span class="c">&amp;#39;Good
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Hello&amp;#34;&lt;/span> &lt;span class="c">&amp;#39;NG
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="名前を付けたセルを参照する">名前を付けたセルを参照する&lt;/h2>
+&lt;p>VBA マクロの中から、特定の位置のセルを参照するときは、&lt;strong>あらかじめそのセルに名前を付けておく&lt;/strong>ことをお勧めします。
+そうすることで、ユーザが行や列を追加したときにインデックスがずれてマクロが動作しなくなることを防ぐことができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="346" height="141" src="../p/r29xkne/img-002.png" alt="/p/r29xkne/img-002.png" />
+&lt;/figure>
+
+&lt;p>セルに名前を付けるには、対象のセルを選択して、左上のテキスト領域に好きな名前を入力するだけです（初期値は &lt;code>A1&lt;/code> などになっています）。
+この名前は、今まで &lt;code>A1&lt;/code> や &lt;code>B2&lt;/code> のように指定していた部分で使用することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>複数セルを選択した状態で名前を付ければ、&lt;code>A1:B2&lt;/code> のような範囲指定の代わりにその名前を使用できるようになります。
+この機能を使うことでコードの可読性がよくなりますので、積極的に使用したいところです。&lt;/p>
+&lt;p>作成した名前の管理は、「数式」タブの「名前の管理」から行うことができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="625" height="524" src="../p/r29xkne/img-003.png" alt="/p/r29xkne/img-003.png" />
+&lt;/figure>
+
+&lt;h2 id="range-指定した複数セルをループ処理する">Range 指定した複数セルをループ処理する&lt;/h2>
+&lt;p>Range オブジェクトの Cells プロパティを参照すると、指定した領域のセルを1階層のループで処理することができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">count&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="k">Each&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">In&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:C3&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Cells&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">count&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">count&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">count&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記マクロを実行すると、A1:C3 の範囲のセルが次のように設定されます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="251" height="91" src="../p/r29xkne/img-004.png" alt="/p/r29xkne/img-004.png" />
+&lt;/figure>
+
+&lt;p>Cells プロパティで参照できる要素のインデックスは1から始まるため、次のようにするのと同様の振る舞いをすることになります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">cells&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Set&lt;/span> &lt;span class="n">cells&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:C3&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">cells&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">3&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">4&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">5&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">6&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">7&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">8&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">7&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">9&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: VBA マクロの雑多メモ</title><link>https://maku77.github.io/p/uqvxanb/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/uqvxanb/</guid><description>&lt;h2 id="変数の型名を調べる-typename">変数の型名を調べる (&lt;code>TypeName&lt;/code>)&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">MsgBox&lt;/span> &lt;span class="n">TypeName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="日付リテラル">日付リテラル&lt;/h2>
+&lt;p>VBA マクロの中で、日付リテラルは &lt;code>#&lt;/code> で囲んで表現します。
+VB エディタの中で、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="n">2018&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">04&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">01&lt;/span>&lt;span class="p">#&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>のように、日付を &lt;code>#&lt;/code> で囲んで入力すると、VB エディタが自動的に正しいリテラル形式に変換してくれます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="n">4&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">2018&lt;/span>&lt;span class="p">#&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="date-オブジェクトから年月日時分秒曜日などの情報を取得する">Date オブジェクトから年月日、時分秒、曜日などの情報を取得する&lt;/h2>
+&lt;p>Date オブジェクトから、年月日などの値を取り出すには、&lt;code>Year&lt;/code> 関数などに Date オブジェクトを渡します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="n">10&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">25&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">2018&lt;/span> &lt;span class="n">11&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">30&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="n">55&lt;/span> &lt;span class="n">PM&lt;/span>&lt;span class="p">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Debug&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Print&lt;/span> &lt;span class="s">&amp;#34;Year:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Year&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Month:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Month&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Day:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Day&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Hour:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Hour&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Minute:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Minute&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Second:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Second&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbCrLf&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;Weekday:&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">Weekday&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">d&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Year:2018
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Month:10
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Day:25
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Hour:23
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Minute:30
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Second:55
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Weekday:5&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>ちなみに、曜日は下記のような定数値として定義されています。&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>定数名&lt;/th>
+ &lt;th>数値&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>vbSunday&lt;/td>
+ &lt;td>1&lt;/td>
+ &lt;td>日曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbMonday&lt;/td>
+ &lt;td>2&lt;/td>
+ &lt;td>月曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbTuesday&lt;/td>
+ &lt;td>3&lt;/td>
+ &lt;td>火曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbWednesday&lt;/td>
+ &lt;td>4&lt;/td>
+ &lt;td>水曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbThursday&lt;/td>
+ &lt;td>5&lt;/td>
+ &lt;td>木曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbFriday&lt;/td>
+ &lt;td>6&lt;/td>
+ &lt;td>金曜日&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>vbSaturday&lt;/td>
+ &lt;td>7&lt;/td>
+ &lt;td>土曜日&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="日付の演算date-オブジェクトの演算">日付の演算（Date オブジェクトの演算）&lt;/h2>
+&lt;p>Date オブジェクトに対して、&lt;code>+&lt;/code> 演算子や &lt;code>-&lt;/code> 演算子を使って足し引きを行うと、日数ベースでの足し算、引き算になります。
+次の例では、「2018年5月30日」の日付を格納した Date オブジェクトの値を 1 日ずつ進めています。&lt;/p></description></item><item><title>VBAメモ: オブジェクトへの参照を代入する (Set)</title><link>https://maku77.github.io/p/w3u2or7/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/w3u2or7/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="n">m_obj&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">MyObject&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">SetObj&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">obj&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">MyObject&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Set&lt;/span> &lt;span class="n">m_obj&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">obj&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>オブジェクトへの参照を代入するには、&lt;code>Set&lt;/code> キーワードを使用します。&lt;/p></description></item><item><title>VBAメモ: コードエディタで使用できるショートカット</title><link>https://maku77.github.io/p/q387rkm/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/q387rkm/</guid><description>&lt;h2 id="ウィンドウ切り替え">ウィンドウ切り替え&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>ショートカット&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>Alt + F11&lt;/code>&lt;/td>
+ &lt;td>&lt;strong>VBE と Excel ワークブックのウィンドウ切り替え&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>F7&lt;/code>&lt;/td>
+ &lt;td>コードウィンドウを開く（フォーカスする）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>F4&lt;/code>&lt;/td>
+ &lt;td>プロパティウィンドウを開く（フォーカスする）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + G&lt;/code>&lt;/td>
+ &lt;td>イミディエイトウィンドウ（&lt;code>Debug.Print&lt;/code> の出力先）を開く（フォーカスする）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + R&lt;/code>&lt;/td>
+ &lt;td>プロジェクトエクスプローラを開く（フォーカスする）&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="コードエディタ内での操作">コードエディタ内での操作&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>ショートカット&lt;/th>
+ &lt;th>説明&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + Home&lt;/code>&lt;/td>
+ &lt;td>先頭行へ&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + End&lt;/code>&lt;/td>
+ &lt;td>末尾行へ&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + ↑&lt;/code>&lt;/td>
+ &lt;td>&lt;strong>前のプロシージャへ&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + ↓&lt;/code>&lt;/td>
+ &lt;td>&lt;strong>次のプロシージャへ&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + ←&lt;/code>&lt;/td>
+ &lt;td>前の単語へ&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + →&lt;/code>&lt;/td>
+ &lt;td>次の単語へ&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + BackSpace&lt;/code>&lt;/td>
+ &lt;td>単語の先頭まで削除&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + Delete&lt;/code>&lt;/td>
+ &lt;td>単語の末尾まで削除&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + Space&lt;/code>&lt;/td>
+ &lt;td>入力候補の表示&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Ctrl + Y&lt;/code>&lt;/td>
+ &lt;td>&lt;strong>行を削除&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>Shift + F2&lt;/code>&lt;/td>
+ &lt;td>関数の定義へジャンプ&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>VBAメモ: コードエディタで変数の宣言を強制する</title><link>https://maku77.github.io/p/ryswvs9/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/ryswvs9/</guid><description>&lt;p>VB エディタで以下のように設定しておくと、ファイルを新規追加したときに、自動的に &lt;code>Option Explicit&lt;/code> という宣言を追加してくれるようになります。
+これは変数の宣言を強制するオプションで、可読性のあるコードを記述するためにも設定しておくのがよいでしょう。&lt;/p>
+&lt;ol>
+&lt;li>「ツール(T)」→「オプション(O)」を選択&lt;/li>
+&lt;li>「編集」タブ →「変数の宣言を強制する(R)」にチェック&lt;/li>
+&lt;/ol></description></item><item><title>VBAメモ: デフォルト引数や可変長引数を持つ関数を定義する (Optional, ParamArray)</title><link>https://maku77.github.io/p/rtcyqsa/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/rtcyqsa/</guid><description>&lt;h2 id="省略可能な引数を定義する-optional">省略可能な引数を定義する (&lt;code>Optional&lt;/code>)&lt;/h2>
+&lt;p>VB/VBA には C++ のような関数のオーバーロードの仕組みはありませんが、パラメータの前に &lt;strong>&lt;code>Optional&lt;/code>&lt;/strong> キーワードを付けることにより、省略可能なパラメータを定義することができます。
+&lt;code>Optional&lt;/code> パラメータ以降のパラメータは、すべて &lt;code>Optional&lt;/code> パラメータとして定義する必要があります。
+&lt;code>Optional&lt;/code> パラメータには、デフォルト値 (&lt;code>= 値&lt;/code>) を設定しておくこともできます。&lt;/p>
+&lt;p>下記は、2つのオプショナルパラメータを持つプロシージャの定義例です。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">Optional&lt;/span> &lt;span class="n">opt1&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">Optional&lt;/span> &lt;span class="n">opt2&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="引数が指定されたか調べるismissing-を使用する方法">引数が指定されたか調べる（&lt;code>IsMissing&lt;/code> を使用する方法）&lt;/h3>
+&lt;p>オプショナルパラメータを持つプロシージャ（あるいは関数）が呼び出されたときに、実際にパラメータを指定されたかを調べるには &lt;strong>&lt;code>IsMissing&lt;/code>&lt;/strong> キーワードを使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">test&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">Optional&lt;/span> &lt;span class="n">opt&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Variant&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="k">Not&lt;/span> &lt;span class="n">IsMissing&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">opt&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;引数が指定されました&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">IsMissing&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">opt&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;引数が指定されていません&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="引数が指定されたか調べるデフォルト値を使用する方法">引数が指定されたか調べる（デフォルト値を使用する方法）&lt;/h3>
+&lt;p>デフォルト値が採用された場合に、パラメータが指定されなかったと判断する、という方法もあります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">test&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">Optional&lt;/span> &lt;span class="n">opt&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">opt&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;引数が指定されていません&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ただし、この方法は、デフォルト値と同じ値がパラメータとして渡された場合に区別できないことに注意してください。&lt;/p>
+&lt;h2 id="可変長引数を定義する-paramarray">可変長引数を定義する (&lt;code>ParamArray&lt;/code>)&lt;/h2>
+&lt;p>関数の呼び出し時に渡すパラメータの数があらかじめ決められない場合は、&lt;strong>&lt;code>ParamArray&lt;/code>&lt;/strong> キーワードを使用して可変長パラメータを定義することができます。
+&lt;code>ParamArray&lt;/code> 指定されたパラメータは &lt;strong>&lt;code>Variant&lt;/code> 型の配列でなければいけない&lt;/strong> という制約があることに注意してください。&lt;/p>
+&lt;p>下記の &lt;code>IntSum&lt;/code> 関数は、任意の数の数値パラメータを受け取り、合計値を返します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Function&lt;/span> &lt;span class="nf">IntSum&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ParamArray&lt;/span> &lt;span class="n">nums&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Variant&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Variant&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="k">Each&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">In&lt;/span> &lt;span class="n">nums&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">IsNumeric&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">sum&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sum&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">x&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">IntSum&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">sum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Function&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数内部で &lt;code>IsNumeric&lt;/code> を使用して、渡されたパラメータが数値として扱える場合だけ合計値に足し込んでいます。
+&lt;code>IsNumeric&lt;/code> は、&lt;code>&amp;quot;123&amp;quot;&lt;/code> のような数値とみなせる文字列を渡された場合も、真となることに注意してください。&lt;/p></description></item><item><title>VBAメモ: ループ処理</title><link>https://maku77.github.io/p/d6c8ttx/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/d6c8ttx/</guid><description>&lt;h2 id="無限ループ-do--loop">無限ループ (&lt;code>Do ~ Loop&lt;/code>)&lt;/h2>
+&lt;p>&lt;code>Do ~ Loop&lt;/code> によるループは、無限ループになるので、何らかの条件を満たしたときに &lt;code>Exit Do&lt;/code> を明示的に呼び出してループを抜ける必要があります。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">3&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Debug&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Print&lt;/span> &lt;span class="s">&amp;#34;ループを抜けます&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Exit&lt;/span> &lt;span class="k">Do&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Debug&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Print&lt;/span> &lt;span class="s">&amp;#34;Count = &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">実行結果（イミディエイトウィンドウへ出力されます）&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-plain" data-lang="plain">&lt;span class="line">&lt;span class="cl">Count = 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Count = 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Count = 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ループを抜けます&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="数値による-for-ループ">数値による &lt;code>For&lt;/code> ループ&lt;/h2>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">1 から 5 までのループ&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="k">To&lt;/span> &lt;span class="n">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span> &lt;span class="n">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;p>2重ループも同様に記述できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="k">To&lt;/span> &lt;span class="n">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="k">To&lt;/span> &lt;span class="n">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">x&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;,&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">y&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Step&lt;/code> キーワードと組み合わせることで、数値を減らしながらループ処理することもできます。&lt;/p>
+
+&lt;figure class="xCodeBlock">
+&lt;figcaption class="xCodeBlock_title">3, 2, 1, 0 とカウントダウン&lt;/figcaption>
+&lt;div class="xCodeBlock_code">&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">CountDown&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">3&lt;/span> &lt;span class="k">To&lt;/span> &lt;span class="n">0&lt;/span> &lt;span class="k">Step&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Debug&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Print&lt;/span> &lt;span class="n">i&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/figure>
+
+&lt;h2 id="do-while-ループ">&lt;code>Do While&lt;/code> ループ&lt;/h2>
+&lt;h3 id="数値によるループ">数値によるループ&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Do&lt;/span> &lt;span class="k">While&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">&amp;lt;&lt;/span> &lt;span class="n">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="右に見ていって空のセルが登場するまで繰り返し">右に見ていって、空のセルが登場するまで繰り返し&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Do&lt;/span> &lt;span class="k">While&lt;/span> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">&amp;lt;&amp;gt;&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="n">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">i&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+
+&lt;figure class="xImage">
+ &lt;img style="" width="415" height="72" src="../p/d6c8ttx/img-001.png" alt="/p/d6c8ttx/img-001.png" />
+&lt;/figure>
+
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="415" height="72" src="../p/d6c8ttx/img-002.png" alt="/p/d6c8ttx/img-002.png" />
+&lt;/figure>
+
+&lt;h2 id="excel-の-range-オブジェクト内のセルをループ">Excel の &lt;code>Range&lt;/code> オブジェクト内のセルをループ&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="k">Each&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">In&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;A1:C3&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Address&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコードを実行すると、A1 ～ C3 の各セルに &lt;code>$A$1&lt;/code> ～ &lt;code>$C$3&lt;/code> というテキストが設定されます。&lt;/p></description></item><item><title>VBAメモ: 三項演算子 IIF を使用する</title><link>https://maku77.github.io/p/xrajes2/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/xrajes2/</guid><description>&lt;p>VBA の &lt;strong>&lt;code>IIF&lt;/code>&lt;/strong> 関数は C 言語や Java 言語の三項演算子 (&lt;code>x ? a : b&lt;/code>) と同じように使用することができます。
+次の例では、変数 &lt;code>a&lt;/code> の値によって、表示するメッセージを切り替えています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">50&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">MsgBox&lt;/span> &lt;span class="n">IIF&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;10以上だよ&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;10より小さいよ&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>次のように書いても同じ振る舞いをしますが、これくらいの分岐処理であれば、&lt;code>IIF&lt;/code> 関数を使うことで一行ですっきり記述できます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">If&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">&amp;gt;=&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;10以上だよ&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;10より小さいよ&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: 列挙型を定義する (Enum)</title><link>https://maku77.github.io/p/hmde4a2/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/hmde4a2/</guid><description>&lt;p>VB/VBA で列挙型を定義するには、&lt;strong>&lt;code>Enum&lt;/code>&lt;/strong> ステートメントを使用します。
+&lt;code>Enum&lt;/code> ステートメントで列挙した名前には 0 から順に整数値が割り当てられます。
+次の例では、&lt;code>MyEnum&lt;/code> という名前の列挙型を定義しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Enum&lt;/span> &lt;span class="nc">MyEnum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">zero&lt;/span> &lt;span class="c">&amp;#39;0になる
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">one&lt;/span> &lt;span class="c">&amp;#39;1になる
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">two&lt;/span> &lt;span class="c">&amp;#39;2になる
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">three&lt;/span> &lt;span class="c">&amp;#39;3になる
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Enum&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>定義した &lt;code>MyEnum&lt;/code> 型は次のように使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">MyEnumTest&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">e&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">MyEnum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">e&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">MyEnum&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">one&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">e&lt;/span> &lt;span class="c">&amp;#39;1と表示される
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>Enum&lt;/code> 型の各項目には、任意の値を代入することができます。
+代入を省略した場合は、その前の項目の値に +1 した値が設定されます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Enum&lt;/span> &lt;span class="nc">Fruits&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">apple&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">banana&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">orange&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">300&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">grape&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">kiwi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Enum&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Test&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Fruits&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">apple&lt;/span> &lt;span class="c">&amp;#39;100
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Fruits&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">banana&lt;/span> &lt;span class="c">&amp;#39;200
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Fruits&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">orange&lt;/span> &lt;span class="c">&amp;#39;300
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Fruits&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">grape&lt;/span> &lt;span class="c">&amp;#39;301
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">Fruits&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">kiwi&lt;/span> &lt;span class="c">&amp;#39;302
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: 定数を定義する (Const)</title><link>https://maku77.github.io/p/g5ezc3n/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/g5ezc3n/</guid><description>&lt;p>VB/VBA で定数を定義するには、&lt;strong>&lt;code>Const&lt;/code>&lt;/strong> キーワードを使用します。
+下記の例では、グローバルな定数 &lt;code>A&lt;/code> と、プロシージャ内の定数 &lt;code>N&lt;/code> を定義しています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="k">Const&lt;/span> &lt;span class="n">A&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Hemumu&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Const&lt;/span> &lt;span class="n">N&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">200&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">A&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">N&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: 指定した範囲の日付を自動で入力する</title><link>https://maku77.github.io/p/44haais/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/44haais/</guid><description>&lt;figure class="xImage">
+ &lt;img style="" width="239" height="206" src="../p/44haais/img-001.png" alt="/p/44haais/img-001.png" />
+&lt;/figure>
+
+&lt;p>図のような「開始日」と「終了日」のセルに日付を設定するだけで、その間の日付を自動的にリストアップするマクロの例です。
+これを応用すると、カレンダーや、スケジュール表などを自動で生成することができるようになります。&lt;/p>
+&lt;p>「開始日」と「終了日」の入力フィールドには、&lt;code>StartDate&lt;/code> と &lt;code>EndDate&lt;/code> という名前を付けておいてください（左上のテキストフィールドに入力します）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">UpdateDates&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">endDate&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">endDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;EndDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Do&lt;/span> &lt;span class="k">While&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">endDate&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">d&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>上記のマクロを実行すると、B4 のセルから下方向に、日付がインクリメントされながら自動的に入力されます。&lt;/p>
+&lt;h3 id="完成版サンプル">完成版サンプル&lt;/h3>
+&lt;p>下記は、さらに実用的になるように修正したコードです。
+「開始日」や「終了日」のセルの値を変更すると、自動的に出力内容が更新されるようになっています。
+また、日付フォーマット以外のテキストが入力された場合は、エラーメッセージを表示するようになっています。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Option&lt;/span> &lt;span class="n">Explicit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39;日付フィールドの変更を監視
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">Private&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Worksheet_Change&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ByVal&lt;/span> &lt;span class="n">target&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">Intersect&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">target&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartDate:EndDate&amp;#34;&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="ow">Is&lt;/span> &lt;span class="k">Nothing&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Exit&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ClearDates&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">UpdateDates&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39;前回の出力内容をクリア
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">Sub&lt;/span> &lt;span class="nf">ClearDates&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;B4:B9999&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Clear&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39;指定した範囲の日付をリストアップ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">Sub&lt;/span> &lt;span class="nf">UpdateDates&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;正しく日付が入力されているか確認
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="k">If&lt;/span> &lt;span class="n">IsDate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">False&lt;/span> &lt;span class="ow">Or&lt;/span> &lt;span class="n">IsDate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;EndDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">False&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;日付を正しく入力してください&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Exit&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;入力された日付を取得
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="k">Dim&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">endDate&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Date&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;StartDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">endDate&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;EndDate&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c">&amp;#39;リストアップ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span> &lt;span class="k">Dim&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Long&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Do&lt;/span> &lt;span class="k">While&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="n">endDate&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">Cells&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">y&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">2&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">d&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">d&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">d&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">y&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">y&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Loop&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>VBAメモ: 複数行まとめてコメントアウトできるようにする</title><link>https://maku77.github.io/p/sohwxqx/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/sohwxqx/</guid><description>&lt;p>VB エディタのメニューから次のようにすると、複数行まとめてコメントアウトするボタンをツールバーに追加することができます。&lt;/p>
+
+
+&lt;figure class="xImage">
+ &lt;img style="" width="259" height="99" src="../p/sohwxqx/img-001.png" alt="/p/sohwxqx/img-001.png" />
+&lt;/figure>
+
+&lt;ol>
+&lt;li>「表示(V)」→「ツールバー(T)」→「ユーザ設定(C)&amp;hellip;」を選択&lt;br>あるいは、ツールバーを右クリックして「ユーザ設定(C)&amp;hellip;」を選択&lt;/li>
+&lt;li>「コマンド」タブの分類で「編集」を選択&lt;/li>
+&lt;li>「コメントブロック」と「非コメントブロック」のアイコンをツールバーの好きな場所にドラッグ＆ドロップ&lt;/li>
+&lt;/ol>
+&lt;p>あとは、エディタ上でコメントアウトしたい行を選択した状態で、「コメントブロック」アイコンをクリックすることで、一気にコメントアウトすることができます。
+元に戻すには、同じように行選択して「非コメントブロック」アイコンをクリックします。&lt;/p></description></item><item><title>VBAメモ: 関数やプロシージャを定義する (Function, Sub)</title><link>https://maku77.github.io/p/cmjfqsj/</link><pubDate>Tue, 17 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/cmjfqsj/</guid><description>&lt;h2 id="関数を定義する-function">関数を定義する (&lt;code>Function&lt;/code>)&lt;/h2>
+&lt;p>戻り値を持つ関数を定義するには、&lt;strong>&lt;code>Function&lt;/code>&lt;/strong> キーワードを使用します。
+下記は、足し算を行う関数の定義例です。
+戻り値は、関数名に代入するという特殊な方法なので注意してください（C や Java のような &lt;code>return&lt;/code> キーワードは使わない）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Function&lt;/span> &lt;span class="nf">AddTest&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">a&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">AddTest&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">a&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">b&lt;/span> &lt;span class="c">&amp;#39;VB の場合、戻り値は関数名に代入する
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">End&lt;/span> &lt;span class="k">Function&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>この関数を使用するには、下記のようにします。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Dim&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="ow">as&lt;/span> &lt;span class="kt">Integer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">AddTest&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">200&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">MsgBox&lt;/span> &lt;span class="n">result&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を呼び出すときは、&lt;strong>戻り値を必ず変数に代入する&lt;/strong>必要があります。
+戻り値が必要ない場合は、次のように &lt;code>Call&lt;/code> キーワードを使って呼び出すか、パラメータを括弧で囲まずに列挙します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Call&lt;/span> &lt;span class="n">AddTest&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">200&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">AddTest&lt;/span> &lt;span class="n">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">200&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>関数を途中で抜けるときは、&lt;code>Exit Function&lt;/code> を使用します（&lt;code>Return&lt;/code> ではありません）。&lt;/p>
+&lt;h2 id="プロシージャを定義する-sub">プロシージャを定義する (&lt;code>Sub&lt;/code>)&lt;/h2>
+&lt;p>戻り値を持たないプロシージャを定義するには、&lt;code>Function&lt;/code> キーワードの代わりに &lt;strong>&lt;code>Sub&lt;/code>&lt;/strong> キーワードを使用します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Sub&lt;/span> &lt;span class="nf">Greet&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">name&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="kt">String&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;Hello, &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">name&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>プロシージャを呼び出すときは、パラメータを括弧で囲まずに指定します。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="n">Greet&lt;/span> &lt;span class="s">&amp;#34;まく&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>プロシージャを途中で抜けるときは、&lt;code>Exit Sub&lt;/code> を使用します（&lt;code>Return&lt;/code> ではありません）。&lt;/p></description></item><item><title>VBAメモ: Excel の VBA マクロで Hello World</title><link>https://maku77.github.io/p/dt4buhq/</link><pubDate>Mon, 16 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/dt4buhq/</guid><description>&lt;h2 id="vba-マクロの作成">VBA マクロの作成&lt;/h2>
+&lt;p>Excel のマクロは VBE (Visual Basic Editor) を使って作成することができます。
+Visual Basic Editor を開くには、ショートカットキーの &lt;kbd>Alt + F11&lt;/kbd> を使用するか、Excel のメニューから次のように実行します。&lt;/p>
+&lt;ol>
+&lt;li>&lt;kbd>&lt;samp>ファイル&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>オプション&lt;/samp>&lt;/kbd> を選択。&lt;/li>
+&lt;li>&lt;kbd>&lt;samp>リボンのユーザ設定&lt;/samp>&lt;/kbd> → &lt;samp>リボンのユーザ設定&lt;/samp> のプルダウンで &lt;kbd>&lt;samp>メイン タブ&lt;/samp>&lt;/kbd> を選択し、&lt;kbd>&lt;samp>開発&lt;/samp>&lt;/kbd> にチェックを入れる。&lt;/li>
+&lt;li>リボンに&lt;samp>開発&lt;/samp>タブが表示されるので、その中の&lt;kbd>&lt;samp>Visual Basic&lt;/samp>&lt;/kbd> アイコンをクリック。&lt;/li>
+&lt;/ol>
+&lt;p>Visual Basic Editor を起動できたら、まずはメッセージボックスで Hello World を表示する簡単なマクロを作ってみましょう。
+最初に、次のようにして標準モジュールを追加してください。&lt;/p>
+&lt;ol>
+&lt;li>&lt;kbd>&lt;samp>挿入&lt;/samp>&lt;/kbd> → &lt;kbd>&lt;samp>標準モジュール&lt;/samp>&lt;/kbd>&lt;/li>
+&lt;/ol>
+&lt;p>次のようにコードを記述したら、テキストカーソルが関数内にある状態で &lt;kbd>F5&lt;/kbd> キーを押して実行してみてください。
+メッセージボックスが表示されれば成功です。
+簡単ですね！&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="c">&amp;#39;メッセージボックスを表示するマクロ
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="k">Public&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">MsgBoxTest&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;Hello World&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="note">
+上記のマクロは、Excel ファイル（ブック）を保存しなくても実行できますが、マクロを含むブックを保存するには、xlsm 形式（マクロ有効ブック）として保存する必要があることに注意してください（xlsx 形式のファイルにはマクロを含めることができません）。
+xlsx 形式のままでブックを保存しようとすると警告ダイアログが表示されるので、その指示に従って xlsm 形式を選択すれば大丈夫です。
+&lt;/div>
+&lt;h2 id="マクロの実行">マクロの実行&lt;/h2>
+&lt;p>作成した VBA マクロは次のようなショートカットキーで実行することができます。&lt;/p>
+&lt;ul>
+&lt;li>Visual Basic Editor を開いているとき: &lt;kbd>F5&lt;/kbd>&lt;/li>
+&lt;li>ブックを開いているとき: &lt;kbd>Alt + F8&lt;/kbd>&lt;/li>
+&lt;/ul>
+&lt;p>また、Excel 2007 以降では、リボンに「開発」タブを表示しておけば、その中の &lt;kbd>&lt;samp>マクロ&lt;/samp>&lt;/kbd> というボタンからマクロを起動することもできます。&lt;/p></description></item><item><title>VBAメモ: Excel のセルの内容が変更されたときのイベントをハンドルする</title><link>https://maku77.github.io/p/obputmr/</link><pubDate>Mon, 16 Apr 2018 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/obputmr/</guid><description>&lt;p>Excel ワークシート内の任意のセル内容が変更された場合、Change イベントが発生します。&lt;/p>
+&lt;p>&lt;kbd>Alt+F11&lt;/kbd> で VBA エディタを開き、下記のように入力すれば Change イベントをハンドルすることができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Worksheet_Change&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ByVal&lt;/span> &lt;span class="n">target&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Address&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34;の範囲のセルが変更されました。&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">vbNewLine&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> _
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;セルごとの新しい値は次の通りです。&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Dim&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">For&lt;/span> &lt;span class="k">Each&lt;/span> &lt;span class="n">r&lt;/span> &lt;span class="ow">In&lt;/span> &lt;span class="n">target&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Address&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="s">&amp;#34; = &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">Next&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>この例では、セルの内容が変更されたときにメッセージボックスを表示して、変更後のセルの内容を順番に表示します。&lt;/p>
+&lt;h2 id="特定のセルが変更されたことを検出する">特定のセルが変更されたことを検出する&lt;/h2>
+&lt;p>次のようにすれば、A1 セル（一番左上のセル）が変更された場合だけ処理を行うことができます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Worksheet_Change&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ByVal&lt;/span> &lt;span class="n">target&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Address&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;$A$1&amp;#34;&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;$A$1 のセルが変更されました: &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>変更されたセルの行番号は &lt;code>Range.Row&lt;/code> プロパティ、列番号は &lt;code>Range.Column&lt;/code> プロパティで参照することができるので、次のように書くこともできます。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-vb" data-lang="vb">&lt;span class="line">&lt;span class="cl">&lt;span class="k">Private&lt;/span> &lt;span class="k">Sub&lt;/span> &lt;span class="nf">Worksheet_Change&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">ByVal&lt;/span> &lt;span class="n">target&lt;/span> &lt;span class="ow">As&lt;/span> &lt;span class="n">Range&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">If&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Row&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="ow">And&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Column&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="k">Then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">MsgBox&lt;/span> &lt;span class="s">&amp;#34;$A$1 のセルが変更されました: &amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">target&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">Value&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">End&lt;/span> &lt;span class="k">If&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">End&lt;/span> &lt;span class="k">Sub&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
