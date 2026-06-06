@@ -4,7 +4,7 @@ url: "p/topd7uy/"
 date: "2018-01-01"
 tags: ["Hugo"]
 description: "シングルページテンプレートにおいて、その記事ページに付けられたタグの一覧を表示するようにしておくと、関連する記事（同じタグの付けられた記事）を探しやすくなります。"
-aliases: /hugo/taxonomy/terms-in-page.html
+aliases: ["/hugo/taxonomy/terms-in-page.html"]
 ---
 
 シングルページテンプレートにおいて、その記事ページに付けられたタグの一覧を表示するようにしておくと、関連する記事（同じタグの付けられた記事）を探しやすくなります。
@@ -66,4 +66,5 @@ aliases: /hugo/taxonomy/terms-in-page.html
 実際に表示すると次のような感じになります。
 
 <iframe class="xHtmlDemo" src="./demo.html" style="width: 300px; height: 80px;"></iframe>
+<div>（{{< file src="demo.html" caption="デモページを開く" >}}）</div>
 

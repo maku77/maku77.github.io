@@ -16,7 +16,7 @@ aliases: /web/layout/center.html
 水平方向の中央寄せ
 ----
 
-幅 (`width`) の指定されたブロック要素に対して、__`margin-left`__、__`margin-right`__ をともに __`auto`__ に設定**すると、中央寄せで表示することができます。
+幅 (`width`) の指定されたブロック要素に対して、__`margin-left`__ と __`margin-right`__ の両方を __`auto`__ に設定すると、中央寄せで表示することができます。
 
 <div class="local-sample-es325sf">
   <div style="width:100px; height:50px; margin-left:auto; margin-right:auto; background:blue; color:white;">

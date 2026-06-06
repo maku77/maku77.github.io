@@ -38,46 +38,46 @@ HTML 全般
   * [（旧）CSS で画面サイズによって全体のレイアウトを変更する](/p/v5dcz6f/)
 
 #### フォント／テキスト
-* [フォントサイズは 100% と指定する](font/font-size.html)
+* [フォントサイズは 100% と指定する](/p/tsovf7p/)
 * [CSS の rem や em を使用したサイズ指定を理解する](/p/hbh4dwr/)
-* [pre 要素でもテキストがはみ出さないように折り返す](text/pre-wrap.html)
+* [pre 要素でもテキストがはみ出さないように折り返す](/p/hexkm9d/)
 
 
 要素
 ----
 
 #### フォーム
-* [入力フォームに自動的にフォーカスする（autofocus 属性）](form/autofocus.html)
-* [プレースホルダーで入力フォームに補足説明を表示する（placeholder 属性）](form/placeholder.html)
-* [入力必須の入力フォームを指定する（required 属性）](form/required.html)
-* [独自の入力フォーマットを指定する（pattern 属性）](form/pattern.html)
-* [入力エリアの入力候補を表示する（autocomplete 属性、datalist 要素）](form/autocomplete.html)
+* [入力フォームに自動的にフォーカスする（autofocus 属性）](/p/z8jamu5/)
+* [プレースホルダーで入力フォームに補足説明を表示する（placeholder 属性）](/p/5kvu3o7/)
+* [入力必須の入力フォームを指定する（required 属性）](/p/3pzh4nu/)
+* [独自の入力フォーマットを指定する（pattern 属性）](/p/hgeioh3/)
+* [入力エリアの入力候補を表示する（autocomplete 属性、datalist 要素）](/p/kom5g5p/)
 
 #### ヘッダ
-* [ヘッダ要素に連番を振る](number-header.html)
+* [ヘッダ要素に連番を振る](/p/whk8jp5/)
 
 #### メニュー
-* [メニューの縦並びと横並びを切り替える](menu/vertical-and-horizontal.html)
-* [メニューの表示位置を固定する](menu/position-fixed-menu.html)
-* [メニューの高さを画面の高さに合わせる](menu/full-height-menu.html)
-* [メニュー要素内でスクロールできるようにする](menu/scroll-menu.html)
-* [CSS だけで開閉できるアコーディオンメニューを作成する](menu/accordion.html)
-* [ある位置までスクロールしたら固定されるメニューを作成する](menu/scroll-and-fix.html)
-* [印刷時に特定の要素（メニューなど）を非表示にする](menu/hide-in-print.html)
+* [メニューの縦並びと横並びを切り替える](/p/fkwmbet/)
+* [メニューの表示位置を固定する](/p/hiiwmt3/)
+* [メニューの高さを画面の高さに合わせる](/p/o2eqg68/)
+* [メニュー要素内でスクロールできるようにする](/p/x6irhig/)
+* [CSS だけで開閉できるアコーディオンメニューを作成する](/p/49iaafs/)
+* [ある位置までスクロールしたら固定されるメニューを作成する](/p/df68rym/)
+* [印刷時に特定の要素（メニューなど）を非表示にする](/p/qzhif25/)
 
 #### リンク
-* [外部リンクに自動的にアイコンを付けて表示する (External link icons)](selector/add-icon-to-link.html)
-* [外部リンクをクリックしたときに必ず新しいタブで開く](link/open-new-tab.html)
-* [リンク先ファイルの拡張子によって自動的にアイコンを付けて表示する](link/extension-icons.html)
+* [外部リンクに自動的にアイコンを付けて表示する (External link icons)](/p/9m6f3ex/)
+* [外部リンクをクリックしたときに必ず新しいタブで開く](/p/q9zcbvq/)
+* [リンク先ファイルの拡張子によって自動的にアイコンを付けて表示する](/p/ysxdfat/)
 
 #### 画像／ボタン
-* [SVG アイコンの色をまわりの文字の色に合わせる](image/svg-color.html)
-* [SNS ボタンをきれいに並べる](button/sns-buttons.html)
+* [SVG アイコンの色をまわりの文字の色に合わせる](/p/e4ieqd2/)
+* [SNS ボタンをきれいに並べる](/p/jie63z4/)
 
 
 CSS セレクタ
 ----
-* [結合子を使用して構造に応じてスタイルシートを適用する](selector/combinator.html)
+* [結合子を使用して構造に応じてスタイルシートを適用する](/p/dnyt894/)
     * 子孫セレクタ
     * 子セレクタ（直下セレクタ）
     * 隣接兄弟セレクタ（隣接セレクタ）
@@ -92,8 +92,8 @@ CSS セレクタ
 
 その他
 ----
-* [吹き出し風の見出しを作る](sample/balloon.html)
-* [Web サイト作成に関するメモ: SEO 対策](seo.html)
+* [吹き出し風の見出しを作る](/p/5wfndrb/)
+* [Web サイト作成に関するメモ: SEO 対策](/p/vz74stb/)
 * [jQuery に関しては JavaScript のページを参照](../js/)
 
 
