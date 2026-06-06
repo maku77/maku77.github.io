@@ -814,7 +814,7 @@ Promise に関しての詳細は下記の記事を参考にしてください。
 新しいブラウザのほとんどは &lt;code>scrollY&lt;/code> プロパティもサポートしているので、&lt;code>scrollY&lt;/code> を使ってもよいでしょう。
 互換性を重要視する jQuery などの実装では、&lt;code>pageYOffset&lt;/code> を使用しているようです。
 &lt;/div>
-&lt;h4 id="デモhahahugoshortcode841s0hbhb">デモ（&lt;a href="../p/sg34oyg/scroll-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモhahahugoshortcode844s0hbhb">デモ（&lt;a href="../p/sg34oyg/scroll-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="scroll-pos-demo.html">&lt;/iframe>
 &lt;p>上記のデモでは、ページをスクロールすると、スクロール後の表示位置がウィンドウ左上に表示されます。&lt;/p>
 &lt;h3 id="jquery-を使った例">jQuery を使った例&lt;/h3>
@@ -1743,7 +1743,7 @@ obj.method(); //=&amp;gt; maku 100
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>JavaScriptメモ: ページ内のヘッダ要素 (h2/h3/h4) から自動的にメニュー (TOC) を生成する</title><link>https://maku77.github.io/p/pzkgih9/</link><pubDate>Thu, 24 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pzkgih9/</guid><description>&lt;h2 id="一階層のみのメニュー">一階層のみのメニュー&lt;/h2>
 &lt;p>HTML 内に配置したヘッダー要素（&lt;code>h2&lt;/code> 要素）の表示テキストから、自動的にページ内メニュー (TOC: Table of Contents) を作成するサンプルです。&lt;/p>
-&lt;h4 id="デモ1hahahugoshortcode756s0hbhb">デモ1（&lt;a href="../p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモ1hahahugoshortcode755s0hbhb">デモ1（&lt;a href="../p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="table-of-contents-demo1.html">&lt;/iframe>
 &lt;p>例えば、下記のように 3 つの &lt;code>h2&lt;/code> 要素（タイトル１、タイトル２、タイトル３）を含んだ HTML があるとして、それぞれの位置へジャンプするためのメニューを自動で追加します。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;menuStub&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>メニュー挿入位置&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
