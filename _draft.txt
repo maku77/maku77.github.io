@@ -1,0 +1,10 @@
+---
+title: "DRAFT"
+---
+
+Kotlin
+----
+
+- リストや配列から `null` 要素を取り除く
+  - `list.listOfNotNull()`
+
