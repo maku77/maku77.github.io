@@ -5,6 +5,7 @@ url: "/perl/"
 categoryName: "まくまく Perl ノート"
 categoryUrl: "/perl/"
 categoryIcon: _index.svg
+description: "おそらくもうオワコンな言語、Perl。"
 ---
 
 Perl ドキュメント

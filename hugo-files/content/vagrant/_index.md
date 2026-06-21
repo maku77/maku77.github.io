@@ -5,6 +5,7 @@ url: "/vagrant/"
 categoryName: "まくまく Vagrant ノート"
 categoryUrl: "/vagrant/"
 categoryIcon: _logo.svg
+description: "仮想環境の立ち上げ＆設定の自動化に関するメモ。"
 ---
 
 Vagrant の基本

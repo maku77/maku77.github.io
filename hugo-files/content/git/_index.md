@@ -5,6 +5,7 @@ url: "/git/"
 categoryName: "まくまく Git ノート"
 categoryUrl: "/git/"
 categoryIcon: _index.svg
+description: "Git によるバージョン管理と、GitHub 特有の話もあるよ。"
 ---
 
 GitHub

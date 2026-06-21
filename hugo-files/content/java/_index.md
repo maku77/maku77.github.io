@@ -5,6 +5,7 @@ url: "/java/"
 categoryName: "まくまく Java ノート"
 categoryUrl: "/java/"
 categoryIcon: _index.svg
+description: "Android のおかげで息を吹き返した感のある Java。"
 ---
 
 アノテーション

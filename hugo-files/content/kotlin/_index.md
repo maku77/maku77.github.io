@@ -5,6 +5,7 @@ url: "/kotlin/"
 categoryName: "まくまく Kotlin ノート"
 categoryUrl: "/kotlin/"
 categoryIcon: _logo-kotlin.svg
+description: "Android の公式サポートによって一気にメジャーになった Kotlin。Java の代替として採用を検討しましょう。"
 ---
 
 はじめに／環境

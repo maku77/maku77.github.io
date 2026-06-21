@@ -16,6 +16,7 @@
     {{- block "header" . }}{{ end }}
   </div>
 
+  {{ block "main" . }}
   <div class="l-withSidebar">
     <div class="l-withSidebar__sidebarLeft">
       {{- partial "blocks/toc" . }}
@@ -29,6 +30,7 @@
       {{ partial "blocks/ad-codoc" . }}
     </div>
   </div>
+  {{ end }}
 
   {{ partialCached "mm/scripts" . }}
 </body>

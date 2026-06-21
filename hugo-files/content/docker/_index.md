@@ -5,6 +5,7 @@ url: "/docker/"
 categoryName: "まくまく Docker ノート"
 categoryUrl: "/docker/"
 categoryIcon: _index.svg
+description: "アプリケーション実行環境をコンテナ化し、柔軟なデプロイを可能にする Docker の使い方。"
 ---
 
 Docker をはじめる（インストールと設定） <!-- start -->

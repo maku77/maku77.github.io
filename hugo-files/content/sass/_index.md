@@ -6,6 +6,7 @@ tags: ["sass"]
 categoryName: "まくまくSassノート"
 categoryUrl: "/sass/"
 categoryIcon: _logo-sass.svg
+description: "CSS は Sass を使って効率的に作りましょう。"
 ---
 
 基本

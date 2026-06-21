@@ -6,6 +6,7 @@ tags: ["tradestation"]
 categoryName: "まくまく トレードステーション ノート"
 categoryUrl: "/tradestation/"
 categoryIcon: _index.svg
+description: "最強のトレードソフト TradeStation。EasyLanguage によるシストレ用プログラムなど。"
 ---
 
 

@@ -5,6 +5,7 @@ url: "/web/"
 categoryName: "まくまく HTML/CSS ノート"
 categoryUrl: "/web/"
 categoryIcon: _index.svg
+description: "スタイルシートの使い方や、Web 用パーツサンプルなど。"
 ---
 
 HTML 全般

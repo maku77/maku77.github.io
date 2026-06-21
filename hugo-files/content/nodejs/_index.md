@@ -5,6 +5,7 @@ url: "/nodejs/"
 categoryName: "まくまく Node.js ノート"
 categoryUrl: "/nodejs/"
 categoryIcon: "logo-nodejs.svg"
+description: "今やクライアントもサーバも Node.js でバッチシ。"
 ---
 
 Node.js 実行環境など

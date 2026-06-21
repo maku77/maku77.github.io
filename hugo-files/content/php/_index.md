@@ -5,6 +5,7 @@ url: "/php/"
 categoryName: "まくまく PHP ノート"
 categoryUrl: "/php/"
 categoryIcon: _index.svg
+description: "サーバサイド言語の世界で一世を風靡した PHP。CodeIgnitor は RoR よりも手軽でオススメ。"
 ---
 
 はじめに

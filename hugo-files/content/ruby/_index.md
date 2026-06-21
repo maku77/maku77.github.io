@@ -5,6 +5,7 @@ url: "/ruby/"
 categoryName: "まくまく Ruby ノート"
 categoryUrl: "/ruby/"
 categoryIcon: "_index.svg"
+description: "日本で生まれたオブジェクト指向言語 Ruby の使い方。"
 ---
 
 はじめに

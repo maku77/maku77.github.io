@@ -5,6 +5,7 @@ url: "/octave/"
 categoryName: "まくまく Octave ノート"
 categoryUrl: "/octave/"
 categoryIcon: _index.svg
+description: "MATLAB 互換な数値解析ソフト Octave。グラフも描けるよ！"
 ---
 
 行列／ベクトルの作成

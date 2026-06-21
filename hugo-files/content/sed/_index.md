@@ -5,6 +5,7 @@ url: "/sed/"
 categoryName: "まくまく sed/awk ノート"
 categoryUrl: "/sed/"
 categoryIcon: _index.png
+description: "Linux 系のコマンドを用いたテキスト処理いろいろ。"
 ---
 
 sed

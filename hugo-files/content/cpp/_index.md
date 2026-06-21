@@ -5,6 +5,7 @@ url: "/cpp/"
 categoryName: "まくまく C/C++ ノート"
 categoryUrl: "/cpp/"
 categoryIcon: _index.svg
+description: "ポインタポインタポインター！ C および C++ の基礎から応用まで。"
 ---
 
 文字列

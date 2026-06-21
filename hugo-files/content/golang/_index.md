@@ -5,6 +5,7 @@ url: "/go/"
 categoryName: "まくまく Golang ノート"
 categoryUrl: "/go/"
 categoryIcon: _index.svg
+description: "Go 言語 (Golang) 入門。各種 OS に対応した高速な実行ファイルを作成できます。"
 ---
 
 はじめに／実行環境 <!-- basic -->

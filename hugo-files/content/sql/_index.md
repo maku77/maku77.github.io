@@ -6,6 +6,7 @@ tags: ["sql"]
 categoryName: "まくまくSQLノート"
 categoryUrl: "/sql/"
 categoryIcon: _index.svg
+description: "SQL 全般や SQLite、MySQL に関するメモ。"
 ---
 
 SQL 全般

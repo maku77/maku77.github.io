@@ -5,6 +5,7 @@ url: "/middleman/"
 categoryName: "まくまく Middleman ノート"
 categoryUrl: "/middleman/"
 categoryIcon: "_index.svg"
+description: "静的サイトジェネレータ Middleman の使い方。"
 ---
 
 はじめに

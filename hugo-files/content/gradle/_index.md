@@ -7,6 +7,7 @@ tags: ["gradle"]
 categoryName: "まくまく Gradle ノート"
 categoryUrl: "/gradle/"
 categoryIcon: _logo-gradle.svg
+description: "Java の最新のビルドシステム Gradle の使い方。"
 ---
 
 インストールと設定／管理

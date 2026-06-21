@@ -5,6 +5,7 @@ url: "/hugo/"
 categoryName: "まくまく Hugo ノート"
 categoryUrl: "/hugo/"
 categoryIcon: logo-hugo.png
+description: "高速な静的サイトジェネレータ Hugo の使い方。"
 ---
 
 高速な静的サイトジェネレータ Hugo の使い方です。

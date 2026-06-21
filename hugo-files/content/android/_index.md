@@ -5,6 +5,7 @@ url: "/android/"
 categoryName: "まくまく Android ノート"
 categoryUrl: "/android/"
 categoryIcon: _index.svg
+description: "Android スマホアプリ、Android TV の開発に関して。"
 ---
 
 Android アプリや Android デバイスの開発に役立つかもしれないノートです。

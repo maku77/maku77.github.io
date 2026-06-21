@@ -1,29 +1,44 @@
-{{ define "article" }}
-  <h1>{{ .Title }}</h1>
+{{ define "main" }}
+<div class="l-homePage">
+  <div class="homeHero">
+    <p class="homeHero__title">天才まくまくノート</p>
+    <p class="homeHero__tagline">天才星人まくのソフトウェア開発に関するノートです。</p>
+  </div>
 
-  <h2>Categories</h2>
-  <ul>
+  <div class="categoryGrid">
     {{- range (sort .Sections ".Title") }}
-    <a href="{{ .RelPermalink }}" style="display: inline-block; font-size: x-large; margin: .2em .1em; padding: .3em 0.8em; border: solid 1px #333; border-radius: .3em;">
-      <li style="display: inline-block;">
-        {{ .Title }}
-      </li></a>
-    {{- end }}
-  </ul>
-
-  <h2>Drafts</h2>
-  <ul>
-  {{- range (where .Site.Pages ".Draft" true) }}
-  <li>
-    <a href="{{ .RelPermalink }}" style="display: block;">
-      {{- partial "mm/debug-draft-icon" . }}{{ .Title }}
-      <span style="font-weight: normal; background: #eee; color: #333; padding: .2em .4em">
-        ({{ .Lastmod.Format "2006-01-02" }})
-        {{ range .Params.tags }}#{{ . }} {{ end }}
-      </span>
+    {{- $iconPath := partial "mm/func/get-category-icon-path" . }}
+    <a class="categoryCard" href="{{ .RelPermalink }}">
+      <div class="categoryCard__header">
+        {{- if $iconPath }}
+        <img class="categoryCard__icon" src="{{ $iconPath }}" alt="{{ .Title }}">
+        {{- end }}
+        <span class="categoryCard__title">{{ .Title }}</span>
+      </div>
+      {{- with .Description }}
+      <p class="categoryCard__desc">{{ . }}</p>
+      {{- end }}
     </a>
-  </li>
+    {{- end }}
+  </div>
+
+  {{- if and hugo.IsServer (where .Site.Pages ".Draft" true) }}
+  <div class="homeDrafts">
+    <h2 class="homeDrafts__title">Drafts</h2>
+    <ul class="homeDrafts__list">
+    {{- range (where .Site.Pages ".Draft" true) }}
+    <li class="homeDrafts__item">
+      <a href="{{ .RelPermalink }}">
+        {{- partial "mm/debug-draft-icon" . }}{{ .Title }}
+        <span class="homeDrafts__meta">
+          {{ .Lastmod.Format "2006-01-02" }}
+          {{ range .Params.tags }}#{{ . }} {{ end }}
+        </span>
+      </a>
+    </li>
+    {{- end }}
+    </ul>
+  </div>
   {{- end }}
-</ul>
-</html>
+</div>
 {{ end }}

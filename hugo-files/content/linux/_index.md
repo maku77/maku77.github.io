@@ -5,6 +5,7 @@ url: "/linux/"
 categoryName: "まくまく Linux ノート"
 categoryUrl: "/linux/"
 categoryIcon: _index.svg
+description: "Linux 全般のメモ。Bash や Linux シェルプログラミングなど。"
 ---
 
 シェルスクリプト / Bash プログラミング

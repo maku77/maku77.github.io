@@ -5,6 +5,7 @@ url: "/python/"
 categoryName: "まくまく Python ノート"
 categoryUrl: "/python/"
 categoryIcon: _index.svg
+description: "機械学習の世界で最も人気なプログラミング言語 Python の使い方。"
 ---
 
 はじめに／基本

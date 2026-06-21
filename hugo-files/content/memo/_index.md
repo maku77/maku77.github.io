@@ -5,6 +5,7 @@ url: "/memo/"
 categoryName: "まくまく設計ノート"
 categoryUrl: "/memo/"
 categoryIcon: _index.svg
+description: "ソフトウェア開発のベストプラクティス、現場での気付き、ブックレビューなど。"
 ---
 
 設計ノウハウ／ベストプラクティス

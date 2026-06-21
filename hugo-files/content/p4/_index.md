@@ -5,6 +5,7 @@ url: "/p4/"
 categoryName: "まくまく Perforce ノート"
 categoryUrl: "/p4/"
 categoryIcon: _index.jpg
+description: "p4 コマンドや p4v についていろいろ。"
 ---
 
 p4 コマンド

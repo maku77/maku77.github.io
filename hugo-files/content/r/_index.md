@@ -5,6 +5,7 @@ url: "/r/"
 categoryName: "まくまく R ノート"
 categoryUrl: "/r/"
 categoryIcon: _index.svg
+description: "統計解析やグラフプロットに便利な R の入門。"
 ---
 
 {{% private %}}

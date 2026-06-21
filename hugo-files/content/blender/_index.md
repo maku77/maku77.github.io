@@ -5,6 +5,7 @@ url: "/blender/"
 categoryName: "まくまく Blender ノート"
 categoryUrl: "/blender/"
 categoryIcon: _index.svg
+description: "3DCG を描くなら Blender で！ アニメーションも作れるよ。"
 ---
 
 {{% private %}}

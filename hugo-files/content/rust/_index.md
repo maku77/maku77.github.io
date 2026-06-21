@@ -5,6 +5,7 @@ url: "/rust/"
 categoryName: "まくまく Rust ノート"
 categoryUrl: "/rust/"
 categoryIcon: _index.svg
+description: "C/C++ からの乗り換えが進行中。"
 ---
 
 はじめに（Rust の実行環境）

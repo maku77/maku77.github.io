@@ -6,6 +6,7 @@ date: "2023-12-01"
 categoryName: "まくまく JavaScript ノート"
 categoryUrl: "/js/"
 categoryIcon: logo-javascript.svg
+description: "Web プログラマにとって必須の言語。"
 ---
 
 はじめに

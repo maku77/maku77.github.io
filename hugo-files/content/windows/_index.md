@@ -5,6 +5,7 @@ url: "/windows/"
 categoryName: "まくまく Windows ノート"
 categoryUrl: "/windows/"
 categoryIcon: _index.svg
+description: "Windows の便利な使い方や、バッチファイルによるプログラミング方法。"
 ---
 
 Windows バッチファイル

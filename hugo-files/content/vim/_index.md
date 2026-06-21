@@ -5,6 +5,7 @@ url: "/vim/"
 categoryName: "まくまく Vim ノート"
 categoryUrl: "/vim/"
 categoryIcon: logo-vim.svg
+description: "素敵なテキストエディタ Vim のメモ。"
 ---
 
 基本 <!-- basic -->
