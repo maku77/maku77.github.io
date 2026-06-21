@@ -1,0 +1,11 @@
+{{ define "head" }}
+  <meta http-equiv="refresh" content="10;URL=/">
+{{ end }}
+
+{{ define "article" }}
+  <article class="article">
+    <h1>{{ .Site.Title }}</h1>
+    <p>ページが見つかりませんでした。</p>
+    <p>10 秒後に<a href="{{ "/" | relURL }}">トップページへ移動</a>します。</p>
+  </article>
+{{ end }}
