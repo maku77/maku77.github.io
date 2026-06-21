@@ -1,43 +1,34 @@
-「[天才まくまくノート](https://maku77.github.io)」のサイトを管理するためのリポジトリです。
-プログラミングやシステムトレードなどに関する記事を書いています。Web サイトは下記から見ることができます。
+# maku77.github.io
 
-- https://maku77.github.io/
+「[天才まくまくノート](https://maku77.github.io)」のコンテンツを管理するためのリポジトリです。
+主にプログラミングやシステムトレードなどに関する記事を書いています。
+Web サイトは下記の URL で公開しています。
 
+- https://maku77.github.io
 
-セットアップ ＆ Jekyll サーバー起動
-----
+## ビルド
 
-```console
-# 最初の一回だけ
-$ bundle config set --local path 'vendor/bundle'
-$ bundle install
+[Hugo](https://gohugo.io/) を使用した静的サイトとしてビルドしています。
+テーマは Hugo Module として管理しており、[hugo-module-maku-common](https://github.com/maku77/hugo-module-maku-common) および本サイト専用のテーマを組み合わせて使用しています。
 
-# 次のパス指定方法は deprecated
-# bundle install --path vendor/bundle
+サイトをビルドするには、あらかじめ [Hugo (extended)](https://gohugo.io/installation/) と [Go 言語](https://go.dev/) をインストールしておく必要があります。
+次のように Hugo ローカルサーバーを起動して表示を確認できます。
 
-# Jekyll サーバー起動
-$ ./run.sh
+```bash
+cd hugo-files
+hugo server
 ```
 
+ブラウザで `http://localhost:1313` を開くとサイトを確認できます。
 
-Windows PC で Jekyll サーバーを立てる場合のメモ
-----
-
-ローカルの Windows PC で Jekyll サーバーを立てるときは、https://rubyinstaller.org/ から Ruby+Devkit をダウンロードして、とにかく全部インストール。
-あとは `bundle install` すれば、`run.bat` でサーバー起動できます。
-
-もし実行中に、
+## ディレクトリ構成
 
 ```
-`require': cannot load such file -- webrick (LoadError)
+hugo-files/    # Hugo プロジェクトのルート
+  content/     # 記事コンテンツ（Markdown）
+  assets/      # CSS・画像などのアセット
+  static/      # 静的ファイル
+  themes/      # ローカルテーマ
+  hugo.toml    # Hugo 設定ファイル
 ```
-
-などのエラー出たら、`bundle add` で追加します。
-
-```
-C:\> set http_proxy=http://proxy.example.com:7890/  （必要に応じて）
-C:\> bundle add webrick
-```
-
-追加した内容は `Gemfile` に記録されるので、次回からは `bundle install` で OK。
 

@@ -1,12 +1,4 @@
-(draft)*
-*.jekyll-metadata
 *~
 .DS_Store
-.bundle/
-.sass-cache/
-.textlintcache
-Gemfile.lock
-_memo_*
-_site/
 node_modules/
-vendor/
+
