@@ -743,8 +743,8 @@ document.addEventListener("DOMContentLoaded", () => {
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gp">$&lt;/span> ssh-keygen -t ed25519 -f ~/.ssh/github-work/id_ed25519
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="xAccordion">
- &lt;input id="id-235489617" type="checkbox">
- &lt;label class="xAccordion_title" for="id-235489617">コマンドプロンプトの場合&lt;/label>
+ &lt;input id="id-235861794" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-235861794">コマンドプロンプトの場合&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -886,8 +886,8 @@ Rust 言語には、コード上で非同期処理を表現するための &lt;s
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-184657293" type="checkbox">
- &lt;label class="xAccordion_title" for="id-184657293">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-291536847" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-291536847">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -2437,8 +2437,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-974862531" type="checkbox">
- &lt;label class="xAccordion_title" for="id-974862531">上記画像のコード&lt;/label>
+ &lt;input id="id-793152684" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-793152684">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -7388,8 +7388,8 @@ Python プログラムを実行するために、何も考えずに &lt;code>pip
 この Issue には、&lt;code>ラベル1&lt;/code> と &lt;code>ラベル2&lt;/code> という 2 つのラベルが設定されています。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-631542798" type="checkbox">
- &lt;label class="xAccordion_title" for="id-631542798">リポジトリの Issue リストの例 (JSON)&lt;/label>
+ &lt;input id="id-327864951" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-327864951">リポジトリの Issue リストの例 (JSON)&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -16670,7 +16670,7 @@ Analytics ID の先頭部分を見ると、どちらのバージョンを使用�
 新しいブラウザのほとんどは &lt;code>scrollY&lt;/code> プロパティもサポートしているので、&lt;code>scrollY&lt;/code> を使ってもよいでしょう。
 互換性を重要視する jQuery などの実装では、&lt;code>pageYOffset&lt;/code> を使用しているようです。
 &lt;/div>
-&lt;h4 id="デモhahahugoshortcode845s0hbhb">デモ（&lt;a href="./p/sg34oyg/scroll-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモhahahugoshortcode846s0hbhb">デモ（&lt;a href="./p/sg34oyg/scroll-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="scroll-pos-demo.html">&lt;/iframe>
 &lt;p>上記のデモでは、ページをスクロールすると、スクロール後の表示位置がウィンドウ左上に表示されます。&lt;/p>
 &lt;h3 id="jquery-を使った例">jQuery を使った例&lt;/h3>
@@ -16768,7 +16768,7 @@ jQuery の &lt;code>$(window).width()&lt;/code> を使用すると、スクロ�
 &lt;code>$e.position()&lt;/code> でうまく値が取れない場合は、親要素にこの指定を忘れていることが多いので注意してください（デフォルトの &lt;code>position: static&lt;/code> のままになっている）。&lt;/p>
 &lt;p>次のデモでは、div 要素 (&lt;code>#box&lt;/code>) の座標をリアルタイムに取得して表示しています。
 これらの座標値は、&lt;strong>ページをスクロールしても変化しない&lt;/strong>ところがポイントです（ただし、ズームを行ってレイアウトが崩れた場合などは、座標値が変化することがあります）。&lt;/p>
-&lt;h4 id="デモhahahugoshortcode755s3hbhb">デモ（&lt;a href="./p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモhahahugoshortcode754s3hbhb">デモ（&lt;a href="./p/zjomx8d/elem-pos-demo.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="elem-pos-demo.html">&lt;/iframe>
 
 &lt;figure class="xCodeBlock">
@@ -23603,7 +23603,7 @@ Git サブモジュールのコマンド (&lt;code>git submodule&lt;/code>) は�
 &lt;h3 id="コマンドラインから">コマンドラインから&lt;/h3>
 &lt;p>コマンドラインで &lt;strong>&lt;code>hugo list drafts&lt;/code>&lt;/strong> と実行すると、&lt;code>contents&lt;/code> ディレクトリ内の記事のうち、ドラフトとしてマークされている（フロントマターに &lt;code>draft: true&lt;/code> と記述されている）ファイルの一覧を確認することができます。&lt;/p></description></item><item><title>JavaScriptメモ: ページ内のヘッダ要素 (h2/h3/h4) から自動的にメニュー (TOC) を生成する</title><link>https://maku77.github.io/p/pzkgih9/</link><pubDate>Thu, 24 Aug 2017 00:00:00 +0900</pubDate><guid>https://maku77.github.io/p/pzkgih9/</guid><description>&lt;h2 id="一階層のみのメニュー">一階層のみのメニュー&lt;/h2>
 &lt;p>HTML 内に配置したヘッダー要素（&lt;code>h2&lt;/code> 要素）の表示テキストから、自動的にページ内メニュー (TOC: Table of Contents) を作成するサンプルです。&lt;/p>
-&lt;h4 id="デモ1hahahugoshortcode756s0hbhb">デモ1（&lt;a href="./p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
+&lt;h4 id="デモ1hahahugoshortcode757s0hbhb">デモ1（&lt;a href="./p/pzkgih9/table-of-contents-demo1.html">別ウィンドウで開く&lt;/a>）&lt;/h4>
 &lt;iframe class="xHtmlDemo" src="table-of-contents-demo1.html">&lt;/iframe>
 &lt;p>例えば、下記のように 3 つの &lt;code>h2&lt;/code> 要素（タイトル１、タイトル２、タイトル３）を含んだ HTML があるとして、それぞれの位置へジャンプするためのメニューを自動で追加します。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;menuStub&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>メニュー挿入位置&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -25836,8 +25836,8 @@ C 言語の &lt;code>/* ... */&lt;/code> というスタイルのコメントと
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-196258374" type="checkbox">
- &lt;label class="xAccordion_title" for="id-196258374">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-726591384" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-726591384">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 

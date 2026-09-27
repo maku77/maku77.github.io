@@ -326,8 +326,8 @@ Visual Studio Code 上で型チェックを有効にするには、&lt;a href="h
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-184657293" type="checkbox">
- &lt;label class="xAccordion_title" for="id-184657293">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
+ &lt;input id="id-291536847" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-291536847">テスト用のサンプルデータ（アヤメの分類データ）&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -1646,8 +1646,8 @@ scikit-learn の各種モジュールの振る舞いを学ぶときは、これ�
 
 
 &lt;div class="xAccordion">
- &lt;input id="id-974862531" type="checkbox">
- &lt;label class="xAccordion_title" for="id-974862531">上記画像のコード&lt;/label>
+ &lt;input id="id-793152684" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-793152684">上記画像のコード&lt;/label>
  &lt;div class="xAccordion_body">
  
 
@@ -3866,8 +3866,8 @@ C 言語の &lt;code>/* ... */&lt;/code> というスタイルのコメントと
 このシェルスクリプトは、PATH の通ったディレクトリに置いて、&lt;code>chmod +x pycode&lt;/code> で実行権限を付けておきます。&lt;/p>
 
 &lt;div class="xAccordion">
- &lt;input id="id-196258374" type="checkbox">
- &lt;label class="xAccordion_title" for="id-196258374">/Users/maku/bin/pycode&lt;/label>
+ &lt;input id="id-726591384" type="checkbox">
+ &lt;label class="xAccordion_title" for="id-726591384">/Users/maku/bin/pycode&lt;/label>
  &lt;div class="xAccordion_body">
  
 
